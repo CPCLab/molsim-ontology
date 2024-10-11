@@ -20,7 +20,7 @@ You can open and explore molsim using Protégé, a free, open-source ontology ed
 
 ### Desktop Version
 
-1. Download and install Protégé desktop from: https://protege.stanford.edu/products.php#desktop-protege
+1. Download and install Protégé desktop from: https://protege.stanford.edu/
 2. Launch Protégé
 3. Go to File > Open
 4. Navigate to the location of the `molsim.ttl` file and open it
@@ -31,7 +31,7 @@ You can open and explore molsim using Protégé, a free, open-source ontology ed
 2. Create an account or log in
 3. Click on "Create Project" or "Upload Project"
 4. Upload the `molsim.ttl` file
-Note: WebProtégé does not support reasoner.
+Note: WebProtégé does not support reasoner. Please use the desktop version instead to ensure a proper logical checks.
 
 ## Contributing
 
