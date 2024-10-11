@@ -31,6 +31,7 @@ You can open and explore molsim using Protégé, a free, open-source ontology ed
 2. Create an account or log in
 3. Click on "Create Project" or "Upload Project"
 4. Upload the `molsim.ttl` file
+
 Note: WebProtégé does not support reasoner. Please use the desktop version instead to ensure a proper logical checks.
 
 ## Contributing
