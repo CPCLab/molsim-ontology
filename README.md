@@ -24,6 +24,13 @@ You can open and explore molsim using Protégé, a free, open-source ontology ed
 2. Launch Protégé
 3. Go to File > Open
 4. Navigate to the location of the `molsim.ttl` file and open it
+5. Go to Protégé > Settings, on the Preferences window, go to the "New entities" tab, and set the parameters to the following values:
+   
+     ![protege_preferences.png](documentation/images/protege_preferences.png)
+   
+   
+   
+   
 
 ### Web Version
 
