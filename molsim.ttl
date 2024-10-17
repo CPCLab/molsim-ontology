@@ -369,12 +369,14 @@
 ###  http://www.w3id.org/molsim#000377
 <http://www.w3id.org/molsim#000377> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
+                                    rdfs:comment "Relative binding free energy (ΔΔG) is the difference in binding free energy between two ligands or states, calculated by ΔΔG = ΔG(complex) - ΔG(solvated). It expresses how much more favorably one ligand binds compared to another and used in comparative studies of ligand binding affinities A positive ΔΔG indicates that the second ligand binds less strongly than the first. A negative ΔΔG indicates that the second ligand binds more strongly than the first."@en ;
                                     rdfs:label "relative binding free energy"@en .
 
 
 ###  http://www.w3id.org/molsim#000378
 <http://www.w3id.org/molsim#000378> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
+                                    rdfs:comment "ΔG(solvated) is the solvation free energy associated with the ligand. It represents the free energy change when the ligand is transferred from vacuum to solvent (typically water). This term accounts for the interactions between the ligand and the solvent molecules."@en ;
                                     rdfs:label "solvation-free energy of ligand"@en .
 
 
@@ -1430,60 +1432,70 @@
 ###  http://www.w3id.org/molsim#000074
 <http://www.w3id.org/molsim#000074> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000037> ;
+                                    rdfs:comment "Similarity calculation metric is a metric that describe the level of similarity/dissimilarity necessary for two members to be in the same cluster."@en ;
                                     rdfs:label "Similarity Calculation Method"@en .
 
 
 ###  http://www.w3id.org/molsim#000075
 <http://www.w3id.org/molsim#000075> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Tanimoto Combo Score is a ROCS score that includes the shape score for similarity and the color score for similarity."@en ;
                                     rdfs:label "Tanimoto Combo Score"@en .
 
 
 ###  http://www.w3id.org/molsim#000076
 <http://www.w3id.org/molsim#000076> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Tversky index metric is milar to Tanimoto but allows for asymmetric weighting of features, useful when comparing molecules of different sizes or complexities."@en ;
                                     rdfs:label "Tversky Index"@en .
 
 
 ###  http://www.w3id.org/molsim#000077
 <http://www.w3id.org/molsim#000077> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Dice Coefficient metric emphasize the importance of shared features, often used in text mining and information retrieval."@en ;
                                     rdfs:label "Dice Coefficient"@en .
 
 
 ###  http://www.w3id.org/molsim#000078
 <http://www.w3id.org/molsim#000078> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Euclidean disteance sums the absolute differences of coordinates, also known as city block distance or L1 norm."@en ;
                                     rdfs:label "Euclidean Distance"@en .
 
 
 ###  http://www.w3id.org/molsim#000079
 <http://www.w3id.org/molsim#000079> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Manhattan distance measures the cosine of the angle between two vectors, often used in high-dimensional spaces."@en ;
                                     rdfs:label "Manhattan Distance"@en .
 
 
 ###  http://www.w3id.org/molsim#000080
 <http://www.w3id.org/molsim#000080> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Pearson correlation measures linear correlation between two sets of data, can be applied to various molecular properties."@en ;
                                     rdfs:label "Pearson Correlation Coefficient"@en .
 
 
 ###  http://www.w3id.org/molsim#000081
 <http://www.w3id.org/molsim#000081> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Hamming distance counts the number of positions at which corresponding symbols in two strings are different, used for comparing binary fingerprints."@en ;
                                     rdfs:label "Hamming Distance"@en .
 
 
 ###  http://www.w3id.org/molsim#000082
 <http://www.w3id.org/molsim#000082> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Jaccard index measures similarity between finite sample sets, similar to Tanimoto but for discrete data."@en ;
                                     rdfs:label "Jaccard Index"@en .
 
 
 ###  http://www.w3id.org/molsim#000083
 <http://www.w3id.org/molsim#000083> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Overlap coefficient measures the overlap between two sets, useful when one set is a subset of the other."@en ;
                                     rdfs:label "Overlap Coefficient"@en .
 
 
@@ -1502,66 +1514,77 @@
 ###  http://www.w3id.org/molsim#000086
 <http://www.w3id.org/molsim#000086> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "Combo score is a customizable combination of shape and color scores, allows users to define their own weighting scheme."@en ;
                                     rdfs:label "Combo Score"@en .
 
 
 ###  http://www.w3id.org/molsim#000087
 <http://www.w3id.org/molsim#000087> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000037> ;
+                                    rdfs:comment "Optimal transformation path algorithm is an algorithm to find the most efficient way to transform one molecule into another in the context of free energy calculations, particularly in methods like thermodynamic integration or free energy perturbation."@en ;
                                     rdfs:label "Optimal Transformation Path Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000088
 <http://www.w3id.org/molsim#000088> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Kruskal's algorithm finds a minimum spanning forest of an undirected edge-weighted graph. If the graph is connected, it finds a minimum spanning tree. It is a greedy algorithm that in each step adds to the forest the lowest-weight edge that will not form a cycle."@en ;
                                     rdfs:label "Kruskal's Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000089
 <http://www.w3id.org/molsim#000089> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Prim's algorithm is a method for finding the minimum spanning tree (MST) of a weighted, undirected graph.  A minimum spanning tree is a subset of edges that connects all vertices with the minimum total edge weight."@en ;
                                     rdfs:label "Prims Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000090
 <http://www.w3id.org/molsim#000090> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Dijkstra's algorithm finds the shortest path between nodes in a graph, and can be adapted for finding optimal transformation paths."@en ;
                                     rdfs:label "Dijkstra's Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000091
 <http://www.w3id.org/molsim#000091> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "A*search algorithm uses heuristics to find the optimal path more efficiently, can be applied to transformation path problems with appropriate heuristics."@en ;
                                     rdfs:label "A* Search Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000092
 <http://www.w3id.org/molsim#000092> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Nearest-neighbor algorithm works by making a greedy approach that always chooses the closest unvisited node. This is simple but may not always find the optimal solution."@en ;
                                     rdfs:label "Nearest Neighbor Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000093
 <http://www.w3id.org/molsim#000093> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Genetic algorithms uses evolutionary principles to optimize the transformation path and can handle complex optimization problems but may be computationally intensive."@en ;
                                     rdfs:label "Genetic Algorithms"@en .
 
 
 ###  http://www.w3id.org/molsim#000094
 <http://www.w3id.org/molsim#000094> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Simulated Annealing algorithm provides a probabilistic technique for approximating the global optimum. It cn escape local minima in complex optimization landscapes."@en ;
                                     rdfs:label "Simulated Annealing Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000095
 <http://www.w3id.org/molsim#000095> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Ant colony optimization algortihm is inspired by the behavior of ants finding paths, and can be adapted for finding optimal transformation paths in molecular systems."@en ;
                                     rdfs:label "Ant Colony Optimization Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000096
 <http://www.w3id.org/molsim#000096> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000087> ;
+                                    rdfs:comment "Network flow algorithm can be used to find optimal paths in weighted graphs, such as Ford-Fulkerson and Edmonds-Karp algorithms."@en ;
                                     rdfs:label "Network Flow Algorithm"@en .
 
 
@@ -1833,78 +1856,91 @@
 ###  http://www.w3id.org/molsim#000143
 <http://www.w3id.org/molsim#000143> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "The criteria on how ligand pairs are selected."@en ;
                                     rdfs:label "Ligand Pairs Selection Criteria"@en .
 
 
 ###  http://www.w3id.org/molsim#000144
 <http://www.w3id.org/molsim#000144> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected based on structural similarity."@en ;
                                     rdfs:label "Structural Similarity"@en .
 
 
 ###  http://www.w3id.org/molsim#000145
 <http://www.w3id.org/molsim#000145> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected based on chemical similarity."@en ;
                                     rdfs:label "Chemical Similarity"@en .
 
 
 ###  http://www.w3id.org/molsim#000146
 <http://www.w3id.org/molsim#000146> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected based on  the range of binding affinities to the target protein. Include both strong and weak binders to assess the method's ability to discriminate."@en ;
                                     rdfs:label "Binding Affinity Range"@en .
 
 
 ###  http://www.w3id.org/molsim#000147
 <http://www.w3id.org/molsim#000147> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected based on the diverse chemical structures and properties to cover a wide range of interactions. This iclude ligands with different functional groups, sizes, and shapes."@en ;
                                     rdfs:label "Structural And Chemical Diversity"@en .
 
 
 ###  http://www.w3id.org/molsim#000148
 <http://www.w3id.org/molsim#000148> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected from ligands with reliable experimental binding data (e.g., Ki, IC50, or ΔG values). This ensure the experimental data covers a sufficient dynamic range for statistical analysis."@en ;
                                     rdfs:label "Experimental Data Availability"@en .
 
 
 ###  http://www.w3id.org/molsim#000149
 <http://www.w3id.org/molsim#000149> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected from ligands with well-defined stereochemistry, tautomeric states, and protonation states. This include ligands within the domain of applicability of the computational method being used."@en ;
                                     rdfs:label "Chemical Properties"@en .
 
 
 ###  http://www.w3id.org/molsim#000150
 <http://www.w3id.org/molsim#000150> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected from pairs that represent specific structural changes, such as: a) Charge changes, b) Ring size modifications, c) Linker changes, and d) Binding mode alterations."@en ;
                                     rdfs:label "Structural Changes"@en .
 
 
 ###  http://www.w3id.org/molsim#000151
 <http://www.w3id.org/molsim#000151> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected by considering the computational cost and selecting a manageable number of ligands."@en ;
                                     rdfs:label "Computational Feasibility"@en .
 
 
 ###  http://www.w3id.org/molsim#000152
 <http://www.w3id.org/molsim#000152> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected from ligands that are representative of classical drug discovery targets and chemistries."@en ;
                                     rdfs:label "Relevance To Drug Discovery"@en .
 
 
 ###  http://www.w3id.org/molsim#000153
 <http://www.w3id.org/molsim#000153> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected from ligands with high-quality protein-ligand complex structures (e.g., low B-factors, high resolution)."@en ;
                                     rdfs:label "Structural Data Quality"@en .
 
 
 ###  http://www.w3id.org/molsim#000154
 <http://www.w3id.org/molsim#000154> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected from ligands that are known to be stable in MD simulations."@en ;
                                     rdfs:label "Stability In Simulations"@en .
 
 
 ###  http://www.w3id.org/molsim#000155
 <http://www.w3id.org/molsim#000155> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000143> ;
+                                    rdfs:comment "Ligand pairs are selected based on ligand efficiency metrics to guide the selection and optimization of fragment hits in fragment-based drug discovery."@en ;
                                     rdfs:label "Ligand Efficiency"@en .
 
 
@@ -2736,90 +2772,105 @@
 ###  http://www.w3id.org/molsim#000281
 <http://www.w3id.org/molsim#000281> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
+                                    rdfs:comment "Tool used to calculate TI similarity."@en ;
                                     rdfs:label "TI Similarity Calculation Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000282
 <http://www.w3id.org/molsim#000282> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000281> ;
+                                    rdfs:comment "ROCS is a computational tool for 3D molecular comparison that employs Gaussian functions to represent molecular shape and chemical features. It aligns molecules by optimizing volume and feature overlap, enabling shape-based virtual screening in drug discovery."@en ;
                                     rdfs:label "Rapid Overlay of Chemical Structures (ROCS)"@en .
 
 
 ###  http://www.w3id.org/molsim#000283
 <http://www.w3id.org/molsim#000283> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000281> ;
+                                    rdfs:comment "AMBER-FEW is a specialized tool for automating relative binding free energy calculations using thermodynamic integration. It streamlines the setup and execution of transformation simulations, enabling efficient computation of ligand binding affinities with minimal user input."@en ;
                                     rdfs:label "AMBER-FEW"@en .
 
 
 ###  http://www.w3id.org/molsim#000284
 <http://www.w3id.org/molsim#000284> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000281> ;
+                                    rdfs:comment "OpenCalphad is an open-source thermodynamic software package that enables the calculation of phase equilibria, phase diagrams, and various thermophysical properties. Distributed under the GNU license, it is a platform for multicomponent equilibrium calculations and can be integrated with other simulation software through its application programming interface."@en ;
                                     rdfs:label "OpenCalphad"@en .
 
 
 ###  http://www.w3id.org/molsim#000285
 <http://www.w3id.org/molsim#000285> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000281> ;
+                                    rdfs:comment "Brick-CFCMC is an open-source Monte Carlo simulation software for calculating phase and reaction equilibria. While not primarily designed for similarity calculations, it can be adapted for related thermodynamic integration tasks, offering versatility in computational chemistry applications."@en ;
                                     rdfs:label "Brick-CFCMC"@en .
 
 
 ###  http://www.w3id.org/molsim#000286
 <http://www.w3id.org/molsim#000286> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000355> ;
+                                    rdfs:comment "The approach used to perform thermodynamics integration."@en ;
                                     rdfs:label "TI Approach"@en .
 
 
 ###  http://www.w3id.org/molsim#000287
 <http://www.w3id.org/molsim#000287> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Standard thermodynamic integration approach uses a coupling parameter λ to gradually transform one state into another. It requires multiple simulations at different λ values and integrates ⟨∂H/∂λ⟩ over λ to obtain the free energy difference."@en ;
                                     rdfs:label "Standard Thermodynamic Integration"@en .
 
 
 ###  http://www.w3id.org/molsim#000288
 <http://www.w3id.org/molsim#000288> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Extended thermodynamic integration approach allows prediction of λ derivatives at non-simulated points. It can be used to optimize the parameterization of H(λ) for smoother ⟨∂H/∂λ⟩ curves."@en ;
                                     rdfs:label "Extended Thermodynamic Integration"@en .
 
 
 ###  http://www.w3id.org/molsim#000289
 <http://www.w3id.org/molsim#000289> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Dual-Topology approach allows for the simultaneous presence of both end states in the system. It is useful for relative binding free energy calculations, and used in TIES (Thermodynamic Integration with Enhanced Sampling)."@en ;
                                     rdfs:label "Dual-Topology Approach"@en .
 
 
 ###  http://www.w3id.org/molsim#000290
 <http://www.w3id.org/molsim#000290> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Single-Topology approach transforms one molecule into another by changing atom types and parameters. It is used as an alternative to dual-topology."@en ;
                                     rdfs:label "Single-Topology Approach"@en .
 
 
 ###  http://www.w3id.org/molsim#000291
 <http://www.w3id.org/molsim#000291> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
-                                    rdfs:label "1-StepSoft-Core Approach"@en .
+                                    rdfs:comment "1-step soft-core approach allows changing charges and van der Waals interactions in a single simulation. It is used soft-core potentials to avoid singularities when particles appear/disappear."@en ;
+                                    rdfs:label "1-Step Soft-Core Approach"@en .
 
 
 ###  http://www.w3id.org/molsim#000292
 <http://www.w3id.org/molsim#000292> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Multi-step approach breaks down the transformation into multiple steps (e.g., separate electrostatic and van der Waals transformations)."@en ;
                                     rdfs:label "Multi-Step Approach"@en .
 
 
 ###  http://www.w3id.org/molsim#000293
 <http://www.w3id.org/molsim#000293> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Hamiltonian-replica exchange approach combines thermodynamic integration with replica exchange to enhance sampling."@en-au ;
                                     rdfs:label "Hamiltonian Replica Exchange"@en .
 
 
 ###  http://www.w3id.org/molsim#000294
 <http://www.w3id.org/molsim#000294> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Conveyor Belt Thermodynamic Integration (CBTI) approach is a newer method that uses multiple replicas moving in a coordinated fashion along λ."@en ;
                                     rdfs:label "Conveyor Belt Thermodynamic Integration (CBTI)"@en .
 
 
 ###  http://www.w3id.org/molsim#000295
 <http://www.w3id.org/molsim#000295> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
+                                    rdfs:comment "Optimization of Alchemical Pathways approach focuses on finding optimal λ schedules or H(λ) parameterizations for more efficient sampling."@en ;
                                     rdfs:label "Optimization of Alchemical Pathways"@en .
 
 
