@@ -320,7 +320,7 @@
 ###  http://www.w3id.org/molsim#000371
 <http://www.w3id.org/molsim#000371> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
-                                    rdfs:label "samplingFrequencyInterval"@en .
+                                    rdfs:label "sampling frequency interval"@en .
 
 
 ###  http://www.w3id.org/molsim#000372
@@ -501,6 +501,7 @@
 <http://www.w3id.org/molsim#000401> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000398> ,
                                                        <http://www.w3id.org/molsim#000416> ;
+                                    rdfs:comment "The restraint weight used in the positional restraints. Note that this force constant is not scaled by 1/2 as it is in Hooke’s Law (so it is half the value of the corresponding force constant)."@en ;
                                     rdfs:label "force constant"@en .
 
 
@@ -531,24 +532,28 @@
 ###  http://www.w3id.org/molsim#000406
 <http://www.w3id.org/molsim#000406> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "Umbrella sampling equilibration time signifies the period allowed for each sampling window to reach equilibrium before collecting data for analysis. This is done to ensure that the system in each window has adapted to the applied biasing potential and reached a stable state before data collection begins."@en ;
                                     rdfs:label "umbrella sampling equilibration time"@en .
 
 
 ###  http://www.w3id.org/molsim#000407
 <http://www.w3id.org/molsim#000407> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "Umbrella sampling distribution overlap  is the extent to which the probability distributions or histograms from adjacent sampling windows in an umbrella sampling simulation share common regions along the reaction coordinate, i.e., the degree of commonality between the sampled regions of neighboring windows in umbrella sampling simulations."@en ;
                                     rdfs:label "umbrella sampling distribution overlap"@en .
 
 
 ###  http://www.w3id.org/molsim#000408
 <http://www.w3id.org/molsim#000408> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "PMF convergence is the point at which the calculated free energy profile along the reaction coordinate stops changing significantly with additional simulation time."@en ;
                                     rdfs:label "potential mean force convergence step"@en .
 
 
 ###  http://www.w3id.org/molsim#000409
 <http://www.w3id.org/molsim#000409> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "Umbrella sampling record time is the frequency of the values recording along the reaction coordinate."@en ;
                                     rdfs:label "umbrella sampling record time"@en .
 
 
@@ -567,24 +572,28 @@
 ###  http://www.w3id.org/molsim#000412
 <http://www.w3id.org/molsim#000412> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "Umbrella sampling force constant signifies the strength of the harmonic restraint potential applied to keep the system near a particular value of the reaction coordinate in each sampling window."@en ;
                                     rdfs:label "umbrella sampling force constant"@en .
 
 
 ###  http://www.w3id.org/molsim#000413
 <http://www.w3id.org/molsim#000413> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "Umbrella sampling reaction coordinate is the distance component in the x,y,z used for applying the initial pulling force, and used for the sampling window extraction."@en ;
                                     rdfs:label "umbrella sampling reaction coordinate"@en .
 
 
 ###  http://www.w3id.org/molsim#000414
 <http://www.w3id.org/molsim#000414> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "Umbrella sampling windows determines the number of Umbrella Sampling Windows. Umbrella Sampling Windows refers to a series of separate simulations that are run along the reaction coordinate being studied. Each window is a separate simulation that samples a specific region of the reaction coordinate."@en ;
                                     rdfs:label "umbrella sampling windows"@en .
 
 
 ###  http://www.w3id.org/molsim#000415
 <http://www.w3id.org/molsim#000415> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "Umbrella sampling recording interval indicates  time interval between successive recordings of the system's configuration or properties during an umbrella sampling simulation."@en ;
                                     rdfs:label "umbrella sampling recording interval"@en .
 
 
@@ -597,18 +606,21 @@
 ###  http://www.w3id.org/molsim#000417
 <http://www.w3id.org/molsim#000417> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000416> ;
+                                    rdfs:comment "Simulation time is the the total amount of time that is simulated for the molecular system."@en ;
                                     rdfs:label "simulation time"@en .
 
 
 ###  http://www.w3id.org/molsim#000418
 <http://www.w3id.org/molsim#000418> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000416> ;
+                                    rdfs:comment "Heated temperature is the target temperature that the system is being heated or equilibrated to."@en ;
                                     rdfs:label "heated temperature"@en .
 
 
 ###  http://www.w3id.org/molsim#000419
 <http://www.w3id.org/molsim#000419> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000416> ;
+                                    rdfs:comment "Pressure, in molecular simulation context, is the reference pressure (in units of bars, where 1 bar ≈ 0.987 atm) at which the system is maintained."@en ;
                                     rdfs:label "pressure"@en .
 
 
@@ -621,12 +633,14 @@
 ###  http://www.w3id.org/molsim#000421
 <http://www.w3id.org/molsim#000421> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
+                                    rdfs:comment "Restraint with harmonic potential is a flag for restraining specified atoms in Cartesian space using a harmonic potential."@en ;
                                     rdfs:label "restraint weight"@en .
 
 
 ###  http://www.w3id.org/molsim#000422
 <http://www.w3id.org/molsim#000422> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
+                                    rdfs:comment "Restraint mask or restrained elements are string that specifies the restrained atoms when ntr is on."@en ;
                                     rdfs:label "restraint mask/restrained elements"@en .
 
 
@@ -805,12 +819,14 @@
 ###  http://www.w3id.org/molsim#000480
 <http://www.w3id.org/molsim#000480> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
+                                    rdfs:comment "The number of simulated independent runs, following similar simulations conditions."@en ;
                                     rdfs:label "no of replicates"@en .
 
 
 ###  http://www.w3id.org/molsim#000481
 <http://www.w3id.org/molsim#000481> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
+                                    rdfs:comment "This property signifies  whether MMPBSA calculation is involved."@en ;
                                     rdfs:label "is MMPBSA"@en .
 
 
@@ -2115,30 +2131,35 @@
 ###  http://www.w3id.org/molsim#000195
 <http://www.w3id.org/molsim#000195> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000006> ;
+                                    rdfs:comment "Ensemble is a statistical collection of possible states that a system can occupy under specific thermodynamic conditions."@en ;
                                     rdfs:label "Ensemble"@en .
 
 
 ###  http://www.w3id.org/molsim#000196
 <http://www.w3id.org/molsim#000196> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
+                                    rdfs:comment "Canonical ensemble or NVT ensemble  is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant volume V and a temperature fluctuating around an equilibrium value."@en-au ;
                                     rdfs:label "NVT/Canonical Ensemble"@en .
 
 
 ###  http://www.w3id.org/molsim#000197
 <http://www.w3id.org/molsim#000197> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
+                                    rdfs:comment "Isothermal-isobaric ensemble or NPT is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant pressure P and a temperature fluctuating around an equilibrium value."@en ;
                                     rdfs:label "NPT/Isothermal-Isobaric Ensemble"@en .
 
 
 ###  http://www.w3id.org/molsim#000198
 <http://www.w3id.org/molsim#000198> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
+                                    rdfs:comment "Microcanonical ensemble or NVE is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant volume V and total energy fluctuating around an equilibrium value."@en ;
                                     rdfs:label "NVE/Microcanonical Ensemble"@en .
 
 
 ###  http://www.w3id.org/molsim#000199
 <http://www.w3id.org/molsim#000199> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
+                                    rdfs:comment "Grand canonical ensemble, or MuVT, is an ensemble with a constant chemical potential (μ), volume (V), and temperature (T). In this ensemble, the system can exchange both energy and particles."@en ;
                                     rdfs:label "μVT/Grand Canonical Ensemble"@en .
 
 
@@ -2348,24 +2369,28 @@
 ###  http://www.w3id.org/molsim#000232
 <http://www.w3id.org/molsim#000232> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000231> ;
+                                    rdfs:comment "Bond energy is a measure of the strength of a chemical bond."@en ;
                                     rdfs:label "Bond Energy"@en .
 
 
 ###  http://www.w3id.org/molsim#000233
 <http://www.w3id.org/molsim#000233> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000231> ;
+                                    rdfs:comment "Gravitational interaction energy is an attraction, the force of interaction being proportional to the product of the masses of the chemical entities."@en ;
                                     rdfs:label "Gravitational Interaction Energy"@en .
 
 
 ###  http://www.w3id.org/molsim#000234
 <http://www.w3id.org/molsim#000234> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000231> ;
+                                    rdfs:comment "Electromagnetic interaction energy is an interaction energy that exists between electrically charged particles and bodies through an electromagnetic field."@en ;
                                     rdfs:label "Electromagnetic Interaction Energy"@en .
 
 
 ###  http://www.w3id.org/molsim#000235
 <http://www.w3id.org/molsim#000235> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000231> ;
+                                    rdfs:comment "Nuclear interaction energy is the minimum energy that is required to disassemble the nucleus of an atom into its constituent protons and neutrons."@en ;
                                     rdfs:label "Nuclear Interaction Energy"@en .
 
 
@@ -2378,6 +2403,7 @@
 ###  http://www.w3id.org/molsim#000237
 <http://www.w3id.org/molsim#000237> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
+                                    rdfs:comment "PMF Method is a computational technique used in molecular dynamics simulations to calculate free energy profiles along a reaction coordinate. PMF provides the free energy profile along a chosen reaction coordinate, allowing researchers to understand the energetics of processes like protein folding, ligand binding, or ion transport, and typically use Umbrella Sampling."@en ;
                                     rdfs:label "Potential Mean Force (PMF) Method"@en .
 
 
