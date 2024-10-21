@@ -6,7 +6,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.w3id.org/molsim#/> .
 
-<http://www.w3id.org/molsim#> rdf:type owl:Ontology .
+<http://www.w3id.org/molsim#> rdf:type owl:Ontology ;
+                               rdfs:comment "" .
 
 #################################################################
 #    Data properties
@@ -15,6 +16,7 @@
 ###  http://www.w3id.org/molsim#000140
 <http://www.w3id.org/molsim#000140> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:comment "Settings that control how molecular simulation data is processed and displayed. These may include color schemes, rendering styles, or data filtering options."@en ;
                                     rdfs:label "analysis and visualization properties"@en .
 
 
@@ -35,11 +37,13 @@
 ###  http://www.w3id.org/molsim#000305
 <http://www.w3id.org/molsim#000305> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000489> ;
+                                    rdfs:comment "The maximum distance at which non-bonded interactions between atoms are calculated in a simulation. It helps balance computational cost and accuracy."@en ;
                                     rdfs:label "final ε  (distance cutoff)"@en .
 
 
 ###  http://www.w3id.org/molsim#000308
 <http://www.w3id.org/molsim#000308> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Basic parameters that define the overall conditions of a molecular simulation. These may include temperature, pressure, and simulation time."@en ;
                                     rdfs:label "general simulation setup properties"@en .
 
 
@@ -74,12 +78,14 @@
 ###  http://www.w3id.org/molsim#000313
 <http://www.w3id.org/molsim#000313> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
+                                    rdfs:comment "The number of bond angles in a molecule, including those involving hydrogen atoms. It's a measure of molecular complexity and flexibility."@en ;
                                     rdfs:label "total angles with hydrogens"@en .
 
 
 ###  http://www.w3id.org/molsim#000314
 <http://www.w3id.org/molsim#000314> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
+                                    rdfs:comment "The number of bond angles in a molecule, excluding those involving hydrogen atoms. This can be used to simplify molecular representations."@en ;
                                     rdfs:label "total angles without hydrogens"@en .
 
 
@@ -233,6 +239,7 @@
 ###  http://www.w3id.org/molsim#000336
 <http://www.w3id.org/molsim#000336> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:comment "Characteristics or settings specific to a particular molecular simulation software. These may include version information, available algorithms, or output formats."@en ;
                                     rdfs:label "software properties"@en .
 
 
@@ -260,6 +267,7 @@
 ###  http://www.w3id.org/molsim#000350
 <http://www.w3id.org/molsim#000350> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000140> ;
+                                    rdfs:comment "A threshold value for the Root Mean Square Deviation, used to compare molecular structures. Structures with RMSD below this cutoff are considered similar."@en ;
                                     rdfs:label "RMSD cutoff"@en .
 
 
@@ -294,24 +302,28 @@
 ###  http://www.w3id.org/molsim#000361
 <http://www.w3id.org/molsim#000361> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000140> ;
+                                    rdfs:comment "Statistical parameters that define the range within which a true population parameter is likely to fall. These help quantify uncertainty in simulation results."@en ;
                                     rdfs:label "confidence interval properties"@en .
 
 
 ###  http://www.w3id.org/molsim#000362
 <http://www.w3id.org/molsim#000362> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
+                                    rdfs:comment "Settings specific to these free energy calculation methods. They may include solvent models, entropy calculation methods, or trajectory processing options."@en ;
                                     rdfs:label "MMPBSA/MMGBSA properties"@en .
 
 
 ###  http://www.w3id.org/molsim#000363
 <http://www.w3id.org/molsim#000363> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
+                                    rdfs:comment "A property describing how strongly a membrane affects electric fields. It's crucial for simulations involving membrane proteins or lipid bilayers."@en ;
                                     rdfs:label "membrane dielectric constant"@en .
 
 
 ###  http://www.w3id.org/molsim#000364
 <http://www.w3id.org/molsim#000364> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:comment "Parameters controlling how free energy differences are computed in simulations. These may include integration methods or sampling techniques."@en ;
                                     rdfs:label "free energy calculation properties"@en .
 
 
@@ -353,12 +365,14 @@
 ###  http://www.w3id.org/molsim#000370
 <http://www.w3id.org/molsim#000370> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
+                                    rdfs:comment "The frequency at which molecular structures are saved from a simulation trajectory. It affects the temporal resolution of the analysis."@en ;
                                     rdfs:label "structure extraction interval"@en .
 
 
 ###  http://www.w3id.org/molsim#000371
 <http://www.w3id.org/molsim#000371> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
+                                    rdfs:comment "How often data points are collected during a simulation. It determines the time resolution of the recorded data."@en ;
                                     rdfs:label "sampling frequency interval"@en .
 
 
@@ -414,6 +428,7 @@
 ###  http://www.w3id.org/molsim#000379
 <http://www.w3id.org/molsim#000379> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
+                                    rdfs:comment "A parameter in Thermodynamic Integration simulations that limits the simulation time. It helps balance computational cost and accuracy in free energy calculations."@en ;
                                     rdfs:label "TI time constraint"@en .
 
 
@@ -546,6 +561,7 @@
 ###  http://www.w3id.org/molsim#000398
 <http://www.w3id.org/molsim#000398> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:comment "Settings for simulations where external forces are applied to guide molecular motions. These may include force constants or pulling velocities."@en ;
                                     rdfs:label "steered MD properties"@en .
 
 
@@ -595,6 +611,7 @@
 ###  http://www.w3id.org/molsim#000405
 <http://www.w3id.org/molsim#000405> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:comment "Parameters for a technique used to improve sampling of rare events in simulations. These often include bias potentials and sampling windows."@en ;
                                     rdfs:label "umbrella sampling properties"@en .
 
 
@@ -629,12 +646,14 @@
 ###  http://www.w3id.org/molsim#000410
 <http://www.w3id.org/molsim#000410> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "The range within which the true value of a measured quantity is expected to lie. It helps quantify uncertainty in simulation results."@en ;
                                     rdfs:label "error interval"@en .
 
 
 ###  http://www.w3id.org/molsim#000411
 <http://www.w3id.org/molsim#000411> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000405> ;
+                                    rdfs:comment "How often error estimates are calculated during a simulation or analysis. It affects the granularity of uncertainty quantification."@en ;
                                     rdfs:label "error frequency"@en .
 
 
@@ -669,6 +688,7 @@
 ###  http://www.w3id.org/molsim#000416
 <http://www.w3id.org/molsim#000416> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:comment "Parameters controlling how a system is brought to the desired temperature and equilibrium state. These may include heating rates or equilibration times."@en ;
                                     rdfs:label "thermalization and equilibration properties"@en .
 
 
@@ -696,6 +716,7 @@
 ###  http://www.w3id.org/molsim#000420
 <http://www.w3id.org/molsim#000420> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:comment "Settings for the process of finding a low-energy configuration of a molecular system. These may include convergence criteria or maximum iteration numbers."@en ;
                                     rdfs:label "minimization properties"@en .
 
 
@@ -716,6 +737,7 @@
 ###  http://www.w3id.org/molsim#000423
 <http://www.w3id.org/molsim#000423> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
+                                    rdfs:comment "Parameters used in setting up a molecular simulation. These may include system size, initial velocities, or boundary conditions."@en ;
                                     rdfs:label "simulation preparation properties"@en .
 
 
@@ -743,6 +765,7 @@
 ###  http://www.w3id.org/molsim#000427
 <http://www.w3id.org/molsim#000427> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
+                                    rdfs:comment "A technique to prevent the center of mass of a simulated system from drifting. It's often used to maintain stable simulations."@en ;
                                     rdfs:label "COM move removal"@en .
 
 
@@ -798,18 +821,21 @@
 ###  http://www.w3id.org/molsim#000449
 <http://www.w3id.org/molsim#000449> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000336> ;
+                                    rdfs:comment "Indicates the specific version of a software or method used. It's important for reproducibility and comparing results across studies."@en ;
                                     rdfs:label "has version"@en .
 
 
 ###  http://www.w3id.org/molsim#000450
 <http://www.w3id.org/molsim#000450> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
+                                    rdfs:comment "Specifies the pH value used in a simulation or experiment. It's crucial for accurately representing the protonation states of molecules."@en ;
                                     rdfs:label "has pH"@en .
 
 
 ###  http://www.w3id.org/molsim#000451
 <http://www.w3id.org/molsim#000451> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
+                                    rdfs:comment "Indicates whether a simulation includes a small molecule (ligand) interacting with a larger biomolecule. It's relevant in drug discovery and protein-ligand interaction studies."@en ;
                                     rdfs:label "is using ligand"@en .
 
 
@@ -886,6 +912,7 @@
 ###  http://www.w3id.org/molsim#000479
 <http://www.w3id.org/molsim#000479> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
+                                    rdfs:comment "A method to limit the movement of specific atoms using a spring-like force. It's often used to maintain certain structural features during simulations."@en ;
                                     rdfs:label "restraint with harmonic potential"@en .
 
 
@@ -934,6 +961,7 @@
 ###  http://www.w3id.org/molsim#000487
 <http://www.w3id.org/molsim#000487> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
+                                    rdfs:comment "A tool or program that's part of a larger molecular dynamics software package. These utilities often perform specific tasks like data analysis or structure preparation."@en ;
                                     rdfs:label "MD suite utility"@en .
 
 
@@ -947,18 +975,21 @@
 ###  http://www.w3id.org/molsim#000489
 <http://www.w3id.org/molsim#000489> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000140> ;
-                                    rdfs:label "CPPTRAJ"@en .
+                                    rdfs:comment "The proerties of CPPTRAJ settings. CPPTRAJ is a program for processing and analyzing molecular dynamics trajectory data. It's part of the Amber software suite and can perform various analyses on simulation outputs."@en ;
+                                    rdfs:label "CPPTRAJ properties"@en .
 
 
 ###  http://www.w3id.org/molsim#000494
 <http://www.w3id.org/molsim#000494> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
+                                    rdfs:comment "The computational setup and conditions under which a molecular simulation is run. This may include hardware specifications, operating systems, or parallel processing setups."@en ;
                                     rdfs:label "simulation environment"@en .
 
 
 ###  http://www.w3id.org/molsim#000500
 <http://www.w3id.org/molsim#000500> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
+                                    rdfs:comment "Indicates whether a simulation involves a molecule spanning a lipid membrane. It's relevant for studying membrane proteins or cellular processes at membranes."@en ;
                                     rdfs:label "is transmembrane simulation"@en .
 
 
@@ -975,40 +1006,47 @@
 
 ###  http://www.w3id.org/molsim#000000
 <http://www.w3id.org/molsim#000000> rdf:type owl:Class ;
+                                    rdfs:comment "In molecular simulation, a process is a sequence of computational steps to model molecular behavior. It typically includes system preparation, simulation execution, and data analysis."@en ;
                                     rdfs:label "Process"@en .
 
 
 ###  http://www.w3id.org/molsim#000001
 <http://www.w3id.org/molsim#000001> rdf:type owl:Class ;
+                                    rdfs:comment "Specialized computer programs used to perform molecular simulations and analyze results. These include molecular dynamics engines, visualization tools, and data analysis packages, and others."@en ;
                                     rdfs:label "Software"@en .
 
 
 ###  http://www.w3id.org/molsim#000002
 <http://www.w3id.org/molsim#000002> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000000> ;
+                                    rdfs:comment "The initial setup phase of a molecular simulation, involving system construction and parameter assignment. This includes building molecular structures, defining force fields, and setting initial conditions."@en ;
                                     rdfs:label "Preparation"@en .
 
 
 ###  http://www.w3id.org/molsim#000003
 <http://www.w3id.org/molsim#000003> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000000> ;
+                                    rdfs:comment "The actual running of a molecular simulation on a computer or cluster. It involves solving equations of motion for atoms over time, often for nanoseconds to microseconds of simulated time."@en ;
                                     rdfs:label "Execution"@en .
 
 
 ###  http://www.w3id.org/molsim#000004
 <http://www.w3id.org/molsim#000004> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000000> ;
+                                    rdfs:comment "The examination and interpretation of data produced by molecular simulations. This includes calculating various properties, visualizing trajectories, and extracting meaningful insights from the simulation results."@en ;
                                     rdfs:label "Analysis"@en .
 
 
 ###  http://www.w3id.org/molsim#000005
 <http://www.w3id.org/molsim#000005> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000002> ;
+                                    rdfs:comment "The process of adding or removing protons (hydrogen ions) to atoms or molecules in a simulation system. It's crucial for accurately representing the chemical state of molecules at a given pH."@en ;
                                     rdfs:label "Protonation"@en .
 
 
 ###  http://www.w3id.org/molsim#000006
 <http://www.w3id.org/molsim#000006> rdf:type owl:Class ;
+                                    rdfs:comment "A computational representation of a molecular system used in simulations. It includes the molecular structure, force field parameters, and environmental conditions."@en ;
                                     rdfs:label "Model"@en .
 
 
@@ -1085,6 +1123,7 @@
 ###  http://www.w3id.org/molsim#000017
 <http://www.w3id.org/molsim#000017> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000009> ;
+                                    rdfs:comment "A specific force field used in molecular dynamics simulations, particularly for proteins. It defines how atoms interact and is known for improved accuracy in protein structure prediction."@en ;
                                     rdfs:label "ff99SB"@en .
 
 
@@ -1221,12 +1260,14 @@
 
 ###  http://www.w3id.org/molsim#000037
 <http://www.w3id.org/molsim#000037> rdf:type owl:Class ;
+                                    rdfs:comment "A set of computational rules or procedures used to solve problems or perform tasks, including thhose in molecular simulations. Examples include integration algorithms for updating atomic positions and velocities."@en ;
                                     rdfs:label "Algorithm"@en .
 
 
 ###  http://www.w3id.org/molsim#000038
 <http://www.w3id.org/molsim#000038> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000037> ;
+                                    rdfs:comment "A method used to control temperature in molecular dynamics simulations. It adjusts particle velocities to maintain a desired temperature, simulating a system's interaction with a heat bath."@en ;
                                     rdfs:label "Thermostat Algorithm"@en .
 
 
@@ -1296,6 +1337,7 @@
 ###  http://www.w3id.org/molsim#000048
 <http://www.w3id.org/molsim#000048> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000038> ;
+                                    rdfs:comment "A specific thermostat algorithm used in molecular dynamics. It introduces an additional degree of freedom to the system to maintain constant temperature."@en ;
                                     rdfs:label "Nose-Hoover"@en .
 
 
@@ -1547,12 +1589,14 @@
 ###  http://www.w3id.org/molsim#000084
 <http://www.w3id.org/molsim#000084> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "A method for comparing molecular structures or conformations. It combines multiple metrics to assess structural similarity."@en ;
                                     rdfs:label "Fit Tversky Combo"@en .
 
 
 ###  http://www.w3id.org/molsim#000085
 <http://www.w3id.org/molsim#000085> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:comment "A reference method for structural comparison in molecular simulations. It's often used as a benchmark for evaluating other comparison methods."@en ;
                                     rdfs:label "Ref Tversky"@en .
 
 
@@ -1635,6 +1679,7 @@
 
 ###  http://www.w3id.org/molsim#000097
 <http://www.w3id.org/molsim#000097> rdf:type owl:Class ;
+                                    rdfs:comment "A particular configuration or condition of a molecular system at a given time in a simulation. It includes atomic positions, velocities, and other relevant parameters."@en ;
                                     rdfs:label "State"@en .
 
 
@@ -1717,12 +1762,14 @@
 
 ###  http://www.w3id.org/molsim#000109
 <http://www.w3id.org/molsim#000109> rdf:type owl:Class ;
+                                    rdfs:comment "A systematic procedure for performing a molecular simulation or analysis. This can include specific algorithms, protocols, or techniques used to study molecular systems."@en ;
                                     rdfs:label "Method"@en .
 
 
 ###  http://www.w3id.org/molsim#000110
 <http://www.w3id.org/molsim#000110> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "A technique used to analyze data from molecular simulations using statistical principles. These methods help extract meaningful information from large datasets generated by simulations."@en ;
                                     rdfs:label "Statistical Method"@en .
 
 
@@ -1771,6 +1818,7 @@
 ###  http://www.w3id.org/molsim#000117
 <http://www.w3id.org/molsim#000117> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
+                                    rdfs:comment "A statistical method for analyzing conformational dynamics in molecular simulations. MSMs represent the system as a network of states with transition probabilities between them."@en ;
                                     rdfs:label "Markov State Models (MSMs)"@en .
 
 
@@ -1791,18 +1839,21 @@
 ###  http://www.w3id.org/molsim#000120
 <http://www.w3id.org/molsim#000120> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000110> ;
+                                    rdfs:comment "A method to simplify complex data from molecular simulations by reducing the number of variables. It helps in visualizing and analyzing high-dimensional data."@en ;
                                     rdfs:label "Dimensionality Reduction Technique"@en .
 
 
 ###  http://www.w3id.org/molsim#000121
 <http://www.w3id.org/molsim#000121> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000120> ;
+                                    rdfs:comment "A specific dimensionality reduction technique often used in molecular simulation analysis. PCA identifies the main axes of variation in a dataset."@en ;
                                     rdfs:label "Principal Component Analysis (PCA)"@en .
 
 
 ###  http://www.w3id.org/molsim#000122
 <http://www.w3id.org/molsim#000122> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "A method used to extract meaningful information from molecular simulation data. This can include statistical analysis, pattern recognition, or machine learning approaches."@en ;
                                     rdfs:label "Data Analysis Technique"@en .
 
 
@@ -1816,12 +1867,14 @@
 ###  http://www.w3id.org/molsim#000124
 <http://www.w3id.org/molsim#000124> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000348> ;
+                                    rdfs:comment "A procedure used to determine if a hypothesis about molecular simulation data is supported by evidence. It involves comparing observed data to expected outcomes under specific assumptions."@en ;
                                     rdfs:label "Statistical Test"@en .
 
 
 ###  http://www.w3id.org/molsim#000125
 <http://www.w3id.org/molsim#000125> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000124> ;
+                                    rdfs:comment "A specific statistical test used to compare distributions in molecular simulation data. It assesses whether two datasets differ significantly in their distribution."@en ;
                                     rdfs:label "Kolmogorov-Smirnov Test"@en .
 
 
@@ -1870,6 +1923,7 @@
 ###  http://www.w3id.org/molsim#000132
 <http://www.w3id.org/molsim#000132> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000009> ;
+                                    rdfs:comment "A force field used in molecular dynamics simulations, particularly for biomolecules. It defines parameters for how atoms interact and is widely used for protein and lipid simulations."@en ;
                                     rdfs:label "CHARMM36"@en .
 
 
@@ -1877,6 +1931,7 @@
 <http://www.w3id.org/molsim#000133> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000135> ;
                                     owl:disjointWith <http://www.w3id.org/molsim#000134> ;
+                                    rdfs:comment "Errors estimated by testing a model on data not used in its creation. This technique helps assess how well a model generalizes to new data."@en ;
                                     rdfs:label "Cross-Validation Errors"@en .
 
 
@@ -1920,6 +1975,7 @@
 <http://www.w3id.org/molsim#000139> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000135> ,
                                                     <http://www.w3id.org/molsim#000353> ;
+                                    rdfs:comment "Measures used to quantify the similarity between different molecular conformations or states. These metrics help in understanding the conformational space sampled in simulations."@en ;
                                     rdfs:label "Overlap Metrics"@en .
 
 
@@ -2024,31 +2080,36 @@
 ###  http://www.w3id.org/molsim#000156
 <http://www.w3id.org/molsim#000156> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000001> ;
+                                    rdfs:comment "Software designed for a specific use. Examples include programs for structure visualization, trajectory analysis, or free energy calculations."@en ;
                                     rdfs:label "Application Program"@en .
 
 
 ###  http://www.w3id.org/molsim#000157
 <http://www.w3id.org/molsim#000157> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000001> ;
+                                    rdfs:comment "A framework is a reusable set of libraries, tools, and conventions for developing software applications."@en ;
                                     rdfs:label "Framework"@en .
 
 
 ###  http://www.w3id.org/molsim#000158
 <http://www.w3id.org/molsim#000158> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000001> ;
-                                    rdfs:label "Tools"@en .
+                                    rdfs:comment "Software utilities used to perform specific tasks in molecular simulations. These can range from file format converters to specialized analysis programs."@en ;
+                                    rdfs:label "Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000159
 <http://www.w3id.org/molsim#000159> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000001> ;
-                                    rdfs:label "Scripts"@en .
+                                    rdfs:comment "Short programs written to automate tasks in molecular simulations. They often combine multiple tools or programs to perform complex workflows."@en ;
+                                    rdfs:label "Script"@en .
 
 
 ###  http://www.w3id.org/molsim#000160
 <http://www.w3id.org/molsim#000160> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000156> ;
                                     owl:disjointWith <http://www.w3id.org/molsim#000161> ;
+                                    rdfs:comment "Programs specifically designed to perform molecular dynamics simulations. These solve equations of motion for atoms over time, often using parallel computing techniques."@en ;
                                     rdfs:label "Molecular Dynamics Software"@en .
 
 
@@ -2062,54 +2123,63 @@
 ###  http://www.w3id.org/molsim#000162
 <http://www.w3id.org/molsim#000162> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
+                                    rdfs:comment "Software used to predict the orientation of molecules when they bind to each other. It's commonly used in drug discovery to predict how small molecules interact with protein targets."@en ;
                                     rdfs:label "Docking Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000163
 <http://www.w3id.org/molsim#000163> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
+                                    rdfs:comment "Software used to create visual representations of molecular structures and simulation results. These tools help in understanding complex 3D structures and their dynamics."@en ;
                                     rdfs:label "Visualization Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000164
 <http://www.w3id.org/molsim#000164> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
+                                    rdfs:comment "Software used to examine and interpret data from molecular simulations. This can include programs for calculating various properties or identifying important events in simulations."@en ;
                                     rdfs:label "Analysis Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000165
 <http://www.w3id.org/molsim#000165> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
+                                    rdfs:comment "Software used to manipulate and transform data from molecular simulations. This includes programs for filtering, averaging, or reformatting simulation outputs."@en ;
                                     rdfs:label "Data Processing Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000166
 <http://www.w3id.org/molsim#000166> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
+                                    rdfs:comment "Software used to change file formats in molecular simulation workflows. These tools are crucial for interoperability between different simulation and analysis programs."@en ;
                                     rdfs:label "File Conversion Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000167
 <http://www.w3id.org/molsim#000167> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000159> ;
+                                    rdfs:comment "A script used to automate repetitive tasks in molecular simulations. These scripts can manage entire simulation workflows, from system setup to analysis."@en ;
                                     rdfs:label "Automation Script"@en .
 
 
 ###  http://www.w3id.org/molsim#000168
 <http://www.w3id.org/molsim#000168> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000159> ;
+                                    rdfs:comment "A script used to perform specific analyses on molecular simulation data. These often combine multiple analysis tools or implement custom calculations."@en ;
                                     rdfs:label "Data Analysis Script"@en .
 
 
 ###  http://www.w3id.org/molsim#000169
 <http://www.w3id.org/molsim#000169> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000159> ;
+                                    rdfs:comment "A script that outlines and executes a series of tasks in a molecular simulation project. It orchestrates the entire process from system preparation to final analysis."@en ;
                                     rdfs:label "Workflow Script"@en .
 
 
 ###  http://www.w3id.org/molsim#000170
 <http://www.w3id.org/molsim#000170> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000001> ;
+                                    rdfs:comment "Programs that can be run directly by a computer in molecular simulations. These are typically compiled from source code and optimized for performance."@en ;
                                     rdfs:label "Executables"@en .
 
 
@@ -2117,12 +2187,14 @@
 <http://www.w3id.org/molsim#000171> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000170> ;
                                     owl:disjointWith <http://www.w3id.org/molsim#000172> ;
+                                    rdfs:comment "Software that is operated through text commands in a console. Many molecular simulation tools are command-line programs, allowing for scripting and automation."@en ;
                                     rdfs:label "Command-line Program"@en .
 
 
 ###  http://www.w3id.org/molsim#000172
 <http://www.w3id.org/molsim#000172> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000170> ;
+                                    rdfs:comment "Software that has been converted from source code into machine code for execution. Compiled programs often run faster than interpreted scripts."@en ;
                                     rdfs:label "Compiled Program"@en .
 
 
@@ -2320,24 +2392,28 @@
 ###  http://www.w3id.org/molsim#000200
 <http://www.w3id.org/molsim#000200> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "Techniques used to determine the three-dimensional structure of proteins. These include experimental methods like X-ray crystallography and computational methods like homology modeling."@en ;
                                     rdfs:label "Protein Structure Determination Method"@en .
 
 
 ###  http://www.w3id.org/molsim#000201
 <http://www.w3id.org/molsim#000201> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000200> ;
+                                    rdfs:comment "A method used to determine the atomic and molecular structure of a crystal. It's widely used to solve protein structures by analyzing X-ray diffraction patterns."@en ;
                                     rdfs:label "X-Ray Crystallography"@en .
 
 
 ###  http://www.w3id.org/molsim#000202
 <http://www.w3id.org/molsim#000202> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000200> ;
+                                    rdfs:comment "A technique that uses magnetic properties of atomic nuclei to determine molecular structure. It's particularly useful for studying protein dynamics in solution."@en ;
                                     rdfs:label "Nuclear magnetic resonance (NMR)"@en .
 
 
 ###  http://www.w3id.org/molsim#000203
 <http://www.w3id.org/molsim#000203> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000200> ;
+                                    rdfs:comment "A type of microscopy where samples are studied at cryogenic temperatures. It allows for high-resolution imaging of biomolecules in their native state."@en ;
                                     rdfs:label "Cryogenic electron microscopy"@en .
 
 
@@ -2366,66 +2442,77 @@
 ###  http://www.w3id.org/molsim#000207
 <http://www.w3id.org/molsim#000207> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000159> ;
+                                    rdfs:comment "A script written for a specific purpose in a molecular simulation project. These often implement novel analysis methods or automate project-specific workflows."@en ;
                                     rdfs:label "Custom Script"@en .
 
 
 ###  http://www.w3id.org/molsim#000208
 <http://www.w3id.org/molsim#000208> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000002> ;
+                                    rdfs:comment "The process of bringing a system to thermal equilibrium in a simulation. It involves gradually heating the system to the desired temperature."@en ;
                                     rdfs:label "Thermalization"@en .
 
 
 ###  http://www.w3id.org/molsim#000209
 <http://www.w3id.org/molsim#000209> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000002> ;
+                                    rdfs:comment "The process of allowing a system to reach a stable state before data collection in a simulation. It ensures that the system's properties are no longer changing systematically."@en ;
                                     rdfs:label "Equilibration"@en .
 
 
 ###  http://www.w3id.org/molsim#000210
 <http://www.w3id.org/molsim#000210> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000003> ;
+                                    rdfs:comment "A method used to calculate free energy differences along a reaction coordinate. It involves running multiple simulations with restraints to sample high-energy regions."@en ;
                                     rdfs:label "Umbrella Sampling"@en .
 
 
 ###  http://www.w3id.org/molsim#000211
 <http://www.w3id.org/molsim#000211> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000003> ;
+                                    rdfs:comment "The main phase of a molecular dynamics simulation where data is collected. This phase follows system preparation and equilibration."@en ;
                                     rdfs:label "Production"@en .
 
 
 ###  http://www.w3id.org/molsim#000212
 <http://www.w3id.org/molsim#000212> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000003> ;
+                                    rdfs:comment "Methods used to compute free energy differences in molecular systems. These calculations are crucial for understanding molecular interactions and chemical processes."@en ;
                                     rdfs:label "Free Energy Calculation"@en .
 
 
 ###  http://www.w3id.org/molsim#000213
 <http://www.w3id.org/molsim#000213> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000003> ;
+                                    rdfs:comment "A method that uses external forces to guide a system along a reaction coordinate. It adapts the applied force based on the system's response."@en ;
                                     rdfs:label "Adaptive Steered MD"@en .
 
 
 ###  http://www.w3id.org/molsim#000214
 <http://www.w3id.org/molsim#000214> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000212> ;
+                                    rdfs:comment "Molecular Mechanics Poisson-Boltzmann Surface Area, a method for calculating binding free energies.  It combines molecular mechanics calculations with continuum solvation models to approximate the free energy of binding, typically using snapshots from molecular dynamics simulations."@en ;
                                     rdfs:label "MMPBSA"@en .
 
 
 ###  http://www.w3id.org/molsim#000215
 <http://www.w3id.org/molsim#000215> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000212> ;
+                                    rdfs:comment "MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method used to estimate binding free energies in molecular systems, particularly for protein-ligand interactions. It combines molecular mechanics calculations with a Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA."@en ;
                                     rdfs:label "MMGBSA"@en .
 
 
 ###  http://www.w3id.org/molsim#000216
 <http://www.w3id.org/molsim#000216> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000000> ;
+                                    rdfs:comment "The process of creating visual representations of molecular structures and simulation results. It helps in understanding complex 3D structures and their dynamics."@en ;
                                     rdfs:label "Visualization"@en .
 
 
 ###  http://www.w3id.org/molsim#000217
 <http://www.w3id.org/molsim#000217> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000160> ;
+                                    rdfs:comment "A suite of programs for molecular dynamics simulations. It's widely used for simulations of biomolecules, particularly proteins and nucleic acids."@en ;
                                     rdfs:label "AmberMD"@en .
 
 
@@ -2439,6 +2526,7 @@
 ###  http://www.w3id.org/molsim#000219
 <http://www.w3id.org/molsim#000219> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000217> ;
+                                    rdfs:comment "A shell script used in Amber molecular dynamics workflows. It automates common tasks in Amber simulations."@en ;
                                     rdfs:label "amber.sh"@en .
 
 
@@ -2466,6 +2554,7 @@
 ###  http://www.w3id.org/molsim#000223
 <http://www.w3id.org/molsim#000223> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000220> ;
+                                    rdfs:comment "A tool used to assign protonation states to molecules in simulations. It's crucial for accurately representing the chemical state of molecules at a given pH."@en ;
                                     rdfs:label "Generic Protonation Tool"@en .
 
 
@@ -2521,6 +2610,7 @@
 ###  http://www.w3id.org/molsim#000231
 <http://www.w3id.org/molsim#000231> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000006> ;
+                                    rdfs:comment "Different forms of energy considered in molecular simulations. These can include bonded interactions (like bond stretching) and non-bonded interactions (like electrostatics)."@en ;
                                     rdfs:label "Energy Type"@en .
 
 
@@ -2555,6 +2645,7 @@
 ###  http://www.w3id.org/molsim#000236
 <http://www.w3id.org/molsim#000236> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000353> ;
+                                    rdfs:comment "A technique for combining data from multiple simulations. It's often used to calculate free energy profiles from umbrella sampling simulations."@en ;
                                     rdfs:label "Weighted Histogram Analysis Method (WHAM)"@en .
 
 
@@ -2596,6 +2687,7 @@
 ###  http://www.w3id.org/molsim#000242
 <http://www.w3id.org/molsim#000242> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000460> ;
+                                    rdfs:comment "A Python script for performing MMPBSA calculations in Amber. It automates the process of calculating binding free energies from molecular dynamics trajectories."@en ;
                                     rdfs:label "MMPBSA.py"@en .
 
 
@@ -2630,24 +2722,28 @@
 ###  http://www.w3id.org/molsim#000247
 <http://www.w3id.org/molsim#000247> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000160> ;
+                                    rdfs:comment "A molecular dynamics package primarily designed for biomolecular systems. It's known for its high performance and is widely used in the scientific community."@en ;
                                     rdfs:label "GROMACS"@en .
 
 
 ###  http://www.w3id.org/molsim#000248
 <http://www.w3id.org/molsim#000248> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000160> ;
+                                    rdfs:comment "Chemistry at HARvard Molecular Mechanics, a molecular simulation program. It includes both a molecular dynamics engine and its own force field."@en ;
                                     rdfs:label "CHARMM"@en .
 
 
 ###  http://www.w3id.org/molsim#000249
 <http://www.w3id.org/molsim#000249> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000006> ;
+                                    rdfs:comment "Parameters used to describe the behavior of ions in molecular simulations. These include charge, size, and interaction energies with other atoms."@en ;
                                     rdfs:label "Ion Parameters"@en .
 
 
 ###  http://www.w3id.org/molsim#000250
 <http://www.w3id.org/molsim#000250> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000249> ;
+                                    rdfs:comment "A specific set of ion parameters used in molecular simulations. It's designed to accurately represent the behavior of metal ions in biomolecular systems."@en ;
                                     rdfs:label "Li and Merz 12-6"@en .
 
 
@@ -2655,7 +2751,7 @@
 <http://www.w3id.org/molsim#000251> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
                                     rdfs:comment "Tool used for trajectory postprocessing and analysis."@en ;
-                                    rdfs:label "Trajectory Processing Tools"@en .
+                                    rdfs:label "Trajectory Processing Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000252
@@ -2668,6 +2764,7 @@
 ###  http://www.w3id.org/molsim#000253
 <http://www.w3id.org/molsim#000253> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000037> ;
+                                    rdfs:comment "A method used to group similar molecular conformations. It helps in identifying dominant structures or states in a simulation trajectory."@en ;
                                     rdfs:label "Clustering Algorithm"@en .
 
 
@@ -2681,18 +2778,21 @@
 ###  http://www.w3id.org/molsim#000255
 <http://www.w3id.org/molsim#000255> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "Methods to predict interactions between molecules without dynamics. These often use simplified models to quickly estimate binding affinities."@en ;
                                     rdfs:label "Static Molecular Interaction Prediction"@en .
 
 
 ###  http://www.w3id.org/molsim#000256
 <http://www.w3id.org/molsim#000256> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000255> ;
+                                    rdfs:comment "The process of predicting the preferred orientation of a ligand when bound to a protein. It's widely used in drug discovery to screen potential drug candidates."@en ;
                                     rdfs:label "Protein-Ligand Docking"@en .
 
 
 ###  http://www.w3id.org/molsim#000257
 <http://www.w3id.org/molsim#000257> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000156> ;
+                                    rdfs:comment "Programs that use classical mechanics to model molecular systems. They treat atoms as spheres and bonds as springs, ignoring quantum effects."@en ;
                                     rdfs:label "Molecular Mechanics Software"@en .
 
 
@@ -2706,6 +2806,7 @@
 ###  http://www.w3id.org/molsim#000259
 <http://www.w3id.org/molsim#000259> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
+                                    rdfs:comment "Software used to create initial structures for molecular simulations. It defines the connectivity of atoms and their initial positions."@en ;
                                     rdfs:label "Topology and Coordinate Generation Tool"@en .
 
 
@@ -2773,48 +2874,56 @@
 ###  http://www.w3id.org/molsim#000269
 <http://www.w3id.org/molsim#000269> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
+                                    rdfs:comment "Methods to calculate free energies from non-equilibrium simulations. These can be more efficient than equilibrium methods for some systems."@en ;
                                     rdfs:label "Non-Equilibrium Free Energy Calculations (NEQ)"@en .
 
 
 ###  http://www.w3id.org/molsim#000270
 <http://www.w3id.org/molsim#000270> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000068> ;
+                                    rdfs:comment "Poisson-Boltzmann Surface Area, a method for calculating solvation free energies. It uses a continuum model to represent the solvent."@en ;
                                     rdfs:label "PBSA"@en .
 
 
 ###  http://www.w3id.org/molsim#000271
 <http://www.w3id.org/molsim#000271> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000068> ;
+                                    rdfs:comment "Generalized Born Surface Area, another method for calculating solvation free energies. It's generally faster than PBSA but may be less accurate for some systems."@en ;
                                     rdfs:label "GBSA"@en .
 
 
 ###  http://www.w3id.org/molsim#000272
 <http://www.w3id.org/molsim#000272> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000006> ;
+                                    rdfs:comment "A collection of atomic radii used in implicit solvent calculations. The choice of radii can significantly affect the results of solvation free energy calculations."@en ;
                                     rdfs:label "Radii Set"@en .
 
 
 ###  http://www.w3id.org/molsim#000273
 <http://www.w3id.org/molsim#000273> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000272> ;
+                                    rdfs:comment "A specific set of atomic radii used in molecular simulations. It's based on van der Waals radii and is widely used in computational chemistry."@en ;
                                     rdfs:label "bondi"@en .
 
 
 ###  http://www.w3id.org/molsim#000274
 <http://www.w3id.org/molsim#000274> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000272> ;
+                                    rdfs:comment "A modified version of the Bondi radii set. It's optimized for use in Generalized Born calculations."@en ;
                                     rdfs:label "mbondi"@en .
 
 
 ###  http://www.w3id.org/molsim#000275
 <http://www.w3id.org/molsim#000275> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000272> ;
+                                    rdfs:comment "Another modified version of the Bondi radii set. It includes further refinements for use in biomolecular simulations."@en ;
                                     rdfs:label "mbondi2"@en .
 
 
 ###  http://www.w3id.org/molsim#000276
 <http://www.w3id.org/molsim#000276> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "Methods for calculating entropic contributions to free energies. These are important for accurately predicting binding affinities and conformational preferences."@en ;
                                     rdfs:label "Enthropic Contributions Mode"@en .
 
 
@@ -2829,6 +2938,7 @@
 ###  http://www.w3id.org/molsim#000278
 <http://www.w3id.org/molsim#000278> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000276> ;
+                                    rdfs:comment "A method for analyzing vibrational modes in molecular systems. It can be used to estimate entropic contributions to free energies."@en ;
                                     rdfs:label "Normal Mode (NM)"@en .
 
 
@@ -3047,12 +3157,14 @@
 ###  http://www.w3id.org/molsim#000342
 <http://www.w3id.org/molsim#000342> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000110> ;
+                                    rdfs:comment "Statistical methods for identifying relationships between variables in simulation data. These can reveal important couplings between different parts of a molecular system."@en ;
                                     rdfs:label "Correlation Analysis"@en .
 
 
 ###  http://www.w3id.org/molsim#000344
 <http://www.w3id.org/molsim#000344> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000111> ;
+                                    rdfs:comment "A specific measure of rank correlation. It's used to assess the ordinal association between two quantities."@en ;
                                     rdfs:label "Kendall's Tau Correlation Coefficient"@en .
 
 
@@ -3060,48 +3172,56 @@
 <http://www.w3id.org/molsim#000345> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000341> ;
                                     owl:disjointWith <http://www.w3id.org/molsim#000346> ;
+                                    rdfs:comment "Measures of the correlation of a signal with itself at different time lags. They're useful for identifying periodic behavior and estimating relaxation times."@en ;
                                     rdfs:label "Autocorrelation Coefficients"@en .
 
 
 ###  http://www.w3id.org/molsim#000346
 <http://www.w3id.org/molsim#000346> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000341> ;
+                                    rdfs:comment "Measures of the direct relationship between an observation and its lag. They help in identifying the order of an autoregressive model."@en ;
                                     rdfs:label "Partial Autocorrelation Coefficients"@en .
 
 
 ###  http://www.w3id.org/molsim#000347
 <http://www.w3id.org/molsim#000347> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000110> ;
+                                    rdfs:comment "Statistical methods for estimating relationships among variables. In molecular simulations, it's often used to relate structural features to functional properties."@en ;
                                     rdfs:label "Regression Analysis"@en .
 
 
 ###  http://www.w3id.org/molsim#000348
 <http://www.w3id.org/molsim#000348> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000110> ;
+                                    rdfs:comment "Statistical methods for making decisions based on sample data. These are used to assess the significance of observed differences or trends in simulation results."@en ;
                                     rdfs:label "Hypothesis Testing"@en .
 
 
 ###  http://www.w3id.org/molsim#000349
 <http://www.w3id.org/molsim#000349> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000110> ;
+                                    rdfs:comment "Techniques that involve repeated sampling from a dataset. These include methods like bootstrapping, which can provide estimates of uncertainty in calculated properties."@en ;
                                     rdfs:label "Resampling Method"@en .
 
 
 ###  http://www.w3id.org/molsim#000351
 <http://www.w3id.org/molsim#000351> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000110> ;
+                                    rdfs:comment "Metrics used to quantify the similarity or difference between datasets or distributions. These are crucial for comparing different simulations or experimental results."@en ;
                                     rdfs:label "Similarity and Divergence Measures"@en .
 
 
 ###  http://www.w3id.org/molsim#000352
 <http://www.w3id.org/molsim#000352> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "Various mathematical methods used in molecular simulation analysis. These can range from simple statistical measures to complex machine learning algorithms."@en ;
                                     rdfs:label "Mathematical Techniques"@en .
 
 
 ###  http://www.w3id.org/molsim#000353
 <http://www.w3id.org/molsim#000353> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000110> ;
+                                    rdfs:comment "Methods used to assess the accuracy and reliability of simulation results. These often involve comparing simulations to experimental data or to higher-level theoretical calculations."@en ;
                                     rdfs:label "Validation Technique"@en .
 
 
@@ -3115,6 +3235,7 @@
 ###  http://www.w3id.org/molsim#000355
 <http://www.w3id.org/molsim#000355> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000109> ;
+                                    rdfs:comment "A technique for calculating free energy differences between states. It involves gradually transforming one state into another along a defined path."@en ;
                                     rdfs:label "Thermodynamic Integration Method"@en .
 
 
@@ -3134,6 +3255,7 @@
 
 ###  http://www.w3id.org/molsim#000436
 <http://www.w3id.org/molsim#000436> rdf:type owl:Class ;
+                                    rdfs:comment "The structure and organization of data files used in molecular simulations. Common formats include PDB for structures and XTC for trajectories."@en ;
                                     rdfs:label "Data Format"@en .
 
 
@@ -3154,18 +3276,21 @@
 ###  http://www.w3id.org/molsim#000439
 <http://www.w3id.org/molsim#000439> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000436> ;
+                                    rdfs:comment "A file containing the information needed to continue a simulation from a specific point. It typically includes atomic positions, velocities, and system parameters."@en ;
                                     rdfs:label "Restart File"@en .
 
 
 ###  http://www.w3id.org/molsim#000440
 <http://www.w3id.org/molsim#000440> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000436> ;
+                                    rdfs:comment "A file containing the spatial positions of atoms in a molecular system. It's a fundamental input for molecular simulations."@en ;
                                     rdfs:label "Coordinate File"@en .
 
 
 ###  http://www.w3id.org/molsim#000441
 <http://www.w3id.org/molsim#000441> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000436> ;
+                                    rdfs:comment "A file describing the connectivity and parameters of atoms in a molecular system. It defines how atoms are bonded and what force field parameters they use."@en ;
                                     rdfs:label "Topology File"@en .
 
 
@@ -3186,6 +3311,7 @@
 ###  http://www.w3id.org/molsim#000444
 <http://www.w3id.org/molsim#000444> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000437> ;
+                                    rdfs:comment "A file containing instructions for the tleap program in Amber. It's used to prepare system topologies and coordinate files for Amber simulations."@en ;
                                     rdfs:label "tleap Input"@en .
 
 
@@ -3193,35 +3319,41 @@
 <http://www.w3id.org/molsim#000445> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000443> ;
                                     owl:disjointWith <http://www.w3id.org/molsim#000446> ;
+                                    rdfs:comment "A file format for representing macromolecular structure data. It's more detailed and flexible than the older PDB format."@en ;
                                     rdfs:label "mmCIF"@en .
 
 
 ###  http://www.w3id.org/molsim#000446
 <http://www.w3id.org/molsim#000446> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000443> ;
+                                    rdfs:comment "Protein Data Bank, a file format for representing molecular structures. It's widely used for sharing and storing 3D structural data of biological molecules."@en ;
                                     rdfs:label "PDB"@en .
 
 
 ###  http://www.w3id.org/molsim#000447
 <http://www.w3id.org/molsim#000447> rdf:type owl:Class ;
+                                    rdfs:comment "Unique codes or names used to identify specific molecules or structures. These are crucial for organizing and retrieving data in large databases."@en ;
                                     rdfs:label "Identifiers"@en .
 
 
 ###  http://www.w3id.org/molsim#000448
 <http://www.w3id.org/molsim#000448> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000447> ;
+                                    rdfs:comment "A unique identifier assigned to structures in the Protein Data Bank. It typically consists of four alphanumeric characters."@en ;
                                     rdfs:label "PDB ID"@en .
 
 
 ###  http://www.w3id.org/molsim#000459
 <http://www.w3id.org/molsim#000459> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000158> ;
-                                    rdfs:label "Free Energy Calculations Tools"@en .
+                                    rdfs:comment "Software used to estimate the binding free energy between molecules. These tools employ various computational methods to predict how strongly molecules interact."@en ;
+                                    rdfs:label "Free Energy Calculations Tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000460
 <http://www.w3id.org/molsim#000460> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000459> ;
+                                    rdfs:comment "Molecular Mechanics Poisson-Boltzmann Surface Area, a method to calculate binding free energies. It combines molecular mechanics energies with continuum solvent models."@en ;
                                     rdfs:label "MMPBSA"@en .
 
 
@@ -3235,6 +3367,7 @@
 ###  http://www.w3id.org/molsim#000462
 <http://www.w3id.org/molsim#000462> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000459> ;
+                                    rdfs:comment "Molecular Mechanics Generalized Born Surface Area, similar to MMPBSA but using a different solvation model. It's generally faster but may be less accurate for some systems."@en ;
                                     rdfs:label "MMGBSA"@en .
 
 
@@ -3255,6 +3388,7 @@
 ###  http://www.w3id.org/molsim#000465
 <http://www.w3id.org/molsim#000465> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000462> ;
+                                    rdfs:comment "A variant of the Generalized Born model for implicit solvation calculations. It's used in some molecular dynamics simulations and free energy calculations."@en ;
                                     rdfs:label "NModelGB"@en .
 
 
@@ -3268,84 +3402,98 @@
 ###  http://www.w3id.org/molsim#000468
 <http://www.w3id.org/molsim#000468> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000440> ;
+                                    rdfs:comment "A file format in Amber molecular dynamics software containing atomic coordinates. It represents the 3D positions of atoms in a molecular system."@en ;
                                     rdfs:label "Amber MD Coordinate"@en .
 
 
 ###  http://www.w3id.org/molsim#000469
 <http://www.w3id.org/molsim#000469> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000437> ;
+                                    rdfs:comment "A file specifying parameters and conditions for Amber molecular dynamics simulations. It contains instructions for how the simulation should be run."@en ;
                                     rdfs:label "Amber MD Input"@en .
 
 
 ###  http://www.w3id.org/molsim#000470
 <http://www.w3id.org/molsim#000470> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000438> ;
+                                    rdfs:comment "Files generated by Amber during and after a molecular dynamics simulation. These contain various data about the system's behavior over time."@en ;
                                     rdfs:label "Amber MD Output"@en .
 
 
 ###  http://www.w3id.org/molsim#000471
 <http://www.w3id.org/molsim#000471> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000439> ;
+                                    rdfs:comment "A file allowing a molecular dynamics simulation to be continued from a previous point. It contains the system's state at a specific time in the simulation."@en ;
                                     rdfs:label "Amber MD Restart"@en .
 
 
 ###  http://www.w3id.org/molsim#000472
 <http://www.w3id.org/molsim#000472> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000441> ;
+                                    rdfs:comment "A file describing the molecular structure and force field parameters in Amber. It defines how atoms are connected and interact in the simulation."@en ;
                                     rdfs:label "Amber MD Topology"@en .
 
 
 ###  http://www.w3id.org/molsim#000473
 <http://www.w3id.org/molsim#000473> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000442> ;
+                                    rdfs:comment "A file recording the positions of all atoms over time in a molecular dynamics simulation. It's used for analyzing the dynamic behavior of molecules."@en ;
                                     rdfs:label "Amber MD Trajectory"@en .
 
 
 ###  http://www.w3id.org/molsim#000474
 <http://www.w3id.org/molsim#000474> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000255> ;
+                                    rdfs:comment "Computational methods to predict how two proteins bind together. It aims to determine the most likely orientation and conformation of protein complexes."@en ;
                                     rdfs:label "Protein-Protein Docking"@en .
 
 
 ###  http://www.w3id.org/molsim#000475
 <http://www.w3id.org/molsim#000475> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000229> ;
+                                    rdfs:comment "A simplified molecular dynamics approach where groups of atoms are treated as single particles. It allows simulation of larger systems or longer timescales than all-atom models."@en ;
                                     rdfs:label "Coarse-grained MD"@en .
 
 
 ###  http://www.w3id.org/molsim#000476
 <http://www.w3id.org/molsim#000476> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000030> ;
+                                    rdfs:comment "A popular water model used in molecular dynamics simulations. It represents water molecules with three interaction sites, balancing accuracy and computational efficiency."@en ;
                                     rdfs:label "TIP3P"@en .
 
 
 ###  http://www.w3id.org/molsim#000490
 <http://www.w3id.org/molsim#000490> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000156> ;
+                                    rdfs:comment "Tools used to prepare molecular structures for simulations or analysis. These typically handle tasks like adding hydrogen atoms, assigning charges, and fixing structural issues."@en ;
                                     rdfs:label "Structure Preparation Software"@en .
 
 
 ###  http://www.w3id.org/molsim#000491
 <http://www.w3id.org/molsim#000491> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000490> ;
+                                    rdfs:comment "A comprehensive molecular modeling and drug design software suite. It provides tools for building, visualizing, and analyzing molecular structures."@en ;
                                     rdfs:label "SYBYL"@en .
 
 
 ###  http://www.w3id.org/molsim#000492
 <http://www.w3id.org/molsim#000492> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000490> ;
+                                    rdfs:comment "A user-friendly application for analyzing protein structures. It allows visualization and manipulation of 3D protein structures from PDB files."@en ;
                                     rdfs:label "Swiss PDB viewer - PDB viewer"@en .
 
 
 ###  http://www.w3id.org/molsim#000493
 <http://www.w3id.org/molsim#000493> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000490> ;
+                                    rdfs:comment "A molecular visualization system for rendering and animating 3D molecular structures. It's widely used for creating high-quality molecular graphics."@en ;
                                     rdfs:label "Pymol"@en .
 
 
 ###  http://www.w3id.org/molsim#000495
 <http://www.w3id.org/molsim#000495> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000272> ;
+                                    rdfs:comment "A set of atomic radii used in implicit solvent models. These radii are optimized for calculating solvation energies in biomolecular simulations."@en ;
                                     rdfs:label "parse radii"@en .
 
 
@@ -3380,12 +3528,14 @@
 ###  http://www.w3id.org/molsim#000502
 <http://www.w3id.org/molsim#000502> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000352> ;
+                                    rdfs:comment "Statistical methods to assess the strength and significance of linear relationships between variables. It's used to evaluate the reliability of correlations in data analysis."@en ;
                                     rdfs:label "Linear Correlation Significance Determination"@en .
 
 
 ###  http://www.w3id.org/molsim#000503
 <http://www.w3id.org/molsim#000503> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000352> ;
+                                    rdfs:comment "A statistical approach to determine the significance of results. The p-value indicates the probability of obtaining results at least as extreme as those observed, assuming the null hypothesis is true."@en ;
                                     rdfs:label "Determination by P-Value"@en .
 
 
