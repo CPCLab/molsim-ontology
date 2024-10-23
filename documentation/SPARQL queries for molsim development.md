@@ -1,8 +1,8 @@
-SPARQL Queries can be used to check the ontology consistencies. In Protégé, the queries can be done via its SPARQL Query window. This is activated via *Window -> Tabs -> SPARQL* Query.
+SPARQL Queries can be used to check the ontology consistencies. In Protégé, the queries can be done via its SPARQL Query window. This is activated via *Window -> Tabs -> SPARQL Query*.
 
 Here are some examples:
 
-1. *Get distinct Classes or Properties without rdfs:comment*
+1. Get distinct Classes or Properties without `rdfs:comment`.
 
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
