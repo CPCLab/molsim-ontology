@@ -14,10 +14,15 @@ WHERE {
     { 
         ?entity a owl:DatatypeProperty . 
         BIND("Data Property" AS ?type) 
-    } 
+    }     
+   UNION { 
+        ?entity a owl:ObjectProperty . 
+        BIND("Object Property" AS ?type) 
+   } 
     UNION { 
         ?entity a owl:Class . 
-        BIND("Class" AS ?type) } 
+        BIND("Class" AS ?type) 
+    } 
     OPTIONAL { ?entity rdfs:label ?label } 
     FILTER NOT EXISTS { ?entity rdfs:comment ?comment } } 
 ORDER BY ?type ?entity

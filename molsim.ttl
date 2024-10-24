@@ -10,6 +10,32 @@
                                rdfs:comment "" .
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3id.org/molsim#000504
+<http://www.w3id.org/molsim#000504> rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                    rdfs:range <http://www.w3id.org/molsim#000160> ;
+                                    rdfs:comment "Link a tool or program that's part of a larger molecular dynamics software package. These utilities often perform specific tasks like data analysis or structure preparation."@en ;
+                                    rdfs:label "MD suite utility"@en .
+
+
+###  http://www.w3id.org/molsim#000507
+<http://www.w3id.org/molsim#000507> rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                    rdfs:comment "In molecular dynamics, allignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer."@en ;
+                                    rdfs:label "alignment tool"@en .
+
+
+###  http://www.w3id.org/molsim#000508
+<http://www.w3id.org/molsim#000508> rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                    rdfs:comment "The source for the used protein structures (e.g. PDB)"@en ;
+                                    rdfs:label "protein structure source"@en .
+
+
+#################################################################
 #    Data properties
 #################################################################
 
@@ -925,7 +951,7 @@
 
 ###  http://www.w3id.org/molsim#000481
 <http://www.w3id.org/molsim#000481> rdf:type owl:DatatypeProperty ;
-                                    rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
+                                    rdfs:subPropertyOf <http://www.w3id.org/molsim#000482> ;
                                     rdfs:comment "This property signifies  whether MMPBSA calculation is involved."@en ;
                                     rdfs:label "is MMPBSA"@en .
 
@@ -949,13 +975,6 @@
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000398> ;
                                     rdfs:comment "Indicates wheter Adaptive Steered Molecular Dynamics (ASMD) is inovolved. ASMD is an enhanced sampling technique that builds upon traditional Steered Molecular Dynamics (SMD). ASMD divides the reaction coordinate into multiple segments or stages. Within each stage, multiple SMD simulations are performed."@en ;
                                     rdfs:label "is ASMD"@en .
-
-
-###  http://www.w3id.org/molsim#000485
-<http://www.w3id.org/molsim#000485> rdf:type owl:DatatypeProperty ;
-                                    rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
-                                    rdfs:comment "In molecular dynamics, allignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer."@en ;
-                                    rdfs:label "alignment tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000487
@@ -993,11 +1012,21 @@
                                     rdfs:label "is transmembrane simulation"@en .
 
 
-###  http://www.w3id.org/molsim#000501
-<http://www.w3id.org/molsim#000501> rdf:type owl:DatatypeProperty ;
-                                    rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
-                                    rdfs:comment "The source for the used protein structures (e.g. PDB)"@en ;
-                                    rdfs:label "protein structure source"@en .
+###  http://www.w3id.org/molsim#000509
+<http://www.w3id.org/molsim#000509> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
+                                    rdfs:range xsd:float ;
+                                    rdfs:comment "A parameter representing the dielectric properties inside a molecule (typically a protein or ligand) during MMPBSA calculations. It reflects how the molecule's internal environment responds to electric fields and affects the calculation of electrostatic interactions."@en ;
+                                    rdfs:label "internal dielectric constant"@en .
+
+
+###  http://www.w3id.org/molsim#000510
+<http://www.w3id.org/molsim#000510> rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
+                                    rdfs:range xsd:float ;
+                                    rdfs:comment ""@en ,
+                                                 "A parameter representing the dielectric properties of the environment surrounding the molecule (typically the solvent) during MMPBSA calculations. It characterizes how the surrounding medium responds to electric fields and is usually set to approximate water's dielectric properties (around 80)."@en ;
+                                    rdfs:label "external dielectric constant"@en .
 
 
 #################################################################
@@ -2687,7 +2716,8 @@
 
 ###  http://www.w3id.org/molsim#000242
 <http://www.w3id.org/molsim#000242> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://www.w3id.org/molsim#000460> ;
+                                    rdfs:subClassOf <http://www.w3id.org/molsim#000159> ,
+                                                    <http://www.w3id.org/molsim#000460> ;
                                     rdfs:comment "A Python script for performing MMPBSA calculations in Amber. It automates the process of calculating binding free energies from molecular dynamics trajectories."@en ;
                                     rdfs:label "MMPBSA.py"@en .
 
@@ -3071,11 +3101,6 @@
                                     rdfs:label "Free Energy Workflow (FEW)"@en .
 
 
-###  http://www.w3id.org/molsim#000297
-<http://www.w3id.org/molsim#000297> rdf:type owl:Class ;
-                                    rdfs:label "Parameter"@en .
-
-
 ###  http://www.w3id.org/molsim#000298
 <http://www.w3id.org/molsim#000298> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000355> ;
@@ -3334,7 +3359,7 @@
 ###  http://www.w3id.org/molsim#000447
 <http://www.w3id.org/molsim#000447> rdf:type owl:Class ;
                                     rdfs:comment "Unique codes or names used to identify specific molecules or structures. These are crucial for organizing and retrieving data in large databases."@en ;
-                                    rdfs:label "Identifiers"@en .
+                                    rdfs:label "Identifier"@en .
 
 
 ###  http://www.w3id.org/molsim#000448
@@ -3371,20 +3396,6 @@
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000459> ;
                                     rdfs:comment "Molecular Mechanics Generalized Born Surface Area, similar to MMPBSA but using a different solvation model. It's generally faster but may be less accurate for some systems."@en ;
                                     rdfs:label "MMGBSA Tool"@en .
-
-
-###  http://www.w3id.org/molsim#000463
-<http://www.w3id.org/molsim#000463> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://www.w3id.org/molsim#000486> ;
-                                    rdfs:comment "Internal dielectric constant is a dielectric constant inside a protein or molecule, as opposed to the dielectric constant of the surrounding solvent, used in molecular dynamics simulations and calculations to account for the polarizability and charge screening effects within proteins or other biomolecules."@en ;
-                                    rdfs:label "Internal Dielectric Constant"@en .
-
-
-###  http://www.w3id.org/molsim#000464
-<http://www.w3id.org/molsim#000464> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://www.w3id.org/molsim#000486> ;
-                                    rdfs:comment "External Dielectric Constant (ε' or εRF) represents the dielectric properties of the environment outside the explicitly simulated region, typically used in reaction field methods or continuum electrostatics approaches."@en ;
-                                    rdfs:label "External Dielectric Constant"@en .
 
 
 ###  http://www.w3id.org/molsim#000465
@@ -3462,12 +3473,6 @@
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000030> ;
                                     rdfs:comment "A popular water model used in molecular dynamics simulations. It represents water molecules with three interaction sites, balancing accuracy and computational efficiency."@en ;
                                     rdfs:label "TIP3P"@en .
-
-
-###  http://www.w3id.org/molsim#000486
-<http://www.w3id.org/molsim#000486> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://www.w3id.org/molsim#000297> ;
-                                    rdfs:label "MMPBSA Parameter"@en .
 
 
 ###  http://www.w3id.org/molsim#000490
@@ -3631,15 +3636,6 @@
                 <http://www.w3id.org/molsim#000153>
                 <http://www.w3id.org/molsim#000154>
                 <http://www.w3id.org/molsim#000155>
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://www.w3id.org/molsim#000156>
-                <http://www.w3id.org/molsim#000157>
-                <http://www.w3id.org/molsim#000158>
-                <http://www.w3id.org/molsim#000159>
               )
 ] .
 
