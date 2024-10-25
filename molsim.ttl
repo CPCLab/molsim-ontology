@@ -1044,7 +1044,15 @@
 ###  http://www.w3id.org/molsim#000509
 <http://www.w3id.org/molsim#000509> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
-                                    rdfs:range xsd:float ;
+                                    rdfs:domain <http://www.w3id.org/molsim#000214> ;
+                                    rdfs:range [ rdf:type rdfs:Datatype ;
+                                                 owl:onDatatype xsd:float ;
+                                                 owl:withRestrictions ( [ xsd:minInclusive "0.0"^^xsd:float
+                                                                        ]
+                                                                        [ xsd:maxInclusive "25.0"^^xsd:float
+                                                                        ]
+                                                                      )
+                                               ] ;
                                     rdfs:comment "A parameter representing the dielectric properties inside a molecule (typically a protein or ligand) during MMPBSA calculations. It reflects how the molecule's internal environment responds to electric fields and affects the calculation of electrostatic interactions."@en ;
                                     rdfs:label "internal dielectric constant"@en .
 
@@ -1052,9 +1060,16 @@
 ###  http://www.w3id.org/molsim#000510
 <http://www.w3id.org/molsim#000510> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
-                                    rdfs:range xsd:float ;
-                                    rdfs:comment ""@en ,
-                                                 "A parameter representing the dielectric properties of the environment surrounding the molecule (typically the solvent) during MMPBSA calculations. It characterizes how the surrounding medium responds to electric fields and is usually set to approximate water's dielectric properties (around 80)."@en ;
+                                    rdfs:domain <http://www.w3id.org/molsim#000214> ;
+                                    rdfs:range [ rdf:type rdfs:Datatype ;
+                                                 owl:onDatatype xsd:float ;
+                                                 owl:withRestrictions ( [ xsd:minInclusive "0.0"^^xsd:float
+                                                                        ]
+                                                                        [ xsd:maxInclusive "100.0"^^xsd:float
+                                                                        ]
+                                                                      )
+                                               ] ;
+                                    rdfs:comment "A parameter representing the dielectric properties of the environment surrounding the molecule (typically the solvent) during MMPBSA calculations. It characterizes how the surrounding medium responds to electric fields and is usually set to approximate water's dielectric properties (around 80)."@en ;
                                     rdfs:label "external dielectric constant"@en .
 
 
