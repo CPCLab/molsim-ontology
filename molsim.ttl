@@ -1,11 +1,11 @@
 @prefix : <http://www.w3id.org/molsim#/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
-@base <http://www.w3id.org/molsim#> .
+@base <http://www.w3id.org/molsim#/> .
 
 <http://www.w3id.org/molsim#> rdf:type owl:Ontology ;
                                rdfs:comment "" .
@@ -14,13 +14,14 @@
 #    Annotation properties
 #################################################################
 
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                rdfs:label "definition" .
+
+
 ###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
 <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> rdf:type owl:AnnotationProperty .
 
-
-###  http://purl.obolibrary.org/obo/IAO_0000115
-obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
-                 rdfs:label "definition" .
 
 #################################################################
 #    Object Properties
@@ -69,22 +70,22 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000141
 <http://www.w3id.org/molsim#000141> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000489> ;
-                                    obo:IAO_0000115 "Distance cutoff is the starting distance cutoff between points for forming a cluster."@en ;
-                                    rdfs:label "starting ε (distance cutoff)"@en .
+                                    obo:IAO_0000115 "Starting epsilon (ε)/distance cutoff is the starting distance cutoff between points for forming a cluster."@en ;
+                                    rdfs:label "starting epsilon (distance cutoff)"@en .
 
 
 ###  http://www.w3id.org/molsim#000304
 <http://www.w3id.org/molsim#000304> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000489> ;
-                                    obo:IAO_0000115 "Distance cutoff interval is the interval increment between points for forming a cluster."@en ;
-                                    rdfs:label "clustering ε (distance cutoff) interval"@en .
+                                    obo:IAO_0000115 "Clustering epsilon (ε)/distance cutoff interval is the interval increment between points for forming a cluster."@en ;
+                                    rdfs:label "clustering epsilon (distance cutoff) interval"@en .
 
 
 ###  http://www.w3id.org/molsim#000305
 <http://www.w3id.org/molsim#000305> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000489> ;
-                                    obo:IAO_0000115 "The maximum distance at which non-bonded interactions between atoms are calculated in a simulation. It helps balance computational cost and accuracy."@en ;
-                                    rdfs:label "final ε (distance cutoff)"@en .
+                                    obo:IAO_0000115 "Final epsilon (ε) is the maximum distance at which non-bonded interactions between atoms are calculated in a simulation. It helps balance computational cost and accuracy."@en ;
+                                    rdfs:label "final epsilon (distance cutoff)"@en .
 
 
 ###  http://www.w3id.org/molsim#000308
@@ -317,8 +318,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000338
 <http://www.w3id.org/molsim#000338> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "number of PIMD slices/beads"@en ;
                                     obo:IAO_0000115 "Number of PIMD slices / beads (used in path integral molecular dynamics)."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "number of PIMD slices/beads"@en ;
                                     rdfs:label "number of path integral molecular dynamics slices/beads"@en .
 
 
@@ -332,8 +333,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000350
 <http://www.w3id.org/molsim#000350> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000140> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSD cutoff" ;
                                     obo:IAO_0000115 "A threshold value for the Root Mean Square Deviation, used to compare molecular structures. Structures with RMSD below this cutoff are considered similar."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSD cutoff" ;
                                     rdfs:label "root mean square deviation cutoff"@en .
 
 
@@ -375,8 +376,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000362
 <http://www.w3id.org/molsim#000362> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA/MMGBSA properties"@en ;
                                     obo:IAO_0000115 "Settings specific to these free energy calculation methods. They may include solvent models, entropy calculation methods, or trajectory processing options."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA/MMGBSA properties"@en ;
                                     rdfs:label "molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area properties"@en .
 
 
@@ -502,8 +503,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000380
 <http://www.w3id.org/molsim#000380> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
-                                    obo:IAO_0000115 "The number of lambda values for TI validation. More λ values used in alchemical free energy calculations can improve the accuracy and precision of the free energy estimate, as well as helping identify convergence issues or problematic regions in the alchemical pathway at the expense of an increased computational cost, as each λ value requires a separate simulation."@en ;
-                                    rdfs:label "number of lambda values for ti validation"@en .
+                                    obo:IAO_0000115 "The number of lambda (λ) values for TI validation. More λ values used in alchemical free energy calculations can improve the accuracy and precision of the free energy estimate, as well as helping identify convergence issues or problematic regions in the alchemical pathway at the expense of an increased computational cost, as each λ value requires a separate simulation."@en ;
+                                    rdfs:label "number of lambda values for thermodynamic integration validation"@en .
 
 
 ###  http://www.w3id.org/molsim#000381
@@ -530,8 +531,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000384
 <http://www.w3id.org/molsim#000384> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BAR and MBAR temperature"@en ;
                                     obo:IAO_0000115 "BAR and MBAR Temperature is the temperature used to calculate BAR or MBAR using its equation."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BAR and MBAR temperature"@en ;
                                     rdfs:label "Bennett acceptance ratio and multi-state Bennett acceptance ratio temperature"@en .
 
 
@@ -573,8 +574,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000390
 <http://www.w3id.org/molsim#000390> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "LIE binding free energy"@en ;
                                     obo:IAO_0000115 "LIE (Linear Interaction Energy) binding free energy  (ΔGLIE)  is a method to estimate how strongly a ligand binds to a protein using a linear combination of electrostatic and van der Waals interaction energies. It's a computationally efficient approach that aims to balance accuracy and speed in predicting binding affinities."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "LIE binding free energy"@en ;
                                     rdfs:label "linear interaction energy binding free energy"@en .
 
 
@@ -595,7 +596,7 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000393
 <http://www.w3id.org/molsim#000393> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000364> ;
-                                    obo:IAO_0000115 "ΔE(vdW) is the change in van der Waals energy."@en ;
+                                    obo:IAO_0000115 "Van der Waals energy change or ΔE(vdW) is the change in van der Waals energy."@en ;
                                     rdfs:label "Van der Waals energy change"@en .
 
 
@@ -799,8 +800,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000422
 <http://www.w3id.org/molsim#000422> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "restrained elements"@en ;
                                     obo:IAO_0000115 "Restraint mask or restrained elements are string that specifies the restrained atoms when ntr is on."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "restrained elements"@en ;
                                     rdfs:label "restraint mask"@en .
 
 
@@ -835,8 +836,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000427
 <http://www.w3id.org/molsim#000427> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "COM move removal"@en ;
                                     obo:IAO_0000115 "A technique to prevent the center of mass of a simulated system from drifting. It's often used to maintain stable simulations."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "COM move removal"@en ;
                                     rdfs:label "center of mass move removal"@en .
 
 
@@ -871,8 +872,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000433
 <http://www.w3id.org/molsim#000433> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000420> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "FFA concentration"@en ;
                                     obo:IAO_0000115 "FFA Concentration is the concentration of free fatty acids (FFA) added to the membrane bilayer."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "FFA concentration"@en ;
                                     rdfs:label "free fatty acid concentration"@en .
 
 
@@ -887,8 +888,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000435> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000308> ;
                                     rdfs:range xsd:boolean ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "CAP flag"@en ;
                                     obo:IAO_0000115 "CAP flag (0 = no capping of termini, 1 = termini capped)."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "CAP flag"@en ;
                                     rdfs:label "termini capping flag"@en .
 
 
@@ -1008,8 +1009,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000481> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
                                     rdfs:range xsd:boolean ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is MMPBSA"@en ;
                                     obo:IAO_0000115 "This property signifies  whether MMPBSA calculation is involved."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is MMPBSA"@en ;
                                     rdfs:label "is molecular mechanics Poisson-Boltzmann surface area"@en .
 
 
@@ -1017,8 +1018,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000482> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
                                     rdfs:range xsd:boolean ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is MMPBSA decomposed"@en ;
                                     obo:IAO_0000115 "This boolean property determines whether MMPBSA is decomposed. It provides detailed insights into the energetic contributions of individual components or residues to the overall binding free energy."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is MMPBSA decomposed"@en ;
                                     rdfs:label "is molecular mechanics Poisson-Boltzmann surface area decomposed"@en .
 
 
@@ -1026,16 +1027,16 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000483> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000362> ;
                                     rdfs:range xsd:boolean ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is MMPBSA entropy"@en ;
                                     obo:IAO_0000115 "This boolean property signifies whether entropy component calculated as part of the MM-PBSA (Molecular Mechanics Poisson-Boltzmann Surface Area) method for estimating binding free energies. It aims to account for the change in entropy upon binding between a ligand and receptor."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is MMPBSA entropy"@en ;
                                     rdfs:label "is molecular mechanics Poisson-Boltzmann surface area entropy"@en .
 
 
 ###  http://www.w3id.org/molsim#000484
 <http://www.w3id.org/molsim#000484> rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf <http://www.w3id.org/molsim#000398> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is ASMD"@en ;
                                     obo:IAO_0000115 "Indicates whether Adaptive Steered Molecular Dynamics (ASMD) is involved. ASMD is an enhanced sampling technique that builds upon traditional Steered Molecular Dynamics (SMD). ASMD divides the reaction coordinate into multiple segments or stages. Within each stage, multiple SMD simulations are performed."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "is ASMD"@en ;
                                     rdfs:label "is adaptive steered molecular dynamics"@en .
 
 
@@ -1261,16 +1262,16 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000023
 <http://www.w3id.org/molsim#000023> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000016> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "gaff"@en ;
                                     obo:IAO_0000115 "General AMBER force field (gaff) is a Small Organic Molecule Force Field designed for small organic molecules, compatible with AMBER protein force fields."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "gaff"@en ;
                                     rdfs:label "general AMBER force field"@en .
 
 
 ###  http://www.w3id.org/molsim#000024
 <http://www.w3id.org/molsim#000024> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000016> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "gaff2"@en ;
                                     obo:IAO_0000115 "General AMBER force field 2 (gaff2) is a Small Organic Molecule Force Field designed for small organic molecules, compatible with AMBER protein force fields."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "gaff2"@en ;
                                     rdfs:label "general AMBER force field 2"@en .
 
 
@@ -1290,24 +1291,24 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000027
 <http://www.w3id.org/molsim#000027> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000026> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NaCl"@en ;
                                     obo:IAO_0000115 "NaCl or Sodium Chloride consists of sodium (Na+) and chloride (Cl-) ions in a 1:1 ratio."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NaCl"@en ;
                                     rdfs:label "sodium chloride"@en .
 
 
 ###  http://www.w3id.org/molsim#000028
 <http://www.w3id.org/molsim#000028> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000026> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "KCl"@en ;
                                     obo:IAO_0000115 "KCl or Potassium Chloride consists of potassium (K+) and chloride (Cl-) ions in a 1:1 ratio."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "KCl"@en ;
                                     rdfs:label "potassium chloride"@en .
 
 
 ###  http://www.w3id.org/molsim#000029
 <http://www.w3id.org/molsim#000029> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000026> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "CaCl2"@en ;
                                     obo:IAO_0000115 "CaCl2 or Calcium Chloride consists of calcium (Ca2+) and chloride (Cl-) ions in a 1:2 ratio."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "CaCl2"@en ;
                                     rdfs:label "calcium chloride"@en .
 
 
@@ -1321,8 +1322,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000031
 <http://www.w3id.org/molsim#000031> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000030> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "OPC"@en ;
                                     obo:IAO_0000115 "Optimal Point Charges Model (OPM) is a water type model  designed without geometrical restraints. Considerably better reproduces the six bulk properties of water."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "OPC"@en ;
                                     rdfs:label "optimal point charges"@en .
 
 
@@ -1440,8 +1441,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000048
 <http://www.w3id.org/molsim#000048> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000038> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "Nose-Hoover"@en ;
                                     obo:IAO_0000115 "A specific thermostat algorithm used in molecular dynamics. It introduces an additional degree of freedom to the system to maintain constant temperature."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "Nose-Hoover"@en ;
                                     rdfs:label "Nosé-Hoover"@en .
 
 
@@ -1469,8 +1470,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000052
 <http://www.w3id.org/molsim#000052> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000049> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "LINCS"@en ;
                                     obo:IAO_0000115 "LINCS is an algorithm that resets bonds to their correct lengths after an unconstrained update. The method is non-iterative, as it always uses two steps. Although LINCS is based on matrices, no matrix-matrix multiplications are needed."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "LINCS"@en ;
                                     rdfs:label "linear constraint solver"@en .
 
 
@@ -1484,24 +1485,24 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000054
 <http://www.w3id.org/molsim#000054> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000053> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PME"@en ;
                                     obo:IAO_0000115 "Particle Mesh Ewald Method is a method to handle electrostatic interaction by splitting the potential into short-range and long-range parts. The short-range part is calculated directly, while the long-range part is calculated using Fourier transforms on a grid."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PME"@en ;
                                     rdfs:label "Particle Mesh Ewald"@en .
 
 
 ###  http://www.w3id.org/molsim#000055
 <http://www.w3id.org/molsim#000055> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000053> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RF"@en ;
                                     obo:IAO_0000115 "Reaction Field (RF) is a method to simulate the effect of long-range dipole-dipole interactions when using periodic boundaries conditions."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RF"@en ;
                                     rdfs:label "reaction field"@en .
 
 
 ###  http://www.w3id.org/molsim#000056
 <http://www.w3id.org/molsim#000056> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000053> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "P3M"@en ;
                                     obo:IAO_0000115 "Particle-Particle Particle-Mesh (P3M) is a method to compute electrostatic energy and forces, setting EPB in the output to zero and EEL that includes both the reaction field energy and the Coulombic energy."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "P3M"@en ;
                                     rdfs:label "particle-particle particle-mesh"@en .
 
 
@@ -1620,8 +1621,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000073
 <http://www.w3id.org/molsim#000073> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000068> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "GB"@en ;
                                     obo:IAO_0000115 "The Generalized Born (GB) model is an approximation method used in molecular dynamics simulations to efficiently model the electrostatic effects of solvent on biomolecules."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "GB"@en ;
                                     rdfs:label "generalized Born"@en .
 
 
@@ -1697,14 +1698,14 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 
 ###  http://www.w3id.org/molsim#000084
 <http://www.w3id.org/molsim#000084> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:subClassOf <http://www.w3id.org/molsim#000076> ;
                                     obo:IAO_0000115 "A method for comparing molecular structures or conformations. It combines multiple metrics to assess structural similarity."@en ;
                                     rdfs:label "fit Tversky combo"@en .
 
 
 ###  http://www.w3id.org/molsim#000085
 <http://www.w3id.org/molsim#000085> rdf:type owl:Class ;
-                                    rdfs:subClassOf <http://www.w3id.org/molsim#000074> ;
+                                    rdfs:subClassOf <http://www.w3id.org/molsim#000076> ;
                                     obo:IAO_0000115 "A reference method for structural comparison in molecular simulations. It's often used as a benchmark for evaluating other comparison methods."@en ;
                                     rdfs:label "ref Tversky"@en .
 
@@ -1906,16 +1907,16 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000114
 <http://www.w3id.org/molsim#000114> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSD"@en ;
                                     obo:IAO_0000115 "Root-Mean-Square Deviation (RMSD) is a commonly used measure to quantify the difference between two sets of values, often used to compare structures or assess the accuracy of predictions."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSD"@en ;
                                     rdfs:label "root-mean-square deviation"@en .
 
 
 ###  http://www.w3id.org/molsim#000115
 <http://www.w3id.org/molsim#000115> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSF"@en ;
                                     obo:IAO_0000115 "Root Mean Square Fluctuation  (RMSF) measures the average deviation of a particle from its mean position. It is used to characterize local changes along the protein chain."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSF"@en ;
                                     rdfs:label "root mean square fluctuation"@en .
 
 
@@ -1929,8 +1930,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000117
 <http://www.w3id.org/molsim#000117> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MSMs"@en ;
                                     obo:IAO_0000115 "A statistical method for analyzing conformational dynamics in molecular simulations. MSMs represent the system as a network of states with transition probabilities between them."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MSMs"@en ;
                                     rdfs:label "Markov state models"@en .
 
 
@@ -1958,8 +1959,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000121
 <http://www.w3id.org/molsim#000121> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000120> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PCA"@en ;
                                     obo:IAO_0000115 "A specific dimensionality reduction technique often used in molecular simulation analysis. PCA identifies the main axes of variation in a dataset."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PCA"@en ;
                                     rdfs:label "principal component analysis"@en .
 
 
@@ -2008,32 +2009,32 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000128
 <http://www.w3id.org/molsim#000128> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000127> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "SEM"@en ;
                                     obo:IAO_0000115 "Standard Error of the Mean (SEM), denoted as σMSE, quantifies the precision of the estimated mean effective binding energy. A smaller SEM indicates a more precise estimate of the true mean. It is calculated by σMSE = s / √n where s is the sample standard deviation of the effective binding energies and n is the number of snapshots considered in the calculation."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "SEM"@en ;
                                     rdfs:label "standard error of the mean"@en .
 
 
 ###  http://www.w3id.org/molsim#000129
 <http://www.w3id.org/molsim#000129> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000127> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSE"@en ;
                                     obo:IAO_0000115 "RMSE measures the standard deviation of prediction errors, calculated as the square root of the average of squared differences between predicted and experimental values. It provides an overall measure of prediction accuracy."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RMSE"@en ;
                                     rdfs:label "root mean square error"@en .
 
 
 ###  http://www.w3id.org/molsim#000130
 <http://www.w3id.org/molsim#000130> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000127> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MAE"@en ;
                                     obo:IAO_0000115 "MAE calculates the average of absolute differences between predicted and experimental values. It is less sensitive to outliers compared to RMSE."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MAE"@en ;
                                     rdfs:label "mean absolute error"@en .
 
 
 ###  http://www.w3id.org/molsim#000131
 <http://www.w3id.org/molsim#000131> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000127> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MSE"@en ;
                                     obo:IAO_0000115 "MSE calculates the average of signed differences between predicted and experimental values. It is useful for detecting systematic bias in predictions."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MSE"@en ;
                                     rdfs:label "mean squared error"@en .
 
 
@@ -2056,8 +2057,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000134> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000116> ,
                                                     <http://www.w3id.org/molsim#000353> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BSE"@en ;
                                     obo:IAO_0000115 "BSE provides confidence intervals for the calculated binding energies. It is useful for assessing the robustness of the calculations."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BSE"@en ;
                                     rdfs:label "bootstrapped error estimates"@en .
 
 
@@ -2482,32 +2483,32 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000196
 <http://www.w3id.org/molsim#000196> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NVT ensemble"@en ;
                                     obo:IAO_0000115 "Canonical ensemble or NVT ensemble  is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant volume V and a temperature fluctuating around an equilibrium value."@en-au ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NVT ensemble"@en ;
                                     rdfs:label "canonical ensemble"@en .
 
 
 ###  http://www.w3id.org/molsim#000197
 <http://www.w3id.org/molsim#000197> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NPT ensemble"@en ;
                                     obo:IAO_0000115 "Isothermal-isobaric ensemble or NPT is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant pressure P and a temperature fluctuating around an equilibrium value."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NPT ensemble"@en ;
                                     rdfs:label "isothermal-isobaric ensemble"@en .
 
 
 ###  http://www.w3id.org/molsim#000198
 <http://www.w3id.org/molsim#000198> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NVE ensemble"@en ;
                                     obo:IAO_0000115 "Microcanonical ensemble or NVE is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant volume V and total energy fluctuating around an equilibrium value."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NVE ensemble"@en ;
                                     rdfs:label "microcanonical ensemble"@en .
 
 
 ###  http://www.w3id.org/molsim#000199
 <http://www.w3id.org/molsim#000199> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000195> ;
+                                    obo:IAO_0000115 "Grand canonical ensemble, or MuVT (µVT), is an ensemble with a constant chemical potential (μ), volume (V), and temperature (T). In this ensemble, the system can exchange both energy and particles."@en ;
                                     <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "µVT ensemble"@en ;
-                                    obo:IAO_0000115 "Grand canonical ensemble, or MuVT, is an ensemble with a constant chemical potential (μ), volume (V), and temperature (T). In this ensemble, the system can exchange both energy and particles."@en ;
                                     rdfs:label "grand canonical ensemble"@en .
 
 
@@ -2528,8 +2529,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000202
 <http://www.w3id.org/molsim#000202> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000200> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NMR"@en ;
                                     obo:IAO_0000115 "A technique that uses magnetic properties of atomic nuclei to determine molecular structure. It's particularly useful for studying protein dynamics in solution."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NMR"@en ;
                                     rdfs:label "nuclear magnetic resonance"@en .
 
 
@@ -2558,8 +2559,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000206
 <http://www.w3id.org/molsim#000206> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000204> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RESP"@en ;
                                     obo:IAO_0000115 "Restrained Electrostatic Potential fitting approach is an established means for placing partial charges on atoms at the right intensities to mimic the electrostatic field outside of the molecular surface."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "RESP"@en ;
                                     rdfs:label "restraint electrostatic potential"@en .
 
 
@@ -2615,16 +2616,16 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000214
 <http://www.w3id.org/molsim#000214> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000212> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA"@en ;
                                     obo:IAO_0000115 "Molecular Mechanics Poisson-Boltzmann Surface Area, a method for calculating binding free energies.  It combines molecular mechanics calculations with continuum solvation models to approximate the free energy of binding, typically using snapshots from molecular dynamics simulations."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA"@en ;
                                     rdfs:label "molecular mechanics Poisson-Boltzmann surface area"@en .
 
 
 ###  http://www.w3id.org/molsim#000215
 <http://www.w3id.org/molsim#000215> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000212> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMGBSA"@en ;
                                     obo:IAO_0000115 "MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method used to estimate binding free energies in molecular systems, particularly for protein-ligand interactions. It combines molecular mechanics calculations with a Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMGBSA"@en ;
                                     rdfs:label "molecular mechanics generalized Born surface area"@en .
 
 
@@ -2771,16 +2772,16 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000236
 <http://www.w3id.org/molsim#000236> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000353> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "WHAM"@en ;
                                     obo:IAO_0000115 "A technique for combining data from multiple simulations. It's often used to calculate free energy profiles from umbrella sampling simulations."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "WHAM"@en ;
                                     rdfs:label "weighted histogram analysis method"@en .
 
 
 ###  http://www.w3id.org/molsim#000237
 <http://www.w3id.org/molsim#000237> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PMF"@en ;
                                     obo:IAO_0000115 "PMF Method is a computational technique used in molecular dynamics simulations to calculate free energy profiles along a reaction coordinate. PMF provides the free energy profile along a chosen reaction coordinate, allowing researchers to understand the energetics of processes like protein folding, ligand binding, or ion transport, and typically use Umbrella Sampling."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PMF"@en ;
                                     rdfs:label "potential mean force method"@en .
 
 
@@ -2956,24 +2957,24 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000262
 <http://www.w3id.org/molsim#000262> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA"@en ;
                                     obo:IAO_0000115 "A computational method that combines molecular mechanics energies with continuum solvent approaches to calculate binding free energies between molecules. It uses the Poisson-Boltzmann equation to model solvent effects and is commonly applied to analyze protein-ligand or protein-protein interactions from molecular dynamics simulations."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA"@en ;
                                     rdfs:label "molecular mechanics Poisson Boltzmann surface area"@en .
 
 
 ###  http://www.w3id.org/molsim#000263
 <http://www.w3id.org/molsim#000263> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMGBSA"@en ;
                                     obo:IAO_0000115 "A computational method similar to MMPBSA but using the Generalized Born model instead of Poisson-Boltzmann calculations for modeling solvent effects. It provides a faster alternative to MMPBSA for estimating binding free energies, though potentially with lower accuracy depending on the system."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMGBSA"@en ;
                                     rdfs:label "molecular mechanics generalized Born surface area"@en .
 
 
 ###  http://www.w3id.org/molsim#000264
 <http://www.w3id.org/molsim#000264> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "LIE"@en ;
                                     obo:IAO_0000115 "LIE estimates binding free energy based on changes in electrostatic and vdW interaction energies between bound and unbound states using MD simulation snapshots."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "LIE"@en ;
                                     rdfs:label "linear interaction energy"@en .
 
 
@@ -2987,48 +2988,48 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000266
 <http://www.w3id.org/molsim#000266> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "FEP"@en ;
                                     obo:IAO_0000115 "Free-energy perturbation (FEP) is a method based on statistical mechanics that is used in computational chemistry for computing free-energy differences from molecular dynamics or Metropolis Monte Carlo simulations."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "FEP"@en ;
                                     rdfs:label "free energy perturbation"@en .
 
 
 ###  http://www.w3id.org/molsim#000267
 <http://www.w3id.org/molsim#000267> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "TI"@en ;
                                     obo:IAO_0000115 "TI calculation computes the free energy difference between two states A and B by coupling them via a parameter λ that serves as an additional, non-spatial coordinate."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "TI"@en ;
                                     rdfs:label "thermodynamic integration"@en .
 
 
 ###  http://www.w3id.org/molsim#000268
 <http://www.w3id.org/molsim#000268> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BFEE2"@en ;
                                     obo:IAO_0000115 "Binding Free-Energy Estimator 2 uses a rigorous statistical mechanical framework , suitable for a broad range of protein-ligand complexes and aims for chemical accuracy in a matter of days."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BFEE2"@en ;
                                     rdfs:label "binding free energy estimator 2"@en .
 
 
 ###  http://www.w3id.org/molsim#000269
 <http://www.w3id.org/molsim#000269> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000261> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NEQ"@en ;
                                     obo:IAO_0000115 "Methods to calculate free energies from non-equilibrium simulations. These can be more efficient than equilibrium methods for some systems."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NEQ"@en ;
                                     rdfs:label "non-equilibrium free energy calculations"@en .
 
 
 ###  http://www.w3id.org/molsim#000270
 <http://www.w3id.org/molsim#000270> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000068> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PBSA"@en ;
                                     obo:IAO_0000115 "Poisson-Boltzmann Surface Area, a method for calculating solvation free energies. It uses a continuum model to represent the solvent."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PBSA"@en ;
                                     rdfs:label "Poisson-Boltzmann surface area"@en .
 
 
 ###  http://www.w3id.org/molsim#000271
 <http://www.w3id.org/molsim#000271> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000068> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "GBSA"@en ;
                                     obo:IAO_0000115 "Generalized Born Surface Area, another method for calculating solvation free energies. It's generally faster than PBSA but may be less accurate for some systems."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "GBSA"@en ;
                                     rdfs:label "generalized Born surface area"@en .
 
 
@@ -3071,16 +3072,16 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000277> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000276> ;
                                     owl:disjointWith <http://www.w3id.org/molsim#000278> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "QH"@en ;
                                     obo:IAO_0000115 "Quasiharmonic mode analyses the estimate entropic contributions due to changes of solute flexibility upon binding."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "QH"@en ;
                                     rdfs:label "quasiharmonic mode"@en .
 
 
 ###  http://www.w3id.org/molsim#000278
 <http://www.w3id.org/molsim#000278> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000276> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NM"@en ;
                                     obo:IAO_0000115 "A method for analyzing vibrational modes in molecular systems. It can be used to estimate entropic contributions to free energies."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "NM"@en ;
                                     rdfs:label "normal mode"@en .
 
 
@@ -3108,8 +3109,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000282
 <http://www.w3id.org/molsim#000282> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000281> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "ROCS"@en ;
                                     obo:IAO_0000115 "ROCS is a computational tool for 3D molecular comparison that employs Gaussian functions to represent molecular shape and chemical features. It aligns molecules by optimizing volume and feature overlap, enabling shape-based virtual screening in drug discovery."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "ROCS"@en ;
                                     rdfs:label "rapid overlay of chemical structures"@en .
 
 
@@ -3193,8 +3194,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000294
 <http://www.w3id.org/molsim#000294> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000286> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "CBTI"@en ;
                                     obo:IAO_0000115 "Conveyor Belt Thermodynamic Integration (CBTI) approach is a newer method that uses multiple replicas moving in a coordinated fashion along λ."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "CBTI"@en ;
                                     rdfs:label "conveyor belt thermodynamic integration"@en .
 
 
@@ -3208,8 +3209,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000296
 <http://www.w3id.org/molsim#000296> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000459> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "FEW"@en ;
                                     obo:IAO_0000115 "Tool to compute free energy workflow,"@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "FEW"@en ;
                                     rdfs:label "free energy workflow"@en .
 
 
@@ -3239,16 +3240,16 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000301> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
                                     owl:disjointWith <http://www.w3id.org/molsim#000302> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BAR"@en ;
                                     obo:IAO_0000115 "Bennett Acceptance Ratio (BAR) estimates free energy differences between two states, minimizes statistical error in free energy estimates,  and iteratively solves for the free energy difference. It is more efficient than simple free energy perturbation methods."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "BAR"@en ;
                                     rdfs:label "Bennett acceptance ratio"@en .
 
 
 ###  http://www.w3id.org/molsim#000302
 <http://www.w3id.org/molsim#000302> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000300> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MBAR"@en ;
                                     obo:IAO_0000115 "Multi-state Bennett Acceptance Ratio (MBAR) uses data from simulations at multiple thermodynamic states, provides optimal estimates of free energy differences, and able estimate expectations of observables."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MBAR"@en ;
                                     rdfs:label "multi-state Bennett acceptance ratio"@en .
 
 
@@ -3479,8 +3480,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000448
 <http://www.w3id.org/molsim#000448> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000447> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PDB ID"@en ;
                                     obo:IAO_0000115 "A unique identifier assigned to structures in the Protein Data Bank. It typically consists of four alphanumeric characters."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "PDB ID"@en ;
                                     rdfs:label "protein database ID"@en .
 
 
@@ -3495,24 +3496,24 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 <http://www.w3id.org/molsim#000460> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000159> ,
                                                     <http://www.w3id.org/molsim#000459> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA tool"@en ;
                                     obo:IAO_0000115 "Molecular Mechanics Poisson-Boltzmann Surface Area, a method to calculate binding free energies. It combines molecular mechanics energies with continuum solvent models."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA tool"@en ;
                                     rdfs:label "molecular mechanics Poisson-Boltzmann surface area tool"@en .
 
 
 ###  http://www.w3id.org/molsim#000461
 <http://www.w3id.org/molsim#000461> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000460> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA module"@en ;
                                     obo:IAO_0000115 "MMPBSA Module is a module that can calculate MMPBSA calculation."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMPBSA module"@en ;
                                     rdfs:label "molecular mechanics Poisson-Boltzmann surface area module"@en .
 
 
 ###  http://www.w3id.org/molsim#000462
 <http://www.w3id.org/molsim#000462> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000459> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMGBSA tool"@en ;
                                     obo:IAO_0000115 "Molecular Mechanics Generalized Born Surface Area, similar to MMPBSA but using a different solvation model. It's generally faster but may be less accurate for some systems."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "MMGBSA tool"@en ;
                                     rdfs:label "molecular mechanics generalized Born surface area tool"@en .
 
 
@@ -3526,8 +3527,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000466
 <http://www.w3id.org/molsim#000466> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000227> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "OPM"@en ;
                                     obo:IAO_0000115 "OPM (Orientations of Proteins in Membranes) is a curated database that provides spatial arrangements of membrane proteins relative to the hydrocarbon core of the lipid bilayer."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "OPM"@en ;
                                     rdfs:label "orientations of proteins in membranes"@en .
 
 
@@ -3611,8 +3612,8 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ###  http://www.w3id.org/molsim#000492
 <http://www.w3id.org/molsim#000492> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://www.w3id.org/molsim#000490> ;
-                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "DeepView"@en ;
                                     obo:IAO_0000115 "A user-friendly application for analyzing protein structures. It allows visualization and manipulation of 3D protein structures from PDB files."@en ;
+                                    <http://www.geneontology.org/formats/oboInOwl#hasExactSynonym> "DeepView"@en ;
                                     rdfs:label "Swiss PDB viewer"@en .
 
 
@@ -3910,4 +3911,4 @@ obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
 ] .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
