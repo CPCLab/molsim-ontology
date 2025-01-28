@@ -1,54 +1,29 @@
-# molsim: Molecular Simulation Ontology
 
-## Introduction
+![Build Status](https://github.com/CPCLab/molsim-ontology/actions/workflows/qc.yml/badge.svg)
+# Molecular Simulation Ontology
 
-molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.
+Description: Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.
 
-## Scope
+More information can be found at http://obofoundry.org/ontology/molsim
 
-The ontology covers various aspects of molecular simulations, including:
+## Versions
 
-- Simulation processes (preparation, execution, analysis)
-- Force fields and models
-- Algorithms (thermostats, barostats, constraining algorithms)
-- Materials and solvation models
-- Interaction types and calculation methods
+### Stable release versions
 
-## Opening the Ontology
+The latest version of the ontology can always be found at:
 
-You can open and explore molsim using Protégé, a free, open-source ontology editor. Protégé is available in both desktop and web versions.
+http://purl.obolibrary.org/obo/molsim.owl
 
-### Desktop Version
+(note this will not show up until the request has been approved by obofoundry.org)
 
-1. Download and install Protégé desktop from: https://protege.stanford.edu/
+### Editors' version
 
-2. Launch Protégé
-
-3. Go to File > Open
-
-4. Navigate to the location of the `molsim.owl` file and open it
-
-5. Go to Protégé > Settings, on the Preferences window, go to the "New entities" tab, and set the parameters to the following values:
-   
-     ![protege_preferences.png](documentation/images/protege_preferences.png)
-
-### Web Version
-
-1. Visit WebProtégé: https://webprotege.stanford.edu/
-2. Create an account or log in
-3. Click on "Create Project" or "Upload Project"
-4. Upload the `molsim.owl` file
-
-Note: WebProtégé does not support a reasoner. Please use the desktop version instead to ensure proper logical checks.
-
-## Contributing
-
-We welcome contributions to improve and expand molsim. Please feel free to submit issues or pull requests to our repository.
-
-## License
-
-TBD
+Editors of this ontology should use the edit version, [src/ontology/molsim-edit.owl](src/ontology/molsim-edit.owl)
 
 ## Contact
 
-musyaffa (at) hhu (dot) de
+Please use this GitHub repository's [Issue tracker](https://github.com/CPCLab/molsim-ontology/issues) to request new terms/classes or report errors or specific concerns related to the ontology.
+
+## Acknowledgements
+
+This ontology repository was created using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
