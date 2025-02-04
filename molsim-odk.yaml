@@ -1,24 +1,25 @@
-## ontology metadata ##
 id: molsim
-title: Molecular Simulation Ontology
+title: "Molecular Simulation Ontology"
 description: "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools."
 contact:  f.musyaffa [at] fz-juelich [.] de
 creators:
   - IBG-4, Forschungszentrum Jülich, Germany & Heinrich Heine University Dusseldorf, Germany
 license: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-## general ODK Settings ##
+github_org: CPCLab
 repo: molsim-ontology
 git_main_branch: main
-github_org: CPCLab
-ci:
-  - github_actions
-documentation:
-  documentation_system: mkdocs
+allow_equivalents: all
+release_artefacts: 
+  - full
+primary_release: full
 export_formats:
   - owl
   - obo
+import_group:
+  products: 
+    - id: uo
+    - id: iao
 reasoner: ELK
-release_artefacts:
-  - full
-robot_java_args: '-Xmx8G'  # max RAM to be used by Robot in ODK
+robot_java_args: '-Xmx8G'
+documentation:
+  documentation_system: mkdocs

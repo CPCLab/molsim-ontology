@@ -30,6 +30,8 @@ products:
   - id: molsim/molsim-base.json
     name: "Molecular Simulation Ontology additional release in OBOJSon format"
 dependencies:
+- id: uo
+- id: iao
 
 tracker: https://github.com/CPCLab/molsim-ontology/issues
 license:
