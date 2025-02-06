@@ -11,12 +11,12 @@
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2025-02-05/molsim.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2025-02-06/molsim.owl"/>
         <dcterms:description>Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <rdfs:comment></rdfs:comment>
-        <owl:versionInfo>2025-02-05</owl:versionInfo>
+        <owl:versionInfo>2025-02-06</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -1269,7 +1269,7 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000431">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000420"/>
-        <obo:IAO_0000115 xml:lang="en">FoldX evaluates in-silico mutants by evaluating the difference in protein folding free energy between wild-type and a mutant of interest.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The FoldX independent replica run number that ensure reproducibility of results obtained and allows statistical analysis.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">run repetitions</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1290,7 +1290,7 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000434">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000420"/>
-        <obo:IAO_0000115 xml:lang="en">CAVER is a software tool for analysis and visualization of tunnels and channels in protein structures.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Probe radius specifies the minimum radius the tunnel must have to be identified.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">probe radius</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1557,7 +1557,6 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000509">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000362"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000214"/>
         <rdfs:range>
             <rdfs:Datatype>
                 <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -1578,7 +1577,6 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000510">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000362"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000214"/>
         <rdfs:range>
             <rdfs:Datatype>
                 <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -2286,7 +2284,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000067">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000065"/>
-        <obo:IAO_0000115 xml:lang="en">Explicit solvent model is solvent model that treat solvent molecules explicitly, including their coordinates and degrees of freedom.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A water model is used to simulate and thermodynamically calculate water clusters, liquid water, and aqueous solutions with explicit solvent.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">water model</rdfs:label>
     </owl:Class>
     
@@ -3754,28 +3752,6 @@
     
 
 
-    <!-- http://purl.obolibrary.org/obo/MOLSIM_000214 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000214">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000212"/>
-        <obo:IAO_0000115 xml:lang="en">Molecular Mechanics Poisson-Boltzmann Surface Area, a method for calculating binding free energies.  It combines molecular mechanics calculations with continuum solvation models to approximate the free energy of binding, typically using snapshots from molecular dynamics simulations.</obo:IAO_0000115>
-        <oboInOwl:hasExactSynonym xml:lang="en">MMPBSA</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">molecular mechanics Poisson-Boltzmann surface area</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/MOLSIM_000215 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000215">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000212"/>
-        <obo:IAO_0000115 xml:lang="en">MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method used to estimate binding free energies in molecular systems, particularly for protein-ligand interactions. It combines molecular mechanics calculations with a Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA.</obo:IAO_0000115>
-        <oboInOwl:hasExactSynonym xml:lang="en">MMGBSA</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">molecular mechanics generalized Born surface area</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000216 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000216">
@@ -4243,7 +4219,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000262">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000261"/>
-        <obo:IAO_0000115 xml:lang="en">A computational method that combines molecular mechanics energies with continuum solvent approaches to calculate binding free energies between molecules. It uses the Poisson-Boltzmann equation to model solvent effects and is commonly applied to analyze protein-ligand or protein-protein interactions from molecular dynamics simulations.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">MMPBSA (Molecular Mechanics Poisson-Boltzmann Surface Area) is a computational method for calculating binding free energies between molecules, such as protein-ligand or protein-protein interactions. It combines molecular mechanics calculations with the Poisson-Boltzmann equation for continuum solvation, typically using snapshots from molecular dynamics simulations.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">MMPBSA</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">molecular mechanics Poisson Boltzmann surface area</rdfs:label>
     </owl:Class>
@@ -4254,7 +4230,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000263">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000261"/>
-        <obo:IAO_0000115 xml:lang="en">A computational method similar to MMPBSA but using the Generalized Born model instead of Poisson-Boltzmann calculations for modeling solvent effects. It provides a faster alternative to MMPBSA for estimating binding free energies, though potentially with lower accuracy depending on the system.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method for estimating binding free energies in molecular systems, particularly protein-ligand interactions. It combines molecular mechanics calculations with the Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA..</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">MMGBSA</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">molecular mechanics generalized Born surface area</rdfs:label>
     </owl:Class>

@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2025-02-05/molsim-full.owl
+data-version: molsim/releases/2025-02-06/molsim-full.owl
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
@@ -7,7 +7,7 @@ ontology: molsim/molsim-full
 property_value: dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2025-02-05" xsd:string
+property_value: owl:versionInfo "2025-02-06" xsd:string
 
 [Term]
 id: MOLSIM:000000
@@ -422,7 +422,7 @@ is_a: MOLSIM:000065 ! solvation model
 [Term]
 id: MOLSIM:000067
 name: water model
-def: "Explicit solvent model is solvent model that treat solvent molecules explicitly, including their coordinates and degrees of freedom." []
+def: "A water model is used to simulate and thermodynamically calculate water clusters, liquid water, and aqueous solutions with explicit solvent." []
 is_a: MOLSIM:000065 ! solvation model
 
 [Term]
@@ -1324,20 +1324,6 @@ def: "A method that uses external forces to guide a system along a reaction coor
 is_a: MOLSIM:000003 ! execution
 
 [Term]
-id: MOLSIM:000214
-name: molecular mechanics Poisson-Boltzmann surface area
-def: "Molecular Mechanics Poisson-Boltzmann Surface Area, a method for calculating binding free energies.  It combines molecular mechanics calculations with continuum solvation models to approximate the free energy of binding, typically using snapshots from molecular dynamics simulations." []
-synonym: "MMPBSA" EXACT []
-is_a: MOLSIM:000212 ! free energy calculation
-
-[Term]
-id: MOLSIM:000215
-name: molecular mechanics generalized Born surface area
-def: "MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method used to estimate binding free energies in molecular systems, particularly for protein-ligand interactions. It combines molecular mechanics calculations with a Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA." []
-synonym: "MMGBSA" EXACT []
-is_a: MOLSIM:000212 ! free energy calculation
-
-[Term]
 id: MOLSIM:000216
 name: visualization
 def: "The process of creating visual representations of molecular structures and simulation results. It helps in understanding complex 3D structures and their dynamics." []
@@ -1621,7 +1607,7 @@ is_a: MOLSIM:000109 ! method
 [Term]
 id: MOLSIM:000262
 name: molecular mechanics Poisson Boltzmann surface area
-def: "A computational method that combines molecular mechanics energies with continuum solvent approaches to calculate binding free energies between molecules. It uses the Poisson-Boltzmann equation to model solvent effects and is commonly applied to analyze protein-ligand or protein-protein interactions from molecular dynamics simulations." []
+def: "MMPBSA (Molecular Mechanics Poisson-Boltzmann Surface Area) is a computational method for calculating binding free energies between molecules, such as protein-ligand or protein-protein interactions. It combines molecular mechanics calculations with the Poisson-Boltzmann equation for continuum solvation, typically using snapshots from molecular dynamics simulations." []
 synonym: "MMPBSA" EXACT []
 is_a: MOLSIM:000261 ! binding free energy calculation method
 disjoint_from: MOLSIM:000263 ! molecular mechanics generalized Born surface area
@@ -1630,7 +1616,7 @@ disjoint_from: MOLSIM:000263 ! molecular mechanics generalized Born surface area
 [Term]
 id: MOLSIM:000263
 name: molecular mechanics generalized Born surface area
-def: "A computational method similar to MMPBSA but using the Generalized Born model instead of Poisson-Boltzmann calculations for modeling solvent effects. It provides a faster alternative to MMPBSA for estimating binding free energies, though potentially with lower accuracy depending on the system." []
+def: "MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method for estimating binding free energies in molecular systems, particularly protein-ligand interactions. It combines molecular mechanics calculations with the Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA.." []
 synonym: "MMGBSA" EXACT []
 is_a: MOLSIM:000261 ! binding free energy calculation method
 

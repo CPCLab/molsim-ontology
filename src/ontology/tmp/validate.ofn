@@ -11,12 +11,12 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
-<http://purl.obolibrary.org/obo/molsim/releases/2025-02-05/molsim.owl>
+<http://purl.obolibrary.org/obo/molsim/releases/2025-02-06/molsim.owl>
 Annotation(dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.")
 Annotation(dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
-Annotation(owl:versionInfo "2025-02-05")
+Annotation(owl:versionInfo "2025-02-06")
 
 Declaration(Class(obo:MOLSIM_000000))
 Declaration(Class(obo:MOLSIM_000001))
@@ -230,8 +230,6 @@ Declaration(Class(obo:MOLSIM_000210))
 Declaration(Class(obo:MOLSIM_000211))
 Declaration(Class(obo:MOLSIM_000212))
 Declaration(Class(obo:MOLSIM_000213))
-Declaration(Class(obo:MOLSIM_000214))
-Declaration(Class(obo:MOLSIM_000215))
 Declaration(Class(obo:MOLSIM_000216))
 Declaration(Class(obo:MOLSIM_000217))
 Declaration(Class(obo:MOLSIM_000218))
@@ -1276,7 +1274,7 @@ SubDataPropertyOf(obo:MOLSIM_000430 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000431 (run repetitions)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000431 "FoldX evaluates in-silico mutants by evaluating the difference in protein folding free energy between wild-type and a mutant of interest."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000431 "The FoldX independent replica run number that ensure reproducibility of results obtained and allows statistical analysis."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000431 "run repetitions"@en)
 SubDataPropertyOf(obo:MOLSIM_000431 obo:MOLSIM_000420)
 
@@ -1289,7 +1287,7 @@ SubDataPropertyOf(obo:MOLSIM_000433 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000434 (probe radius)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000434 "CAVER is a software tool for analysis and visualization of tunnels and channels in protein structures."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000434 "Probe radius specifies the minimum radius the tunnel must have to be identified."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000434 "probe radius"@en)
 SubDataPropertyOf(obo:MOLSIM_000434 obo:MOLSIM_000420)
 
@@ -1459,7 +1457,6 @@ DataPropertyRange(obo:MOLSIM_000500 xsd:boolean)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000509 "A parameter representing the dielectric properties inside a molecule (typically a protein or ligand) during MMPBSA calculations. It reflects how the molecule's internal environment responds to electric fields and affects the calculation of electrostatic interactions."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000509 "internal dielectric constant"@en)
 SubDataPropertyOf(obo:MOLSIM_000509 obo:MOLSIM_000362)
-DataPropertyDomain(obo:MOLSIM_000509 obo:MOLSIM_000214)
 DataPropertyRange(obo:MOLSIM_000509 DatatypeRestriction(xsd:float xsd:minInclusive "1.0"^^xsd:float))
 
 # Data Property: obo:MOLSIM_000510 (external dielectric constant)
@@ -1467,7 +1464,6 @@ DataPropertyRange(obo:MOLSIM_000509 DatatypeRestriction(xsd:float xsd:minInclusi
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000510 "A parameter representing the dielectric properties of the environment surrounding the molecule (typically the solvent) during MMPBSA calculations. It characterizes how the surrounding medium responds to electric fields and is usually set to approximate water's dielectric properties (around 80)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000510 "external dielectric constant"@en)
 SubDataPropertyOf(obo:MOLSIM_000510 obo:MOLSIM_000362)
-DataPropertyDomain(obo:MOLSIM_000510 obo:MOLSIM_000214)
 DataPropertyRange(obo:MOLSIM_000510 DatatypeRestriction(xsd:float xsd:minInclusive "1.0"^^xsd:float))
 
 
@@ -1886,7 +1882,7 @@ SubClassOf(obo:MOLSIM_000066 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000067 (water model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000067 "Explicit solvent model is solvent model that treat solvent molecules explicitly, including their coordinates and degrees of freedom."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000067 "A water model is used to simulate and thermodynamically calculate water clusters, liquid water, and aqueous solutions with explicit solvent."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000067 "water model"@en)
 SubClassOf(obo:MOLSIM_000067 obo:MOLSIM_000065)
 
@@ -2776,20 +2772,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000213 "A method that uses extern
 AnnotationAssertion(rdfs:label obo:MOLSIM_000213 "adaptive steered molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000213 obo:MOLSIM_000003)
 
-# Class: obo:MOLSIM_000214 (molecular mechanics Poisson-Boltzmann surface area)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000214 "Molecular Mechanics Poisson-Boltzmann Surface Area, a method for calculating binding free energies.  It combines molecular mechanics calculations with continuum solvation models to approximate the free energy of binding, typically using snapshots from molecular dynamics simulations."@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000214 "MMPBSA"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000214 "molecular mechanics Poisson-Boltzmann surface area"@en)
-SubClassOf(obo:MOLSIM_000214 obo:MOLSIM_000212)
-
-# Class: obo:MOLSIM_000215 (molecular mechanics generalized Born surface area)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000215 "MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method used to estimate binding free energies in molecular systems, particularly for protein-ligand interactions. It combines molecular mechanics calculations with a Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA."@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000215 "MMGBSA"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000215 "molecular mechanics generalized Born surface area"@en)
-SubClassOf(obo:MOLSIM_000215 obo:MOLSIM_000212)
-
 # Class: obo:MOLSIM_000216 (visualization)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000216 "The process of creating visual representations of molecular structures and simulation results. It helps in understanding complex 3D structures and their dynamics."@en)
@@ -3071,14 +3053,14 @@ SubClassOf(obo:MOLSIM_000261 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000262 (molecular mechanics Poisson Boltzmann surface area)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000262 "A computational method that combines molecular mechanics energies with continuum solvent approaches to calculate binding free energies between molecules. It uses the Poisson-Boltzmann equation to model solvent effects and is commonly applied to analyze protein-ligand or protein-protein interactions from molecular dynamics simulations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000262 "MMPBSA (Molecular Mechanics Poisson-Boltzmann Surface Area) is a computational method for calculating binding free energies between molecules, such as protein-ligand or protein-protein interactions. It combines molecular mechanics calculations with the Poisson-Boltzmann equation for continuum solvation, typically using snapshots from molecular dynamics simulations."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000262 "MMPBSA"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000262 "molecular mechanics Poisson Boltzmann surface area"@en)
 SubClassOf(obo:MOLSIM_000262 obo:MOLSIM_000261)
 
 # Class: obo:MOLSIM_000263 (molecular mechanics generalized Born surface area)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000263 "A computational method similar to MMPBSA but using the Generalized Born model instead of Poisson-Boltzmann calculations for modeling solvent effects. It provides a faster alternative to MMPBSA for estimating binding free energies, though potentially with lower accuracy depending on the system."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000263 "MMGBSA (Molecular Mechanics Generalized Born Surface Area) is a computational method for estimating binding free energies in molecular systems, particularly protein-ligand interactions. It combines molecular mechanics calculations with the Generalized Born model for implicit solvation, offering a faster but potentially less accurate alternative to MMPBSA.."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000263 "MMGBSA"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000263 "molecular mechanics generalized Born surface area"@en)
 SubClassOf(obo:MOLSIM_000263 obo:MOLSIM_000261)
