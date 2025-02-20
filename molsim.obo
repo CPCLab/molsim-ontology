@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2025-02-10
+data-version: releases/2025-02-20
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
@@ -7,7 +7,7 @@ ontology: molsim
 property_value: dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2025-02-10" xsd:string
+property_value: owl:versionInfo "2025-02-20" xsd:string
 
 [Term]
 id: MOLSIM:000000
@@ -2241,6 +2241,98 @@ id: MOLSIM:000503
 name: determination by p-value
 def: "A statistical approach to determine the significance of results. The p-value indicates the probability of obtaining results at least as extreme as those observed, assuming the null hypothesis is true." []
 is_a: MOLSIM:000352 ! mathematical techniques
+
+[Term]
+id: UO:0000000
+name: unit
+comment: "A unit of measurement is a standardized quantity of a physical quality." [Wikipedia:Wikipedia]
+
+[Term]
+id: UO:0000001
+name: length unit
+comment: "A unit which is a standard measure of the distance between two points." [Wikipedia:Wikipedia]
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000003
+name: time unit
+comment: "A unit which is a standard measure of the dimension in which events occur in sequence." [Wikipedia:Wikipedia]
+synonym: "time derived unit" EXACT []
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000019
+name: angstrom
+comment: "A length unit which is equal to 10 [-10] m." [NIST:NIST]
+synonym: "Å" EXACT []
+is_a: UO:1000019 ! angstrom based unit
+
+[Term]
+id: UO:0000030
+name: picosecond
+comment: "A time unit which is equal to 10^[-12] s." [NIST:NIST]
+synonym: "ps" EXACT []
+is_a: UO:1000010 ! second based unit
+
+[Term]
+id: UO:0000051
+name: concentration unit
+comment: "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance." [UOC:GVG]
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000060
+name: speed/velocity unit
+comment: "A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity." [Wikipedia:Wikipedia]
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000061
+name: unit of molarity
+comment: "A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution." [UOC:GVG]
+is_a: UO:0000051 ! concentration unit
+
+[Term]
+id: UO:0000063
+name: millimolar
+comment: "A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M." [UOC:GVG]
+synonym: "mM" EXACT []
+is_a: UO:1000062 ! molar based unit
+
+[Term]
+id: UO:0000094
+name: meter per second
+comment: "A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second." [NIST:NIST]
+synonym: "m/s" EXACT []
+synonym: "metre per second" EXACT []
+is_a: UO:1000094 ! meter per second based unit
+
+[Term]
+id: UO:0000150
+name: nanosecond
+comment: "A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s." [NIST:NIST]
+synonym: "ns" EXACT []
+is_a: UO:1000010 ! second based unit
+
+[Term]
+id: UO:1000010
+name: second based unit
+is_a: UO:0000003 ! time unit
+
+[Term]
+id: UO:1000019
+name: angstrom based unit
+is_a: UO:0000001 ! length unit
+
+[Term]
+id: UO:1000062
+name: molar based unit
+is_a: UO:0000061 ! unit of molarity
+
+[Term]
+id: UO:1000094
+name: meter per second based unit
+is_a: UO:0000060 ! speed/velocity unit
 
 [Typedef]
 id: MOLSIM:000297
