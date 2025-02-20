@@ -5,9 +5,5 @@
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
-		--lower-term "UO:0000019" \
-		--lower-term "UO:0000063" \
-		--lower-term "UO:0000030" \
-		--lower-term "UO:0000150" \
-		--lower-term "UO:0000094" \
+		--lower-terms $(IMPORTDIR)/uo_terms.txt \
 		--output $@
