@@ -79,7 +79,7 @@ curl https://raw.githubusercontent.com/INCATools/ontology-development-kit/refs/h
 
 A successful seeding command will generate a set of files and folders. Push the content of the `target` directory to GitHub. Check `/src/ontology/molsim-odk.yaml` for the detailed configuration made for MOLSIM.
 
-## Modify the content of the molsim-odk.yaml Configuration file
+### 2. Modify the content of the molsim-odk.yaml Configuration file
 
 To implement MIREOT extraction, use custom mode in the `/src/ontology/molsim-odk.yaml` configuration. This can be achieved by:
 
@@ -94,7 +94,7 @@ import_group:
 
 Save the configuration file.
 
-### 2. Configure Terms to Import
+### 3. Configure Terms to Import
 
 Add the list of terms you want to import to `src/ontology/imports/uo_terms.txt`, for example:
 
@@ -106,7 +106,7 @@ UO:0000150 # millimolar
 UO:0000094 # unit of molarity
 ```
 
-### 3. Update molsim.Makefile
+### 4. Update molsim.Makefile
 
 Add the following rule to the `molsim.Makefile` to specify how the import should be generated:
 
@@ -130,7 +130,7 @@ sh run.sh make refresh-uo
 
 This will create a file `/src/ontology/imports/uo_import.owl`, which includes a subset of the desired terms as specified in the `[src/ontology/]imports/uo_terms.txt` file, along with their superclasses.
 
-### 4. Update molsim-edit.owl
+### 5. Update molsim-edit.owl
 
 Assuming you have your MOLSIM ontology file already converted to the OFN format and placed as `[src/ontology/moslim-edit.owl`, open it and get into the following linfe for MOLSIM ontology declaration:
 
@@ -146,7 +146,7 @@ Import(<http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl>)
 
 and save the file.
 
-### 5. Update src/ontology/catalog-v001.xml
+### 6. Update src/ontology/catalog-v001.xml
 
 Add the following line within the `<group>` tag:
 
@@ -156,7 +156,7 @@ Add the following line within the `<group>` tag:
 
 This redirects the PURL URI to the local file containing the extracted terms.
 
-## Integration
+### 7. Integration
 
 To integrate the extraction result with the MOLSIM ontology, run:
 
