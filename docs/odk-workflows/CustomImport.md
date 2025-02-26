@@ -118,9 +118,25 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
         --output $@
 ```
 
-This rule tells ROBOT to use the MIREOT method to extract terms from the mirrored UO ontology based on the terms listed in `uo_terms.txt`.
+This rule tells ROBOT to use the MIREOT method to extract terms from the mirrored UO ontology based on the terms listed in `uo_terms.txt`. For details:
 
-Then run:
+This line is a Makefile rule that defines how to create the file `$(IMPORTDIR)/uo_import.owl` from the file `$(MIRRORDIR)/uo.owl`. The rule has two parts:
+
+1. The dependency declaration: `$(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl`
+   - This states that the target file `$(IMPORTDIR)/uo_import.owl` depends on the prerequisite file `$(MIRRORDIR)/uo.owl`
+   - If the prerequisite file is newer than the target, or if the target doesn't exist, the commands will be executed
+
+2. The command: `$(ROBOT) extract --input $< --method MIREOT --lower-terms $(IMPORTDIR)/uo_terms.txt --output $@`
+   - This command uses the ROBOT tool to extract a subset of an ontology
+   - It performs a MIREOT extraction
+   - `$<` is a special variable that refers to the first prerequisite (`$(MIRRORDIR)/uo.owl`)
+   - `$@` is a special variable that refers to the target (`$(IMPORTDIR)/uo_import.owl`)
+   - The extraction uses terms listed in the file `$(IMPORTDIR)/uo_terms.txt` as the lower boundary
+   - The MIREOT method preserves the hierarchy of the input ontology but doesn't try to preserve the full set of logical entailments
+
+In the end, this rule creates a subset of the Units of Measurement (UO) ontology by extracting only the terms specified in the terms file, using the ROBOT ontology tool with the MIREOT extraction method.
+
+Once the molsim.Makefile is modified, run:
 
 ```bash
 sh run.sh make update_repo
@@ -128,11 +144,11 @@ sh run.sh make update_repo
 sh run.sh make refresh-uo
 ```
 
-This will create a file `/src/ontology/imports/uo_import.owl`, which includes a subset of the desired terms as specified in the `[src/ontology/]imports/uo_terms.txt` file, along with their superclasses.
+This will create a file `/src/ontology/imports/uo_import.owl`, which includes a subset of the desired terms as specified in the `src/ontology/imports/uo_terms.txt` file, along with their superclasses.
 
 ### 5. Update molsim-edit.owl
 
-Assuming you have your MOLSIM ontology file already converted to the OFN format and placed as `[src/ontology/moslim-edit.owl`, open it and get into the following linfe for MOLSIM ontology declaration:
+Assuming you have your MOLSIM ontology file already converted to the OFN format and placed as `src/ontology/moslim-edit.owl`, open it and get into the following linfe for MOLSIM ontology declaration:
 
 ```
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
@@ -165,6 +181,12 @@ sh run.sh make prepare_release
 ```
 
 This completes the custom import process, allowing you to use the specified UO terms and their superclasses in your MOLSIM ontology.
+
+
+### Acknnowledgement
+
+Thanks to Damien Goutte-Gattat (at gouttegd) and Nico Matentzoglu (at matentzn) for the help with setting up ODK and the import configuration.
+
 
 ### Additional Reading
 
