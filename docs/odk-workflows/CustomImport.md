@@ -69,7 +69,6 @@ allow_equivalents: all
 import_group:
  products:
    - id: uo
-     module_type: custom
 ```
 
 After saving, run the seed command:
@@ -78,11 +77,26 @@ After saving, run the seed command:
 curl https://raw.githubusercontent.com/INCATools/ontology-development-kit/refs/heads/master/seed-via-docker.sh | bash -s -- --clean -C molsim-odk.yaml
 ```
 
-A successful seeding command will generate a set of files and folders. Push the content of the target directory to GitHub. Check `/src/ontology/molsim-odk.yaml` for the detailed configuration made for MOLSIM.
+A successful seeding command will generate a set of files and folders. Push the content of the `target` directory to GitHub. Check `/src/ontology/molsim-odk.yaml` for the detailed configuration made for MOLSIM.
+
+## Modify the content of the molsim-odk.yaml Configuration file
+
+To implement MIREOT extraction, use custom mode in the `/src/ontology/molsim-odk.yaml` configuration. This can be achieved by:
+
+```yaml
+allow_equivalents: all
+
+import_group:
+ products:
+   - id: uo
+     module_type: custom
+```
+
+Save the configuration file.
 
 ### 2. Configure Terms to Import
 
-Add the list of terms you want to import to `src/ontology/imports/uo_terms.txt`:
+Add the list of terms you want to import to `src/ontology/imports/uo_terms.txt`, for example:
 
 ```
 UO:0000019 # angstrom
@@ -92,14 +106,6 @@ UO:0000150 # millimolar
 UO:0000094 # unit of molarity
 ```
 
-Then run:
-
-```bash
-sh run.sh make refresh-uo
-```
-
-This will create a file `/src/ontology/imports/uo_import.owl`.
-
 ### 3. Update molsim.Makefile
 
 Add the following rule to the `molsim.Makefile` to specify how the import should be generated:
@@ -107,26 +113,38 @@ Add the following rule to the `molsim.Makefile` to specify how the import should
 ```makefile
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
     $(ROBOT) extract --input $< \
-    --method MIREOT \
-    --lower-terms $(IMPORTDIR)/uo_terms.txt \
-    --output $@
+        --method MIREOT \
+        --lower-terms $(IMPORTDIR)/uo_terms.txt \
+        --output $@
 ```
 
 This rule tells ROBOT to use the MIREOT method to extract terms from the mirrored UO ontology based on the terms listed in `uo_terms.txt`.
 
+Then run:
+
+```bash
+sh run.sh make update_repo
+
+sh run.sh make refresh-uo
+```
+
+This will create a file `/src/ontology/imports/uo_import.owl`, which includes a subset of the desired terms as specified in the `[src/ontology/]imports/uo_terms.txt` file, along with their superclasses.
+
 ### 4. Update molsim-edit.owl
 
-After the ontology declaration:
+Assuming you have your MOLSIM ontology file already converted to the OFN format and placed as `[src/ontology/moslim-edit.owl`, open it and get into the following linfe for MOLSIM ontology declaration:
 
 ```
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
 ```
 
-Add the import statement:
+Below that line, add the import statement:
 
 ```
 Import(<http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl>)
 ```
+
+and save the file.
 
 ### 5. Update src/ontology/catalog-v001.xml
 
@@ -134,7 +152,6 @@ Add the following line within the `<group>` tag:
 
 ```xml
 <uri name="http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl" uri="imports/uo_import.owl"/>
-
 ```
 
 This redirects the PURL URI to the local file containing the extracted terms.
@@ -144,12 +161,10 @@ This redirects the PURL URI to the local file containing the extracted terms.
 To integrate the extraction result with the MOLSIM ontology, run:
 
 ```bash
-sh run.sh make prepare_install
+sh run.sh make prepare_release
 ```
 
 This completes the custom import process, allowing you to use the specified UO terms and their superclasses in your MOLSIM ontology.
-
-
 
 ### Additional Reading
 

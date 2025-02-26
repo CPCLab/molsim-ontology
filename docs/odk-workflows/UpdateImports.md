@@ -12,6 +12,7 @@ Importing a new term is split into two sub-phases:
 2. Refreshing imports dynamically
 
 ### Declaring terms to be imported
+
 There are three ways to declare terms that are to be imported from an external ontology. Choose the appropriate one for your particular scenario (all three can be used in parallel if need be):
 
 1. Protégé-based declaration
@@ -24,15 +25,14 @@ This workflow is to be avoided, but may be appropriate if the editor _does not h
 This approach also applies to ontologies that use base module import approach.
 
 1. Open your ontology (edit file) in Protégé (5.5+).
-1. Select 'owl:Thing'
-1. Add a new class as usual.
-1. Paste the _full iri_ in the 'Name:' field, for example, http://purl.obolibrary.org/obo/CHEBI_50906.
-1. Click 'OK'
+2. Select 'owl:Thing'
+3. Add a new class as usual.
+4. Paste the _full iri_ in the 'Name:' field, for example, http://purl.obolibrary.org/obo/CHEBI_50906.
+5. Click 'OK'
 
 <img src="https://raw.githubusercontent.com/INCATools/ontology-development-kit/master/docs/img/AddingClasses.png" alt="Adding Classes" />
 
 Now you can use this term for example to construct logical definitions. The next time the imports are refreshed (see how to refresh [here](#refresh-imports)), the metadata (labels, definitions, etc.) for this term are imported from the respective external source ontology and becomes visible in your ontology.
-
 
 #### Using term files
 
@@ -45,7 +45,7 @@ GO:0008151
 
 Now you can run the [refresh imports workflow](#refresh-imports)) and the two terms will be imported.
 
-#### Using the custom import template 
+#### Using the custom import template
 
 This workflow is appropriate if:
 
@@ -63,10 +63,10 @@ Now you can manage your imported terms directly in the custom external terms tem
 The main purpose of the custom import template is to enable the management off all terms to be imported in a centralised place. To enable that, you do not have to do anything other than maintaining the template. So if you, say currently import `APOLLO_SV:00000480`, and you wish to import `APOLLO_SV:00000532`, you simply add a row like this:
 
 ```
-ID	Entity Type
-ID	TYPE
-APOLLO_SV:00000480	owl:Class
-APOLLO_SV:00000532	owl:Class
+ID    Entity Type
+ID    TYPE
+APOLLO_SV:00000480    owl:Class
+APOLLO_SV:00000532    owl:Class
 ```
 
 When the imports are refreshed [see imports refresh workflow](#refresh-imports), the term(s) will simply be imported from the configured ontologies.
@@ -80,6 +80,7 @@ _WARNING_. Note that doing this is a _widespread antipattern_ (see related [issu
 If you want to refresh the import yourself (this may be necessary to pass the travis tests), and you have the ODK installed, you can do the following (using go as an example):
 
 First, you navigate in your terminal to the ontology directory (underneath src in your hpo root directory). 
+
 ```
 cd src/ontology
 ```
@@ -159,6 +160,7 @@ If your ontology uses Base Module approach, please use the following steps:
 First, add the term to be imported to the term file associated with it (see above "Using term files" section if this is not clear to you)
 
 Next, you navigate in your terminal to the ontology directory (underneath src in your hpo root directory). 
+
 ```
 cd src/ontology
 ```
@@ -168,9 +170,9 @@ Then refresh imports by running
 ```
 sh run.sh make imports/merged_import.owl
 ```
+
 Note: if your mirrors are updated, you can run `sh run.sh make no-mirror-refresh-merged`
 
 This requires quite a bit of memory on your local machine, so if you encounter an error, it might be a lack of memory on your computer. A solution would be to create a ticket in an issue tracker requesting for the term to be imported, and one of the local devs should pick this up and run the import for you.
 
 Lastly, restart Protégé, and the term should be imported in ready to be used.
-
