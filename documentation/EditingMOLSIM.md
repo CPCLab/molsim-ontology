@@ -34,7 +34,7 @@ For importing new terms or adding components that are not covered by imports, pl
 4. Navigate to the location of the `src/ontology/molsim-edit.owl` file and open it
 5. Go to Protégé > Settings, on the Preferences window, go to the "New entities" tab, and set the parameters to the following values:
    
-     ![protege_preferences.png](documentation/images/protege_preferences.png)
+     ![protege_preferences.png](images/protege_preferences.png)
    
    
    
