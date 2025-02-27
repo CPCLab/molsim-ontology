@@ -18,13 +18,11 @@ The ontology covers various aspects of molecular simulations, including:
 
 You can open and explore molsim using Protégé, a free, open-source ontology editor. Protégé is available in both desktop and web versions.
 
-## Opening the Ontology
-
 ### IMPORTANT! 
-To edit (adding new terms) in MOLSIM, please only do so in the `src/ontology/molsim-edit.owl` file. 
-The rest should be taken care with ODK commands.
+To edit (adding/removing new terms) in MOLSIM, please only do so in the `src/ontology/molsim-edit.owl` file. 
+The rest should be taken care of with ODK commands.
 
-For importing new terms or adding components that are not covered by imports, plese refer to the custom import or adding components manual, respectively. 
+For importing new terms or adding components that are not covered by imports, please refer to the custom import or adding components manual, respectively. 
 
 ### Desktop Version
 
