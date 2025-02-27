@@ -23,6 +23,28 @@ MOLSIM:000464	angstrom per nanosecond	Å/ns|angstrom/nanosecond	A unit of veloci
 MOLSIM:000485	kilocalorie per mole	kcal/mol|kilocalorie/mole	A unit of energy per amount of substance, defined as one kilocalorie of energy (1000 thermochemical gram calories) per one mole of substance. It is commonly used in chemistry and biology for thermodynamic quantities.	UO:0000111
 MOLSIM:000486	kilocalorie per mole per square angstrom	kcal/mol/Å^2|kilocalorie/mole/angstrom^2	A unit of energy per amount of substance per area, commonly used in molecular dynamics simulations for expressing force constants and restraint weights.	UO:0000111
 ```
+The table above looks like this on a readable view:
+
+
+| ID | Label | Alternative Term | Definition | Parent Class |
+|---|---|---|---|---|
+| ID | A rdfs:label | A oboInOwl:hasExactSynonym | A IAO:0000115 | SC % |
+| MOLSIM:000214 | femtosecond | fs | An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second. | UO:1000010 |
+| MOLSIM:000215 | atmosphere | atm | A unit of pressure defined as 101,325 pascals (Pa) or 1.01325 bar, approximately equal to the average atmospheric pressure at sea level on Earth. | UO:0000109 |
+| MOLSIM:000464 | angstrom per nanosecond | Å/ns\|angstrom/nanosecond | A unit of velocity, representing one angstrom (10^-10 meters) of distance traveled per nanosecond (10^-9 seconds) of time. It is commonly used in molecular dynamics simulations and studies of atomic-scale processes. | UO:0000060 |
+| MOLSIM:000485 | kilocalorie per mole | kcal/mol\|kilocalorie/mole | A unit of energy per amount of substance, defined as one kilocalorie of energy (1000 thermochemical gram calories) per one mole of substance. It is commonly used in chemistry and biology for thermodynamic quantities. | UO:0000111 |
+| MOLSIM:000486 | kilocalorie per mole per square angstrom | kcal/mol/Å^2\|kilocalorie/mole/angstrom^2 | A unit of energy per amount of substance per area, commonly used in molecular dynamics simulations for expressing force constants and restraint weights. | UO:0000111 |
+
+#### Template Structure Explanation
+
+The template uses the following columns:
+- **ID**: The unique identifier for the term (MOLSIM:xxxxxx)
+- **Label**: The primary name of the term (rdfs:label)
+- **Alternative Term**: Synonyms for the term (oboInOwl:hasExactSynonym)
+- **Definition**: The formal definition of the term (IAO:0000115)
+- **Parent Class**: The superclass of the term (SC %)
+
+Multiple alternative terms can be specified using the pipe character (|) as a separator.
 
 ### 2. Update the Makefile
 
@@ -87,19 +109,8 @@ sh run.sh make prepare_release     # integrate ontology imports with components
 
 After running these commands, verify that the components have been added to the ontology following the class hierarchy specified in the TSV template.
 
-## Template Structure Explanation
-
-The template uses the following columns:
-- **ID**: The unique identifier for the term (MOLSIM:xxxxxx)
-- **Label**: The primary name of the term (rdfs:label)
-- **Alternative Term**: Synonyms for the term (oboInOwl:hasExactSynonym)
-- **Definition**: The formal definition of the term (IAO:0000115)
-- **Parent Class**: The superclass of the term (SC %)
-
-Multiple alternative terms can be specified using the pipe character (|) as a separator.
 
 ## Further Resources
 
 - [ROBOT Template Documentation](http://robot.obolibrary.org/template)
 - [ODK Documentation](https://github.com/INCATools/ontology-development-kit/blob/master/docs/index.md)
-- [OBO Foundry Principles](https://obofoundry.org/principles/fp-000-summary.html)
