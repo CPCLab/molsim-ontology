@@ -1,3 +1,5 @@
+## SPARQL Queries Example for validating MOLSIM
+
 SPARQL Queries can be used to check the ontology consistencies. In Protégé, the queries can be done via its SPARQL Query window. This is activated via *Window -> Tabs -> SPARQL Query*.
 
 Here are some examples:
