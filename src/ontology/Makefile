@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                da4ddc87b5f74f06221ceb72be365fbe1416a1779d1a5ee197ebac0767165dea
+CONFIG_HASH=                60557d0aa9c74e6e3b2073b5f2b751826eeb296eccb2a683b73d227dbfadde99
 
 
 # ----------------------------------------
@@ -159,7 +159,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  uo
+IMPORTS =  uo ncit
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -368,6 +368,10 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms_combined.txt
 
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
+## Module for ontology: ncit
+
+$(IMPORTDIR)/ncit_import.owl: $(MIRRORDIR)/ncit.owl
+	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
 
 .PHONY: refresh-imports
 refresh-imports:
@@ -438,6 +442,14 @@ ifeq ($(strip $(MIR)),true)
 mirror-uo: | $(TMPDIR)
 	curl -L $(OBOBASE)/uo.owl --create-dirs -o $(TMPDIR)/uo-download.owl --retry 4 --max-time 200 && \
 	$(ROBOT) convert -i $(TMPDIR)/uo-download.owl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: ncit
+.PHONY: mirror-ncit
+.PRECIOUS: $(MIRRORDIR)/ncit.owl
+mirror-ncit: | $(TMPDIR)
+	curl -L $(OBOBASE)/ncit.owl --create-dirs -o $(TMPDIR)/ncit-download.owl --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(TMPDIR)/ncit-download.owl -o $(TMPDIR)/$@.owl
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)

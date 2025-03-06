@@ -7,6 +7,11 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/uo_terms.txt \
 		--output $@
+$(IMPORTDIR)/ncit_import.owl: $(MIRRORDIR)/ncit.owl
+	$(ROBOT) extract --input $< \
+		--method MIREOT \
+		--lower-terms $(IMPORTDIR)/ncit_terms.txt \
+		--output $@
 $(COMPONENTSDIR)/molsim_units_component.owl: $(SRC) templates/molsim_units_component.tsv
 	$(ROBOT) template --template templates/molsim_units_component.tsv \
 		--prefix "MOLSIM: http://purl.obolibrary.org/obo/MOLSIM_" \
