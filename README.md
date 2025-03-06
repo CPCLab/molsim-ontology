@@ -1,8 +1,21 @@
 
 ![Build Status](https://github.com/CPCLab/molsim-ontology/actions/workflows/qc.yml/badge.svg)
-# Molecular Simulation Ontology
 
-Description: Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.
+# molsim: Molecular Simulation Ontology
+
+## Introduction
+
+molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.
+
+## Scope
+
+The ontology covers various aspects of molecular simulations, including:
+
+- Simulation processes (preparation, execution, analysis)
+- Force fields and models
+- Algorithms (thermostats, barostats, constraining algorithms)
+- Materials and solvation models
+- Interaction types and calculation methods
 
 More information can be found at http://obofoundry.org/ontology/molsim
 

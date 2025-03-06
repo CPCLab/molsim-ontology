@@ -1,19 +1,3 @@
-# molsim: Molecular Simulation Ontology
-
-## Introduction
-
-molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.
-
-## Scope
-
-The ontology covers various aspects of molecular simulations, including:
-
-- Simulation processes (preparation, execution, analysis)
-- Force fields and models
-- Algorithms (thermostats, barostats, constraining algorithms)
-- Materials and solvation models
-- Interaction types and calculation methods
-
 ## Opening the Ontology
 
 You can open and explore molsim using Protégé, a free, open-source ontology editor. Protégé is available in both desktop and web versions.
@@ -33,10 +17,7 @@ For importing new terms or adding components that are not covered by imports, pl
 5. Go to Protégé > Settings, on the Preferences window, go to the "New entities" tab, and set the parameters to the following values:
    
      ![protege_preferences.png](images/protege_preferences.png)
-   
-   
-   
-   
+      
 
 ### Web Version - not recommended
 

@@ -183,7 +183,7 @@ sh run.sh make prepare_release
 This completes the custom import process, allowing you to use the specified UO terms and their superclasses in your MOLSIM ontology.
 
 
-### Acknnowledgement
+### Acknowledgement
 
 Thanks to Damien Goutte-Gattat (at gouttegd) and Nico Matentzoglu (at matentzn) for the help with setting up ODK and the import configuration.
 
