@@ -12,7 +12,6 @@ import re
 import html
 import pandas as pd
 # import numpy as np
-import time
 import os
 import requests
 import json
@@ -24,7 +23,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
-from datetime import date
+from datetime import date, datetime
 # import nltk
 # nltk.download("punkt_tab")
 # nltk.download("wordnet")
@@ -138,18 +137,19 @@ def write_body(elem, f, indent=1, is_top_level=True):
 
 ################# extracting labels from class dict #################
 def find_lables(dictionary):
+    print("Extracting terms from ontology.")
     results = []
     search_key = "rdfs:label"
     definition_key = "obo:IAO_0000115"
     
     def search_recursion(subdict, parent_key=""):
         # output = tuple()
-        label = None
+        # label = None
         definition = None
         if isinstance(subdict, dict):
             for key, value in subdict.items():
-                if search_key in key:
-                    label = value
+                # if search_key in key:
+                #     label = value
                 if definition_key in key:
                     definition = value
                 if isinstance(value, dict):
@@ -163,6 +163,7 @@ def find_lables(dictionary):
 
 ################# replace unicode hexcode with semicolon  #################
 def replace_semicolon(element):
+    print("Replacing semicolon in extracted terms.")
     return [entry.replace("&#x27s;", "'") if isinstance(entry, str) else entry for entry in element]
 ################# replace unicode hexcode with semicolon  #################
 
@@ -192,6 +193,7 @@ def jaccard(term1, term2, lemmatizer):
 ################# opening the ontology file #################
 # opening a base ontology structure to be parsed
 def read_rdfxml(file):
+    print("reading ontology rdf/xml file")
     with open(file, "r") as file:
         owl_content = file.read()
     return owl_content
@@ -199,6 +201,7 @@ def read_rdfxml(file):
 
 ################ parsing the base header ################
 def parse_ontology_header(owl_content):
+    print("Parsing ontology header.")
     # pre-defining the header as rdf
     onto_head = {"rdf:RDF":{}}
     header = re.search(r'<rdf:RDF([^>]*)>', owl_content)
@@ -223,6 +226,7 @@ def parse_ontology_header(owl_content):
 
 ################ parsing the content ################
 def parse_ontology(file, namespaces):
+    print("Parsing ontology.")
     tree = ET.parse(file)
     root = tree.getroot()
     terms = {}
@@ -273,6 +277,7 @@ def parse_ontology(file, namespaces):
 ################ retrieving all ontologies in obo foundry from their json ################
 # uses the public json file from here: http://obofoundry.org/registry/ontologies.jsonld
 def get_obo_foundry_ontologies(obo_ontologies_file):
+    print("Retrieving OBO Foundry ontology names.")
     with open(obo_ontologies_file, "r") as f:
         ontologies_json = json.load(f)
     ontologies = [entry["id"] for entry in ontologies_json["ontologies"]]
@@ -292,7 +297,8 @@ def get_obo_foundry_ontologies(obo_ontologies_file):
 ################ retrieving all ontologies in obo foundry from their json ################
 
 ################ mapping terms against ols4 ################
-def ols4_mapping(ontologies, idspace, number_of_inputs=None, number_of_hits=10):
+def ols4_mapping(ontologies, idspace, searchobject, number_of_inputs=None, number_of_hits=10):
+    print("Mapping in progress.")
     # OLS4 API
     api_url = "https://www.ebi.ac.uk/ols4/api/search"
     options = OrderedDict()
@@ -308,7 +314,7 @@ def ols4_mapping(ontologies, idspace, number_of_inputs=None, number_of_hits=10):
     input_lemmatizer = WordNetLemmatizer()
     
     i = 0
-    for query in input_labels[:number_of_inputs]:
+    for query in searchobject[:number_of_inputs]:
         print(i)
         if idspace in query[1] and "DEPRECATED" not in query[1]:
             options["q"] = query[0]
@@ -343,15 +349,21 @@ def ols4_mapping(ontologies, idspace, number_of_inputs=None, number_of_hits=10):
                 else:
                     description = ""
                 if key not in suggestions:
-                    vector1 = model.encode(query[2]).reshape(1, -1)
-                    vector2 = model.encode(description).reshape(1, -1)
-                    definition_score = cosine_similarity(vector1, vector2)[0][0]
-                    
-                    label_score = jaccard(query[0], label, input_lemmatizer)
-                    score = (0.7*label_score) + (0.3*definition_score)
-                    
-                    if score > 0.7:
-                        suggestions[key]= (query[0], query[1].split("org/obo/")[1].replace("_", ":").lower(), label, obo_id, on, score)
+                    # consider if no definition is given
+                    if description == "":
+                        score = jaccard(query[0], label, input_lemmatizer)
+                        if score > 0.7:
+                            suggestions[key]= (query[0], query[1].split("org/obo/")[1].replace("_", ":").lower(), label, obo_id, on.lower(), score)
+                    else:
+                        vector1 = model.encode(query[2]).reshape(1, -1)
+                        vector2 = model.encode(description).reshape(1, -1)
+                        definition_score = cosine_similarity(vector1, vector2)[0][0]
+                        
+                        label_score = jaccard(query[0], label, input_lemmatizer)
+                        score = (0.7*label_score) + (0.3*definition_score)
+                        
+                        if score > 0.7:
+                            suggestions[key]= (query[0], query[1].split("org/obo/")[1].replace("_", ":").lower(), label, obo_id, on.lower(), score)
                     # print(query[0], "\t", label, "\t", label_score, "\t", definition_score, "\t", score)
     
         i += 1
@@ -363,26 +375,48 @@ def ols4_mapping(ontologies, idspace, number_of_inputs=None, number_of_hits=10):
     return df
 ################ mapping terms against ols4 ################
 
-################ create sssom mapping file ################
-def create_sssom_mapping_file(df, save_output=False):
+################ get ontology urls ################
+def get_ontology_urls(ontologies):
+    print("Retrieving OBO Foundry ontology URLs.")
+    ontology_list = ontologies.split(",")
+
     ns_dict = {}
     
     api_url = "https://www.ebi.ac.uk/ols4/api/ontologies/"
     
-    for query in df["object_source"].unique():
-        print(query)
+    for query in ontology_list:
         test_url = api_url + query
-        print(test_url)
         response = requests.get(test_url)
-        results = json.loads(response.content)
-        
-        version_iri = results["config"]["versionIri"]
-        file_location = results["config"]["fileLocation"]
-        ns_dict[query] = (file_location, version_iri)
-
+        if response.status_code == 200:
+            results = json.loads(response.content)
+            
+            version_iri = results["config"]["versionIri"]
+            file_location = results["config"]["fileLocation"]
+            ns_dict[query] = (file_location, version_iri)
     
     return ns_dict
+################ get ontology urls ################
+
 ################ create sssom mapping file ################
+def create_sssom_mapping_file(df, ns_dict, file_location, save_output=False):
+    print("Creating output sssom file.")
+    df["object_source"] = df["object_source"].map(lambda x: ns_dict[x][0])
+    df["object_source_version"] = df["object_source"].map(lambda x: next((value[1] for key, value in ns_dict.items() if value[0] == x), None))
+    df["predicate_id"] = "skos:closeMatch"
+    df["mapping_justification"] = "semapv:CompositeMatching"
+    df["mapping_date"] = date.today()
+    df["mapping_tool"] = "https://github.com/CPCLab/molsim-ontology/tree/main/src/ontology/mappings/query_OBO_space.py"
+    df["creator_id"] = "orcid:0000-0002-0476-9699"
+    
+    
+    if save_output:
+        directory, file = os.path.split(file_location)
+        file = str(datetime.now()).split(".")[0].replace(" ", "T") + "_" + file
+        
+        df.to_csv(os.path.join(directory, file), sep="\t", index=False)
+################ create sssom mapping file ################
+
+
 
 
 
@@ -408,6 +442,8 @@ if __name__ == "__main__":
     input_file = os.path.join(wd, config["input"]["filled_ontology_file"])
     input_obo_ontologies_file = os.path.join(wd, config["input"]["obo_ontologies_file"])
     class_suggestion_list = os.path.join(wd, config["output"]["class_suggestion_list"])
+    object_property_suggestion_list = os.path.join(wd, config["output"]["object_property_suggestion_list"])
+    data_property_suggestion_list = os.path.join(wd, config["output"]["data_property_suggestion_list"])
     ontology_status = os.path.join(wd, config["output"]["ontology_status"])
     
     makedirs(os.path.dirname(class_suggestion_list))
@@ -416,14 +452,29 @@ if __name__ == "__main__":
     input_content = read_rdfxml(input_file)
     input_namespaces = parse_ontology_header(input_content)
     input_terms, input_ontology, input_annotation_properties, input_classes, input_object_properties, input_data_properties, input_axioms, input_instances, input_tans, input_sources = parse_ontology(input_file, input_namespaces)
+    
+    # retrieve input ontologies
+    input_ontologies = get_obo_foundry_ontologies(input_obo_ontologies_file)
+    input_ns_dict = get_ontology_urls(input_ontologies)
+    
+    # mapping classes
     input_labels = find_lables(input_classes)
     input_labels = replace_semicolon(input_labels)
-    input_ontologies = get_obo_foundry_ontologies(input_obo_ontologies_file)
-    input_df = ols4_mapping(input_ontologies, idspace="MOLSIM", number_of_inputs=3)
-    input_df = create_sssom_mapping_file(input_df, save_output=False)
+    input_classes_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_labels, number_of_inputs=3)
+    create_sssom_mapping_file(input_classes_df, input_ns_dict, class_suggestion_list, save_output=True)
 
+    # mapping object properties
+    input_object_properties = find_lables(input_object_properties)
+    input_object_properties = replace_semicolon(input_object_properties)
+    input_object_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_object_properties)
+    create_sssom_mapping_file(input_object_properties_df, input_ns_dict, object_property_suggestion_list, save_output=True)
     
-    
+    # mapping data properties
+    input_data_properties = find_lables(input_data_properties)
+    input_data_properties = replace_semicolon(input_data_properties)
+    input_data_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_data_properties, number_of_inputs=3)
+    create_sssom_mapping_file(input_data_properties_df, input_ns_dict, data_property_suggestion_list, save_output=True)
+
     
 
 
