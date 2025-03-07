@@ -297,7 +297,7 @@ def get_obo_foundry_ontologies(obo_ontologies_file):
 ################ retrieving all ontologies in obo foundry from their json ################
 
 ################ mapping terms against ols4 ################
-def ols4_mapping(ontologies, idspace, searchobject, number_of_inputs=None, number_of_hits=10):
+def ols4_mapping(ontologies, idspace, searchobject, searchtype="class,property,individual,ontology", number_of_inputs=None, number_of_hits=10):
     print("Mapping in progress.")
     # OLS4 API
     api_url = "https://www.ebi.ac.uk/ols4/api/search"
@@ -307,6 +307,7 @@ def ols4_mapping(ontologies, idspace, searchobject, number_of_inputs=None, numbe
     options["obsoletes"] = "false"
     options["local"] = "true"
     options["exact"] = "false"
+    options["type"] = searchtype
     
     suggestions = {}
     
@@ -364,7 +365,7 @@ def ols4_mapping(ontologies, idspace, searchobject, number_of_inputs=None, numbe
                         
                         if score > 0.7:
                             suggestions[key]= (query[0], query[1].split("org/obo/")[1].replace("_", ":").lower(), label, obo_id, on.lower(), score)
-                    # print(query[0], "\t", label, "\t", label_score, "\t", definition_score, "\t", score)
+                    # print(query[0], "\t", label, "\t", score)
     
         i += 1
     
@@ -458,21 +459,24 @@ if __name__ == "__main__":
     input_ns_dict = get_ontology_urls(input_ontologies)
     
     # mapping classes
+    print("Mapping classes.")
     input_labels = find_lables(input_classes)
     input_labels = replace_semicolon(input_labels)
-    input_classes_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_labels, number_of_inputs=3)
+    input_classes_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_labels, searchtype="class")#, number_of_inputs=3)
     create_sssom_mapping_file(input_classes_df, input_ns_dict, class_suggestion_list, save_output=True)
 
     # mapping object properties
+    print("Mapping object properties.")
     input_object_properties = find_lables(input_object_properties)
     input_object_properties = replace_semicolon(input_object_properties)
     input_object_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_object_properties)
     create_sssom_mapping_file(input_object_properties_df, input_ns_dict, object_property_suggestion_list, save_output=True)
     
     # mapping data properties
+    print("mapping data properties.")
     input_data_properties = find_lables(input_data_properties)
     input_data_properties = replace_semicolon(input_data_properties)
-    input_data_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_data_properties, number_of_inputs=3)
+    input_data_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_data_properties)#, number_of_inputs=3)
     create_sssom_mapping_file(input_data_properties_df, input_ns_dict, data_property_suggestion_list, save_output=True)
 
     
