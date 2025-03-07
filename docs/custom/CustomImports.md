@@ -71,6 +71,24 @@ import_group:
    - id: uo
 ```
 
+
+Let's break down what each part does:
+
+`allow_equivalents: all` configures how equivalent class axioms are handled in our ontology. This setting allows all equivalent class axioms to be included, which means our ontology will maintain equivalence relationships between terms.
+
+The `import_group` section defines which external ontologies will be imported into our project:
+- `products` lists the specific ontologies to import
+- `id: uo` specifies that we want to import the Unit Ontology (UO)
+
+When we run the ODK workflow with this configuration, it will:
+1. Set up the necessary infrastructure to import UO terms into our ontology
+2. Create files like `src/ontology/imports/uo_import.owl` and `src/ontology/imports/uo_terms.txt`
+3. Allow us to specify which UO terms we want to import by adding them to the terms file
+
+This configuration is particularly useful when building an ontology that needs to reference units of measurement. The Unit Ontology provides standardized terms for units like meters, grams, seconds, etc., which you can import rather than redefining them in our own ontology.
+
+The import system is a central part of the ODK workflow, enabling modular ontology development by allowing you to reuse terms from established ontologies while maintaining proper provenance and attribution.
+
 After saving, run the seed command:
 
 ```bash
