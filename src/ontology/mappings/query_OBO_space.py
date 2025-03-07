@@ -28,14 +28,6 @@ from datetime import date, datetime
 # nltk.download("punkt_tab")
 # nltk.download("wordnet")
 
-def find_files(directory):
-    xlsx_files = []
-    for root, dirs, files in os.walk(directory):
-        for file in files:
-            if file.endswith(".xlsx") and (file == "isa.study.xlsx" or file == "isa.assay.xlsx"):
-                path = os.path.join(root, file)
-                xlsx_files.append(path)
-    return xlsx_files
     
 
 def makedirs(path):
@@ -112,28 +104,6 @@ def parse_element(element, namespaces, i=0):
     # return the parsed dict
     return result
 ####################
-
-################# writing the body #################
-def write_body(elem, f, indent=1, is_top_level=True):
-    duplication_pattern = r"REP\d+"
-    for idx, (key, value) in enumerate(elem.items()):
-        match = re.findall(duplication_pattern, key)
-        if match:
-            key = key[:-len(match[0])]
-        if isinstance(value, dict):
-            f.write("\t" * indent + f"<{key}>\n")
-            write_body(value, f, indent + 1, is_top_level=False)
-            f.write("\t" * indent + f'</{key.split(" ")[0]}>\n')
-        else:
-            if value == "":
-                f.write("\t" * indent + "<" + key + "/>\n")
-            elif value == None:
-                f.write("\t" * indent + "<" + key + "/>\n\n")
-            else:
-                f.write("\t" * indent + "<" + key + f">{value}</" + key.split(" ")[0] + ">\n")
-        if is_top_level and idx <= len(elem) - 1 and value != None:
-            f.write("\n")
-################# writing the body #################
 
 ################# extracting labels from class dict #################
 def find_lables(dictionary):
@@ -412,7 +382,7 @@ def create_sssom_mapping_file(df, ns_dict, file_location, save_output=False):
     
     if save_output:
         directory, file = os.path.split(file_location)
-        file = str(datetime.now()).split(".")[0].replace(" ", "T") + "_" + file
+        file = str(datetime.now()).split(".")[0].replace(" ", "_").replace(":", "-")[:-3] + "_" + file
         
         df.to_csv(os.path.join(directory, file), sep="\t", index=False)
 ################ create sssom mapping file ################
