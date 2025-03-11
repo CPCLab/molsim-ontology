@@ -24,6 +24,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from datetime import date, datetime
+import subprocess
 # import nltk
 # nltk.download("punkt_tab")
 # nltk.download("wordnet")
@@ -267,7 +268,7 @@ def get_obo_foundry_ontologies(obo_ontologies_file):
 ################ retrieving all ontologies in obo foundry from their json ################
 
 ################ mapping terms against ols4 ################
-def ols4_mapping(ontologies, idspace, searchobject, searchtype="class,property,individual,ontology", number_of_inputs=None, number_of_hits=10):
+def ols4_mapping(ontologies, idspace, searchobject, searchtype="class,property,individual,ontology", number_of_inputs=None, number_of_hits=10, label_weight=0.7, description_weight=0.3, threshold=0.7):
     print("Mapping in progress.")
     # OLS4 API
     api_url = "https://www.ebi.ac.uk/ols4/api/search"
@@ -286,8 +287,8 @@ def ols4_mapping(ontologies, idspace, searchobject, searchtype="class,property,i
     
     i = 0
     for query in searchobject[:number_of_inputs]:
-        print(i)
-        if idspace in query[1] and "DEPRECATED" not in query[1]:
+        if idspace in query[1] and "DEPRECATED" not in query[1] and "obsolete" not in query[1] and "Obsolete" not in query[1]:
+            print(i)
             options["q"] = query[0]
         
         
@@ -309,7 +310,6 @@ def ols4_mapping(ontologies, idspace, searchobject, searchtype="class,property,i
                     print("no ontology prefix")
                     on = ""
                 key = query[1] + "###" + obo_id
-                
                 if ":" not in obo_id:
                     obo_id = on + ":" + obo_id
                 if "description" in elem:
@@ -326,16 +326,20 @@ def ols4_mapping(ontologies, idspace, searchobject, searchtype="class,property,i
                         if score > 0.7:
                             suggestions[key]= (query[0], query[1].split("org/obo/")[1].replace("_", ":").lower(), label, obo_id, on.lower(), score)
                     else:
-                        vector1 = model.encode(query[2]).reshape(1, -1)
+                        if query[2] == None:
+                            input_definition = ""
+                        else:
+                            input_definition = query[2]
+                        vector1 = model.encode(input_definition).reshape(1, -1)
                         vector2 = model.encode(description).reshape(1, -1)
                         definition_score = cosine_similarity(vector1, vector2)[0][0]
                         
                         label_score = jaccard(query[0], label, input_lemmatizer)
-                        score = (0.7*label_score) + (0.3*definition_score)
+                        score = (label_weight*label_score) + (description_weight*definition_score)
                         
-                        if score > 0.7:
+                        if score > threshold:
                             suggestions[key]= (query[0], query[1].split("org/obo/")[1].replace("_", ":").lower(), label, obo_id, on.lower(), score)
-                    # print(query[0], "\t", label, "\t", score)
+                        # print(query[0], "\t", label, "\t", label_score, "\t", definition_score, "\t", score)
     
         i += 1
     
@@ -412,6 +416,10 @@ if __name__ == "__main__":
         
     input_file = os.path.join(wd, config["input"]["filled_ontology_file"])
     input_obo_ontologies_file = os.path.join(wd, config["input"]["obo_ontologies_file"])
+    input_label_weight = config["parameters"]["label_weight"]
+    input_description_weight = config["parameters"]["description_weight"]
+    input_threshold = config["parameters"]["threshold"]
+    owl_file = os.path.join(wd, config["output"]["owl_file"])
     class_suggestion_list = os.path.join(wd, config["output"]["class_suggestion_list"])
     object_property_suggestion_list = os.path.join(wd, config["output"]["object_property_suggestion_list"])
     data_property_suggestion_list = os.path.join(wd, config["output"]["data_property_suggestion_list"])
@@ -420,9 +428,11 @@ if __name__ == "__main__":
     makedirs(os.path.dirname(class_suggestion_list))
     makedirs(os.path.dirname(ontology_status))
     
-    input_content = read_rdfxml(input_file)
+    subprocess.run(["robot", "convert", "--input", input_file, "--output", owl_file, "--format", "owl"])
+    
+    input_content = read_rdfxml(owl_file)
     input_namespaces = parse_ontology_header(input_content)
-    input_terms, input_ontology, input_annotation_properties, input_classes, input_object_properties, input_data_properties, input_axioms, input_instances, input_tans, input_sources = parse_ontology(input_file, input_namespaces)
+    input_terms, input_ontology, input_annotation_properties, input_classes, input_object_properties, input_data_properties, input_axioms, input_instances, input_tans, input_sources = parse_ontology(owl_file, input_namespaces)
     
     # retrieve input ontologies
     input_ontologies = get_obo_foundry_ontologies(input_obo_ontologies_file)
@@ -432,21 +442,21 @@ if __name__ == "__main__":
     print("Mapping classes.")
     input_labels = find_lables(input_classes)
     input_labels = replace_semicolon(input_labels)
-    input_classes_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_labels, searchtype="class")#, number_of_inputs=3)
+    input_classes_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_labels, searchtype="class", label_weight=input_label_weight, description_weight=input_description_weight, threshold=input_threshold, number_of_inputs=3)
     create_sssom_mapping_file(input_classes_df, input_ns_dict, class_suggestion_list, save_output=True)
 
     # mapping object properties
     print("Mapping object properties.")
     input_object_properties = find_lables(input_object_properties)
     input_object_properties = replace_semicolon(input_object_properties)
-    input_object_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_object_properties)
+    input_object_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_object_properties, label_weight=input_label_weight, description_weight=input_description_weight, threshold=input_threshold)
     create_sssom_mapping_file(input_object_properties_df, input_ns_dict, object_property_suggestion_list, save_output=True)
     
     # mapping data properties
     print("mapping data properties.")
     input_data_properties = find_lables(input_data_properties)
     input_data_properties = replace_semicolon(input_data_properties)
-    input_data_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_data_properties)#, number_of_inputs=3)
+    input_data_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_data_properties, label_weight=input_label_weight, description_weight=input_description_weight, threshold=input_threshold, number_of_inputs=3)
     create_sssom_mapping_file(input_data_properties_df, input_ns_dict, data_property_suggestion_list, save_output=True)
 
     
