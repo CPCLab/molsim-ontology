@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                60557d0aa9c74e6e3b2073b5f2b751826eeb296eccb2a683b73d227dbfadde99
+CONFIG_HASH=                10ed22dffa7d132021afb9cff626f0ea39e3f4d9b025a2b98e95d88ebacfc509
 
 
 # ----------------------------------------
@@ -447,9 +447,14 @@ mirror-uo: | $(TMPDIR)
 ## ONTOLOGY: ncit
 .PHONY: mirror-ncit
 .PRECIOUS: $(MIRRORDIR)/ncit.owl
+ifeq ($(strip $(IMP_LARGE)),true)
 mirror-ncit: | $(TMPDIR)
 	curl -L $(OBOBASE)/ncit.owl --create-dirs -o $(TMPDIR)/ncit-download.owl --retry 4 --max-time 200 && \
 	$(ROBOT) convert -i $(TMPDIR)/ncit-download.owl -o $(TMPDIR)/$@.owl
+else
+mirror-ncit:
+	@echo "Not refreshing ncit because refreshing large imports is disabled (IMP_LARGE=$(IMP_LARGE))."
+endif
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
