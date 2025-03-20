@@ -2,9 +2,9 @@
 """
 OLS Term URI Fetcher
 
-This script fetches URIs for ontology terms from the EBI Ontology Lookup Service.
+This script fetches URIs and labels for ontology terms from the EBI Ontology Lookup Service.
 It takes an ontology ID and a text file with terms as input and produces a CSV file
-with the terms and their corresponding URIs.
+with the terms, their corresponding URIs, and the actual labels from the ontology.
 
 Usage:
     python ols_term_fetcher.py <ontology_id> <input_file> <output_file>
@@ -20,16 +20,16 @@ import time
 from typing import Dict, List, Tuple, Optional
 
 
-def fetch_term_uri(term: str, ontology_id: str) -> Optional[str]:
+def fetch_term_info(term: str, ontology_id: str) -> Tuple[Optional[str], Optional[str]]:
     """
-    Fetch the URI for a given term from the specified ontology.
+    Fetch the URI and label for a given term from the specified ontology.
     
     Args:
         term: The term to search for
         ontology_id: The ontology ID (e.g., CHEBI)
         
     Returns:
-        The URI of the term if found, None otherwise
+        A tuple containing (URI, label) if found, (None, None) otherwise
     """
     # Base URL for the OLS API
     base_url = "https://www.ebi.ac.uk/ols/api/search"
@@ -52,14 +52,14 @@ def fetch_term_uri(term: str, ontology_id: str) -> Optional[str]:
         if data["response"]["numFound"] > 0:
             # Get the first result (most relevant match)
             result = data["response"]["docs"][0]
-            return result.get("iri")
+            return result.get("iri"), result.get("label")
         else:
             print(f"No match found for term: {term}")
-            return None
+            return None, None
             
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching URI for term '{term}': {e}")
-        return None
+        print(f"Error fetching info for term '{term}': {e}")
+        return None, None
 
 
 def process_terms(ontology_id: str, input_file: str, output_file: str) -> None:
@@ -85,8 +85,8 @@ def process_terms(ontology_id: str, input_file: str, output_file: str) -> None:
     
     # Process each term
     for term in terms:
-        uri = fetch_term_uri(term, ontology_id)
-        results.append((term, uri))
+        uri, label = fetch_term_info(term, ontology_id)
+        results.append((term, uri, label))
         
         # Add a small delay to avoid overwhelming the API
         time.sleep(0.5)
@@ -95,9 +95,9 @@ def process_terms(ontology_id: str, input_file: str, output_file: str) -> None:
     try:
         with open(output_file, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(["Term", "URI"])
-            for term, uri in results:
-                writer.writerow([term, uri])
+            writer.writerow(["Original Term", "URI", "Ontology Label"])
+            for term, uri, label in results:
+                writer.writerow([term, uri, label])
         
         print(f"Results written to {output_file}")
     except IOError as e:
