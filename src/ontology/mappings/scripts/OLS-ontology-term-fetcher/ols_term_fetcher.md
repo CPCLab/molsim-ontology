@@ -44,7 +44,11 @@ The input file should contain one term per line:
 
 text
 
-`peroxide water glucose`
+`peroxide `
+
+`water `
+
+`glucose`
 
 ## Output Format
 
@@ -60,7 +64,13 @@ Example output:
 
 text
 
-`Original Term,URI,Ontology Label peroxide,http://purl.obolibrary.org/obo/CHEBI_44785,peroxide water,http://purl.obolibrary.org/obo/CHEBI_15377,water glucose,http://purl.obolibrary.org/obo/CHEBI_17234,glucose`
+`Original Term,URI,Ontology Label `
+
+`peroxide,http://purl.obolibrary.org/obo/CHEBI_44785,peroxide `
+
+`water,http://purl.obolibrary.org/obo/CHEBI_15377,water `
+
+`glucose,http://purl.obolibrary.org/obo/CHEBI_17234,glucose`
 
 ## Features
 
@@ -79,5 +89,3 @@ text
 - Only returns the first match for each term
 
 - Limited to ontologies available in the EBI OLS
-
-
