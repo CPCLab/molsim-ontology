@@ -55,3 +55,45 @@ WHERE {
 }
 ORDER BY ?type ?entity
 ```
+
+3. Get classes or properties without IAO `definition` (`obo:IAO_0000115`)
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT DISTINCT ?class ?classLabel ?property ?propertyValue
+WHERE {
+
+# Find all classes in the ontology
+
+  ?class a owl:Class .
+
+# Get the class label if available
+
+  OPTIONAL { ?class rdfs:label ?classLabel . }
+
+# Get properties and their values for these classes
+
+  OPTIONAL { ?class ?property ?propertyValue . }
+
+# Filter out the rdf:type triple as it's not informative here
+
+  FILTER (?property != rdf:type)
+
+# Filter out deprecated classes
+
+  FILTER NOT EXISTS { ?class owl:deprecated true }
+
+# Filter out blank nodes
+
+  FILTER (!isBlank(?class))
+
+# Exclude classes that have a definition (obo:IAO_0000115)
+
+  FILTER NOT EXISTS { ?class obo:IAO_0000115 ?definition }
+}
+ORDER BY ?class ?property
+```
