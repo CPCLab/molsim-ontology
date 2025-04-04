@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                3294871ae3eec6756967a121cff0df499130c06bb6bd94dd85dae11aeb0ef305
+CONFIG_HASH=                b0afcad2757e3ad8ca2169aa984f7f9f0668edc8f0983adc0f60939e749ea27d
 
 
 # ----------------------------------------
@@ -370,7 +370,7 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
 ## Module for ontology: chebi
 
-$(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
+$(IMPORTDIR)/chebi_import.owl: 
 	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
 
 .PHONY: refresh-imports
@@ -445,11 +445,15 @@ mirror-uo: | $(TMPDIR)
 
 
 ## ONTOLOGY: chebi
-.PHONY: mirror-chebi
-.PRECIOUS: $(MIRRORDIR)/chebi.owl
+
+ifeq ($(strip $(IMP_LARGE)),true)
 mirror-chebi: | $(TMPDIR)
-	curl -L $(OBOBASE)/chebi.owl --create-dirs -o $(TMPDIR)/chebi-download.owl --retry 4 --max-time 200 && \
-	$(ROBOT) convert -i $(TMPDIR)/chebi-download.owl -o $(TMPDIR)/$@.owl
+	curl -L $(OBOBASE)/chebi.owl.gz --create-dirs -o $(MIRRORDIR)/chebi.owl.gz --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(MIRRORDIR)/chebi.owl.gz -o $(TMPDIR)/$@.owl
+else
+mirror-chebi:
+	@echo "Not refreshing chebi because refreshing large imports is disabled (IMP_LARGE=$(IMP_LARGE))."
+endif
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)
