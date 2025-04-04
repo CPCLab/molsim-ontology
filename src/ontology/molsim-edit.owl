@@ -12,6 +12,7 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
 Import(<http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl>)
+Import(<http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl>)
 Annotation(dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.")
 Annotation(dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
@@ -1721,7 +1722,6 @@ SubClassOf(obo:MOLSIM_000009 obo:MOLSIM_000772)
 # Class: obo:MOLSIM_000010 (DNA force field)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000010 "A specialized parameter set optimized for deoxyribonucleic acid simulations, designed to accurately represent the structural properties of DNA double helices, non-canonical structures, and DNA-protein complexes. (UNVERIFIED)"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000010 "DNA force field is the force field being used to model DNAs in simulations."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000010 "DNA force field"@en)
 SubClassOf(obo:MOLSIM_000010 obo:MOLSIM_000772)
 
@@ -1951,11 +1951,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000047 "In the Andersen thermosta
 AnnotationAssertion(rdfs:label obo:MOLSIM_000047 "Andersen thermostat"@en)
 SubClassOf(obo:MOLSIM_000047 obo:MOLSIM_000038)
 
-# Class: obo:MOLSIM_000048 (Nosé-Hoover)
+# Class: obo:MOLSIM_000048 (Nosé-Hoover thermostat)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000048 "A specific thermostat algorithm used in molecular dynamics. It introduces an additional degree of freedom to the system to maintain constant temperature."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000048 "Nose-Hoover"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000048 "Nosé-Hoover"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000048 "Nosé-Hoover thermostat"@en)
 SubClassOf(obo:MOLSIM_000048 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000049 (constraining algorithm)
@@ -3640,7 +3640,6 @@ SubClassOf(obo:MOLSIM_000356 obo:MOLSIM_000298)
 # Class: obo:MOLSIM_000432 (quantum mechanics basis set)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000432 "A set of mathematical functions (typically Gaussian or Slater-type orbitals) used to represent electronic wavefunctions in quantum chemistry calculations, with larger and more complex basis sets generally providing more accurate results at increased computational cost. (UNVERIFIED)"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000432 "Quantum Mechanics basis set is a set of functions used to create molecular orbitals to perform quantum chemistry calculations on atoms and molecules."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000432 "quantum mechanics basis set"@en)
 SubClassOf(obo:MOLSIM_000432 obo:MOLSIM_000173)
 
@@ -4018,7 +4017,7 @@ SubClassOf(obo:MOLSIM_000524 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000525 (cc-pV5Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000525 "Augmented cc-pV5Z, combining quintuple-zeta quality with diffuse functions for benchmark-level descriptions of electronic properties requiring extended orbital space. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000525 "Correlation-consistent polarized Valence Quintuple Zeta, a very high-quality basis set in the correlation-consistent family, approaching the complete basis set limit for most chemical applications. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000525 "cc-pV5Z"@en)
 SubClassOf(obo:MOLSIM_000525 obo:MOLSIM_000485)
 
@@ -4716,6 +4715,7 @@ SubClassOf(obo:MOLSIM_000793 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000794 (Hoover barostat)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000794 "An extension of the Nosé-Hoover thermostat that couples pressure control to a feedback mechanism, dynamically adjusting system volume to maintain target pressure while preserving thermodynamic consistency. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000794 "Hoover barostat"@en)
 SubClassOf(obo:MOLSIM_000794 obo:MOLSIM_000039)
 
@@ -4749,55 +4749,58 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000799 "An alternative constraini
 AnnotationAssertion(rdfs:label obo:MOLSIM_000799 "WIGGLE"@en)
 SubClassOf(obo:MOLSIM_000799 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000800 (Nose)
+# Class: obo:MOLSIM_000800 (Nose thermostat)
 
-AnnotationAssertion(rdfs:label obo:MOLSIM_000800 "Nose"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000800 "The original formulation by Nosé, which introduced a time-scaling variable to control temperature, later refined into the Nosé-Hoover formulation for better numerical stability. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000800 "Nose thermostat"@en)
 SubClassOf(obo:MOLSIM_000800 obo:MOLSIM_000038)
 
-# Class: obo:MOLSIM_000801 (Nose-Poincare)
+# Class: obo:MOLSIM_000801 (Nose-Poincare thermostat)
 
-AnnotationAssertion(rdfs:label obo:MOLSIM_000801 "Nose-Poincare"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000801 "A Hamiltonian reformulation of the Nosé thermostat that improves numerical stability by preserving symplectic structure, enabling precise energy conservation in temperature-controlled simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000801 "Nose-Poincare thermostat"@en)
 SubClassOf(obo:MOLSIM_000801 obo:MOLSIM_000038)
 
-# Class: obo:MOLSIM_000802 (V-rescale)
+# Class: obo:MOLSIM_000802 (V-rescale thermostat)
 
-AnnotationAssertion(rdfs:label obo:MOLSIM_000802 "V-rescale"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000802 "A modified velocity-rescaling method that stochastically adjusts kinetic energy to maintain temperature, providing stronger coupling to the heat bath than Berendsen’s approach. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000802 "V-rescale thermostat"@en)
 SubClassOf(obo:MOLSIM_000802 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000803 (semi-empirical method)
 
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000803 "A computational approach in quantum chemistry that simplifies quantum mechanical calculations by using empirical parameters and approximations to reduce computational cost while maintaining reasonable accuracy, incorporating experimentally derived data to parameterize the models. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000803 "A computational approach in quantum chemistry that simplifies quantum mechanical calculations by using empirical parameters and approximations to reduce computational cost while maintaining reasonable accuracy, incorporating experimentally derived data to parameterize the models. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000803 "semi-empirical method"@en)
 SubClassOf(obo:MOLSIM_000803 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000804 (all-valence-electron restricted)
 
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000804 "A category of semi-empirical methods that explicitly treats all valence electrons in the calculation while using a restricted formalism that pairs electrons in molecular orbitals, balancing computational efficiency with accuracy for non-radical systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000804 "A category of semi-empirical methods that explicitly treats all valence electrons in the calculation while using a restricted formalism that pairs electrons in molecular orbitals, balancing computational efficiency with accuracy for non-radical systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000804 "all-valence-electron restricted"@en)
 SubClassOf(obo:MOLSIM_000804 obo:MOLSIM_000803)
 DisjointClasses(obo:MOLSIM_000804 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000805 (PPP)
 
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000805 "The Pariser-Parr-Pople method, a semiempirical π-electron theory developed in 1953 that takes electron repulsion into account while neglecting overlap integrals, employing the zero differential overlap (ZDO) approximation to ignore many electron-repulsion integrals, significantly simplifying calculations for planar conjugated molecules. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000805 "The Pariser-Parr-Pople method, a semiempirical π-electron theory developed in 1953 that takes electron repulsion into account while neglecting overlap integrals, employing the zero differential overlap (ZDO) approximation to ignore many electron-repulsion integrals, significantly simplifying calculations for planar conjugated molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000805 "PPP"@en)
 SubClassOf(obo:MOLSIM_000805 obo:MOLSIM_000804)
 
 # Class: obo:MOLSIM_000806 (pi-electron restricted)
 
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000806 "A classification of semi-empirical methods that focuses primarily on π-electrons in conjugated systems, often assuming σ-π separability and treating π-electrons explicitly while treating σ-electrons implicitly or in a simplified manner. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000806 "A classification of semi-empirical methods that focuses primarily on π-electrons in conjugated systems, often assuming σ-π separability and treating π-electrons explicitly while treating σ-electrons implicitly or in a simplified manner. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000806 "pi-electron restricted"@en)
 SubClassOf(obo:MOLSIM_000806 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_000807 (AM1)
 
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000807 "Austin Model 1, a modification of MNDO developed by Dewar and colleagues that adds Gaussian functions to the core repulsion function to overcome MNDO's hydrogen bond problem, with separate parameterization of overlap terms (βs and βp) and Slater orbital exponents (ζs and ζp) for better accuracy in modeling molecular structures and energetics. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000807 "Austin Model 1, a modification of MNDO developed by Dewar and colleagues that adds Gaussian functions to the core repulsion function to overcome MNDO's hydrogen bond problem, with separate parameterization of overlap terms (βs and βp) and Slater orbital exponents (ζs and ζp) for better accuracy in modeling molecular structures and energetics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000807 "AM1"@en)
 SubClassOf(obo:MOLSIM_000807 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000808 (CNDO/2)
 
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000808 "Complete Neglect of Differential Overlap version 2, one of the first semi-empirical methods in quantum chemistry that uses the core approximation (only valence electrons explicitly included) and zero-differential overlap approximation, developed by John Pople to explicitly include electron-electron repulsion terms while neglecting many of them for computational efficiency. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000808 "Complete Neglect of Differential Overlap version 2, one of the first semi-empirical methods in quantum chemistry that uses the core approximation (only valence electrons explicitly included) and zero-differential overlap approximation, developed by John Pople to explicitly include electron-electron repulsion terms while neglecting many of them for computational efficiency. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000808 "CNDO/2"@en)
 SubClassOf(obo:MOLSIM_000808 obo:MOLSIM_000806)
 
@@ -4996,17 +4999,20 @@ SubClassOf(obo:MOLSIM_000840 obo:MOLSIM_000838)
 
 # Class: obo:MOLSIM_000841 (empirical method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000841 "A computational approach that relies on simplified physical models parameterized by experimental or theoretical data rather than first-principles calculations, balancing accuracy and efficiency. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000841 "empirical method"@en)
 SubClassOf(obo:MOLSIM_000841 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000842 (minimization method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000842 "An energy optimization technique used to find low-energy molecular configurations by iteratively adjusting atomic coordinates, often employed as a precursor to dynamics simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000842 "minimization method"@en)
 SubClassOf(obo:MOLSIM_000842 obo:MOLSIM_000841)
 DisjointClasses(obo:MOLSIM_000842 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000843 (molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000843 "A simulation methodology that computes the time-dependent behavior of molecular systems by numerically solving Newton’s equations of motion, enabling the study of structural evolution and thermodynamic properties. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000843 "molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000843 obo:MOLSIM_000841)
 

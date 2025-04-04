@@ -7,6 +7,11 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/uo_terms.txt \
 		--output $@
+$(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
+	$(ROBOT) extract --input $< \
+		--method MIREOT \
+		--lower-terms $(IMPORTDIR)/chebi_terms.txt \
+		--output $@
 #$(IMPORTDIR)/ncit_import.owl: $(MIRRORDIR)/ncit.owl
 #	$(ROBOT) extract --input $< \
 #		--method MIREOT \
