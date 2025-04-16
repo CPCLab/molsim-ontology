@@ -493,6 +493,14 @@ Declaration(Class(obo:MOLSIM_000613))
 Declaration(Class(obo:MOLSIM_000614))
 Declaration(Class(obo:MOLSIM_000615))
 Declaration(Class(obo:MOLSIM_000616))
+Declaration(Class(obo:MOLSIM_000623))
+Declaration(Class(obo:MOLSIM_000624))
+Declaration(Class(obo:MOLSIM_000625))
+Declaration(Class(obo:MOLSIM_000626))
+Declaration(Class(obo:MOLSIM_000633))
+Declaration(Class(obo:MOLSIM_000634))
+Declaration(Class(obo:MOLSIM_000635))
+Declaration(Class(obo:MOLSIM_000636))
 Declaration(Class(obo:MOLSIM_000735))
 Declaration(Class(obo:MOLSIM_000736))
 Declaration(Class(obo:MOLSIM_000737))
@@ -910,6 +918,9 @@ Declaration(DataProperty(obo:MOLSIM_000619))
 Declaration(DataProperty(obo:MOLSIM_000620))
 Declaration(DataProperty(obo:MOLSIM_000621))
 Declaration(DataProperty(obo:MOLSIM_000622))
+Declaration(DataProperty(obo:MOLSIM_000630))
+Declaration(DataProperty(obo:MOLSIM_000631))
+Declaration(DataProperty(obo:MOLSIM_000632))
 Declaration(AnnotationProperty(obo:IAO_0000115))
 Declaration(AnnotationProperty(dcterms:description))
 Declaration(AnnotationProperty(dcterms:license))
@@ -1885,6 +1896,21 @@ SubDataPropertyOf(obo:MOLSIM_000621 obo:MOLSIM_000617)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000622 "nuclei forces*"@en)
 SubDataPropertyOf(obo:MOLSIM_000622 obo:MOLSIM_000621)
+
+# Data Property: obo:MOLSIM_000630 (electron dynamics*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000630 "electron dynamics*"@en)
+SubDataPropertyOf(obo:MOLSIM_000630 owl:topDataProperty)
+
+# Data Property: obo:MOLSIM_000631 (electron affinity*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000631 "electron affinity*"@en)
+SubDataPropertyOf(obo:MOLSIM_000631 obo:MOLSIM_000630)
+
+# Data Property: obo:MOLSIM_000632 (ionization potential*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000632 "ionization potential*"@en)
+SubDataPropertyOf(obo:MOLSIM_000632 obo:MOLSIM_000630)
 
 
 
@@ -4762,6 +4788,47 @@ SubClassOf(obo:MOLSIM_000615 obo:MOLSIM_000610)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000616 "free state FMO calculation*"@en)
 SubClassOf(obo:MOLSIM_000616 obo:MOLSIM_000615)
 
+# Class: obo:MOLSIM_000623 (quantum interaction*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000623 "quantum interaction*"@en)
+SubClassOf(obo:MOLSIM_000623 obo:MOLSIM_000057)
+
+# Class: obo:MOLSIM_000624 (hyperfine coupling*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000624 "hyperfine coupling*"@en)
+SubClassOf(obo:MOLSIM_000624 obo:MOLSIM_000626)
+DisjointClasses(obo:MOLSIM_000624 obo:MOLSIM_000625)
+
+# Class: obo:MOLSIM_000625 (spin-orbit coupling*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000625 "spin-orbit coupling*"@en)
+SubClassOf(obo:MOLSIM_000625 obo:MOLSIM_000626)
+
+# Class: obo:MOLSIM_000626 (spin effect*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000626 "spin effect*"@en)
+SubClassOf(obo:MOLSIM_000626 obo:MOLSIM_000623)
+
+# Class: obo:MOLSIM_000633 (surface potential analysis*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000633 "surface potential analysis*"@en)
+SubClassOf(obo:MOLSIM_000633 obo:MOLSIM_000584)
+
+# Class: obo:MOLSIM_000634 (electrostatic potential calculation*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000634 "electrostatic potential calculation*"@en)
+SubClassOf(obo:MOLSIM_000634 obo:MOLSIM_000633)
+
+# Class: obo:MOLSIM_000635 (frequency analysis*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000635 "frequency analysis*"@en)
+SubClassOf(obo:MOLSIM_000635 obo:MOLSIM_000026)
+
+# Class: obo:MOLSIM_000636 (anharmonic vibrational corrections*)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000636 "anharmonic vibrational corrections*"@en)
+SubClassOf(obo:MOLSIM_000636 obo:MOLSIM_000635)
+
 # Class: obo:MOLSIM_000735 (resolution-based force field)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000735 "classification of force fields based on the level of detail in representing molecular structures, determining computational cost and accuracy tradeoffs in molecular simulations. (UNVERIFIED)"@en)
@@ -6231,6 +6298,7 @@ DisjointClasses(obo:MOLSIM_000022 obo:MOLSIM_000763 obo:MOLSIM_000764 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000027 obo:MOLSIM_000122 obo:MOLSIM_000610 obo:MOLSIM_000917 obo:MOLSIM_000939 obo:MOLSIM_000950 obo:MOLSIM_000957 obo:MOLSIM_000974)
 DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_000802)
 DisjointClasses(obo:MOLSIM_000050 obo:MOLSIM_000051 obo:MOLSIM_000052 obo:MOLSIM_000795 obo:MOLSIM_000796 obo:MOLSIM_000797 obo:MOLSIM_000798 obo:MOLSIM_000799)
+DisjointClasses(obo:MOLSIM_000058 obo:MOLSIM_000059 obo:MOLSIM_000060 obo:MOLSIM_000061 obo:MOLSIM_000062 obo:MOLSIM_000063 obo:MOLSIM_000623)
 DisjointClasses(obo:MOLSIM_000073 obo:MOLSIM_000270 obo:MOLSIM_000271)
 DisjointClasses(obo:MOLSIM_000088 obo:MOLSIM_000089 obo:MOLSIM_000090 obo:MOLSIM_000091 obo:MOLSIM_000092 obo:MOLSIM_000093 obo:MOLSIM_000094 obo:MOLSIM_000095 obo:MOLSIM_000096)
 DisjointClasses(obo:MOLSIM_000099 obo:MOLSIM_000100 obo:MOLSIM_000101 obo:MOLSIM_000102 obo:MOLSIM_000103 obo:MOLSIM_000104 obo:MOLSIM_000105 obo:MOLSIM_000106 obo:MOLSIM_000107 obo:MOLSIM_000108)
