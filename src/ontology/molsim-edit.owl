@@ -926,6 +926,12 @@ Declaration(DataProperty(obo:MOLSIM_000670))
 Declaration(DataProperty(obo:MOLSIM_000671))
 Declaration(DataProperty(obo:MOLSIM_000672))
 Declaration(DataProperty(obo:MOLSIM_000678))
+Declaration(DataProperty(obo:MOLSIM_000679))
+Declaration(DataProperty(obo:MOLSIM_000680))
+Declaration(DataProperty(obo:MOLSIM_000681))
+Declaration(DataProperty(obo:MOLSIM_000682))
+Declaration(DataProperty(obo:MOLSIM_000683))
+Declaration(DataProperty(obo:MOLSIM_000684))
 Declaration(AnnotationProperty(obo:IAO_0000115))
 Declaration(AnnotationProperty(dcterms:description))
 Declaration(AnnotationProperty(dcterms:license))
@@ -1362,7 +1368,7 @@ SubDataPropertyOf(obo:MOLSIM_000377 obo:MOLSIM_000364)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000378 "ΔG(solvated) is the solvation free energy associated with the ligand. It represents the free energy change when the ligand is transferred from vacuum to solvent (typically water). This term accounts for the interactions between the ligand and the solvent molecules."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000378 "solvation-free energy of ligand"@en)
-SubDataPropertyOf(obo:MOLSIM_000378 obo:MOLSIM_000364)
+SubDataPropertyOf(obo:MOLSIM_000378 obo:MOLSIM_000679)
 
 # Data Property: obo:MOLSIM_000379 (thermodynamic integration time constraint)
 
@@ -1405,7 +1411,7 @@ SubDataPropertyOf(obo:MOLSIM_000384 obo:MOLSIM_000364)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000385 "Electrostatic Energy Contribution refers to the energy arising from Coulombic interactions between charged particles, calculated using Coulomb's law, and is the sum of all pairwise interactions in a system. This energy, which can be attractive or repulsive, plays a crucial role in the structure and behavior of biomolecules and is often calculated using methods like Particle Mesh Ewald in molecular dynamics simulations."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000385 "electrostatic energy contribution"@en)
-SubDataPropertyOf(obo:MOLSIM_000385 obo:MOLSIM_000364)
+SubDataPropertyOf(obo:MOLSIM_000385 obo:MOLSIM_000680)
 
 # Data Property: obo:MOLSIM_000386 (Van der Waals energy contribution)
 
@@ -1460,7 +1466,7 @@ SubDataPropertyOf(obo:MOLSIM_000393 obo:MOLSIM_000364)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000394 "ΔE(ele) is the change in electrostatic energy."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000394 "electrostatic energy change"@en)
-SubDataPropertyOf(obo:MOLSIM_000394 obo:MOLSIM_000364)
+SubDataPropertyOf(obo:MOLSIM_000394 obo:MOLSIM_000680)
 
 # Data Property: obo:MOLSIM_000395 (Van der Waals energy change scaling factor)
 
@@ -1472,7 +1478,7 @@ SubDataPropertyOf(obo:MOLSIM_000395 obo:MOLSIM_000364)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000396 "Scaling factor for the change in electrostatic energy (β)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000396 "electrostatic energy change scaling factor"@en)
-SubDataPropertyOf(obo:MOLSIM_000396 obo:MOLSIM_000364)
+SubDataPropertyOf(obo:MOLSIM_000396 obo:MOLSIM_000680)
 
 # Data Property: obo:MOLSIM_000397 (binding free energy estimation constant term)
 
@@ -2175,6 +2181,42 @@ SubDataPropertyOf(obo:MOLSIM_000672 obo:MOLSIM_000670)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000678 "Native contact loss measures the number or fraction of specific atom-atom contacts, defined as present in a reference (native) structure, that are broken or missing in a given conformation from a simulation. It quantifies the deviation from the native fold, often used as a reaction coordinate for protein folding or unfolding studies. A higher loss indicates greater structural disruption. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000678 "native contact losses*"@en)
 SubDataPropertyOf(obo:MOLSIM_000678 obo:MOLSIM_000651)
+
+# Data Property: obo:MOLSIM_000679 (solvation-free energy)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000679 "A data property representing the change in Gibbs free energy (ΔG) associated with transferring a solute molecule from a vacuum (or ideal gas phase) into a specific solvent environment at constant temperature and pressure. This thermodynamic property quantifies the net effect of solute-solvent interactions and solvent reorganization, indicating the favorability of the solvation process. This property applies to a specific solute-solvent pair. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000679 "delta G of solvation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "solvation-free energy"@en)
+SubDataPropertyOf(obo:MOLSIM_000679 obo:MOLSIM_000364)
+
+# Data Property: obo:MOLSIM_000680 (electrostatic properties)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000680 "electrostatic properties"@en)
+SubDataPropertyOf(obo:MOLSIM_000680 obo:MOLSIM_000364)
+
+# Data Property: obo:MOLSIM_000681 (multipole moment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000681 "A set of data properties that characterize the electric charge distribution within a molecule by systematically describing its deviation from spherical symmetry. This series includes the total charge (monopole), dipole moment, quadrupole moment, octupole moment, and higher-order terms, providing increasingly detailed information about charge arrangement. A molecule possesses a set of multipole moments. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000681 "multipole moment"@en)
+SubDataPropertyOf(obo:MOLSIM_000681 obo:MOLSIM_000680)
+
+# Data Property: obo:MOLSIM_000682 (dipole moment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000682 "A data property representing the first non-zero multipole moment, quantifying the overall separation of positive and negative charge centers within a molecule. It is a vector quantity, whose magnitude indicates the molecule's polarity (often reported in Debye units) and whose direction points from the negative to the positive charge centroid. This property applies to a Molecule or molecular configuration. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000682 "dipole moment"@en)
+SubDataPropertyOf(obo:MOLSIM_000682 obo:MOLSIM_000681)
+
+# Data Property: obo:MOLSIM_000683 (electronic transition properties)
+
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000683 "A category grouping molecular properties that characterize the transition of a molecule from one electronic state to another, often involving the absorption or emission of light. These properties quantify aspects like the probability, energy difference, and nature of such electronic state changes. Examples include excitation energies and transition moments, which are fundamental to understanding spectroscopy and photochemistry. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000683 "electronic transition properties"@en)
+SubDataPropertyOf(obo:MOLSIM_000683 obo:MOLSIM_000651)
+
+# Data Property: obo:MOLSIM_000684 (radiative transition moment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000684 "A data property representing the quantum mechanical amplitude for a transition between an initial and a final electronic state of a molecule caused by interaction with electromagnetic radiation. The square of its magnitude is proportional to the intensity of the corresponding spectroscopic transition (e.g., light absorption or emission). This property applies to a pair of electronic states. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000684 "radiative transition moment"@en)
+SubDataPropertyOf(obo:MOLSIM_000684 obo:MOLSIM_000683)
 
 
 
@@ -4035,7 +4077,7 @@ SubClassOf(obo:MOLSIM_000302 obo:MOLSIM_000300)
 
 # Class: obo:MOLSIM_000303 (linear dependence evaluation method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000303 "Linear dependence evaluation method is used to measure how the degree of linear dependence between experimental and computed binding free energies was evaluated."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000303 "A mathematical technique used to determine if a set of variables, vectors, or data series are linearly related, meaning one can be expressed as a scaled combination of the others. In simulation analysis, this is often applied to identify correlated motions or redundant coordinates, for instance, in dimensionality reduction techniques like Principal Component Analysis (PCA). It helps simplify the description of complex system behavior. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000303 "linear dependence evaluation method"@en)
 SubClassOf(obo:MOLSIM_000303 obo:MOLSIM_000352)
 
@@ -4059,13 +4101,13 @@ SubClassOf(obo:MOLSIM_000334 obo:MOLSIM_000076)
 
 # Class: obo:MOLSIM_000339 (numerical integration)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000339 "Numerical integration is a mathematical method often used to compute the integral over the thermodynamic path."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000339 "A specific class of integration methods that use algorithms to approximate the value of an integral, particularly when an exact analytical solution is not feasible, which is typical for complex systems like biomolecules. Common algorithms like Verlet or Leapfrog are used in molecular dynamics simulations to incrementally update atomic coordinates and velocities based on calculated forces over small time intervals. These approximations allow the simulation of molecular motion over time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000339 "numerical integration"@en)
 SubClassOf(obo:MOLSIM_000339 obo:MOLSIM_000340)
 
 # Class: obo:MOLSIM_000340 (integration method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000340 "Integration method is the general category of methods used to compute free energy differences (ΔG) in molecular systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000340 "A mathematical procedure for calculating the definite or indefinite integral of a function, often representing accumulation or the solution to differential equations. In biomolecular simulations, integration methods are fundamental for propagating the system forward in time by solving Newton's equations of motion. They calculate the changes in atomic positions and velocities over discrete time steps based on the forces. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000340 "integration method"@en)
 SubClassOf(obo:MOLSIM_000340 obo:MOLSIM_000352)
 
@@ -4126,13 +4168,13 @@ SubClassOf(obo:MOLSIM_000351 obo:MOLSIM_000110)
 
 # Class: obo:MOLSIM_000352 (mathematical techniques)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000352 "Various mathematical methods used in molecular simulation analysis. These can range from simple statistical measures to complex machine learning algorithms."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000352 "The broad range of mathematical and computational methods employed in setting up, running, or analyzing biomolecular simulations. These encompass numerical algorithms, statistical analyses, and algebraic operations necessary for tasks like integrating equations of motion, processing large datasets, or extracting meaningful biophysical insights. They form the quantitative foundation of simulation studies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000352 "mathematical techniques"@en)
 SubClassOf(obo:MOLSIM_000352 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000353 (validation technique)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000353 "Methods used to assess the accuracy and reliability of simulation results. These often involve comparing simulations to experimental data or to higher-level theoretical calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000353 "A method used to assess the quality, accuracy, or physical realism of a biomolecular simulation or the model used. This often involves comparing simulation results against experimental data or known theoretical principles. These techniques help build confidence in the conclusions drawn from the simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000353 "validation technique"@en)
 SubClassOf(obo:MOLSIM_000353 obo:MOLSIM_000110)
 
@@ -4428,13 +4470,13 @@ SubClassOf(obo:MOLSIM_000501 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000502 (linear correlation significance determination)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000502 "Statistical methods to assess the strength and significance of linear relationships between variables. It's used to evaluate the reliability of correlations in data analysis."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000502 "A statistical technique used to evaluate whether an observed linear relationship (correlation) between two variables, derived from simulation data, is statistically meaningful or likely due to random chance. This involves calculating a metric, often a p-value or confidence interval, to assess the strength and reliability of the correlation. It helps distinguish genuine relationships from noise in the data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000502 "linear correlation significance determination"@en)
 SubClassOf(obo:MOLSIM_000502 obo:MOLSIM_000352)
 
 # Class: obo:MOLSIM_000503 (determination by p-value)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000503 "A statistical approach to determine the significance of results. The p-value indicates the probability of obtaining results at least as extreme as those observed, assuming the null hypothesis is true."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000503 "A specific method for assessing linear correlation significance by calculating the probability (p-value) of observing the measured correlation strength (or stronger) under the assumption that there is no actual underlying relationship (the null hypothesis). A sufficiently small p-value (typically below a predefined threshold like 0.05) is interpreted as evidence that the observed correlation is statistically significant and not just a random fluctuation. This is a widely used approach in statistical hypothesis testing. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000503 "determination by p-value"@en)
 SubClassOf(obo:MOLSIM_000503 obo:MOLSIM_000352)
 
@@ -5411,7 +5453,7 @@ SubClassOf(obo:MOLSIM_000790 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000791 (TURBOMOLE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000791 "A quantum chemistry program package known for its efficient implementation of electronic structure methods, applicable to molecular dynamics simulations of biomolecules, particularly for studying reaction mechanisms and electronic properties of biological systems. (UNVERIFIED)")
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000791 "A quantum chemistry program package known for its efficient implementation of electronic structure methods, applicable to molecular dynamics simulations of biomolecules, particularly for studying reaction mechanisms and electronic properties of biological systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000791 "TURBOMOLE"@en)
 SubClassOf(obo:MOLSIM_000791 obo:MOLSIM_000160)
 
@@ -6365,28 +6407,34 @@ SubClassOf(obo:MOLSIM_000976 obo:MOLSIM_000984)
 
 # Class: obo:MOLSIM_000978 (conformation validation*)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000978 "A specific type of validation technique focused on evaluating whether the three-dimensional shapes (conformations) of molecules observed in a simulation are plausible and consistent with known biophysical constraints. This involves checking geometric properties and comparing them to experimental structures or databases. It ensures the simulated structures are sterically and energetically reasonable. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000978 "conformation validation*"@en)
 SubClassOf(obo:MOLSIM_000978 obo:MOLSIM_000353)
 DisjointClasses(obo:MOLSIM_000978 obo:MOLSIM_000981)
 
 # Class: obo:MOLSIM_000979 (ramachandran plot*)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000979 "A specific method used in conformation validation, primarily for proteins, that plots the distribution of backbone dihedral angles (phi and psi) for amino acid residues. It visually highlights whether these angles fall within sterically allowed regions, helping to identify potentially problematic or unrealistic protein structures generated during a simulation. This plot is a standard tool for assessing protein backbone geometry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000979 "ramachandran plot*"@en)
 SubClassOf(obo:MOLSIM_000979 obo:MOLSIM_000978)
 DisjointClasses(obo:MOLSIM_000979 obo:MOLSIM_000980)
 
 # Class: obo:MOLSIM_000980 (structural check*)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000980 "A conformation validation approach that examines various geometric criteria of the simulated molecular structures beyond just Ramachandran angles. This typically includes checks for correct bond lengths, bond angles, dihedral angle distributions, and the absence of severe steric clashes between atoms. It serves as a broader assessment of the structural integrity and realism of the simulated molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000980 "structural check*"@en)
 SubClassOf(obo:MOLSIM_000980 obo:MOLSIM_000978)
 
 # Class: obo:MOLSIM_000981 (secondary structure*)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000981 "(Assuming this refers to the analysis or validation of secondary structure within the simulation context, rather than the structure itself):
+A method used to identify and analyze the presence, formation, and stability of regular local structural patterns, such as alpha-helices and beta-sheets, within proteins or nucleic acids during a simulation. This characterization helps understand the molecule's structural organization and dynamics. It can be used to compare simulated structures to known experimental secondary structure assignments or to track structural changes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000981 "secondary structure*"@en)
 SubClassOf(obo:MOLSIM_000981 obo:MOLSIM_000353)
 
 # Class: obo:MOLSIM_000982 (secondary structure changes*)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000982 "A specific analysis focused on quantifying how secondary structure elements (like helices and sheets) evolve, interconvert, form, or dissolve over the time course of a biomolecular simulation. This provides insights into the dynamic behavior, folding pathways, or conformational transitions of the molecule. It helps monitor the stability and fluctuations of these important structural motifs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000982 "secondary structure changes*"@en)
 SubClassOf(obo:MOLSIM_000982 obo:MOLSIM_000981)
 
@@ -6404,6 +6452,7 @@ SubClassOf(obo:MOLSIM_000984 obo:MOLSIM_000974)
 
 # Class: obo:MOLSIM_000985 (matrix diagonalization)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000985 "A mathematical procedure in linear algebra that transforms a square matrix into a diagonal matrix (where all off-diagonal elements are zero) using similarity transformations. In biomolecular simulation analysis, this technique is crucial for methods like Principal Component Analysis (PCA) or Normal Mode Analysis (NMA), where diagonalizing a covariance matrix or Hessian matrix reveals principal modes of motion or vibrational frequencies. It simplifies the analysis of collective movements or system dynamics by identifying underlying independent components. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000985 "matrix diagonalization"@en)
 SubClassOf(obo:MOLSIM_000985 obo:MOLSIM_000352)
 
