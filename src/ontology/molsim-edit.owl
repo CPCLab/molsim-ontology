@@ -566,7 +566,6 @@ Declaration(Class(obo:MOLSIM_000807))
 Declaration(Class(obo:MOLSIM_000808))
 Declaration(Class(obo:MOLSIM_000809))
 Declaration(Class(obo:MOLSIM_000810))
-Declaration(Class(obo:MOLSIM_000811))
 Declaration(Class(obo:MOLSIM_000812))
 Declaration(Class(obo:MOLSIM_000813))
 Declaration(Class(obo:MOLSIM_000814))
@@ -4908,13 +4907,13 @@ SubClassOf(obo:MOLSIM_000579 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000580 (plane-wave)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000580 "A basis set type that uses periodic plane waves instead of atom-centered functions, particularly suitable for periodic systems like crystals and surfaces in solid-state quantum chemistry calculations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000580 "A plane-wave basis set is a type of basis set commonly used in electronic structure calculations of periodic systems, such as crystals or molecules with periodic boundary conditions. These basis functions are waves that extend infinitely in space with a specific wavelength and direction. They are particularly well-suited for describing delocalized electrons in solids and large, repeating structures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000580 "plane-wave"@en)
 SubClassOf(obo:MOLSIM_000580 obo:MOLSIM_000432)
 
 # Class: obo:MOLSIM_000581 (real-space)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000581 "A basis set approach that represents wavefunctions on discrete grid points in real space rather than using analytical functions, offering systematic convergence and suitability for complex boundary conditions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000581 "A real-space basis set represents electronic wave functions using functions defined on a grid of points in real (three-dimensional) space. Unlike basis sets based on atomic orbitals or plane waves, real-space methods do not rely on an expansion in terms of predefined functions centered on atoms or defined by periodicity. They can be particularly advantageous for systems with complex geometries or strong local variations in electronic density. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000581 "real-space"@en)
 SubClassOf(obo:MOLSIM_000581 obo:MOLSIM_000432)
 
@@ -5531,140 +5530,134 @@ SubClassOf(obo:MOLSIM_000803 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000804 (all-valence-electron restricted)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000804 "A category of semi-empirical methods that explicitly treats all valence electrons in the calculation while using a restricted formalism that pairs electrons in molecular orbitals, balancing computational efficiency with accuracy for non-radical systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000804 "An all-valence-electron restricted semi-empirical method considers only the valence electrons of the atoms in a molecule, as these are primarily involved in chemical bonding. The term \"restricted\" typically implies that the wave function is described by spin-paired electrons in molecular orbitals. These methods are computationally less demanding than all-electron methods while still providing insights into molecular properties. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000804 "all-valence-electron restricted"@en)
 SubClassOf(obo:MOLSIM_000804 obo:MOLSIM_000803)
 DisjointClasses(obo:MOLSIM_000804 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000805 (PPP)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000805 "The Pariser-Parr-Pople method, a semiempirical π-electron theory developed in 1953 that takes electron repulsion into account while neglecting overlap integrals, employing the zero differential overlap (ZDO) approximation to ignore many electron-repulsion integrals, significantly simplifying calculations for planar conjugated molecules. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000805 "PPP stands for Pariser-Parr-Pople, an early all-valence-electron restricted semi-empirical method specifically designed for studying pi-electron systems in conjugated molecules. It simplifies electron-electron interactions and uses empirical parameters derived from spectroscopy to predict electronic transitions and ground state properties of these systems. While less used today for general applications, it was foundational in understanding pi systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000805 "PPP"@en)
 SubClassOf(obo:MOLSIM_000805 obo:MOLSIM_000804)
 
 # Class: obo:MOLSIM_000806 (pi-electron restricted)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000806 "A classification of semi-empirical methods that focuses primarily on π-electrons in conjugated systems, often assuming σ-π separability and treating π-electrons explicitly while treating σ-electrons implicitly or in a simplified manner. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000806 "A pi-electron restricted semi-empirical method focuses solely on the pi electrons in molecules containing double or triple bonds, treating the sigma electron framework as a fixed background. The term \"restricted\" again implies spin-paired electrons within the pi system. These methods are particularly useful for investigating the electronic structure and spectroscopic properties of conjugated organic molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000806 "pi-electron restricted"@en)
 SubClassOf(obo:MOLSIM_000806 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_000807 (AM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000807 "Austin Model 1, a modification of MNDO developed by Dewar and colleagues that adds Gaussian functions to the core repulsion function to overcome MNDO's hydrogen bond problem, with separate parameterization of overlap terms (βs and βp) and Slater orbital exponents (ζs and ζp) for better accuracy in modeling molecular structures and energetics. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000807 "AM1 stands for Austin Model 1, a semi-empirical method based on the Neglect of Diatomic Differential Overlap (NDDO) approximation, which is parameterized to reproduce experimental data for a wide range of organic and some inorganic molecules. It aims to improve upon earlier NDDO methods by including Gaussian functions in the core-core repulsion term. AM1 is widely used for geometry optimizations, thermochemical calculations, and molecular dynamics simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000807 "AM1"@en)
 SubClassOf(obo:MOLSIM_000807 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000808 (CNDO/2)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000808 "Complete Neglect of Differential Overlap version 2, one of the first semi-empirical methods in quantum chemistry that uses the core approximation (only valence electrons explicitly included) and zero-differential overlap approximation, developed by John Pople to explicitly include electron-electron repulsion terms while neglecting many of them for computational efficiency. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000808 "CNDO/2 stands for Complete Neglect of Differential Overlap, version 2, an early all-valence-electron semi-empirical method that makes significant approximations in treating electron-electron interactions. It simplifies the calculations by completely neglecting differential overlap between atomic orbitals on different atoms. While less accurate than later methods, CNDO/2 provided a foundational framework for semi-empirical quantum chemistry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000808 "CNDO/2"@en)
 SubClassOf(obo:MOLSIM_000808 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000809 (INDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000809 "Intermediate Neglect of Differential Overlap, a semi-empirical quantum chemistry method developed from CNDO/2 by John Pople that uses zero-differential overlap for two-electron integrals except for those over orbitals centered on the same atom, providing improved accuracy over CNDO/2 for molecular properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000809 "INDO stands for Intermediate Neglect of Differential Overlap, a semi-empirical method that improves upon CNDO by including one-center differential overlap terms (interactions between different orbitals on the same atom). This inclusion allows for a better description of atomic properties and often leads to more accurate predictions of molecular geometries and electronic structures compared to CNDO methods. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000809 "INDO"@en)
 SubClassOf(obo:MOLSIM_000809 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000810 (Hartree-Fock)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000810 "A fundamental quantum mechanical method that serves as the foundation for many semi-empirical approaches, approximating the many-body wavefunction of a system as a single Slater determinant composed of one-electron functions solved through a self-consistent field approach. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000810 "Hartree-Fock (HF) is technically an ab initio method, not a semi-empirical one, as it aims to solve the electronic Schrödinger equation from first principles without using experimental parameters. It approximates the many-body problem by assuming that each electron moves in an average field created by all other electrons. While it forms the basis for many quantum chemical methods, it's distinct from semi-empirical approaches that incorporate empirical parameters. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000810 "Hartree-Fock"@en)
-SubClassOf(obo:MOLSIM_000810 obo:MOLSIM_000809)
-
-# Class: obo:MOLSIM_000811 (HF)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000811 "The standard abbreviation for Hartree-Fock, a computational quantum chemistry method that serves as the basis for many semi-empirical approximations by providing the mathematical framework for calculating molecular orbitals and electronic energies.  (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000811 "HF"@en)
-SubClassOf(obo:MOLSIM_000811 obo:MOLSIM_000810)
+SubClassOf(obo:MOLSIM_000810 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000812 (ROHF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000812 "Restricted Open-shell Hartree-Fock, a variation of the Hartree-Fock method designed for systems with unpaired electrons (radicals) that maintains spin symmetry by using the same spatial orbital for alpha and beta electrons in doubly occupied orbitals while treating singly occupied orbitals separately. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000812 "ROHF stands for Restricted Open-Shell Hartree-Fock, a variant of the Hartree-Fock method specifically designed for systems with unpaired electrons (radicals or high-spin molecules). It treats electrons with the same spin equally and ensures that the wave function is an eigenfunction of the total spin operator. ROHF provides a well-defined theoretical framework for open-shell systems within the Hartree-Fock approximation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000812 "ROHF"@en)
 SubClassOf(obo:MOLSIM_000812 obo:MOLSIM_000810)
 
 # Class: obo:MOLSIM_000813 (SCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000813 "Self-Consistent Field, an iterative procedure used in Hartree-Fock and semi-empirical methods where the solution is refined repeatedly until the input and output electronic density or wavefunction converge to a stable result within a specified threshold. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000813 "SCF stands for Self-Consistent Field, an iterative procedure used in Hartree-Fock and many other quantum chemical methods (including some semi-empirical ones). The SCF cycle involves an initial guess for the electron distribution, calculating the resulting electric field, solving the Schrödinger equation for electrons in this field to obtain a new electron distribution, and repeating until the electron distribution and the resulting field become consistent. This iterative process aims to find a stable electronic state of the molecule. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000813 "SCF"@en)
 SubClassOf(obo:MOLSIM_000813 obo:MOLSIM_000810)
 
 # Class: obo:MOLSIM_000814 (UHF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000814 "Unrestricted Hartree-Fock, a variant of the Hartree-Fock method used for open-shell systems that allows electrons with different spins to occupy different spatial orbitals, providing more flexibility than ROHF but potentially introducing spin contamination issues. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000814 "UHF stands for Unrestricted Hartree-Fock, another variant of the Hartree-Fock method for open-shell systems. Unlike ROHF, UHF allows electrons with different spins to occupy different spatial orbitals, which can sometimes provide a better description of spin polarization but may also lead to spin contamination (the wave function not being a pure spin state). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000814 "UHF"@en)
 SubClassOf(obo:MOLSIM_000814 obo:MOLSIM_000810)
 
 # Class: obo:MOLSIM_000815 (MINDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000815 "Modified Intermediate Neglect of Differential Overlap, specifically MINDO/3, a semi-empirical method developed by Michael Dewar's group based on INDO that was the original method implemented in the MOPAC program before being superseded by MNDO, PM3, and AM1. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000815 "MINDO stands for Modified Intermediate Neglect of Differential Overlap, an early semi-empirical method that built upon the INDO approximation with further modifications and parameterizations to improve its accuracy for predicting molecular geometries and energies. Several versions of MINDO exist (e.g., MINDO/3). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000815 "MINDO"@en)
 SubClassOf(obo:MOLSIM_000815 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000816 (MNDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000816 "Modified Neglect of Diatomic Overlap, a semi-empirical quantum chemistry method based on the NDDO integral approximation that replaced the earlier MINDO method in MOPAC and other programs, providing improved accuracy for molecular structures and properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000816 "MNDO stands for Modified Neglect of Diatomic Overlap, a semi-empirical method that uses the NDDO approximation and was parameterized to provide improved thermochemical data compared to earlier methods like MINDO. It represents a significant step forward in the accuracy of semi-empirical calculations for ground state properties of organic molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000816 "MNDO"@en)
 SubClassOf(obo:MOLSIM_000816 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000817 (NDDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000817 "Neglect of Diatomic Differential Overlap, a formalism introduced by John Pople that forms the basis for most modern semi-empirical methods, including all two-center integrals for repulsion between charge distributions while applying the zero-differential overlap approximation elsewhere to significantly reduce computational complexity. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000817 "NDDO stands for Neglect of Diatomic Differential Overlap, a key approximation used in several semi-empirical methods like AM1, MNDO, and PM3. It neglects the overlap between atomic orbitals on different atoms when calculating two-electron integrals, significantly reducing the computational cost while still retaining essential electronic interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000817 "NDDO"@en)
 SubClassOf(obo:MOLSIM_000817 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000818 (PDDG)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000818 "Pairwise Distance Directed Gaussian, a method developed by William Jorgensen that modifies the core repulsion function with functional group-specific parameters, providing better description of van der Waals attractions and improved accuracy for heats of formation and intermolecular complexes. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000818 "PDDG stands for Pairwise Distance Directed Gaussian, a modification to the NDDO approximation used in some semi-empirical methods. It introduces Gaussian functions centered at pairwise interatomic distances to improve the description of core-core repulsion and other two-electron integrals, aiming for better accuracy in predicting molecular properties. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000818 "PDDG"@en)
 SubClassOf(obo:MOLSIM_000818 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000819 (PM3)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000819 "Parameterized Model number 3, a semi-empirical method developed by Stewart that uses the same theoretical framework as AM1 but with a different parameterization strategy and parameter values, often providing complementary results to AM1 for molecular structures and properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000819 "PM3 stands for Parameterized Model number 3, a semi-empirical method based on the NDDO approximation and parameterized to reproduce a wide range of experimental data for organic and some inorganic molecules. It was designed to be a more robust and accurate general-purpose method than its predecessors like AM1 and MNDO. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000819 "PM3"@en)
 SubClassOf(obo:MOLSIM_000819 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000820 (PM3MM)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000820 "PM3 with Molecular Mechanics corrections, a hybrid method that combines the PM3 semi-empirical quantum mechanical treatment with molecular mechanics corrections to address specific shortcomings of PM3, particularly for conformational energies and non-bonded interactions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000820 "PM3MM is a hybrid method that combines the PM3 semi-empirical quantum mechanical method for treating the electronic structure of a specific region of a molecule with a molecular mechanics (MM) force field to describe the rest of the system. This approach allows for the study of large systems where electronic effects are important in a localized region, such as enzyme active sites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000820 "PM3MM"@en)
 SubClassOf(obo:MOLSIM_000820 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000821 (PM6)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000821 "Parameterized Model number 6, a more recent semi-empirical method developed by Stewart that includes parameters for more elements across the periodic table and provides improved accuracy for molecular geometries, heats of formation, and non-covalent interactions compared to earlier methods. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000821 "PM6 stands for Parameterized Model number 6, a further development of the PM3 method with a significantly expanded and refined parameter set. It aims to provide improved accuracy over PM3 for a broader range of elements and molecular properties, including non-covalent interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000821 "PM6"@en)
 SubClassOf(obo:MOLSIM_000821 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000822 (RM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000822 "Recife Model 1, a reparameterization of the AM1 semi-empirical method conducted by researchers at the Federal University of Pernambuco in Recife, Brazil, offering improved accuracy for organic compounds while maintaining the same mathematical formalism as AM1. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000822 "RM1 stands for Recife Model 1, a semi-empirical method based on the NDDO approximation that was developed as a re-parameterization of AM1. It incorporates a larger number of Gaussian functions in the core-core repulsion term and uses a different parameterization strategy to improve the accuracy for various molecular properties, particularly for hypervalent compounds and hydrogen bonding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000822 "RM1"@en)
 SubClassOf(obo:MOLSIM_000822 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000823 (SAM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000823 "Semi Ab initio Model 1, a semi-empirical method that incorporates more first principles calculations than traditional semi-empirical methods, with parameters derived from higher-level quantum mechanical calculations rather than exclusively from experimental data. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000823 "SAM1 stands for Semi-Ab Initio Method 1, a semi-empirical method that incorporates some elements of ab initio theory, such as the explicit calculation of one-center two-electron integrals. While still relying on empirical parameters, it aims to provide a more theoretically sound foundation than purely empirical methods like AM1 or PM3. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000823 "SAM1"@en)
 SubClassOf(obo:MOLSIM_000823 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000824 (SINDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000824 "Symmetrically orthogonalized Intermediate Neglect of Differential Overlap, a variant of INDO that uses symmetric orthogonalization to improve the treatment of orbital overlap effects while maintaining the computational efficiency of the INDO framework. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000824 "SINDO stands for Symmetrically Orthogonalized Intermediate Neglect of Differential Overlap, a semi-empirical method based on the INDO approximation but employing a symmetric orthogonalization scheme for the atomic orbitals. This modification aims to improve the description of electronic interactions and often leads to better predictions of molecular properties, especially for transition metal compounds. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000824 "SINDO"@en)
 SubClassOf(obo:MOLSIM_000824 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000825 (Sparkle/AM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000825 "A specialized modification of the AM1 method designed specifically for modeling lanthanide complexes, representing the lanthanide ion as a \"sparkle\" (a charge with no basis functions) to enable efficient calculation of structures and properties of coordination compounds involving rare earth elements. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000825 "Sparkle/AM1 is a semi-empirical method specifically parameterized for lanthanide complexes. It combines the AM1 method for the organic ligands with a set of parameters (the \"Sparkle\" model) designed to describe the interactions involving the lanthanide ion. This allows for the computational study of the structure and properties of these complex systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000825 "Sparkle/AM1"@en)
 SubClassOf(obo:MOLSIM_000825 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000826 (ZANDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000826 "Zero Atomic overlap and Neglect of Diatomic Overlap, a semi-empirical approximation that combines principles of zero atomic overlap with NDDO to further simplify calculations while maintaining reasonable accuracy for specific types of chemical systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000826 "I am unsure about the specific details and common usage of the term \"ZANDO\" within the context of established semi-empirical methods in biomolecular simulation. It might refer to a less widely adopted or a more specialized method. Therefore, I will skip defining this term to avoid providing potentially inaccurate information. (UNSURE)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000826 "ZANDO"@en)
 SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000806)
 
@@ -5672,7 +5665,7 @@ SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000806)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000827 "A family of post-Hartree-Fock methods that add electron correlation through perturbation theory, improving upon the mean-field approximation by including electron-electron interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000827 "Moeller-Plesset"@en)
-SubClassOf(obo:MOLSIM_000827 obo:MOLSIM_000173)
+SubClassOf(obo:MOLSIM_000827 obo:MOLSIM_000828)
 
 # Class: obo:MOLSIM_000828 (MP2)
 
@@ -5700,56 +5693,56 @@ SubClassOf(obo:MOLSIM_000831 obo:MOLSIM_000827)
 
 # Class: obo:MOLSIM_000832 (multi-reference)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000832 "A family of methods designed to correctly describe systems with near-degenerate electronic states or bond breaking, where a single Slater determinant is inadequate. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000832 "A multi-reference method in quantum chemistry is employed when a single electronic configuration (as in Hartree-Fock theory) does not provide a good description of the ground or excited electronic states of a molecule. These methods explicitly consider contributions from multiple electronic configurations in the wave function, which is crucial for systems with significant electron correlation, such as those with bond breaking or near-degeneracy of electronic states. Multi-reference approaches generally offer higher accuracy but are computationally more demanding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000832 "multi-reference"@en)
 SubClassOf(obo:MOLSIM_000832 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000833 (CASSCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000833 "Complete Active Space Self-Consistent Field, a multi-reference method that performs a full configuration interaction within a chosen active space of orbitals while optimizing the remaining orbitals. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000833 "CASSCF stands for Complete Active Space Self-Consistent Field, a multi-reference method where electrons in a chosen set of orbitals (the active space) are allowed to be distributed in all possible ways consistent with the spin and spatial symmetry of the state. The method then optimizes both the molecular orbitals and the configuration coefficients to obtain the electronic wave function. CASSCF is often used as a starting point for more advanced multi-reference calculations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000833 "CASSCF"@en)
 SubClassOf(obo:MOLSIM_000833 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000834 (MC-SCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000834 "Multi-Configuration Self-Consistent Field, a general class of methods that use multiple electronic configurations to describe systems where static electron correlation is important. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000834 "MC-SCF stands for Multi-Configuration Self-Consistent Field, a general class of multi-reference methods where the electronic wave function is expressed as a linear combination of multiple electronic configurations (Slater determinants or Configuration State Functions). Similar to CASSCF, both the molecular orbitals and the coefficients of the configurations are optimized iteratively to obtain the best possible wave function for the chosen set of configurations. CASSCF is a specific type of MC-SCF. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000834 "MC-SCF"@en)
 SubClassOf(obo:MOLSIM_000834 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000835 (MR-CCSD)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000835 "Multi-Reference Coupled Cluster with Singles and Doubles, a highly accurate method combining the multi-reference treatment of static correlation with coupled cluster's powerful dynamic correlation recovery. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000835 "MR-CCSD stands for Multi-Reference Coupled Cluster Singles and Doubles, a highly accurate multi-reference method that builds upon a multi-configurational reference wave function (e.g., from CASSCF or MC-SCF). Coupled cluster theory includes exponential operators that account for electron correlation beyond the mean-field approximation. MR-CCSD aims to provide a more complete treatment of electron correlation in systems where a single reference determinant is insufficient. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000835 "MR-CCSD"@en)
 SubClassOf(obo:MOLSIM_000835 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000836 (MR-CI(SD))
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000836 "Multi-Reference Configuration Interaction with Singles and Doubles, a method that performs configuration interaction calculations using a multi-reference wavefunction as the starting point to capture both static and dynamic correlation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000836 "MR-CI(SD) stands for Multi-Reference Configuration Interaction with Singles and Doubles, another accurate multi-reference method. It starts with a multi-configurational reference wave function and then generates excited electronic states by promoting one (singles) or two (doubles) electrons from the reference configurations to virtual orbitals. MR-CI methods explicitly include many determinants in the wave function to account for electron correlation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000836 "MR-CI(SD)"@en)
 SubClassOf(obo:MOLSIM_000836 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000837 (RASSCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000837 "Restricted Active Space Self-Consistent Field, a more flexible variant of CASSCF that divides the active space into subspaces with different levels of excitation restrictions, making larger active spaces tractable. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000837 "RASSCF stands for Restricted Active Space Self-Consistent Field, an extension of the CASSCF method that allows for a more flexible definition of the active space. The active space is divided into subspaces with restrictions on the number of electrons that can be excited out of or into them. This allows for the treatment of larger active spaces than CASSCF, making it applicable to more complex systems while still capturing important multi-reference effects. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000837 "RASSCF"@en)
 SubClassOf(obo:MOLSIM_000837 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000838 (quadratic configuration interaction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000838 "A family of methods that correct for the size-consistency errors in truncated configuration interaction by including additional terms in the energy expression. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000838 "Quadratic Configuration Interaction (QCI) is a post-Hartree-Fock method that aims to improve upon configuration interaction (CI) by including terms that approximately account for higher-order excitations (beyond singles and doubles). These additional terms are introduced based on a quadratic approximation of the wave operator in coupled-cluster theory. QCI methods are size-consistent, meaning the energy of a system of non-interacting molecules scales correctly with the number of molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000838 "quadratic configuration interaction"@en)
 SubClassOf(obo:MOLSIM_000838 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000839 (QCISD(T))
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000839 "Quadratic Configuration Interaction with Singles, Doubles, and perturbative Triples, a highly accurate single-reference method approaching \"gold standard\" quality for systems dominated by dynamic correlation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000839 "QCISD(T) stands for Quadratic Configuration Interaction with Singles, Doubles, and perturbative Triples. It is a highly accurate single-reference electron correlation method that builds upon QCISD by including a non-iterative correction for triple excitations. This perturbative treatment of triples significantly improves the accuracy of QCISD, often reaching near-CCSD(T) quality, and is widely used for high-accuracy calculations of molecular properties. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000839 "QCISD(T)"@en)
 SubClassOf(obo:MOLSIM_000839 obo:MOLSIM_000838)
 DisjointClasses(obo:MOLSIM_000839 obo:MOLSIM_000840)
 
 # Class: obo:MOLSIM_000840 (QCISD)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000840 "Quadratic Configuration Interaction with Singles and Doubles, a size-consistent improvement over CISD that includes higher-order terms to correct for the errors in truncated CI methods. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000840 "QCISD stands for Quadratic Configuration Interaction with Singles and Doubles. It is a post-Hartree-Fock method that includes all singly and doubly excited determinants in the configuration interaction expansion, along with additional quadratic terms to achieve size-consistency. QCISD provides a more accurate description of electron correlation than methods like Hartree-Fock or MP2 and is often used for systems where higher accuracy than perturbation theory is needed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000840 "QCISD"@en)
 SubClassOf(obo:MOLSIM_000840 obo:MOLSIM_000838)
 
@@ -6634,7 +6627,6 @@ DisjointClasses(obo:MOLSIM_000486 obo:MOLSIM_000487 obo:MOLSIM_000501 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000604 obo:MOLSIM_000605 obo:MOLSIM_000606 obo:MOLSIM_000951 obo:MOLSIM_000954)
 DisjointClasses(obo:MOLSIM_000674 obo:MOLSIM_000675 obo:MOLSIM_000676 obo:MOLSIM_000677)
 DisjointClasses(obo:MOLSIM_000807 obo:MOLSIM_000808 obo:MOLSIM_000809 obo:MOLSIM_000815 obo:MOLSIM_000816 obo:MOLSIM_000817 obo:MOLSIM_000818 obo:MOLSIM_000819 obo:MOLSIM_000820 obo:MOLSIM_000821 obo:MOLSIM_000822 obo:MOLSIM_000823 obo:MOLSIM_000824 obo:MOLSIM_000825 obo:MOLSIM_000826)
-DisjointClasses(obo:MOLSIM_000811 obo:MOLSIM_000812 obo:MOLSIM_000813 obo:MOLSIM_000814)
 DisjointClasses(obo:MOLSIM_000828 obo:MOLSIM_000829 obo:MOLSIM_000830 obo:MOLSIM_000831)
 DisjointClasses(obo:MOLSIM_000833 obo:MOLSIM_000834 obo:MOLSIM_000835 obo:MOLSIM_000836 obo:MOLSIM_000837)
 DisjointClasses(obo:MOLSIM_000846 obo:MOLSIM_000847 obo:MOLSIM_000848 obo:MOLSIM_000849 obo:MOLSIM_000850 obo:MOLSIM_000851 obo:MOLSIM_000852 obo:MOLSIM_000853 obo:MOLSIM_000854 obo:MOLSIM_000855 obo:MOLSIM_000856 obo:MOLSIM_000857 obo:MOLSIM_000858 obo:MOLSIM_000859 obo:MOLSIM_000860 obo:MOLSIM_000861 obo:MOLSIM_000862 obo:MOLSIM_000863 obo:MOLSIM_000864 obo:MOLSIM_000865)
