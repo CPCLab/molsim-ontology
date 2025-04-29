@@ -2223,37 +2223,37 @@ SubDataPropertyOf(obo:MOLSIM_000684 obo:MOLSIM_000683)
 #   Classes
 ############################
 
-# Class: obo:MOLSIM_000000 (process)
+# Class: obo:MOLSIM_000000 (A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation. Different types of processes address distinct phases or goals within the overall workflow. (UNVERIFIED))
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000000 "In molecular simulation, a process is a sequence of computational steps to model molecular behavior. It typically includes system preparation, simulation execution, and data analysis."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000000 "process"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000000 "A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation. Different types of processes address distinct phases or goals within the overall workflow. (UNVERIFIED)"@en)
 
 # Class: obo:MOLSIM_000001 (software)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000001 "Specialized computer programs used to perform molecular simulations and analyze results. These include molecular dynamics engines, visualization tools, and data analysis packages, and others."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000001 "A general term for computer programs, including operating systems, applications, tools, scripts, and libraries, that provide instructions for a computer to perform specific tasks. In biomolecular simulation, software encompasses everything from the core simulation engines and analysis tools to visualization programs and workflow management systems. The choice and use of appropriate software are fundamental to conducting simulation studies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000001 "software"@en)
 
 # Class: obo:MOLSIM_000002 (preparation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000002 "The initial setup phase of a molecular simulation, involving system construction and parameter assignment. This includes building molecular structures, defining force fields, and setting initial conditions."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000002 "The initial stage of a biomolecular simulation process, focused on setting up the molecular system and simulation environment before running the main simulation. This typically involves obtaining structures, adding missing atoms or molecules (like solvent), assigning force field parameters, defining simulation conditions (box, ensemble), and performing initial minimization and equilibration. Proper preparation is crucial for the stability and validity of subsequent simulation steps. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000002 "preparation"@en)
 SubClassOf(obo:MOLSIM_000002 obo:MOLSIM_000000)
 
 # Class: obo:MOLSIM_000003 (execution)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000003 "The actual running of a molecular simulation on a computer or cluster. It involves solving equations of motion for atoms over time, often for nanoseconds to microseconds of simulated time."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000003 "The stage of a biomolecular simulation process where the main simulation runs are performed according to the prepared system and defined parameters to generate trajectory data. This phase involves propagating the system forward in time using algorithms like molecular dynamics or Monte Carlo, under specific ensemble conditions. The goal is typically to sample conformational space, observe dynamic events, or calculate specific properties like free energies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000003 "execution"@en)
 SubClassOf(obo:MOLSIM_000003 obo:MOLSIM_000000)
 
 # Class: obo:MOLSIM_000004 (analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000004 "The examination and interpretation of data produced by molecular simulations. This includes calculating various properties, visualizing trajectories, and extracting meaningful insights from the simulation results."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000004 "The stage following simulation execution, where the generated trajectory data and energy files are processed and interpreted to extract meaningful scientific insights. This involves calculating various structural, dynamic, and thermodynamic properties, such as RMSD, RMSF, distances, angles, hydrogen bonds, interaction energies, free energies, diffusion coefficients, and clustering conformations. Appropriate analysis techniques are crucial for drawing valid conclusions from simulation results. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000004 "analysis"@en)
 SubClassOf(obo:MOLSIM_000004 obo:MOLSIM_000000)
 
 # Class: obo:MOLSIM_000005 (protonation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000005 "The process of adding or removing protons (hydrogens) to atoms or molecules in a simulation system. It's crucial for accurately representing the chemical state of molecules at a given pH."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000005 "A specific step within the preparation process where the ionization states (presence or absence of protons) of ionizable residues (like acids, bases, histidines) and ligands are determined and assigned based on estimated pKa values relevant to the target pH of the simulation. Correct protonation is critical for accurately modeling electrostatic interactions and pH-dependent phenomena. Specialized tools are often used for this task. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000005 "protonation"@en)
 SubClassOf(obo:MOLSIM_000005 obo:MOLSIM_000002)
 
@@ -2582,91 +2582,91 @@ SubClassOf(obo:MOLSIM_000058 obo:MOLSIM_000057)
 
 # Class: obo:MOLSIM_000059 (short range interaction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000059 "Short-range interaction is the type of interaction that take place under a specific distance cut-off (e.g. ionic, covalent, metallic, dipolar)."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000059 "An interaction between particles where the force or potential energy decreases rapidly with increasing distance, becoming negligible beyond a certain range (typically a few molecular diameters). Van der Waals interactions (often modeled with Lennard-Jones potentials decaying as 1/(r^6) for attraction) are the primary example. These interactions can often be computationally truncated using a cutoff radius in simulations without significant loss of accuracy, improving efficiency. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000059 "short range interaction"@en)
 SubClassOf(obo:MOLSIM_000059 obo:MOLSIM_000057)
 
 # Class: obo:MOLSIM_000060 (specific interaction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000060 "Specific interaction is the type of interaction described by the chemical  force-fields between two particular and defined chemical entities."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000060 "An interaction whose strength and occurrence depend critically on the specific chemical identities, geometries, and relative orientations of the interacting partners. These often involve directional components and chemical complementarity, such as hydrogen bonds, salt bridges (ionic interactions), or π-stacking, playing key roles in molecular recognition, binding specificity, and defined structural motifs. They contrast with more general, less directional interactions like isotropic Van der Waals forces. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000060 "specific interaction"@en)
 SubClassOf(obo:MOLSIM_000060 obo:MOLSIM_000057)
 
 # Class: obo:MOLSIM_000061 (non specific interaction energy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000061 "Non-specific interaction energy is the type of interaction described by the chemical  force-fields between two not defined chemical entities."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000061 "Represents the energy contribution from interactions that are less dependent on the precise chemical nature or orientation of the interacting groups, such as general Van der Waals attraction (dispersion) and repulsion (excluded volume). These forces act broadly between molecules or parts of molecules, contributing significantly to overall cohesion, packing density, and solvation effects (e.g., the hydrophobic effect is driven by minimizing disruption of water, influenced by non-specific interactions). It contrasts with the energy from specific, directional interactions like hydrogen bonds. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000061 "non specific interaction energy"@en)
 SubClassOf(obo:MOLSIM_000061 obo:MOLSIM_000057)
 
 # Class: obo:MOLSIM_000062 (non-covalent interaction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000062 "Non-covalent interactions is the type of interaction that differs from covalent bonds in that it does not involve the sharing of electrons, but rather involves more dispersed variations of electromagnetic interactions between molecules or within a molecule."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000062 "An interaction between atoms, ions, or molecules that does not involve the sharing of valence electrons to form a covalent bond. These interactions, including Van der Waals forces, electrostatic interactions (encompassing hydrogen bonds, salt bridges, dipole interactions), π-effects, and hydrophobic effects, govern molecular recognition, self-assembly, folding, and the stability of biomolecular complexes. Though individually weaker than covalent bonds (typically 0.1-10 kcal/mol vs >50 kcal/mol), their cumulative effect is critical for biological structure and function. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000062 "non-covalent interaction"@en)
 SubClassOf(obo:MOLSIM_000062 obo:MOLSIM_000057)
 
 # Class: obo:MOLSIM_000063 (covalent interaction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000063 "A covalent interaction, also known as a covalent bond, is a strong chemical bond that involves the sharing of electron pairs between atoms. In molecular dynamics simulations, covalent bonds are typically represented as rigid or semi-rigid connections between atoms, often modeled using harmonic potentials. These bonds are crucial for maintaining the primary structure of molecules like proteins and nucleic acids."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000063 "Interactions resulting from the sharing of valence electrons between atoms, forming stable chemical bonds (e.g., C-C, C-N, C-O, S-S) that define the fundamental connectivity and constitution of a molecule. In classical biomolecular simulations using force fields, covalent bonds, along with bond angles and dihedral angles defining local geometry, are usually represented by potential energy terms (e.g., harmonic springs, periodic functions) that maintain the molecular structure, rather than allowing bonds to form or break dynamically (which requires QM or reactive force fields). These are the strongest interactions within molecules (>50 kcal/mol). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000063 "covalent interaction"@en)
 SubClassOf(obo:MOLSIM_000063 obo:MOLSIM_000057)
 
 # Class: obo:MOLSIM_000064 (Van der Waals interaction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000064 "Type of interaction that take place between induced electrical forces between two or more atoms or molecules that are very close to each other."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000064 "A short-range non-covalent interaction between atoms or molecules arising from temporary fluctuations in electron distribution causing transient dipoles (London dispersion forces) and interactions involving permanent or induced multipoles, counteracted by strong short-range repulsion due to overlapping electron clouds (Pauli exclusion principle). Commonly modeled using potentials like the Lennard-Jones 6-12 potential. These interactions determine molecular size, shape, packing efficiency, and contribute to binding affinity. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000064 "Van der Waals interaction"@en)
 SubClassOf(obo:MOLSIM_000064 obo:MOLSIM_000062)
 
 # Class: obo:MOLSIM_000065 (solvation model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000065 "Solvation model allows the quantum chemistry calculations to include the interactions between solvents and the quantum solute. Solvents can be treated implicitly, known as continuum solvents, and explicitly."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000065 "The computational approach used within a simulation to represent the effects of the surrounding solvent environment (most commonly water in biomolecular contexts) on the properties and behavior of the solute molecule(s). These models range from explicitly including individual solvent molecules (explicit models) to representing the solvent as a continuous medium with averaged properties (implicit models), or using combinations or specialized representations (hybrid, coarse-grained, QM). The choice of solvation model profoundly impacts the accuracy of simulating phenomena like folding, binding, and reaction energetics, as well as the computational cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000065 "solvation model"@en)
 SubClassOf(obo:MOLSIM_000065 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000066 (explicit solvent model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000066 "Explicit solvent model is solvent model that treat solvent molecules explicitly, including their coordinates and degrees of freedom."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000066 "A solvation model where individual solvent molecules (e.g., water molecules represented by a specific water model like TIP3P or SPC/E) are explicitly included in the simulation system alongside the solute molecule(s). This approach provides the most detailed, atomistic representation of solute-solvent interactions, capturing specific hydrogen bonding patterns, local solvent structure, and dynamic effects. However, it significantly increases the system size and computational expense due to the large number of solvent particles that must be simulated. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000066 "explicit solvent model"@en)
 SubClassOf(obo:MOLSIM_000066 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000067 (water model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000067 "A water model is used to simulate and thermodynamically calculate water clusters, liquid water, and aqueous solutions with explicit solvent."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000067 "Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000067 "water model"@en)
 SubClassOf(obo:MOLSIM_000067 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000068 (implicit solvent model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000068 "Implicit solvent model is a solvent model treat the solvent as a continuous medium rather than individual molecules."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000068 "A solvation model that approximates the average effect of the solvent environment without explicitly representing individual solvent molecules. Instead, the solvent is treated as a continuous medium characterized by macroscopic properties, primarily its dielectric constant (ϵ) to account for electrostatic screening, and sometimes surface tension to account for nonpolar effects like cavity formation. Common examples include Generalized Born (GB) models and methods based on solving the Poisson-Boltzmann (PB) equation, often combined with a surface area term (SASA); these significantly reduce computational cost compared to explicit solvent. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000068 "implicit solvent model"@en)
 SubClassOf(obo:MOLSIM_000068 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000069 (hybrid solvent model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000069 "Hybrid solvent model is a solvent model that combine aspects of both explicit and implicit models."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000069 "A solvation modeling approach that combines elements of both explicit and implicit solvent representations within the same simulation. Typically, a limited number of explicit solvent molecules are retained in a specific region of interest deemed critical (e.g., the active site of an enzyme, the first solvation shell around a solute), while the bulk solvent further away is represented using an implicit continuum model. This strategy aims to capture detailed local solvent effects accurately while maintaining computational efficiency by treating the less critical bulk solvent implicitly. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000069 "hybrid solvent model"@en)
 SubClassOf(obo:MOLSIM_000069 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000070 (coarse grained solvent model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000070 "Coarse Grained Solvent Model is a solvent model that simplify the representation of solvent molecules, often grouping multiple atoms into a single interaction site."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000070 "A solvent model designed for compatibility with coarse-grained (CG) solute force fields, where the solvent representation is also simplified to match the reduced resolution of the solute. This can involve explicit CG solvent particles where each particle represents multiple (e.g., 3-4) real water molecules (like MARTINI water), or implicit CG solvent models that adapt continuum concepts to the coarse-grained scale. These models drastically reduce the number of degrees of freedom associated with the solvent, enabling simulations of very large systems or very long timescales. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000070 "coarse grained solvent model"@en)
 SubClassOf(obo:MOLSIM_000070 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000071 (machine learning solvent model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000071 "Machine learning solvent model is a solvent model based on machine-learning approaches."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000071 "An emerging class of solvation models where the complex relationship between a solute's structure/properties and its solvation free energy (or related solvent effects) is learned using machine learning (ML) algorithms. These algorithms are trained on large datasets generated from high-fidelity sources like explicit solvent simulations, quantum mechanical calculations, or experimental data. ML solvent models aim to achieve high accuracy approaching that of the training data but at a significantly reduced computational cost, potentially bridging the gap between fast implicit models and expensive explicit models. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000071 "machine learning solvent model"@en)
 SubClassOf(obo:MOLSIM_000071 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000072 (quantum mechanical solvent model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000072 "Quantum Mechanical Solvent Model is a solvent model that is based on QM-calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000072 "A solvation model where the electronic structure of the solvent, or its interaction with the solute, is treated using quantum mechanics (QM). This can range from embedding a QM description of the solute within a classical solvent model (either implicit or explicit) using QM/MM techniques, to treating a number of explicit solvent molecules quantum mechanically along with the solute, or using implicit solvent models derived from QM principles (like the SMD model). These models capture electronic polarization, charge transfer, and other quantum effects involving the solvent, providing high accuracy but at a very high computational cost, reserved for specific problems like chemical reactions in solution. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000072 "quantum mechanical solvent model"@en)
 SubClassOf(obo:MOLSIM_000072 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000073 (generalized Born)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000073 "The Generalized Born (GB) model is an approximation method used in molecular dynamics simulations to efficiently model the electrostatic effects of solvent on biomolecules."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000073 "A specific type of implicit solvent model that provides an analytical approximation to the electrostatic component of the solvation free energy, based on the Born model for solvation of a spherical ion. It calculates effective Born radii for each atom in the solute, representing the degree of solvent exposure, and uses these radii in a formula that approximates the electrostatic polarization energy typically calculated by solving the more complex Poisson-Boltzmann equation. GB models are computationally much faster than PB methods, making them popular for applications like MD simulations or energy minimization, often paired with a surface area term (GBSA). (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000073 "GB"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000073 "generalized Born"@en)
 SubClassOf(obo:MOLSIM_000073 obo:MOLSIM_000068)
@@ -2811,72 +2811,72 @@ SubClassOf(obo:MOLSIM_000096 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000097 (state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000097 "A particular configuration or condition of a molecular system at a given time in a simulation. It includes atomic positions, velocities, and other relevant parameters."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000097 "A specific condition or configuration of a system being studied, characterized by a defined set of properties (e.g., molecular conformation, protonation pattern, binding status, energy level). In biomolecular simulations, we often study transitions between different states or the properties of the system within a particular state (e.g., the bound state of a ligand, an unfolded state of a protein). Defining and characterizing relevant states is crucial for understanding biological processes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000097 "state"@en)
 
 # Class: obo:MOLSIM_000098 (ligand state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000098 "A ligand state refers to a specific configuration or condition of a ligand molecule in the context of its interaction with a target protein or other biomolecules."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000098 "Refers to the specific condition or status of a ligand molecule, particularly in the context of its interaction with a receptor molecule (like a protein). This encompasses various aspects, including whether it is bound or unbound, its specific binding pose or conformation, its protonation or tautomeric form, and its electronic state. Characterizing different ligand states is fundamental to understanding molecular recognition and drug action. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000098 "ligand state"@en)
 SubClassOf(obo:MOLSIM_000098 obo:MOLSIM_000097)
 
 # Class: obo:MOLSIM_000099 (bound state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000099 "Bound ligand state is the configuration where the ligand is fully associated with the protein target, occupying a specific binding site. In this state, the ligand forms stable interactions (e.g., hydrogen bonds, van der Waals interactions) with the protein."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000099 "The state in which a ligand molecule is physically associated with its receptor molecule, typically residing within a specific binding site or pocket, stabilized by non-covalent interactions. Simulations often aim to characterize the structure, dynamics, and interaction energy of the ligand within the bound state, or calculate the free energy difference between the bound and unbound states (binding free energy). Multiple distinct bound poses or conformations might exist. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000099 "bound state"@en)
 SubClassOf(obo:MOLSIM_000099 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000100 (unbound state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000100 "Unbound ligand state is the configuration where the ligand is completely separated from the protein, typically freely moving in the solvent. In this state, the ligand does not interact directly with the protein."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000100 "The state in which a ligand molecule is not associated with the receptor molecule, typically solvated freely in the surrounding solvent (e.g., water) or located far from the receptor's binding site. Defining the unbound state is necessary for calculating binding free energies, as it serves as the reference state relative to the bound state. It represents the ligand and receptor separated and independently solvated. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000100 "unbound state"@en)
 SubClassOf(obo:MOLSIM_000100 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000101 (transition state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000101 "Transition ligand state is a high-energy, unstable configuration that represents the point of highest free energy along the reaction coordinate of ligand binding or unbinding. It's a fleeting state that determines the rate of binding/unbinding processes."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000101 "In chemical kinetics and simulation, the transition state refers to a specific, high-energy, transient molecular configuration along the reaction coordinate connecting two stable states (e.g., reactant and product, or bound and unbound states). It represents the energy barrier that must be overcome for the transition to occur. While challenging to simulate directly due to its short lifetime, characterizing the transition state is crucial for understanding reaction mechanisms and rates, often studied using specialized simulation techniques or QM methods. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000101 "transition state"@en)
 SubClassOf(obo:MOLSIM_000101 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000102 (metastable state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000102 "Metastable ligand state is a relatively stable intermediate configurations along the binding pathway that have local energy minima. These states can persist for some time before transitioning to other states."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000102 "A state of a system that is locally stable (residing in a minimum on the potential energy surface) but has a higher free energy than the globally stable state. The system can persist in a metastable state for a significant time if the energy barrier to reach a more stable state is high. Examples in biomolecular systems include misfolded protein conformations, transiently bound ligand poses, or specific intermediate states along a functional cycle. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000102 "metastable state"@en)
 SubClassOf(obo:MOLSIM_000102 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000103 (encounter complex)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000103 "Encounter complex ligand state is an initial, loosely bound complex formed when the ligand first comes into contact with the protein. This state often involves non-specific interactions and precedes the formation of the final, stable bound state."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000103 "A transient state occurring early in the binding process where the ligand and receptor molecules first come into close proximity and make non-specific contacts, largely driven by diffusion, before potentially rearranging into a specific, stable bound state. The encounter complex represents a collection of loosely associated configurations, often characterized by significant residual motion and non-optimal interactions, preceding the formation of the final bound pose. Studying these initial encounters can be important for understanding binding kinetics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000103 "encounter complex"@en)
 SubClassOf(obo:MOLSIM_000103 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000104 (solvated state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000104 "Solvated ligand state is the configuration where the ligand is completely surrounded by solvent molecules (typically water) and fully hydrated. This state is important for understanding the energetics of desolvation during binding."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000104 "A general state referring to a molecule (either ligand or receptor, or the complex) being surrounded by solvent molecules (typically water in biological contexts). This term emphasizes the presence and influence of the solvent on the molecule's structure, dynamics, and energetics. Both the bound and unbound states are typically solvated states, and solvation effects are crucial components of binding free energies and conformational preferences. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000104 "solvated state"@en)
 SubClassOf(obo:MOLSIM_000104 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000105 (conformational state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000105 "Conformational ligand state is different three-dimensional arrangements of the ligand's atoms that can interconvert. These can include folded vs. extended states, or different rotamers of flexible groups."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000105 "A specific three-dimensional arrangement or shape adopted by a flexible molecule, such as a protein or ligand. Molecules can typically exist in multiple conformational states, corresponding to different local minima on their potential energy surface, separated by energy barriers. Simulations are often used to explore the accessible conformational states, their relative populations, and the transitions between them, which are essential for molecular function and binding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000105 "conformational state"@en)
 SubClassOf(obo:MOLSIM_000105 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000106 (protonation state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000106 "Protonation ligand state refers to the configuration of a ligand molecule based on the presence or absence of protons on specific atoms, particularly ionizable groups. It affects the ligand's charge distribution and binding properties, influencing its behavior in different pH environments and its interactions with target molecules. The protonation state can significantly affect the ligand's charge distribution and binding properties."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000106 "The specific state of a molecule defined by which of its ionizable functional groups are protonated (e.g., -COOH vs -COO-, -NH3+ vs -NH2) or deprotonated. The protonation state depends on the pKa values of the groups and the pH of the environment. Determining the correct protonation state(s) for amino acid residues and ligands is a critical step in preparing systems for simulation, as it dictates charge distribution and electrostatic interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000106 "protonation state"@en)
 SubClassOf(obo:MOLSIM_000106 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000107 (tautomeric state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000107 "Tautomeric state is the state where structural isomers of the ligand are ready to interconvert, and differ in the position of a proton and a double bond. Tautomers can have different binding properties and may interconvert during the binding process."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000107 "One of two or more structural isomers of a molecule that readily interconvert through a process called tautomerization, most commonly involving the migration of a proton accompanied by a switch of a single and adjacent double bond. For example, keto-enol tautomerism is common in organic chemistry. Identifying the relevant tautomeric state(s) for a ligand or residue under simulation conditions is important for accurate modeling, particularly for heterocyclic compounds often found in drugs and cofactors. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000107 "tautomeric state"@en)
 SubClassOf(obo:MOLSIM_000107 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000108 (excited state)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000108 "Excited states are higher energy electronic configurations of a ligand where electrons occupy orbitals above the ground state. These states are crucial in photochemical processes and spectroscopic studies, representing temporary, energetically elevated molecular arrangements."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000108 "An electronic state of a molecule where one or more electrons have been promoted to higher energy levels than in the ground electronic state, typically following the absorption of light (photoexcitation). Excited states have different electron distributions, geometries, and reactivity compared to the ground state and are central to photochemistry and spectroscopy (like fluorescence). Simulating excited states requires quantum mechanical methods (like TD-DFT or CASSCF) as classical force fields are typically parameterized only for the ground electronic state. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000108 "excited state"@en)
 SubClassOf(obo:MOLSIM_000108 obo:MOLSIM_000098)
 
@@ -3163,85 +3163,85 @@ SubClassOf(obo:MOLSIM_000155 obo:MOLSIM_000143)
 
 # Class: obo:MOLSIM_000156 (application program)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000156 "Software designed for a specific use. Examples include programs for structure visualization, trajectory analysis, or free energy calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000156 "A type of software designed to perform specific tasks directly for the end-user, as opposed to system software that manages the computer itself. In biomolecular simulation, application programs include molecular dynamics engines (like AMBER, GROMACS), quantum chemistry packages (like Gaussian, Q-Chem), visualization tools (like VMD, PyMOL), and analysis programs. These are the primary software packages researchers interact with. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000156 "application program"@en)
 SubClassOf(obo:MOLSIM_000156 obo:MOLSIM_000001)
 
 # Class: obo:MOLSIM_000157 (framework)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000157 "A framework is a reusable set of libraries, tools, and conventions for developing software applications."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000157 "A reusable software platform or environment that provides a basic structure and set of tools or libraries for developing applications or performing complex tasks within a specific domain. In biomolecular simulation, a framework might offer standardized ways to set up simulations, manage data, integrate different tools, or build custom analysis workflows, providing a higher level of abstraction than individual tools or scripts. Examples could include workflow management systems (like Galaxy, KNIME adapted for simulation) or simulation setup environments (like CHARMM-GUI). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000157 "framework"@en)
 SubClassOf(obo:MOLSIM_000157 obo:MOLSIM_000001)
 
 # Class: obo:MOLSIM_000158 (tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000158 "Software utilities used to perform specific tasks in molecular simulations. These can range from file format converters to specialized analysis programs."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000158 "A piece of software, often an application program or a component within a larger package, designed to perform a specific, well-defined task or function within the overall biomolecular simulation workflow. Tools can range from simple file converters or data extractors to complex programs for docking, visualization, analysis, or structure preparation. They are typically used to accomplish specific sub-goals within the broader preparation, execution, or analysis processes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000158 "tool"@en)
 SubClassOf(obo:MOLSIM_000158 obo:MOLSIM_000001)
 
 # Class: obo:MOLSIM_000159 (script)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000159 "Short programs written to automate tasks in molecular simulations. They often combine multiple tools or programs to perform complex workflows."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000159 "A computer program written in an interpreted programming language (like Python, Perl, Bash) that typically automates a sequence of tasks, orchestrates the execution of other programs (executables or tools), or performs data processing and analysis. Scripts are often used in biomolecular simulation workflows to automate repetitive tasks like file preparation, job submission, data extraction, analysis calculations, and result aggregation, enhancing efficiency and reproducibility. They range from simple command sequences to complex analysis pipelines. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000159 "script"@en)
 SubClassOf(obo:MOLSIM_000159 obo:MOLSIM_000001)
 
 # Class: obo:MOLSIM_000160 (molecular dynamics software)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000160 "Programs specifically designed to perform molecular dynamics simulations. These solve equations of motion for atoms over time, often using parallel computing techniques."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000160 "Application programs specifically designed to perform molecular dynamics (MD) simulations, which calculate the motion of atoms and molecules over time based on classical mechanics and a chosen force field. These packages typically include capabilities for system preparation, simulation execution (often optimized for high-performance computing), and basic trajectory analysis. Examples include AMBER, GROMACS, NAMD, CHARMM, Desmond, and LAMMPS. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000160 "molecular dynamics software"@en)
 SubClassOf(obo:MOLSIM_000160 obo:MOLSIM_000156)
 
 # Class: obo:MOLSIM_000161 (quantum chemistry software)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000161 "Quantum Mechanics Software is software tools used for quantum mechanics calculations in computational chemistry."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000161 "Application programs specifically designed to solve the electronic structure of atoms and molecules using the principles of quantum mechanics. These packages implement various theoretical methods, such as Hartree-Fock, Density Functional Theory (DFT), Møller-Plesset perturbation theory (MPn), configuration interaction (CI), and coupled cluster (CC), to calculate energies, wavefunctions, molecular properties, and reaction pathways. Examples include Gaussian, Q-Chem, NWChem, Orca, Molpro, etc., often used for parameterizing force fields, studying reaction mechanisms, or in QM/MM simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000161 "quantum chemistry software"@en)
 SubClassOf(obo:MOLSIM_000161 obo:MOLSIM_000156)
 
 # Class: obo:MOLSIM_000162 (docking tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000162 "Software used to predict the orientation of molecules when they bind to each other. It's commonly used in drug discovery to predict how small molecules interact with protein targets."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000162 "A computational tool used to predict the preferred binding orientation and affinity (scoring) of one molecule (typically a small ligand) to another (usually a larger receptor like a protein or nucleic acid). Docking tools employ search algorithms to explore possible binding poses within a target site and use scoring functions to estimate the binding strength for each pose. Widely used in drug discovery and understanding molecular recognition, examples include AutoDock, Vina, Glide, GOLD, and DOCK. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000162 "docking tool"@en)
 SubClassOf(obo:MOLSIM_000162 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000163 (visualization tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000163 "Software used to create visual representations of molecular structures and simulation results. These tools help in understanding complex 3D structures and their dynamics."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000163 "Software specifically designed for creating interactive 3D graphical representations of molecular structures, densities, surfaces, and dynamic trajectories generated from simulations or experiments. These tools allow researchers to visually inspect molecular details, understand complex spatial relationships, analyze interactions, monitor simulations, and create figures and animations for communication. Common examples include VMD, PyMOL, Chimera/ChimeraX, and DeepView (Swiss-PdbViewer). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000163 "visualization tool"@en)
 SubClassOf(obo:MOLSIM_000163 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000164 (analysis tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000164 "Software used to examine and interpret data from molecular simulations. This can include programs for calculating various properties or identifying important events in simulations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000164 "Software designed to process raw data generated from biomolecular simulations (like trajectories, energy files) to calculate specific quantitative properties and extract meaningful insights. Analysis tools implement algorithms for calculating metrics like RMSD, RMSF, radius of gyration, hydrogen bonds, interaction energies, principal components (PCA), free energy estimations (MM/PBSA), clustering, etc. Examples include cpptraj (AmberTools), GROMACS analysis utilities, MDAnalysis (Python library), and specialized scripts or programs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000164 "analysis tool"@en)
 SubClassOf(obo:MOLSIM_000164 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000165 (data processing tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000165 "Software used to manipulate and transform data from molecular simulations. This includes programs for filtering, averaging, or reformatting simulation outputs."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000165 "A tool focused on manipulating, converting, filtering, or extracting information from data files generated during a simulation workflow. This can involve tasks like converting file formats, extracting specific columns or frames, merging datasets, calculating simple statistics, or preparing data for input into other analysis or visualization tools. These tools handle the logistical aspects of managing simulation data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000165 "data processing tool"@en)
 SubClassOf(obo:MOLSIM_000165 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000166 (file conversion tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000166 "Software used to change file formats in molecular simulation workflows. These tools are crucial for interoperability between different simulation and analysis programs."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000166 "A specific type of data processing tool dedicated to converting molecular structure, trajectory, or data files from one format to another (e.g., PDB to MOL2, GROMACS trajectory to AMBER format). File format compatibility is a common issue when using different software packages, making these tools essential for interoperability within a simulation workflow. Many simulation packages include their own conversion utilities, or general tools like Open Babel can be used. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000166 "file conversion tool"@en)
 SubClassOf(obo:MOLSIM_000166 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000167 (automation script)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000167 "A script used to automate repetitive tasks in molecular simulations. These scripts can manage entire simulation workflows, from system setup to analysis."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000167 "A script specifically designed to automate a series of steps in a workflow that would otherwise need to be performed manually. In simulations, this could involve automatically setting up multiple simulation replicas, submitting jobs to a computing cluster, checking job status, and organizing output files, thereby reducing manual effort and potential errors. Workflow management systems often rely heavily on automation scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000167 "automation script"@en)
 SubClassOf(obo:MOLSIM_000167 obo:MOLSIM_000159)
 
 # Class: obo:MOLSIM_000168 (data analysis script)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000168 "A script used to perform specific analyses on molecular simulation data. These often combine multiple analysis tools or implement custom calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000168 "A script written to perform specific analysis tasks on data generated from simulations, often going beyond the standard capabilities of packaged analysis tools or requiring custom calculations. Examples include scripts to calculate specific geometric parameters over time, parse log files for specific energy terms, perform advanced statistical analysis or time-series analysis on trajectory data, or generate data for custom plots. These are often written in Python (using libraries like MDAnalysis, NumPy, Pandas) or R. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000168 "data analysis script"@en)
 SubClassOf(obo:MOLSIM_000168 obo:MOLSIM_000159)
 
 # Class: obo:MOLSIM_000169 (workflow script)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000169 "A script that outlines and executes a series of tasks in a molecular simulation project. It orchestrates the entire process from system preparation to final analysis."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000169 "A script that defines and executes an entire sequence of computational tasks constituting a specific workflow, often involving multiple steps like data preparation, running simulations (potentially submitting to clusters), performing analysis, and summarizing results. These scripts orchestrate the execution of various tools and other scripts, manage intermediate data, and handle dependencies between steps, ensuring the entire process runs smoothly and reproducibly. Tools like Snakemake or Nextflow help in creating robust workflow scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000169 "workflow script"@en)
 SubClassOf(obo:MOLSIM_000169 obo:MOLSIM_000159)
 
@@ -3253,14 +3253,14 @@ SubClassOf(obo:MOLSIM_000170 obo:MOLSIM_000001)
 
 # Class: obo:MOLSIM_000171 (command-line program)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000171 "Software that is operated through text commands in a console. Many molecular simulation tools are command-line programs, allowing for scripting and automation."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000171 "An executable program that is operated primarily through text commands typed into a command-line interface (CLI) or terminal, rather than through a graphical user interface (GUI). Most core simulation engines (like GROMACS' gmx mdrun, AMBER's pmemd), analysis tools (cpptraj), and many utility programs in biomolecular simulation are command-line programs, making them well-suited for scripting and remote execution on computing clusters. They typically accept input parameters via command-line arguments or input files. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000171 "command-line program"@en)
 SubClassOf(obo:MOLSIM_000171 obo:MOLSIM_000170)
 DisjointClasses(obo:MOLSIM_000171 obo:MOLSIM_000172)
 
 # Class: obo:MOLSIM_000172 (compiled program)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000172 "Software that has been converted from source code into machine code for execution. Compiled programs often run faster than interpreted scripts."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000172 "A program that has been translated from a high-level programming language (like C++, Fortran) into low-level machine code specific to a particular computer architecture (CPU instruction set) by a compiler. This compiled code is stored in an executable file. Compiled programs generally run much faster than interpreted scripts (like Python or Perl) because the translation to machine code happens only once, making compilation essential for computationally intensive tasks like running MD simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000172 "compiled program"@en)
 SubClassOf(obo:MOLSIM_000172 obo:MOLSIM_000170)
 
@@ -3278,160 +3278,160 @@ SubClassOf(obo:MOLSIM_000174 obo:MOLSIM_000017)
 
 # Class: obo:MOLSIM_000175 (Gaussian)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000175 "Gaussian is a commercial software used to perform quantum chemistry calculations with various quantum chemical methods implementations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000175 "A comprehensive and widely used quantum chemistry software package, primarily focused on electronic structure calculations using ab initio methods, Density Functional Theory (DFT), and semi-empirical methods. While its core strength is QM, Gaussian can perform ONIOM (QM/MM) calculations and some limited molecular mechanics (MM) computations, making it potentially usable in biomolecular contexts, especially for parameterization or high-accuracy active site studies, but it's not typically used as a primary classical MD engine like AMBER or GROMACS. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000175 "Gaussian"@en)
 SubClassOf(obo:MOLSIM_000175 obo:MOLSIM_000160)
 SubClassOf(obo:MOLSIM_000175 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000176 (GAMESS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000176 "GAMESS is a general ab initio quantum chemistry package."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000176 "This likely refers to GAMESS-US (General Atomic and Molecular Electronic Structure System), a widely used, freely available quantum chemistry software package. It provides a broad range of quantum mechanical methods (HF, DFT, MP2, CCSD, MCSCF) and features for geometry optimization, vibrational analysis, property calculation, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (UNVERIFIED) (If GAMESS-UK was intended, see previous definition)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000176 "GAMESS"@en)
 SubClassOf(obo:MOLSIM_000176 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000177 (Psi4)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000177 "Psi4 is an open-source suite of ab initio quantum chemistry programs designed for efficient, high-accuracy simulations of molecular properties."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000177 "An open-source suite of quantum chemistry software specializing in high-accuracy ab initio methods (like coupled cluster and symmetry-adapted perturbation theory) alongside standard methods like HF and DFT. Psi4 is known for its modern codebase (Python and C++), user-friendly input, extensive libraries, and focus on accuracy and efficient algorithms for correlated wavefunction calculations. It's increasingly popular in the academic community for demanding electronic structure calculations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000177 "Psi4"@en)
 SubClassOf(obo:MOLSIM_000177 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000178 (Orca)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000178 "ORCA is a powerful and versatile quantum chemistry software package, primarily developed by the group of Prof. Frank Neese."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000178 "A versatile and powerful quantum chemistry software package, freely available for academic use, offering a wide range of methods including DFT, HF, semi-empirical, MPn, coupled cluster, and multi-reference methods. Orca is known for its robustness, efficiency (especially for DFT), user-friendliness, and ability to handle large molecules, making it very popular for diverse applications in computational chemistry, including biomolecular-relevant calculations like QM/MM or spectroscopy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000178 "Orca"@en)
 SubClassOf(obo:MOLSIM_000178 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000179 (Q-Chem)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000179 "A quantum chemistry software package that offers ab initio molecular dynamics and quasi-classical molecular dynamics simulations, particularly valuable for enzyme modeling, discovering reaction pathways, predicting protein-ligand binding energies, and modeling substrate binding to active sites. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000179 "A comprehensive quantum chemistry software package offering a wide range of methods, including Hartree-Fock, DFT, coupled-cluster, and QM/MM capabilities. Like Gaussian, its primary focus is quantum mechanical electronic structure calculations. While it can be used for QM/MM simulations relevant to biomolecular systems, it's not typically used for large-scale classical MD simulations in the way dedicated MD packages are. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000179 "Q-Chem"@en)
 SubClassOf(obo:MOLSIM_000179 obo:MOLSIM_000160)
 SubClassOf(obo:MOLSIM_000179 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000180 (Quantum ESPRESSO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000180 "An integrated suite of open-source computer codes for electronic-structure calculations and materials modeling that can perform structural optimization, find transition states, calculate minimum-energy pathways for chemical reactions, and conduct first-principle molecular dynamics simulations of biomolecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000180 "An integrated suite of open-source software for quantum mechanical electronic structure calculations and materials modeling, primarily based on Density Functional Theory (DFT), plane waves, and pseudopotentials. While extremely powerful for condensed matter physics and materials science, and capable of ab initio MD (Born-Oppenheimer MD), its typical application domain and methods (plane waves) differ from those commonly used for classical MD or QM/MM studies of large solvated biomolecules in packages like AMBER or GROMACS. It is more suited for periodic systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000180 "Quantum ESPRESSO"@en)
 SubClassOf(obo:MOLSIM_000180 obo:MOLSIM_000160)
 SubClassOf(obo:MOLSIM_000180 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000181 (NWChem)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000181 "A computational chemistry software designed for scalability in handling large scientific problems across parallel computing resources, capable of simulating biomolecules, nanostructures, and solid-state systems using various methods from quantum to classical approaches, with support for ground and excited states calculations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000181 "A versatile open-source computational chemistry software package developed by Pacific Northwest National Laboratory (PNNL), designed for high-performance computing. It offers a broad range of capabilities, including classical MD simulation, various quantum mechanical methods (DFT, Hartree-Fock, coupled cluster), and hybrid QM/MM methods. Its ability to handle both MD and QM makes it suitable for complex biomolecular simulations requiring multi-scale approaches on large parallel computers. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000181 "NWChem"@en)
 SubClassOf(obo:MOLSIM_000181 obo:MOLSIM_000160)
 SubClassOf(obo:MOLSIM_000181 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000182 (Molpro)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000182 "Molpro is a comprehensive system of ab initio programs for advanced molecular electronic structure calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000182 "A high-accuracy quantum chemistry software package primarily focused on sophisticated ab initio wavefunction-based methods, particularly multi-reference methods (CASSCF, CASPT2, MRCI) and high-level coupled cluster calculations (CCSD(T), etc.), alongside standard HF and DFT. Molpro is renowned for its capabilities in calculating highly accurate energies, properties, and potential energy surfaces, often used for benchmarking or studying systems where electron correlation is challenging, including complex transition metal systems or photochemical processes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000182 "Molpro"@en)
 SubClassOf(obo:MOLSIM_000182 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000183 (Chronus Quantum)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000183 "ChronusQ is a production quantum chemistry software package written in C++11 specializing in electronic dynamics and relativistic effects in molecular quantum mechanics."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000183 "An object-oriented quantum chemistry software package focused on developing and implementing novel electronic structure theories, particularly methods for electron correlation and response properties (e.g., for spectroscopy). It serves both as a research platform for method development and an application for advanced QM calculations. It provides a modern framework for tackling challenging quantum chemical problems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000183 "Chronus Quantum"@en)
 SubClassOf(obo:MOLSIM_000183 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000184 (QuTiP)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000184 "QuTiP is open-source software for simulating the dynamics of open quantum systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000184 "The Quantum Toolbox in Python (QuTiP) is an open-source software library for simulating the dynamics of open quantum systems. Its focus is primarily on quantum optics, quantum information processing, and cavity QED, dealing with Hamiltonians, state vectors, density matrices, and solving master equations or Schrödinger equations for systems typically much smaller and more abstract than whole biomolecules. While it deals with quantum mechanics, its domain is generally distinct from molecular electronic structure calculation software like Gaussian or Orca. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000184 "QuTiP"@en)
 SubClassOf(obo:MOLSIM_000184 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000185 (π-π interactions)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000185 "π–π interaction is a particular type of dispersion force from van der Waals forces, which is established between unsaturated (poly)cyclic molecules."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000185 "A non-covalent interaction occurring between aromatic rings, arising from a combination of electrostatic interactions between their quadrupole moments (electron-rich faces vs electron-poorer edges) and Van der Waals (dispersion) forces. The preferred geometry (e.g., stacked, parallel-displaced, T-shaped) depends on the specific aromatic systems and influences the interaction strength. They are important in protein structure (stacking of Phe, Tyr, Trp, His residues) and the stability of DNA/RNA helices (base stacking). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000185 "π-π interactions"@en)
 SubClassOf(obo:MOLSIM_000185 obo:MOLSIM_000064)
 
 # Class: obo:MOLSIM_000186 (hydrophobic interactions)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000186 "Hydrophobic interactions  is a type of non-covalent interaction that is the observed force of non-polar substances to aggregate in an aqueous solution and to be excluded by water."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000186 "The observed tendency for nonpolar molecules or molecular groups to associate with each other when in an aqueous (water) environment, effectively minimizing their disruptive contact with water molecules. This phenomenon is primarily entropically driven by the favorable increase in the entropy of water molecules that are released from ordered \"cages\" (solvation shells) around the nonpolar surfaces when they aggregate. It is a major driving force for protein folding (burying hydrophobic residues), membrane formation, and ligand binding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000186 "hydrophobic interactions"@en)
 SubClassOf(obo:MOLSIM_000186 obo:MOLSIM_000062)
 
 # Class: obo:MOLSIM_000187 (electrostatic interactions)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000187 "Electrostatic interactions are forces between nearby atoms and molecules. Like charges will repel one another and opposite charges will attract."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000187 "Non-covalent interactions arising from the Coulombic forces between charged or polar species (possessing permanent or induced charge distributions). This encompasses interactions between ions (ion-ion, forming salt bridges), ions and dipoles, dipoles and dipoles, and higher-order multipoles, as well as interactions involving induced dipoles. These interactions can be long-range (decaying as 1/r for ion-ion) and are fundamental to the structure, function, solvation, and binding of biomolecules in their typically polar biological environment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000187 "electrostatic interactions"@en)
 SubClassOf(obo:MOLSIM_000187 obo:MOLSIM_000062)
 
 # Class: obo:MOLSIM_000188 (cation-π interactions)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000188 "Cation–π interaction is a non-covalent molecular interaction between the face of an electron-rich π system (e.g. benzene, ethylene, acetylene) and an adjacent cation (e.g. Li+, Na+). This interaction is an example of non-covalent bonding between a monopole (cation) and a quadrupole (π system)."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000188 "A specific type of non-covalent electrostatic interaction involving the attractive force between a cation (a positively charged ion, e.g., Na+,K+,Lys+,Arg+) and the electron-rich face of an aromatic π-system (like benzene, or the side chains of Phe, Tyr, Trp, His). The cation is attracted to the negative electrostatic potential above and below the plane of the aromatic ring, which arises from its quadrupole moment. These interactions contribute significantly to protein structure stabilization and molecular recognition, including ligand binding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000188 "cation-π interactions"@en)
 SubClassOf(obo:MOLSIM_000188 obo:MOLSIM_000187)
 DisjointClasses(obo:MOLSIM_000188 obo:MOLSIM_000189)
 
 # Class: obo:MOLSIM_000189 (hydrogen bond)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000189 "Hydrogen bond is the interaction involving a hydrogen atom located between a pair of other atoms having a high affinity for electrons"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000189 "A specific, directional non-covalent interaction formed between a hydrogen atom covalently bonded to a highly electronegative atom (the donor, D, typically N, O, or F) and another nearby electronegative atom (the acceptor, A, also typically N, O, or F) which possesses a lone pair of electrons. Represented as D-H···A, it has characteristics of both electrostatic attraction (between the partially positive H and partially negative A) and weak orbital overlap/covalency. Hydrogen bonds (typically 2-10 kcal/mol) are crucial for the structure of water, protein secondary structures (alpha-helices, beta-sheets), DNA base pairing, and enzyme catalysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000189 "hydrogen bond"@en)
 SubClassOf(obo:MOLSIM_000189 obo:MOLSIM_000187)
 
 # Class: obo:MOLSIM_000190 (backbone hydrogen bonds)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000190 "Backbone hydrogen bonds are hydrogen bonds generated between backbone atoms in a polypeptidic chain."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000190 "Hydrogen bonds formed specifically between the atoms of the polypeptide backbone in proteins or peptides. The most common form involves the amide hydrogen (N-H group) of one residue acting as the donor and the carbonyl oxygen (C=O group) of another residue (often i→i+4 in helices or between strands in sheets) acting as the acceptor. These regularly repeating interactions are the primary stabilizing force defining canonical secondary structures like alpha-helices and beta-sheets. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000190 "backbone hydrogen bonds"@en)
 SubClassOf(obo:MOLSIM_000190 obo:MOLSIM_000189)
 
 # Class: obo:MOLSIM_000191 (side-chain hydrogen bonds)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000191 "Side chain hydrogen bonds are hydrogen bonds generated between side chain atoms in a polypeptidic chain."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000191 "Hydrogen bonds where at least one of the participating atoms (either the donor hydrogen attached to its electronegative atom, or the acceptor electronegative atom) belongs to an amino acid side chain, rather than exclusively involving backbone atoms. These interactions can occur between two side chains, or between a side chain and the backbone, contributing to the stability of the protein's tertiary and quaternary structure, protein-ligand interactions, and enzyme active site chemistry. They involve polar or charged side chains (e.g., Ser, Thr, Tyr, Asp, Glu, Asn, Gln, Lys, Arg, His). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000191 "side-chain hydrogen bonds"@en)
 SubClassOf(obo:MOLSIM_000191 obo:MOLSIM_000189)
 
 # Class: obo:MOLSIM_000192 (backbone-side chain hydrogen bonds)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000192 "Hydrogen bonds generated between side chain and backbone atoms in a polypeptidic chain."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000192 "Hydrogen bonds formed specifically between an atom on the polypeptide backbone (either the amide N-H donor or the carbonyl C=O acceptor) and an atom within an amino acid side chain (acting as acceptor or donor, respectively). These interactions directly link the regular backbone structure to the specific side chain identities and conformations, playing crucial roles in stabilizing protein folds (tertiary structure) and positioning side chains for function (e.g., in active sites). They are a subset of both backbone and side-chain interactions considered broadly. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000192 "backbone-side chain hydrogen bonds"@en)
 SubClassOf(obo:MOLSIM_000192 obo:MOLSIM_000189)
 
 # Class: obo:MOLSIM_000193 (peptidic bond)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000193 "A peptidic bond, also called a peptide bond, is a specific type of covalent bond that forms between the carboxyl group of one amino acid and the amino group of another amino acid. This bond is crucial in forming the primary structure of proteins. In molecular dynamics simulations, peptide bonds are usually treated as rigid planar units due to their partial double bond character."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000193 "The specific type of covalent amide bond (CO−NH) formed between two consecutive amino acid residues in a peptide or protein chain through a dehydration reaction (loss of water). It links the alpha-carboxyl group (-COOH) of one amino acid to the alpha-amino group (-NH2) of the next, forming the repeating backbone structure (-N-C$\\alpha$-C-) of the polypeptide chain. Due to resonance, the peptide bond has partial double-bond character, making it planar and restricting rotation around the C-N bond, which significantly influences protein conformation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000193 "peptidic bond"@en)
 SubClassOf(obo:MOLSIM_000193 obo:MOLSIM_000063)
 DisjointClasses(obo:MOLSIM_000193 obo:MOLSIM_000194)
 
 # Class: obo:MOLSIM_000194 (disulfide bridges)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000194 "Disulfide bridges are covalent bonds formed between the thiol groups (-SH) of two cysteine residues in proteins. These bonds play a crucial role in stabilizing protein tertiary and quaternary structures. In molecular dynamics simulations, disulfide bridges are usually modeled as covalent bonds, but their formation or breaking can be simulated in some advanced applications."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000194 "A specific type of covalent bond formed by the oxidation of the thiol (-SH) groups of two cysteine amino acid residues, creating a sulfur-sulfur bond (-S-S-). These bonds can form between cysteines within the same polypeptide chain (intramolecular) or between different chains (intermolecular), acting as strong cross-links that significantly stabilize the folded tertiary or quaternary structure of many proteins, particularly extracellular ones. Formation and breakage of disulfide bridges are important biochemical processes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000194 "disulfide bridges"@en)
 SubClassOf(obo:MOLSIM_000194 obo:MOLSIM_000063)
 
 # Class: obo:MOLSIM_000195 (ensemble)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000195 "Ensemble is a statistical collection of possible states that a system can occupy under specific thermodynamic conditions."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000195 "In statistical mechanics and molecular simulation, an ensemble is a theoretical construct representing an infinite collection of identical systems, each in a different possible microscopic state (defined by positions and momenta of all particles) but all corresponding to the same macroscopic thermodynamic state defined by a set of fixed variables (e.g., N, V, T or N, P, T). Molecular simulations generate trajectories that sample the microscopic states belonging to a specific ensemble, allowing the calculation of macroscopic properties as averages over these states. The choice of ensemble (e.g., NVE, NVT, NPT) determines which macroscopic variables are held constant during the simulation, mimicking specific experimental conditions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000195 "ensemble"@en)
 SubClassOf(obo:MOLSIM_000195 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000196 (canonical ensemble)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000196 "Canonical ensemble or NVT ensemble  is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant volume V and a temperature fluctuating around an equilibrium value."@en-au)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000196 "A statistical ensemble representing systems where the number of particles (N), the system volume (V), and the temperature (T) are held constant; hence often called the NVT ensemble. The system is considered to be in thermal contact with an infinitely large heat bath at temperature T, allowing energy exchange. Simulations performed in the NVT ensemble generate configurations according to the Boltzmann probability distribution appropriate for that temperature, making it suitable for studying equilibrium properties under constant temperature and volume conditions. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000196 "NVT ensemble"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000196 "canonical ensemble"@en)
 SubClassOf(obo:MOLSIM_000196 obo:MOLSIM_000195)
 
 # Class: obo:MOLSIM_000197 (isothermal-isobaric ensemble)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000197 "Isothermal-isobaric ensemble or NPT is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant pressure P and a temperature fluctuating around an equilibrium value."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000197 "A statistical ensemble representing systems where the number of particles (N), the temperature (T), and the pressure (P) are held constant; hence often called the NPT ensemble. The system is considered to be in contact with both a heat bath (constant T) and a pressure bath (constant P), allowing both energy and volume fluctuations. Simulations in the NPT ensemble are often preferred for mimicking typical laboratory conditions where experiments are conducted at constant atmospheric pressure and controlled temperature, allowing the system density to equilibrate naturally. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000197 "NPT ensemble"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000197 "isothermal-isobaric ensemble"@en)
 SubClassOf(obo:MOLSIM_000197 obo:MOLSIM_000195)
 
 # Class: obo:MOLSIM_000198 (microcanonical ensemble)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000198 "Microcanonical ensemble or NVE is a statistical ensemble that is used to study material properties under the conditions of a constant particle number N, constant volume V and total energy fluctuating around an equilibrium value."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000198 "A statistical ensemble representing completely isolated systems, where the number of particles (N), the system volume (V), and the total energy (E) are all held constant; hence often called the NVE ensemble. There is no exchange of energy or particles with the surroundings. Simulations performed in the NVE ensemble directly follow Newtonian laws of motion (integrating Hamilton's equations), and conservation of total energy serves as a key check of simulation stability and accuracy, but it's less commonly used for equilibrium sampling compared to NVT or NPT as temperature can fluctuate. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000198 "NVE ensemble"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000198 "microcanonical ensemble"@en)
 SubClassOf(obo:MOLSIM_000198 obo:MOLSIM_000195)
 
 # Class: obo:MOLSIM_000199 (grand canonical ensemble)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000199 "Grand canonical ensemble, or MuVT (µVT), is an ensemble with a constant chemical potential (μ), volume (V), and temperature (T). In this ensemble, the system can exchange both energy and particles."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000199 "A statistical ensemble representing open systems where the chemical potential (μ), the system volume (V), and the temperature (T) are held constant; hence often called the μVT ensemble. The system can exchange both energy (with a heat bath at T) and particles (with a particle reservoir at chemical potential μ). Simulations in this ensemble are useful for studying systems where the number of particles can change, such as adsorption phenomena, phase equilibria (vapor-liquid), or systems involving chemical reactions where concentrations are fixed rather than particle numbers. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000199 "µVT ensemble"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000199 "grand canonical ensemble"@en)
 SubClassOf(obo:MOLSIM_000199 obo:MOLSIM_000195)
@@ -3463,63 +3463,63 @@ SubClassOf(obo:MOLSIM_000203 obo:MOLSIM_000200)
 
 # Class: obo:MOLSIM_000204 (ligand charge model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000204 "Ligand charge model is a model or combination of QM-MM based models used for calculating the charges of specific molecular entities."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000204 "A computational methodology or protocol used to assign partial atomic charges to the atoms of a small molecule (ligand), typically for use within a classical molecular mechanics force field during simulations of its interaction with a biomolecule (like a protein or nucleic acid). Since electrostatic interactions are crucial for molecular recognition and binding affinity, accurate and consistent charge assignment is critical. Different models (e.g., RESP, AM1-BCC, Mulliken, Löwdin) exist, often aiming to reproduce the quantum mechanically derived electrostatic potential around the molecule or fit to experimental data, with varying levels of theory, complexity, and computational cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000204 "ligand charge model"@en)
 SubClassOf(obo:MOLSIM_000204 obo:MOLSIM_000006)
 
-# Class: obo:MOLSIM_000205 (ABM1BCC)
+# Class: obo:MOLSIM_000205 (AM1-BCC)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000205 "AM1BCC is a program that assigns atom types and bond types according to AM1-BCC definitions and then does bond charge correction."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000205 "ABM1BCC"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000205 "A widely used method for assigning atom-centered partial charges to organic molecules, particularly suitable for general force fields like GAFF (stands for Austin Model 1 - Bond Charge Correction). It involves a two-step process: first, charges are calculated using the computationally inexpensive semi-empirical AM1 quantum mechanical method; second, empirical Bond Charge Corrections (BCCs) are added to these initial charges based on atom and bond types to make them better reproduce the electrostatic potential obtained from higher-level QM calculations (typically HF/6-31G*). AM1-BCC aims to provide a balance between speed and accuracy for charging diverse organic ligands. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000205 "AM1-BCC"@en)
 SubClassOf(obo:MOLSIM_000205 obo:MOLSIM_000204)
 DisjointClasses(obo:MOLSIM_000205 obo:MOLSIM_000206)
 
 # Class: obo:MOLSIM_000206 (restraint electrostatic potential)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000206 "Restrained Electrostatic Potential fitting approach is an established means for placing partial charges on atoms at the right intensities to mimic the electrostatic field outside of the molecular surface."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000206 "A popular method for deriving high-quality partial atomic charges for molecules, frequently used in conjunction with the AMBER force fields. It involves calculating the quantum mechanical electrostatic potential (ESP) on a grid of points around the molecule (typically using Hartree-Fock or DFT methods), and then fitting atom-centered point charges to reproduce this ESP using a least-squares algorithm. Crucially, 'restraints' (typically hyperbolic penalties) are applied during the fitting process to prevent unrealistically large charges on buried atoms and ensure transferability, often performed in multiple stages for chemical equivalence. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000206 "RESP"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000206 "restraint electrostatic potential"@en)
 SubClassOf(obo:MOLSIM_000206 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_000207 (custom script)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000207 "A script written for a specific purpose in a molecular simulation project. These often implement novel analysis methods or automate project-specific workflows."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000207 "A script created by a user for a specific, often unique, purpose within their research project that is not covered by standard tools or generic scripts. This could be for a non-standard analysis method, a specific data manipulation task, interfacing between incompatible programs, or automating a highly specialized workflow. Custom scripts offer maximum flexibility but require programming effort and careful validation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000207 "custom script"@en)
 SubClassOf(obo:MOLSIM_000207 obo:MOLSIM_000159)
 
 # Class: obo:MOLSIM_000208 (thermalization)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000208 "The process of bringing a system to thermal equilibrium in a simulation. It involves gradually heating the system to the desired temperature."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000208 "A step within the preparation or equilibration phase where the system's temperature is gradually raised or adjusted to the desired target temperature for the production simulation. This is typically done by coupling the system to a thermostat while velocities are assigned or rescaled. Proper thermalization ensures the system reaches the correct kinetic energy distribution before equilibration or production runs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000208 "thermalization"@en)
 SubClassOf(obo:MOLSIM_000208 obo:MOLSIM_000002)
 
 # Class: obo:MOLSIM_000209 (equilibration)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000209 "The process of allowing a system to reach a stable state before data collection in a simulation. It ensures that the system's properties are no longer changing systematically."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000209 "A crucial phase in simulation preparation, following initial setup and minimization/thermalization, where the system is simulated under the target ensemble conditions (e.g., NVT or NPT) for a period to allow it to relax and reach a stable state. Key properties like temperature, pressure, density, potential energy, and RMSD are monitored to ensure the system is well-equilibrated before starting the production simulation intended for data collection. This phase allows the system to 'forget' its initial, potentially artificial starting configuration. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000209 "equilibration"@en)
 SubClassOf(obo:MOLSIM_000209 obo:MOLSIM_000002)
 
 # Class: obo:MOLSIM_000210 (umbrella sampling)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000210 "A method used to calculate free energy differences along a reaction coordinate. It involves running multiple simulations with restraints to sample high-energy regions."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000210 "A specific simulation execution technique used to enhance sampling along a chosen reaction coordinate or order parameter, often for calculating the potential of mean force (PMF) or free energy profile associated with a process like ligand unbinding or a conformational change. It involves running multiple simulations, each confined ('biased') by a potential (the 'umbrella') to sample a specific window along the coordinate, with subsequent analysis required to unbias the results and reconstruct the overall profile. It falls under the category of enhanced sampling methods. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000210 "umbrella sampling"@en)
 SubClassOf(obo:MOLSIM_000210 obo:MOLSIM_000003)
 
 # Class: obo:MOLSIM_000211 (production)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000211 "The main phase of a molecular dynamics simulation where data is collected. This phase follows system preparation and equilibration."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000211 "The main data-gathering phase of a simulation execution, performed after the system has been properly prepared and equilibrated. During the production run, the system is simulated for a significant length of time under the desired conditions (ensemble, temperature, pressure) without strong restraints or equilibration protocols, and the resulting trajectory (positions and velocities over time) is saved for later analysis. The goal is to generate statistically meaningful data about the system's behavior. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000211 "production"@en)
 SubClassOf(obo:MOLSIM_000211 obo:MOLSIM_000003)
 
 # Class: obo:MOLSIM_000212 (free energy calculation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000212 "Methods used to compute free energy differences in molecular systems. These calculations are crucial for understanding molecular interactions and chemical processes."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000212 "A type of simulation execution specifically designed to compute the free energy difference between two states (e.g., bound vs unbound, state A vs state B) or the free energy profile along a reaction coordinate. Common methods include Free Energy Perturbation (FEP), Thermodynamic Integration (TI), Umbrella Sampling (for PMFs), and sometimes methods based on endpoint analysis like MM/PBSA or MM/GBSA (though these are technically post-processing analyses estimating free energy). These calculations are computationally demanding but crucial for understanding binding affinities, reaction barriers, and relative stabilities. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000212 "free energy calculation"@en)
 SubClassOf(obo:MOLSIM_000212 obo:MOLSIM_000003)
 
 # Class: obo:MOLSIM_000213 (adaptive steered molecular dynamics)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000213 "A method that uses external forces to guide a system along a reaction coordinate. It adapts the applied force based on the system's response."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000213 "An enhanced sampling simulation technique used to explore large conformational changes or dissociation pathways, often related to free energy calculations. It involves applying an external steering force to pull the system along a reaction coordinate, but unlike standard Steered MD, the pulling velocity or force application is adapted 'on-the-fly' based on the system's response, aiming for improved efficiency or convergence, particularly in exploring transition pathways. It is a specialized execution method for studying specific molecular events. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000213 "adaptive steered molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000213 obo:MOLSIM_000003)
 
@@ -3537,80 +3537,80 @@ SubClassOf(obo:MOLSIM_000215 obo:MOLSIM_000017)
 
 # Class: obo:MOLSIM_000216 (visualization)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000216 "The process of creating visual representations of molecular structures and simulation results. It helps in understanding complex 3D structures and their dynamics."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000216 "The process of creating graphical representations of molecular structures, trajectories, and simulation data using specialized software. Visualization is essential for inspecting system setup, monitoring simulation progress, understanding molecular motion and interactions, identifying structural features, and communicating results effectively through images and animations. It is an integral part of both preparation and analysis stages. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000216 "visualization"@en)
 SubClassOf(obo:MOLSIM_000216 obo:MOLSIM_000000)
 
 # Class: obo:MOLSIM_000217 (AMBER)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000217 "A suite of programs for molecular dynamics simulations. It's widely used for simulations of biomolecules, particularly proteins and nucleic acids."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000217 "A widely used package of biomolecular simulation software, encompassing both a suite of programs (AmberTools) for simulation preparation, analysis, and modeling, and a high-performance simulation engine (pmemd) for running MD and free energy calculations. AMBER is associated with a popular family of force fields (e.g., ff14SB, GAFF) and is extensively used for simulating proteins, nucleic acids, lipids, and organic molecules. It includes capabilities for classical MD, QM/MM, and various advanced simulation techniques. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000217 "AmberMD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000217 "AMBER"@en)
 SubClassOf(obo:MOLSIM_000217 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000218 (AmberTools)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000218 "AmberTools consists of several independently developed packages that work well by themselves, and with Amber24. The suite can also be used to carry out complete molecular dynamics simulations, with either explicit water or generalized Born solvent models."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000218 "The freely available component of the AMBER software package, containing numerous programs and utilities for biomolecular simulation tasks excluding the main high-performance simulation engine (pmemd). AmberTools includes programs for system setup (tleap), trajectory analysis (cpptraj), structure preparation (antechamber), energy minimization (sander), basic MD simulation (sander), QM calculations (sqm), free energy analysis (MMPBSA.py), and many others. It provides the essential infrastructure for preparing, analyzing, and modeling simulations run with AMBER or other programs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000218 "AmberTools"@en)
 SubClassOf(obo:MOLSIM_000218 obo:MOLSIM_000217)
 
 # Class: obo:MOLSIM_000219 (amber.sh)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000219 "A shell script used in Amber molecular dynamics workflows. It automates common tasks in Amber simulations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000219 "This likely refers to a shell script used within the AMBER software ecosystem, possibly for setting up environment variables, running specific AmberTools programs, or launching simulations. It represents a specific script file used to execute or configure parts of the AMBER software suite. Its exact function would depend on the specific context or script content. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000219 "amber.sh"@en)
 SubClassOf(obo:MOLSIM_000219 obo:MOLSIM_000217)
 
 # Class: obo:MOLSIM_000220 (protonation tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000220 "Protonation tool is a tool  that prepares structures for further calculations by reconstructing missing atoms, adding hydrogens, assigning atomic charges and radii from specified force fields, and generating PQR files."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000220 "A computational tool specifically designed to predict and assign the appropriate protonation states (ionization states) of titratable residues (Asp, Glu, His, Lys, Arg, Cys, Tyr) and ligands within a biomolecular structure at a given pH value. These tools typically use methods based on solving the Poisson-Boltzmann equation or empirical pKa prediction algorithms to determine whether each site is likely to be protonated or deprotonated. Accurate protonation is critical for realistic electrostatic modeling in simulations; examples include PDB2PQR, H++, PROPKA, and modules within larger modeling suites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000220 "protonation tool"@en)
 SubClassOf(obo:MOLSIM_000220 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000221 (PDB2PQR)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000221 "PDB2PQR is a software to prepare and optimize molecular structures prior to biomolecular simulations based on filling in missing parts, adding hydrogen, assigning charges and radii, and generate PQR files."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000221 "A widely used software tool (available as a web server and standalone package) that automates many common tasks in preparing biomolecular structures (from PDB files) for continuum electrostatics calculations or simulations. Its core functions include adding missing heavy atoms, adding and optimizing hydrogen atom positions, assigning charges and radii from a chosen force field, and determining residue protonation states at a specified pH using the PROPKA algorithm internally. It outputs the structure in PQR format (PDB with Charge and Radius). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000221 "PDB2PQR"@en)
 SubClassOf(obo:MOLSIM_000221 obo:MOLSIM_000223)
 
 # Class: obo:MOLSIM_000222 (ligand protonation tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000222 "Ligand protonation software predicts the aqueous phase pKa values and protonation state distributions of complex, drug-like molecules."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000222 "A protonation tool specifically focused on determining the most likely ionization and tautomeric states of small molecule ligands, often in the context of drug discovery or protein-ligand binding studies. Predicting ligand protonation can be challenging due to diverse functional groups and potential binding site environmental effects. Tools like Epik (Schrödinger), Marvin (ChemAxon), or modules in Open Babel might address this specifically. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000222 "ligand protonation tool"@en)
 SubClassOf(obo:MOLSIM_000222 obo:MOLSIM_000220)
 
 # Class: obo:MOLSIM_000223 (generic protonation tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000223 "A tool used to assign protonation states to molecules in simulations. It's crucial for accurately representing the chemical state of molecules at a given pH."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000223 "A protonation tool designed for general use on biomolecular structures, typically proteins or nucleic acids obtained from sources like the PDB, to add hydrogens and determine appropriate protonation states for titratable residues at a given pH. These tools often focus on standard amino acids and sometimes common cofactors or ions. PDB2PQR is a classic example of such a tool. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000223 "generic protonation tool"@en)
 SubClassOf(obo:MOLSIM_000223 obo:MOLSIM_000220)
 
 # Class: obo:MOLSIM_000224 (Epik)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000224 "Epik is a tool for accurately and rapidly predicting the aqueous phase pKa values and protonation state distributions of complex, drug-like molecules."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000224 "A specific software tool, part of the Schrödinger computational chemistry suite, designed for predicting the pKa values and dominant protonation and tautomeric states of ligands and biomolecules under specified pH conditions. Epik uses empirical methods, pKa lookup, and structure generation techniques to enumerate likely ionization and tautomeric forms, providing crucial input for preparing systems for docking or simulation studies where ligand charge state is important. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000224 "Epik"@en)
 SubClassOf(obo:MOLSIM_000224 obo:MOLSIM_000222)
 
 # Class: obo:MOLSIM_000225 (membrane packing tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000225 "Membrane packing software builds membrane-protein–lipid-bilayer systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000225 "A computational tool specifically designed to generate realistic initial configurations of lipid bilayers, often including embedded proteins, for use in membrane simulations. These tools arrange lipid molecules (and potentially cholesterol, solvent) according to specified lipid types, compositions, and area per lipid, ensuring proper packing density and avoiding steric clashes, which is challenging to do manually. Examples include PACKMOL-Memgen, CHARMM-GUI's Membrane Builder, and InflateGRO. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000225 "membrane packing tool"@en)
 SubClassOf(obo:MOLSIM_000225 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000226 (PACKMOL-Memgen)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000226 "PACKMOL-Memgen is a software to create virtual models of cell membranes with proteins embedded in the cell membranes."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000226 "A specific tool or script that likely utilizes the general packing capabilities of PACKMOL (a program for creating initial configurations of molecules in defined regions) specifically for generating lipid bilayer structures for membrane simulations. Memgen might refer to a set of routines or scripts that work with PACKMOL to arrange lipids correctly around a pre-positioned membrane protein or to build pure bilayers with specific properties, automating the membrane generation process. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000226 "PACKMOL-Memgen"@en)
 SubClassOf(obo:MOLSIM_000226 obo:MOLSIM_000225)
 
 # Class: obo:MOLSIM_000227 (membrane protein orientation tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000227 "Membrane protein orienting tool is used for orienting membrane proteins prior to performing molecular dynamics simulations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000227 "A computational tool designed to predict or determine the likely orientation and transmembrane embedding depth of a protein structure within a lipid bilayer. Correctly positioning a membrane protein in the bilayer is a critical first step for setting up realistic membrane protein simulations. These tools often use algorithms based on hydrophobicity analysis, sequence features, or structural properties to find the most favorable position relative to the hydrophobic core and hydrophilic headgroup regions of the membrane. Examples include OPM, PPM, MemProtMD, and MemEmbed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000227 "membrane protein orientation tool"@en)
 SubClassOf(obo:MOLSIM_000227 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000228 (memembed)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000228 "memembed is a software to determine the membrane proteins orientation inside cell membranes/lipid bilayers."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000228 "A specific computational tool or algorithm designed to predict the optimal orientation and insertion depth of a membrane protein within a lipid bilayer. It typically works by optimizing the protein's position and orientation to minimize the calculated free energy of transferring the protein's amino acid side chains into the heterogeneous membrane environment (hydrophobic core vs interface vs aqueous phase), often using knowledge-based potentials or physical terms. The goal is to generate a realistic starting structure for membrane protein simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000228 "memembed"@en)
 SubClassOf(obo:MOLSIM_000228 obo:MOLSIM_000227)
 
@@ -3628,31 +3628,31 @@ SubClassOf(obo:MOLSIM_000230 obo:MOLSIM_000229)
 
 # Class: obo:MOLSIM_000231 (energy type)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000231 "Different forms of energy considered in molecular simulations. These can include bonded interactions (like bond stretching) and non-bonded interactions (like electrostatics)."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000231 "Categorizes the different components or functional forms contributing to the total potential energy of the system as calculated by a specific molecular mechanics force field, or relates to fundamental forms of energy in physics relevant at the molecular scale. Within a typical force field, the total potential energy is partitioned into terms like bond stretching energy, angle bending energy, dihedral torsion energy, Van der Waals energy, and electrostatic energy. Analyzing these energy types helps understand molecular conformation, strain, stability, and interaction patterns during a simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000231 "energy type"@en)
 SubClassOf(obo:MOLSIM_000231 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000232 (bond energy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000232 "Bond energy is a measure of the strength of a chemical bond."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000232 "The component of the potential energy in a molecular mechanics force field associated with the deformation (stretching or compression) of covalent bonds away from their reference or equilibrium lengths (r0). It is typically modeled using a simple harmonic potential, E bond = kb.(r−r 0)^2, where kb is the force constant reflecting the bond stiffness. This energy term penalizes deviations from the ideal bond length defined by the force field parameters specific to the type of bond (e.g., C-C vs C=C). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000232 "bond energy"@en)
 SubClassOf(obo:MOLSIM_000232 obo:MOLSIM_000231)
 
 # Class: obo:MOLSIM_000233 (gravitational interaction energy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000233 "Gravitational interaction energy is an attraction, the force of interaction being proportional to the product of the masses of the chemical entities."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000233 "The potential energy arising from the universal gravitational attraction between objects possessing mass, as described by Newton's law of gravitation. While a fundamental interaction governing celestial mechanics, the magnitude of gravitational forces between atoms and molecules is utterly negligible (many orders of magnitude weaker) compared to electromagnetic forces that dominate interactions at this scale. Therefore, gravitational energy is completely ignored in standard biomolecular simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000233 "gravitational interaction energy"@en)
 SubClassOf(obo:MOLSIM_000233 obo:MOLSIM_000231)
 
 # Class: obo:MOLSIM_000234 (electromagnetic interaction energy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000234 "Electromagnetic interaction energy is an interaction energy that exists between electrically charged particles and bodies through an electromagnetic field."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000234 "The potential energy arising from electromagnetic forces, which encompass both electrostatic (Coulomb) forces between charged particles and magnetic forces associated with moving charges and magnetic moments. In the context of biomolecular simulations using classical force fields, this fundamental interaction is modeled through specific terms: primarily the electrostatic or Coulomb energy between partial atomic charges, and the Van der Waals energy which accounts for both permanent/induced dipole interactions (electrostatic origin) and dispersion forces (quantum mechanical fluctuations leading to transient dipoles). Electromagnetic forces are the dominant interactions governing molecular structure, dynamics, and binding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000234 "electromagnetic interaction energy"@en)
 SubClassOf(obo:MOLSIM_000234 obo:MOLSIM_000231)
 
 # Class: obo:MOLSIM_000235 (nuclear interaction energy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000235 "Nuclear interaction energy is the minimum energy that is required to disassemble the nucleus of an atom into its constituent protons and neutrons."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000235 "The potential energy associated with the strong and weak nuclear forces, which operate only within the atomic nucleus at extremely short distances (on the order of femtometers, 10^−15 m). The strong force binds protons and neutrons together, overcoming electrostatic repulsion between protons, while the weak force is responsible for certain types of radioactive decay (beta decay). These forces and their associated energies are entirely irrelevant to the chemical bonding, conformational changes, and intermolecular interactions studied in typical biomolecular simulations, which focus on electron-level interactions, and are thus not included in force fields. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000235 "nuclear interaction energy"@en)
 SubClassOf(obo:MOLSIM_000235 obo:MOLSIM_000231)
 
@@ -3684,80 +3684,80 @@ SubClassOf(obo:MOLSIM_000239 obo:MOLSIM_000238)
 
 # Class: obo:MOLSIM_000240 (pKa tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000240 "pKa Tool  is a tool that predicts the pKa values of ionizable groups in protein at the specified pH."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000240 "A computational tool specifically designed to predict the pKa values of ionizable groups (acidic or basic sites) within a molecule, typically amino acid residues in a protein or functional groups in a ligand. The pKa value indicates the pH at which a group is 50% protonated/deprotonated. These tools use various methods, ranging from simple empirical rules to sophisticated calculations involving continuum electrostatics (solving Poisson-Boltzmann equation) or QM methods, to estimate how the molecular environment shifts the intrinsic pKa of a group. PROPKA is a well-known example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000240 "pKa tool"@en)
 SubClassOf(obo:MOLSIM_000240 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000241 (PROPKA)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000241 "PROPKA is  a software to predict the pKa values of ionizable groups in protein and protein ligands complexes; enable the understanding of the behavior of proteins or other biological molecules in different environments."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000241 "A widely used, fast empirical method and software tool for predicting the pKa values of ionizable residues in proteins and protein-ligand complexes. PROPKA uses information about the local structural environment (hydrogen bonds, desolvation, interactions with charged groups) to estimate shifts from standard reference pKa values, providing quick and often reasonably accurate pKa predictions crucial for determining protonation states at a given simulation pH. It's often integrated into other tools like PDB2PQR. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000241 "PROPKA"@en)
 SubClassOf(obo:MOLSIM_000241 obo:MOLSIM_000240)
 
 # Class: obo:MOLSIM_000242 (MMPBSA.py)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000242 "A Python script for performing MMPBSA calculations in Amber. It automates the process of calculating binding free energies from molecular dynamics trajectories."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000242 "A specific implementation of the MM/PBSA and MM/GBSA methods, distributed as a Python script within the AmberTools software suite. It reads trajectory files (from AMBER or other packages) and calculates binding free energies by computing the MM energy components (using sander or other external programs), the electrostatic solvation energy (using PB or GB solvers), and the nonpolar solvation energy (SASA-based), and combining them according to the MM/PBSA or MM/GBSA schemes. It automates this popular but approximate free energy estimation procedure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000242 "MMPBSA.py"@en)
 SubClassOf(obo:MOLSIM_000242 obo:MOLSIM_000159)
 SubClassOf(obo:MOLSIM_000242 obo:MOLSIM_000460)
 
 # Class: obo:MOLSIM_000243 (in-silico mutagenesis tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000243 "The software used for performing in-silico mutagenesis of target proteins of interest. Different softwares are available on the market to fulfill this task."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000243 "A computational tool that allows researchers to simulate the effects of mutations (changing one amino acid residue to another) on the structure, stability, dynamics, or binding affinity of a protein. These tools typically take a protein structure, allow the user to specify mutations, and then use algorithms (often based on molecular mechanics energy functions, rotamer libraries, or machine learning) to model the structural changes and estimate the impact on stability (ddG) or other properties. FoldX is a prominent example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000243 "in-silico mutagenesis tool"@en)
 SubClassOf(obo:MOLSIM_000243 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000244 (FoldX)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000244 "FoldX evaluates in-silico mutants by evaluating the difference in protein folding free energy between wild-type and a mutant of interest."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000244 "A popular empirical force field and associated software tool specifically designed for rapid calculation of protein stability changes upon mutation (in silico mutagenesis). FoldX uses an energy function that includes terms relevant to protein folding stability (like VdW interactions, solvation energy, hydrogen bonds, electrostatics, entropy) to estimate the folding free energy of a protein structure and, importantly, the change in folding free energy (ΔΔG) caused by single or multiple point mutations. It's widely used for predicting mutation effects and in protein design. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000244 "FoldX"@en)
 SubClassOf(obo:MOLSIM_000244 obo:MOLSIM_000243)
 
 # Class: obo:MOLSIM_000245 (tunnel predictor tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000245 "The tunnel predictor tool allows the identification of surface-exposed as well as hidden tunnels across MD simulation ensembles."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000245 "A computational tool designed to identify and characterize pathways, channels, or tunnels within the structure of a macromolecule, typically a protein enzyme. These tunnels often connect a buried active site to the protein surface and are important for ligand entry/egress, solvent access, or product release. Tools like CAVER use geometric algorithms to find voids and pathways within the protein structure based on atomic coordinates. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000245 "tunnel predictor tool"@en)
 SubClassOf(obo:MOLSIM_000245 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000246 (CAVER)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000246 "CAVER is a software tool for analysis and visualization of tunnels and channels in protein structures."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000246 "A widely used software tool for identifying and analyzing tunnels and channels in protein structures. CAVER uses computational geometry algorithms to explore the void space within a protein (or dynamic snapshots from a simulation) and identifies pathways connecting points of interest (e.g., a buried active site to the exterior). It provides information on the location, dimensions (bottleneck radius), curvature, and physicochemical properties of identified tunnels, which is crucial for understanding enzyme function and ligand transport. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000246 "CAVER"@en)
 SubClassOf(obo:MOLSIM_000246 obo:MOLSIM_000245)
 
 # Class: obo:MOLSIM_000247 (GROMACS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000247 "A molecular dynamics package primarily designed for bio-molecular systems. It's known for its high performance and is widely used in the scientific community."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000247 "A highly popular, versatile, and extremely fast open-source software package primarily designed for classical molecular dynamics simulations of biomolecules like proteins, lipids, and nucleic acids. Known for its computational efficiency, particularly on parallel architectures (CPUs and GPUs), GROMACS supports various force fields (including AMBER, CHARMM, OPLS, GROMOS families via ports), simulation protocols, enhanced sampling methods, and includes extensive tools for trajectory analysis. It is widely used in the academic and industrial research community. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000247 "GROMACS"@en)
 SubClassOf(obo:MOLSIM_000247 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000248 (CHARMM)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000248 "A versatile molecular simulation program (Chemistry at HARvard Molecular Mechanics) focused on biological molecules such as proteins, peptides, lipids, nucleic acids, and carbohydrates, providing a comprehensive suite of computational tools for conformational sampling, free energy estimation, molecular minimization, and dynamics analysis. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000248 "A versatile and long-established software package for molecular simulation, encompassing molecular mechanics (MM) and dynamics (MD), as well as capabilities for QM/MM and complex modeling tasks (stands for Chemistry at HARvard Macromolecular Mechanics). CHARMM is associated with its own widely used force field family (e.g., CHARMM36) and provides extensive functionalities for preparing, running, and analyzing simulations, particularly for proteins, lipids, nucleic acids, and carbohydrates. Both a free academic version and a licensed version (CHARMM/GUI, CHARMM) exist. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000248 "CHARMM"@en)
 SubClassOf(obo:MOLSIM_000248 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000249 (ion parameters)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000249 "Parameters used to describe the behavior of ions in molecular simulations. These include charge, size, and interaction energies with other atoms."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000249 "Refers specifically to the set of numerical values used within a molecular mechanics force field to define the non-bonded interaction properties of simple atomic ions (e.g., Na+,Cl-,K+,Ca^2+).These typically consist of the ion's net charge (e.g.,+1e, −1e) and parameters for the Van der Waals interaction,most commonly the Lennard−Jones parameters (σ, defining the collision diameter, and ϵ, defining the energy well depth). Accurate ion parameters are essential for realistically modeling ionic solutions, salt effects on biomolecules, ion channels, and metalloprotein active sites, and are often carefully optimized for compatibility with a chosen water model. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000249 "ion parameters"@en)
 SubClassOf(obo:MOLSIM_000249 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000250 (Li and Merz 12-6)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000250 "A specific set of ion parameters used in molecular simulations. It's designed to accurately represent the behavior of metal ions in bio-molecular systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000250 "A specific set of Lennard-Jones (LJ) parameters (using the 12-6 functional form: VLJ = 4ϵ[(σ/r)^12−(σ/r)^6 ]) for various common monoatomic ions, developed or published by Li and Merz (likely Pengfei Li and Kenneth M. Merz Jr.). These parameters define the Van der Waals size (σ) and interaction strength (ϵ) of ions for use in classical simulations. Such parameter sets are typically derived by fitting simulation results (e.g., solvation free energies, radial distribution functions) to experimental data, often ensuring compatibility with a particular water model (like TIP3P or SPC/E). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000250 "Li and Merz 12-6"@en)
 SubClassOf(obo:MOLSIM_000250 obo:MOLSIM_000249)
 
 # Class: obo:MOLSIM_000251 (trajectory processing tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000251 "Tool used for trajectory post-processing and analysis."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000251 "An analysis tool specifically focused on reading, processing, manipulating, and analyzing molecular dynamics trajectory files. These tools provide functionalities to read various trajectory formats, select specific atoms or frames, perform calculations over time (like RMSD, distances, angles), calculate average structures, remove solvent, re-image periodic boundaries, and write out modified trajectories or extracted data. CPPTRAJ (AmberTools) and GROMACS analysis utilities are key examples. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000251 "trajectory processing tool"@en)
 SubClassOf(obo:MOLSIM_000251 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000252 (CPPTRAJ)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000252 "CPPTRAJ is the main program in Amber for processing coordinate trajectories and data files."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000252 "A powerful command-line trajectory analysis program, distributed with AmberTools, capable of processing trajectories from many simulation packages (AMBER, GROMACS, NAMD, CHARMM, etc.) and performing a wide variety of analyses. Its capabilities include calculating structural metrics (RMSD, radius of gyration, distances, angles, dihedrals), analyzing hydrogen bonds, performing principal component analysis (PCA), clustering, calculating interaction energies, grid analysis, and extensive data manipulation and output options. It is a central tool for analyzing simulation data in the AMBER ecosystem and beyond. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000252 "CPPTRAJ"@en)
 SubClassOf(obo:MOLSIM_000252 obo:MOLSIM_000251)
 
@@ -3787,25 +3787,25 @@ SubClassOf(obo:MOLSIM_000256 obo:MOLSIM_000255)
 
 # Class: obo:MOLSIM_000257 (molecular mechanics software)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000257 "Programs that use classical mechanics to model molecular systems. They treat atoms as spheres and bonds as springs, ignoring quantum effects."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000257 "Application programs designed to perform calculations based on molecular mechanics (MM), using classical force fields to compute the potential energy and forces within a molecular system. This typically includes functionalities for energy minimization, conformational searching, sometimes basic MD or Monte Carlo simulations, and structure preparation (e.g., assigning atom types and charges). While full MD packages heavily rely on MM, this category might also include specialized tools focused purely on MM calculations or setup, like Antechamber for parameter assignment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000257 "molecular mechanics software"@en)
 SubClassOf(obo:MOLSIM_000257 obo:MOLSIM_000156)
 
 # Class: obo:MOLSIM_000258 (Antechamber)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000258 "Antechamber is a set of auxiliary programs for molecular mechanic (MM) studies."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000258 "A specific program, typically distributed as part of the AmberTools suite, designed to automatically assign atom types and calculate partial atomic charges for organic molecules, preparing them for use with molecular mechanics force fields like GAFF (General AMBER Force Field). Antechamber reads common molecular file formats and generates topology and parameter files needed for subsequent energy minimization or molecular dynamics simulations using programs like SANDER or PMEMD from the AMBER package. It is a crucial tool for preparing non-standard residues or ligands for simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000258 "Antechamber"@en)
 SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_000257)
 
 # Class: obo:MOLSIM_000259 (topology and coordinate generation tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000259 "Software used to create initial structures for molecular simulations. It defines the connectivity of atoms and their initial positions."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000259 "A tool used in the preparation stage of a simulation to generate the molecular topology file (defining atom types, bonds, angles, dihedrals, charges, non-bonded parameters according to a force field) and initial coordinate file for the system to be simulated. These tools typically take structural information (like a PDB file) and force field definitions as input and assemble the complete system description required by the simulation engine. tleap in AmberTools is a classic example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000259 "topology and coordinate generation tool"@en)
 SubClassOf(obo:MOLSIM_000259 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000260 (tleap)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000260 "tleap is used to prepare molecular systems for simulation, including generating topology and coordinate files needed to run molecular dynamics. Tleap loads molecular structures (e.g., from PDB files), applies force field parameters, adds solvent and ions, sets up periodic boundary conditions, and generates AMBER topology (.prmtop) and coordinate (.inpcrd) files, all of which are essential steps in preparing molecular systems for simulation."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000260 "A core program within the AmberTools suite used for building the topology (parameter) files and initial coordinate files for simulations with AMBER. Tleap reads force field definition files, structural fragments (like amino acid residues or solvent molecules), and user-provided structure files (e.g., PDB), then connects units (e.g., solvating a protein), adds counterions, and writes out the prmtop (topology) and inpcrd (coordinate) files necessary to run simulations with SANDER or PMEMD. It is an essential setup tool in the AMBER workflow. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000260 "tleap"@en)
 SubClassOf(obo:MOLSIM_000260 obo:MOLSIM_000259)
 
@@ -3872,39 +3872,39 @@ SubClassOf(obo:MOLSIM_000269 obo:MOLSIM_000261)
 
 # Class: obo:MOLSIM_000270 (Poisson-Boltzmann surface area)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000270 "Poisson-Boltzmann Surface Area, a method for calculating solvation free energies. It uses a continuum model to represent the solvent."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000270 "A method (often abbreviated PB/SA) for calculating the free energy of solvation by combining two components: the electrostatic contribution calculated by numerically solving the Poisson-Boltzmann (PB) equation, and the non-polar contribution estimated as being proportional to the solvent-accessible surface area (SASA) of the solute. The PB equation provides a more rigorous treatment of continuum electrostatics than GB models by accounting for solute shape and charge distribution within a dielectric medium, while the SASA term models the cost of creating the solute cavity in the solvent and attractive solute-solvent van der Waals interactions. This method is often used for post-processing simulation trajectories to estimate binding free energies. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000270 "PBSA"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000270 "Poisson-Boltzmann surface area"@en)
 SubClassOf(obo:MOLSIM_000270 obo:MOLSIM_000068)
 
 # Class: obo:MOLSIM_000271 (generalized Born surface area)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000271 "Generalized Born Surface Area, another method for calculating solvation free energies. It's generally faster than PBSA but may be less accurate for some systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000271 "A method (often abbreviated GB/SA) for calculating the free energy of solvation, similar to PB/SA, but using a Generalized Born (GB) model instead of the Poisson-Boltzmann equation to compute the electrostatic contribution. It combines the GB electrostatic energy with a non-polar energy term proportional to the solvent-accessible surface area (SASA). GBSA offers a computationally much cheaper alternative to PB/SA for estimating solvation free energies, suitable for use during simulations or large-scale analyses, though potentially less accurate depending on the GB implementation and system. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000271 "GBSA"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000271 "generalized Born surface area"@en)
 SubClassOf(obo:MOLSIM_000271 obo:MOLSIM_000068)
 
 # Class: obo:MOLSIM_000272 (radii set)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000272 "A collection of atomic radii used in implicit solvent calculations. The choice of radii can significantly affect the results of solvation free energy calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000272 "A defined collection or list that assigns specific atomic radius values to different atom types (defined by element, hybridization state, and sometimes chemical environment). These radii are used in various computational molecular modeling contexts, such as calculating molecular surfaces (like Van der Waals surface or Solvent Accessible Surface Area - SASA), estimating molecular volumes, defining cavities, or as parameters within implicit solvent models (e.g., determining effective Born radii for GB models or defining the dielectric boundary for PB models). Different radii sets exist (e.g., Bondi Van der Waals radii, radii optimized for solvation calculations like PARSE), derived from different physical principles or empirical fitting procedures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000272 "radii set"@en)
 SubClassOf(obo:MOLSIM_000272 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000273 (bondi)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000273 "A specific set of atomic radii used in molecular simulations. It's based on van der Waals radii and is widely used in computational chemistry."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000273 "A widely recognized and frequently used set of Van der Waals radii for atoms across the periodic table, originally compiled by A. Bondi in the 1960s based on analysis of crystallographic data for molecular crystals, gas phase properties (like critical constants), and liquid state densities. These radii are intended to represent the effective size of non-bonded atoms, i.e., the distance at which strong repulsion occurs upon close contact. They serve as a common standard or starting point for defining atomic sizes in molecular modeling, visualization, and calculations like surface area determination. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000273 "bondi"@en)
 SubClassOf(obo:MOLSIM_000273 obo:MOLSIM_000272)
 
 # Class: obo:MOLSIM_000274 (mbondi)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000274 "A modified version of the Bondi radii set. It's optimized for use in Generalized Born calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000274 "Refers to a modified set of Bondi radii, where adjustments have been made to the original Bondi values, often for specific atom types or elements, to improve performance in particular applications within molecular simulation software (the prefix 'm' often stands for 'modified'). For example, in the AMBER software package, 'mbondi' radii sets might involve different radii for hydrogens depending on the atom they are bonded to, optimized for better agreement between calculated and experimental solvation free energies when used with specific GB models. The exact definition can vary between different 'mbondi' versions (e.g., mbondi, mbondi2, mbondi3). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000274 "mbondi"@en)
 SubClassOf(obo:MOLSIM_000274 obo:MOLSIM_000272)
 
 # Class: obo:MOLSIM_000275 (mbondi2)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000275 "Another modified version of the Bondi radii set. It includes further refinements for use in biomolecular simulations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000275 "A specific version ('version 2') of modified Bondi radii, developed primarily for use within the AMBER simulation package, particularly in conjunction with specific Generalized Born (GB) implicit solvent models (like GB models with igb=2 or igb=5 in AMBER). These radii have been empirically optimized by adjusting values (especially for hydrogens, C, N, O, S, P) relative to the original Bondi set or earlier mbondi sets to yield improved accuracy in reproducing experimental solvation free energies of small molecules and potentially biomolecular energetics when using those particular GBSA methods. They represent a parameter set tuned for a specific computational model. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000275 "mbondi2"@en)
 SubClassOf(obo:MOLSIM_000275 obo:MOLSIM_000272)
 
@@ -3949,26 +3949,26 @@ SubClassOf(obo:MOLSIM_000281 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000282 (rapid overlay of chemical structures)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000282 "ROCS is a computational tool for 3D molecular comparison that employs Gaussian functions to represent molecular shape and chemical features. It aligns molecules by optimizing volume and feature overlap, enabling shape-based virtual screening in drug discovery."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000282 "ROCS (Rapid Overlay of Chemical Structures), a software tool developed by OpenEye Scientific Software, known for its speed and effectiveness in aligning and comparing molecules based on their 3D shape similarity (shape Tanimoto). ROCS represents molecules as Gaussian functions and optimizes their overlap to quantify shape similarity, often used in virtual screening and lead hopping in drug discovery to find molecules with similar shapes to a known active ligand. It is a similarity calculation tool, not directly a TI tool. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000282 "ROCS"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000282 "rapid overlay of chemical structures"@en)
 SubClassOf(obo:MOLSIM_000282 obo:MOLSIM_000281)
 
 # Class: obo:MOLSIM_000283 (AMBER-FEW)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000283 "AMBER-FEW is a specialized tool for automating relative binding free energy calculations using thermodynamic integration. It streamlines the setup and execution of transformation simulations, enabling efficient computation of ligand binding affinities with minimal user input."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000283 "This likely refers to FEW (Free Energy Workflow), a tool or set of scripts designed to automate and manage free energy calculations (like FEP or TI) specifically using the AMBER simulation package. Such workflows typically handle tasks like setting up the simulation legs (lambda windows), running the simulations, collecting data, and performing the final free energy analysis, aiming to simplify and standardize complex free energy calculation protocols within the AMBER environment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000283 "AMBER-FEW"@en)
 SubClassOf(obo:MOLSIM_000283 obo:MOLSIM_000281)
 
 # Class: obo:MOLSIM_000284 (OpenCalphad)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000284 "OpenCalphad is an open-source thermodynamic software package that enables the calculation of phase equilibria, phase diagrams, and various thermophysical properties. Distributed under the GNU license, it is a platform for multi-component equilibrium calculations and can be integrated with other simulation software through its application programming interface."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000284 "OpenCalphad (OC) is an open-source software library primarily used for thermodynamic calculations based on the CALPHAD (CALculation of PHAse Diagrams) method, which is extensively used in materials science and metallurgy for modeling phase equilibria and thermodynamic properties of multi-component systems based on Gibbs energy models. While it deals with thermodynamics and free energy, its methods and application domain (materials, alloys) are generally distinct from the statistical mechanics-based free energy calculations (FEP, TI) typically performed for biomolecules in solution using MD simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000284 "OpenCalphad"@en)
 SubClassOf(obo:MOLSIM_000284 obo:MOLSIM_000281)
 
 # Class: obo:MOLSIM_000285 (Brick-CFCMC)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000285 "Brick-CFCMC is an open-source Monte Carlo simulation software for calculating phase and reaction equilibria. While not primarily designed for similarity calculations, it can be adapted for related thermodynamic integration tasks, offering versatility in computational chemistry applications."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000285 "This likely refers to a tool or module implementing the Continuous Fractional Component Monte Carlo (CFCMC) method, possibly within a specific software framework ('Brick'). CFCMC is an advanced Monte Carlo simulation technique used for calculating chemical potentials and free energies, particularly useful for phase equilibria or solvation free energy calculations, by allowing molecules to be gradually inserted or deleted via a fractional intermediate state. It's a specialized free energy calculation method distinct from standard TI or FEP. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000285 "Brick-CFCMC"@en)
 SubClassOf(obo:MOLSIM_000285 obo:MOLSIM_000281)
 
@@ -4035,7 +4035,7 @@ SubClassOf(obo:MOLSIM_000295 obo:MOLSIM_000286)
 
 # Class: obo:MOLSIM_000296 (free energy workflow)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000296 "Tool to compute free energy workflow,"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000296 "Often abbreviated as FEW, this refers to an automated or semi-automated procedure or set of scripts designed to streamline the process of setting up, executing, and analyzing free energy calculations (like FEP or TI). Such workflows aim to manage the complexity of running multiple simulations across different states (lambda windows), handle job submission, check for convergence, and perform the final free energy estimation, improving reproducibility and efficiency. Examples exist for various MD packages (e.g., Amber-FEW, or general workflow tools). (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000296 "FEW"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000296 "free energy workflow"@en)
 SubClassOf(obo:MOLSIM_000296 obo:MOLSIM_000459)
@@ -4082,13 +4082,13 @@ SubClassOf(obo:MOLSIM_000303 obo:MOLSIM_000352)
 
 # Class: obo:MOLSIM_000306 (statistical package)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000306 "Software, package, or tools designed specifically for performing statistical analyses and computations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000306 "Software primarily designed for statistical analysis, data manipulation, graphical representation, and reporting. While not specific to biomolecular simulation, packages like R or Python with libraries like NumPy/SciPy/Pandas are extensively used in the analysis stage to process simulation output, perform statistical tests, generate plots, fit models, and interpret large datasets generated from trajectories or calculations. They provide powerful tools for quantitative analysis beyond basic trajectory viewers. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000306 "statistical package"@en)
 SubClassOf(obo:MOLSIM_000306 obo:MOLSIM_000156)
 
 # Class: obo:MOLSIM_000307 (R)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000307 "A programming language and environment specifically designed for statistical computing and graphics."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000307 "A widely used free software environment and programming language specifically designed for statistical computing and graphics. R provides a vast collection of packages contributed by users worldwide, covering nearly every area of statistical analysis, data visualization, and data science. In biomolecular simulation analysis, R is frequently used for plotting results (energy profiles, RMSD timeseries), performing statistical analysis on sampled properties, clustering conformations, and developing custom analysis workflows. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000307 "R"@en)
 SubClassOf(obo:MOLSIM_000307 obo:MOLSIM_000306)
 
@@ -4283,13 +4283,13 @@ SubClassOf(obo:MOLSIM_000448 obo:MOLSIM_000447)
 
 # Class: obo:MOLSIM_000459 (free energy calculations tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000459 "Software used to estimate the binding free energy between molecules. These tools employ various computational methods to predict how strongly molecules interact."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000459 "A computational tool, method, or workflow specifically designed to compute free energy differences or profiles, which are crucial thermodynamic quantities governing molecular processes like binding, conformational change, or solvation. These tools implement various statistical mechanics techniques, such as Free Energy Perturbation (FEP), Thermodynamic Integration (TI), Umbrella Sampling (US), Bennett Acceptance Ratio (BAR), or endpoint methods like MM/PBSA or MM/GBSA, often requiring specialized simulation setups and analysis procedures. Examples range from specific modules in MD packages to dedicated analysis scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000459 "free energy calculations tool"@en)
 SubClassOf(obo:MOLSIM_000459 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000460 (molecular mechanics Poisson-Boltzmann surface area tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000460 "Molecular Mechanics Poisson-Boltzmann Surface Area, a method to calculate binding free energies. It combines molecular mechanics energies with continuum solvent models."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000460 "A computational tool or script that implements the MM/PBSA (Molecular Mechanics / Poisson-Boltzmann Surface Area) method for estimating free energy changes, typically ligand binding affinities or solvation free energies. This approach involves calculating molecular mechanics energies (MM), electrostatic solvation free energies using the Poisson-Boltzmann (PB) equation, and non-polar solvation free energies using a term proportional to the Solvent Accessible Surface Area (SASA), usually averaged over snapshots from an MD trajectory. It's an endpoint free energy method, computationally cheaper than FEP or TI but generally considered less rigorous. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000460 "MMPBSA tool"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000460 "molecular mechanics Poisson-Boltzmann surface area tool"@en)
 SubClassOf(obo:MOLSIM_000460 obo:MOLSIM_000159)
@@ -4297,14 +4297,14 @@ SubClassOf(obo:MOLSIM_000460 obo:MOLSIM_000459)
 
 # Class: obo:MOLSIM_000461 (molecular mechanics Poisson-Boltzmann surface area module)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000461 "MMPBSA Module is a module that can calculate MMPBSA calculation."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000461 "This likely refers to a software module or library component within a larger simulation or modeling package that provides the functionality to perform MM/PBSA calculations. Unlike a standalone script like MMPBSA.py, this would be an integrated part of a program (like CHARMM, Schrödinger suite, MOE) offering MM/PBSA analysis as one of its features, using its internal MM energy calculation routines and PB solvers. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000461 "MMPBSA module"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000461 "molecular mechanics Poisson-Boltzmann surface area module"@en)
 SubClassOf(obo:MOLSIM_000461 obo:MOLSIM_000460)
 
 # Class: obo:MOLSIM_000462 (molecular mechanics generalized Born surface area tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000462 "Molecular Mechanics Generalized Born Surface Area, similar to MMPBSA but using a different solvation model. It's generally faster but may be less accurate for some systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000462 "A computational tool or script that implements the MM/GBSA (Molecular Mechanics / Generalized Born Surface Area) method for estimating free energy changes, analogous to MM/PBSA. The key difference is that MM/GBSA uses a Generalized Born (GB) model instead of the more computationally expensive Poisson-Boltzmann (PB) equation to calculate the electrostatic contribution to the solvation free energy. Like MM/PBSA, it combines MM energies, GB electrostatic solvation energy, and a SASA-based nonpolar term, averaged over simulation snapshots, providing a faster but often less accurate estimation of binding or solvation free energies compared to rigorous methods. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000462 "MMGBSA tool"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000462 "molecular mechanics generalized Born surface area tool"@en)
 SubClassOf(obo:MOLSIM_000462 obo:MOLSIM_000459)
@@ -4323,13 +4323,13 @@ SubClassOf(obo:MOLSIM_000464 obo:MOLSIM_000017)
 
 # Class: obo:MOLSIM_000465 (NModelGB)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000465 "A variant of the Generalized Born model for implicit solvation calculations. It's used in some molecular dynamics simulations and free energy calculations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000465 "A variant of the Generalized Born model for implicit solvation calculations. It's used in some molecular dynamics simulations and free energy calculations. (...)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000465 "NModelGB"@en)
 SubClassOf(obo:MOLSIM_000465 obo:MOLSIM_000462)
 
 # Class: obo:MOLSIM_000466 (orientations of proteins in membranes)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000466 "OPM (Orientations of Proteins in Membranes) is a curated database that provides spatial arrangements of membrane proteins relative to the hydrocarbon core of the lipid bilayer."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000466 "OPM database (Orientations of Proteins in Membranes) is both a database and a web server/tool providing pre-calculated transmembrane orientations and positions for experimentally determined membrane protein structures found in the PDB. OPM uses a computational approach based on minimizing the calculated transfer free energy from water to the lipid bilayer to determine the most likely membrane boundaries and protein position relative to the bilayer center. It's a valuable resource for obtaining initial membrane protein placements for simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000466 "OPM"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000466 "orientations of proteins in membranes"@en)
 SubClassOf(obo:MOLSIM_000466 obo:MOLSIM_000227)
@@ -4408,32 +4408,32 @@ SubClassOf(obo:MOLSIM_000487 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000490 (structure preparation software)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000490 "Tools used to prepare molecular structures for simulations or analysis. These typically handle tasks like adding hydrogen atoms, assigning charges, and fixing structural issues."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000490 "Application programs focused on preparing, modifying, and validating molecular structures, particularly those obtained from experimental sources like the Protein Data Bank (PDB), before they are used in simulations. Tasks include adding missing atoms (like hydrogens), correcting structural issues, building missing loops, modeling mutations, protonating residues, and generating initial conformations. Examples range from specialized academic tools (like PDB2PQR) to comprehensive commercial modeling suites (like MOE, Schrödinger Maestro, SYBYL). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000490 "structure preparation software"@en)
 SubClassOf(obo:MOLSIM_000490 obo:MOLSIM_000156)
 
 # Class: obo:MOLSIM_000491 (SYBYL)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000491 "A comprehensive molecular modeling and drug design software suite. It provides tools for building, visualizing, and analyzing molecular structures."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000491 "A comprehensive commercial molecular modeling software suite developed by Certara, widely used in drug discovery and computational chemistry. SYBYL offers extensive tools for structure building and manipulation, conformational analysis, pharmacophore modeling, QSAR, docking, scoring, and visualization, along with molecular mechanics and dynamics capabilities. It provides an integrated environment for many structure preparation and modeling tasks relevant to biomolecular simulation setup, particularly in pharmaceutical research. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000491 "SYBYL"@en)
 SubClassOf(obo:MOLSIM_000491 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_000492 (Swiss PDB viewer)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000492 "A user-friendly application for analyzing protein structures. It allows visualization and manipulation of 3D protein structures from PDB files."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000492 "Now known as DeepView, Swiss-PdbViewer is a free, popular molecular visualization and analysis software application. It excels at viewing and analyzing protein structures from the PDB, allowing users to measure distances/angles, superimpose structures, evaluate structural quality, build loops, mutate residues, and perform basic energy minimization using the GROMOS force field. It is often used for initial structure inspection and preparation before more extensive simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000492 "DeepView"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000492 "Swiss PDB viewer"@en)
 SubClassOf(obo:MOLSIM_000492 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_000493 (Pymol)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000493 "A molecular visualization system for rendering and animating 3D molecular structures. It's widely used for creating high-quality molecular graphics."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000493 "A very popular, powerful, and widely used open-source (with some subscription features) molecular visualization system, known for producing high-quality 3D images of molecules and biological macromolecules. PyMOL allows detailed structure inspection, analysis (measurements, surfaces, electrostatics), creating publication-quality figures and animations, and includes scripting capabilities for automation. It is an indispensable tool for visualizing simulation setups and trajectories, although its structure manipulation capabilities are less extensive than dedicated modeling suites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000493 "Pymol"@en)
 SubClassOf(obo:MOLSIM_000493 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_000495 (parse radii)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000495 "A set of atomic radii used in implicit solvent models. These radii are optimized for calculating solvation energies in biomolecular simulations."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000495 "An empirically derived set of atomic radii developed by Sitkoff, Sharp, and Honig in the 1990s, specifically optimized for use in continuum electrostatic calculations, particularly Poisson-Boltzmann (PB) calculations aimed at reproducing experimental solvation energies (PARSE stands for \"Parameters for Solvation Energy\"). These radii define the boundary between the low-dielectric solute molecule and the high-dielectric solvent continuum in PB theory. They differ significantly from standard Van der Waals radii (like Bondi's) as they are optimized to implicitly account for various energetic contributions within that specific theoretical framework (PB/SA). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000495 "parse radii"@en)
 SubClassOf(obo:MOLSIM_000495 obo:MOLSIM_000272)
 
@@ -5035,26 +5035,26 @@ SubClassOf(obo:MOLSIM_000616 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000623 (quantum interaction*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000623 "Quantum interactions refer to physical effects and couplings between particles (like electrons and nuclei) that arise specifically from the laws of quantum mechanics, rather than classical physics. These often involve properties like electron spin, orbital angular momentum, or quantum tunneling. Understanding these interactions is crucial for accurately describing spectroscopy, reactivity, and electronic properties in many molecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000623 "Interactions whose accurate description requires explicitly considering the principles of quantum mechanics, such as electron wave functions, quantization of energy levels, electron exchange and correlation, spin, and tunneling, which are not captured by the classical physics framework underlying standard molecular mechanics force fields. Simulating these interactions typically requires quantum chemical methods (like Density Functional Theory or ab initio methods) or hybrid QM/MM approaches. These are important for modeling chemical reactions (bond breaking/formation), electronic excitations (photochemistry), electron transfer, and some spectroscopic phenomena. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000623 "quantum interaction*"@en)
 SubClassOf(obo:MOLSIM_000623 obo:MOLSIM_000057)
 
 # Class: obo:MOLSIM_000624 (hyperfine coupling*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000624 "Hyperfine coupling describes the magnetic interaction between the magnetic moment associated with an electron's spin and the magnetic moment of a nearby atomic nucleus's spin. This interaction leads to characteristic splitting patterns (hyperfine structure) in Electron Paramagnetic Resonance (EPR) spectra. Analyzing this coupling provides detailed information about the electron's spatial distribution (wavefunction) in the vicinity of that nucleus. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000624 "A quantum mechanical interaction representing the coupling between the magnetic moment associated with the spin of an electron and the magnetic moment of a nearby atomic nucleus. This interaction leads to small shifts and splittings ('hyperfine structure') in atomic and molecular energy levels, which are observable in high-resolution spectroscopy, particularly Electron Paramagnetic Resonance (EPR) for species with unpaired electrons, and also in NMR. It provides valuable information about the electron distribution (spin density) near the nucleus and thus molecular structure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000624 "hyperfine coupling*"@en)
 SubClassOf(obo:MOLSIM_000624 obo:MOLSIM_000626)
 DisjointClasses(obo:MOLSIM_000624 obo:MOLSIM_000625)
 
 # Class: obo:MOLSIM_000625 (spin-orbit coupling*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000625 "Spin-orbit coupling is a relativistic interaction between a particle's intrinsic spin and its orbital motion (e.g., an electron moving around a nucleus). This coupling links the spin and orbital angular momenta and becomes stronger for heavier elements. It plays a crucial role by enabling transitions between electronic states of different spin multiplicity (e.g., singlet to triplet), a process known as intersystem crossing, which is important in photochemistry and phosphorescence. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000625 "A relativistic quantum mechanical interaction between a particle's intrinsic spin angular momentum and its orbital angular momentum (due to its motion, e.g., an electron orbiting a nucleus). This coupling mixes electronic states and becomes increasingly significant for electrons in atoms with high atomic number (heavy atoms). Spin-orbit coupling influences electronic energy levels, causes splitting of spectral lines (fine structure), and facilitates transitions between states of different spin multiplicity (e.g., intersystem crossing in photochemistry, important for phosphorescence). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000625 "spin-orbit coupling*"@en)
 SubClassOf(obo:MOLSIM_000625 obo:MOLSIM_000626)
 
 # Class: obo:MOLSIM_000626 (spin effect*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000626 "Spin effects are phenomena in molecular systems directly related to the intrinsic angular momentum (spin) possessed by electrons and some atomic nuclei. This includes the magnetic moments associated with spin, interactions between different spins (spin-spin coupling), and interactions between spin and orbital motion (spin-orbit coupling). These effects are fundamental to understanding magnetic resonance spectroscopy (NMR, EPR), magnetism, and certain chemical reaction pathways. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000626 "Quantum mechanical phenomena arising from the intrinsic angular momentum (spin) possessed by fundamental particles like electrons and atomic nuclei. Spin gives rise to magnetic moments, and interactions involving these moments (e.g., electron spin coupling with nuclear spin or orbital angular momentum, or interaction with external magnetic fields) lead to splitting of energy levels and specific spectroscopic signatures (e.g., in NMR, EPR). Spin effects are generally not included in classical force fields but are crucial for understanding magnetism and certain spectroscopic or reactive processes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000626 "spin effect*"@en)
 SubClassOf(obo:MOLSIM_000626 obo:MOLSIM_000623)
 
@@ -5344,127 +5344,128 @@ SubClassOf(obo:MOLSIM_000772 obo:MOLSIM_000007)
 
 # Class: obo:MOLSIM_000773 (ADF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000773 "Amsterdam Density Functional, a premium computational chemistry program that uses density functional theory to predict properties and reactivity of molecules with quantum precision, particularly powerful for transition metal complexes and molecules with heavy atoms. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000773 "The Amsterdam Density Functional (ADF) software package, a quantum chemistry program specializing in Density Functional Theory (DFT) calculations, particularly for molecules and periodic systems. It is known for its use of Slater-type orbitals (STOs) and robust relativistic methods. While primarily a QM package, it includes modules for QM/MM and can interface with other software, but it's not typically used as a primary classical MD engine for large biomolecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000773 "ADF"@en)
 SubClassOf(obo:MOLSIM_000773 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000774 (Abalone)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000774 "A general-purpose molecular dynamics and molecular graphics program for simulations of bio-molecules in explicit or implicit water models, primarily designed for studying protein folding and DNA-ligand complexes using the AMBER force field. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000774 "A molecular modeling and simulation software package offering tools for molecular graphics, modeling (building/modifying structures), and simulations, including energy minimization, molecular dynamics (using its own engine or interfacing others), and Monte Carlo methods. It supports various force fields and provides an integrated graphical user interface (GUI) environment for setting up, running, and visualizing simulations, particularly aimed at drug design and biomolecular studies. It is a commercial product. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000774 "Abalone"@en)
 SubClassOf(obo:MOLSIM_000774 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000775 (CP2K)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000775 "A quantum chemistry and solid state physics software package for atomistic simulations of diverse systems, supporting various theory levels from DFTB to semi-empirical methods and classical force fields, capable of performing molecular dynamics, metadynamics, and transition state optimization. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000775 "An open-source quantum chemistry and solid-state physics software package designed for performing atomistic simulations  of solid state, liquid, molecular, periodic, material, crystal, and biological systems. CP2K is particularly known for its efficient DFT calculations using a hybrid Gaussian and Plane Waves (GPW) method and its Quickstep module, enabling QM and QM/MM simulations of large systems, including ab initio MD. It's highly parallelized and versatile for demanding simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000775 "CP2K"@en)
 SubClassOf(obo:MOLSIM_000775 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000776 (CPMD)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000776 "A parallelized implementation of Density Functional Theory specifically designed for ab-initio molecular dynamics using the Car-Parrinello scheme, capable of being extended to larger biological systems through quantum mechanical/molecular mechanics (QM/MM) interfaces. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000776 "The Car-Parrinello Molecular Dynamics (CPMD) software package, an open-source program primarily designed for performing ab initio molecular dynamics simulations based on Density Functional Theory (DFT) using the Car-Parrinello method. This method evolves the electronic wave functions concurrently with the atomic positions, contrasting with Born-Oppenheimer MD. CPMD typically uses plane wave basis sets and is well-suited for periodic systems, materials science, and simulations where electronic effects are crucial during dynamics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000776 "CPMD"@en)
 SubClassOf(obo:MOLSIM_000776 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000777 (Desmond)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000777 "A high-performance molecular dynamics software developed for biological system simulations, featuring novel parallel algorithms for efficient execution on multiple processors, supporting standard fixed-charge force fields, polarizable models, and various simulation methods including free energy calculations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000777 "A high-performance software package specifically designed for classical molecular dynamics simulations of biological systems, developed by D. E. Shaw Research (DESRES). Desmond is known for its exceptional speed, particularly on GPUs, and its integration with the Schrödinger Materials Science Suite. It supports standard force fields (like CHARMM, AMBER, OPLS) and offers features for system building, simulation execution (including free energy calculations), and analysis, primarily targeting drug discovery and biomolecular research. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000777 "Desmond"@en)
 SubClassOf(obo:MOLSIM_000777 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000778 (Firefly)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000778 "A quantum chemistry software package that performs ab initio calculations and molecular dynamics simulations, known for its efficient implementation of electronic structure methods for studying reaction mechanisms and molecular properties in biomolecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000778 "Previously known as PC GAMESS, Firefly is a freely available quantum chemistry software package offering a wide range of ab initio and DFT methods. It is optimized for Intel-compatible x86 and x86-64 architectures and is known for its computational efficiency for certain types of calculations. Like GAMESS-US, it provides QM and limited QM/MM capabilities relevant to biomolecular studies, but is not a classical MD engine. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000778 "Firefly"@en)
 SubClassOf(obo:MOLSIM_000778 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000779 (GAMESS-UK)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000779 "A general-purpose ab initio molecular electronic structure program with capabilities for molecular dynamics simulations, particularly used for quantum mechanical calculations on biomolecular systems to study electronic properties and reaction pathways. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000779 "A quantum chemistry software package developed in the UK, distinct from GAMESS-US, though sharing common historical roots. It offers a broad range of ab initio QM methods (HF, MP2, CCSD(T), MCSCF, DFT) and includes capabilities for QM/MM calculations. Like other QM packages, it is primarily used for electronic structure calculations and parameterization rather than large-scale classical MD. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000779 "GAMESS-UK"@en)
 SubClassOf(obo:MOLSIM_000779 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000780 (GAMESS-US)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000780 "The US version of the General Atomic and Molecular Electronic Structure System, a widely used computational chemistry software that performs ab initio molecular quantum mechanical calculations and molecular dynamics simulations of biomolecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000780 "A widely used, freely available quantum chemistry software package (General Atomic and Molecular Electronic Structure System). It provides a broad range of quantum mechanical methods, from semi-empirical to high-level ab initio (HF, DFT, MP2, CCSD, MCSCF), and includes features for geometry optimization, vibrational analysis, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000780 "GAMESS"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000780 "GAMESS-US"@en)
 SubClassOf(obo:MOLSIM_000780 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000781 (GROMOS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000781 "A software package and force field for molecular dynamics simulations focusing on biomolecular systems such as proteins, nucleic acids, and lipids, designed to study structural, dynamic, and thermodynamic properties of biomolecules in various environments. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000781 "A software package for classical molecular dynamics simulation, primarily developed at ETH Zürich, and associated with the GROMOS family of force fields (e.g., GROMOS 54A7). The package includes programs for simulation setup, execution (MD, stochastic dynamics, energy minimization), and trajectory analysis. While historically influential and still used, its user base may be smaller compared to GROMACS or AMBER today, but the GROMOS force fields remain widely used (often ported to other packages). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000781 "GROMOS"@en)
 SubClassOf(obo:MOLSIM_000781 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000782 (HyperChem)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000782 "An integrated molecular modeling system that combines visualization and simulation capabilities, able to perform molecular dynamics simulations of biomolecules using various force fields and quantum mechanical methods to study molecular structure and dynamics. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000782 "A commercial molecular modeling software package providing a graphical interface for building, visualizing, and simulating molecular systems. It offers capabilities for molecular mechanics (MM) using various force fields, quantum mechanics (QM) using semi-empirical and ab initio methods, and molecular dynamics (MD) simulations. HyperChem aims to provide an integrated environment for a range of computational chemistry tasks on desktop computers. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000782 "HyperChem"@en)
 SubClassOf(obo:MOLSIM_000782 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000783 (Jaguar)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000783 "A high-performance ab initio quantum chemistry package particularly effective for transition metal-containing systems, capable of being used for biomolecular simulations to study enzyme active sites and metal-protein interactions with high accuracy. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000783 "A high-performance quantum chemistry software package, part of the Schrödinger Materials Science Suite, known for its speed and accuracy, particularly for DFT calculations. It also offers ab initio methods (like LMP2) and QM/MM capabilities. Jaguar is often used in drug discovery contexts for tasks requiring high-quality QM calculations, such as reaction modeling, property prediction, and parameterization. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000783 "Jaguar"@en)
 SubClassOf(obo:MOLSIM_000783 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000784 (LAMMPS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000784 "Large-scale Atomic/Molecular Massively Parallel Simulator, a classical molecular dynamics code designed for efficient computation on parallel machines, applicable to biomolecular systems for studying protein folding, membrane dynamics, and biomolecular interactions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000784 "A highly versatile, open-source classical molecular dynamics simulator developed at Sandia National Laboratories, designed for parallel computing (Large-scale Atomic/Molecular Massively Parallel Simulator). LAMMPS has a very broad application range, extending from biomolecules (using standard force fields like CHARMM, AMBER, OPLS) to materials science, solid-state physics, and coarse-grained simulations, due to its extensive library of potentials and simulation methods. Its flexibility makes it suitable for non-standard simulation setups. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000784 "LAMMPS"@en)
 SubClassOf(obo:MOLSIM_000784 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000785 (MOPAC)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000785 "Molecular Orbital PACkage, a semi-empirical quantum chemistry program that can be used for molecular dynamics simulations of biomolecules, particularly efficient for large systems where full ab initio treatments would be computationally prohibitive. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000785 "A widely used semi-empirical quantum chemistry software package (Molecular Orbital PACkage). It implements methods like AM1, PM3, PM6, PM7, which are much faster than ab initio or DFT methods, allowing calculations on larger systems or longer timescales, albeit typically with lower accuracy. MOPAC is often used for rapid geometry optimization, property estimation, or as the QM component in QM/MM calculations where speed is critical. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000785 "MOPAC"@en)
 SubClassOf(obo:MOLSIM_000785 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000786 (NAMD)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000786 "Nanoscale Molecular Dynamics, a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems, particularly effective for studying proteins, nucleic acids, and their complexes in realistic cellular environments. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000786 "A highly scalable, parallel molecular dynamics simulation software package developed at the University of Illinois Urbana-Champaign, designed specifically for simulating large biomolecular systems on high-performance computers (NAnoscale Molecular Dynamics). NAMD works particularly well with the CHARMM force field (and others like AMBER) and is often used in conjunction with the VMD visualization program for setup and analysis. It is known for its excellent performance on parallel architectures, including GPUs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000786 "NAMD"@en)
 SubClassOf(obo:MOLSIM_000786 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000787 (SIESTA)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000787 "Spanish Initiative for Electronic Simulations with Thousands of Atoms, a computational chemistry software that uses density functional theory for electronic structure calculations and molecular dynamics simulations of large biomolecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000787 "An open-source software package for performing electronic structure calculations and ab initio molecular dynamics simulations based on Density Functional Theory (DFT). SIESTA uses localized numerical atomic orbitals as basis sets and efficient pseudopotentials, making it suitable for large systems and parallel computation. While applicable to biomolecules, its strengths are often utilized in materials science and condensed matter physics contexts, similar to Quantum ESPRESSO or VASP. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000787 "SIESTA"@en)
 SubClassOf(obo:MOLSIM_000787 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000788 (Spartan)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000788 "An integrated molecular modeling program that combines visualization with computational methods, capable of performing molecular dynamics simulations on biomolecular systems to predict structures, energetics, and properties using various levels of theory. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000788 "A commercial molecular modeling and computational chemistry software package featuring an integrated graphical user interface. It provides tools for structure building and visualization, and implements a range of computational methods, including molecular mechanics (MM), semi-empirical methods (like AM1, PM3), Hartree-Fock (HF), Density Functional Theory (DFT), and Møller-Plesset (MPn) calculations. Spartan is widely used in education and research for structure-property relationship studies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000788 "Spartan"@en)
 SubClassOf(obo:MOLSIM_000788 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000789 (TINKER)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000789 "A molecular modeling software package that performs molecular dynamics simulations using polarizable force fields, particularly useful for biomolecular applications involving proteins, nucleic acids, and their interactions in complex environments. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000789 "A freely available software package for molecular mechanics and dynamics simulations. TINKER provides implementations of various standard force fields (AMBER, CHARMM, OPLS, MMFF) and includes tools for energy minimization, MD simulation, free energy calculations, and structural analysis. It is particularly notable for its implementation of polarizable force fields (e.g., AMOEBA) and its modular design. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000789 "TINKER"@en)
 SubClassOf(obo:MOLSIM_000789 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000790 (Tremolo-X)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000790 "A molecular dynamics simulation package designed for high-performance computing environments, capable of simulating biomolecular systems with specialized algorithms for enhanced sampling and accurate force field implementations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000790 "A molecular dynamics simulation package designed for high-performance computing environments developed by Fraunhofer SCAI, with the computations focus in nanotechnology, material science, biochemistry and biophysics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000790 "Tremolo-X"@en)
 SubClassOf(obo:MOLSIM_000790 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000791 (TURBOMOLE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000791 "A quantum chemistry program package known for its efficient implementation of electronic structure methods, applicable to molecular dynamics simulations of biomolecules, particularly for studying reaction mechanisms and electronic properties of biological systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000791 "A highly efficient quantum chemistry software package focusing on ab initio methods, particularly Density Functional Theory (DFT) and correlated wavefunction methods (like MP2, CC2, CCSD(T)), optimized for speed and parallel performance. It is widely used for calculations on molecules and clusters, especially for applications requiring high accuracy or large basis sets, such as reaction mechanism studies, spectroscopy, and parameterization tasks relevant to biomolecular simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000791 "TURBOMOLE"@en)
 SubClassOf(obo:MOLSIM_000791 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000792 (VASP)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000792 "Vienna Ab initio Simulation Package, a computer program for atomic scale materials modeling using density functional theory, which can be applied to biomolecular simulations particularly for studying metal-protein interactions and biomaterials. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000792 "The Vienna Ab initio Simulation Package, a sophisticated software package for performing quantum mechanical calculations based on Density Functional Theory (DFT) or Hartree-Fock, using pseudopotentials and a plane wave basis set. VASP is extremely widely used in materials science and condensed matter physics for simulations of solids, surfaces, and interfaces, including ab initio molecular dynamics. While it can simulate any collection of atoms, its typical use cases and methodology (plane waves, periodic boundaries) differ from mainstream solvated biomolecule simulation approaches. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000792 "VASP"@en)
 SubClassOf(obo:MOLSIM_000792 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000793 (X-PLOR)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000793 "A specialized software package for structure determination of biological macromolecules using experimental data from NMR or X-ray crystallography, integrated with molecular dynamics capabilities for refining and simulating biomolecular structures. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000793 "A software package primarily used for macromolecular structure determination based on experimental data, particularly X-ray crystallography and NMR spectroscopy data. It incorporates molecular mechanics (energy terms from force fields), molecular dynamics (often used for refinement or simulated annealing protocols), and terms representing the experimental restraints to refine structures consistent with both physics and experimental observations. While it uses MD concepts, its primary goal is structure determination rather than simulating equilibrium dynamics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000793 "X-PLOR"@en)
 SubClassOf(obo:MOLSIM_000793 obo:MOLSIM_000160)
 
