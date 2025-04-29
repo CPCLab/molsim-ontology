@@ -490,6 +490,7 @@ Declaration(Class(obo:MOLSIM_000674))
 Declaration(Class(obo:MOLSIM_000675))
 Declaration(Class(obo:MOLSIM_000676))
 Declaration(Class(obo:MOLSIM_000677))
+Declaration(Class(obo:MOLSIM_000685))
 Declaration(Class(obo:MOLSIM_000735))
 Declaration(Class(obo:MOLSIM_000736))
 Declaration(Class(obo:MOLSIM_000737))
@@ -2446,125 +2447,126 @@ SubClassOf(obo:MOLSIM_000036 obo:MOLSIM_000032)
 
 # Class: obo:MOLSIM_000037 (algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000037 "A set of computational rules or procedures used to solve problems or perform tasks, including those in molecular simulations. Examples include integration algorithms for updating atomic positions and velocities."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000037 "A well-defined sequence of steps or rules designed to perform a specific task or solve a particular problem. In computational science, algorithms provide the precise instructions for a computer to follow to achieve a desired outcome, such as simulating molecular motion or analyzing data. They are the fundamental building blocks of computational methods used in biomolecular simulation and analysis (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000037 "algorithm"@en)
 
 # Class: obo:MOLSIM_000038 (thermostat algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000038 "A method used to control temperature in molecular dynamics simulations. It adjusts particle velocities to maintain a desired temperature, simulating a system's interaction with a heat bath."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000038 "An algorithm used in molecular dynamics simulations to control the temperature of the simulated system, ensuring it samples configurations corresponding to a specific target temperature (e.g., for the NVT or NPT ensembles). Thermostats work by adjusting particle velocities or adding/removing kinetic energy in various ways to mimic coupling with an external heat bath. Different thermostat algorithms vary in their theoretical basis, efficiency, and how accurately they reproduce correct statistical mechanics (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000038 "thermostat algorithm"@en)
 SubClassOf(obo:MOLSIM_000038 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000039 (barostat algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000039 "Barostat is an algorithm used to control and maintain the pressure of a simulated system, typically work by adjusting the volume of the simulation box to maintain the desired pressure."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000039 "An algorithm used in molecular dynamics simulations, typically alongside a thermostat, to control the pressure of the simulated system by adjusting the simulation box volume. This allows simulations to be performed under conditions of constant pressure and temperature (NPT ensemble), mimicking typical laboratory conditions. Different barostats vary in how they couple the volume changes to the pressure difference and whether they allow anisotropic box changes (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000039 "barostat algorithm"@en)
 SubClassOf(obo:MOLSIM_000039 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000040 (Berendsen barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000040 "Berendsen barostat is a type of barostat algorithm that yields the correct target density, but it does not strictly sample from the isothermal-isobaric ensemble and typically yields volume fluctuations that are too low."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000040 "A barostat algorithm that weakly couples the system to an external pressure bath by rescaling the simulation box volume and particle coordinates based on the difference between the current instantaneous pressure and the target pressure. Similar to the Berendsen thermostat, it is computationally simple and effective for equilibration but does not rigorously sample the correct NPT ensemble. It allows isotropic or anisotropic pressure coupling (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000040 "Berendsen barostat"@en)
 SubClassOf(obo:MOLSIM_000040 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000041 (Monte Carlo barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000041 "Monte Carlo barostat is a type of barostat algorithm that  samples rigorously from the isobaric-isothermal ensemble and does not necessitate computing the virial."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000041 "A barostat algorithm where trial changes to the simulation box volume are attempted periodically during a molecular dynamics simulation using a Monte Carlo acceptance criterion. Accepted moves rescale the box dimensions and particle coordinates. This method correctly samples the NPT ensemble but can be less efficient than continuous barostats for large volume fluctuations (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000041 "Monte Carlo barostat"@en)
 SubClassOf(obo:MOLSIM_000041 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000042 (Andersen barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000042 "Andersen barostat is a type of barostat algorithm in which  the system is coupled to a pressure bath, and the coupling is achieved by including an additional degree of freedom in the equations of motion. This mathematical artifact mimics the action of a piston scaling the volume of the system."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000042 "A barostat algorithm where the simulation box volume is treated as a dynamic variable coupled to a fictitious \"piston\" mass, interacting with the internal pressure of the system. This extended Lagrangian approach allows the volume to fluctuate dynamically around the value corresponding to the target external pressure, correctly generating the NPT ensemble. It typically assumes isotropic volume changes (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000042 "Andersen barostat"@en)
 SubClassOf(obo:MOLSIM_000042 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000043 (Parrinello-Rahman barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000043 "Parrinello-Rahman is a type of barostat algorithm in which the system is couplet to a pressure bath, allowing to change the shape  and size of the box known as an anisotropic deformation of the box."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000043 "An extension of the Andersen barostat that allows the simulation box shape and volume to change anisotropically, meaning the lengths of the box edges and the angles between them can fluctuate independently. This is crucial for simulating phase transitions or studying materials under anisotropic stress conditions while correctly sampling the NPT ensemble. It uses a matrix of barostat variables coupled to the pressure tensor (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000043 "Parrinello-Rahman barostat"@en)
 SubClassOf(obo:MOLSIM_000043 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000044 (Langevin-piston barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000044 "Langevin-piston barostat is based on Langevin thermostat with an additional damping (friction) force and stochastic force are introduced. Random collisions eliminate oscillation of the volume associated with the piston mass."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000044 "A barostat algorithm that combines the extended Lagrangian approach (like Andersen or Parrinello-Rahman) with Langevin dynamics applied to the piston/box degrees of freedom. This introduces stochastic and frictional terms to the equation of motion for the box volume, helping to control pressure fluctuations and potentially improving sampling efficiency. It aims to provide robust pressure control while correctly sampling the NPT ensemble (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000044 "Langevin-piston barostat"@en)
 SubClassOf(obo:MOLSIM_000044 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000045 (Langevin thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000045 "In Langevin thermostat, at each time step, all particles receive a random force and have their velocities lowered using a constant friction."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000045 "A thermostat algorithm that mimics the effect of solvent collisions by adding random stochastic forces (noise) and frictional forces (drag) to the equations of motion for particles. This approach directly simulates the exchange of energy with an implicit heat bath, ensuring the system samples the canonical (NVT) ensemble. It is known for its robustness and ability to explore conformational space efficiently (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000045 "Langevin thermostat"@en)
 SubClassOf(obo:MOLSIM_000045 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000046 (Berendsen thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000046 "Berendsen thermostat samples canonical distribution by scaling all velocities to a random temperature probed from canonical distribution."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000046 "A thermostat algorithm that weakly couples the system to an external heat bath by rescaling particle velocities at each step based on the difference between the current instantaneous temperature and the target temperature. While computationally simple and effective at bringing the system to the target temperature, it does not rigorously generate configurations from the correct canonical (NVT) ensemble. It is often used for equilibration phases rather than production simulations (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000046 "Berendsen thermostat"@en)
 SubClassOf(obo:MOLSIM_000046 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000047 (Andersen thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000047 "In the Andersen thermostat scheme, some prescribed number of particles is selected, and their momenta (actually, their velocities) are drawn from a Gaussian distribution at the prescribed temperature."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000047 "A thermostat algorithm that maintains temperature by introducing stochastic collisions between randomly selected particles and fictitious heat bath particles. When a particle \"collides,\" its velocity is reassigned from a Maxwell-Boltzmann distribution corresponding to the target temperature. This method correctly generates configurations from the canonical (NVT) ensemble (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000047 "Andersen thermostat"@en)
 SubClassOf(obo:MOLSIM_000047 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000048 (Nosé-Hoover thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000048 "A specific thermostat algorithm used in molecular dynamics. It introduces an additional degree of freedom to the system to maintain constant temperature."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000048 "A deterministic thermostat algorithm that controls temperature by introducing an extended degree of freedom (a thermostat variable) that dynamically couples to the physical system's kinetic energy. This extended variable evolves according to its own equation of motion, causing the physical system's temperature to fluctuate around the target value in a way consistent with the canonical (NVT) ensemble. It avoids the stochastic elements of Langevin or Andersen thermostats (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000048 "Nose-Hoover"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000048 "Nosé-Hoover thermostat"@en)
 SubClassOf(obo:MOLSIM_000048 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000049 (constraining algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000049 "Constraining algorithm is a method used to maintain certain geometric properties of the simulated system, typically bond lengths or angles, at fixed values. It is used to remove high-frequency vibrations, allowing for larger time steps in simulations or maintain specific molecular geometries or structural features."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000049 "An algorithm used in molecular dynamics simulations to fix certain geometric parameters, most commonly bond lengths involving light atoms like hydrogen. By constraining these fast vibrations, longer simulation time steps can be used, significantly speeding up the simulation while having minimal impact on slower, large-scale motions. These algorithms iteratively adjust particle positions or use analytical solutions to satisfy the constraint conditions (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000049 "constraining algorithm"@en)
 SubClassOf(obo:MOLSIM_000049 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000050 (SHAKE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000050 "SHAKE is  type of constraining algorithm that  iteratively adjusting atomic positions to satisfy constraints after each unconstrained update. It uses Lagrange multipliers to enforce constraints and is typically applied to bonds involving hydrogen atoms."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000050 "An iterative constraint algorithm widely used in molecular dynamics to fix bond lengths. It adjusts the positions of atoms involved in a constraint at the end of a time step until the constraint condition (e.g., fixed bond distance) is satisfied within a defined tolerance. It handles coupled constraints involving multiple atoms connected together (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000050 "SHAKE"@en)
 SubClassOf(obo:MOLSIM_000050 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000051 (RATTLE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000051 "RATTLE is the velocity version of SHAKE which is a popular algorithm for introducing distance constraints during molecular dynamics simulations. The RATTLE procedure is to go through the constraints one by one, adjusting the coordinates so as to satisfy each in turn."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000051 "A constraint algorithm similar to SHAKE but designed for velocity-Verlet type integrators, ensuring that both positions and velocities satisfy the constraint conditions at the end of each time step. It involves solving constraint equations for positions first, then using those positions to solve for constrained velocities. This maintains consistency between positions and velocities under constraint (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000051 "RATTLE"@en)
 SubClassOf(obo:MOLSIM_000051 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000052 (linear constraint solver)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000052 "LINCS is an algorithm that resets bonds to their correct lengths after an unconstrained update. The method is non-iterative, as it always uses two steps. Although LINCS is based on matrices, no matrix-matrix multiplications are needed."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000052 "A general term for algorithms designed to solve systems of linear equations that arise from geometric constraints in molecular simulations, particularly when constraints are applied before integrating equations of motion (e.g., in Lagrangian multiplier methods). While iterative methods like SHAKE/RATTLE solve non-linear equations implicitly, linear solvers might be used in different formulations. It represents the mathematical task underlying some constraint methods (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000052 "LINCS"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000052 "linear constraint solver"@en)
 SubClassOf(obo:MOLSIM_000052 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000053 (electrostatic interaction computing method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000053 "Electrostatic interaction computing method is a method to handle electrostatic interactions. Electrostatic interaction is a long-range, attractive or repulsive forces between charged particles or molecules governed by Coulomb's law."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000053 "An algorithm designed to efficiently calculate the long-range electrostatic forces between charged particles (atoms) in molecular simulations, which is computationally demanding due to the N-squared complexity if all pairs are considered directly. These methods employ various approximations or techniques like grid-based calculations, truncation schemes, or multipole expansions to reduce the computational cost while maintaining acceptable accuracy. They are essential for simulating realistic biomolecular systems (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000053 "electrostatic interaction computing method"@en)
 SubClassOf(obo:MOLSIM_000053 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000054 (Particle Mesh Ewald)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000054 "Particle Mesh Ewald Method is a method to handle electrostatic interaction by splitting the potential into short-range and long-range parts. The short-range part is calculated directly, while the long-range part is calculated using Fourier transforms on a grid."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000054 "A highly efficient grid-based algorithm for calculating long-range electrostatic interactions in periodic systems, based on the Ewald summation technique. It splits the calculation into a short-range part computed directly in real space and a long-range part computed efficiently in reciprocal space using Fast Fourier Transforms (FFTs) on a grid. PME is a standard method for accurate electrostatics in biomolecular simulations (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000054 "PME"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000054 "Particle Mesh Ewald"@en)
 SubClassOf(obo:MOLSIM_000054 obo:MOLSIM_000053)
 
 # Class: obo:MOLSIM_000055 (reaction field)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000055 "Reaction Field (RF) is a method to simulate the effect of long-range dipole-dipole interactions when using periodic boundaries conditions."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000055 "An approximate method for handling long-range electrostatic interactions where direct interactions are calculated only up to a certain cutoff distance. The effect of charges beyond the cutoff is approximated by embedding the cutoff sphere within a continuous dielectric medium representing the solvent. While computationally cheaper than PME, its accuracy depends on the system and parameters chosen (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000055 "RF"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000055 "reaction field"@en)
 SubClassOf(obo:MOLSIM_000055 obo:MOLSIM_000053)
 
 # Class: obo:MOLSIM_000056 (particle-particle particle-mesh)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000056 "Particle-Particle Particle-Mesh (P3M) is a method to compute electrostatic energy and forces, setting EPB in the output to zero and EEL that includes both the reaction field energy and the Coulombic energy."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000056 "An efficient algorithm for calculating long-range forces (like electrostatic or gravitational) in particle simulations, conceptually similar to Particle Mesh Ewald (PME). It splits the force calculation into a short-range part computed directly between nearby particles (particle-particle) and a long-range part computed using a grid and Fast Fourier Transforms (particle-mesh). PPPM is widely used in both astrophysics and molecular simulation for its performance and accuracy (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000056 "P3M"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000056 "PPPM"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000056 "particle-particle particle-mesh"@en)
 SubClassOf(obo:MOLSIM_000056 obo:MOLSIM_000053)
 
@@ -2673,13 +2675,13 @@ SubClassOf(obo:MOLSIM_000073 obo:MOLSIM_000068)
 
 # Class: obo:MOLSIM_000074 (similarity calculation method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000074 "Similarity calculation metric is a metric that describe the level of similarity/dissimilarity necessary for two members to be in the same cluster."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000074 "An algorithm used to quantify the degree of resemblance between two objects, often molecules represented by chemical fingerprints or structural features, or between simulation data like conformations or trajectories. These methods employ various mathematical formulas (metrics or coefficients) to compute a numerical score indicating similarity or distance. They are widely used in cheminformatics, drug discovery, and simulation analysis (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000074 "similarity calculation method"@en)
 SubClassOf(obo:MOLSIM_000074 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000075 (Tanimoto combo score)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000075 "Tanimoto Combo Score is a ROCS score that includes the shape score for similarity and the color score for similarity."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000075 "This likely refers to a similarity score derived by combining the standard Tanimoto coefficient (often calculated on molecular fingerprints) with other similarity measures or scores. The goal of combining scores is often to leverage the strengths of different metrics to get a more robust or comprehensive assessment of similarity. The exact combination formula would define the specific \"combo score\" (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000075 "Tanimoto combo score"@en)
 SubClassOf(obo:MOLSIM_000075 obo:MOLSIM_000074)
 
@@ -2691,43 +2693,43 @@ SubClassOf(obo:MOLSIM_000076 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000077 (Dice coefficient)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000077 "Dice Coefficient metric emphasize the importance of shared features, often used in text mining and information retrieval."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000077 "A similarity calculation method used to compare two sets (e.g., features in molecular fingerprints), closely related to the Tanimoto coefficient and Jaccard index. It measures the overlap between the sets, normalized by the average size of the two sets. It is often used in information retrieval and cheminformatics as an alternative similarity metric (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000077 "Dice coefficient"@en)
 SubClassOf(obo:MOLSIM_000077 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000078 (Euclidean distance)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000078 "Euclidean disteance sums the absolute differences of coordinates, also known as city block distance or L1 norm."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000078 "A common method for calculating the distance between two points (e.g., representing molecules in a multi-dimensional property space or conformations by atom coordinates) based on the straight-line distance in that space. It is calculated as the square root of the sum of squared differences between corresponding coordinates or features. Lower Euclidean distance implies higher similarity in the context of the chosen space (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000078 "Euclidean distance"@en)
 SubClassOf(obo:MOLSIM_000078 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000079 (Manhattan distance)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000079 "Manhattan distance measures the cosine of the angle between two vectors, often used in high-dimensional spaces."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000079 "A distance metric calculated as the sum of the absolute differences between the coordinates or features of two points in a multi-dimensional space. Unlike Euclidean distance, it measures distance along axes at right angles (like navigating city blocks). It provides an alternative way to quantify dissimilarity between objects based on their feature vectors (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000079 "Manhattan distance"@en)
 SubClassOf(obo:MOLSIM_000079 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000080 (Pearson correlation coefficient)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000080 "Pearson correlation measures linear correlation between two sets of data, can be applied to various molecular properties."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000080 "A statistical measure quantifying the linear correlation between two continuous variables (e.g., comparing two property datasets or time series from simulations). The coefficient ranges from -1 (perfect negative linear correlation) to +1 (perfect positive linear correlation), with 0 indicating no linear correlation. It assesses the strength and direction of a linear relationship between two sets of data (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000080 "Pearson correlation coefficient"@en)
 SubClassOf(obo:MOLSIM_000080 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000081 (Hamming distance)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000081 "Hamming distance counts the number of positions at which corresponding symbols in two strings are different, used for comparing binary fingerprints."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000081 "A similarity calculation method specifically used for comparing two strings or bit vectors (like binary molecular fingerprints) of equal length. It counts the number of positions at which the corresponding symbols or bits are different. A lower Hamming distance indicates higher similarity between the binary representations (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000081 "Hamming distance"@en)
 SubClassOf(obo:MOLSIM_000081 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000082 (Jaccard index)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000082 "Jaccard index measures similarity between finite sample sets, similar to Tanimoto but for discrete data."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000082 "A similarity calculation method used for comparing two sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets) (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000082 "Jaccard index"@en)
 SubClassOf(obo:MOLSIM_000082 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000083 (overlap coefficient)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000083 "Overlap coefficient measures the overlap between two sets, useful when one set is a subset of the other."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000083 "A similarity calculation method that measures the overlap between two sets, defined as the size of the intersection divided by the size of the smaller of the two sets. Unlike Tanimoto/Jaccard, it reaches 1 if one set is a subset of the other. It is useful for assessing containment or sub-structure relationships (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000083 "overlap coefficient"@en)
 SubClassOf(obo:MOLSIM_000083 obo:MOLSIM_000074)
 
@@ -2745,67 +2747,67 @@ SubClassOf(obo:MOLSIM_000085 obo:MOLSIM_000076)
 
 # Class: obo:MOLSIM_000086 (combo score)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000086 "Combo score is a customizable combination of shape and color scores, allows users to define their own weighting scheme."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000086 "A general term for a similarity score obtained by combining results from multiple different similarity calculation methods or metrics. The rationale is often to capture different aspects of similarity (e.g., structural, feature-based) into a single, potentially more informative score. The specific combination formula and constituent metrics define the particular combo score (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000086 "combo score"@en)
 SubClassOf(obo:MOLSIM_000086 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000087 (optimal transformation path algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000087 "Optimal transformation path algorithm is an algorithm to find the most efficient way to transform one molecule into another in the context of free energy calculations, particularly in methods like thermodynamic integration or free energy perturbation."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000087 "An algorithm designed to find the best path or connection between states or nodes according to some defined criteria, such as minimum cost, shortest distance, or maximum flow. These algorithms are used in various contexts, including finding minimum energy pathways for reactions, constructing minimum spanning trees for clustering, optimizing network routes, or solving complex search problems. They employ different strategies ranging from exact graph traversals to heuristic searches (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000087 "optimal transformation path algorithm"@en)
 SubClassOf(obo:MOLSIM_000087 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000088 (Kruskal's algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000088 "Kruskal's algorithm finds a minimum spanning forest of an undirected edge-weighted graph. If the graph is connected, it finds a minimum spanning tree. It is a greedy algorithm that in each step adds to the forest the lowest-weight edge that will not form a cycle."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000088 "A greedy algorithm used to find a Minimum Spanning Tree (MST) for a connected, undirected graph with weighted edges. An MST connects all vertices together with the minimum possible total edge weight. Kruskal's algorithm iteratively adds the lowest-weight edge that does not form a cycle until all vertices are connected (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000088 "Kruskal's algorithm"@en)
 SubClassOf(obo:MOLSIM_000088 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000089 (Prim's algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000089 "Prim's algorithm is a method for finding the minimum spanning tree (MST) of a weighted, undirected graph.  A minimum spanning tree is a subset of edges that connects all vertices with the minimum total edge weight."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000089 "Another greedy algorithm for finding a Minimum Spanning Tree (MST) in a connected, undirected graph with weighted edges. It works by starting with an arbitrary vertex and iteratively adding the cheapest edge that connects a vertex in the growing tree to a vertex outside the tree, until all vertices are included. It provides an alternative approach to Kruskal's for constructing an MST (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000089 "Prim's algorithm"@en)
 SubClassOf(obo:MOLSIM_000089 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000090 (Dijkstra's algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000090 "Dijkstra's algorithm finds the shortest path between nodes in a graph, and can be adapted for finding optimal transformation paths."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000090 "An algorithm for finding the shortest path between a starting node and all other nodes in a graph with non-negative edge weights. It works by iteratively exploring the graph, maintaining the shortest distance found so far to each node, and always extending the path from the node with the current shortest distance. It is fundamental in graph theory and network routing (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000090 "Dijkstra's algorithm"@en)
 SubClassOf(obo:MOLSIM_000090 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000091 (A* search algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000091 "A*search algorithm uses heuristics to find the optimal path more efficiently, can be applied to transformation path problems with appropriate heuristics."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000091 "An informed search algorithm used for finding the shortest path between a starting node and a target node in a graph, commonly used in pathfinding and planning problems. It extends Dijkstra's algorithm by using a heuristic function to estimate the cost from the current node to the target, guiding the search towards the goal more efficiently. Its performance depends on the quality of the heuristic used (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000091 "A* search algorithm"@en)
 SubClassOf(obo:MOLSIM_000091 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000092 (nearest neighbor algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000092 "Nearest-neighbor algorithm works by making a greedy approach that always chooses the closest unvisited node. This is simple but may not always find the optimal solution."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000092 "Generally refers to algorithms that operate based on proximity, often used in classification, clustering, or search problems. In pathfinding or optimization, a simple nearest neighbor approach might involve iteratively moving to the closest unvisited node, which is a heuristic that does not guarantee finding the globally optimal path (e.g., in the Traveling Salesperson Problem). It can also refer to K-Nearest Neighbors (KNN) classification/regression (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000092 "nearest neighbor algorithm"@en)
 SubClassOf(obo:MOLSIM_000092 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000093 (genetic algorithms)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000093 "Genetic algorithms uses evolutionary principles to optimize the transformation path and can handle complex optimization problems but may be computationally intensive."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000093 "A class of heuristic optimization algorithms inspired by the process of natural selection and evolution. They maintain a population of candidate solutions (chromosomes) that evolve over generations through processes like selection, crossover (recombination), and mutation, guided by a fitness function that evaluates solution quality. Genetic algorithms are often used for complex optimization problems where exact methods are infeasible (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000093 "genetic algorithms"@en)
 SubClassOf(obo:MOLSIM_000093 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000094 (simulated annealing algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000094 "Simulated Annealing algorithm provides a probabilistic technique for approximating the global optimum. It can escape local minima in complex optimization landscapes."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000094 "A probabilistic heuristic algorithm used for finding the global optimum of a function in a large search space, inspired by the annealing process in metallurgy. It starts with an initial solution and iteratively explores neighboring solutions, accepting worse solutions with a probability that decreases over time (controlled by a \"temperature\" parameter), allowing it to escape local optima. It is a metaheuristic for global optimization (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000094 "simulated annealing algorithm"@en)
 SubClassOf(obo:MOLSIM_000094 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000095 (ant colony optimization algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000095 "Ant colony optimization algorithm is inspired by the behavior of ants finding paths, and can be adapted for finding optimal transformation paths in molecular systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000095 "A probabilistic heuristic algorithm for finding good paths through graphs, inspired by the foraging behavior of ants who deposit pheromones. Artificial ants construct candidate solutions (paths) by moving through the graph, probabilistically choosing edges based on distance and accumulated artificial pheromone trails, which are updated based on the quality of solutions found. It is often applied to combinatorial optimization problems like the Traveling Salesperson Problem (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000095 "ant colony optimization algorithm"@en)
 SubClassOf(obo:MOLSIM_000095 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000096 (network flow algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000096 "Network flow algorithm can be used to find optimal paths in weighted graphs, such as Ford-Fulkerson and Edmonds-Karp algorithms."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000096 "A class of algorithms designed to solve problems related to flows in networks (graphs where edges have capacities), such as finding the maximum flow possible between a source and a sink node. Examples include the Ford-Fulkerson algorithm and its variations (e.g., Edmonds-Karp). These algorithms are used in logistics, scheduling, network design, and resource allocation problems (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000096 "network flow algorithm"@en)
 SubClassOf(obo:MOLSIM_000096 obo:MOLSIM_000087)
 
@@ -3266,7 +3268,7 @@ SubClassOf(obo:MOLSIM_000172 obo:MOLSIM_000170)
 
 # Class: obo:MOLSIM_000173 (quantum mechanics)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000173 "Quantum mechanics (QM) methods in computational chemistry are based on solving approximations to the Schrödinger equation to describe the electronic structure of molecules from first principles, without relying on empirical parameters like force fields. These methods provide highly detailed information about electron distribution, bonding, reaction energies, and various molecular properties. Common QM approaches include Hartree-Fock, Density Functional Theory (DFT), and post-Hartree-Fock methods. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000173 "The fundamental physical theory describing the behavior of nature at the scale of atoms and subatomic particles, forming the theoretical basis for understanding chemical bonding and molecular properties. In computational chemistry, its principles are used to develop mathematical models and simulation methods for predicting molecular structures, energies, and reactivity. It provides the underlying rules for how electrons and nuclei interact within a molecule (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000173 "quantum mechanics"@en)
 SubClassOf(obo:MOLSIM_000173 obo:MOLSIM_000109)
 
@@ -3763,13 +3765,13 @@ SubClassOf(obo:MOLSIM_000252 obo:MOLSIM_000251)
 
 # Class: obo:MOLSIM_000253 (clustering algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000253 "A method used to group similar molecular conformations. It helps in identifying dominant structures or states in a simulation trajectory."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000253 "An algorithm used in data analysis to group a set of objects (e.g., molecular conformations, data points) such that objects in the same group (cluster) are more similar to each other than to those in other groups. Clustering algorithms use various criteria and methods (e.g., distance-based, density-based, hierarchical) to identify inherent structures or patterns within unlabeled data. They are essential tools for exploring and understanding complex datasets (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000253 "clustering algorithm"@en)
 SubClassOf(obo:MOLSIM_000253 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000254 (hierarchical agglomerative bottom-up)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000254 "In data mining and statistics, hierarchical clustering is a method of cluster analysis that seeks to build a hierarchy of clusters."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000254 "A specific type of clustering algorithm that builds a hierarchy of clusters starting with each data point as its own cluster and iteratively merging the two closest clusters until only one cluster (containing all points) remains. This process creates a tree-like structure (dendrogram) that can be cut at different levels to obtain different numbers of clusters. It provides a nested partitioning of the data based on similarity (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000254 "hierarchical agglomerative bottom-up"@en)
 SubClassOf(obo:MOLSIM_000254 obo:MOLSIM_000253)
 
@@ -4076,7 +4078,7 @@ SubClassOf(obo:MOLSIM_000302 obo:MOLSIM_000300)
 
 # Class: obo:MOLSIM_000303 (linear dependence evaluation method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000303 "A mathematical technique used to determine if a set of variables, vectors, or data series are linearly related, meaning one can be expressed as a scaled combination of the others. In simulation analysis, this is often applied to identify correlated motions or redundant coordinates, for instance, in dimensionality reduction techniques like Principal Component Analysis (PCA). It helps simplify the description of complex system behavior. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000303 "A mathematical technique used to determine if a set of variables or vectors (e.g., descriptive coordinates or components from data analysis) are linearly related, meaning one can be expressed as a combination of the others. In simulation analysis, this is often used to check for redundancy in sets of collective variables or principal components derived from trajectory data. Identifying such dependencies can help simplify models or analysis (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000303 "linear dependence evaluation method"@en)
 SubClassOf(obo:MOLSIM_000303 obo:MOLSIM_000352)
 
@@ -4100,13 +4102,13 @@ SubClassOf(obo:MOLSIM_000334 obo:MOLSIM_000076)
 
 # Class: obo:MOLSIM_000339 (numerical integration)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000339 "A specific class of integration methods that use algorithms to approximate the value of an integral, particularly when an exact analytical solution is not feasible, which is typical for complex systems like biomolecules. Common algorithms like Verlet or Leapfrog are used in molecular dynamics simulations to incrementally update atomic coordinates and velocities based on calculated forces over small time intervals. These approximations allow the simulation of molecular motion over time. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000339 "Refers specifically to integration methods that use numerical approximations to solve differential equations, which is necessary for the equations of motion in complex biomolecular systems where exact analytical solutions are impossible. These algorithms iteratively calculate the system's state at successive small time steps, with the choice of method (e.g., Verlet, Leapfrog) affecting simulation accuracy, stability, and computational cost. It emphasizes the approximate, step-by-step nature of solving the motion computationally (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000339 "numerical integration"@en)
 SubClassOf(obo:MOLSIM_000339 obo:MOLSIM_000340)
 
 # Class: obo:MOLSIM_000340 (integration method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000340 "A mathematical procedure for calculating the definite or indefinite integral of a function, often representing accumulation or the solution to differential equations. In biomolecular simulations, integration methods are fundamental for propagating the system forward in time by solving Newton's equations of motion. They calculate the changes in atomic positions and velocities over discrete time steps based on the forces. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000340 "A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000340 "integration method"@en)
 SubClassOf(obo:MOLSIM_000340 obo:MOLSIM_000352)
 
@@ -4167,13 +4169,13 @@ SubClassOf(obo:MOLSIM_000351 obo:MOLSIM_000110)
 
 # Class: obo:MOLSIM_000352 (mathematical techniques)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000352 "The broad range of mathematical and computational methods employed in setting up, running, or analyzing biomolecular simulations. These encompass numerical algorithms, statistical analyses, and algebraic operations necessary for tasks like integrating equations of motion, processing large datasets, or extracting meaningful biophysical insights. They form the quantitative foundation of simulation studies. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000352 "The broad range of numerical methods, algorithms, and statistical approaches employed within biomolecular simulations and their analysis. These techniques are essential for tasks such as calculating molecular motion over time, determining system energies, processing large datasets generated by simulations, and extracting statistically meaningful conclusions. They form the computational foundation upon which simulations are built and interpreted (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000352 "mathematical techniques"@en)
 SubClassOf(obo:MOLSIM_000352 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000353 (validation technique)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000353 "A method used to assess the quality, accuracy, or physical realism of a biomolecular simulation or the model used. This often involves comparing simulation results against experimental data or known theoretical principles. These techniques help build confidence in the conclusions drawn from the simulation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000353 "A method used to check whether the results or models generated by biomolecular simulations are accurate, physically realistic, and reliable. These techniques assess the quality of simulation outputs by comparing them against known experimental data or established theoretical principles. Their goal is to ensure the simulation provides a meaningful representation of the molecular system being studied (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000353 "validation technique"@en)
 SubClassOf(obo:MOLSIM_000353 obo:MOLSIM_000110)
 
@@ -4197,7 +4199,7 @@ SubClassOf(obo:MOLSIM_000356 obo:MOLSIM_000298)
 
 # Class: obo:MOLSIM_000432 (quantum mechanics basis set)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000432 "A quantum mechanics basis set is a set of mathematical functions (basis functions), typically centered on atoms, that are used to construct the molecular orbitals within a quantum chemical calculation. The molecular orbitals are represented as linear combinations of these basis functions. The size and type of basis set significantly impact the accuracy and computational cost of the QM calculation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000432 "A set of mathematical functions, often resembling atomic orbitals, used in quantum chemical calculations to represent the spatial distribution of electrons within a molecule (molecular orbitals). The choice and size of the basis set significantly impact the accuracy and computational cost of a simulation; larger, more flexible basis sets generally yield more accurate results but require more computer resources. These functions serve as the building blocks for constructing the calculated electronic wavefunction (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000432 "quantum mechanics basis set"@en)
 SubClassOf(obo:MOLSIM_000432 obo:MOLSIM_000173)
 
@@ -4469,13 +4471,13 @@ SubClassOf(obo:MOLSIM_000501 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000502 (linear correlation significance determination)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000502 "A statistical technique used to evaluate whether an observed linear relationship (correlation) between two variables, derived from simulation data, is statistically meaningful or likely due to random chance. This involves calculating a metric, often a p-value or confidence interval, to assess the strength and reliability of the correlation. It helps distinguish genuine relationships from noise in the data. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000502 "A statistical mathematical technique used to assess whether an observed linear relationship (correlation) between two variables, calculated from simulation data, is statistically meaningful. It evaluates the probability that such a correlation could have occurred simply by random chance if no true underlying relationship existed. This helps researchers confidently interpret potential connections found in simulation results (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000502 "linear correlation significance determination"@en)
 SubClassOf(obo:MOLSIM_000502 obo:MOLSIM_000352)
 
 # Class: obo:MOLSIM_000503 (determination by p-value)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000503 "A specific method for assessing linear correlation significance by calculating the probability (p-value) of observing the measured correlation strength (or stronger) under the assumption that there is no actual underlying relationship (the null hypothesis). A sufficiently small p-value (typically below a predefined threshold like 0.05) is interpreted as evidence that the observed correlation is statistically significant and not just a random fluctuation. This is a widely used approach in statistical hypothesis testing. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000503 "A common specific method for linear correlation significance determination (and statistical testing in general) that involves calculating a probability value, the p-value. The p-value represents the probability of observing the calculated correlation, or a stronger one, assuming that there is actually no real correlation (the null hypothesis). A small p-value (typically below a threshold like 0.05) leads to the conclusion that the observed correlation is statistically significant and unlikely due to chance (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000503 "determination by p-value"@en)
 SubClassOf(obo:MOLSIM_000503 obo:MOLSIM_000352)
 
@@ -4907,13 +4909,13 @@ SubClassOf(obo:MOLSIM_000579 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000580 (plane-wave)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000580 "A plane-wave basis set is a type of basis set commonly used in electronic structure calculations of periodic systems, such as crystals or molecules with periodic boundary conditions. These basis functions are waves that extend infinitely in space with a specific wavelength and direction. They are particularly well-suited for describing delocalized electrons in solids and large, repeating structures. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000580 "A type of quantum mechanics basis set consisting of periodic sine and cosine functions (waves) defined by their direction and wavelength. Plane waves are particularly well-suited for calculations on periodic systems like crystals or surfaces, often used in conjunction with Density Functional Theory and pseudopotentials. Their systematic improvability by increasing the number of waves (controlled by an energy cutoff) is a key advantage in solid-state simulations (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000580 "plane-wave"@en)
 SubClassOf(obo:MOLSIM_000580 obo:MOLSIM_000432)
 
 # Class: obo:MOLSIM_000581 (real-space)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000581 "A real-space basis set represents electronic wave functions using functions defined on a grid of points in real (three-dimensional) space. Unlike basis sets based on atomic orbitals or plane waves, real-space methods do not rely on an expansion in terms of predefined functions centered on atoms or defined by periodicity. They can be particularly advantageous for systems with complex geometries or strong local variations in electronic density. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000581 "Refers to methods that represent electronic wavefunctions or density directly on a grid of points in three-dimensional coordinate space, rather than expanding them in analytical basis functions like Gaussians or plane waves. This approach avoids basis set superposition errors and can be systematically improved by refining the grid spacing. Real-space grid methods are often employed in Density Functional Theory calculations, particularly for large systems or complex geometries (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000581 "real-space"@en)
 SubClassOf(obo:MOLSIM_000581 obo:MOLSIM_000432)
 
@@ -5111,6 +5113,11 @@ SubClassOf(obo:MOLSIM_000676 obo:MOLSIM_000673)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000677 "An electronic structure analysis technique that examines how the electron distribution of a molecule is distorted (polarized) in response to an external electric field or the field generated by nearby molecules. This involves calculating the induced dipole moment and the polarizability tensor, which quantify the molecule's susceptibility to charge redistribution. Understanding polarization is crucial for accurately describing intermolecular interactions, solvation effects, and responses to electromagnetic fields. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000677 "polarization analysis_"@en)
 SubClassOf(obo:MOLSIM_000677 obo:MOLSIM_000673)
+
+# Class: obo:MOLSIM_000685 (ab-initio method)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000685 "ab-initio method"@en)
+SubClassOf(obo:MOLSIM_000685 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000735 (resolution-based force field)
 
@@ -5471,196 +5478,196 @@ SubClassOf(obo:MOLSIM_000793 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000794 (Hoover barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000794 "An extension of the Nosé-Hoover thermostat that couples pressure control to a feedback mechanism, dynamically adjusting system volume to maintain target pressure while preserving thermodynamic consistency. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000794 "Refers to implementations of constant pressure simulation based on the work of W. G. Hoover, often utilizing Nosé-Hoover style deterministic equations of motion applied to the volume degree of freedom (similar to the Andersen barostat's concept but using the Nosé-Hoover thermostat formalism). It provides a deterministic way to sample the NPT ensemble by extending the system's phase space. It can be formulated for isotropic or anisotropic pressure control (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000794 "Hoover barostat"@en)
 SubClassOf(obo:MOLSIM_000794 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000795 (M-SHAKE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000795 "M-SHAKE: Modified SHAKE, an improved variant of the standard SHAKE algorithm that incorporates matrix inversion techniques to achieve faster convergence, particularly beneficial for systems with many interconnected constraints or rigid molecular structures. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000795 "A modification of the SHAKE algorithm designed to handle constraints more efficiently in parallel computing environments. It addresses issues related to communication overhead when constraints span across different processors by optimizing the way constraint information is shared and processed. It aims to improve the scalability of constrained simulations on parallel machines (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000795 "M-SHAKE"@en)
 SubClassOf(obo:MOLSIM_000795 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000796 (P-SHAKE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000796 "Parallel SHAKE, a version of the SHAKE algorithm specifically designed for efficient implementation on parallel computing architectures, distributing the constraint calculations across multiple processors to accelerate simulations of large molecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000796 "Parallel SHAKE, another variation of the SHAKE algorithm optimized for parallel execution. Similar to M-SHAKE, it focuses on efficiently handling the communication and computation required for constraints that involve atoms distributed across multiple processors. The goal is to minimize the performance bottleneck caused by constraints in large-scale parallel simulations (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000796 "P-SHAKE"@en)
 SubClassOf(obo:MOLSIM_000796 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000797 (SETTLE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000797 "A non-iterative, analytical algorithm specifically optimized for constraining rigid water molecules in molecular dynamics simulations, providing exact solutions for the three distance constraints in water models like TIP3P or SPC while being computationally more efficient than SHAKE for this specific case. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000797 "An analytical (non-iterative) constraint algorithm specifically designed for rigid water models like TIP3P or SPC/E, where both bond lengths and the bond angle are fixed. Because the geometry is simple and fixed, the constraint equations for a water molecule can be solved analytically, making SETTLE significantly faster than iterative methods like SHAKE for constraining water. It is highly efficient for simulations with explicit water (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000797 "SETTLE"@en)
 SubClassOf(obo:MOLSIM_000797 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000798 (SHAPE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000798 "Shift and Harmonic Potential for Enforcing constraints, an algorithm that uses harmonic restraints combined with coordinated atomic displacements to maintain geometric constraints while providing smooth energy conservation properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000798 "A constraint algorithm related to SHAKE, often used for fixing distances within rigid clusters of atoms larger than simple bonds or angles. It iteratively adjusts the positions of atoms within the defined rigid body to maintain their relative positions. It extends the concept of bond constraints to more complex rigid units (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000798 "SHAPE"@en)
 SubClassOf(obo:MOLSIM_000798 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000799 (WIGGLE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000799 "An alternative constraining approach that applies periodic constraint corrections to allow small oscillations around the exact constraint values, balancing strict constraint maintenance with natural vibrational motion to improve dynamical properties in molecular simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000799 "I am unfamiliar with a standard, widely recognized constraint algorithm named \"WIGGLE\" in the mainstream molecular dynamics simulation packages or literature. It might refer to a less common method, a specific implementation detail, or potentially a misunderstanding. Standard methods like SHAKE, RATTLE, and SETTLE cover most common constraint applications (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000799 "WIGGLE"@en)
 SubClassOf(obo:MOLSIM_000799 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000800 (Nose thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000800 "The original formulation by Nosé, which introduced a time-scaling variable to control temperature, later refined into the Nosé-Hoover formulation for better numerical stability. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000800 "Refers to the original formulation by Shuichi Nosé of the deterministic thermostat algorithm that introduces an extended degree of freedom and time scaling to generate dynamics consistent with the canonical ensemble. The later Nosé-Hoover formulation modified this approach to simplify the equations of motion in physical time. The core idea is extending the system's phase space to control temperature deterministically (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000800 "Nose thermostat"@en)
 SubClassOf(obo:MOLSIM_000800 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000801 (Nose-Poincare thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000801 "A Hamiltonian reformulation of the Nosé thermostat that improves numerical stability by preserving symplectic structure, enabling precise energy conservation in temperature-controlled simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000801 "A specific mathematical formulation of the Nosé thermostat dynamics based on Poincaré's canonical transformations. It offers insights into the theoretical foundations and conservation laws of the Nosé thermostatting mechanism. It represents a rigorous theoretical framework for this class of deterministic thermostats (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000801 "Nose-Poincare thermostat"@en)
 SubClassOf(obo:MOLSIM_000801 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000802 (V-rescale thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000802 "A modified velocity-rescaling method that stochastically adjusts kinetic energy to maintain temperature, providing stronger coupling to the heat bath than Berendsen’s approach. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000802 "Velocity Rescaling thermostat, an algorithm that modifies the Berendsen weak coupling approach to correctly generate configurations from the canonical (NVT) ensemble. It rescales velocities based on the kinetic energy difference but includes a stochastic term related to the system's kinetic energy fluctuations, ensuring proper statistical sampling. It combines the simplicity of Berendsen-like scaling with rigorous ensemble generation (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000802 "V-rescale thermostat"@en)
 SubClassOf(obo:MOLSIM_000802 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000803 (semi-empirical method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000803 "A computational approach in quantum chemistry that simplifies quantum mechanical calculations by using empirical parameters and approximations to reduce computational cost while maintaining reasonable accuracy, incorporating experimentally derived data to parameterize the models. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000803 "A category of quantum chemistry calculation methods that bridges the gap between highly accurate but slow ab initio methods and very fast but simple molecular mechanics. It simplifies the complex equations of quantum mechanics (often starting from the Hartree-Fock framework) by neglecting certain terms and using parameters derived from experimental data to approximate others. These methods aim to provide a reasonable balance between computational cost and accuracy for studying molecular properties like geometry and energy (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000803 "semi-empirical method"@en)
 SubClassOf(obo:MOLSIM_000803 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000804 (all-valence-electron restricted)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000804 "An all-valence-electron restricted semi-empirical method considers only the valence electrons of the atoms in a molecule, as these are primarily involved in chemical bonding. The term \"restricted\" typically implies that the wave function is described by spin-paired electrons in molecular orbitals. These methods are computationally less demanding than all-electron methods while still providing insights into molecular properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000804 "Describes a type of semi-empirical quantum chemistry method that explicitly considers all valence electrons (the outermost electrons involved in bonding) of the atoms in a molecule. These methods make approximations regarding the interactions between these electrons to speed up calculations, differing in the severity of these approximations (like CNDO, INDO, NDDO schemes). They offer a more comprehensive electronic description than pi-electron methods (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000804 "all-valence-electron restricted"@en)
 SubClassOf(obo:MOLSIM_000804 obo:MOLSIM_000803)
 DisjointClasses(obo:MOLSIM_000804 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000805 (PPP)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000805 "PPP stands for Pariser-Parr-Pople, an early all-valence-electron restricted semi-empirical method specifically designed for studying pi-electron systems in conjugated molecules. It simplifies electron-electron interactions and uses empirical parameters derived from spectroscopy to predict electronic transitions and ground state properties of these systems. While less used today for general applications, it was foundational in understanding pi systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000805 "The Pariser-Parr-Pople method, a classic semi-empirical technique specifically designed for calculating the electronic structure of conjugated systems (molecules with alternating single and double bonds). It is a pi-electron restricted method, meaning it only explicitly treats the pi electrons, which are crucial for the properties of these specific systems. Note: This is typically classified as a pi-electron method, not an all-valence-electron method (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000805 "PPP"@en)
-SubClassOf(obo:MOLSIM_000805 obo:MOLSIM_000804)
+SubClassOf(obo:MOLSIM_000805 obo:MOLSIM_000806)
 
 # Class: obo:MOLSIM_000806 (pi-electron restricted)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000806 "A pi-electron restricted semi-empirical method focuses solely on the pi electrons in molecules containing double or triple bonds, treating the sigma electron framework as a fixed background. The term \"restricted\" again implies spin-paired electrons within the pi system. These methods are particularly useful for investigating the electronic structure and spectroscopic properties of conjugated organic molecules. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000806 "Describes a type of semi-empirical quantum chemistry method that simplifies calculations by only explicitly considering the pi electrons in a molecule, treating the sigma electrons as part of a fixed core. These methods are primarily applicable to planar, conjugated organic molecules where pi electron interactions dominate electronic properties like UV-Vis spectra. The PPP method is a prime example (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000806 "pi-electron restricted"@en)
 SubClassOf(obo:MOLSIM_000806 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_000807 (AM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000807 "AM1 stands for Austin Model 1, a semi-empirical method based on the Neglect of Diatomic Differential Overlap (NDDO) approximation, which is parameterized to reproduce experimental data for a wide range of organic and some inorganic molecules. It aims to improve upon earlier NDDO methods by including Gaussian functions in the core-core repulsion term. AM1 is widely used for geometry optimizations, thermochemical calculations, and molecular dynamics simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000807 "Austin Model 1, a popular semi-empirical quantum method based on the NDDO (Neglect of Diatomic Differential Overlap) approximation. It includes parameters adjusted to reproduce experimental molecular properties like heats of formation and geometries for a wide range of organic molecules. AM1 aimed to improve upon the earlier MNDO method, particularly regarding hydrogen bonding (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000807 "AM1"@en)
-SubClassOf(obo:MOLSIM_000807 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000807 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000808 (CNDO/2)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000808 "CNDO/2 stands for Complete Neglect of Differential Overlap, version 2, an early all-valence-electron semi-empirical method that makes significant approximations in treating electron-electron interactions. It simplifies the calculations by completely neglecting differential overlap between atomic orbitals on different atoms. While less accurate than later methods, CNDO/2 provided a foundational framework for semi-empirical quantum chemistry. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000808 "Complete Neglect of Differential Overlap, version 2, an early all-valence-electron semi-empirical method. It employs severe approximations, ignoring most interactions between electron distributions on different atoms to achieve high computational speed. While largely superseded by more accurate methods, it was foundational in the development of semi-empirical QM (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000808 "CNDO/2"@en)
-SubClassOf(obo:MOLSIM_000808 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000808 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000809 (INDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000809 "INDO stands for Intermediate Neglect of Differential Overlap, a semi-empirical method that improves upon CNDO by including one-center differential overlap terms (interactions between different orbitals on the same atom). This inclusion allows for a better description of atomic properties and often leads to more accurate predictions of molecular geometries and electronic structures compared to CNDO methods. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000809 "Intermediate Neglect of Differential Overlap, an all-valence-electron semi-empirical method that is an improvement over CNDO. It retains one-center electron repulsion integrals between orbitals on the same atom, which CNDO neglects, allowing it to better describe electron spin distributions and properties dependent on them. It is computationally slightly more demanding than CNDO but generally more accurate (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000809 "INDO"@en)
-SubClassOf(obo:MOLSIM_000809 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000809 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000810 (Hartree-Fock)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000810 "Hartree-Fock (HF) is technically an ab initio method, not a semi-empirical one, as it aims to solve the electronic Schrödinger equation from first principles without using experimental parameters. It approximates the many-body problem by assuming that each electron moves in an average field created by all other electrons. While it forms the basis for many quantum chemical methods, it's distinct from semi-empirical approaches that incorporate empirical parameters. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000810 "A fundamental ab initio quantum chemistry method that approximates the solution to the electronic Schrödinger equation for a multi-electron system. It treats each electron as moving in an average field created by all other electrons, neglecting instantaneous electron correlation but including exact exchange interaction. It serves as a starting point for more sophisticated ab initio methods and is the foundation simplified by semi-empirical approaches (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000810 "Hartree-Fock"@en)
-SubClassOf(obo:MOLSIM_000810 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000810 obo:MOLSIM_000685)
 
 # Class: obo:MOLSIM_000812 (ROHF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000812 "ROHF stands for Restricted Open-Shell Hartree-Fock, a variant of the Hartree-Fock method specifically designed for systems with unpaired electrons (radicals or high-spin molecules). It treats electrons with the same spin equally and ensures that the wave function is an eigenfunction of the total spin operator. ROHF provides a well-defined theoretical framework for open-shell systems within the Hartree-Fock approximation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000812 "Restricted Open-shell Hartree-Fock, a specific formulation of the Hartree-Fock method designed for molecules with unpaired electrons (open-shell systems) where constraints are applied to keep spatial orbitals doubly occupied where possible. It provides a wavefunction that is an eigenfunction of the spin operator, which is often desirable but can be more computationally challenging than UHF for some systems. It is a type of ab initio calculation (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000812 "ROHF"@en)
 SubClassOf(obo:MOLSIM_000812 obo:MOLSIM_000810)
 
 # Class: obo:MOLSIM_000813 (SCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000813 "SCF stands for Self-Consistent Field, an iterative procedure used in Hartree-Fock and many other quantum chemical methods (including some semi-empirical ones). The SCF cycle involves an initial guess for the electron distribution, calculating the resulting electric field, solving the Schrödinger equation for electrons in this field to obtain a new electron distribution, and repeating until the electron distribution and the resulting field become consistent. This iterative process aims to find a stable electronic state of the molecule. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000813 "Self-Consistent Field, the iterative computational procedure used to solve the equations in Hartree-Fock theory (and also in Density Functional Theory and some semi-empirical methods). The calculation starts with an initial guess for the electron distribution (orbitals), calculates the average field, finds new orbitals in that field, and repeats the process until the orbitals and the field they generate are consistent with each other. It is the numerical method for finding the Hartree-Fock solution, not the theory itself (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000813 "SCF"@en)
 SubClassOf(obo:MOLSIM_000813 obo:MOLSIM_000810)
 
 # Class: obo:MOLSIM_000814 (UHF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000814 "UHF stands for Unrestricted Hartree-Fock, another variant of the Hartree-Fock method for open-shell systems. Unlike ROHF, UHF allows electrons with different spins to occupy different spatial orbitals, which can sometimes provide a better description of spin polarization but may also lead to spin contamination (the wave function not being a pure spin state). (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000814 "Unrestricted Hartree-Fock, a formulation of the Hartree-Fock method primarily used for open-shell systems (molecules with unpaired electrons). It allows alpha-spin electrons and beta-spin electrons to occupy different spatial orbitals, providing more flexibility than ROHF but resulting in a wavefunction that may not be a pure spin state (spin contamination). It is a type of ab initio calculation (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000814 "UHF"@en)
 SubClassOf(obo:MOLSIM_000814 obo:MOLSIM_000810)
 
 # Class: obo:MOLSIM_000815 (MINDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000815 "MINDO stands for Modified Intermediate Neglect of Differential Overlap, an early semi-empirical method that built upon the INDO approximation with further modifications and parameterizations to improve its accuracy for predicting molecular geometries and energies. Several versions of MINDO exist (e.g., MINDO/3). (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000815 "Modified Intermediate Neglect of Differential Overlap, a family of all-valence-electron semi-empirical methods (e.g., MINDO/3) developed as successors to INDO. They aimed for better accuracy, particularly in predicting heats of formation for organic molecules, through refined approximations and parameterization. Like INDO, they retain some one-center electron interactions neglected in CNDO (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000815 "MINDO"@en)
-SubClassOf(obo:MOLSIM_000815 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000815 obo:MOLSIM_000809)
 
 # Class: obo:MOLSIM_000816 (MNDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000816 "MNDO stands for Modified Neglect of Diatomic Overlap, a semi-empirical method that uses the NDDO approximation and was parameterized to provide improved thermochemical data compared to earlier methods like MINDO. It represents a significant step forward in the accuracy of semi-empirical calculations for ground state properties of organic molecules. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000816 "Modified Neglect of Diatomic Overlap, an all-valence-electron semi-empirical method based on the NDDO approximation scheme, representing an improvement over CNDO and INDO. It was parameterized to reproduce experimental heats of formation, geometries, and dipole moments for a range of molecules. It formed the basis for subsequent developments like AM1 and PM3 (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000816 "MNDO"@en)
-SubClassOf(obo:MOLSIM_000816 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000816 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000817 (NDDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000817 "NDDO stands for Neglect of Diatomic Differential Overlap, a key approximation used in several semi-empirical methods like AM1, MNDO, and PM3. It neglects the overlap between atomic orbitals on different atoms when calculating two-electron integrals, significantly reducing the computational cost while still retaining essential electronic interactions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000817 "Neglect of Diatomic Differential Overlap, an approximation scheme used in many all-valence-electron semi-empirical quantum methods like MNDO, AM1, and PMx. It simplifies calculations by neglecting interactions involving electron distributions arising from orbitals on two different atoms unless both orbitals belong to the same atom pair (i.e., it keeps one- and two-center terms). This approximation is less severe than CNDO or INDO, generally leading to better accuracy (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000817 "NDDO"@en)
-SubClassOf(obo:MOLSIM_000817 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000817 obo:MOLSIM_000804)
 
 # Class: obo:MOLSIM_000818 (PDDG)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000818 "PDDG stands for Pairwise Distance Directed Gaussian, a modification to the NDDO approximation used in some semi-empirical methods. It introduces Gaussian functions centered at pairwise interatomic distances to improve the description of core-core repulsion and other two-electron integrals, aiming for better accuracy in predicting molecular properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000818 "Pairwise Distance Directed Gaussian, a modification primarily applied to the MNDO and AM1 methods to improve their performance, particularly for intermolecular interactions. It introduces Gaussian functions dependent on interatomic distances to modify the core-repulsion function used in these semi-empirical models. The goal is to achieve better descriptions of non-covalent interactions compared to the parent methods (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000818 "PDDG"@en)
-SubClassOf(obo:MOLSIM_000818 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000818 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000819 (PM3)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000819 "PM3 stands for Parameterized Model number 3, a semi-empirical method based on the NDDO approximation and parameterized to reproduce a wide range of experimental data for organic and some inorganic molecules. It was designed to be a more robust and accurate general-purpose method than its predecessors like AM1 and MNDO. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000819 "Parameterization Method 3, a popular all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed concurrently with AM1 as an evolution of MNDO. It differs from AM1 mainly in its parameterization strategy, which was more automated and aimed to reproduce a larger set of experimental data, including geometries and heats of formation. PM3 often gives different results from AM1, with varying accuracy depending on the system (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000819 "PM3"@en)
-SubClassOf(obo:MOLSIM_000819 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000819 obo:MOLSIM_000804)
 
 # Class: obo:MOLSIM_000820 (PM3MM)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000820 "PM3MM is a hybrid method that combines the PM3 semi-empirical quantum mechanical method for treating the electronic structure of a specific region of a molecule with a molecular mechanics (MM) force field to describe the rest of the system. This approach allows for the study of large systems where electronic effects are important in a localized region, such as enzyme active sites. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000820 "A hybrid method that combines the PM3 semi-empirical quantum mechanical treatment for a part of the system (e.g., the active site of an enzyme) with a faster molecular mechanics (MM) force field for the remainder (e.g., the surrounding protein or solvent). This QM/MM approach allows computationally feasible studies of large systems where quantum effects are important locally. It leverages PM3's balance of speed and accuracy for the QM region (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000820 "PM3MM"@en)
-SubClassOf(obo:MOLSIM_000820 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000820 obo:MOLSIM_000819)
 
 # Class: obo:MOLSIM_000821 (PM6)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000821 "PM6 stands for Parameterized Model number 6, a further development of the PM3 method with a significantly expanded and refined parameter set. It aims to provide improved accuracy over PM3 for a broader range of elements and molecular properties, including non-covalent interactions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000821 "Parameterization Method 6, a relatively recent all-valence-electron semi-empirical quantum method based on the NDDO approximation, intended as an improvement over PM3 and AM1. It was parameterized against a broader range of experimental and high-level theoretical data, including data for more elements, aiming for greater accuracy and applicability across the periodic table. It often includes corrections for dispersion interactions and hydrogen bonds (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000821 "PM6"@en)
-SubClassOf(obo:MOLSIM_000821 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000821 obo:MOLSIM_000819)
 
 # Class: obo:MOLSIM_000822 (RM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000822 "RM1 stands for Recife Model 1, a semi-empirical method based on the NDDO approximation that was developed as a re-parameterization of AM1. It incorporates a larger number of Gaussian functions in the core-core repulsion term and uses a different parameterization strategy to improve the accuracy for various molecular properties, particularly for hypervalent compounds and hydrogen bonding. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000822 "Recife Model 1, an all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed as a re-parameterization of AM1. The goal was to improve upon AM1's accuracy, particularly for geometries and heats of formation of organic molecules containing common heteroatoms like N, O, P, S, and halogens. It uses the same underlying theoretical model as AM1 but employs updated parameters (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000822 "RM1"@en)
-SubClassOf(obo:MOLSIM_000822 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000822 obo:MOLSIM_000804)
 
 # Class: obo:MOLSIM_000823 (SAM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000823 "SAM1 stands for Semi-Ab Initio Method 1, a semi-empirical method that incorporates some elements of ab initio theory, such as the explicit calculation of one-center two-electron integrals. While still relying on empirical parameters, it aims to provide a more theoretically sound foundation than purely empirical methods like AM1 or PM3. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000823 "Semi-Ab initio Model 1, an all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed alongside AM1 and PM3. It aimed to incorporate certain theoretical aspects from ab initio methods more rigorously than earlier semi-empirical models, particularly regarding core-electron interactions and repulsion integrals. SAM1 sought improved theoretical foundations while still relying on parameterization for speed and accuracy (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000823 "SAM1"@en)
-SubClassOf(obo:MOLSIM_000823 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000823 obo:MOLSIM_000804)
 
 # Class: obo:MOLSIM_000824 (SINDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000824 "SINDO stands for Symmetrically Orthogonalized Intermediate Neglect of Differential Overlap, a semi-empirical method based on the INDO approximation but employing a symmetric orthogonalization scheme for the atomic orbitals. This modification aims to improve the description of electronic interactions and often leads to better predictions of molecular properties, especially for transition metal compounds. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000824 "Symmetrically orthogonalized INDO, an all-valence-electron semi-empirical method based on the INDO level of approximation but employing a specific orthogonalization procedure for the atomic orbitals. This procedure aimed to improve the theoretical consistency and performance compared to earlier INDO versions like MINDO. It focuses on refining the INDO framework for better property prediction (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000824 "SINDO"@en)
-SubClassOf(obo:MOLSIM_000824 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000824 obo:MOLSIM_000804)
 
 # Class: obo:MOLSIM_000825 (Sparkle/AM1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000825 "Sparkle/AM1 is a semi-empirical method specifically parameterized for lanthanide complexes. It combines the AM1 method for the organic ligands with a set of parameters (the \"Sparkle\" model) designed to describe the interactions involving the lanthanide ion. This allows for the computational study of the structure and properties of these complex systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000825 "A modification of the AM1 semi-empirical method specifically parameterized to handle lanthanide elements (rare earth metals). Standard AM1 parameters are not available or reliable for these heavy elements, so Sparkle/AM1 replaces the core description of the lanthanide ion with a point charge dressed by Gaussian functions, adjusted to reproduce structural data. It enables AM1-level calculations on complexes containing lanthanides (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000825 "Sparkle/AM1"@en)
-SubClassOf(obo:MOLSIM_000825 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000825 obo:MOLSIM_000807)
 
 # Class: obo:MOLSIM_000826 (ZANDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000826 "I am unsure about the specific details and common usage of the term \"ZANDO\" within the context of established semi-empirical methods in biomolecular simulation. It might refer to a less widely adopted or a more specialized method. Therefore, I will skip defining this term to avoid providing potentially inaccurate information. (UNSURE)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000826 "An all-valence-electron semi-empirical method likely based on the INDO or NDDO approximation schemes, developed by Zhidomirov and coworkers. It represents one of the many variations within the semi-empirical framework, likely with specific parameterizations or modifications to the integral approximations aimed at particular applications or accuracy improvements. Note: This method is less common than MNDO/AM1/PMx variants, and specific details might require consulting specialized literature (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000826 "ZANDO"@en)
-SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000806)
+SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000827 (Moeller-Plesset)
 
@@ -5694,56 +5701,56 @@ SubClassOf(obo:MOLSIM_000831 obo:MOLSIM_000827)
 
 # Class: obo:MOLSIM_000832 (multi-reference)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000832 "A multi-reference method in quantum chemistry is employed when a single electronic configuration (as in Hartree-Fock theory) does not provide a good description of the ground or excited electronic states of a molecule. These methods explicitly consider contributions from multiple electronic configurations in the wave function, which is crucial for systems with significant electron correlation, such as those with bond breaking or near-degeneracy of electronic states. Multi-reference approaches generally offer higher accuracy but are computationally more demanding. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000832 "A class of advanced quantum mechanics methods required for accurately describing molecules or chemical processes where the electronic structure cannot be well represented by a single dominant electron configuration (as assumed in basic Hartree-Fock theory). These situations often involve stretched bonds, excited states, diradicals, or transition metals, necessitating the use of multiple electronic configurations to capture the essential physics. These methods are typically more computationally demanding than single-reference approaches (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000832 "multi-reference"@en)
 SubClassOf(obo:MOLSIM_000832 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000833 (CASSCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000833 "CASSCF stands for Complete Active Space Self-Consistent Field, a multi-reference method where electrons in a chosen set of orbitals (the active space) are allowed to be distributed in all possible ways consistent with the spin and spatial symmetry of the state. The method then optimizes both the molecular orbitals and the configuration coefficients to obtain the electronic wave function. CASSCF is often used as a starting point for more advanced multi-reference calculations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000833 "Complete Active Space Self-Consistent Field, a specific and widely used type of multi-reference method (falling under the MC-SCF umbrella). It involves selecting a subset of electrons and orbitals deemed most important for the problem (the active space) and then performing a full configuration interaction calculation within that space while simultaneously optimizing the orbitals. CASSCF provides a qualitatively correct description of complex electronic structures but often needs further corrections for quantitative accuracy (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000833 "CASSCF"@en)
 SubClassOf(obo:MOLSIM_000833 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000834 (MC-SCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000834 "MC-SCF stands for Multi-Configuration Self-Consistent Field, a general class of multi-reference methods where the electronic wave function is expressed as a linear combination of multiple electronic configurations (Slater determinants or Configuration State Functions). Similar to CASSCF, both the molecular orbitals and the coefficients of the configurations are optimized iteratively to obtain the best possible wave function for the chosen set of configurations. CASSCF is a specific type of MC-SCF. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000834 "Multi-Configurational Self-Consistent Field, a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000834 "MC-SCF"@en)
 SubClassOf(obo:MOLSIM_000834 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000835 (MR-CCSD)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000835 "MR-CCSD stands for Multi-Reference Coupled Cluster Singles and Doubles, a highly accurate multi-reference method that builds upon a multi-configurational reference wave function (e.g., from CASSCF or MC-SCF). Coupled cluster theory includes exponential operators that account for electron correlation beyond the mean-field approximation. MR-CCSD aims to provide a more complete treatment of electron correlation in systems where a single reference determinant is insufficient. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000835 "Multi-Reference Coupled Cluster with Single and Double excitations, a high-accuracy quantum chemistry method that incorporates dynamic electron correlation using the coupled-cluster approach built upon a multi-reference starting wavefunction (obtained from methods like CASSCF). It aims to provide a highly accurate description for systems where both static (multi-reference character) and dynamic correlation effects are significant. These calculations are computationally very expensive (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000835 "MR-CCSD"@en)
 SubClassOf(obo:MOLSIM_000835 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000836 (MR-CI(SD))
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000836 "MR-CI(SD) stands for Multi-Reference Configuration Interaction with Singles and Doubles, another accurate multi-reference method. It starts with a multi-configurational reference wave function and then generates excited electronic states by promoting one (singles) or two (doubles) electrons from the reference configurations to virtual orbitals. MR-CI methods explicitly include many determinants in the wave function to account for electron correlation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000836 "Multi-Reference Configuration Interaction with Single and Double excitations, a quantum chemistry method that accounts for electron correlation by performing a configuration interaction calculation (including configurations generated by single and double electron excitations) starting from a multi-reference wavefunction (e.g., from CASSCF). Like MR-CCSD, it targets high accuracy for electronically complex systems but is computationally demanding and may suffer from size-consistency issues depending on the formulation. It offers an alternative way to add dynamic correlation to a multi-reference description (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000836 "MR-CI(SD)"@en)
 SubClassOf(obo:MOLSIM_000836 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000837 (RASSCF)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000837 "RASSCF stands for Restricted Active Space Self-Consistent Field, an extension of the CASSCF method that allows for a more flexible definition of the active space. The active space is divided into subspaces with restrictions on the number of electrons that can be excited out of or into them. This allows for the treatment of larger active spaces than CASSCF, making it applicable to more complex systems while still capturing important multi-reference effects. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000837 "Restricted Active Space Self-Consistent Field, a flexible type of multi-reference method (within the MC-SCF family) similar to CASSCF but offering more control over the included electron configurations. The active space is divided into subspaces (RAS1, RAS2, RAS3) with restrictions on the number of electrons or excitations allowed within and between them, making calculations feasible for larger active spaces than typically possible with CASSCF. It allows a tailored balance between computational cost and the desired level of multi-reference treatment (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000837 "RASSCF"@en)
 SubClassOf(obo:MOLSIM_000837 obo:MOLSIM_000832)
 
 # Class: obo:MOLSIM_000838 (quadratic configuration interaction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000838 "Quadratic Configuration Interaction (QCI) is a post-Hartree-Fock method that aims to improve upon configuration interaction (CI) by including terms that approximately account for higher-order excitations (beyond singles and doubles). These additional terms are introduced based on a quadratic approximation of the wave operator in coupled-cluster theory. QCI methods are size-consistent, meaning the energy of a system of non-interacting molecules scales correctly with the number of molecules. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000838 "A quantum chemistry method developed to account for electron correlation, closely related to the Coupled Cluster (CC) family of methods. It was designed to ensure size-consistency, an important theoretical property meaning the energy of two non-interacting systems is the sum of their individual energies, which is not guaranteed by standard truncated Configuration Interaction (CI). It offers a systematic way to improve upon the Hartree-Fock description (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000838 "quadratic configuration interaction"@en)
 SubClassOf(obo:MOLSIM_000838 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000839 (QCISD(T))
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000839 "QCISD(T) stands for Quadratic Configuration Interaction with Singles, Doubles, and perturbative Triples. It is a highly accurate single-reference electron correlation method that builds upon QCISD by including a non-iterative correction for triple excitations. This perturbative treatment of triples significantly improves the accuracy of QCISD, often reaching near-CCSD(T) quality, and is widely used for high-accuracy calculations of molecular properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000839 "Quadratic Configuration Interaction with Singles, Doubles, and a perturbative estimate of Triple excitations. This method adds an approximate correction for the effects of triple electron excitations onto the QCISD calculation, significantly improving accuracy for many chemical properties. QCISD(T) is considered a high-accuracy method, often yielding results close to experimental values, and is comparable in accuracy and cost to the widely used CCSD(T) method (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000839 "QCISD(T)"@en)
 SubClassOf(obo:MOLSIM_000839 obo:MOLSIM_000838)
 DisjointClasses(obo:MOLSIM_000839 obo:MOLSIM_000840)
 
 # Class: obo:MOLSIM_000840 (QCISD)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000840 "QCISD stands for Quadratic Configuration Interaction with Singles and Doubles. It is a post-Hartree-Fock method that includes all singly and doubly excited determinants in the configuration interaction expansion, along with additional quadratic terms to achieve size-consistency. QCISD provides a more accurate description of electron correlation than methods like Hartree-Fock or MP2 and is often used for systems where higher accuracy than perturbation theory is needed. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000840 "Quadratic Configuration Interaction with Singles and Doubles, the specific level of QCI theory that includes electron configurations generated by single and double excitations from the reference (usually Hartree-Fock) configuration. Its formulation makes it very similar in performance and cost to the CCSD (Coupled Cluster Singles and Doubles) method. It provides a reliable way to capture a large fraction of the electron correlation energy (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000840 "QCISD"@en)
 SubClassOf(obo:MOLSIM_000840 obo:MOLSIM_000838)
 
@@ -6401,33 +6408,33 @@ SubClassOf(obo:MOLSIM_000976 obo:MOLSIM_000984)
 
 # Class: obo:MOLSIM_000978 (conformation validation*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000978 "Conformation validation refers to methods used to evaluate whether the three-dimensional structure (conformation) of a biomolecule, especially a protein, is chemically and physically realistic. These techniques typically check for appropriate bond lengths, bond angles, atomic clashes, and favorable torsion angles, often comparing them to distributions observed in high-quality experimental structures. This helps identify potential errors or strained regions in a model or simulated structure. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000978 "A specific type of validation technique focused on assessing the quality of the three-dimensional arrangement of atoms (the conformation) in simulated biomolecules. It evaluates whether the molecular geometry, including bond lengths, angles, and steric arrangements, is plausible according to known chemical and physical rules. This ensures the structural models generated or sampled during a simulation are stereochemically sound (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000978 "conformation validation*"@en)
 SubClassOf(obo:MOLSIM_000978 obo:MOLSIM_000353)
 DisjointClasses(obo:MOLSIM_000978 obo:MOLSIM_000981)
 
 # Class: obo:MOLSIM_000979 (ramachandran plot*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000979 "A Ramachandran plot is a graph used to assess the quality of a protein's backbone structure by visualizing the combinations of its main chain dihedral angles, phi (ϕ) and psi (ψ), for each amino acid residue. Certain regions of the plot correspond to sterically allowed conformations, while others are disallowed due to atomic clashes. Structures with most residues in favored or allowed regions are generally considered higher quality. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000979 "A widely used graphical tool for conformation validation specifically applied to proteins. It plots the distribution of backbone dihedral angles (phi and psi) for each amino acid residue, allowing visualization of whether these angles fall into sterically allowed or disallowed regions. This provides a crucial check for the quality and realism of the protein backbone structure (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000979 "ramachandran plot*"@en)
 SubClassOf(obo:MOLSIM_000979 obo:MOLSIM_000978)
 DisjointClasses(obo:MOLSIM_000979 obo:MOLSIM_000980)
 
 # Class: obo:MOLSIM_000980 (structural check*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000980 "A structural check refers to a range of evaluations performed on a molecular structure file (like a PDB file) to assess its overall geometric and chemical correctness. This often includes verifying standard bond lengths and angles, checking for severe atomic clashes (steric hindrance), ensuring correct chirality at stereocenters, and identifying unusual or strained conformations. These checks help identify potential errors in experimental or computationally generated structures. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000980 "A form of conformation validation that involves examining various geometric features of a biomolecular structure beyond just backbone torsion angles. This may include verifying appropriate bond lengths, bond angles, checking for unrealistic close contacts between atoms (clashes), or assessing other stereochemical parameters against standard values. It serves as a general quality control measure for the overall molecular model (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000980 "structural check*"@en)
 SubClassOf(obo:MOLSIM_000980 obo:MOLSIM_000978)
 
 # Class: obo:MOLSIM_000981 (secondary structure*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000981 "Secondary structure analysis, in a validation context, involves identifying and evaluating the regular local structural elements like alpha-helices and beta-sheets within a protein structure. Validation might involve checking if the hydrogen bonding patterns characteristic of these elements are correctly formed or assessing if their occurrence and geometry are consistent with known protein structures. This helps confirm the plausibility of the protein's fold. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000981 "Refers to the regular, local folding patterns occurring within the backbone of polymers like proteins or nucleic acids, such as alpha-helices and beta-sheets in proteins. These structures are defined by specific patterns of hydrogen bonds between backbone atoms and represent key building blocks of the molecule's overall three-dimensional architecture. While not a technique itself, analyzing secondary structure content and stability is often part of simulation validation and analysis (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000981 "secondary structure*"@en)
 SubClassOf(obo:MOLSIM_000981 obo:MOLSIM_000353)
 
 # Class: obo:MOLSIM_000982 (secondary structure changes*)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000982 "Analysis of secondary structure changes involves tracking how the secondary structure elements (like alpha-helices and beta-sheets) within a protein evolve over time during a simulation or differ between two distinct conformations. This typically uses algorithms like DSSP or STRIDE applied to trajectory frames to quantify changes in helical or sheet content or identify transitions between structural types. Such analysis reveals conformational dynamics related to protein function or stability. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000982 "Refers to the dynamic transformations or fluctuations observed in the secondary structure elements of a biomolecule during a simulation or over time. Monitoring these changes, such as the formation or dissolution of helices or sheets, provides insights into molecular flexibility, folding pathways, or responses to interactions. Analyzing these dynamics helps understand how molecular function relates to structural transitions (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000982 "secondary structure changes*"@en)
 SubClassOf(obo:MOLSIM_000982 obo:MOLSIM_000981)
 
@@ -6445,7 +6452,7 @@ SubClassOf(obo:MOLSIM_000984 obo:MOLSIM_000974)
 
 # Class: obo:MOLSIM_000985 (matrix diagonalization)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000985 "A mathematical procedure in linear algebra that transforms a square matrix into a diagonal matrix (where all off-diagonal elements are zero) using similarity transformations. In biomolecular simulation analysis, this technique is crucial for methods like Principal Component Analysis (PCA) or Normal Mode Analysis (NMA), where diagonalizing a covariance matrix or Hessian matrix reveals principal modes of motion or vibrational frequencies. It simplifies the analysis of collective movements or system dynamics by identifying underlying independent components. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000985 "A core mathematical technique from linear algebra used to simplify a square matrix by finding its characteristic values (eigenvalues) and directions (eigenvectors), effectively transforming it into a diagonal matrix. In biomolecular simulations, this is heavily used in methods like Principal Component Analysis (PCA) to identify dominant modes of collective atomic motion from covariance matrices, or in Normal Mode Analysis (NMA) to find vibrational frequencies from Hessian matrices. Diagonalization reveals the fundamental components or modes underlying complex data or system dynamics (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000985 "matrix diagonalization"@en)
 SubClassOf(obo:MOLSIM_000985 obo:MOLSIM_000352)
 
