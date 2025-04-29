@@ -491,6 +491,8 @@ Declaration(Class(obo:MOLSIM_000675))
 Declaration(Class(obo:MOLSIM_000676))
 Declaration(Class(obo:MOLSIM_000677))
 Declaration(Class(obo:MOLSIM_000685))
+Declaration(Class(obo:MOLSIM_000686))
+Declaration(Class(obo:MOLSIM_000687))
 Declaration(Class(obo:MOLSIM_000735))
 Declaration(Class(obo:MOLSIM_000736))
 Declaration(Class(obo:MOLSIM_000737))
@@ -2224,10 +2226,10 @@ SubDataPropertyOf(obo:MOLSIM_000684 obo:MOLSIM_000683)
 #   Classes
 ############################
 
-# Class: obo:MOLSIM_000000 (A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation. Different types of processes address distinct phases or goals within the overall workflow. (UNVERIFIED))
+# Class: obo:MOLSIM_000000 (process)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000000 "In molecular simulation, a process is a sequence of computational steps to model molecular behavior. It typically includes system preparation, simulation execution, and data analysis."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000000 "A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation. Different types of processes address distinct phases or goals within the overall workflow. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000000 "A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation. Different types of processes address distinct phases or goals within the overall workflow. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000000 "process"@en)
 
 # Class: obo:MOLSIM_000001 (software)
 
@@ -2884,7 +2886,7 @@ SubClassOf(obo:MOLSIM_000108 obo:MOLSIM_000098)
 
 # Class: obo:MOLSIM_000109 (method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000109 "A systematic procedure for performing a molecular simulation or analysis. This can include specific algorithms, protocols, or techniques used to study molecular systems."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000109 "A method refers to a specific procedure, technique, or systematic approach employed to accomplish a particular task or achieve a certain result in scientific investigation. In computational science, this often involves a defined set of algorithms, protocols, or theoretical frameworks used for calculation, simulation, or analysis. The choice of method depends on the problem being addressed and the desired level of accuracy or detail. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000109 "method"@en)
 
 # Class: obo:MOLSIM_000110 (statistical method)
@@ -3777,13 +3779,13 @@ SubClassOf(obo:MOLSIM_000254 obo:MOLSIM_000253)
 
 # Class: obo:MOLSIM_000255 (static molecular interaction prediction)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000255 "Methods to predict interactions between molecules without dynamics. These often use simplified models to quickly estimate binding affinities."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000255 "Static molecular interaction prediction refers to computational methods that aim to predict how molecules will interact (e.g., bind to each other) based primarily on their static structures, without explicitly simulating their dynamic behavior over time. These methods often involve optimizing the relative orientation of molecules and evaluating interaction energies using scoring functions or simplified energy calculations. Molecular docking is a primary example in this category. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000255 "static molecular interaction prediction"@en)
 SubClassOf(obo:MOLSIM_000255 obo:MOLSIM_000109)
 
 # Class: obo:MOLSIM_000256 (protein-ligand docking)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000256 "The process of predicting the preferred orientation of a ligand when bound to a protein. It's widely used in drug discovery to screen potential drug candidates."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000256 "Protein-protein docking is a computational method focused on predicting the three-dimensional structure of a complex formed when two or more proteins bind to each other. Given the structures of the individual proteins, docking algorithms search for energetically favorable relative orientations and conformations that form a stable complex, typically evaluated using scoring functions that consider shape complementarity, electrostatics, and other interfacial properties. Predicting protein complex structures is crucial for understanding biological pathways and designing therapeutics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000256 "protein-ligand docking"@en)
 SubClassOf(obo:MOLSIM_000256 obo:MOLSIM_000255)
 
@@ -4273,13 +4275,12 @@ SubClassOf(obo:MOLSIM_000446 obo:MOLSIM_000443)
 
 # Class: obo:MOLSIM_000447 (identifier)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000447 "Unique codes or names used to identify specific molecules or structures. These are crucial for organizing and retrieving data in large databases."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000447 "An identifier is a unique name, code, or label assigned to a specific entity, data record, or concept to distinguish it unambiguously from others within a given context. In scientific databases and computational workflows, identifiers (like accession numbers or unique IDs) are crucial for referencing, retrieving, and linking specific pieces of information accurately. They serve as unique addresses for data points or objects. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000447 "identifier"@en)
 
 # Class: obo:MOLSIM_000448 (protein database ID)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000448 "A unique identifier assigned to structures in the Protein Data Bank. It typically consists of four alphanumeric characters."@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000448 "PDB ID"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000448 "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information. They ensure researchers worldwide can unambiguously refer to the same molecular data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000448 "protein database ID"@en)
 SubClassOf(obo:MOLSIM_000448 obo:MOLSIM_000447)
 
@@ -4374,7 +4375,7 @@ SubClassOf(obo:MOLSIM_000473 obo:MOLSIM_000442)
 
 # Class: obo:MOLSIM_000474 (protein-protein docking)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000474 "Computational methods to predict how two proteins bind together. It aims to determine the most likely orientation and conformation of protein complexes."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000474 "Protein-ligand docking is a computational method used to predict the preferred binding orientation (pose) and often estimate the binding affinity of a small molecule (ligand) within the active site or binding pocket of a protein (receptor). Docking algorithms typically explore many possible poses by translating and rotating the ligand relative to the receptor and use scoring functions to rank these poses based on predicted interaction energies. It is a widely used tool in structure-based drug design. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000474 "protein-protein docking"@en)
 SubClassOf(obo:MOLSIM_000474 obo:MOLSIM_000255)
 
@@ -5116,8 +5117,19 @@ SubClassOf(obo:MOLSIM_000677 obo:MOLSIM_000673)
 
 # Class: obo:MOLSIM_000685 (ab-initio method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000685 "Ab initio methods (Latin for \"from the beginning\") are a class of quantum chemistry computational techniques that solve the electronic Schrödinger equation based solely on fundamental physical constants and the identities of the atoms involved, without using parameters derived from experimental data. These methods, like Hartree-Fock and subsequent correlation methods (MPn, Coupled Cluster), aim for high accuracy based on first principles but are typically computationally expensive. They contrast with empirical or semi-empirical methods. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000685 "ab-initio method"@en)
 SubClassOf(obo:MOLSIM_000685 obo:MOLSIM_000109)
+
+# Class: obo:MOLSIM_000686 (PDB ID)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000686 "PDB ID"@en)
+SubClassOf(obo:MOLSIM_000686 obo:MOLSIM_000448)
+
+# Class: obo:MOLSIM_000687 (Uniprot ID)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000687 "Uniprot ID"@en)
+SubClassOf(obo:MOLSIM_000687 obo:MOLSIM_000448)
 
 # Class: obo:MOLSIM_000735 (resolution-based force field)
 
@@ -5576,6 +5588,7 @@ SubClassOf(obo:MOLSIM_000809 obo:MOLSIM_000817)
 # Class: obo:MOLSIM_000810 (Hartree-Fock)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000810 "A fundamental ab initio quantum chemistry method that approximates the solution to the electronic Schrödinger equation for a multi-electron system. It treats each electron as moving in an average field created by all other electrons, neglecting instantaneous electron correlation but including exact exchange interaction. It serves as a starting point for more sophisticated ab initio methods and is the foundation simplified by semi-empirical approaches (UNVERIFIED)."@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000810 "HF"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000810 "Hartree-Fock"@en)
 SubClassOf(obo:MOLSIM_000810 obo:MOLSIM_000685)
 
@@ -5671,31 +5684,31 @@ SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000827 (Moeller-Plesset)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000827 "A family of post-Hartree-Fock methods that add electron correlation through perturbation theory, improving upon the mean-field approximation by including electron-electron interactions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000827 "Møller-Plesset perturbation theory (MPn) is a widely used post-Hartree-Fock method for adding electron correlation effects to the Hartree-Fock (HF) solution. It treats the difference between the exact Hamiltonian and the HF Hamiltonian as a perturbation, calculating energy corrections order-by-order (MP2, MP3, MP4, etc.). MP2 is the most common level, offering a computationally efficient way to include dynamic electron correlation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000827 "Moeller-Plesset"@en)
 SubClassOf(obo:MOLSIM_000827 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000828 (MP2)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000828 "Second-order Moeller-Plesset perturbation theory, the most widely used perturbative correlation method that recovers about 80-90% of the correlation energy at moderate computational cost. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000828 "MP2 stands for second-order Møller-Plesset perturbation theory, representing the first and computationally least expensive level beyond Hartree-Fock that incorporates electron correlation effects. It calculates the second-order energy correction based on double excitations from the Hartree-Fock reference determinant. MP2 often provides a significant improvement in accuracy over Hartree-Fock for molecular geometries, interaction energies, and reaction energies, making it a very popular baseline correlation method. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000828 "MP2"@en)
 SubClassOf(obo:MOLSIM_000828 obo:MOLSIM_000827)
 
 # Class: obo:MOLSIM_000829 (MP3)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000829 "Third-order Moeller-Plesset perturbation theory, extending MP2 with higher-order corrections that sometimes improve results but can also worsen them due to the non-convergent nature of the perturbation series. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000829 "MP3 represents third-order Møller-Plesset perturbation theory, calculating the energy correction up to the third order based on the Hartree-Fock reference. While it includes higher-order correlation effects compared to MP2, MP3 does not always offer a systematic improvement in accuracy over MP2 and can sometimes yield worse results. Consequently, it is less commonly used in computational chemistry applications compared to MP2 or MP4. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000829 "MP3"@en)
 SubClassOf(obo:MOLSIM_000829 obo:MOLSIM_000827)
 
 # Class: obo:MOLSIM_000830 (MP4)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000830 "Fourth-order Moeller-Plesset perturbation theory, a high-level correlation method that includes single, double, triple, and quadruple excitations for accurate energetics but at substantially increased computational cost. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000830 "MP4 stands for fourth-order Møller-Plesset perturbation theory, providing a higher level of electron correlation treatment by including energy contributions from single, double, triple, and quadruple excitations relative to the Hartree-Fock reference (often denoted MP4(SDTQ)). The inclusion of triple excitations, even if approximated, is particularly important for achieving high accuracy for many chemical systems. MP4 offers significantly better accuracy than MP2 but at a substantially higher computational cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000830 "MP4"@en)
 SubClassOf(obo:MOLSIM_000830 obo:MOLSIM_000827)
 
 # Class: obo:MOLSIM_000831 (MP5)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000831 "Fifth-order Moeller-Plesset perturbation theory, rarely used due to its extreme computational demands and the often oscillatory convergence behavior of the MP series. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000831 "MP5 represents fifth-order Møller-Plesset perturbation theory, calculating the electron correlation energy correction up to the fifth order. It incorporates even higher-order excitation effects beyond MP4, aiming for further refinement in accuracy. However, the computational cost of MP5 is extremely high, and it is very rarely used in practice, as other methods like coupled cluster often provide similar or better accuracy more efficiently at that level of computational expense. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000831 "MP5"@en)
 SubClassOf(obo:MOLSIM_000831 obo:MOLSIM_000827)
 
@@ -6350,7 +6363,6 @@ SubClassOf(obo:MOLSIM_000949 obo:MOLSIM_000948)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000950 "A type of structural analysis focused on calculating and interpreting the potential energy associated with specific molecular structures or conformations obtained from simulations or modeling. This includes calculating single point energies, comparing energies of different conformers, or decomposing the total energy into contributing components. It helps assess the stability and likelihood of different structures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000950 "energy analysis_"@en)
 SubClassOf(obo:MOLSIM_000950 obo:MOLSIM_000026)
-SubClassOf(obo:MOLSIM_000950 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000951 (binding energy_)
 
