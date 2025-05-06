@@ -493,6 +493,41 @@ Declaration(Class(obo:MOLSIM_000677))
 Declaration(Class(obo:MOLSIM_000685))
 Declaration(Class(obo:MOLSIM_000686))
 Declaration(Class(obo:MOLSIM_000687))
+Declaration(Class(obo:MOLSIM_000688))
+Declaration(Class(obo:MOLSIM_000689))
+Declaration(Class(obo:MOLSIM_000690))
+Declaration(Class(obo:MOLSIM_000691))
+Declaration(Class(obo:MOLSIM_000692))
+Declaration(Class(obo:MOLSIM_000693))
+Declaration(Class(obo:MOLSIM_000694))
+Declaration(Class(obo:MOLSIM_000695))
+Declaration(Class(obo:MOLSIM_000696))
+Declaration(Class(obo:MOLSIM_000697))
+Declaration(Class(obo:MOLSIM_000698))
+Declaration(Class(obo:MOLSIM_000699))
+Declaration(Class(obo:MOLSIM_000700))
+Declaration(Class(obo:MOLSIM_000701))
+Declaration(Class(obo:MOLSIM_000702))
+Declaration(Class(obo:MOLSIM_000703))
+Declaration(Class(obo:MOLSIM_000704))
+Declaration(Class(obo:MOLSIM_000705))
+Declaration(Class(obo:MOLSIM_000706))
+Declaration(Class(obo:MOLSIM_000707))
+Declaration(Class(obo:MOLSIM_000708))
+Declaration(Class(obo:MOLSIM_000709))
+Declaration(Class(obo:MOLSIM_000710))
+Declaration(Class(obo:MOLSIM_000711))
+Declaration(Class(obo:MOLSIM_000712))
+Declaration(Class(obo:MOLSIM_000713))
+Declaration(Class(obo:MOLSIM_000714))
+Declaration(Class(obo:MOLSIM_000715))
+Declaration(Class(obo:MOLSIM_000716))
+Declaration(Class(obo:MOLSIM_000717))
+Declaration(Class(obo:MOLSIM_000718))
+Declaration(Class(obo:MOLSIM_000719))
+Declaration(Class(obo:MOLSIM_000720))
+Declaration(Class(obo:MOLSIM_000721))
+Declaration(Class(obo:MOLSIM_000722))
 Declaration(Class(obo:MOLSIM_000735))
 Declaration(Class(obo:MOLSIM_000736))
 Declaration(Class(obo:MOLSIM_000737))
@@ -966,28 +1001,30 @@ AnnotationAssertion(rdfs:label dcterms:title "title")
 
 # Object Property: obo:MOLSIM_000297 (periodic box type)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000297 "Periodic box type (1 = standard periodic box, 2 = truncated octahedral, etc.)."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000297 "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000297 "periodic box type"@en)
 SubObjectPropertyOf(obo:MOLSIM_000297 owl:topObjectProperty)
 
 # Object Property: obo:MOLSIM_000504 (molecular dynamics suite utility)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000504 "Link a tool or program that's part of a larger molecular dynamics software package. These utilities often perform specific tasks like data analysis or structure preparation."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000504 "Links a specific computational process or analysis step to the particular utility program from a molecular dynamics software suite that was used to perform it. For instance, an analysis of simulation trajectories might use a specific trajectory processing utility, or system preparation might involve a specific solvation tool. This property helps specify the exact software tools employed within a broader simulation workflow, where the utility is a component of a larger software package. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000504 "molecular dynamics suite utility"@en)
 SubObjectPropertyOf(obo:MOLSIM_000504 owl:topObjectProperty)
 ObjectPropertyRange(obo:MOLSIM_000504 obo:MOLSIM_000160)
 
 # Object Property: obo:MOLSIM_000507 (alignment tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000507 "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000507 "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000507 "alignment tool"@en)
 SubObjectPropertyOf(obo:MOLSIM_000507 owl:topObjectProperty)
 
 # Object Property: obo:MOLSIM_000508 (protein structure source)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000508 "The source for the used protein structures (e.g. PDB)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000508 "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000508 "protein structure source"@en)
 SubObjectPropertyOf(obo:MOLSIM_000508 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_000508 obo:MOLSIM_000443)
+ObjectPropertyRange(obo:MOLSIM_000508 obo:MOLSIM_000688)
 
 
 ############################
@@ -5134,6 +5171,185 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000687 "A UniProt ID, more formal
 AnnotationAssertion(rdfs:label obo:MOLSIM_000687 "Uniprot ID"@en)
 SubClassOf(obo:MOLSIM_000687 obo:MOLSIM_000448)
 
+# Class: obo:MOLSIM_000688 (data source)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000688 "data source"@en)
+
+# Class: obo:MOLSIM_000689 (database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000689 "database"@en)
+SubClassOf(obo:MOLSIM_000689 obo:MOLSIM_000688)
+
+# Class: obo:MOLSIM_000690 (primary database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000690 "primary database"@en)
+SubClassOf(obo:MOLSIM_000690 obo:MOLSIM_000689)
+
+# Class: obo:MOLSIM_000691 (structural database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000691 "structural database"@en)
+SubClassOf(obo:MOLSIM_000691 obo:MOLSIM_000690)
+
+# Class: obo:MOLSIM_000692 (protein structural database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000692 "protein structural database"@en)
+SubClassOf(obo:MOLSIM_000692 obo:MOLSIM_000691)
+
+# Class: obo:MOLSIM_000693 (nucleic acid structural database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000693 "nucleic acid structural database"@en)
+SubClassOf(obo:MOLSIM_000693 obo:MOLSIM_000691)
+
+# Class: obo:MOLSIM_000694 (electron microscopy database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000694 "electron microscopy database"@en)
+SubClassOf(obo:MOLSIM_000694 obo:MOLSIM_000691)
+
+# Class: obo:MOLSIM_000695 (sequence database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000695 "sequence database"@en)
+SubClassOf(obo:MOLSIM_000695 obo:MOLSIM_000690)
+
+# Class: obo:MOLSIM_000696 (protein sequence database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000696 "protein sequence database"@en)
+SubClassOf(obo:MOLSIM_000696 obo:MOLSIM_000695)
+DisjointClasses(obo:MOLSIM_000696 obo:MOLSIM_000697)
+
+# Class: obo:MOLSIM_000697 (nucleic acid sequence database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000697 "nucleic acid sequence database"@en)
+SubClassOf(obo:MOLSIM_000697 obo:MOLSIM_000695)
+
+# Class: obo:MOLSIM_000698 (small molecule database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000698 "small molecule database"@en)
+SubClassOf(obo:MOLSIM_000698 obo:MOLSIM_000690)
+
+# Class: obo:MOLSIM_000699 (chemical structure database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000699 "chemical structure database"@en)
+SubClassOf(obo:MOLSIM_000699 obo:MOLSIM_000698)
+DisjointClasses(obo:MOLSIM_000699 obo:MOLSIM_000700)
+
+# Class: obo:MOLSIM_000700 (drug information database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000700 "drug information database"@en)
+SubClassOf(obo:MOLSIM_000700 obo:MOLSIM_000698)
+
+# Class: obo:MOLSIM_000701 (spectroscopic database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000701 "spectroscopic database"@en)
+SubClassOf(obo:MOLSIM_000701 obo:MOLSIM_000690)
+
+# Class: obo:MOLSIM_000702 (NMR data repository)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000702 "NMR data repository"@en)
+SubClassOf(obo:MOLSIM_000702 obo:MOLSIM_000701)
+
+# Class: obo:MOLSIM_000703 (secondary database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000703 "secondary database"@en)
+SubClassOf(obo:MOLSIM_000703 obo:MOLSIM_000689)
+
+# Class: obo:MOLSIM_000704 (protein family and domain database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000704 "protein family and domain database"@en)
+SubClassOf(obo:MOLSIM_000704 obo:MOLSIM_000703)
+
+# Class: obo:MOLSIM_000705 (structural classification database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000705 "structural classification database"@en)
+SubClassOf(obo:MOLSIM_000705 obo:MOLSIM_000703)
+
+# Class: obo:MOLSIM_000706 (pathway database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000706 "pathway database"@en)
+SubClassOf(obo:MOLSIM_000706 obo:MOLSIM_000703)
+
+# Class: obo:MOLSIM_000707 (bioactivity database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000707 "bioactivity database"@en)
+SubClassOf(obo:MOLSIM_000707 obo:MOLSIM_000703)
+
+# Class: obo:MOLSIM_000708 (knowledge base)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000708 "knowledge base"@en)
+SubClassOf(obo:MOLSIM_000708 obo:MOLSIM_000689)
+
+# Class: obo:MOLSIM_000709 (repository)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000709 "repository"@en)
+SubClassOf(obo:MOLSIM_000709 obo:MOLSIM_000689)
+
+# Class: obo:MOLSIM_000710 (simulation data repository)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000710 "simulation data repository"@en)
+SubClassOf(obo:MOLSIM_000710 obo:MOLSIM_000709)
+
+# Class: obo:MOLSIM_000711 (predicted structure repository)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000711 "predicted structure repository"@en)
+SubClassOf(obo:MOLSIM_000711 obo:MOLSIM_000709)
+
+# Class: obo:MOLSIM_000712 (metabolomics repository)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000712 "metabolomics repository"@en)
+SubClassOf(obo:MOLSIM_000712 obo:MOLSIM_000709)
+
+# Class: obo:MOLSIM_000713 (literature database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000713 "literature database"@en)
+SubClassOf(obo:MOLSIM_000713 obo:MOLSIM_000689)
+
+# Class: obo:MOLSIM_000714 (computational source)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000714 "computational source"@en)
+SubClassOf(obo:MOLSIM_000714 obo:MOLSIM_000688)
+
+# Class: obo:MOLSIM_000715 (prediction software output)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000715 "prediction software output"@en)
+SubClassOf(obo:MOLSIM_000715 obo:MOLSIM_000714)
+DisjointClasses(obo:MOLSIM_000715 obo:MOLSIM_000716)
+
+# Class: obo:MOLSIM_000716 (simulation output file)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000716 "simulation output file"@en)
+SubClassOf(obo:MOLSIM_000716 obo:MOLSIM_000714)
+
+# Class: obo:MOLSIM_000717 (experimental data source)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000717 "experimental data source"@en)
+SubClassOf(obo:MOLSIM_000717 obo:MOLSIM_000688)
+
+# Class: obo:MOLSIM_000718 (scientific publication)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000718 "scientific publication"@en)
+SubClassOf(obo:MOLSIM_000718 obo:MOLSIM_000717)
+DisjointClasses(obo:MOLSIM_000718 obo:MOLSIM_000719)
+
+# Class: obo:MOLSIM_000719 (unpublished experimental result)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000719 "unpublished experimental result"@en)
+SubClassOf(obo:MOLSIM_000719 obo:MOLSIM_000717)
+
+# Class: obo:MOLSIM_000720 (local or proprietary source)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000720 "local or proprietary source"@en)
+SubClassOf(obo:MOLSIM_000720 obo:MOLSIM_000688)
+
+# Class: obo:MOLSIM_000721 (in house database)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000721 "in house database"@en)
+SubClassOf(obo:MOLSIM_000721 obo:MOLSIM_000720)
+DisjointClasses(obo:MOLSIM_000721 obo:MOLSIM_000722)
+
+# Class: obo:MOLSIM_000722 (personal communication)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_000722 "personal communication"@en)
+SubClassOf(obo:MOLSIM_000722 obo:MOLSIM_000720)
+
 # Class: obo:MOLSIM_000735 (resolution-based force field)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000735 "A type of force field classified by the level of structural detail, or resolution, used to represent the system's components. This classification distinguishes between models that represent every atom explicitly versus those that group atoms into larger pseudo-atoms or beads. The resolution impacts the balance between computational efficiency and physical accuracy. (UNVERIFIED)"@en)
@@ -6606,6 +6822,7 @@ SubClassOf(obo:MOLSIM_001024 obo:MOLSIM_001022)
 
 
 DisjointClasses(obo:MOLSIM_000000 obo:MOLSIM_000001 obo:MOLSIM_000006 obo:MOLSIM_000025 obo:MOLSIM_000037 obo:MOLSIM_000097 obo:MOLSIM_000109 obo:MOLSIM_000436)
+DisjointClasses(obo:MOLSIM_000000 obo:MOLSIM_000001 obo:MOLSIM_000006 obo:MOLSIM_000025 obo:MOLSIM_000037 obo:MOLSIM_000097 obo:MOLSIM_000109 obo:MOLSIM_000436 obo:MOLSIM_000447 obo:MOLSIM_000688)
 DisjointClasses(obo:MOLSIM_000005 obo:MOLSIM_000208 obo:MOLSIM_000209)
 DisjointClasses(obo:MOLSIM_000017 obo:MOLSIM_000485 obo:MOLSIM_000580 obo:MOLSIM_000581)
 DisjointClasses(obo:MOLSIM_000021 obo:MOLSIM_000132 obo:MOLSIM_000741 obo:MOLSIM_000742 obo:MOLSIM_000743 obo:MOLSIM_000744 obo:MOLSIM_000745 obo:MOLSIM_000746 obo:MOLSIM_000747 obo:MOLSIM_000748 obo:MOLSIM_000749 obo:MOLSIM_000750 obo:MOLSIM_000751 obo:MOLSIM_000752 obo:MOLSIM_000753 obo:MOLSIM_000754 obo:MOLSIM_000755 obo:MOLSIM_000756 obo:MOLSIM_000757 obo:MOLSIM_000758 obo:MOLSIM_000759 obo:MOLSIM_000760 obo:MOLSIM_000761 obo:MOLSIM_000762)
@@ -6649,6 +6866,12 @@ DisjointClasses(obo:MOLSIM_000472 obo:MOLSIM_000898 obo:MOLSIM_000899 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000486 obo:MOLSIM_000487 obo:MOLSIM_000501 obo:MOLSIM_000505 obo:MOLSIM_000506 obo:MOLSIM_000511 obo:MOLSIM_000512 obo:MOLSIM_000513 obo:MOLSIM_000514 obo:MOLSIM_000515 obo:MOLSIM_000516 obo:MOLSIM_000517 obo:MOLSIM_000518 obo:MOLSIM_000519 obo:MOLSIM_000520 obo:MOLSIM_000521 obo:MOLSIM_000522 obo:MOLSIM_000523 obo:MOLSIM_000524 obo:MOLSIM_000525 obo:MOLSIM_000526 obo:MOLSIM_000527 obo:MOLSIM_000528 obo:MOLSIM_000529 obo:MOLSIM_000530 obo:MOLSIM_000531 obo:MOLSIM_000532 obo:MOLSIM_000533 obo:MOLSIM_000534 obo:MOLSIM_000535 obo:MOLSIM_000536 obo:MOLSIM_000537 obo:MOLSIM_000538 obo:MOLSIM_000539 obo:MOLSIM_000540 obo:MOLSIM_000541 obo:MOLSIM_000542 obo:MOLSIM_000543 obo:MOLSIM_000544 obo:MOLSIM_000545 obo:MOLSIM_000546 obo:MOLSIM_000547 obo:MOLSIM_000548 obo:MOLSIM_000549 obo:MOLSIM_000550 obo:MOLSIM_000551 obo:MOLSIM_000552 obo:MOLSIM_000553 obo:MOLSIM_000554 obo:MOLSIM_000555 obo:MOLSIM_000556 obo:MOLSIM_000557 obo:MOLSIM_000558 obo:MOLSIM_000559 obo:MOLSIM_000560 obo:MOLSIM_000561 obo:MOLSIM_000562 obo:MOLSIM_000563 obo:MOLSIM_000564 obo:MOLSIM_000565 obo:MOLSIM_000566 obo:MOLSIM_000567 obo:MOLSIM_000568 obo:MOLSIM_000569 obo:MOLSIM_000570 obo:MOLSIM_000571 obo:MOLSIM_000572 obo:MOLSIM_000573 obo:MOLSIM_000574 obo:MOLSIM_000575 obo:MOLSIM_000576 obo:MOLSIM_000577 obo:MOLSIM_000578 obo:MOLSIM_000579)
 DisjointClasses(obo:MOLSIM_000604 obo:MOLSIM_000605 obo:MOLSIM_000606 obo:MOLSIM_000951 obo:MOLSIM_000954)
 DisjointClasses(obo:MOLSIM_000674 obo:MOLSIM_000675 obo:MOLSIM_000676 obo:MOLSIM_000677)
+DisjointClasses(obo:MOLSIM_000689 obo:MOLSIM_000714 obo:MOLSIM_000717 obo:MOLSIM_000720)
+DisjointClasses(obo:MOLSIM_000690 obo:MOLSIM_000703 obo:MOLSIM_000708 obo:MOLSIM_000709 obo:MOLSIM_000713)
+DisjointClasses(obo:MOLSIM_000691 obo:MOLSIM_000695 obo:MOLSIM_000698 obo:MOLSIM_000701)
+DisjointClasses(obo:MOLSIM_000692 obo:MOLSIM_000693 obo:MOLSIM_000694)
+DisjointClasses(obo:MOLSIM_000704 obo:MOLSIM_000705 obo:MOLSIM_000706 obo:MOLSIM_000707)
+DisjointClasses(obo:MOLSIM_000710 obo:MOLSIM_000711 obo:MOLSIM_000712)
 DisjointClasses(obo:MOLSIM_000807 obo:MOLSIM_000808 obo:MOLSIM_000809 obo:MOLSIM_000815 obo:MOLSIM_000816 obo:MOLSIM_000817 obo:MOLSIM_000818 obo:MOLSIM_000819 obo:MOLSIM_000820 obo:MOLSIM_000821 obo:MOLSIM_000822 obo:MOLSIM_000823 obo:MOLSIM_000824 obo:MOLSIM_000825 obo:MOLSIM_000826)
 DisjointClasses(obo:MOLSIM_000828 obo:MOLSIM_000829 obo:MOLSIM_000830 obo:MOLSIM_000831)
 DisjointClasses(obo:MOLSIM_000833 obo:MOLSIM_000834 obo:MOLSIM_000835 obo:MOLSIM_000836 obo:MOLSIM_000837)
