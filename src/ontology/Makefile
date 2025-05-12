@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                b0afcad2757e3ad8ca2169aa984f7f9f0668edc8f0983adc0f60939e749ea27d
+CONFIG_HASH=                c89ce5383e0f534851b4eb12b9a946b4e045512e3d39a189e646c036f73c60e3
 
 
 # ----------------------------------------
@@ -159,7 +159,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  uo chebi
+IMPORTS =  uo chebi ncit
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -372,6 +372,10 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 
 $(IMPORTDIR)/chebi_import.owl: 
 	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
+## Module for ontology: ncit
+
+$(IMPORTDIR)/ncit_import.owl: 
+	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
 
 .PHONY: refresh-imports
 refresh-imports:
@@ -453,6 +457,18 @@ mirror-chebi: | $(TMPDIR)
 else
 mirror-chebi:
 	@echo "Not refreshing chebi because refreshing large imports is disabled (IMP_LARGE=$(IMP_LARGE))."
+endif
+
+
+## ONTOLOGY: ncit
+
+ifeq ($(strip $(IMP_LARGE)),true)
+mirror-ncit: | $(TMPDIR)
+	curl -L $(OBOBASE)/ncit.owl.gz --create-dirs -o $(MIRRORDIR)/ncit.owl.gz --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(MIRRORDIR)/ncit.owl.gz -o $(TMPDIR)/$@.owl
+else
+mirror-ncit:
+	@echo "Not refreshing ncit because refreshing large imports is disabled (IMP_LARGE=$(IMP_LARGE))."
 endif
 
 

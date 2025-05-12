@@ -721,7 +721,6 @@ Declaration(Class(obo:MOLSIM_000936))
 Declaration(Class(obo:MOLSIM_000937))
 Declaration(Class(obo:MOLSIM_000938))
 Declaration(Class(obo:MOLSIM_000939))
-Declaration(Class(obo:MOLSIM_000940))
 Declaration(Class(obo:MOLSIM_000941))
 Declaration(Class(obo:MOLSIM_000942))
 Declaration(Class(obo:MOLSIM_000943))
@@ -1074,7 +1073,8 @@ SubObjectPropertyOf(obo:MOLSIM_000297 owl:topObjectProperty)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000504 "Links a specific computational process or analysis step to the particular utility program from a molecular dynamics software suite that was used to perform it. For instance, an analysis of simulation trajectories might use a specific trajectory processing utility, or system preparation might involve a specific solvation tool. This property helps specify the exact software tools employed within a broader simulation workflow, where the utility is a component of a larger software package. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000504 "molecular dynamics suite utility"@en)
 SubObjectPropertyOf(obo:MOLSIM_000504 owl:topObjectProperty)
-ObjectPropertyRange(obo:MOLSIM_000504 obo:MOLSIM_000160)
+ObjectPropertyDomain(obo:MOLSIM_000504 obo:MOLSIM_000000)
+ObjectPropertyRange(obo:MOLSIM_000504 obo:MOLSIM_000001)
 
 # Object Property: obo:MOLSIM_000507 (alignment tool)
 
@@ -1772,10 +1772,10 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000427 "COM move removal
 AnnotationAssertion(rdfs:label obo:MOLSIM_000427 "center of mass move removal"@en)
 SubDataPropertyOf(obo:MOLSIM_000427 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000428 (Specifies the total count of different spatial arrangements (conformations) of the ligand molecule(s) that are being considered or were generated during the simulation or analysis process (e.g., during docking, minimization of multiple starting poses, or clustering). (UNVERIFIED))
+# Data Property: obo:MOLSIM_000428 (number of ligand conformers)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000428 "The number of ligand conformers used."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000428 "Specifies the total count of different spatial arrangements (conformations) of the ligand molecule(s) that are being considered or were generated during the simulation or analysis process (e.g., during docking, minimization of multiple starting poses, or clustering). (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000428 "Specifies the total count of different spatial arrangements (conformations) of the ligand molecule(s) that are being considered or were generated during the simulation or analysis process (e.g., during docking, minimization of multiple starting poses, or clustering). (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000428 "number of ligand conformers"@en)
 SubDataPropertyOf(obo:MOLSIM_000428 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000429 (time step)
@@ -2312,7 +2312,7 @@ SubDataPropertyOf(obo:MOLSIM_000682 obo:MOLSIM_000681)
 
 # Data Property: obo:MOLSIM_000683 (electronic transition properties)
 
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000683 "A category grouping molecular properties that characterize the transition of a molecule from one electronic state to another, often involving the absorption or emission of light. These properties quantify aspects like the probability, energy difference, and nature of such electronic state changes. Examples include excitation energies and transition moments, which are fundamental to understanding spectroscopy and photochemistry. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000683 "A category grouping molecular properties that characterize the transition of a molecule from one electronic state to another, often involving the absorption or emission of light. These properties quantify aspects like the probability, energy difference, and nature of such electronic state changes. Examples include excitation energies and transition moments, which are fundamental to understanding spectroscopy and photochemistry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000683 "electronic transition properties"@en)
 SubDataPropertyOf(obo:MOLSIM_000683 obo:MOLSIM_000651)
 
@@ -3142,14 +3142,12 @@ SubClassOf(obo:MOLSIM_000132 obo:MOLSIM_000009)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000133 "Cross-validation errors are error metrics calculated using a cross-validation procedure, where a dataset is repeatedly partitioned into training subsets (used to build a model) and testing subsets (used to evaluate the model's predictions). Averaging the errors obtained on the independent testing subsets provides a more robust estimate of the model's generalization performance (how well it predicts unseen data) compared to evaluating only on the training data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000133 "cross-validation errors"@en)
 SubClassOf(obo:MOLSIM_000133 obo:MOLSIM_000135)
-DisjointClasses(obo:MOLSIM_000133 obo:MOLSIM_000134)
 
 # Class: obo:MOLSIM_000134 (bootstrapped error estimates)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000134 "Using bootstrapped error estimates serves as a validation technique by assessing the statistical robustness and uncertainty of results derived from limited data, such as simulation outputs. By repeatedly resampling the data and recalculating the metric of interest, bootstrapping helps determine if the observed result is stable or highly dependent on specific data points. Narrow confidence intervals or small standard errors from bootstrapping increase confidence in the result's reliability. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000134 "BSE"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000134 "bootstrapped error estimates"@en)
-SubClassOf(obo:MOLSIM_000134 obo:MOLSIM_000116)
 SubClassOf(obo:MOLSIM_000134 obo:MOLSIM_000353)
 
 # Class: obo:MOLSIM_000135 (convergence and uncertainty quantification)
@@ -3181,7 +3179,6 @@ SubClassOf(obo:MOLSIM_000138 obo:MOLSIM_000135)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000139 "Overlap metrics, when used as a validation technique (e.g., in umbrella sampling or replica exchange), assess whether sufficient sampling overlap exists between adjacent simulation windows or thermodynamic states. Adequate overlap is a prerequisite for reliably combining data across windows using methods like WHAM or MBAR to calculate free energy profiles or differences. Poor overlap indicates insufficient sampling and potentially unreliable results, invalidating the analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000139 "overlap metrics"@en)
 SubClassOf(obo:MOLSIM_000139 obo:MOLSIM_000135)
-SubClassOf(obo:MOLSIM_000139 obo:MOLSIM_000353)
 
 # Class: obo:MOLSIM_000142 (predictive index)
 
@@ -4226,6 +4223,7 @@ SubClassOf(obo:MOLSIM_000341 obo:MOLSIM_000342)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000342 "Correlation analysis, in the context of dynamics analysis, involves methods that quantify the statistical relationship between different fluctuating quantities observed in a simulation. This can include measuring how a property correlates with itself over time (autocorrelation) or how two different properties fluctuate together or in opposition (cross-correlation). These analyses reveal connections and timescales in molecular motions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000342 "correlation analysis"@en)
+SubClassOf(obo:MOLSIM_000342 obo:MOLSIM_000026)
 SubClassOf(obo:MOLSIM_000342 obo:MOLSIM_000110)
 
 # Class: obo:MOLSIM_000344 (Kendall's tau correlation coefficient)
@@ -4351,7 +4349,6 @@ SubClassOf(obo:MOLSIM_000442 obo:MOLSIM_000436)
 # Class: obo:MOLSIM_000443 (protein structure)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000443 "Protein structure formats are specifically designed to represent the complex three-dimensional structures of large biological macromolecules like proteins and nucleic acids. They typically accommodate hierarchical descriptions (chains, residues, atoms), store atomic coordinates, and may include associated experimental data or annotations (like secondary structure). Common examples are the PDB and mmCIF formats. (UNVERIFIED)"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000443 "Protein structure is a protein 3D atom coordinates file coming from a structure prediction job, cryo-EM microscopy or X-ray."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000443 "protein structure"@en)
 SubClassOf(obo:MOLSIM_000443 obo:MOLSIM_000904)
 
@@ -4361,18 +4358,17 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000444 "This refers to an input s
 AnnotationAssertion(rdfs:label obo:MOLSIM_000444 "tleap input"@en)
 SubClassOf(obo:MOLSIM_000444 obo:MOLSIM_000437)
 
-# Class: obo:MOLSIM_000445 (mmCIF)
+# Class: obo:MOLSIM_000445 (mmCIF structure)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000445 "A file format for representing macro-molecular structure data. It's more detailed and flexible than the older PDB format."@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000445 "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000445 "mmCIF"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000445 "mmCIF structure"@en)
 SubClassOf(obo:MOLSIM_000445 obo:MOLSIM_000443)
 DisjointClasses(obo:MOLSIM_000445 obo:MOLSIM_000446)
 
-# Class: obo:MOLSIM_000446 (PDB)
+# Class: obo:MOLSIM_000446 (PDB structure)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000446 "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000446 "PDB"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000446 "PDB structure"@en)
 SubClassOf(obo:MOLSIM_000446 obo:MOLSIM_000443)
 
 # Class: obo:MOLSIM_000447 (identifier)
@@ -5075,7 +5071,6 @@ SubClassOf(obo:MOLSIM_000589 obo:MOLSIM_000588)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000602 "A computational procedure within structural analysis used to find the atomic coordinates corresponding to a stationary point, typically a local minimum, on the potential energy surface, representing a stable or equilibrium structure. Starting from an initial guess geometry, algorithms iteratively adjust atomic positions to minimize the energy and reduce the forces acting on the atoms until convergence criteria are met. This predicts the most stable three-dimensional structure for a given molecular composition and electronic state. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000602 "geometry optimization_"@en)
 SubClassOf(obo:MOLSIM_000602 obo:MOLSIM_000917)
-DisjointClasses(obo:MOLSIM_000602 obo:MOLSIM_000603)
 
 # Class: obo:MOLSIM_000603 (FMO geometry optimization_)
 
@@ -5724,7 +5719,6 @@ SubClassOf(obo:MOLSIM_000779 obo:MOLSIM_000160)
 # Class: obo:MOLSIM_000780 (GAMESS-US)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000780 "A widely used, freely available quantum chemistry software package (General Atomic and Molecular Electronic Structure System). It provides a broad range of quantum mechanical methods, from semi-empirical to high-level ab initio (HF, DFT, MP2, CCSD, MCSCF), and includes features for geometry optimization, vibrational analysis, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (UNVERIFIED)"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000780 "GAMESS"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000780 "GAMESS-US"@en)
 SubClassOf(obo:MOLSIM_000780 obo:MOLSIM_000160)
 
@@ -6616,29 +6610,23 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000939 "Dynamics analysis involve
 AnnotationAssertion(rdfs:label obo:MOLSIM_000939 "dynamics analysis_"@en)
 SubClassOf(obo:MOLSIM_000939 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000940 (correlation analysis_)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000940 "Correlation analysis, in the context of dynamics analysis, involves methods that quantify the statistical relationship between different fluctuating quantities observed in a simulation. This can include measuring how a property correlates with itself over time (autocorrelation) or how two different properties fluctuate together or in opposition (cross-correlation). These analyses reveal connections and timescales in molecular motions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000940 "correlation analysis_"@en)
-SubClassOf(obo:MOLSIM_000940 obo:MOLSIM_000939)
-
 # Class: obo:MOLSIM_000941 (auto correlation_)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000941 "Autocorrelation analysis measures how strongly a property observed at a certain time in a simulation is related to its value at a later time. The resulting autocorrelation function (ACF) decays over time, indicating how long the \"memory\" of the property's value persists. The decay rate provides characteristic timescales (relaxation times) associated with the fluctuations of that property. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000941 "auto correlation_"@en)
-SubClassOf(obo:MOLSIM_000941 obo:MOLSIM_000940)
+SubClassOf(obo:MOLSIM_000941 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_000942 (time cross correlation_)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000942 "Time cross-correlation analysis quantifies the relationship between the fluctuations of two different properties, A and B, over time in a simulation. The cross-correlation function (CCF) indicates whether the properties tend to fluctuate together (positive correlation), in opposition (negative correlation), or independently (zero correlation), potentially with a time delay (lag). It is widely used to identify coupled or concerted motions between different parts of a molecule. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000942 "time cross correlation_"@en)
-SubClassOf(obo:MOLSIM_000942 obo:MOLSIM_000940)
+SubClassOf(obo:MOLSIM_000942 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_000943 (RMSd correlation_)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000943 "RMSD correlation, often visualized as a Dynamic Cross-Correlation Map (DCCM), measures the correlation between the displacement fluctuations of different atoms (or residues) around their average positions during a simulation. A high positive correlation between atoms i and j indicates they tend to move in the same direction, while negative correlation indicates movement in opposite directions. This analysis highlights regions of the molecule that exhibit concerted dynamic behavior. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000943 "RMSd correlation_"@en)
-SubClassOf(obo:MOLSIM_000943 obo:MOLSIM_000940)
+SubClassOf(obo:MOLSIM_000943 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_000944 (motion analysis_)
 
@@ -6666,7 +6654,7 @@ SubClassOf(obo:MOLSIM_000947 obo:MOLSIM_000944)
 
 # Class: obo:MOLSIM_000948 (diffusion analysis_)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000948 "Diffusion calculation refers to the specific computational procedure used to determine a diffusion coefficient from molecular dynamics simulation data. The most common method involves calculating the mean squared displacement (MSD) of the particles as a function of time and determining the diffusion coefficient from the slope of the MSD curve in the long-time limit using the Einstein relation. Alternatively, the Green-Kubo relations can be used by integrating the velocity autocorrelation function. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000948 "A type of dynamics analysis focused on quantifying the random translational and rotational movement of molecules or particles within the simulation environment due to thermal energy. It primarily involves calculating diffusion coefficients, which measure the rate at which particles spread out over time. This analysis provides insights into transport properties, viscosity, and mobility in fluids, membranes, or crowded cellular environments. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000948 "diffusion analysis_"@en)
 SubClassOf(obo:MOLSIM_000948 obo:MOLSIM_000939)
 
@@ -7125,7 +7113,6 @@ ClassAssertion(obo:MOLSIM_000704 obo:MOLSIM_000967)
 # Individual: obo:MOLSIM_000968 (SCOP2)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000968 "A database that provides a detailed and comprehensive hierarchical classification of protein structural domains based on their evolutionary relationships and structural similarities. SCOP2 builds upon the original SCOP, aiming to provide a more automated and comprehensive classification. It is a key resource for understanding protein structure and evolution. (UNVERIFIED)"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000968 "Structural Classification of Proteins - extended"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000968 "SCOP2"@en)
 ClassAssertion(obo:MOLSIM_000705 obo:MOLSIM_000968)
 
@@ -7352,7 +7339,6 @@ DisjointClasses(obo:MOLSIM_000470 obo:MOLSIM_000879 obo:MOLSIM_000880 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000471 obo:MOLSIM_000890 obo:MOLSIM_000891 obo:MOLSIM_000892 obo:MOLSIM_000893)
 DisjointClasses(obo:MOLSIM_000472 obo:MOLSIM_000898 obo:MOLSIM_000899 obo:MOLSIM_000900 obo:MOLSIM_000901)
 DisjointClasses(obo:MOLSIM_000486 obo:MOLSIM_000487 obo:MOLSIM_000501 obo:MOLSIM_000505 obo:MOLSIM_000506 obo:MOLSIM_000511 obo:MOLSIM_000512 obo:MOLSIM_000513 obo:MOLSIM_000514 obo:MOLSIM_000515 obo:MOLSIM_000516 obo:MOLSIM_000517 obo:MOLSIM_000518 obo:MOLSIM_000519 obo:MOLSIM_000520 obo:MOLSIM_000521 obo:MOLSIM_000522 obo:MOLSIM_000523 obo:MOLSIM_000524 obo:MOLSIM_000525 obo:MOLSIM_000526 obo:MOLSIM_000527 obo:MOLSIM_000528 obo:MOLSIM_000529 obo:MOLSIM_000530 obo:MOLSIM_000531 obo:MOLSIM_000532 obo:MOLSIM_000533 obo:MOLSIM_000534 obo:MOLSIM_000535 obo:MOLSIM_000536 obo:MOLSIM_000537 obo:MOLSIM_000538 obo:MOLSIM_000539 obo:MOLSIM_000540 obo:MOLSIM_000541 obo:MOLSIM_000542 obo:MOLSIM_000543 obo:MOLSIM_000544 obo:MOLSIM_000545 obo:MOLSIM_000546 obo:MOLSIM_000547 obo:MOLSIM_000548 obo:MOLSIM_000549 obo:MOLSIM_000550 obo:MOLSIM_000551 obo:MOLSIM_000552 obo:MOLSIM_000553 obo:MOLSIM_000554 obo:MOLSIM_000555 obo:MOLSIM_000556 obo:MOLSIM_000557 obo:MOLSIM_000558 obo:MOLSIM_000559 obo:MOLSIM_000560 obo:MOLSIM_000561 obo:MOLSIM_000562 obo:MOLSIM_000563 obo:MOLSIM_000564 obo:MOLSIM_000565 obo:MOLSIM_000566 obo:MOLSIM_000567 obo:MOLSIM_000568 obo:MOLSIM_000569 obo:MOLSIM_000570 obo:MOLSIM_000571 obo:MOLSIM_000572 obo:MOLSIM_000573 obo:MOLSIM_000574 obo:MOLSIM_000575 obo:MOLSIM_000576 obo:MOLSIM_000577 obo:MOLSIM_000578 obo:MOLSIM_000579)
-DisjointClasses(obo:MOLSIM_000604 obo:MOLSIM_000605 obo:MOLSIM_000606 obo:MOLSIM_000951 obo:MOLSIM_000954)
 DisjointClasses(obo:MOLSIM_000674 obo:MOLSIM_000675 obo:MOLSIM_000676 obo:MOLSIM_000677)
 DisjointClasses(obo:MOLSIM_000689 obo:MOLSIM_000714 obo:MOLSIM_000717 obo:MOLSIM_000720)
 DisjointClasses(obo:MOLSIM_000690 obo:MOLSIM_000703 obo:MOLSIM_000708 obo:MOLSIM_000709 obo:MOLSIM_000713)
@@ -7360,12 +7346,10 @@ DisjointClasses(obo:MOLSIM_000691 obo:MOLSIM_000695 obo:MOLSIM_000698 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000692 obo:MOLSIM_000693 obo:MOLSIM_000694)
 DisjointClasses(obo:MOLSIM_000704 obo:MOLSIM_000705 obo:MOLSIM_000706 obo:MOLSIM_000707)
 DisjointClasses(obo:MOLSIM_000710 obo:MOLSIM_000711 obo:MOLSIM_000712)
-DisjointClasses(obo:MOLSIM_000807 obo:MOLSIM_000808 obo:MOLSIM_000809 obo:MOLSIM_000815 obo:MOLSIM_000816 obo:MOLSIM_000817 obo:MOLSIM_000818 obo:MOLSIM_000819 obo:MOLSIM_000820 obo:MOLSIM_000821 obo:MOLSIM_000822 obo:MOLSIM_000823 obo:MOLSIM_000824 obo:MOLSIM_000825 obo:MOLSIM_000826)
 DisjointClasses(obo:MOLSIM_000828 obo:MOLSIM_000829 obo:MOLSIM_000830 obo:MOLSIM_000831)
 DisjointClasses(obo:MOLSIM_000833 obo:MOLSIM_000834 obo:MOLSIM_000835 obo:MOLSIM_000836 obo:MOLSIM_000837)
 DisjointClasses(obo:MOLSIM_000846 obo:MOLSIM_000847 obo:MOLSIM_000848 obo:MOLSIM_000849 obo:MOLSIM_000850 obo:MOLSIM_000851 obo:MOLSIM_000852 obo:MOLSIM_000853 obo:MOLSIM_000854 obo:MOLSIM_000855 obo:MOLSIM_000856 obo:MOLSIM_000857 obo:MOLSIM_000858 obo:MOLSIM_000859 obo:MOLSIM_000860 obo:MOLSIM_000861 obo:MOLSIM_000862 obo:MOLSIM_000863 obo:MOLSIM_000864 obo:MOLSIM_000865)
 DisjointClasses(obo:MOLSIM_000924 obo:MOLSIM_000925 obo:MOLSIM_000926 obo:MOLSIM_000927)
-DisjointClasses(obo:MOLSIM_000940 obo:MOLSIM_000944 obo:MOLSIM_000948)
 DisjointClasses(obo:MOLSIM_000941 obo:MOLSIM_000942 obo:MOLSIM_000943)
 DisjointClasses(obo:MOLSIM_000945 obo:MOLSIM_000946 obo:MOLSIM_000947)
 )
