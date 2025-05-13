@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2025-05-12
+data-version: releases/2025-05-13
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
@@ -7,7 +7,7 @@ ontology: molsim
 property_value: dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2025-05-12" xsd:string
+property_value: owl:versionInfo "2025-05-13" xsd:string
 
 [Term]
 id: CHEBI:134360
@@ -9521,6 +9521,18 @@ def: "Overlap metrics, when used as a validation technique (e.g., in umbrella sa
 is_a: MOLSIM:000135 ! convergence and uncertainty quantification
 
 [Term]
+id: MOLSIM:000140
+name: analysis and visualization characteristics
+def: "A category encompassing parameters, settings, and results derived from post-processing simulation data or preparing it for visual inspection. These properties quantify aspects like statistical reliability, structural characteristics, or energetic components obtained after a simulation run. They help interpret the raw simulation output." []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000141
+name: starting epsilon (distance cutoff) value
+def: "The initial or minimum distance threshold (epsilon value) used when beginning a clustering analysis or when testing a range of potential cutoff values. It sets the lower bound for the structural difference considered when grouping conformations. (UNVERIFIED)" []
+is_a: MOLSIM:000489 ! CPPTRAJ characteristics
+
+[Term]
 id: MOLSIM:000142
 name: predictive index
 def: "A Predictive Index (PI) generally refers to a metric designed to assess the predictive power of a computational model, quantifying how well it predicts new, unseen data rather than just fitting the data it was trained on. The specific formula can vary, but it often relates the model's error (like RMSE) to the variance of the data, aiming for a value indicating predictive utility (e.g., related to Q^2 in QSAR). The exact definition can be context-dependent within specific research fields. (UNVERIFIED)" []
@@ -10540,6 +10552,18 @@ def: "A mathematical technique used to determine if a set of variables or vector
 is_a: MOLSIM:000352 ! mathematical techniques
 
 [Term]
+id: MOLSIM:000304
+name: clustering epsilon (distance cutoff) interval value
+def: "Defines the range of distance thresholds (epsilon values) explored during a structural clustering analysis, often within tools like CPPTRAJ. Clustering groups similar molecular conformations, and testing an interval helps identify an appropriate cutoff distance that best separates distinct structural states observed in the simulation. (UNVERIFIED)" []
+is_a: MOLSIM:000489 ! CPPTRAJ characteristics
+
+[Term]
+id: MOLSIM:000305
+name: final epsilon (distance cutoff) value
+def: "The specific distance threshold (epsilon value) ultimately chosen and used for the final structural clustering analysis, often selected after evaluating results from an interval. This value determines the maximum structural difference (e.g., RMSD) allowed for two conformations to be grouped into the same cluster. (UNVERIFIED)" []
+is_a: MOLSIM:000489 ! CPPTRAJ characteristics
+
+[Term]
 id: MOLSIM:000306
 name: statistical package
 def: "Software primarily designed for statistical analysis, data manipulation, graphical representation, and reporting. While not specific to biomolecular simulation, packages like R or Python with libraries like NumPy/SciPy/Pandas are extensively used in the analysis stage to process simulation output, perform statistical tests, generate plots, fit models, and interpret large datasets generated from trajectories or calculations. They provide powerful tools for quantitative analysis beyond basic trajectory viewers. (UNVERIFIED)" []
@@ -10552,10 +10576,191 @@ def: "A widely used free software environment and programming language specifica
 is_a: MOLSIM:000306 ! statistical package
 
 [Term]
+id: MOLSIM:000308
+name: general simulation setup  characteristics
+def: "A category encompassing fundamental parameters and conditions defining the context and basic setup of the biomolecular simulation. This includes details about the system composition, simulation box, and general numerical parameters not specific to a particular simulation phase (like minimization or dynamics). (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000309
+name: number of total atoms
+def: "The total count of all atoms present in the entire simulation system, including solute molecules (protein, ligand, nucleic acid), solvent molecules (water), and any ions or other components. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000310
+name: number of total distinct atoms
+def: "Total number of distinct atom types used in the force field. (...) (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000311
+name: number of total bonds with hydrogens
+def: "Specifies the total count of covalent bonds in the simulation system where at least one of the two bonded atoms is a hydrogen atom. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000312
+name: number of total bonds without hydrogens
+def: "Specifies the total count of covalent bonds in the simulation system where both bonded atoms are heavy atoms (non-hydrogen). (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000313
+name: number of total angles with hydrogens
+def: "Specifies the total count of bond angles in the simulation system where at least one of the three atoms forming the angle is a hydrogen atom. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000314
+name: number of total angles without hydrogens
+def: "Specifies the total count of bond angles in the simulation system where none of the three atoms forming the angle is a hydrogen atom (i.e., angles formed only by heavy atoms). (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000315
+name: number of total dihedral angles with hydrogens
+def: "Specifies the total count of dihedral angles (torsion angles defined by four bonded atoms) in the simulation system where at least one of the four defining atoms is a hydrogen atom. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000316
+name: number of total dihedral angles without hydrogens
+def: "Specifies the total count of dihedral angles in the simulation system where all four defining atoms are heavy atoms (non-hydrogen). (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000317
+name: number of total perturbed bonds
+def: "In alchemical free energy calculations, this counts the total number of covalent bonds affected by the transformation, meaning at least one atom in the bond belongs to the perturbed group. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000318
+name: number of total perturbed angles
+def: "In alchemical free energy calculations, this counts the total number of bond angles affected by the transformation, meaning at least one atom in the angle definition belongs to the perturbed group. This count might be relevant for setting up or analyzing the free energy calculation parameters. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000319
+name: number of total excluded atom pairs
+def: "Specifies the total count of atom pairs within the simulation system for which direct non-bonded interactions (Van der Waals, direct electrostatic) are intentionally excluded or modified. This typically includes pairs connected by one bond (1-2 pairs) or two bonds (1-3 pairs), whose interactions are handled by the bonded terms (bond stretching, angle bending) in the force field. Some force fields also scale 1-4 interactions. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000320
+name: number of total residues
+def: "The total count of residues comprising the solute molecules in the simulation system. Residues are the building blocks of polymers, typically amino acids for proteins or nucleotides for nucleic acids. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000321
+name: number of total bonds with constraints
+def: "Specifies the total count of covalent bonds within the simulation system whose lengths are fixed using a constraint algorithm (like SHAKE or LINCS). This is commonly done for bonds involving hydrogen atoms to remove the fastest vibrations and allow for larger simulation timesteps. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000322
+name: number of total angles with constraints
+def: "Specifies the total count of bond angles within the simulation system that are subject to geometric constraints, meaning their value is fixed or kept within a very narrow range by a constraint algorithm (like SHAKE or LINCS), often applied to angles involving hydrogen atoms to allow longer timesteps. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000323
+name: number of total dihedrals with constraints
+def: "Specifies the total count of dihedral angles within the simulation system that are subject to geometric constraints, fixing their torsional angle value. While less common than bond or angle constraints, dihedral constraints can be used to enforce specific conformations. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000324
+name: number of total unique bond types
+def: "Specifies the count of distinct covalent bond types defined in the force field parameter file(s) used for the simulation. Each unique type (e.g., C-CA, N-H) has associated parameters defining its equilibrium length and stiffness. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000325
+name: number of total unique angle types
+def: "Specifies the count of distinct bond angle types defined in the force field parameter file(s) used for the simulation. Each unique type (e.g., C-N-CA, CA-C-O) has associated parameters defining its equilibrium value and stiffness. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000326
+name: number of total unique dihedral types
+def: "Specifies the count of distinct dihedral angle types defined in the force field parameter file(s) used for the simulation. Each unique type (e.g., C-CA-N-C, O-C-N-CA) has associated parameters defining its periodicity, phase shift, and barrier height for rotation. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000327
+name: number of total atom types in the parameter file
+def: "Specifies the total number of distinct atom types defined in the force field parameter file(s) used for the simulation. Each atom type has associated parameters (charge, VdW radius, etc.) that determine its interaction properties. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000328
+name: number of total distinct hydrogen bond pair types
+def: "Specifies the count of unique categories or types of hydrogen bonds observed or defined in the simulation, classified based on the chemical nature of the donor and acceptor atoms or groups (e.g., backbone-backbone, sidechain-water, basepair N-H...O). The exact classification scheme would depend on the analysis method. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000329
+name: perturbation flag
+def: "A setting or indicator, likely boolean (true/false) or categorical, specifying whether a simulation involves an alchemical perturbation or transformation (e.g., for free energy calculations) or if it is a standard simulation of a fixed chemical system. (UNVERIFIED). Perturbation flag (0 = no perturbation information present)." []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000330
+name: number of total perturbed dihedrals
+def: "In alchemical free energy calculations, this counts the total number of dihedral angles affected by the transformation, meaning at least one atom in the dihedral definition belongs to the perturbed group. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000331
+name: number of total bonds with all atoms in the perturbed group
+def: "In alchemical free energy calculations, this counts the number of covalent bonds where both bonded atoms belong to the group being chemically transformed (the perturbed group). (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000332
+name: number of total angles with all atoms in perturbed groups
+def: "In alchemical free energy calculations, this counts the number of bond angles where all three atoms forming the angle belong to the group of atoms being chemically transformed (the perturbed group). This count can be relevant for analyzing or setting up the transformation. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000333
+name: number of total dihedrals with all atoms in perturbed groups
+def: "In alchemical free energy calculations, this counts the number of dihedral angles where all four atoms defining the angle belong to the group being chemically transformed (the perturbed group). (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
 id: MOLSIM:000334
 name: fit color Tversky
 def: "A similarity measure that specifically compares the chemical features and atom types between molecules, focusing on their functional groups and chemical properties rather than their shape. This measure evaluates the similarity of atomic properties and chemical functionalities between molecules, making it valuable for identifying compounds with similar chemical behavior. It complements shape-based similarity measures in molecular comparison workflows." []
 is_a: MOLSIM:000076 ! Tversky index
+
+[Term]
+id: MOLSIM:000335
+name: number of total atoms in the largest residue
+def: "Specifies the count of atoms belonging to the single largest residue (in terms of atom count) within the simulation system. A residue is typically an amino acid in a protein or a nucleotide in a nucleic acid. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000336
+name: software  characteristics
+def: "A category for properties describing the software used to perform the simulation or analysis. This typically includes information like the software name and version number. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000337
+name: number of extra points
+def: "Specifies the count of 'extra points' used in the molecular model, which are massless virtual sites used in some force fields to improve the representation of charge distribution (e.g., TIP4P water model's M site) or specific interactions. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000338
+name: number of path integral molecular dynamics slices/beads
+def: "In Path Integral Molecular Dynamics (PIMD) simulations, which incorporate nuclear quantum effects, this specifies the number of 'beads' or 'time slices' used to represent each quantum particle as a classical ring polymer. A larger number provides a more accurate quantum description but increases computational cost significantly. (UNVERIFIED)" []
+synonym: "number of PIMD slices/beads" EXACT []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
 
 [Term]
 id: MOLSIM:000339
@@ -10579,7 +10784,14 @@ is_a: MOLSIM:000342 ! correlation analysis
 id: MOLSIM:000342
 name: correlation analysis
 def: "Correlation analysis, in the context of dynamics analysis, involves methods that quantify the statistical relationship between different fluctuating quantities observed in a simulation. This can include measuring how a property correlates with itself over time (autocorrelation) or how two different properties fluctuate together or in opposition (cross-correlation). These analyses reveal connections and timescales in molecular motions. (UNVERIFIED)" []
+is_a: MOLSIM:000026 ! analysis method*
 is_a: MOLSIM:000110 ! statistical method
+
+[Term]
+id: MOLSIM:000343
+name: grid spacing value
+def: "Defines the physical distance between adjacent points in a 3D grid used for spatial analysis of simulation data (e.g., calculating density maps or electrostatic potentials). Smaller spacing yields a higher resolution grid but increases computational cost for grid-based calculations. (UNVERIFIED)" []
+is_a: MOLSIM:000489 ! CPPTRAJ characteristics
 
 [Term]
 id: MOLSIM:000344
@@ -10619,6 +10831,13 @@ def: "Resampling methods are statistical techniques that involve repeatedly draw
 is_a: MOLSIM:000110 ! statistical method
 
 [Term]
+id: MOLSIM:000350
+name: root mean square deviation cutoff value
+def: "A threshold value based on Root Mean Square Deviation (RMSD), which measures the average distance between corresponding atoms in two superimposed molecular structures. This cutoff is often used in analysis, for example, to define membership in a structural cluster or to select conformations based on their similarity to a reference structure. (UNVERIFIED)" []
+synonym: "RMSD cutoff" EXACT []
+is_a: MOLSIM:000140 ! analysis and visualization characteristics
+
+[Term]
 id: MOLSIM:000351
 name: similarity and divergence measures
 def: "Similarity and divergence measures are mathematical quantities used to compare two probability distributions, datasets, or sequences, quantifying how similar or different they are. Similarity measures indicate closeness (higher values mean more similar), while divergence measures quantify the difference or 'distance' between them (higher values mean more different). These are used in various fields including information theory, statistics, and bioinformatics (e.g., comparing conformational ensembles). (UNVERIFIED)" []
@@ -10655,11 +10874,469 @@ def: "This term likely refers to TI-based free energy estimation strategies that
 is_a: MOLSIM:000298 ! thermodynamic integration extrapolation approach
 
 [Term]
+id: MOLSIM:000357
+name: p-value threshold
+def: "The predetermined cutoff value (significance level, alpha) used in statistical hypothesis testing related to simulation results. If the calculated probability (p-value) of observing a result (or a more extreme one) under a null hypothesis is below this threshold (e.g., 0.05), the result is typically deemed statistically significant. (UNVERIFIED)" []
+is_a: MOLSIM:000140 ! analysis and visualization characteristics
+
+[Term]
+id: MOLSIM:000358
+name: coefficient of determination value
+def: "A statistical measure (commonly R²) quantifying how well one set of data (e.g., calculated values) predicts another (e.g., experimental values or another simulation property). It ranges from 0 to 1, where 1 indicates a perfect linear relationship or prediction. In simulations, it often assesses model accuracy or correlation between variables. (UNVERIFIED)" []
+is_a: MOLSIM:000140 ! analysis and visualization characteristics
+
+[Term]
+id: MOLSIM:000359
+name: bootstrapped confidence interval percentage
+def: "Specifies the confidence level (e.g., 95%) for a statistical range calculated using the bootstrap resampling method on simulation data. This percentage indicates the estimated probability that the true value of the analyzed property lies within the calculated interval. It assesses the statistical reliability of the result based on the observed data variation." []
+is_a: MOLSIM:000140 ! analysis and visualization characteristics
+
+[Term]
+id: MOLSIM:000360
+name: number of bootstrap replications
+def: "Specifies the total number of times the original simulation data is randomly resampled (with replacement) during a bootstrap analysis. This resampling process is used to estimate the statistical uncertainty (e.g., confidence interval) of a calculated property. A higher number of replications generally improves the stability and reliability of the uncertainty estimate. (UNVERIFIED)" []
+is_a: MOLSIM:000140 ! analysis and visualization characteristics
+
+[Term]
+id: MOLSIM:000361
+name: confidence interval characteristics
+def: "A sub-category grouping parameters that define how statistical confidence intervals (ranges estimating the uncertainty of a result) are calculated or characterized. This includes settings for specific analysis tools or methods used to quantify the reliability of simulation results. (UNVERIFIED)" []
+is_a: MOLSIM:000140 ! analysis and visualization characteristics
+
+[Term]
+id: MOLSIM:000362
+name: molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics
+def: "A category grouping parameters and results associated with the MM/PBSA and MM/GBSA endpoint methods for estimating free energies. These methods combine energies calculated using a molecular mechanics force field with solvation free energies estimated using either the Poisson-Boltzmann (PB) or Generalized Born (GB) continuum solvent models, plus a surface area term for nonpolar contributions. (UNVERIFIED)" []
+synonym: "MMPBSA/MMGBSA properties" EXACT []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000363
+name: membrane dielectric constant
+def: "The dimensionless dielectric constant value assigned to the region representing a lipid membrane within continuum solvation models (e.g., PB, GB) when simulating membrane-associated systems. This value is typically low and non-uniform (e.g., ~2 for the core, higher near headgroups) to reflect the hydrophobic nature and structure of the membrane. (UNVERIFIED)" []
+is_a: MOLSIM:000362 ! molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics
+
+[Term]
+id: MOLSIM:000364
+name: free energy calculation characteristics
+def: "A category grouping parameters, methods, and results related to computing free energy differences for processes like binding, solvation, or conformational changes. Free energy combines enthalpy and entropy and determines the spontaneity and equilibrium of these processes. These properties are key for predicting affinities and stabilities. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000365
+name: number of snapshots
+def: "The total number of discrete molecular configurations (frames or snapshots saved at different time points from a simulation trajectory) that were used as input for the free energy calculation or subsequent analysis (e.g., for averaging energies in MM/PBSA or processing in BAR/MBAR). (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000366
+name: difference in minimized energy value
+def: "The difference in potential energy between two states (e.g., bound vs. unbound) after both systems have been structurally optimized to their nearest local energy minimum using energy minimization techniques. This represents an enthalpic difference at 0 Kelvin and ignores entropic and thermal effects, sometimes used as a very approximate binding estimate. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000368
+name: number of ligands
+def: "Specifies the total count of ligand molecules present in the simulation system or included in the analysis set. This could refer to multiple copies of the same ligand type or several distinct ligand molecules being studied simultaneously or sequentially. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000369
+name: number of charged ligands
+def: "Specifies the total count of ligand molecules within the simulation system or dataset that carry a net non-zero formal electrical charge (positive or negative). This can be relevant for system charge neutralization, electrostatic calculations, and buffer modeling. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000370
+name: structure extraction interval
+def: "Specifies the frequency (e.g., every N steps or ps) at which molecular structures (conformations) were selected or extracted from a simulation trajectory for use in specific post-processing analyses, such as endpoint free energy calculations (MM/PBSA) or clustering. This interval might differ from the frequency used for saving the full trajectory. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000371
+name: sampling frequency interval value
+def: "The time duration between consecutive simulation configurations (snapshots) being saved to the trajectory file or selected for inclusion in the free energy analysis dataset. This parameter determines the time resolution of the data used for calculating ensemble averages or integrals. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000372
+name: binding free energy value
+def: "The change in Gibbs free energy (ΔG) when two or more molecules associate (bind) in solution, typically a ligand binding to a receptor. It measures the binding affinity, with more negative values indicating stronger, more favorable binding. This is a key thermodynamic quantity predicted by simulations to understand molecular recognition. ΔG(binding) is the binding free energy, calculated by: ΔG(binding) = G(complex) - [G(receptor) + G(ligand)].  (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000373
+name: free energy value of protein-ligand complex
+def: "The calculated Gibbs free energy of the bound state, where the ligand is associated with the protein (or other receptor), usually in solution. This represents the G_complex term in the thermodynamic cycle for calculating binding free energy. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000374
+name: free energy value of receptor protein
+def: "The calculated Gibbs free energy of the receptor molecule (e.g., protein) in its relevant reference state, usually solvated and unbound. This represents the G_receptor term in the thermodynamic cycle for calculating binding free energy. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000375
+name: free energy value of ligand
+def: "The calculated Gibbs free energy of the ligand molecule in its relevant reference state, usually solvated and unbound. This value is a necessary component within a thermodynamic cycle used to compute the binding free energy (ΔG_bind = G_complex - G_receptor - G_ligand)." []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000376
+name: binding free energy estimation value
+def: "Estimated binding free energy (ΔG) is estimated multiple linear regression, estimated by ΔG = α * ΔE(vdW) + β * ΔE(ele) + γ." []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000377
+name: relative binding free energy value
+def: "The difference in binding free energy (ΔΔG) between two related binding processes, most commonly comparing two different ligands binding to the same receptor. It quantifies the change in binding affinity due to the modification transforming one ligand into the other, typically calculated using alchemical methods like FEP or TI. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000378
+name: solvation-free energy value of ligand
+def: "The calculated solvation free energy (ΔG_solv) specifically for the ligand molecule being studied. This value is often required as part of a thermodynamic cycle to determine binding free energy, particularly when using implicit solvent models or comparing states with different solvation contributions. (UNVERIFIED)" []
+is_a: MOLSIM:000679 ! solvation-free energy characteristics
+
+[Term]
+id: MOLSIM:000379
+name: thermodynamic integration time constraint value
+def: "Specifies the duration of simulation time (e.g., in picoseconds or nanoseconds) performed for each individual intermediate state (lambda window) within a Thermodynamic Integration (TI) calculation. Sufficient simulation time per window is required to achieve adequate sampling and convergence of the ensemble average of ∂H/∂λ. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000380
+name: number of lambda values for thermodynamic integration validation
+def: "Specifies the total number of discrete intermediate states (windows) simulated along the alchemical pathway defined by the coupling parameter lambda (λ) in a Thermodynamic Integration (TI) free energy calculation. More lambda values generally improve the numerical accuracy of integrating ∂H/∂λ but increase computational cost. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000381
+name: thermodynamic integration lambda values
+def: "Specifies the actual list or set of numerical values for the coupling parameter lambda (λ), typically ranging from 0 to 1, that define the discrete intermediate states simulated in a Thermodynamic Integration (TI) free energy calculation. The choice and distribution (spacing) of these lambda values affect the accuracy of the numerical integration. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000382
+name: number of validated ligand transformations
+def: "In relative binding free energy calculations involving alchemical transformations between multiple ligands, this property counts how many of these individual transformations successfully passed predefined validation checks (e.g., consistency between forward and backward runs, statistical error estimates, cycle closure analysis). (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000384
+name: Bennett acceptance ratio and multi-state Bennett acceptance ratio temperature value
+def: "The absolute temperature (usually in Kelvin) at which the free energy calculation was performed using the Bennett Acceptance Ratio (BAR) or Multi-state BAR (MBAR) methods. Temperature is a crucial thermodynamic variable that directly influences the calculated free energy difference. (UNVERIFIED)" []
+synonym: "BAR and MBAR temperature" EXACT []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000385
+name: electrostatic energy contribution value
+def: "The specific portion of a total calculated energy or free energy difference that is attributed to electrostatic interactions. This term is often reported in energy decomposition analyses or as a component in methods like MM/PBSA, quantifying the role of charge-based forces in the overall energetics. (UNVERIFIED)" []
+is_a: MOLSIM:000680 ! electrostatic characteristics
+
+[Term]
+id: MOLSIM:000386
+name: Van der Waals energy contribution value
+def: "The specific portion of a total calculated energy or free energy difference that is attributed to Van der Waals interactions. This term is often reported in energy decomposition analyses or as a component in methods like MM/PBSA, quantifying the role of non-bonded steric and dispersion forces. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000387
+name: error in delta G value
+def: "The estimated statistical uncertainty or error associated with a calculated free energy difference (ΔG). This value quantifies the precision of the free energy prediction and is typically derived from the variance observed in the simulation data using methods like block averaging, bootstrap analysis, or analytical estimates from BAR/MBAR. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000388
+name: largest error  value found in a data set
+def: "When comparing a set of calculated free energy values (e.g., for multiple ligands) against corresponding experimental or benchmark data, this property reports the magnitude of the single largest absolute difference (error) observed within that set. It indicates the worst-performing prediction for that specific dataset and methodology. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000389
+name: effective binding energies value
+def: "Estimates of binding strength calculated using computationally cheaper, approximate methods, such as MM/PBSA or MM/GBSA (endpoint methods). These methods typically combine molecular mechanics energies with implicit solvation models and may neglect or approximate entropic contributions, providing a faster but potentially less accurate alternative to rigorous free energy simulations. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000390
+name: linear interaction energy binding free energy  value
+def: "An estimate of the binding free energy obtained using the Linear Interaction Energy (LIE) method. LIE typically models ΔG_bind as a linear combination of the average change in the ligand's electrostatic and Van der Waals interaction energies with its surroundings upon moving from the unbound (solvent) to the bound (receptor) state, using empirically fitted coefficients. (UNVERIFIED)" []
+synonym: "LIE binding free energy" EXACT []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000391
+name: relative binding free energy from thermodynamic integration value
+def: "A relative binding free energy value (ΔΔG) obtained using the Thermodynamic Integration (TI) method that has specifically been subjected to and passed validation procedures. Validation might involve assessing the smoothness of the integrand (∂H/∂λ), checking hysteresis between forward (0->1) and backward (1->0) transformations, or ensuring consistency in thermodynamic cycles. (UNVERIFIED) Note: Definition assumes validation passed. Could also store status." []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000392
+name: uncertainty value in the calculated change in binding free energy
+def: "The estimated statistical error or uncertainty associated specifically with a calculated binding free energy difference, either absolute (ΔG_bind) or relative (ΔΔG_bind). This quantifies the precision of the binding affinity prediction and is conceptually the same as 'error in delta G' but applied specifically to binding. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000393
+name: Van der Waals energy change value
+def: "The difference in the Van der Waals (VdW) interaction energy component between the final and initial states of a simulated process (e.g., binding). This term accounts for short-range repulsive (steric) and attractive (dispersion) forces, calculated using the parameters defined in the molecular mechanics force field (e.g., Lennard-Jones potential). (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000394
+name: electrostatic energy change value
+def: "The difference in the electrostatic interaction energy component between the final and initial states of a simulated process (e.g., ligand binding). This value quantifies how the electrostatic interactions within the system and with its environment change during the process, calculated using methods like MM or continuum electrostatics. (UNVERIFIED)" []
+is_a: MOLSIM:000680 ! electrostatic characteristics
+
+[Term]
+id: MOLSIM:000395
+name: Van der Waals energy change scaling factor
+def: "An empirical numerical factor used to multiply the calculated change in Van der Waals interaction energy, often applied in methods like the Linear Interaction Energy (LIE) model. Similar to the electrostatic scaling factor, it aims to implicitly capture effects not fully represented by the simple VdW term, improving agreement with experimental free energies. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000396
+name: electrostatic energy change scaling factor
+def: "An empirical numerical factor used to multiply the calculated change in electrostatic interaction energy, often applied in methods like Linear Interaction Energy (LIE). This scaling aims to implicitly account for effects like solvent polarization or dielectric screening that are not fully captured by the underlying electrostatic model. (UNVERIFIED)" []
+is_a: MOLSIM:000680 ! electrostatic characteristics
+
+[Term]
+id: MOLSIM:000397
+name: binding free energy estimation constant term value
+def: "A fixed numerical value added during the calculation or estimation of a binding free energy. This term might represent analytical corrections (e.g., for standard state concentration changes), contributions from simplified model components, or empirical adjustments specific to the calculation protocol used. (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000398
+name: steered molecular dynamics  characteristics
+def: "A category for parameters and results related to Steered Molecular Dynamics (SMD) simulations. SMD applies external forces to pull parts of the system along a specific path (reaction coordinate) to study processes like unfolding or unbinding. These properties define the steering protocol and outcomes. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000399
+name: atom pulling velocity
+def: "The constant speed at which the steered coordinate (e.g., distance between two atoms or groups) is changed or pulled during a constant-velocity SMD simulation. (UNVERIFIED)" []
+is_a: MOLSIM:000398 ! steered molecular dynamics  characteristics
+
+[Term]
+id: MOLSIM:000401
+name: force constant
+def: "In constant-force SMD, this specifies the magnitude of the external force applied to the steered atoms or coordinate. In constant-velocity SMD, it refers to the stiffness (force constant) of the harmonic potential used to pull the system along the reaction coordinate at the target velocity. (UNVERIFIED)" []
+is_a: MOLSIM:000398 ! steered molecular dynamics  characteristics
+is_a: MOLSIM:000416 ! thermalization and equilibration  characteristics
+
+[Term]
+id: MOLSIM:000402
+name: number of stages
+def: "Specifies the total number of distinct stages or windows used in a staged SMD simulation protocol, where the pulling might occur incrementally or parameters might change between stages. (UNVERIFIED)" []
+is_a: MOLSIM:000398 ! steered molecular dynamics  characteristics
+
+[Term]
+id: MOLSIM:000403
+name: number of replicas per stage
+def: "In staged SMD protocols or related methods (like umbrella sampling along an SMD path), this specifies the number of independent simulation replicas run for each stage or window along the reaction coordinate. (UNVERIFIED)" []
+is_a: MOLSIM:000398 ! steered molecular dynamics  characteristics
+
+[Term]
+id: MOLSIM:000404
+name: simulation time per stage
+def: "The duration of simulation time allocated for each individual stage or window in a staged SMD protocol. (UNVERIFIED)" []
+is_a: MOLSIM:000398 ! steered molecular dynamics  characteristics
+
+[Term]
+id: MOLSIM:000405
+name: umbrella sampling  characteristics
+def: "A category for parameters and results related to Umbrella Sampling simulations, a technique used to enhance sampling along a specific coordinate (e.g., distance between molecules) for free energy calculations. It uses biasing potentials (umbrellas) to sample high-energy regions. These properties define the sampling setup and analysis. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000406
+name: umbrella sampling equilibration time
+def: "Umbrella sampling equilibration time signifies the period allowed for each sampling window to reach equilibrium before collecting data for analysis. This is done to ensure that the system in each window has adapted to the applied biasing potential and reached a stable state before data collection begins. This allows the system to equilibrate under the influence of the specific biasing potential applied in that window. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000407
+name: umbrella sampling distribution overlap value
+def: "Umbrella sampling distribution overlap  is the extent to which the probability distributions or histograms from adjacent sampling windows in an umbrella sampling simulation share common regions along the reaction coordinate, i.e., the degree of commonality between the sampled regions of neighboring windows in umbrella sampling simulations. Sufficient overlap is crucial for accurately reconstructing the unbiased free energy profile using methods like WHAM or MBAR. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000408
+name: potential mean force convergence step size
+def: "Specifies the increment or step size (e.g., in simulation time or number of data points) used when assessing the convergence of the calculated Potential of Mean Force (PMF) during the analysis of umbrella sampling data. Convergence is checked by comparing PMFs calculated using progressively larger amounts of data. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000409
+name: umbrella sampling record time
+def: "Umbrella sampling record time is the frequency of the values recording along the reaction coordinate. It is the total duration of simulation time, after equilibration, for which data was collected (recorded) in each individual umbrella sampling window for use in the final free energy profile calculation. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000410
+name: error interval value
+def: "Defines the range or interval (e.g., confidence interval percentage like 95%) associated with the reported statistical error for quantities derived from umbrella sampling, such as the potential of mean force. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000411
+name: error frequency value
+def: "Specifies the frequency (e.g., every N steps or ps) at which statistical error estimates (e.g., for the potential of mean force) are calculated or updated during the analysis phase (e.g., WHAM) of umbrella sampling data. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000412
+name: umbrella sampling force constant
+def: "The strength (force constant) of the harmonic (or other) biasing potential applied in each umbrella sampling window. This force constant determines how strongly the system is restrained around the target value of the reaction coordinate for that window. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000413
+name: umbrella sampling reaction coordinate distance
+def: "Umbrella sampling reaction coordinate is the distance component in the x,y,z used for applying the initial pulling force, and used for the sampling window extraction. It defines the specific geometric variable or collective variable along which the umbrella sampling is performed, synonymous with reaction coordinate defined under SMD.  (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000414
+name: number of umbrella sampling windows
+def: "Specifies the total number of individual simulations (windows) performed in an umbrella sampling calculation, each typically centered at a different value along the reaction coordinate and applying a biasing potential. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000415
+name: umbrella sampling recording interval
+def: "Umbrella sampling recording interval indicates  time interval between successive recordings of the system's configuration or properties during an umbrella sampling simulation. It is the time interval between saving consecutive data points (e.g., reaction coordinate value, forces) during the production phase of each umbrella sampling window. (UNVERIFIED)" []
+is_a: MOLSIM:000405 ! umbrella sampling  characteristics
+
+[Term]
+id: MOLSIM:000416
+name: thermalization and equilibration  characteristics
+def: "A category encompassing parameters and settings used during the initial phases of a simulation designed to bring the system to the desired temperature and pressure (thermalization) and allow it to relax into a stable state (equilibration). These steps prepare the system for the main production simulation run. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000417
+name: simulation time
+def: "The total duration of simulation time allocated specifically for the thermalization (heating) and/or equilibration phases before the main production run begins. Sufficient time must be allowed for the system to reach thermal and structural equilibrium. (UNVERIFIED)" []
+is_a: MOLSIM:000416 ! thermalization and equilibration  characteristics
+
+[Term]
+id: MOLSIM:000418
+name: heated temperature value
+def: "The target temperature value used during the heating phase of simulation preparation, where the system temperature is gradually increased from its initial value (often 0 K after minimization) to the final target temperature for the production run. (UNVERIFIED)" []
+is_a: MOLSIM:000416 ! thermalization and equilibration  characteristics
+
+[Term]
+id: MOLSIM:000419
+name: pressure value
+def: "Pressure, in molecular simulation context, is the reference pressure (in units of bars, where 1 bar ≈ 0.987 atm) at which the system is maintained. The target pressure value (usually in bar or atm) that the simulation system is intended to maintain during equilibration and production dynamics, controlled via a barostat algorithm (pressure coupling). This is relevant for simulations run in the NPT (constant particle number, pressure, temperature) ensemble. (UNVERIFIED)" []
+is_a: MOLSIM:000416 ! thermalization and equilibration  characteristics
+
+[Term]
+id: MOLSIM:000420
+name: minimization  characteristics
+def: "A category for parameters and settings controlling the energy minimization process applied to a molecular system. Minimization aims to find a stable, low-energy conformation by adjusting atomic coordinates to reduce forces. These properties define how the minimization algorithm operates. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000421
+name: restraint weight value
+def: "The numerical value specifying the strength (force constant) of the harmonic or other potential function used to apply positional or conformational restraints. A higher weight means a stronger force pulling the restrained atoms towards their target values or positions. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000422
+name: restraint mask value
+def: "A specification (often text-based or using atom indices) defining which atoms or groups of atoms within the simulation system are subject to positional or conformational restraints during minimization or dynamics. Restraints apply forces to keep selected atoms close to reference positions or maintain specific geometric features. (UNVERIFIED)" []
+synonym: "restrained elements" EXACT []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000423
+name: simulation preparation characteristics
+def: "A sub-category grouping parameters specifically related to the preparation stages before the main production simulation run, which might include minimization, heating, and equilibration steps designed to ready the system. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000424
+name: collision frequency
+def: "Collision frequency is the rate of collisions between two atomic or molecular species in a given volume, per unit time (ps⁻¹). It is a parameter used in certain thermostat algorithms (like Langevin dynamics, often used during minimization or equilibration) that controls the strength of coupling to the heat bath. It represents the effective frequency with which particles randomly collide with fictitious bath particles, influencing the rate of temperature relaxation and sampling efficiency. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000425
+name: target temperature value
+def: "The desired temperature (usually in Kelvin) that the simulation system is intended to reach and maintain during minimization (if using temperature-coupled methods like Langevin), equilibration, or production dynamics, controlled via a thermostat algorithm. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000426
+name: coupling constant
+def: "A general term for a parameter that controls the strength of coupling between the simulated system and an external bath, used in thermostat (temperature control) or barostat (pressure control) algorithms. The specific meaning depends on the algorithm used (e.g., Berendsen, Nosé-Hoover). (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000427
+name: center of mass move removal value
+def: "Specifies the frequency (e.g., every N steps) at which the overall translational motion of the system's center of mass is removed during minimization or dynamics. This prevents the entire system from drifting spuriously due to accumulated numerical errors, keeping it centered in the simulation box. (UNVERIFIED)" []
+synonym: "COM move removal" EXACT []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000428
+name: number of ligand conformers
+def: "Specifies the total count of different spatial arrangements (conformations) of the ligand molecule(s) that are being considered or were generated during the simulation or analysis process (e.g., during docking, minimization of multiple starting poses, or clustering). (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000429
+name: time step value
+def: "The discrete interval of time (typically in femtoseconds, fs) used to integrate the equations of motion in a molecular dynamics simulation. Choosing an appropriate time step is crucial for numerical stability (must be short enough to capture fastest motions) and computational efficiency (longer steps cover more simulation time). (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000430
+name: shell radius
+def: "Shell radius is the radial distance from a central atom or molecule used to create a spherical shell (different size layers defined by an inner and outer radius around a reference point or particle) for analyzing neighboring particles or structural properties). It defines the radius of a spherical shell or layer, often used in specific simulation setups like QM/MM calculations (defining the QM region boundary) or simulations involving a sphere of explicit solvent around a solute. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000431
+name: run repetitions
+def: "Specifies the number of times a particular simulation stage (like minimization or a short equilibration) is repeated, potentially with variations or from slightly different starting points. This could be used for automated protocols or exploring local conformational space. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
 id: MOLSIM:000432
 name: quantum mechanics basis set
 def: "A set of mathematical functions, often resembling atomic orbitals, used in quantum chemical calculations to represent the spatial distribution of electrons within a molecule (molecular orbitals). The choice and size of the basis set significantly impact the accuracy and computational cost of a simulation; larger, more flexible basis sets generally yield more accurate results but require more computer resources. These functions serve as the building blocks for constructing the calculated electronic wavefunction (UNVERIFIED)." []
 is_a: MOLSIM:000173 ! quantum mechanics
 disjoint_from: MOLSIM:000827 ! Moeller-Plesset
+
+[Term]
+id: MOLSIM:000433
+name: free fatty acid concentration value
+def: "Specifies the concentration of free (unesterified) fatty acid molecules included in the simulation system, potentially relevant in membrane simulations or studies involving lipid metabolism or signaling. (UNVERIFIED)" []
+synonym: "FFA concentration" EXACT []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000434
+name: probe radius
+def: "The radius of a spherical probe (typically representing a solvent molecule, often water with radius ~1.4 Å) used in algorithms for calculating solvent-accessible surface area (SASA) or related geometric properties. This parameter defines the size of the 'solvent' rolling over the molecule's surface. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000435
+name: termini capping flag
+def: "Indicates whether the terminal ends (N-terminus and C-terminus) of protein chains or nucleic acid strands in the simulation were chemically modified ('capped'). Common caps include acetyl (ACE) for the N-terminus and N-methylamide (NME) for the C-terminus, used to mimic the peptide bond environment found internally in a longer chain and neutralize the termini charges. Likely a boolean or categorical flag. (UNVERIFIED). CAP flag (0 = no capping of termini, 1 = termini capped)." []
+synonym: "CAP flag" EXACT []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
 
 [Term]
 id: MOLSIM:000436
@@ -10708,7 +11385,6 @@ is_a: MOLSIM:000436 ! data format
 id: MOLSIM:000443
 name: protein structure
 def: "Protein structure formats are specifically designed to represent the complex three-dimensional structures of large biological macromolecules like proteins and nucleic acids. They typically accommodate hierarchical descriptions (chains, residues, atoms), store atomic coordinates, and may include associated experimental data or annotations (like secondary structure). Common examples are the PDB and mmCIF formats. (UNVERIFIED)" []
-def: "Protein structure is a protein 3D atom coordinates file coming from a structure prediction job, cryo-EM microscopy or X-ray." []
 is_a: MOLSIM:000904 ! molecular structure
 
 [Term]
@@ -10721,7 +11397,6 @@ disjoint_from: MOLSIM:000469 ! Amber molecular dynamics input
 [Term]
 id: MOLSIM:000445
 name: mmCIF structure
-def: "A file format for representing macro-molecular structure data. It's more detailed and flexible than the older PDB format." []
 def: "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)" []
 is_a: MOLSIM:000443 ! protein structure
 disjoint_from: MOLSIM:000446 ! PDB structure
@@ -10742,6 +11417,66 @@ id: MOLSIM:000448
 name: protein database ID
 def: "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information. They ensure researchers worldwide can unambiguously refer to the same molecular data. (UNVERIFIED)" []
 is_a: MOLSIM:000447 ! identifier
+
+[Term]
+id: MOLSIM:000449
+name: version number
+def: "Indicates the specific version of a software or method used. It's important for reproducibility and comparing results across studies." []
+is_a: MOLSIM:000336 ! software  characteristics
+
+[Term]
+id: MOLSIM:000450
+name: pH value
+def: "Specifies the pH value (a measure of acidity/alkalinity) of the solution being simulated or the target pH maintained during a constant-pH simulation. The pH affects the protonation states of titratable residues (like acids and bases) in proteins and ligands. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000451
+name: is using ligand flag
+def: "Indicates whether one or more ligand molecules (typically small molecules binding to a larger macromolecule like a protein or nucleic acid) are present in the simulation system. Likely a boolean (true/false) flag. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000452
+name: lipid ratio
+def: "Specifies the numerical ratio between different types of lipid molecules present in a simulated membrane, or potentially the ratio of lipids to protein. This quantifies the relative abundance defining the membrane composition. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000453
+name: lipid composition
+def: "Describes the types and relative amounts of different lipid molecules used to construct the membrane in a trans-membrane simulation. This could be a textual description or potentially link to specific lipid types and their counts/ratios. Note: This might be better modeled using Object Properties linking the simulation to Lipid entities and specifying their counts or ratios. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000454
+name: is salt used flag
+def: "Indicates whether salt ions (e.g., Na+, Cl-) were added to the simulation system, typically to neutralize the net charge of the solute molecules and/or to mimic a specific ionic strength of the experimental buffer. A boolean (true/false) flag. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000455
+name: salt concentration value
+def: "Specifies the molar concentration (e.g., in Molarity, mol/L) of the salt ions (e.g., NaCl, KCl) added to the simulation solvent. This defines the ionic strength of the simulated solution, which affects electrostatic interactions and mimics experimental buffer conditions. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000456
+name: is multiple conformations flag
+def: "Indicates whether the input structure for minimization (or simulation) contained multiple distinct conformations or locations for some atoms or residues (e.g., alternate locations in PDB files). This flag might determine how these multiple starting points are handled. Likely a boolean (true/false) flag. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000457
+name: hyperbolic constraint values
+def: "Refers to specific numerical parameters used when applying hyperbolic potential functions as constraints or restraints in a simulation. These types of restraints can be used, for example, to keep distances or other collective variables within certain bounds, often employed in enhanced sampling methods. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000458
+name: cutoff characteristics
+def: "A category grouping different distance thresholds used in simulations to limit the range over which certain interactions (like non-bonded forces or neighbor list calculations) are explicitly computed. Using cutoffs speeds up calculations by ignoring interactions between distant atoms. The specific type of cutoff is defined by child properties. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
 
 [Term]
 id: MOLSIM:000459
@@ -10795,6 +11530,12 @@ name: orientations of proteins in membranes
 def: "OPM database (Orientations of Proteins in Membranes) is both a database and a web server/tool providing pre-calculated transmembrane orientations and positions for experimentally determined membrane protein structures found in the PDB. OPM uses a computational approach based on minimizing the calculated transfer free energy from water to the lipid bilayer to determine the most likely membrane boundaries and protein position relative to the bilayer center. It's a valuable resource for obtaining initial membrane protein placements for simulations. (UNVERIFIED)" []
 synonym: "OPM" EXACT []
 is_a: MOLSIM:000227 ! membrane protein orientation tool
+
+[Term]
+id: MOLSIM:000467
+name: energy cutoff value
+def: "A threshold related to energy values, potentially used in specific algorithms or analyses. Its exact meaning depends heavily on the context (e.g., a cutoff for accepting Monte Carlo moves, a threshold for defining hydrogen bonds based on energy, or a parameter in QM calculations like plane-wave cutoff). Note: Definition is uncertain without more context. (UNVERIFIED)" []
+is_a: MOLSIM:000458 ! cutoff characteristics
 
 [Term]
 id: MOLSIM:000468
@@ -10855,6 +11596,58 @@ def: "A specific, widely used 3-point water model type characterized by its simp
 is_a: MOLSIM:000030 ! water type
 
 [Term]
+id: MOLSIM:000477
+name: velocity cutoff value
+def: "A maximum allowed speed for any atom during certain simulation procedures, potentially used during initial velocity assignment or specific thermostatting methods to prevent instabilities caused by excessively high kinetic energies. Note: Less common in standard MD, definition might depend on specific context. (UNVERIFIED)" []
+is_a: MOLSIM:000458 ! cutoff characteristics
+
+[Term]
+id: MOLSIM:000478
+name: distance cutoff value
+def: "The specific distance threshold beyond which non-bonded interactions (like Van der Waals and direct-space electrostatics) between pairs of atoms are typically ignored or handled approximately (e.g., using long-range corrections or methods like PME for electrostatics). This is a crucial parameter affecting simulation speed and accuracy. (UNVERIFIED)" []
+is_a: MOLSIM:000458 ! cutoff characteristics
+
+[Term]
+id: MOLSIM:000479
+name: restraint with harmonic potential value
+def: "Indicates that the restraints applied (as defined by the mask and weight) use a harmonic potential function, meaning the restraining energy increases quadratically with the deviation from the target value or position. This is a common type of restraint used in simulations. Likely a boolean flag or implied by the presence of a harmonic force constant. (UNVERIFIED)" []
+is_a: MOLSIM:000420 ! minimization  characteristics
+
+[Term]
+id: MOLSIM:000480
+name: number of replicates
+def: "Specifies the number of independent simulation runs performed starting from the same (or similar) initial conditions but typically with different initial velocities. Running replicates helps assess the statistical robustness and convergence of simulation results by sampling different trajectories. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
+id: MOLSIM:000481
+name: is molecular mechanics Poisson-Boltzmann surface area flag
+def: "Indicates whether the specific combination of Poisson-Boltzmann (PB) electrostatics and a Surface Area (SA) dependent nonpolar term was used to calculate the solvation free energy component within an MM/PBSA calculation. This is likely a boolean (true/false) flag distinguishing PB-based calculations from GB-based ones or other variants. (UNVERIFIED)" []
+synonym: "is MMPBSA" EXACT []
+is_a: MOLSIM:000362 ! molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics
+
+[Term]
+id: MOLSIM:000482
+name: is molecular mechanics Poisson-Boltzmann surface area decomposed flag
+def: "Indicates whether the total MM/PBSA energy (or its components) was further broken down into contributions from individual residues, atoms, or interaction types. This decomposition analysis helps identify the key energetic drivers of the process being studied (e.g., which residues contribute most to binding). Likely a boolean (true/false) flag. (UNVERIFIED)" []
+synonym: "is MMPBSA decomposed" EXACT []
+is_a: MOLSIM:000362 ! molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics
+
+[Term]
+id: MOLSIM:000483
+name: is molecular mechanics Poisson-Boltzmann surface area entropy flag
+def: "Indicates whether an estimate of the change in conformational entropy (e.g., calculated via normal mode analysis, quasi-harmonic analysis, or interaction entropy methods on simulation snapshots) was included in the final MM/PBSA free energy value. Standard MM/PBSA often omits or uses simple approximations for this term. Likely a boolean (true/false) flag or the calculated entropy value itself. (UNVERIFIED)" []
+synonym: "is MMPBSA entropy" EXACT []
+is_a: MOLSIM:000362 ! molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics
+
+[Term]
+id: MOLSIM:000484
+name: is adaptive steered molecular dynamics flag
+def: "Indicates whether Adaptive Steered Molecular Dynamics (ASMD) is involved. ASMD is an enhanced sampling technique that builds upon traditional Steered Molecular Dynamics (SMD). ASMD divides the reaction coordinate into multiple segments or stages. Within each stage, multiple SMD simulations are performed." []
+synonym: "is ASMD" EXACT []
+is_a: MOLSIM:000398 ! steered molecular dynamics  characteristics
+
+[Term]
 id: MOLSIM:000485
 name: split-valence
 def: "Split-valence basis sets improve upon minimal basis sets by using two or more basis functions with different spatial extents to represent each valence atomic orbital, while still using a single function for core orbitals. This allows the molecular orbitals to change size and shape more flexibly upon molecule formation, leading to significantly better accuracy than minimal basis sets. Examples include the Pople basis sets (e.g., 3-21G, 6-31G) and correlation-consistent sets. (UNVERIFIED)" []
@@ -10872,6 +11665,18 @@ id: MOLSIM:000487
 name: 4-21G
 def: "The 4-21G basis set is a Pople-style split-valence basis conceptually similar to 3-21G, but it uses a contraction of 4 Gaussian functions to represent core orbitals. Like 3-21G, it uses a two-function split (contracted from 2 Gaussians and 1 Gaussian) for the valence orbitals. It provides basic split-valence flexibility with a slightly different core description than 3-21G. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence
+
+[Term]
+id: MOLSIM:000488
+name: grid function value
+def: "Specifies the mathematical function or algorithm used when calculating properties (like density, electrostatic potential) on a 3D grid representing the simulation space, often within analysis tools like CPPTRAJ. Different functions might be used for averaging, summing, or mapping specific atomic properties onto the grid points. (UNVERIFIED)" []
+is_a: MOLSIM:000489 ! CPPTRAJ characteristics
+
+[Term]
+id: MOLSIM:000489
+name: CPPTRAJ characteristics
+def: "Parameters specifically related to calculations performed using the CPPTRAJ software, a popular tool for analyzing biomolecular simulation trajectories. These settings control how CPPTRAJ performs tasks like clustering, distance calculations, or other analyses relevant to interpreting simulation data, potentially including confidence interval estimation steps. (UNVERIFIED)" []
+is_a: MOLSIM:000140 ! analysis and visualization characteristics
 
 [Term]
 id: MOLSIM:000490
@@ -10929,6 +11734,12 @@ def: "This refers to specific metrics used to quantify how accurately computatio
 is_a: MOLSIM:000348 ! hypothesis testing
 
 [Term]
+id: MOLSIM:000500
+name: is trans-membrane simulation flag
+def: "Indicates whether the simulation system includes a lipid membrane and focuses on processes occurring across or within that membrane (e.g., transport, protein insertion). Likely a boolean (true/false) flag signifying the type of system setup. (UNVERIFIED)" []
+is_a: MOLSIM:000308 ! general simulation setup  characteristics
+
+[Term]
 id: MOLSIM:000501
 name: 4-31G
 def: "The 4-31G basis set is an early Pople-style split-valence basis employing 4 contracted Gaussians for core orbitals. Its valence orbitals are split into two functions: a more flexible inner part contracted from 3 Gaussians and an outer part represented by a single Gaussian function. It was an improvement over minimal sets but is less commonly used now than the 6-31G family. (UNVERIFIED)" []
@@ -10957,6 +11768,18 @@ id: MOLSIM:000506
 name: 6-31G
 def: "The 6-31G basis set is a very popular Pople-style split-valence basis using 6 contracted Gaussians for core orbitals and splitting valence orbitals into two functions (an inner part from 3 Gaussians, an outer part from 1 Gaussian). It provides a robust balance of computational efficiency and accuracy improvement over minimal basis sets. It frequently serves as the base for adding polarization () and/or diffuse (+) functions (e.g., 6-31G). (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence
+
+[Term]
+id: MOLSIM:000509
+name: internal dielectric constant
+def: "The dimensionless value representing the dielectric constant assigned to the interior region occupied by the solute molecule(s) (e.g., protein, ligand) within continuum solvation models (PB/GB). This value is typically low (e.g., 1-4) to reflect the lower polarity and screening capacity inside the molecule compared to the bulk solvent. (UNVERIFIED)" []
+is_a: MOLSIM:000362 ! molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics
+
+[Term]
+id: MOLSIM:000510
+name: external dielectric constant
+def: "The dimensionless value representing the dielectric constant of the bulk solvent environment (e.g., water ≈ 80) used in continuum solvation models like Poisson-Boltzmann (PB) or Generalized Born (GB). This parameter models the solvent's ability to screen electrostatic interactions outside the solute cavity. (UNVERIFIED)" []
+is_a: MOLSIM:000362 ! molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics
 
 [Term]
 id: MOLSIM:000511
@@ -11500,6 +12323,42 @@ def: "A specific computational task within a free energy calculation framework t
 is_a: MOLSIM:000615 ! free energy_
 
 [Term]
+id: MOLSIM:000617
+name: nuclear  characteristics*
+def: "A category related to the properties and behavior of atomic nuclei within the simulation context, particularly relevant for NMR or quantum dynamics studies. This includes magnetic properties influencing NMR signals or forces acting directly on nuclei. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000618
+name: magnetic interactions characteristics*
+def: "A type of nuclear property describing how atomic nuclei interact with magnetic fields, whether externally applied or generated locally by electrons and other nuclei. These interactions form the basis of Nuclear Magnetic Resonance (NMR) spectroscopy, providing detailed information about molecular structure and dynamics. Calculating these interactions computationally helps interpret experimental NMR results. (UNVERIFIED)" []
+is_a: MOLSIM:000617 ! nuclear  characteristics*
+
+[Term]
+id: MOLSIM:000619
+name: NMR shielding and chemical shifts value*
+def: "A specific magnetic interaction property where the electron cloud surrounding a nucleus diminishes (shields) the effect of an external magnetic field experienced by that nucleus, leading to a characteristic frequency (chemical shift) in an NMR spectrum. The chemical shift value is highly sensitive to the nucleus's local electronic and chemical environment, making it a powerful probe of molecular structure. Calculated shielding constants predict chemical shifts, aiding spectral analysis. (UNVERIFIED)" []
+is_a: MOLSIM:000618 ! magnetic interactions characteristics*
+
+[Term]
+id: MOLSIM:000620
+name: NMR spin-spin coupling constants value*
+def: "A magnetic interaction property quantifying the indirect coupling between the spins of two nuclei, transmitted through the intervening bonding electrons (measured as J-coupling). This interaction causes splitting of NMR signals and provides valuable information about covalent bond connectivity, bond angles, and dihedral angles between the coupled nuclei. Calculating J-couplings helps interpret NMR fine structure and confirm molecular constitution and conformation. (UNVERIFIED)" []
+is_a: MOLSIM:000618 ! magnetic interactions characteristics*
+
+[Term]
+id: MOLSIM:000621
+name: nuclear dynamics characteristics*
+def: "A type of nuclear property related to the motion of atomic nuclei, governed by the forces acting upon them. This is the central focus of classical Molecular Dynamics (MD) simulations, where nuclei are treated as classical particles whose trajectories are determined by integrating Newton's equations of motion. Analyzing nuclear dynamics reveals how molecules move, vibrate, and undergo conformational changes over time. (UNVERIFIED)" []
+is_a: MOLSIM:000617 ! nuclear  characteristics*
+
+[Term]
+id: MOLSIM:000622
+name: nuclei forces value*
+def: "The forces acting on individual atomic nuclei within a molecular system, arising from electrostatic interactions with electrons and other nuclei as defined by the system's potential energy function (either from a force field or a quantum mechanical calculation). These forces determine the acceleration of the nuclei and are calculated at each time step in Molecular Dynamics simulations to propagate their trajectories. They are fundamental drivers of all simulated nuclear motion. (UNVERIFIED)" []
+is_a: MOLSIM:000621 ! nuclear dynamics characteristics*
+
+[Term]
 id: MOLSIM:000623
 name: quantum interaction*
 def: "Interactions whose accurate description requires explicitly considering the principles of quantum mechanics, such as electron wave functions, quantization of energy levels, electron exchange and correlation, spin, and tunneling, which are not captured by the classical physics framework underlying standard molecular mechanics force fields. Simulating these interactions typically requires quantum chemical methods (like Density Functional Theory or ab initio methods) or hybrid QM/MM approaches. These are important for modeling chemical reactions (bond breaking/formation), electronic excitations (photochemistry), electron transfer, and some spectroscopic phenomena. (UNVERIFIED)" []
@@ -11525,6 +12384,42 @@ def: "Quantum mechanical phenomena arising from the intrinsic angular momentum (
 is_a: MOLSIM:000623 ! quantum interaction*
 
 [Term]
+id: MOLSIM:000627
+name: base pair parameters*
+def: "A subset of nucleic acid parameters that describe the relative geometry and orientation of the two bases within a single base pair (e.g., A-T, G-C). This includes parameters quantifying non-planarity (buckle, propeller twist) and displacements within the pair (shear, stretch, stagger, opening) relative to an idealized reference frame. They characterize the internal conformation and potential distortions of individual base pairs. (UNVERIFIED)" []
+is_a: MOLSIM:000647 ! nucleic acid  characteristics*
+
+[Term]
+id: MOLSIM:000628
+name: nucleic acid shear value*
+def: "An intra-base pair parameter quantifying the translational displacement of one base relative to the other within the pair, along the axis in the mean base pair plane pointing towards the major groove (y-axis). Shear represents a lateral 'slipping' of bases relative to each other within the pair. Significant shear is observed in alternative base pairings like Hoogsteen pairs. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000629
+name: nucleic acid stretch value*
+def: "An intra-base pair parameter quantifying the translational displacement of the two bases relative to each other along the axis connecting them through the hydrogen bonds (often measured via C1'-C1' distance changes). Stretch measures how much the base pair is pulled apart or compressed relative to its ideal hydrogen bonding distance. It reflects the strength and dynamics of the hydrogen bonds holding the pair together. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000630
+name: electron dynamics characteristics*
+def: "A category for properties related to the time-dependent behavior of electrons within the simulated system, often studied using quantum mechanical methods. This includes processes like excitation, ionization, or electron transfer. Properties here describe the system's propensity for such electronic changes. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000631
+name: electron affinity value*
+def: "The energy change occurring when an electron is added to a neutral atom or molecule to form a negative ion. A positive electron affinity indicates energy is released and the anion is stable. This property, calculated via electronic structure methods, reflects the molecule's ability to accept an electron. (UNVERIFIED)" []
+is_a: MOLSIM:000630 ! electron dynamics characteristics*
+
+[Term]
+id: MOLSIM:000632
+name: ionization potential value*
+def: "The minimum energy required to remove one electron from a neutral atom or molecule (in its gaseous state) to form a positive ion. It quantifies how strongly the outermost electron is bound. This property is calculated using electronic structure methods and indicates the molecule's resistance to losing an electron. (UNVERIFIED)" []
+is_a: MOLSIM:000630 ! electron dynamics characteristics*
+
+[Term]
 id: MOLSIM:000633
 name: surface potential analysis_
 def: "Surface potential analysis involves calculating a potential field, most commonly the electrostatic potential (ESP), and mapping its values onto a defined molecular surface, such as the van der Waals surface or an electron density isosurface. Visualizing the ESP distribution helps identify regions of positive and negative potential on the molecule's exterior. This analysis is widely used to predict sites for electrophilic or nucleophilic attack and understand non-covalent interactions. (UNVERIFIED)" []
@@ -11547,6 +12442,223 @@ id: MOLSIM:000636
 name: anharmonic vibrational corrections_
 def: "A refinement within frequency analysis that goes beyond the standard harmonic approximation (which assumes vibrations occur in a perfectly parabolic potential well) to account for the true, anharmonic shape of the potential energy surface. Calculating these corrections yields more accurate vibrational frequencies that better match experimental observations, particularly for large-amplitude motions or systems with significant vibrational coupling. This improves the quantitative interpretation of vibrational spectra and thermodynamic properties derived from frequencies. (UNVERIFIED)" []
 is_a: MOLSIM:000635 ! frequency analysis_
+
+[Term]
+id: MOLSIM:000637
+name: nucleic acid stagger value*
+def: "An intra-base pair parameter describing the relative translational displacement of the two bases within a pair along the axis perpendicular to the mean base pair plane (z-axis). Stagger quantifies differences in the 'height' of the two bases within the pair relative to each other. It contributes to the overall deviation from base pair planarity. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000638
+name: nucleic acid buckle value*
+def: "An intra-base pair parameter measuring the angle between the planes of the two bases within a pair, representing rotation around the long axis connecting them (roughly parallel to the hydrogen bonds). A non-zero buckle indicates the base pair is not perfectly flat along this axis. Buckle contributes to the overall helix shape and can be influenced by sequence context and binding interactions. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000639
+name: nucleic acid propel value*
+def: "An intra-base pair parameter quantifying the dihedral angle between the planes of the two bases within a pair, representing rotation around the axis connecting the purine N9 / pyrimidine N1 atoms (the short axis within the pair, roughly perpendicular to hydrogen bonds). This 'propeller-like' twist optimizes base stacking with adjacent pairs but can strain hydrogen bonds. It is a key determinant of helix stability and groove dimensions. (UNVERIFIED)" []
+synonym: "propeller twist" EXACT []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000640
+name: nucleic acid opening value*
+def: "An intra-base pair parameter describing the angle related to the separation of the two bases towards the major or minor groove edges, essentially measuring the extent to which the hydrogen bonds are 'opened' or exposed. Large opening angles are associated with transient 'breathing' motions or strand separation. It quantifies the accessibility of base edges normally involved in hydrogen bonding. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000641
+name: nucleic acid shift value*
+def: "An inter-base pair (step) parameter describing the translational displacement between the origins of two successive base pair reference frames along the axis perpendicular to the helix axis and pointing towards the minor groove (x-axis in standard frames). Shift represents the lateral 'sliding' of one base pair relative to the next along this direction. It affects the alignment and stacking interactions between adjacent base pairs. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000642
+name: nucleic acid slide value*
+def: "An inter-base pair (step) parameter describing the translational displacement between the origins of two successive base pair reference frames along the axis perpendicular to the helix axis and pointing towards the major groove (y-axis in standard frames). Slide represents the lateral 'sliding' of one base pair relative to the next along the direction of their long axes. It significantly influences groove widths and DNA bending. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000643
+name: nucleic acid rise value*
+def: "An inter-base pair (step) parameter describing the translational distance between the origins of two successive base pair reference frames, measured along the central helical axis (z-axis). It quantifies the 'rise' or vertical separation per step of the helix. Rise is a primary determinant of the overall length and pitch of the DNA/RNA helix. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000644
+name: nucleic acid tilt value*
+def: "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the axis perpendicular to the helix axis and pointing towards the minor groove (x-axis in standard frames). Tilt represents the 'tilting' of one base pair relative to the next along their short axes. Along with roll, tilt contributes to the overall curvature and bending of the DNA/RNA helix. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000645
+name: nucleic acid roll value*
+def: "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the long axis connecting them (y-axis in standard frames). Roll angle variations cause the helix to bend into the major or minor groove. Sequence-dependent roll angles are crucial for DNA bendability and protein recognition. (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000646
+name: nucleic acid twist value*
+def: "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the central helical axis (z-axis). Twist quantifies the amount of helical rotation occurring between adjacent base pairs. It is the primary determinant of the number of base pairs per helical turn (helix pitch). (UNVERIFIED)" []
+is_a: MOLSIM:000627 ! base pair parameters*
+
+[Term]
+id: MOLSIM:000647
+name: nucleic acid  characteristics*
+def: "A category grouping specific geometric parameters used to describe the structure and conformation of nucleic acids (DNA, RNA). These parameters quantify the relative orientation and displacement of base pairs and backbone segments. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000648
+name: displacement characteristics*
+def: "A category of nucleic acid parameters quantifying the translational position or displacement of a base pair's reference frame (or individual atoms/bases) relative to the global or local helical axis. These parameters measure how far off-axis the base pairs are located. They complement the inter- and intra-pair parameters in fully describing the helix geometry. (UNVERIFIED)" []
+is_a: MOLSIM:000647 ! nucleic acid  characteristics*
+
+[Term]
+id: MOLSIM:000649
+name: nucleic acid x-displacement*
+def: "A specific displacement parameter measuring the translation of a base pair's reference point (e.g., origin) along the local x-axis, typically defined as perpendicular to the helical axis and pointing towards the minor groove. It quantifies the extent to which the base pair is shifted towards or away from the minor groove side relative to the central helical axis. (UNVERIFIED)" []
+is_a: MOLSIM:000648 ! displacement characteristics*
+
+[Term]
+id: MOLSIM:000650
+name: nucleic acid y-displacement*
+def: "A specific displacement parameter measuring the translation of a base pair's reference point along the local y-axis, typically defined as perpendicular to both the helical axis (z-axis) and the local x-axis (often pointing roughly along the pseudo-dyad axis of the pair towards the major groove). It quantifies the base pair's shift orthogonal to the x-displacement, completing the description of its position in the plane perpendicular to the helix axis. (UNVERIFIED)" []
+is_a: MOLSIM:000648 ! displacement characteristics*
+
+[Term]
+id: MOLSIM:000651
+name: miscellaneous  characteristics*
+def: "A category for various calculated or descriptive properties of the simulated system that don't fit neatly into other major categories. This often includes structural descriptors, energetic terms, or specific analysis metrics. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000652
+name: heat of formation value*
+def: "The heat of formation (ΔH∘f) represents the change in enthalpy (heat content) when one mole of a substance is created from its constituent elements in their most stable forms under standard conditions. It indicates the relative stability of the compound compared to its elements. This thermodynamic quantity is often computed using quantum mechanical methods. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000653
+name: delta G of solvation value*
+def: "The delta G of solvation (ΔG solv) is the change in Gibbs free energy when a molecule is transferred from a vacuum environment into a specific solvent, like water. It quantifies the energetic cost or favourability of dissolving the molecule and is a key factor determining solubility. This property is frequently calculated in simulations to understand molecular interactions with their environment. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000654
+name: gradient value*
+def: "The gradient is a vector containing the first partial derivatives of the energy with respect to the atomic coordinates. It indicates the direction and magnitude of the steepest slope on the potential energy surface at a given point. The negative of the gradient corresponds to the net force acting on each atom, driving geometry optimization and molecular dynamics simulations. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000655
+name: hessian value*
+def: "The Hessian is a square matrix containing the second partial derivatives of the energy with respect to the atomic coordinates, describing the curvature of the potential energy surface around a specific molecular geometry. Its eigenvalues and eigenvectors are used to calculate vibrational frequencies (normal modes) and to characterize stationary points (minima, transition states). It is a key component in frequency analysis and geometry optimization algorithms. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000656
+name: 2d-RMSD value*
+def: "2D-RMSD refers to a matrix plot where each element (i, j) represents the Root Mean Square Deviation (RMSD) calculated between snapshot 'i' and snapshot 'j' of a molecular dynamics trajectory. This visualization helps identify periods of structural stability (blocks of low RMSD along the diagonal) and conformational transitions within the simulation. It provides a global overview of the conformational space explored. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000657
+name: RMSD value*
+def: "Root Mean Square Deviation (RMSD) is a numerical measure quantifying the average distance between corresponding atoms in two optimally superimposed molecular structures. It is commonly used to evaluate the structural difference between a simulated conformation and a reference structure (e.g., experimental or initial structure). Lower RMSD values indicate greater structural similarity. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000658
+name: distance RMSD value*
+def: "Distance RMSD (dRMSD) measures the similarity between two conformations based on the root-mean-square deviation of their corresponding internal pairwise atomic distances, rather than their Cartesian coordinates after superposition. This metric avoids the need for structural alignment and can be more sensitive to changes in internal structure, especially for flexible molecules. It compares the \"distance maps\" of two structures. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000659
+name: TM-score*
+def: "The TM-score (Template Modeling score) is a metric designed to assess the topological similarity between two protein structures, independent of protein size. Unlike RMSD, it is less sensitive to local structural deviations and gives higher weight to the global fold match, producing a score between 0 and 1. A TM-score above approximately 0.5 generally indicates that two proteins share the same fold. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000660
+name: B-factor value*
+def: "A measure of atomic positional fluctuation or displacement, calculated from simulation data (often as the mean square fluctuation of atom positions after overall translation/rotation is removed). It is analogous to the crystallographic B-factor (temperature factor) and indicates the relative mobility or uncertainty in the position of each atom. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000661
+name: atom interaction count*
+def: "Specifies the number of interactions (e.g., hydrogen bonds, contacts within a certain distance) involving a specific atom or type of atom, often averaged over a simulation trajectory. This helps quantify the interaction environment of particular atoms or groups. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000662
+name: electronic structure  characteristics value*
+def: "A category grouping properties derived from the quantum mechanical description of how electrons are arranged in a molecule (its electronic structure). These properties, like charge distribution or polarizability, determine the molecule's chemical behavior and interactions. They are typically calculated using QM or QM/MM methods. (UNVERIFIED)" []
+is_a: MOLSIM:001032 ! measure
+
+[Term]
+id: MOLSIM:000663
+name: polarization characteristics*
+def: "A sub-category for properties describing how a molecule's electron distribution is distorted (polarized) in response to an external electric field. This includes the molecule's ability to form an induced dipole moment. Polarization effects are important for accurate modeling of interactions, especially in condensed phases or strong fields. (UNVERIFIED)" []
+is_a: MOLSIM:000662 ! electronic structure  characteristics value*
+
+[Term]
+id: MOLSIM:000664
+name: polarizability value*
+def: "A tensor property quantifying the linear response of a molecule's electron cloud to an external electric field, measuring how easily the electrons are displaced, inducing a dipole moment. It determines the strength of induced dipole interactions (part of Van der Waals forces) and affects how light interacts with the molecule (refraction). (UNVERIFIED)" []
+is_a: MOLSIM:000663 ! polarization characteristics*
+
+[Term]
+id: MOLSIM:000665
+name: hyperpolarizability value*
+def: "A tensor property quantifying the non-linear response of a molecule's electron cloud (and induced dipole moment) to a strong external electric field. It describes effects beyond the simple linear relationship defined by polarizability. Hyperpolarizability is relevant for non-linear optics and requires advanced electronic structure calculations. (UNVERIFIED)" []
+is_a: MOLSIM:000663 ! polarization characteristics*
+
+[Term]
+id: MOLSIM:000666
+name: time-dependent polarizability value*
+def: "Describes the molecule's polarizability as a function of the frequency of an oscillating external electric field (like light). This frequency dependence is crucial for understanding optical phenomena such as light absorption and dispersion (how refractive index changes with wavelength). It's calculated using time-dependent quantum mechanical methods. (UNVERIFIED)" []
+is_a: MOLSIM:000663 ! polarization characteristics*
+
+[Term]
+id: MOLSIM:000667
+name: wavefunction characteristics*
+def: "A mathematical function resulting from solving the Schrödinger equation (or an approximation) for a molecule, describing the quantum state of its electrons. While the wavefunction itself is complex, properties like energy, electron density, and orbitals are derived from it. Note: This term might be better represented as a Class (Wavefunction) or linked via an Object Property (calculation hasOutput someWavefunction) rather than a Data Property category, as the wavefunction itself is a complex mathematical object, not typically a simple data value stored directly. (UNVERIFIED)" []
+is_a: MOLSIM:000662 ! electronic structure  characteristics value*
+
+[Term]
+id: MOLSIM:000668
+name: wave function energy value*
+def: "The total electronic energy of the molecular system calculated from its quantum mechanical wavefunction at a specific nuclear geometry (within the Born-Oppenheimer approximation). This is a primary output of electronic structure calculations, representing the system's potential energy due to its electron arrangement. (UNVERIFIED)" []
+is_a: MOLSIM:000667 ! wavefunction characteristics*
+
+[Term]
+id: MOLSIM:000669
+name: stability index value*
+def: "A numerical result from a wavefunction stability analysis, indicating whether the calculated quantum mechanical solution (wavefunction) corresponds to a true energy minimum or if a lower-energy solution might exist (an instability). It's a check on the reliability and nature (e.g., restricted vs. unrestricted) of the computed electronic state. (UNVERIFIED)" []
+is_a: MOLSIM:000667 ! wavefunction characteristics*
+
+[Term]
+id: MOLSIM:000670
+name: charge characteristics*
+def: "A sub-category focusing on properties describing the distribution of electric charge within a molecule, derived from its electronic structure. This includes various schemes for assigning partial charges to atoms or describing the overall electrostatic potential. (UNVERIFIED)" []
+is_a: MOLSIM:000662 ! electronic structure  characteristics value*
+
+[Term]
+id: MOLSIM:000671
+name: atomic  charge value*
+def: "A numerical value assigned to an individual atom within a molecule representing its local share of the electron density, resulting in a partial positive or negative charge. Different methods (e.g., Mulliken, Löwdin, RESP, AM1-BCC) exist for calculating these charges, which are crucial for modeling electrostatic interactions in classical simulations. (UNVERIFIED)" []
+is_a: MOLSIM:000670 ! charge characteristics*
+
+[Term]
+id: MOLSIM:000672
+name: ESP charge value*
+def: "Atomic partial charges calculated by fitting point charges at atomic positions to best reproduce the Electrostatic Potential (ESP) surrounding the molecule, where the ESP is derived from a quantum mechanical wavefunction calculation. These charges aim to accurately reflect the molecule's external electrostatic field, important for intermolecular interactions. (UNVERIFIED)" []
+is_a: MOLSIM:000670 ! charge characteristics*
 
 [Term]
 id: MOLSIM:000673
@@ -11578,6 +12690,49 @@ id: MOLSIM:000677
 name: polarization analysis_
 def: "An electronic structure analysis technique that examines how the electron distribution of a molecule is distorted (polarized) in response to an external electric field or the field generated by nearby molecules. This involves calculating the induced dipole moment and the polarizability tensor, which quantify the molecule's susceptibility to charge redistribution. Understanding polarization is crucial for accurately describing intermolecular interactions, solvation effects, and responses to electromagnetic fields. (UNVERIFIED)" []
 is_a: MOLSIM:000673 ! electronic structure analysis_
+
+[Term]
+id: MOLSIM:000678
+name: native contact losses value*
+def: "Native contact loss measures the number or fraction of specific atom-atom contacts, defined as present in a reference (native) structure, that are broken or missing in a given conformation from a simulation. It quantifies the deviation from the native fold, often used as a reaction coordinate for protein folding or unfolding studies. A higher loss indicates greater structural disruption. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000679
+name: solvation-free energy characteristics
+def: "The Gibbs free energy change (ΔG_solv) associated with transferring a solute molecule from an ideal gas phase (vacuum) into a specific solvent (e.g., water) at a given temperature and pressure. It quantifies the thermodynamic favorability of dissolving the solute, reflecting solute-solvent interactions and solvent reorganization. (UNVERIFIED)" []
+synonym: "delta G of solvation" EXACT []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000680
+name: electrostatic characteristics
+def: "A sub-category grouping terms related to the contribution of electrostatic interactions (charge-charge, dipole-dipole, etc.) to a calculated (free) energy difference in a process like binding or solvation. This is distinct from fundamental electronic structure properties and focuses on the electrostatic component within specific energy calculation schemes (e.g., MM/PBSA, LIE). (UNVERIFIED)" []
+is_a: MOLSIM:000364 ! free energy calculation characteristics
+
+[Term]
+id: MOLSIM:000681
+name: multipole moment value
+def: "A measure characterizing the distribution of electric charge in a molecule or system beyond the net charge (monopole) and dipole moment. Higher-order multipoles (quadrupole, octupole, etc.) describe the shape and symmetry of the charge distribution and are important for accurately modeling electrostatic interactions, especially at longer ranges. These can be derived from QM or used in advanced MM force fields. (UNVERIFIED)" []
+is_a: MOLSIM:000680 ! electrostatic characteristics
+
+[Term]
+id: MOLSIM:000682
+name: dipole moment value
+def: "A vector quantity measuring the separation of positive and negative charge centers within a molecule, indicating its overall polarity and direction. The magnitude of the dipole moment influences intermolecular forces (dipole-dipole, dipole-induced dipole) and the molecule's interaction with external electric fields. (UNVERIFIED)" []
+is_a: MOLSIM:000681 ! multipole moment value
+
+[Term]
+id: MOLSIM:000683
+name: electronic transition characteristics
+def: "A category grouping molecular properties that characterize the transition of a molecule from one electronic state to another, often involving the absorption or emission of light. These properties quantify aspects like the probability, energy difference, and nature of such electronic state changes. Examples include excitation energies and transition moments, which are fundamental to understanding spectroscopy and photochemistry. (UNVERIFIED)" []
+is_a: MOLSIM:000651 ! miscellaneous  characteristics*
+
+[Term]
+id: MOLSIM:000684
+name: radiative transition moment  value
+def: "A measure representing the quantum mechanical amplitude for a transition between an initial and a final electronic state of a molecule caused by interaction with electromagnetic radiation. The square of its magnitude is proportional to the intensity of the corresponding spectroscopic transition (e.g., light absorption or emission). This property applies to a pair of electronic states. (UNVERIFIED)" []
+is_a: MOLSIM:000683 ! electronic transition characteristics
 
 [Term]
 id: MOLSIM:000685
@@ -12093,7 +13248,6 @@ is_a: MOLSIM:000160 ! molecular dynamics software
 id: MOLSIM:000780
 name: GAMESS-US
 def: "A widely used, freely available quantum chemistry software package (General Atomic and Molecular Electronic Structure System). It provides a broad range of quantum mechanical methods, from semi-empirical to high-level ab initio (HF, DFT, MP2, CCSD, MCSCF), and includes features for geometry optimization, vibrational analysis, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (UNVERIFIED)" []
-synonym: "GAMESS" EXACT []
 is_a: MOLSIM:000160 ! molecular dynamics software
 
 [Term]
@@ -12989,30 +14143,23 @@ def: "Dynamics analysis involves processing the time-series data generated from 
 is_a: MOLSIM:000026 ! analysis method*
 
 [Term]
-id: MOLSIM:000940
-name: correlation analysis_
-def: "Correlation analysis, in the context of dynamics analysis, involves methods that quantify the statistical relationship between different fluctuating quantities observed in a simulation. This can include measuring how a property correlates with itself over time (autocorrelation) or how two different properties fluctuate together or in opposition (cross-correlation). These analyses reveal connections and timescales in molecular motions. (UNVERIFIED)" []
-is_a: MOLSIM:000939 ! dynamics analysis_
-disjoint_from: MOLSIM:000944 ! motion analysis_
-
-[Term]
 id: MOLSIM:000941
 name: auto correlation_
 def: "Autocorrelation analysis measures how strongly a property observed at a certain time in a simulation is related to its value at a later time. The resulting autocorrelation function (ACF) decays over time, indicating how long the \"memory\" of the property's value persists. The decay rate provides characteristic timescales (relaxation times) associated with the fluctuations of that property. (UNVERIFIED)" []
-is_a: MOLSIM:000940 ! correlation analysis_
+is_a: MOLSIM:000342 ! correlation analysis
 disjoint_from: MOLSIM:000942 ! time cross correlation_
 
 [Term]
 id: MOLSIM:000942
 name: time cross correlation_
 def: "Time cross-correlation analysis quantifies the relationship between the fluctuations of two different properties, A and B, over time in a simulation. The cross-correlation function (CCF) indicates whether the properties tend to fluctuate together (positive correlation), in opposition (negative correlation), or independently (zero correlation), potentially with a time delay (lag). It is widely used to identify coupled or concerted motions between different parts of a molecule. (UNVERIFIED)" []
-is_a: MOLSIM:000940 ! correlation analysis_
+is_a: MOLSIM:000342 ! correlation analysis
 
 [Term]
 id: MOLSIM:000943
 name: RMSd correlation_
 def: "RMSD correlation, often visualized as a Dynamic Cross-Correlation Map (DCCM), measures the correlation between the displacement fluctuations of different atoms (or residues) around their average positions during a simulation. A high positive correlation between atoms i and j indicates they tend to move in the same direction, while negative correlation indicates movement in opposite directions. This analysis highlights regions of the molecule that exhibit concerted dynamic behavior. (UNVERIFIED)" []
-is_a: MOLSIM:000940 ! correlation analysis_
+is_a: MOLSIM:000342 ! correlation analysis
 
 [Term]
 id: MOLSIM:000944
@@ -13042,8 +14189,8 @@ is_a: MOLSIM:000944 ! motion analysis_
 [Term]
 id: MOLSIM:000948
 name: diffusion analysis_
+def: "A type of dynamics analysis focused on quantifying the random translational and rotational movement of molecules or particles within the simulation environment due to thermal energy. It primarily involves calculating diffusion coefficients, which measure the rate at which particles spread out over time. This analysis provides insights into transport properties, viscosity, and mobility in fluids, membranes, or crowded cellular environments. (UNVERIFIED)" []
 is_a: MOLSIM:000939 ! dynamics analysis_
-property_value: owl:backwardCompatibleWith "A type of dynamics analysis focused on quantifying the random translational and rotational movement of molecules or particles within the simulation environment due to thermal energy. It primarily involves calculating diffusion coefficients, which measure the rate at which particles spread out over time. This analysis provides insights into transport properties, viscosity, and mobility in fluids, membranes, or crowded cellular environments. (UNVERIFIED)" xsd:string
 
 [Term]
 id: MOLSIM:000949
@@ -13295,6 +14442,10 @@ def: "Optical rotation is the phenomenon where the plane of linearly polarized l
 is_a: MOLSIM:001022 ! specialized techniques*
 
 [Term]
+id: MOLSIM:001032
+name: measure
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second." []
@@ -13456,4 +14607,24 @@ name: protein structure source
 def: "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)" []
 domain: MOLSIM:000443 ! protein structure
 range: MOLSIM:000688 ! data source
+
+[Typedef]
+id: MOLSIM:001033
+name: simulation environment
+def: "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)" []
+
+[Typedef]
+id: MOLSIM:001034
+name: template complex structure
+def: "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)" []
+
+[Typedef]
+id: MOLSIM:001035
+name: validated ligand selection criteria
+def: "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)" []
+
+[Typedef]
+id: MOLSIM:001036
+name: reaction coordinate
+def: "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)" []
 
