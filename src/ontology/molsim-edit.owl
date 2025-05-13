@@ -774,6 +774,10 @@ Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000504))
 Declaration(ObjectProperty(obo:MOLSIM_000507))
 Declaration(ObjectProperty(obo:MOLSIM_000508))
+Declaration(ObjectProperty(obo:MOLSIM_001033))
+Declaration(ObjectProperty(obo:MOLSIM_001034))
+Declaration(ObjectProperty(obo:MOLSIM_001035))
+Declaration(ObjectProperty(obo:MOLSIM_001036))
 Declaration(DataProperty(obo:MOLSIM_000140))
 Declaration(DataProperty(obo:MOLSIM_000141))
 Declaration(DataProperty(obo:MOLSIM_000304))
@@ -820,7 +824,6 @@ Declaration(DataProperty(obo:MOLSIM_000363))
 Declaration(DataProperty(obo:MOLSIM_000364))
 Declaration(DataProperty(obo:MOLSIM_000365))
 Declaration(DataProperty(obo:MOLSIM_000366))
-Declaration(DataProperty(obo:MOLSIM_000367))
 Declaration(DataProperty(obo:MOLSIM_000368))
 Declaration(DataProperty(obo:MOLSIM_000369))
 Declaration(DataProperty(obo:MOLSIM_000370))
@@ -836,7 +839,6 @@ Declaration(DataProperty(obo:MOLSIM_000379))
 Declaration(DataProperty(obo:MOLSIM_000380))
 Declaration(DataProperty(obo:MOLSIM_000381))
 Declaration(DataProperty(obo:MOLSIM_000382))
-Declaration(DataProperty(obo:MOLSIM_000383))
 Declaration(DataProperty(obo:MOLSIM_000384))
 Declaration(DataProperty(obo:MOLSIM_000385))
 Declaration(DataProperty(obo:MOLSIM_000386))
@@ -853,7 +855,6 @@ Declaration(DataProperty(obo:MOLSIM_000396))
 Declaration(DataProperty(obo:MOLSIM_000397))
 Declaration(DataProperty(obo:MOLSIM_000398))
 Declaration(DataProperty(obo:MOLSIM_000399))
-Declaration(DataProperty(obo:MOLSIM_000400))
 Declaration(DataProperty(obo:MOLSIM_000401))
 Declaration(DataProperty(obo:MOLSIM_000402))
 Declaration(DataProperty(obo:MOLSIM_000403))
@@ -909,7 +910,6 @@ Declaration(DataProperty(obo:MOLSIM_000483))
 Declaration(DataProperty(obo:MOLSIM_000484))
 Declaration(DataProperty(obo:MOLSIM_000488))
 Declaration(DataProperty(obo:MOLSIM_000489))
-Declaration(DataProperty(obo:MOLSIM_000494))
 Declaration(DataProperty(obo:MOLSIM_000500))
 Declaration(DataProperty(obo:MOLSIM_000509))
 Declaration(DataProperty(obo:MOLSIM_000510))
@@ -968,6 +968,7 @@ Declaration(DataProperty(obo:MOLSIM_000681))
 Declaration(DataProperty(obo:MOLSIM_000682))
 Declaration(DataProperty(obo:MOLSIM_000683))
 Declaration(DataProperty(obo:MOLSIM_000684))
+Declaration(DataProperty(obo:MOLSIM_001032))
 Declaration(NamedIndividual(obo:MOLSIM_000723))
 Declaration(NamedIndividual(obo:MOLSIM_000724))
 Declaration(NamedIndividual(obo:MOLSIM_000725))
@@ -1090,42 +1091,67 @@ SubObjectPropertyOf(obo:MOLSIM_000508 owl:topObjectProperty)
 ObjectPropertyDomain(obo:MOLSIM_000508 obo:MOLSIM_000443)
 ObjectPropertyRange(obo:MOLSIM_000508 obo:MOLSIM_000688)
 
+# Object Property: obo:MOLSIM_001033 (simulation environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001033 "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001033 "simulation environment"@en)
+SubObjectPropertyOf(obo:MOLSIM_001033 owl:topObjectProperty)
+
+# Object Property: obo:MOLSIM_001034 (template complex structure)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001034 "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001034 "template complex structure"@en)
+SubObjectPropertyOf(obo:MOLSIM_001034 owl:topObjectProperty)
+
+# Object Property: obo:MOLSIM_001035 (validated ligand selection criteria)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001035 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001035 "validated ligand selection criteria"@en)
+SubObjectPropertyOf(obo:MOLSIM_001035 owl:topObjectProperty)
+
+# Object Property: obo:MOLSIM_001036 (reaction coordinate)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001036 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001036 "reaction coordinate"@en)
+SubObjectPropertyOf(obo:MOLSIM_001036 owl:topObjectProperty)
+
 
 ############################
 #   Data Properties
 ############################
 
-# Data Property: obo:MOLSIM_000140 (analysis and visualization properties)
+# Data Property: obo:MOLSIM_000140 (analysis and visualization characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000140 "A category encompassing parameters, settings, and results derived from post-processing simulation data or preparing it for visual inspection. These properties quantify aspects like statistical reliability, structural characteristics, or energetic components obtained after a simulation run. They help interpret the raw simulation output."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000140 "analysis and visualization properties"@en)
-SubDataPropertyOf(obo:MOLSIM_000140 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000140 "analysis and visualization characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000140 obo:MOLSIM_001032)
 DisjointDataProperties(obo:MOLSIM_000140 obo:MOLSIM_000308 obo:MOLSIM_000336 obo:MOLSIM_000364 obo:MOLSIM_000398 obo:MOLSIM_000405 obo:MOLSIM_000416 obo:MOLSIM_000420 obo:MOLSIM_000617 obo:MOLSIM_000627 obo:MOLSIM_000630)
 DisjointDataProperties(obo:MOLSIM_000140 obo:MOLSIM_000308 obo:MOLSIM_000336 obo:MOLSIM_000364 obo:MOLSIM_000398 obo:MOLSIM_000405 obo:MOLSIM_000416 obo:MOLSIM_000420 obo:MOLSIM_000617 obo:MOLSIM_000627 obo:MOLSIM_000630 obo:MOLSIM_000647)
 DisjointDataProperties(obo:MOLSIM_000140 obo:MOLSIM_000308 obo:MOLSIM_000336 obo:MOLSIM_000364 obo:MOLSIM_000398 obo:MOLSIM_000405 obo:MOLSIM_000416 obo:MOLSIM_000420 obo:MOLSIM_000617 obo:MOLSIM_000630 obo:MOLSIM_000647 obo:MOLSIM_000662)
 
-# Data Property: obo:MOLSIM_000141 (starting epsilon (distance cutoff))
+# Data Property: obo:MOLSIM_000141 (starting epsilon (distance cutoff) value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000141 "The initial or minimum distance threshold (epsilon value) used when beginning a clustering analysis or when testing a range of potential cutoff values. It sets the lower bound for the structural difference considered when grouping conformations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000141 "starting epsilon (distance cutoff)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000141 "starting epsilon (distance cutoff) value"@en)
 SubDataPropertyOf(obo:MOLSIM_000141 obo:MOLSIM_000489)
 
-# Data Property: obo:MOLSIM_000304 (clustering epsilon (distance cutoff) interval)
+# Data Property: obo:MOLSIM_000304 (clustering epsilon (distance cutoff) interval value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000304 "Defines the range of distance thresholds (epsilon values) explored during a structural clustering analysis, often within tools like CPPTRAJ. Clustering groups similar molecular conformations, and testing an interval helps identify an appropriate cutoff distance that best separates distinct structural states observed in the simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000304 "clustering epsilon (distance cutoff) interval"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000304 "clustering epsilon (distance cutoff) interval value"@en)
 SubDataPropertyOf(obo:MOLSIM_000304 obo:MOLSIM_000489)
 
-# Data Property: obo:MOLSIM_000305 (final epsilon (distance cutoff))
+# Data Property: obo:MOLSIM_000305 (final epsilon (distance cutoff) value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000305 "The specific distance threshold (epsilon value) ultimately chosen and used for the final structural clustering analysis, often selected after evaluating results from an interval. This value determines the maximum structural difference (e.g., RMSD) allowed for two conformations to be grouped into the same cluster. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000305 "final epsilon (distance cutoff)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000305 "final epsilon (distance cutoff) value"@en)
 SubDataPropertyOf(obo:MOLSIM_000305 obo:MOLSIM_000489)
 
-# Data Property: obo:MOLSIM_000308 (general simulation setup properties)
+# Data Property: obo:MOLSIM_000308 (general simulation setup  characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000308 "A category encompassing fundamental parameters and conditions defining the context and basic setup of the biomolecular simulation. This includes details about the system composition, simulation box, and general numerical parameters not specific to a particular simulation phase (like minimization or dynamics). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000308 "general simulation setup properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000308 "general simulation setup  characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000308 obo:MOLSIM_001032)
 
 # Data Property: obo:MOLSIM_000309 (number of total atoms)
 
@@ -1308,11 +1334,11 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000335 "number of total atoms in the l
 SubDataPropertyOf(obo:MOLSIM_000335 obo:MOLSIM_000308)
 DataPropertyRange(obo:MOLSIM_000335 xsd:integer)
 
-# Data Property: obo:MOLSIM_000336 (software properties)
+# Data Property: obo:MOLSIM_000336 (software  characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000336 "A category for properties describing the software used to perform the simulation or analysis. This typically includes information like the software name and version number. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000336 "software properties"@en)
-SubDataPropertyOf(obo:MOLSIM_000336 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000336 "software  characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000336 obo:MOLSIM_001032)
 
 # Data Property: obo:MOLSIM_000337 (number of extra points)
 
@@ -1327,17 +1353,17 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000338 "number of PIMD s
 AnnotationAssertion(rdfs:label obo:MOLSIM_000338 "number of path integral molecular dynamics slices/beads"@en)
 SubDataPropertyOf(obo:MOLSIM_000338 obo:MOLSIM_000308)
 
-# Data Property: obo:MOLSIM_000343 (grid spacing)
+# Data Property: obo:MOLSIM_000343 (grid spacing value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000343 "Defines the physical distance between adjacent points in a 3D grid used for spatial analysis of simulation data (e.g., calculating density maps or electrostatic potentials). Smaller spacing yields a higher resolution grid but increases computational cost for grid-based calculations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000343 "grid spacing"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000343 "grid spacing value"@en)
 SubDataPropertyOf(obo:MOLSIM_000343 obo:MOLSIM_000489)
 
-# Data Property: obo:MOLSIM_000350 (root mean square deviation cutoff)
+# Data Property: obo:MOLSIM_000350 (root mean square deviation cutoff value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000350 "A threshold value based on Root Mean Square Deviation (RMSD), which measures the average distance between corresponding atoms in two superimposed molecular structures. This cutoff is often used in analysis, for example, to define membership in a structural cluster or to select conformations based on their similarity to a reference structure. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000350 "RMSD cutoff")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000350 "root mean square deviation cutoff"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000350 "root mean square deviation cutoff value"@en)
 SubDataPropertyOf(obo:MOLSIM_000350 obo:MOLSIM_000140)
 
 # Data Property: obo:MOLSIM_000357 (p-value threshold)
@@ -1346,10 +1372,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000357 "The predetermined cutoff 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000357 "p-value threshold"@en)
 SubDataPropertyOf(obo:MOLSIM_000357 obo:MOLSIM_000140)
 
-# Data Property: obo:MOLSIM_000358 (coefficient of determination)
+# Data Property: obo:MOLSIM_000358 (coefficient of determination value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000358 "A statistical measure (commonly R²) quantifying how well one set of data (e.g., calculated values) predicts another (e.g., experimental values or another simulation property). It ranges from 0 to 1, where 1 indicates a perfect linear relationship or prediction. In simulations, it often assesses model accuracy or correlation between variables. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000358 "coefficient of determination"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000358 "coefficient of determination value"@en)
 SubDataPropertyOf(obo:MOLSIM_000358 obo:MOLSIM_000140)
 
 # Data Property: obo:MOLSIM_000359 (bootstrapped confidence interval percentage)
@@ -1364,17 +1390,17 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000360 "Specifies the total numbe
 AnnotationAssertion(rdfs:label obo:MOLSIM_000360 "number of bootstrap replications"@en)
 SubDataPropertyOf(obo:MOLSIM_000360 obo:MOLSIM_000140)
 
-# Data Property: obo:MOLSIM_000361 (confidence interval properties)
+# Data Property: obo:MOLSIM_000361 (confidence interval characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000361 "A sub-category grouping parameters that define how statistical confidence intervals (ranges estimating the uncertainty of a result) are calculated or characterized. This includes settings for specific analysis tools or methods used to quantify the reliability of simulation results. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000361 "confidence interval properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000361 "confidence interval characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000361 obo:MOLSIM_000140)
 
-# Data Property: obo:MOLSIM_000362 (molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area properties)
+# Data Property: obo:MOLSIM_000362 (molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000362 "A category grouping parameters and results associated with the MM/PBSA and MM/GBSA endpoint methods for estimating free energies. These methods combine energies calculated using a molecular mechanics force field with solvation free energies estimated using either the Poisson-Boltzmann (PB) or Generalized Born (GB) continuum solvent models, plus a surface area term for nonpolar contributions. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000362 "MMPBSA/MMGBSA properties"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000362 "molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000362 "molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000362 obo:MOLSIM_000364)
 
 # Data Property: obo:MOLSIM_000363 (membrane dielectric constant)
@@ -1383,11 +1409,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000363 "The dimensionless dielect
 AnnotationAssertion(rdfs:label obo:MOLSIM_000363 "membrane dielectric constant"@en)
 SubDataPropertyOf(obo:MOLSIM_000363 obo:MOLSIM_000362)
 
-# Data Property: obo:MOLSIM_000364 (free energy calculation properties)
+# Data Property: obo:MOLSIM_000364 (free energy calculation characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000364 "A category grouping parameters, methods, and results related to computing free energy differences for processes like binding, solvation, or conformational changes. Free energy combines enthalpy and entropy and determines the spontaneity and equilibrium of these processes. These properties are key for predicting affinities and stabilities. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000364 "free energy calculation properties"@en)
-SubDataPropertyOf(obo:MOLSIM_000364 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000364 "free energy calculation characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000364 obo:MOLSIM_001032)
 
 # Data Property: obo:MOLSIM_000365 (number of snapshots)
 
@@ -1395,17 +1421,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000365 "The total number of discr
 AnnotationAssertion(rdfs:label obo:MOLSIM_000365 "number of snapshots"@en)
 SubDataPropertyOf(obo:MOLSIM_000365 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000366 (difference in minimized energy)
+# Data Property: obo:MOLSIM_000366 (difference in minimized energy value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000366 "The difference in potential energy between two states (e.g., bound vs. unbound) after both systems have been structurally optimized to their nearest local energy minimum using energy minimization techniques. This represents an enthalpic difference at 0 Kelvin and ignores entropic and thermal effects, sometimes used as a very approximate binding estimate. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000366 "difference in minimized energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000366 "difference in minimized energy value"@en)
 SubDataPropertyOf(obo:MOLSIM_000366 obo:MOLSIM_000364)
-
-# Data Property: obo:MOLSIM_000367 (template complex structure)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000367 "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000367 "template complex structure"@en)
-SubDataPropertyOf(obo:MOLSIM_000367 obo:MOLSIM_000364)
 
 # Data Property: obo:MOLSIM_000368 (number of ligands)
 
@@ -1425,58 +1445,58 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000370 "Specifies the frequency (
 AnnotationAssertion(rdfs:label obo:MOLSIM_000370 "structure extraction interval"@en)
 SubDataPropertyOf(obo:MOLSIM_000370 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000371 (sampling frequency interval)
+# Data Property: obo:MOLSIM_000371 (sampling frequency interval value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000371 "The time duration between consecutive simulation configurations (snapshots) being saved to the trajectory file or selected for inclusion in the free energy analysis dataset. This parameter determines the time resolution of the data used for calculating ensemble averages or integrals. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000371 "sampling frequency interval"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000371 "sampling frequency interval value"@en)
 SubDataPropertyOf(obo:MOLSIM_000371 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000372 (binding free energy)
+# Data Property: obo:MOLSIM_000372 (binding free energy value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000372 "The change in Gibbs free energy (ΔG) when two or more molecules associate (bind) in solution, typically a ligand binding to a receptor. It measures the binding affinity, with more negative values indicating stronger, more favorable binding. This is a key thermodynamic quantity predicted by simulations to understand molecular recognition. ΔG(binding) is the binding free energy, calculated by: ΔG(binding) = G(complex) - [G(receptor) + G(ligand)].  (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000372 "binding free energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000372 "binding free energy value"@en)
 SubDataPropertyOf(obo:MOLSIM_000372 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000373 (free energy of protein-ligand complex)
+# Data Property: obo:MOLSIM_000373 (free energy value of protein-ligand complex)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000373 "The calculated Gibbs free energy of the bound state, where the ligand is associated with the protein (or other receptor), usually in solution. This represents the G_complex term in the thermodynamic cycle for calculating binding free energy. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000373 "free energy of protein-ligand complex"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000373 "free energy value of protein-ligand complex"@en)
 SubDataPropertyOf(obo:MOLSIM_000373 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000374 (free energy of receptor protein)
+# Data Property: obo:MOLSIM_000374 (free energy value of receptor protein)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000374 "The calculated Gibbs free energy of the receptor molecule (e.g., protein) in its relevant reference state, usually solvated and unbound. This represents the G_receptor term in the thermodynamic cycle for calculating binding free energy. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000374 "free energy of receptor protein"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000374 "free energy value of receptor protein"@en)
 SubDataPropertyOf(obo:MOLSIM_000374 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000375 (free energy of ligand)
+# Data Property: obo:MOLSIM_000375 (free energy value of ligand)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000375 "The calculated Gibbs free energy of the ligand molecule in its relevant reference state, usually solvated and unbound. This value is a necessary component within a thermodynamic cycle used to compute the binding free energy (ΔG_bind = G_complex - G_receptor - G_ligand)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000375 "free energy of ligand"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000375 "free energy value of ligand"@en)
 SubDataPropertyOf(obo:MOLSIM_000375 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000376 (binding free energy estimation)
+# Data Property: obo:MOLSIM_000376 (binding free energy estimation value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000376 "Estimated binding free energy (ΔG) is estimated multiple linear regression, estimated by ΔG = α * ΔE(vdW) + β * ΔE(ele) + γ."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000376 "binding free energy estimation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000376 "binding free energy estimation value"@en)
 SubDataPropertyOf(obo:MOLSIM_000376 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000377 (relative binding free energy)
+# Data Property: obo:MOLSIM_000377 (relative binding free energy value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000377 "The difference in binding free energy (ΔΔG) between two related binding processes, most commonly comparing two different ligands binding to the same receptor. It quantifies the change in binding affinity due to the modification transforming one ligand into the other, typically calculated using alchemical methods like FEP or TI. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000377 "relative binding free energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000377 "relative binding free energy value"@en)
 SubDataPropertyOf(obo:MOLSIM_000377 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000378 (solvation-free energy of ligand)
+# Data Property: obo:MOLSIM_000378 (solvation-free energy value of ligand)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000378 "The calculated solvation free energy (ΔG_solv) specifically for the ligand molecule being studied. This value is often required as part of a thermodynamic cycle to determine binding free energy, particularly when using implicit solvent models or comparing states with different solvation contributions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000378 "solvation-free energy of ligand"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000378 "solvation-free energy value of ligand"@en)
 SubDataPropertyOf(obo:MOLSIM_000378 obo:MOLSIM_000679)
 
-# Data Property: obo:MOLSIM_000379 (thermodynamic integration time constraint)
+# Data Property: obo:MOLSIM_000379 (thermodynamic integration time constraint value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000379 "Specifies the duration of simulation time (e.g., in picoseconds or nanoseconds) performed for each individual intermediate state (lambda window) within a Thermodynamic Integration (TI) calculation. Sufficient simulation time per window is required to achieve adequate sampling and convergence of the ensemble average of ∂H/∂λ. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000379 "thermodynamic integration time constraint"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000379 "thermodynamic integration time constraint value"@en)
 SubDataPropertyOf(obo:MOLSIM_000379 obo:MOLSIM_000364)
 
 # Data Property: obo:MOLSIM_000380 (number of lambda values for thermodynamic integration validation)
@@ -1497,78 +1517,72 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000382 "In relative binding free 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000382 "number of validated ligand transformations"@en)
 SubDataPropertyOf(obo:MOLSIM_000382 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000383 (validated ligand selection criteria)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000383 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000383 "validated ligand selection criteria"@en)
-SubDataPropertyOf(obo:MOLSIM_000383 obo:MOLSIM_000364)
-
-# Data Property: obo:MOLSIM_000384 (Bennett acceptance ratio and multi-state Bennett acceptance ratio temperature)
+# Data Property: obo:MOLSIM_000384 (Bennett acceptance ratio and multi-state Bennett acceptance ratio temperature value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000384 "The absolute temperature (usually in Kelvin) at which the free energy calculation was performed using the Bennett Acceptance Ratio (BAR) or Multi-state BAR (MBAR) methods. Temperature is a crucial thermodynamic variable that directly influences the calculated free energy difference. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000384 "BAR and MBAR temperature"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000384 "Bennett acceptance ratio and multi-state Bennett acceptance ratio temperature"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000384 "Bennett acceptance ratio and multi-state Bennett acceptance ratio temperature value"@en)
 SubDataPropertyOf(obo:MOLSIM_000384 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000385 (electrostatic energy contribution)
+# Data Property: obo:MOLSIM_000385 (electrostatic energy contribution value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000385 "The specific portion of a total calculated energy or free energy difference that is attributed to electrostatic interactions. This term is often reported in energy decomposition analyses or as a component in methods like MM/PBSA, quantifying the role of charge-based forces in the overall energetics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000385 "electrostatic energy contribution"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000385 "electrostatic energy contribution value"@en)
 SubDataPropertyOf(obo:MOLSIM_000385 obo:MOLSIM_000680)
 
-# Data Property: obo:MOLSIM_000386 (Van der Waals energy contribution)
+# Data Property: obo:MOLSIM_000386 (Van der Waals energy contribution value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000386 "The specific portion of a total calculated energy or free energy difference that is attributed to Van der Waals interactions. This term is often reported in energy decomposition analyses or as a component in methods like MM/PBSA, quantifying the role of non-bonded steric and dispersion forces. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000386 "Van der Waals energy contribution"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000386 "Van der Waals energy contribution value"@en)
 SubDataPropertyOf(obo:MOLSIM_000386 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000387 (error in delta G)
+# Data Property: obo:MOLSIM_000387 (error in delta G value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000387 "The estimated statistical uncertainty or error associated with a calculated free energy difference (ΔG). This value quantifies the precision of the free energy prediction and is typically derived from the variance observed in the simulation data using methods like block averaging, bootstrap analysis, or analytical estimates from BAR/MBAR. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000387 "error in delta G"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000387 "error in delta G value"@en)
 SubDataPropertyOf(obo:MOLSIM_000387 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000388 (largest error found in a data set)
+# Data Property: obo:MOLSIM_000388 (largest error  value found in a data set)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000388 "When comparing a set of calculated free energy values (e.g., for multiple ligands) against corresponding experimental or benchmark data, this property reports the magnitude of the single largest absolute difference (error) observed within that set. It indicates the worst-performing prediction for that specific dataset and methodology. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000388 "largest error found in a data set"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000388 "largest error  value found in a data set"@en)
 SubDataPropertyOf(obo:MOLSIM_000388 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000389 (effective binding energies)
+# Data Property: obo:MOLSIM_000389 (effective binding energies value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000389 "Estimates of binding strength calculated using computationally cheaper, approximate methods, such as MM/PBSA or MM/GBSA (endpoint methods). These methods typically combine molecular mechanics energies with implicit solvation models and may neglect or approximate entropic contributions, providing a faster but potentially less accurate alternative to rigorous free energy simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000389 "effective binding energies"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000389 "effective binding energies value"@en)
 SubDataPropertyOf(obo:MOLSIM_000389 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000390 (linear interaction energy binding free energy)
+# Data Property: obo:MOLSIM_000390 (linear interaction energy binding free energy  value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000390 "An estimate of the binding free energy obtained using the Linear Interaction Energy (LIE) method. LIE typically models ΔG_bind as a linear combination of the average change in the ligand's electrostatic and Van der Waals interaction energies with its surroundings upon moving from the unbound (solvent) to the bound (receptor) state, using empirically fitted coefficients. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000390 "LIE binding free energy"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000390 "linear interaction energy binding free energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000390 "linear interaction energy binding free energy  value"@en)
 SubDataPropertyOf(obo:MOLSIM_000390 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000391 (relative binding free energy from thermodynamic integration)
+# Data Property: obo:MOLSIM_000391 (relative binding free energy from thermodynamic integration value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000391 "A relative binding free energy value (ΔΔG) obtained using the Thermodynamic Integration (TI) method that has specifically been subjected to and passed validation procedures. Validation might involve assessing the smoothness of the integrand (∂H/∂λ), checking hysteresis between forward (0->1) and backward (1->0) transformations, or ensuring consistency in thermodynamic cycles. (UNVERIFIED) Note: Definition assumes validation passed. Could also store status."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000391 "relative binding free energy from thermodynamic integration"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000391 "relative binding free energy from thermodynamic integration value"@en)
 SubDataPropertyOf(obo:MOLSIM_000391 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000392 (uncertainty in the calculated change in binding free energy)
+# Data Property: obo:MOLSIM_000392 (uncertainty value in the calculated change in binding free energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000392 "The estimated statistical error or uncertainty associated specifically with a calculated binding free energy difference, either absolute (ΔG_bind) or relative (ΔΔG_bind). This quantifies the precision of the binding affinity prediction and is conceptually the same as 'error in delta G' but applied specifically to binding. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000392 "uncertainty in the calculated change in binding free energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000392 "uncertainty value in the calculated change in binding free energy"@en)
 SubDataPropertyOf(obo:MOLSIM_000392 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000393 (Van der Waals energy change)
+# Data Property: obo:MOLSIM_000393 (Van der Waals energy change value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000393 "The difference in the Van der Waals (VdW) interaction energy component between the final and initial states of a simulated process (e.g., binding). This term accounts for short-range repulsive (steric) and attractive (dispersion) forces, calculated using the parameters defined in the molecular mechanics force field (e.g., Lennard-Jones potential). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000393 "Van der Waals energy change"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000393 "Van der Waals energy change value"@en)
 SubDataPropertyOf(obo:MOLSIM_000393 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000394 (electrostatic energy change)
+# Data Property: obo:MOLSIM_000394 (electrostatic energy change value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000394 "The difference in the electrostatic interaction energy component between the final and initial states of a simulated process (e.g., ligand binding). This value quantifies how the electrostatic interactions within the system and with its environment change during the process, calculated using methods like MM or continuum electrostatics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000394 "electrostatic energy change"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000394 "electrostatic energy change value"@en)
 SubDataPropertyOf(obo:MOLSIM_000394 obo:MOLSIM_000680)
 
 # Data Property: obo:MOLSIM_000395 (Van der Waals energy change scaling factor)
@@ -1583,29 +1597,23 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000396 "An empirical numerical fa
 AnnotationAssertion(rdfs:label obo:MOLSIM_000396 "electrostatic energy change scaling factor"@en)
 SubDataPropertyOf(obo:MOLSIM_000396 obo:MOLSIM_000680)
 
-# Data Property: obo:MOLSIM_000397 (binding free energy estimation constant term)
+# Data Property: obo:MOLSIM_000397 (binding free energy estimation constant term value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000397 "A fixed numerical value added during the calculation or estimation of a binding free energy. This term might represent analytical corrections (e.g., for standard state concentration changes), contributions from simplified model components, or empirical adjustments specific to the calculation protocol used. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000397 "binding free energy estimation constant term"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000397 "binding free energy estimation constant term value"@en)
 SubDataPropertyOf(obo:MOLSIM_000397 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000398 (steered molecular dynamics properties)
+# Data Property: obo:MOLSIM_000398 (steered molecular dynamics  characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000398 "A category for parameters and results related to Steered Molecular Dynamics (SMD) simulations. SMD applies external forces to pull parts of the system along a specific path (reaction coordinate) to study processes like unfolding or unbinding. These properties define the steering protocol and outcomes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000398 "steered molecular dynamics properties"@en)
-SubDataPropertyOf(obo:MOLSIM_000398 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000398 "steered molecular dynamics  characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000398 obo:MOLSIM_001032)
 
 # Data Property: obo:MOLSIM_000399 (atom pulling velocity)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000399 "The constant speed at which the steered coordinate (e.g., distance between two atoms or groups) is changed or pulled during a constant-velocity SMD simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000399 "atom pulling velocity"@en)
 SubDataPropertyOf(obo:MOLSIM_000399 obo:MOLSIM_000398)
-
-# Data Property: obo:MOLSIM_000400 (reaction coordinate)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000400 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000400 "reaction coordinate"@en)
-SubDataPropertyOf(obo:MOLSIM_000400 obo:MOLSIM_000398)
 
 # Data Property: obo:MOLSIM_000401 (force constant)
 
@@ -1632,11 +1640,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000404 "The duration of simulatio
 AnnotationAssertion(rdfs:label obo:MOLSIM_000404 "simulation time per stage"@en)
 SubDataPropertyOf(obo:MOLSIM_000404 obo:MOLSIM_000398)
 
-# Data Property: obo:MOLSIM_000405 (umbrella sampling properties)
+# Data Property: obo:MOLSIM_000405 (umbrella sampling  characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000405 "A category for parameters and results related to Umbrella Sampling simulations, a technique used to enhance sampling along a specific coordinate (e.g., distance between molecules) for free energy calculations. It uses biasing potentials (umbrellas) to sample high-energy regions. These properties define the sampling setup and analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000405 "umbrella sampling properties"@en)
-SubDataPropertyOf(obo:MOLSIM_000405 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000405 "umbrella sampling  characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000405 obo:MOLSIM_001032)
 
 # Data Property: obo:MOLSIM_000406 (umbrella sampling equilibration time)
 
@@ -1644,16 +1652,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000406 "Umbrella sampling equilib
 AnnotationAssertion(rdfs:label obo:MOLSIM_000406 "umbrella sampling equilibration time"@en)
 SubDataPropertyOf(obo:MOLSIM_000406 obo:MOLSIM_000405)
 
-# Data Property: obo:MOLSIM_000407 (umbrella sampling distribution overlap)
+# Data Property: obo:MOLSIM_000407 (umbrella sampling distribution overlap value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000407 "Umbrella sampling distribution overlap  is the extent to which the probability distributions or histograms from adjacent sampling windows in an umbrella sampling simulation share common regions along the reaction coordinate, i.e., the degree of commonality between the sampled regions of neighboring windows in umbrella sampling simulations. Sufficient overlap is crucial for accurately reconstructing the unbiased free energy profile using methods like WHAM or MBAR. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000407 "umbrella sampling distribution overlap"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000407 "umbrella sampling distribution overlap value"@en)
 SubDataPropertyOf(obo:MOLSIM_000407 obo:MOLSIM_000405)
 
-# Data Property: obo:MOLSIM_000408 (potential mean force convergence step)
+# Data Property: obo:MOLSIM_000408 (potential mean force convergence step size)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000408 "Specifies the increment or step size (e.g., in simulation time or number of data points) used when assessing the convergence of the calculated Potential of Mean Force (PMF) during the analysis of umbrella sampling data. Convergence is checked by comparing PMFs calculated using progressively larger amounts of data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000408 "potential mean force convergence step"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000408 "potential mean force convergence step size"@en)
 SubDataPropertyOf(obo:MOLSIM_000408 obo:MOLSIM_000405)
 
 # Data Property: obo:MOLSIM_000409 (umbrella sampling record time)
@@ -1662,16 +1670,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000409 "Umbrella sampling record 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000409 "umbrella sampling record time"@en)
 SubDataPropertyOf(obo:MOLSIM_000409 obo:MOLSIM_000405)
 
-# Data Property: obo:MOLSIM_000410 (error interval)
+# Data Property: obo:MOLSIM_000410 (error interval value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000410 "Defines the range or interval (e.g., confidence interval percentage like 95%) associated with the reported statistical error for quantities derived from umbrella sampling, such as the potential of mean force. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000410 "error interval"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000410 "error interval value"@en)
 SubDataPropertyOf(obo:MOLSIM_000410 obo:MOLSIM_000405)
 
-# Data Property: obo:MOLSIM_000411 (error frequency)
+# Data Property: obo:MOLSIM_000411 (error frequency value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000411 "Specifies the frequency (e.g., every N steps or ps) at which statistical error estimates (e.g., for the potential of mean force) are calculated or updated during the analysis phase (e.g., WHAM) of umbrella sampling data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000411 "error frequency"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000411 "error frequency value"@en)
 SubDataPropertyOf(obo:MOLSIM_000411 obo:MOLSIM_000405)
 
 # Data Property: obo:MOLSIM_000412 (umbrella sampling force constant)
@@ -1680,16 +1688,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000412 "The strength (force const
 AnnotationAssertion(rdfs:label obo:MOLSIM_000412 "umbrella sampling force constant"@en)
 SubDataPropertyOf(obo:MOLSIM_000412 obo:MOLSIM_000405)
 
-# Data Property: obo:MOLSIM_000413 (umbrella sampling reaction coordinate)
+# Data Property: obo:MOLSIM_000413 (umbrella sampling reaction coordinate distance)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000413 "Umbrella sampling reaction coordinate is the distance component in the x,y,z used for applying the initial pulling force, and used for the sampling window extraction. It defines the specific geometric variable or collective variable along which the umbrella sampling is performed, synonymous with reaction coordinate defined under SMD.  (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000413 "umbrella sampling reaction coordinate"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000413 "umbrella sampling reaction coordinate distance"@en)
 SubDataPropertyOf(obo:MOLSIM_000413 obo:MOLSIM_000405)
 
-# Data Property: obo:MOLSIM_000414 (umbrella sampling windows)
+# Data Property: obo:MOLSIM_000414 (number of umbrella sampling windows)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000414 "Specifies the total number of individual simulations (windows) performed in an umbrella sampling calculation, each typically centered at a different value along the reaction coordinate and applying a biasing potential. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000414 "umbrella sampling windows"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000414 "number of umbrella sampling windows"@en)
 SubDataPropertyOf(obo:MOLSIM_000414 obo:MOLSIM_000405)
 
 # Data Property: obo:MOLSIM_000415 (umbrella sampling recording interval)
@@ -1698,11 +1706,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000415 "Umbrella sampling recordi
 AnnotationAssertion(rdfs:label obo:MOLSIM_000415 "umbrella sampling recording interval"@en)
 SubDataPropertyOf(obo:MOLSIM_000415 obo:MOLSIM_000405)
 
-# Data Property: obo:MOLSIM_000416 (thermalization and equilibration properties)
+# Data Property: obo:MOLSIM_000416 (thermalization and equilibration  characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000416 "A category encompassing parameters and settings used during the initial phases of a simulation designed to bring the system to the desired temperature and pressure (thermalization) and allow it to relax into a stable state (equilibration). These steps prepare the system for the main production simulation run. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000416 "thermalization and equilibration properties"@en)
-SubDataPropertyOf(obo:MOLSIM_000416 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000416 "thermalization and equilibration  characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000416 obo:MOLSIM_001032)
 
 # Data Property: obo:MOLSIM_000417 (simulation time)
 
@@ -1710,41 +1718,41 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000417 "The total duration of sim
 AnnotationAssertion(rdfs:label obo:MOLSIM_000417 "simulation time"@en)
 SubDataPropertyOf(obo:MOLSIM_000417 obo:MOLSIM_000416)
 
-# Data Property: obo:MOLSIM_000418 (heated temperature)
+# Data Property: obo:MOLSIM_000418 (heated temperature value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000418 "The target temperature value used during the heating phase of simulation preparation, where the system temperature is gradually increased from its initial value (often 0 K after minimization) to the final target temperature for the production run. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000418 "heated temperature"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000418 "heated temperature value"@en)
 SubDataPropertyOf(obo:MOLSIM_000418 obo:MOLSIM_000416)
 
-# Data Property: obo:MOLSIM_000419 (pressure)
+# Data Property: obo:MOLSIM_000419 (pressure value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000419 "Pressure, in molecular simulation context, is the reference pressure (in units of bars, where 1 bar ≈ 0.987 atm) at which the system is maintained. The target pressure value (usually in bar or atm) that the simulation system is intended to maintain during equilibration and production dynamics, controlled via a barostat algorithm (pressure coupling). This is relevant for simulations run in the NPT (constant particle number, pressure, temperature) ensemble. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000419 "pressure"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000419 "pressure value"@en)
 SubDataPropertyOf(obo:MOLSIM_000419 obo:MOLSIM_000416)
 
-# Data Property: obo:MOLSIM_000420 (minimization properties)
+# Data Property: obo:MOLSIM_000420 (minimization  characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000420 "A category for parameters and settings controlling the energy minimization process applied to a molecular system. Minimization aims to find a stable, low-energy conformation by adjusting atomic coordinates to reduce forces. These properties define how the minimization algorithm operates. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000420 "minimization properties"@en)
-SubDataPropertyOf(obo:MOLSIM_000420 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000420 "minimization  characteristics"@en)
+SubDataPropertyOf(obo:MOLSIM_000420 obo:MOLSIM_001032)
 
-# Data Property: obo:MOLSIM_000421 (restraint weight)
+# Data Property: obo:MOLSIM_000421 (restraint weight value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000421 "The numerical value specifying the strength (force constant) of the harmonic or other potential function used to apply positional or conformational restraints. A higher weight means a stronger force pulling the restrained atoms towards their target values or positions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000421 "restraint weight"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000421 "restraint weight value"@en)
 SubDataPropertyOf(obo:MOLSIM_000421 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000422 (restraint mask)
+# Data Property: obo:MOLSIM_000422 (restraint mask value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000422 "A specification (often text-based or using atom indices) defining which atoms or groups of atoms within the simulation system are subject to positional or conformational restraints during minimization or dynamics. Restraints apply forces to keep selected atoms close to reference positions or maintain specific geometric features. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000422 "restrained elements"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000422 "restraint mask"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000422 "restraint mask value"@en)
 SubDataPropertyOf(obo:MOLSIM_000422 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000423 (simulation preparation properties)
+# Data Property: obo:MOLSIM_000423 (simulation preparation characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000423 "A sub-category grouping parameters specifically related to the preparation stages before the main production simulation run, which might include minimization, heating, and equilibration steps designed to ready the system. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000423 "simulation preparation properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000423 "simulation preparation characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000423 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000424 (collision frequency)
@@ -1753,10 +1761,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000424 "Collision frequency is th
 AnnotationAssertion(rdfs:label obo:MOLSIM_000424 "collision frequency"@en)
 SubDataPropertyOf(obo:MOLSIM_000424 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000425 (target temperature)
+# Data Property: obo:MOLSIM_000425 (target temperature value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000425 "The desired temperature (usually in Kelvin) that the simulation system is intended to reach and maintain during minimization (if using temperature-coupled methods like Langevin), equilibration, or production dynamics, controlled via a thermostat algorithm. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000425 "target temperature"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000425 "target temperature value"@en)
 SubDataPropertyOf(obo:MOLSIM_000425 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000426 (coupling constant)
@@ -1765,11 +1773,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000426 "A general term for a para
 AnnotationAssertion(rdfs:label obo:MOLSIM_000426 "coupling constant"@en)
 SubDataPropertyOf(obo:MOLSIM_000426 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000427 (center of mass move removal)
+# Data Property: obo:MOLSIM_000427 (center of mass move removal value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000427 "Specifies the frequency (e.g., every N steps) at which the overall translational motion of the system's center of mass is removed during minimization or dynamics. This prevents the entire system from drifting spuriously due to accumulated numerical errors, keeping it centered in the simulation box. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000427 "COM move removal"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000427 "center of mass move removal"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000427 "center of mass move removal value"@en)
 SubDataPropertyOf(obo:MOLSIM_000427 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000428 (number of ligand conformers)
@@ -1778,10 +1786,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000428 "Specifies the total count
 AnnotationAssertion(rdfs:label obo:MOLSIM_000428 "number of ligand conformers"@en)
 SubDataPropertyOf(obo:MOLSIM_000428 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000429 (time step)
+# Data Property: obo:MOLSIM_000429 (time step value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000429 "The discrete interval of time (typically in femtoseconds, fs) used to integrate the equations of motion in a molecular dynamics simulation. Choosing an appropriate time step is crucial for numerical stability (must be short enough to capture fastest motions) and computational efficiency (longer steps cover more simulation time). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000429 "time step"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000429 "time step value"@en)
 SubDataPropertyOf(obo:MOLSIM_000429 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000430 (shell radius)
@@ -1796,11 +1804,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000431 "Specifies the number of t
 AnnotationAssertion(rdfs:label obo:MOLSIM_000431 "run repetitions"@en)
 SubDataPropertyOf(obo:MOLSIM_000431 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000433 (free fatty acid concentration)
+# Data Property: obo:MOLSIM_000433 (free fatty acid concentration value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000433 "Specifies the concentration of free (unesterified) fatty acid molecules included in the simulation system, potentially relevant in membrane simulations or studies involving lipid metabolism or signaling. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000433 "FFA concentration"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000433 "free fatty acid concentration"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000433 "free fatty acid concentration value"@en)
 SubDataPropertyOf(obo:MOLSIM_000433 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000434 (probe radius)
@@ -1817,22 +1825,22 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000435 "termini capping flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000435 obo:MOLSIM_000308)
 DataPropertyRange(obo:MOLSIM_000435 xsd:boolean)
 
-# Data Property: obo:MOLSIM_000449 (has version)
+# Data Property: obo:MOLSIM_000449 (version number)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000449 "Indicates the specific version of a software or method used. It's important for reproducibility and comparing results across studies."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000449 "has version"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000449 "version number"@en)
 SubDataPropertyOf(obo:MOLSIM_000449 obo:MOLSIM_000336)
 
-# Data Property: obo:MOLSIM_000450 (has pH)
+# Data Property: obo:MOLSIM_000450 (pH value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000450 "Specifies the pH value (a measure of acidity/alkalinity) of the solution being simulated or the target pH maintained during a constant-pH simulation. The pH affects the protonation states of titratable residues (like acids and bases) in proteins and ligands. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000450 "has pH"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000450 "pH value"@en)
 SubDataPropertyOf(obo:MOLSIM_000450 obo:MOLSIM_000308)
 
-# Data Property: obo:MOLSIM_000451 (is using ligand)
+# Data Property: obo:MOLSIM_000451 (is using ligand flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000451 "Indicates whether one or more ligand molecules (typically small molecules binding to a larger macromolecule like a protein or nucleic acid) are present in the simulation system. Likely a boolean (true/false) flag. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000451 "is using ligand"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000451 "is using ligand flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000451 obo:MOLSIM_000308)
 DataPropertyRange(obo:MOLSIM_000451 xsd:boolean)
 
@@ -1848,24 +1856,24 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000453 "Describes the types and r
 AnnotationAssertion(rdfs:label obo:MOLSIM_000453 "lipid composition"@en)
 SubDataPropertyOf(obo:MOLSIM_000453 obo:MOLSIM_000308)
 
-# Data Property: obo:MOLSIM_000454 (is salt used)
+# Data Property: obo:MOLSIM_000454 (is salt used flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000454 "Indicates whether salt ions (e.g., Na+, Cl-) were added to the simulation system, typically to neutralize the net charge of the solute molecules and/or to mimic a specific ionic strength of the experimental buffer. A boolean (true/false) flag. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000454 "is salt used"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000454 "is salt used flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000454 obo:MOLSIM_000308)
 DataPropertyRange(obo:MOLSIM_000454 xsd:boolean)
 
-# Data Property: obo:MOLSIM_000455 (salt concentration)
+# Data Property: obo:MOLSIM_000455 (salt concentration value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000455 "Specifies the molar concentration (e.g., in Molarity, mol/L) of the salt ions (e.g., NaCl, KCl) added to the simulation solvent. This defines the ionic strength of the simulated solution, which affects electrostatic interactions and mimics experimental buffer conditions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000455 "salt concentration"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000455 "salt concentration value"@en)
 SubDataPropertyOf(obo:MOLSIM_000455 obo:MOLSIM_000308)
 DataPropertyRange(obo:MOLSIM_000455 xsd:float)
 
-# Data Property: obo:MOLSIM_000456 (is multiple conformations)
+# Data Property: obo:MOLSIM_000456 (is multiple conformations flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000456 "Indicates whether the input structure for minimization (or simulation) contained multiple distinct conformations or locations for some atoms or residues (e.g., alternate locations in PDB files). This flag might determine how these multiple starting points are handled. Likely a boolean (true/false) flag. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000456 "is multiple conformations"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000456 "is multiple conformations flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000456 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000457 (hyperbolic constraint values)
@@ -1874,38 +1882,38 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000457 "Refers to specific numeri
 AnnotationAssertion(rdfs:label obo:MOLSIM_000457 "hyperbolic constraint values"@en)
 SubDataPropertyOf(obo:MOLSIM_000457 obo:MOLSIM_000420)
 
-# Data Property: obo:MOLSIM_000458 (cutoff)
+# Data Property: obo:MOLSIM_000458 (cutoff characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000458 "A category grouping different distance thresholds used in simulations to limit the range over which certain interactions (like non-bonded forces or neighbor list calculations) are explicitly computed. Using cutoffs speeds up calculations by ignoring interactions between distant atoms. The specific type of cutoff is defined by child properties. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000458 "cutoff"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000458 "cutoff characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000458 obo:MOLSIM_000308)
 DataPropertyRange(obo:MOLSIM_000458 xsd:float)
 
-# Data Property: obo:MOLSIM_000467 (energy cutoff)
+# Data Property: obo:MOLSIM_000467 (energy cutoff value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000467 "A threshold related to energy values, potentially used in specific algorithms or analyses. Its exact meaning depends heavily on the context (e.g., a cutoff for accepting Monte Carlo moves, a threshold for defining hydrogen bonds based on energy, or a parameter in QM calculations like plane-wave cutoff). Note: Definition is uncertain without more context. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000467 "energy cutoff"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000467 "energy cutoff value"@en)
 SubDataPropertyOf(obo:MOLSIM_000467 obo:MOLSIM_000458)
 DataPropertyRange(obo:MOLSIM_000467 xsd:float)
 
-# Data Property: obo:MOLSIM_000477 (velocity cutoff)
+# Data Property: obo:MOLSIM_000477 (velocity cutoff value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000477 "A maximum allowed speed for any atom during certain simulation procedures, potentially used during initial velocity assignment or specific thermostatting methods to prevent instabilities caused by excessively high kinetic energies. Note: Less common in standard MD, definition might depend on specific context. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000477 "velocity cutoff"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000477 "velocity cutoff value"@en)
 SubDataPropertyOf(obo:MOLSIM_000477 obo:MOLSIM_000458)
 DataPropertyRange(obo:MOLSIM_000477 xsd:float)
 
-# Data Property: obo:MOLSIM_000478 (distance cutoff)
+# Data Property: obo:MOLSIM_000478 (distance cutoff value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000478 "The specific distance threshold beyond which non-bonded interactions (like Van der Waals and direct-space electrostatics) between pairs of atoms are typically ignored or handled approximately (e.g., using long-range corrections or methods like PME for electrostatics). This is a crucial parameter affecting simulation speed and accuracy. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000478 "distance cutoff"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000478 "distance cutoff value"@en)
 SubDataPropertyOf(obo:MOLSIM_000478 obo:MOLSIM_000458)
 DataPropertyRange(obo:MOLSIM_000478 xsd:float)
 
-# Data Property: obo:MOLSIM_000479 (restraint with harmonic potential)
+# Data Property: obo:MOLSIM_000479 (restraint with harmonic potential value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000479 "Indicates that the restraints applied (as defined by the mask and weight) use a harmonic potential function, meaning the restraining energy increases quadratically with the deviation from the target value or position. This is a common type of restraint used in simulations. Likely a boolean flag or implied by the presence of a harmonic force constant. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000479 "restraint with harmonic potential"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000479 "restraint with harmonic potential value"@en)
 SubDataPropertyOf(obo:MOLSIM_000479 obo:MOLSIM_000420)
 
 # Data Property: obo:MOLSIM_000480 (number of replicates)
@@ -1914,59 +1922,53 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000480 "Specifies the number of i
 AnnotationAssertion(rdfs:label obo:MOLSIM_000480 "number of replicates"@en)
 SubDataPropertyOf(obo:MOLSIM_000480 obo:MOLSIM_000308)
 
-# Data Property: obo:MOLSIM_000481 (is molecular mechanics Poisson-Boltzmann surface area)
+# Data Property: obo:MOLSIM_000481 (is molecular mechanics Poisson-Boltzmann surface area flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000481 "Indicates whether the specific combination of Poisson-Boltzmann (PB) electrostatics and a Surface Area (SA) dependent nonpolar term was used to calculate the solvation free energy component within an MM/PBSA calculation. This is likely a boolean (true/false) flag distinguishing PB-based calculations from GB-based ones or other variants. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000481 "is MMPBSA"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000481 "is molecular mechanics Poisson-Boltzmann surface area"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000481 "is molecular mechanics Poisson-Boltzmann surface area flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000481 obo:MOLSIM_000362)
 DataPropertyRange(obo:MOLSIM_000481 xsd:boolean)
 
-# Data Property: obo:MOLSIM_000482 (is molecular mechanics Poisson-Boltzmann surface area decomposed)
+# Data Property: obo:MOLSIM_000482 (is molecular mechanics Poisson-Boltzmann surface area decomposed flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000482 "Indicates whether the total MM/PBSA energy (or its components) was further broken down into contributions from individual residues, atoms, or interaction types. This decomposition analysis helps identify the key energetic drivers of the process being studied (e.g., which residues contribute most to binding). Likely a boolean (true/false) flag. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000482 "is MMPBSA decomposed"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000482 "is molecular mechanics Poisson-Boltzmann surface area decomposed"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000482 "is molecular mechanics Poisson-Boltzmann surface area decomposed flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000482 obo:MOLSIM_000362)
 DataPropertyRange(obo:MOLSIM_000482 xsd:boolean)
 
-# Data Property: obo:MOLSIM_000483 (is molecular mechanics Poisson-Boltzmann surface area entropy)
+# Data Property: obo:MOLSIM_000483 (is molecular mechanics Poisson-Boltzmann surface area entropy flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000483 "Indicates whether an estimate of the change in conformational entropy (e.g., calculated via normal mode analysis, quasi-harmonic analysis, or interaction entropy methods on simulation snapshots) was included in the final MM/PBSA free energy value. Standard MM/PBSA often omits or uses simple approximations for this term. Likely a boolean (true/false) flag or the calculated entropy value itself. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000483 "is MMPBSA entropy"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000483 "is molecular mechanics Poisson-Boltzmann surface area entropy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000483 "is molecular mechanics Poisson-Boltzmann surface area entropy flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000483 obo:MOLSIM_000362)
 DataPropertyRange(obo:MOLSIM_000483 xsd:boolean)
 
-# Data Property: obo:MOLSIM_000484 (is adaptive steered molecular dynamics)
+# Data Property: obo:MOLSIM_000484 (is adaptive steered molecular dynamics flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000484 "Indicates whether Adaptive Steered Molecular Dynamics (ASMD) is involved. ASMD is an enhanced sampling technique that builds upon traditional Steered Molecular Dynamics (SMD). ASMD divides the reaction coordinate into multiple segments or stages. Within each stage, multiple SMD simulations are performed."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000484 "is ASMD"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000484 "is adaptive steered molecular dynamics"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000484 "is adaptive steered molecular dynamics flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000484 obo:MOLSIM_000398)
 
-# Data Property: obo:MOLSIM_000488 (grid function)
+# Data Property: obo:MOLSIM_000488 (grid function value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000488 "Specifies the mathematical function or algorithm used when calculating properties (like density, electrostatic potential) on a 3D grid representing the simulation space, often within analysis tools like CPPTRAJ. Different functions might be used for averaging, summing, or mapping specific atomic properties onto the grid points. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000488 "grid function"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000488 "grid function value"@en)
 SubDataPropertyOf(obo:MOLSIM_000488 obo:MOLSIM_000489)
 
-# Data Property: obo:MOLSIM_000489 (CPPTRAJ properties)
+# Data Property: obo:MOLSIM_000489 (CPPTRAJ characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000489 "Parameters specifically related to calculations performed using the CPPTRAJ software, a popular tool for analyzing biomolecular simulation trajectories. These settings control how CPPTRAJ performs tasks like clustering, distance calculations, or other analyses relevant to interpreting simulation data, potentially including confidence interval estimation steps. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000489 "CPPTRAJ properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000489 "CPPTRAJ characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000489 obo:MOLSIM_000140)
 
-# Data Property: obo:MOLSIM_000494 (simulation environment)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000494 "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000494 "simulation environment"@en)
-SubDataPropertyOf(obo:MOLSIM_000494 obo:MOLSIM_000362)
-
-# Data Property: obo:MOLSIM_000500 (is trans-membrane simulation)
+# Data Property: obo:MOLSIM_000500 (is trans-membrane simulation flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000500 "Indicates whether the simulation system includes a lipid membrane and focuses on processes occurring across or within that membrane (e.g., transport, protein insertion). Likely a boolean (true/false) flag signifying the type of system setup. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000500 "is trans-membrane simulation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000500 "is trans-membrane simulation flag"@en)
 SubDataPropertyOf(obo:MOLSIM_000500 obo:MOLSIM_000308)
 DataPropertyRange(obo:MOLSIM_000500 xsd:boolean)
 
@@ -1984,40 +1986,40 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000510 "external dielectric constant"@
 SubDataPropertyOf(obo:MOLSIM_000510 obo:MOLSIM_000362)
 DataPropertyRange(obo:MOLSIM_000510 DatatypeRestriction(xsd:float xsd:minInclusive "1.0"^^xsd:float))
 
-# Data Property: obo:MOLSIM_000617 (nuclear properties*)
+# Data Property: obo:MOLSIM_000617 (nuclear  characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000617 "A category related to the properties and behavior of atomic nuclei within the simulation context, particularly relevant for NMR or quantum dynamics studies. This includes magnetic properties influencing NMR signals or forces acting directly on nuclei. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000617 "nuclear properties*"@en)
-SubDataPropertyOf(obo:MOLSIM_000617 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000617 "nuclear  characteristics*"@en)
+SubDataPropertyOf(obo:MOLSIM_000617 obo:MOLSIM_001032)
 
-# Data Property: obo:MOLSIM_000618 (magnetic interactions*)
+# Data Property: obo:MOLSIM_000618 (magnetic interactions characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000618 "A type of nuclear property describing how atomic nuclei interact with magnetic fields, whether externally applied or generated locally by electrons and other nuclei. These interactions form the basis of Nuclear Magnetic Resonance (NMR) spectroscopy, providing detailed information about molecular structure and dynamics. Calculating these interactions computationally helps interpret experimental NMR results. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000618 "magnetic interactions*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000618 "magnetic interactions characteristics*"@en)
 SubDataPropertyOf(obo:MOLSIM_000618 obo:MOLSIM_000617)
 
-# Data Property: obo:MOLSIM_000619 (NMR shielding and chemical shifts*)
+# Data Property: obo:MOLSIM_000619 (NMR shielding and chemical shifts value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000619 "A specific magnetic interaction property where the electron cloud surrounding a nucleus diminishes (shields) the effect of an external magnetic field experienced by that nucleus, leading to a characteristic frequency (chemical shift) in an NMR spectrum. The chemical shift value is highly sensitive to the nucleus's local electronic and chemical environment, making it a powerful probe of molecular structure. Calculated shielding constants predict chemical shifts, aiding spectral analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000619 "NMR shielding and chemical shifts*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000619 "NMR shielding and chemical shifts value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000619 obo:MOLSIM_000618)
 
-# Data Property: obo:MOLSIM_000620 (NMR spin-spin coupling constants*)
+# Data Property: obo:MOLSIM_000620 (NMR spin-spin coupling constants value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000620 "A magnetic interaction property quantifying the indirect coupling between the spins of two nuclei, transmitted through the intervening bonding electrons (measured as J-coupling). This interaction causes splitting of NMR signals and provides valuable information about covalent bond connectivity, bond angles, and dihedral angles between the coupled nuclei. Calculating J-couplings helps interpret NMR fine structure and confirm molecular constitution and conformation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000620 "NMR spin-spin coupling constants*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000620 "NMR spin-spin coupling constants value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000620 obo:MOLSIM_000618)
 
-# Data Property: obo:MOLSIM_000621 (nuclear dynamics*)
+# Data Property: obo:MOLSIM_000621 (nuclear dynamics characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000621 "A type of nuclear property related to the motion of atomic nuclei, governed by the forces acting upon them. This is the central focus of classical Molecular Dynamics (MD) simulations, where nuclei are treated as classical particles whose trajectories are determined by integrating Newton's equations of motion. Analyzing nuclear dynamics reveals how molecules move, vibrate, and undergo conformational changes over time. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000621 "nuclear dynamics*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000621 "nuclear dynamics characteristics*"@en)
 SubDataPropertyOf(obo:MOLSIM_000621 obo:MOLSIM_000617)
 
-# Data Property: obo:MOLSIM_000622 (nuclei forces*)
+# Data Property: obo:MOLSIM_000622 (nuclei forces value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000622 "The forces acting on individual atomic nuclei within a molecular system, arising from electrostatic interactions with electrons and other nuclei as defined by the system's potential energy function (either from a force field or a quantum mechanical calculation). These forces determine the acceleration of the nuclei and are calculated at each time step in Molecular Dynamics simulations to propagate their trajectories. They are fundamental drivers of all simulated nuclear motion. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000622 "nuclei forces*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000622 "nuclei forces value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000622 obo:MOLSIM_000621)
 
 # Data Property: obo:MOLSIM_000627 (base pair parameters*)
@@ -2026,108 +2028,108 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000627 "A subset of nucleic acid 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000627 "base pair parameters*"@en)
 SubDataPropertyOf(obo:MOLSIM_000627 obo:MOLSIM_000647)
 
-# Data Property: obo:MOLSIM_000628 (nucleic acid shear*)
+# Data Property: obo:MOLSIM_000628 (nucleic acid shear value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000628 "An intra-base pair parameter quantifying the translational displacement of one base relative to the other within the pair, along the axis in the mean base pair plane pointing towards the major groove (y-axis). Shear represents a lateral 'slipping' of bases relative to each other within the pair. Significant shear is observed in alternative base pairings like Hoogsteen pairs. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000628 "nucleic acid shear*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000628 "nucleic acid shear value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000628 obo:MOLSIM_000627)
 DisjointDataProperties(obo:MOLSIM_000628 obo:MOLSIM_000629 obo:MOLSIM_000637 obo:MOLSIM_000638 obo:MOLSIM_000639 obo:MOLSIM_000640 obo:MOLSIM_000641 obo:MOLSIM_000642 obo:MOLSIM_000643 obo:MOLSIM_000644 obo:MOLSIM_000645 obo:MOLSIM_000646)
 
-# Data Property: obo:MOLSIM_000629 (nucleic acid stretch*)
+# Data Property: obo:MOLSIM_000629 (nucleic acid stretch value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000629 "An intra-base pair parameter quantifying the translational displacement of the two bases relative to each other along the axis connecting them through the hydrogen bonds (often measured via C1'-C1' distance changes). Stretch measures how much the base pair is pulled apart or compressed relative to its ideal hydrogen bonding distance. It reflects the strength and dynamics of the hydrogen bonds holding the pair together. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000629 "nucleic acid stretch*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000629 "nucleic acid stretch value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000629 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000630 (electron dynamics*)
+# Data Property: obo:MOLSIM_000630 (electron dynamics characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000630 "A category for properties related to the time-dependent behavior of electrons within the simulated system, often studied using quantum mechanical methods. This includes processes like excitation, ionization, or electron transfer. Properties here describe the system's propensity for such electronic changes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000630 "electron dynamics*"@en)
-SubDataPropertyOf(obo:MOLSIM_000630 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000630 "electron dynamics characteristics*"@en)
+SubDataPropertyOf(obo:MOLSIM_000630 obo:MOLSIM_001032)
 
-# Data Property: obo:MOLSIM_000631 (electron affinity*)
+# Data Property: obo:MOLSIM_000631 (electron affinity value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000631 "The energy change occurring when an electron is added to a neutral atom or molecule to form a negative ion. A positive electron affinity indicates energy is released and the anion is stable. This property, calculated via electronic structure methods, reflects the molecule's ability to accept an electron. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000631 "electron affinity*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000631 "electron affinity value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000631 obo:MOLSIM_000630)
 
-# Data Property: obo:MOLSIM_000632 (ionization potential*)
+# Data Property: obo:MOLSIM_000632 (ionization potential value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000632 "The minimum energy required to remove one electron from a neutral atom or molecule (in its gaseous state) to form a positive ion. It quantifies how strongly the outermost electron is bound. This property is calculated using electronic structure methods and indicates the molecule's resistance to losing an electron. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000632 "ionization potential*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000632 "ionization potential value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000632 obo:MOLSIM_000630)
 
-# Data Property: obo:MOLSIM_000637 (nucleic acid stagger*)
+# Data Property: obo:MOLSIM_000637 (nucleic acid stagger value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000637 "An intra-base pair parameter describing the relative translational displacement of the two bases within a pair along the axis perpendicular to the mean base pair plane (z-axis). Stagger quantifies differences in the 'height' of the two bases within the pair relative to each other. It contributes to the overall deviation from base pair planarity. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000637 "nucleic acid stagger*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000637 "nucleic acid stagger value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000637 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000638 (nucleic acid buckle*)
+# Data Property: obo:MOLSIM_000638 (nucleic acid buckle value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000638 "An intra-base pair parameter measuring the angle between the planes of the two bases within a pair, representing rotation around the long axis connecting them (roughly parallel to the hydrogen bonds). A non-zero buckle indicates the base pair is not perfectly flat along this axis. Buckle contributes to the overall helix shape and can be influenced by sequence context and binding interactions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000638 "nucleic acid buckle*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000638 "nucleic acid buckle value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000638 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000639 (nucleic acid propel*)
+# Data Property: obo:MOLSIM_000639 (nucleic acid propel value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000639 "An intra-base pair parameter quantifying the dihedral angle between the planes of the two bases within a pair, representing rotation around the axis connecting the purine N9 / pyrimidine N1 atoms (the short axis within the pair, roughly perpendicular to hydrogen bonds). This 'propeller-like' twist optimizes base stacking with adjacent pairs but can strain hydrogen bonds. It is a key determinant of helix stability and groove dimensions. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000639 "propeller twist"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000639 "nucleic acid propel*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000639 "nucleic acid propel value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000639 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000640 (nucleic acid opening*)
+# Data Property: obo:MOLSIM_000640 (nucleic acid opening value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000640 "An intra-base pair parameter describing the angle related to the separation of the two bases towards the major or minor groove edges, essentially measuring the extent to which the hydrogen bonds are 'opened' or exposed. Large opening angles are associated with transient 'breathing' motions or strand separation. It quantifies the accessibility of base edges normally involved in hydrogen bonding. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000640 "nucleic acid opening*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000640 "nucleic acid opening value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000640 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000641 (nucleic acid shift*)
+# Data Property: obo:MOLSIM_000641 (nucleic acid shift value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000641 "An inter-base pair (step) parameter describing the translational displacement between the origins of two successive base pair reference frames along the axis perpendicular to the helix axis and pointing towards the minor groove (x-axis in standard frames). Shift represents the lateral 'sliding' of one base pair relative to the next along this direction. It affects the alignment and stacking interactions between adjacent base pairs. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000641 "nucleic acid shift*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000641 "nucleic acid shift value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000641 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000642 (nucleic acid slide*)
+# Data Property: obo:MOLSIM_000642 (nucleic acid slide value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000642 "An inter-base pair (step) parameter describing the translational displacement between the origins of two successive base pair reference frames along the axis perpendicular to the helix axis and pointing towards the major groove (y-axis in standard frames). Slide represents the lateral 'sliding' of one base pair relative to the next along the direction of their long axes. It significantly influences groove widths and DNA bending. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000642 "nucleic acid slide*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000642 "nucleic acid slide value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000642 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000643 (nucleic acid rise*)
+# Data Property: obo:MOLSIM_000643 (nucleic acid rise value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000643 "An inter-base pair (step) parameter describing the translational distance between the origins of two successive base pair reference frames, measured along the central helical axis (z-axis). It quantifies the 'rise' or vertical separation per step of the helix. Rise is a primary determinant of the overall length and pitch of the DNA/RNA helix. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000643 "nucleic acid rise*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000643 "nucleic acid rise value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000643 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000644 (nucleic acid tilt*)
+# Data Property: obo:MOLSIM_000644 (nucleic acid tilt value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000644 "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the axis perpendicular to the helix axis and pointing towards the minor groove (x-axis in standard frames). Tilt represents the 'tilting' of one base pair relative to the next along their short axes. Along with roll, tilt contributes to the overall curvature and bending of the DNA/RNA helix. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000644 "nucleic acid tilt*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000644 "nucleic acid tilt value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000644 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000645 (nucleic acid roll*)
+# Data Property: obo:MOLSIM_000645 (nucleic acid roll value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000645 "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the long axis connecting them (y-axis in standard frames). Roll angle variations cause the helix to bend into the major or minor groove. Sequence-dependent roll angles are crucial for DNA bendability and protein recognition. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000645 "nucleic acid roll*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000645 "nucleic acid roll value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000645 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000646 (nucleic acid twist*)
+# Data Property: obo:MOLSIM_000646 (nucleic acid twist value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000646 "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the central helical axis (z-axis). Twist quantifies the amount of helical rotation occurring between adjacent base pairs. It is the primary determinant of the number of base pairs per helical turn (helix pitch). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000646 "nucleic acid twist*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000646 "nucleic acid twist value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000646 obo:MOLSIM_000627)
 
-# Data Property: obo:MOLSIM_000647 (nucleic acid parameters*)
+# Data Property: obo:MOLSIM_000647 (nucleic acid  characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000647 "A category grouping specific geometric parameters used to describe the structure and conformation of nucleic acids (DNA, RNA). These parameters quantify the relative orientation and displacement of base pairs and backbone segments. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000647 "nucleic acid parameters*"@en)
-SubDataPropertyOf(obo:MOLSIM_000647 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000647 "nucleic acid  characteristics*"@en)
+SubDataPropertyOf(obo:MOLSIM_000647 obo:MOLSIM_001032)
 
-# Data Property: obo:MOLSIM_000648 (displacement*)
+# Data Property: obo:MOLSIM_000648 (displacement characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000648 "A category of nucleic acid parameters quantifying the translational position or displacement of a base pair's reference frame (or individual atoms/bases) relative to the global or local helical axis. These parameters measure how far off-axis the base pairs are located. They complement the inter- and intra-pair parameters in fully describing the helix geometry. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000648 "displacement*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000648 "displacement characteristics*"@en)
 SubDataPropertyOf(obo:MOLSIM_000648 obo:MOLSIM_000647)
 
 # Data Property: obo:MOLSIM_000649 (nucleic acid x-displacement*)
@@ -2143,52 +2145,52 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000650 "A specific displacement p
 AnnotationAssertion(rdfs:label obo:MOLSIM_000650 "nucleic acid y-displacement*"@en)
 SubDataPropertyOf(obo:MOLSIM_000650 obo:MOLSIM_000648)
 
-# Data Property: obo:MOLSIM_000651 (miscellaneous properties*)
+# Data Property: obo:MOLSIM_000651 (miscellaneous  characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000651 "A category for various calculated or descriptive properties of the simulated system that don't fit neatly into other major categories. This often includes structural descriptors, energetic terms, or specific analysis metrics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000651 "miscellaneous properties*"@en)
-SubDataPropertyOf(obo:MOLSIM_000651 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000651 "miscellaneous  characteristics*"@en)
+SubDataPropertyOf(obo:MOLSIM_000651 obo:MOLSIM_001032)
 
-# Data Property: obo:MOLSIM_000652 (heat of formation*)
+# Data Property: obo:MOLSIM_000652 (heat of formation value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000652 "The heat of formation (ΔH∘f) represents the change in enthalpy (heat content) when one mole of a substance is created from its constituent elements in their most stable forms under standard conditions. It indicates the relative stability of the compound compared to its elements. This thermodynamic quantity is often computed using quantum mechanical methods. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000652 "heat of formation*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000652 "heat of formation value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000652 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000653 (delta G of solvation*)
+# Data Property: obo:MOLSIM_000653 (delta G of solvation value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000653 "The delta G of solvation (ΔG solv) is the change in Gibbs free energy when a molecule is transferred from a vacuum environment into a specific solvent, like water. It quantifies the energetic cost or favourability of dissolving the molecule and is a key factor determining solubility. This property is frequently calculated in simulations to understand molecular interactions with their environment. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000653 "delta G of solvation*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000653 "delta G of solvation value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000653 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000654 (gradient*)
+# Data Property: obo:MOLSIM_000654 (gradient value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000654 "The gradient is a vector containing the first partial derivatives of the energy with respect to the atomic coordinates. It indicates the direction and magnitude of the steepest slope on the potential energy surface at a given point. The negative of the gradient corresponds to the net force acting on each atom, driving geometry optimization and molecular dynamics simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000654 "gradient*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000654 "gradient value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000654 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000655 (hessian*)
+# Data Property: obo:MOLSIM_000655 (hessian value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000655 "The Hessian is a square matrix containing the second partial derivatives of the energy with respect to the atomic coordinates, describing the curvature of the potential energy surface around a specific molecular geometry. Its eigenvalues and eigenvectors are used to calculate vibrational frequencies (normal modes) and to characterize stationary points (minima, transition states). It is a key component in frequency analysis and geometry optimization algorithms. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000655 "hessian*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000655 "hessian value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000655 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000656 (2d-RMSD*)
+# Data Property: obo:MOLSIM_000656 (2d-RMSD value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000656 "2D-RMSD refers to a matrix plot where each element (i, j) represents the Root Mean Square Deviation (RMSD) calculated between snapshot 'i' and snapshot 'j' of a molecular dynamics trajectory. This visualization helps identify periods of structural stability (blocks of low RMSD along the diagonal) and conformational transitions within the simulation. It provides a global overview of the conformational space explored. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000656 "2d-RMSD*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000656 "2d-RMSD value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000656 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000657 (RMSD*)
+# Data Property: obo:MOLSIM_000657 (RMSD value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000657 "Root Mean Square Deviation (RMSD) is a numerical measure quantifying the average distance between corresponding atoms in two optimally superimposed molecular structures. It is commonly used to evaluate the structural difference between a simulated conformation and a reference structure (e.g., experimental or initial structure). Lower RMSD values indicate greater structural similarity. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000657 "RMSD*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000657 "RMSD value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000657 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000658 (distance RMSD*)
+# Data Property: obo:MOLSIM_000658 (distance RMSD value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000658 "Distance RMSD (dRMSD) measures the similarity between two conformations based on the root-mean-square deviation of their corresponding internal pairwise atomic distances, rather than their Cartesian coordinates after superposition. This metric avoids the need for structural alignment and can be more sensitive to changes in internal structure, especially for flexible molecules. It compares the \"distance maps\" of two structures. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000658 "distance RMSD*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000658 "distance RMSD value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000658 obo:MOLSIM_000651)
 
 # Data Property: obo:MOLSIM_000659 (TM-score*)
@@ -2197,10 +2199,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000659 "The TM-score (Template Mo
 AnnotationAssertion(rdfs:label obo:MOLSIM_000659 "TM-score*"@en)
 SubDataPropertyOf(obo:MOLSIM_000659 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000660 (B-factor*)
+# Data Property: obo:MOLSIM_000660 (B-factor value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000660 "A measure of atomic positional fluctuation or displacement, calculated from simulation data (often as the mean square fluctuation of atom positions after overall translation/rotation is removed). It is analogous to the crystallographic B-factor (temperature factor) and indicates the relative mobility or uncertainty in the position of each atom. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000660 "B-factor*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000660 "B-factor value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000660 obo:MOLSIM_000651)
 
 # Data Property: obo:MOLSIM_000661 (atom interaction count*)
@@ -2209,118 +2211,123 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000661 "Specifies the number of i
 AnnotationAssertion(rdfs:label obo:MOLSIM_000661 "atom interaction count*"@en)
 SubDataPropertyOf(obo:MOLSIM_000661 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000662 (electronic structure property*)
+# Data Property: obo:MOLSIM_000662 (electronic structure  characteristics value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000662 "A category grouping properties derived from the quantum mechanical description of how electrons are arranged in a molecule (its electronic structure). These properties, like charge distribution or polarizability, determine the molecule's chemical behavior and interactions. They are typically calculated using QM or QM/MM methods. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000662 "electronic structure property*"@en)
-SubDataPropertyOf(obo:MOLSIM_000662 owl:topDataProperty)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000662 "electronic structure  characteristics value*"@en)
+SubDataPropertyOf(obo:MOLSIM_000662 obo:MOLSIM_001032)
 
-# Data Property: obo:MOLSIM_000663 (polarization*)
+# Data Property: obo:MOLSIM_000663 (polarization characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000663 "A sub-category for properties describing how a molecule's electron distribution is distorted (polarized) in response to an external electric field. This includes the molecule's ability to form an induced dipole moment. Polarization effects are important for accurate modeling of interactions, especially in condensed phases or strong fields. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000663 "polarization*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000663 "polarization characteristics*"@en)
 SubDataPropertyOf(obo:MOLSIM_000663 obo:MOLSIM_000662)
 DisjointDataProperties(obo:MOLSIM_000663 obo:MOLSIM_000667 obo:MOLSIM_000670)
 
-# Data Property: obo:MOLSIM_000664 (polarizability*)
+# Data Property: obo:MOLSIM_000664 (polarizability value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000664 "A tensor property quantifying the linear response of a molecule's electron cloud to an external electric field, measuring how easily the electrons are displaced, inducing a dipole moment. It determines the strength of induced dipole interactions (part of Van der Waals forces) and affects how light interacts with the molecule (refraction). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000664 "polarizability*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000664 "polarizability value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000664 obo:MOLSIM_000663)
 DisjointDataProperties(obo:MOLSIM_000664 obo:MOLSIM_000665 obo:MOLSIM_000666)
 
-# Data Property: obo:MOLSIM_000665 (hyperpolarizability*)
+# Data Property: obo:MOLSIM_000665 (hyperpolarizability value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000665 "A tensor property quantifying the non-linear response of a molecule's electron cloud (and induced dipole moment) to a strong external electric field. It describes effects beyond the simple linear relationship defined by polarizability. Hyperpolarizability is relevant for non-linear optics and requires advanced electronic structure calculations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000665 "hyperpolarizability*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000665 "hyperpolarizability value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000665 obo:MOLSIM_000663)
 
-# Data Property: obo:MOLSIM_000666 (time-dependent polarizability*)
+# Data Property: obo:MOLSIM_000666 (time-dependent polarizability value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000666 "Describes the molecule's polarizability as a function of the frequency of an oscillating external electric field (like light). This frequency dependence is crucial for understanding optical phenomena such as light absorption and dispersion (how refractive index changes with wavelength). It's calculated using time-dependent quantum mechanical methods. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000666 "time-dependent polarizability*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000666 "time-dependent polarizability value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000666 obo:MOLSIM_000663)
 
-# Data Property: obo:MOLSIM_000667 (wavefunction*)
+# Data Property: obo:MOLSIM_000667 (wavefunction characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000667 "A mathematical function resulting from solving the Schrödinger equation (or an approximation) for a molecule, describing the quantum state of its electrons. While the wavefunction itself is complex, properties like energy, electron density, and orbitals are derived from it. Note: This term might be better represented as a Class (Wavefunction) or linked via an Object Property (calculation hasOutput someWavefunction) rather than a Data Property category, as the wavefunction itself is a complex mathematical object, not typically a simple data value stored directly. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000667 "wavefunction*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000667 "wavefunction characteristics*"@en)
 SubDataPropertyOf(obo:MOLSIM_000667 obo:MOLSIM_000662)
 
-# Data Property: obo:MOLSIM_000668 (wave function energy*)
+# Data Property: obo:MOLSIM_000668 (wave function energy value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000668 "The total electronic energy of the molecular system calculated from its quantum mechanical wavefunction at a specific nuclear geometry (within the Born-Oppenheimer approximation). This is a primary output of electronic structure calculations, representing the system's potential energy due to its electron arrangement. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000668 "wave function energy*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000668 "wave function energy value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000668 obo:MOLSIM_000667)
 DisjointDataProperties(obo:MOLSIM_000668 obo:MOLSIM_000669)
 
-# Data Property: obo:MOLSIM_000669 (stability index*)
+# Data Property: obo:MOLSIM_000669 (stability index value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000669 "A numerical result from a wavefunction stability analysis, indicating whether the calculated quantum mechanical solution (wavefunction) corresponds to a true energy minimum or if a lower-energy solution might exist (an instability). It's a check on the reliability and nature (e.g., restricted vs. unrestricted) of the computed electronic state. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000669 "stability index*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000669 "stability index value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000669 obo:MOLSIM_000667)
 
-# Data Property: obo:MOLSIM_000670 (charge property*)
+# Data Property: obo:MOLSIM_000670 (charge characteristics*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000670 "A sub-category focusing on properties describing the distribution of electric charge within a molecule, derived from its electronic structure. This includes various schemes for assigning partial charges to atoms or describing the overall electrostatic potential. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000670 "charge property*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000670 "charge characteristics*"@en)
 SubDataPropertyOf(obo:MOLSIM_000670 obo:MOLSIM_000662)
 
-# Data Property: obo:MOLSIM_000671 (atomic  charge*)
+# Data Property: obo:MOLSIM_000671 (atomic  charge value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000671 "A numerical value assigned to an individual atom within a molecule representing its local share of the electron density, resulting in a partial positive or negative charge. Different methods (e.g., Mulliken, Löwdin, RESP, AM1-BCC) exist for calculating these charges, which are crucial for modeling electrostatic interactions in classical simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000671 "atomic  charge*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000671 "atomic  charge value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000671 obo:MOLSIM_000670)
 DisjointDataProperties(obo:MOLSIM_000671 obo:MOLSIM_000672)
 
-# Data Property: obo:MOLSIM_000672 (ESP charge*)
+# Data Property: obo:MOLSIM_000672 (ESP charge value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000672 "Atomic partial charges calculated by fitting point charges at atomic positions to best reproduce the Electrostatic Potential (ESP) surrounding the molecule, where the ESP is derived from a quantum mechanical wavefunction calculation. These charges aim to accurately reflect the molecule's external electrostatic field, important for intermolecular interactions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000672 "ESP charge*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000672 "ESP charge value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000672 obo:MOLSIM_000670)
 
-# Data Property: obo:MOLSIM_000678 (native contact losses*)
+# Data Property: obo:MOLSIM_000678 (native contact losses value*)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000678 "Native contact loss measures the number or fraction of specific atom-atom contacts, defined as present in a reference (native) structure, that are broken or missing in a given conformation from a simulation. It quantifies the deviation from the native fold, often used as a reaction coordinate for protein folding or unfolding studies. A higher loss indicates greater structural disruption. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000678 "native contact losses*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000678 "native contact losses value*"@en)
 SubDataPropertyOf(obo:MOLSIM_000678 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000679 (solvation-free energy)
+# Data Property: obo:MOLSIM_000679 (solvation-free energy characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000679 "The Gibbs free energy change (ΔG_solv) associated with transferring a solute molecule from an ideal gas phase (vacuum) into a specific solvent (e.g., water) at a given temperature and pressure. It quantifies the thermodynamic favorability of dissolving the solute, reflecting solute-solvent interactions and solvent reorganization. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000679 "delta G of solvation"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "solvation-free energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "solvation-free energy characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000679 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000680 (electrostatic properties)
+# Data Property: obo:MOLSIM_000680 (electrostatic characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000680 "A sub-category grouping terms related to the contribution of electrostatic interactions (charge-charge, dipole-dipole, etc.) to a calculated (free) energy difference in a process like binding or solvation. This is distinct from fundamental electronic structure properties and focuses on the electrostatic component within specific energy calculation schemes (e.g., MM/PBSA, LIE). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000680 "electrostatic properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000680 "electrostatic characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000680 obo:MOLSIM_000364)
 
-# Data Property: obo:MOLSIM_000681 (multipole moment)
+# Data Property: obo:MOLSIM_000681 (multipole moment value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000681 "A measure characterizing the distribution of electric charge in a molecule or system beyond the net charge (monopole) and dipole moment. Higher-order multipoles (quadrupole, octupole, etc.) describe the shape and symmetry of the charge distribution and are important for accurately modeling electrostatic interactions, especially at longer ranges. These can be derived from QM or used in advanced MM force fields. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000681 "multipole moment"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000681 "multipole moment value"@en)
 SubDataPropertyOf(obo:MOLSIM_000681 obo:MOLSIM_000680)
 
-# Data Property: obo:MOLSIM_000682 (dipole moment)
+# Data Property: obo:MOLSIM_000682 (dipole moment value)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000682 "A vector quantity measuring the separation of positive and negative charge centers within a molecule, indicating its overall polarity and direction. The magnitude of the dipole moment influences intermolecular forces (dipole-dipole, dipole-induced dipole) and the molecule's interaction with external electric fields. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000682 "dipole moment"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000682 "dipole moment value"@en)
 SubDataPropertyOf(obo:MOLSIM_000682 obo:MOLSIM_000681)
 
-# Data Property: obo:MOLSIM_000683 (electronic transition properties)
+# Data Property: obo:MOLSIM_000683 (electronic transition characteristics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000683 "A category grouping molecular properties that characterize the transition of a molecule from one electronic state to another, often involving the absorption or emission of light. These properties quantify aspects like the probability, energy difference, and nature of such electronic state changes. Examples include excitation energies and transition moments, which are fundamental to understanding spectroscopy and photochemistry. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000683 "electronic transition properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000683 "electronic transition characteristics"@en)
 SubDataPropertyOf(obo:MOLSIM_000683 obo:MOLSIM_000651)
 
-# Data Property: obo:MOLSIM_000684 (radiative transition moment)
+# Data Property: obo:MOLSIM_000684 (radiative transition moment  value)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000684 "A data property representing the quantum mechanical amplitude for a transition between an initial and a final electronic state of a molecule caused by interaction with electromagnetic radiation. The square of its magnitude is proportional to the intensity of the corresponding spectroscopic transition (e.g., light absorption or emission). This property applies to a pair of electronic states. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000684 "radiative transition moment"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000684 "A measure representing the quantum mechanical amplitude for a transition between an initial and a final electronic state of a molecule caused by interaction with electromagnetic radiation. The square of its magnitude is proportional to the intensity of the corresponding spectroscopic transition (e.g., light absorption or emission). This property applies to a pair of electronic states. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000684 "radiative transition moment  value"@en)
 SubDataPropertyOf(obo:MOLSIM_000684 obo:MOLSIM_000683)
+
+# Data Property: obo:MOLSIM_001032 (measure)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001032 "measure"@en)
+SubDataPropertyOf(obo:MOLSIM_001032 owl:topDataProperty)
 
 
 
