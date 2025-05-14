@@ -17,6 +17,7 @@ These are the current imports in MOLSIM
 | Import | URL | Type |
 | ------ | --- | ---- |
 | uo | http://purl.obolibrary.org/obo/uo.owl | custom |
+| iao | http://purl.obolibrary.org/obo/iao.owl | custom |
 | chebi | http://purl.obolibrary.org/obo/chebi.owl | custom |
 | ncit | http://purl.obolibrary.org/obo/ncit.owl | custom |
 

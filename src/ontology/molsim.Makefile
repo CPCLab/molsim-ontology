@@ -12,10 +12,16 @@ $(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/chebi_terms.txt \
 		--output $@
-$(IMPORTDIR)/ncit_import_no_intermediate.owl: $(MIRRORDIR)/ncit.owl
-	$(ROBOT) extract --input $< \
+# $(IMPORTDIR)/ncit_import_no_intermediate.owl: $(MIRRORDIR)/ncit.owl
+#	$(ROBOT) extract --input $< \
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/ncit_terms.txt \
+		--intermediates none \
+		--output $@
+# $(IMPORTDIR)/iao_import_no_intermediate.owl: $(MIRRORDIR)/iao.owl
+#	$(ROBOT) extract --input $< \
+		--method MIREOT \
+		--lower-terms $(IMPORTDIR)/iao_terms.txt \
 		--intermediates none \
 		--output $@
 $(COMPONENTSDIR)/molsim_units_component.owl: $(SRC) templates/molsim_units_component.tsv

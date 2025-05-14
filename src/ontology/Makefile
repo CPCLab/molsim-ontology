@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                c89ce5383e0f534851b4eb12b9a946b4e045512e3d39a189e646c036f73c60e3
+CONFIG_HASH=                1e6821b8f410d9130595ca455c8d57236bc71a2b69af8aa8f1b965577c12705a
 
 
 # ----------------------------------------
@@ -159,7 +159,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  uo chebi ncit
+IMPORTS =  uo iao chebi ncit
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -368,6 +368,10 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms_combined.txt
 
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
+## Module for ontology: iao
+
+$(IMPORTDIR)/iao_import.owl: $(MIRRORDIR)/iao.owl
+	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
 ## Module for ontology: chebi
 
 $(IMPORTDIR)/chebi_import.owl: 
@@ -446,6 +450,14 @@ ifeq ($(strip $(MIR)),true)
 mirror-uo: | $(TMPDIR)
 	curl -L $(OBOBASE)/uo.owl --create-dirs -o $(TMPDIR)/uo-download.owl --retry 4 --max-time 200 && \
 	$(ROBOT) convert -i $(TMPDIR)/uo-download.owl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: iao
+.PHONY: mirror-iao
+.PRECIOUS: $(MIRRORDIR)/iao.owl
+mirror-iao: | $(TMPDIR)
+	curl -L $(OBOBASE)/iao.owl --create-dirs -o $(TMPDIR)/iao-download.owl --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(TMPDIR)/iao-download.owl -o $(TMPDIR)/$@.owl
 
 
 ## ONTOLOGY: chebi
