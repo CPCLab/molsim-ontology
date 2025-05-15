@@ -132,22 +132,22 @@ def find_lables(dictionary):
     return results
 ################# extracting labels from class dict #################
 
-################# replace unicode hexcode with semicolon  #################
-def replace_semicolon(element):
-    print("Replacing semicolon in extracted terms.")
+################# replace unicode hexcode with apostrophe  #################
+def replace_apostrophe(element):
+    print("Replacing apostrophe in extracted terms.")
     return [entry.replace("&#x27s;", "'") if isinstance(entry, str) else entry for entry in element]
-################# replace unicode hexcode with semicolon  #################
+################# replace unicode hexcode with apostrophe  #################
 
 
-################# replace unicode hexcode with semicolon  #################
+################# replace unicode hexcode with apostrophe  #################
 def replace_semicolon_list(element):
     if isinstance(element, list):
-        return [replace_semicolon_list(entry) for entry in element]
+        return [replace_apostrophe_list(entry) for entry in element]
     elif isinstance(element, str):
         return element.replace("&#x27;", "'")  # Replace with apostrophe
     else:
         return element  # Leave other data types unchanged
-################# replace unicode hexcode with semicolon  #################
+################# replace unicode hexcode with apostrophe  #################
 
 ################# preprocess concept labels  #################
 def preprocess_label(rdfslabel, lemmatizer):
@@ -441,21 +441,21 @@ if __name__ == "__main__":
     # mapping classes
     print("Mapping classes.")
     input_labels = find_lables(input_classes)
-    input_labels = replace_semicolon(input_labels)
+    input_labels = replace_apostrophe(input_labels)
     input_classes_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_labels, searchtype="class", label_weight=input_label_weight, description_weight=input_description_weight, threshold=input_threshold, number_of_inputs=3)
     create_sssom_mapping_file(input_classes_df, input_ns_dict, class_suggestion_list, save_output=True)
 
     # mapping object properties
     print("Mapping object properties.")
     input_object_properties = find_lables(input_object_properties)
-    input_object_properties = replace_semicolon(input_object_properties)
+    input_object_properties = replace_apostrophe(input_object_properties)
     input_object_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_object_properties, label_weight=input_label_weight, description_weight=input_description_weight, threshold=input_threshold)
     create_sssom_mapping_file(input_object_properties_df, input_ns_dict, object_property_suggestion_list, save_output=True)
     
     # mapping data properties
     print("mapping data properties.")
     input_data_properties = find_lables(input_data_properties)
-    input_data_properties = replace_semicolon(input_data_properties)
+    input_data_properties = replace_apostrophe(input_data_properties)
     input_data_properties_df = ols4_mapping(input_ontologies, idspace="MOLSIM", searchobject=input_data_properties, label_weight=input_label_weight, description_weight=input_description_weight, threshold=input_threshold, number_of_inputs=3)
     create_sssom_mapping_file(input_data_properties_df, input_ns_dict, data_property_suggestion_list, save_output=True)
 
