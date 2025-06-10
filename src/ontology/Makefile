@@ -370,8 +370,8 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
 ## Module for ontology: iao
 
-$(IMPORTDIR)/iao_import.owl: $(MIRRORDIR)/iao.owl
-	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
+##$(IMPORTDIR)/iao_import.owl: $(MIRRORDIR)/iao.owl
+##	echo "ERROR: You have configured your default module type to be custom; this behavior needs to be overwritten in molsim.Makefile!" && false
 ## Module for ontology: chebi
 
 $(IMPORTDIR)/chebi_import.owl: 
