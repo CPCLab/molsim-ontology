@@ -1,0 +1,1853 @@
+@prefix : <http://purl.obolibrary.org/obo/molsim.owl#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <http://purl.obolibrary.org/obo/molsim.owl#> .
+
+<http://purl.obolibrary.org/obo/molsim.owl> rdf:type owl:Ontology ;
+                                             owl:imports <http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/ncit_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl> ;
+                                             dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools." ;
+                                             dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
+                                             dcterms:title "Molecular Simulation Ontology" ;
+                                             rdfs:comment "" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                rdfs:label "definition" .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty ;
+                    rdfs:label "description" .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty ;
+                rdfs:label "license" .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty ;
+              rdfs:label "title" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000297
+obo:MOLSIM_000297 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"@en ;
+                  rdfs:label "periodic box type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000504
+obo:MOLSIM_000504 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Links a specific computational process or analysis step to the particular utility program from a molecular dynamics software suite that was used to perform it. For instance, an analysis of simulation trajectories might use a specific trajectory processing utility, or system preparation might involve a specific solvation tool. This property helps specify the exact software tools employed within a broader simulation workflow, where the utility is a component of a larger software package. (UNVERIFIED)"@en ;
+                  rdfs:label "molecular dynamics suite utility"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000507
+obo:MOLSIM_000507 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)"@en ;
+                  rdfs:label "alignment tool"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000508
+obo:MOLSIM_000508 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"@en ;
+                  rdfs:label "protein structure source"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001033
+obo:MOLSIM_001033 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"@en ;
+                  rdfs:label "simulation environment"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001034
+obo:MOLSIM_001034 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"@en ;
+                  rdfs:label "template complex structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001035
+obo:MOLSIM_001035 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en ;
+                  rdfs:label "validated ligand selection criteria"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001036
+obo:MOLSIM_001036 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en ;
+                  rdfs:label "reaction coordinate"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000140
+obo:MOLSIM_000140 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category encompassing parameters, settings, and results derived from post-processing simulation data or preparing it for visual inspection. These properties quantify aspects like statistical reliability, structural characteristics, or energetic components obtained after a simulation run. They help interpret the raw simulation output."@en ;
+                  rdfs:label "analysis and visualization parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000141
+obo:MOLSIM_000141 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000489 ;
+                  obo:IAO_0000115 "The initial or minimum distance threshold (epsilon value) used when beginning a clustering analysis or when testing a range of potential cutoff values. It sets the lower bound for the structural difference considered when grouping conformations. (UNVERIFIED)"@en ;
+                  rdfs:label "starting epsilon (distance cutoff) value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000304
+obo:MOLSIM_000304 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000489 ;
+                  obo:IAO_0000115 "Defines the range of distance thresholds (epsilon values) explored during a structural clustering analysis, often within tools like CPPTRAJ. Clustering groups similar molecular conformations, and testing an interval helps identify an appropriate cutoff distance that best separates distinct structural states observed in the simulation. (UNVERIFIED)"@en ;
+                  rdfs:label "clustering epsilon (distance cutoff) interval value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000305
+obo:MOLSIM_000305 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000489 ;
+                  obo:IAO_0000115 "The specific distance threshold (epsilon value) ultimately chosen and used for the final structural clustering analysis, often selected after evaluating results from an interval. This value determines the maximum structural difference (e.g., RMSD) allowed for two conformations to be grouped into the same cluster. (UNVERIFIED)"@en ;
+                  rdfs:label "final epsilon (distance cutoff) value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000308
+obo:MOLSIM_000308 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category encompassing fundamental parameters and conditions defining the context and basic setup of the biomolecular simulation. This includes details about the system composition, simulation box, and general numerical parameters not specific to a particular simulation phase (like minimization or dynamics). (UNVERIFIED)"@en ;
+                  rdfs:label "general simulation setup  parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000309
+obo:MOLSIM_000309 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "The total count of all atoms present in the entire simulation system, including solute molecules (protein, ligand, nucleic acid), solvent molecules (water), and any ions or other components. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total atoms"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000310
+obo:MOLSIM_000310 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Total number of distinct atom types used in the force field. (...) (UNVERIFIED)"@en ;
+                  rdfs:label "number of total distinct atoms"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000311
+obo:MOLSIM_000311 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of covalent bonds in the simulation system where at least one of the two bonded atoms is a hydrogen atom. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total bonds with hydrogens"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000312
+obo:MOLSIM_000312 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of covalent bonds in the simulation system where both bonded atoms are heavy atoms (non-hydrogen). (UNVERIFIED)"@en ;
+                  rdfs:label "number of total bonds without hydrogens"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000313
+obo:MOLSIM_000313 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of bond angles in the simulation system where at least one of the three atoms forming the angle is a hydrogen atom. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total angles with hydrogens"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000314
+obo:MOLSIM_000314 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of bond angles in the simulation system where none of the three atoms forming the angle is a hydrogen atom (i.e., angles formed only by heavy atoms). (UNVERIFIED)"@en ;
+                  rdfs:label "number of total angles without hydrogens"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000315
+obo:MOLSIM_000315 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of dihedral angles (torsion angles defined by four bonded atoms) in the simulation system where at least one of the four defining atoms is a hydrogen atom. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total dihedral angles with hydrogens"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000316
+obo:MOLSIM_000316 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of dihedral angles in the simulation system where all four defining atoms are heavy atoms (non-hydrogen). (UNVERIFIED)"@en ;
+                  rdfs:label "number of total dihedral angles without hydrogens"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000317
+obo:MOLSIM_000317 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "In alchemical free energy calculations, this counts the total number of covalent bonds affected by the transformation, meaning at least one atom in the bond belongs to the perturbed group. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total perturbed bonds"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000318
+obo:MOLSIM_000318 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "In alchemical free energy calculations, this counts the total number of bond angles affected by the transformation, meaning at least one atom in the angle definition belongs to the perturbed group. This count might be relevant for setting up or analyzing the free energy calculation parameters. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total perturbed angles"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000319
+obo:MOLSIM_000319 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of atom pairs within the simulation system for which direct non-bonded interactions (Van der Waals, direct electrostatic) are intentionally excluded or modified. This typically includes pairs connected by one bond (1-2 pairs) or two bonds (1-3 pairs), whose interactions are handled by the bonded terms (bond stretching, angle bending) in the force field. Some force fields also scale 1-4 interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total excluded atom pairs"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000320
+obo:MOLSIM_000320 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "The total count of residues comprising the solute molecules in the simulation system. Residues are the building blocks of polymers, typically amino acids for proteins or nucleotides for nucleic acids. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total residues"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000321
+obo:MOLSIM_000321 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of covalent bonds within the simulation system whose lengths are fixed using a constraint algorithm (like SHAKE or LINCS). This is commonly done for bonds involving hydrogen atoms to remove the fastest vibrations and allow for larger simulation timesteps. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total bonds with constraints"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000322
+obo:MOLSIM_000322 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of bond angles within the simulation system that are subject to geometric constraints, meaning their value is fixed or kept within a very narrow range by a constraint algorithm (like SHAKE or LINCS), often applied to angles involving hydrogen atoms to allow longer timesteps. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total angles with constraints"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000323
+obo:MOLSIM_000323 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total count of dihedral angles within the simulation system that are subject to geometric constraints, fixing their torsional angle value. While less common than bond or angle constraints, dihedral constraints can be used to enforce specific conformations. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total dihedrals with constraints"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000324
+obo:MOLSIM_000324 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the count of distinct covalent bond types defined in the force field parameter file(s) used for the simulation. Each unique type (e.g., C-CA, N-H) has associated parameters defining its equilibrium length and stiffness. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total unique bond types"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000325
+obo:MOLSIM_000325 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the count of distinct bond angle types defined in the force field parameter file(s) used for the simulation. Each unique type (e.g., C-N-CA, CA-C-O) has associated parameters defining its equilibrium value and stiffness. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total unique angle types"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000326
+obo:MOLSIM_000326 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the count of distinct dihedral angle types defined in the force field parameter file(s) used for the simulation. Each unique type (e.g., C-CA-N-C, O-C-N-CA) has associated parameters defining its periodicity, phase shift, and barrier height for rotation. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total unique dihedral types"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000327
+obo:MOLSIM_000327 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the total number of distinct atom types defined in the force field parameter file(s) used for the simulation. Each atom type has associated parameters (charge, VdW radius, etc.) that determine its interaction properties. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total atom types in the parameter file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000328
+obo:MOLSIM_000328 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the count of unique categories or types of hydrogen bonds observed or defined in the simulation, classified based on the chemical nature of the donor and acceptor atoms or groups (e.g., backbone-backbone, sidechain-water, basepair N-H...O). The exact classification scheme would depend on the analysis method. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total distinct hydrogen bond pair types"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000329
+obo:MOLSIM_000329 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "A setting or indicator, likely boolean (true/false) or categorical, specifying whether a simulation involves an alchemical perturbation or transformation (e.g., for free energy calculations) or if it is a standard simulation of a fixed chemical system. (UNVERIFIED). Perturbation flag (0 = no perturbation information present)."@en ;
+                  rdfs:label "perturbation flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000330
+obo:MOLSIM_000330 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "In alchemical free energy calculations, this counts the total number of dihedral angles affected by the transformation, meaning at least one atom in the dihedral definition belongs to the perturbed group. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total perturbed dihedrals"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000331
+obo:MOLSIM_000331 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "In alchemical free energy calculations, this counts the number of covalent bonds where both bonded atoms belong to the group being chemically transformed (the perturbed group). (UNVERIFIED)"@en ;
+                  rdfs:label "number of total bonds with all atoms in the perturbed group"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000332
+obo:MOLSIM_000332 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "In alchemical free energy calculations, this counts the number of bond angles where all three atoms forming the angle belong to the group of atoms being chemically transformed (the perturbed group). This count can be relevant for analyzing or setting up the transformation. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total angles with all atoms in perturbed groups"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000333
+obo:MOLSIM_000333 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "In alchemical free energy calculations, this counts the number of dihedral angles where all four atoms defining the angle belong to the group being chemically transformed (the perturbed group). (UNVERIFIED)"@en ;
+                  rdfs:label "number of total dihedrals with all atoms in perturbed groups"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000335
+obo:MOLSIM_000335 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the count of atoms belonging to the single largest residue (in terms of atom count) within the simulation system. A residue is typically an amino acid in a protein or a nucleotide in a nucleic acid. (UNVERIFIED)"@en ;
+                  rdfs:label "number of total atoms in the largest residue"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000336
+obo:MOLSIM_000336 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category for properties describing the software used to perform the simulation or analysis. This typically includes information like the software name and version number. (UNVERIFIED)"@en ;
+                  rdfs:label "software  parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000337
+obo:MOLSIM_000337 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the count of 'extra points' used in the molecular model, which are massless virtual sites used in some force fields to improve the representation of charge distribution (e.g., TIP4P water model's M site) or specific interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "number of extra points"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000338
+obo:MOLSIM_000338 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "In Path Integral Molecular Dynamics (PIMD) simulations, which incorporate nuclear quantum effects, this specifies the number of 'beads' or 'time slices' used to represent each quantum particle as a classical ring polymer. A larger number provides a more accurate quantum description but increases computational cost significantly. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "number of PIMD slices/beads"@en ;
+                  rdfs:label "number of path integral molecular dynamics slices/beads"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000343
+obo:MOLSIM_000343 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000489 ;
+                  obo:IAO_0000115 "Defines the physical distance between adjacent points in a 3D grid used for spatial analysis of simulation data (e.g., calculating density maps or electrostatic potentials). Smaller spacing yields a higher resolution grid but increases computational cost for grid-based calculations. (UNVERIFIED)"@en ;
+                  rdfs:label "grid spacing value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000350
+obo:MOLSIM_000350 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000140 ;
+                  obo:IAO_0000115 "A threshold value based on Root Mean Square Deviation (RMSD), which measures the average distance between corresponding atoms in two superimposed molecular structures. This cutoff is often used in analysis, for example, to define membership in a structural cluster or to select conformations based on their similarity to a reference structure. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "RMSD cutoff" ;
+                  rdfs:label "root mean square deviation cutoff value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000357
+obo:MOLSIM_000357 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000140 ;
+                  obo:IAO_0000115 "The predetermined cutoff value (significance level, alpha) used in statistical hypothesis testing related to simulation results. If the calculated probability (p-value) of observing a result (or a more extreme one) under a null hypothesis is below this threshold (e.g., 0.05), the result is typically deemed statistically significant. (UNVERIFIED)"@en ;
+                  rdfs:label "p-value threshold"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000358
+obo:MOLSIM_000358 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000140 ;
+                  obo:IAO_0000115 "A statistical measure (commonly R²) quantifying how well one set of data (e.g., calculated values) predicts another (e.g., experimental values or another simulation property). It ranges from 0 to 1, where 1 indicates a perfect linear relationship or prediction. In simulations, it often assesses model accuracy or correlation between variables. (UNVERIFIED)"@en ;
+                  rdfs:label "coefficient of determination value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000359
+obo:MOLSIM_000359 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000140 ;
+                  obo:IAO_0000115 "Specifies the confidence level (e.g., 95%) for a statistical range calculated using the bootstrap resampling method on simulation data. This percentage indicates the estimated probability that the true value of the analyzed property lies within the calculated interval. It assesses the statistical reliability of the result based on the observed data variation."@en ;
+                  rdfs:label "bootstrapped confidence interval percentage"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000360
+obo:MOLSIM_000360 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000140 ;
+                  obo:IAO_0000115 "Specifies the total number of times the original simulation data is randomly resampled (with replacement) during a bootstrap analysis. This resampling process is used to estimate the statistical uncertainty (e.g., confidence interval) of a calculated property. A higher number of replications generally improves the stability and reliability of the uncertainty estimate. (UNVERIFIED)"@en ;
+                  rdfs:label "number of bootstrap replications"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000361
+obo:MOLSIM_000361 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000140 ;
+                  obo:IAO_0000115 "A sub-category grouping parameters that define how statistical confidence intervals (ranges estimating the uncertainty of a result) are calculated or characterized. This includes settings for specific analysis tools or methods used to quantify the reliability of simulation results. (UNVERIFIED)"@en ;
+                  rdfs:label "confidence interval parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000362
+obo:MOLSIM_000362 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "A category grouping parameters and results associated with the MM/PBSA and MM/GBSA endpoint methods for estimating free energies. These methods combine energies calculated using a molecular mechanics force field with solvation free energies estimated using either the Poisson-Boltzmann (PB) or Generalized Born (GB) continuum solvent models, plus a surface area term for nonpolar contributions. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "MMPBSA/MMGBSA properties"@en ;
+                  rdfs:label "molecular mechanics Poisson-Boltzmann surface area/molecular mechanics generalized Born surface area characteristics"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000363
+obo:MOLSIM_000363 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000362 ;
+                  obo:IAO_0000115 "The dimensionless dielectric constant value assigned to the region representing a lipid membrane within continuum solvation models (e.g., PB, GB) when simulating membrane-associated systems. This value is typically low and non-uniform (e.g., ~2 for the core, higher near headgroups) to reflect the hydrophobic nature and structure of the membrane. (UNVERIFIED)"@en ;
+                  rdfs:label "membrane dielectric constant"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000364
+obo:MOLSIM_000364 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category grouping parameters, methods, and results related to computing free energy differences for processes like binding, solvation, or conformational changes. Free energy combines enthalpy and entropy and determines the spontaneity and equilibrium of these processes. These properties are key for predicting affinities and stabilities. (UNVERIFIED)"@en ;
+                  rdfs:label "free energy calculation parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000365
+obo:MOLSIM_000365 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The total number of discrete molecular configurations (frames or snapshots saved at different time points from a simulation trajectory) that were used as input for the free energy calculation or subsequent analysis (e.g., for averaging energies in MM/PBSA or processing in BAR/MBAR). (UNVERIFIED)"@en ;
+                  rdfs:label "number of snapshots"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000366
+obo:MOLSIM_000366 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The difference in potential energy between two states (e.g., bound vs. unbound) after both systems have been structurally optimized to their nearest local energy minimum using energy minimization techniques. This represents an enthalpic difference at 0 Kelvin and ignores entropic and thermal effects, sometimes used as a very approximate binding estimate. (UNVERIFIED)"@en ;
+                  rdfs:label "difference in minimized energy value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000368
+obo:MOLSIM_000368 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Specifies the total count of ligand molecules present in the simulation system or included in the analysis set. This could refer to multiple copies of the same ligand type or several distinct ligand molecules being studied simultaneously or sequentially. (UNVERIFIED)"@en ;
+                  rdfs:label "number of ligands"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000369
+obo:MOLSIM_000369 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Specifies the total count of ligand molecules within the simulation system or dataset that carry a net non-zero formal electrical charge (positive or negative). This can be relevant for system charge neutralization, electrostatic calculations, and buffer modeling. (UNVERIFIED)"@en ;
+                  rdfs:label "number of charged ligands"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000370
+obo:MOLSIM_000370 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Specifies the frequency (e.g., every N steps or ps) at which molecular structures (conformations) were selected or extracted from a simulation trajectory for use in specific post-processing analyses, such as endpoint free energy calculations (MM/PBSA) or clustering. This interval might differ from the frequency used for saving the full trajectory. (UNVERIFIED)"@en ;
+                  rdfs:label "structure extraction interval"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000371
+obo:MOLSIM_000371 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The time duration between consecutive simulation configurations (snapshots) being saved to the trajectory file or selected for inclusion in the free energy analysis dataset. This parameter determines the time resolution of the data used for calculating ensemble averages or integrals. (UNVERIFIED)"@en ;
+                  rdfs:label "sampling frequency interval value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000372
+obo:MOLSIM_000372 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The change in Gibbs free energy (ΔG) when two or more molecules associate (bind) in solution, typically a ligand binding to a receptor. It measures the binding affinity, with more negative values indicating stronger, more favorable binding. This is a key thermodynamic quantity predicted by simulations to understand molecular recognition. ΔG(binding) is the binding free energy, calculated by: ΔG(binding) = G(complex) - [G(receptor) + G(ligand)].  (UNVERIFIED)"@en ;
+                  rdfs:label "binding free energy value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000373
+obo:MOLSIM_000373 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The calculated Gibbs free energy of the bound state, where the ligand is associated with the protein (or other receptor), usually in solution. This represents the G_complex term in the thermodynamic cycle for calculating binding free energy. (UNVERIFIED)"@en ;
+                  rdfs:label "free energy value of protein-ligand complex"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000374
+obo:MOLSIM_000374 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The calculated Gibbs free energy of the receptor molecule (e.g., protein) in its relevant reference state, usually solvated and unbound. This represents the G_receptor term in the thermodynamic cycle for calculating binding free energy. (UNVERIFIED)"@en ;
+                  rdfs:label "free energy value of receptor protein"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000375
+obo:MOLSIM_000375 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The calculated Gibbs free energy of the ligand molecule in its relevant reference state, usually solvated and unbound. This value is a necessary component within a thermodynamic cycle used to compute the binding free energy (ΔG_bind = G_complex - G_receptor - G_ligand)."@en ;
+                  rdfs:label "free energy value of ligand"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000376
+obo:MOLSIM_000376 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Estimated binding free energy (ΔG) is estimated multiple linear regression, estimated by ΔG = α * ΔE(vdW) + β * ΔE(ele) + γ."@en ;
+                  rdfs:label "binding free energy estimation value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000377
+obo:MOLSIM_000377 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The difference in binding free energy (ΔΔG) between two related binding processes, most commonly comparing two different ligands binding to the same receptor. It quantifies the change in binding affinity due to the modification transforming one ligand into the other, typically calculated using alchemical methods like FEP or TI. (UNVERIFIED)"@en ;
+                  rdfs:label "relative binding free energy value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000378
+obo:MOLSIM_000378 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000679 ;
+                  obo:IAO_0000115 "The calculated solvation free energy (ΔG_solv) specifically for the ligand molecule being studied. This value is often required as part of a thermodynamic cycle to determine binding free energy, particularly when using implicit solvent models or comparing states with different solvation contributions. (UNVERIFIED)"@en ;
+                  rdfs:label "solvation-free energy value of ligand"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000379
+obo:MOLSIM_000379 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Specifies the duration of simulation time (e.g., in picoseconds or nanoseconds) performed for each individual intermediate state (lambda window) within a Thermodynamic Integration (TI) calculation. Sufficient simulation time per window is required to achieve adequate sampling and convergence of the ensemble average of ∂H/∂λ. (UNVERIFIED)"@en ;
+                  rdfs:label "thermodynamic integration time constraint value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000380
+obo:MOLSIM_000380 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Specifies the total number of discrete intermediate states (windows) simulated along the alchemical pathway defined by the coupling parameter lambda (λ) in a Thermodynamic Integration (TI) free energy calculation. More lambda values generally improve the numerical accuracy of integrating ∂H/∂λ but increase computational cost. (UNVERIFIED)"@en ;
+                  rdfs:label "number of lambda values for thermodynamic integration validation"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000381
+obo:MOLSIM_000381 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Specifies the actual list or set of numerical values for the coupling parameter lambda (λ), typically ranging from 0 to 1, that define the discrete intermediate states simulated in a Thermodynamic Integration (TI) free energy calculation. The choice and distribution (spacing) of these lambda values affect the accuracy of the numerical integration. (UNVERIFIED)"@en ;
+                  rdfs:label "thermodynamic integration lambda values"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000382
+obo:MOLSIM_000382 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "In relative binding free energy calculations involving alchemical transformations between multiple ligands, this property counts how many of these individual transformations successfully passed predefined validation checks (e.g., consistency between forward and backward runs, statistical error estimates, cycle closure analysis). (UNVERIFIED)"@en ;
+                  rdfs:label "number of validated ligand transformations"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000384
+obo:MOLSIM_000384 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The absolute temperature (usually in Kelvin) at which the free energy calculation was performed using the Bennett Acceptance Ratio (BAR) or Multi-state BAR (MBAR) methods. Temperature is a crucial thermodynamic variable that directly influences the calculated free energy difference. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "BAR and MBAR temperature"@en ;
+                  rdfs:label "Bennett acceptance ratio and multi-state Bennett acceptance ratio temperature value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000385
+obo:MOLSIM_000385 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000680 ;
+                  obo:IAO_0000115 "The specific portion of a total calculated energy or free energy difference that is attributed to electrostatic interactions. This term is often reported in energy decomposition analyses or as a component in methods like MM/PBSA, quantifying the role of charge-based forces in the overall energetics. (UNVERIFIED)"@en ;
+                  rdfs:label "electrostatic energy contribution value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000386
+obo:MOLSIM_000386 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The specific portion of a total calculated energy or free energy difference that is attributed to Van der Waals interactions. This term is often reported in energy decomposition analyses or as a component in methods like MM/PBSA, quantifying the role of non-bonded steric and dispersion forces. (UNVERIFIED)"@en ;
+                  rdfs:label "Van der Waals energy contribution value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000387
+obo:MOLSIM_000387 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The estimated statistical uncertainty or error associated with a calculated free energy difference (ΔG). This value quantifies the precision of the free energy prediction and is typically derived from the variance observed in the simulation data using methods like block averaging, bootstrap analysis, or analytical estimates from BAR/MBAR. (UNVERIFIED)"@en ;
+                  rdfs:label "error in delta G value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000388
+obo:MOLSIM_000388 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "When comparing a set of calculated free energy values (e.g., for multiple ligands) against corresponding experimental or benchmark data, this property reports the magnitude of the single largest absolute difference (error) observed within that set. It indicates the worst-performing prediction for that specific dataset and methodology. (UNVERIFIED)"@en ;
+                  rdfs:label "largest error  value found in a data set"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000389
+obo:MOLSIM_000389 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "Estimates of binding strength calculated using computationally cheaper, approximate methods, such as MM/PBSA or MM/GBSA (endpoint methods). These methods typically combine molecular mechanics energies with implicit solvation models and may neglect or approximate entropic contributions, providing a faster but potentially less accurate alternative to rigorous free energy simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "effective binding energies value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000390
+obo:MOLSIM_000390 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "An estimate of the binding free energy obtained using the Linear Interaction Energy (LIE) method. LIE typically models ΔG_bind as a linear combination of the average change in the ligand's electrostatic and Van der Waals interaction energies with its surroundings upon moving from the unbound (solvent) to the bound (receptor) state, using empirically fitted coefficients. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "LIE binding free energy"@en ;
+                  rdfs:label "linear interaction energy binding free energy  value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000391
+obo:MOLSIM_000391 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "A relative binding free energy value (ΔΔG) obtained using the Thermodynamic Integration (TI) method that has specifically been subjected to and passed validation procedures. Validation might involve assessing the smoothness of the integrand (∂H/∂λ), checking hysteresis between forward (0->1) and backward (1->0) transformations, or ensuring consistency in thermodynamic cycles. (UNVERIFIED) Note: Definition assumes validation passed. Could also store status."@en ;
+                  rdfs:label "relative binding free energy from thermodynamic integration value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000392
+obo:MOLSIM_000392 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The estimated statistical error or uncertainty associated specifically with a calculated binding free energy difference, either absolute (ΔG_bind) or relative (ΔΔG_bind). This quantifies the precision of the binding affinity prediction and is conceptually the same as 'error in delta G' but applied specifically to binding. (UNVERIFIED)"@en ;
+                  rdfs:label "uncertainty value in the calculated change in binding free energy"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000393
+obo:MOLSIM_000393 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The difference in the Van der Waals (VdW) interaction energy component between the final and initial states of a simulated process (e.g., binding). This term accounts for short-range repulsive (steric) and attractive (dispersion) forces, calculated using the parameters defined in the molecular mechanics force field (e.g., Lennard-Jones potential). (UNVERIFIED)"@en ;
+                  rdfs:label "Van der Waals energy change value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000394
+obo:MOLSIM_000394 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000680 ;
+                  obo:IAO_0000115 "The difference in the electrostatic interaction energy component between the final and initial states of a simulated process (e.g., ligand binding). This value quantifies how the electrostatic interactions within the system and with its environment change during the process, calculated using methods like MM or continuum electrostatics. (UNVERIFIED)"@en ;
+                  rdfs:label "electrostatic energy change value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000395
+obo:MOLSIM_000395 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "An empirical numerical factor used to multiply the calculated change in Van der Waals interaction energy, often applied in methods like the Linear Interaction Energy (LIE) model. Similar to the electrostatic scaling factor, it aims to implicitly capture effects not fully represented by the simple VdW term, improving agreement with experimental free energies. (UNVERIFIED)"@en ;
+                  rdfs:label "Van der Waals energy change scaling factor"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000396
+obo:MOLSIM_000396 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000680 ;
+                  obo:IAO_0000115 "An empirical numerical factor used to multiply the calculated change in electrostatic interaction energy, often applied in methods like Linear Interaction Energy (LIE). This scaling aims to implicitly account for effects like solvent polarization or dielectric screening that are not fully captured by the underlying electrostatic model. (UNVERIFIED)"@en ;
+                  rdfs:label "electrostatic energy change scaling factor"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000397
+obo:MOLSIM_000397 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "A fixed numerical value added during the calculation or estimation of a binding free energy. This term might represent analytical corrections (e.g., for standard state concentration changes), contributions from simplified model components, or empirical adjustments specific to the calculation protocol used. (UNVERIFIED)"@en ;
+                  rdfs:label "binding free energy estimation constant term value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000398
+obo:MOLSIM_000398 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category for parameters and results related to Steered Molecular Dynamics (SMD) simulations. SMD applies external forces to pull parts of the system along a specific path (reaction coordinate) to study processes like unfolding or unbinding. These properties define the steering protocol and outcomes. (UNVERIFIED)"@en ;
+                  rdfs:label "steered molecular dynamics  parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000399
+obo:MOLSIM_000399 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000398 ;
+                  obo:IAO_0000115 "The constant speed at which the steered coordinate (e.g., distance between two atoms or groups) is changed or pulled during a constant-velocity SMD simulation. (UNVERIFIED)"@en ;
+                  rdfs:label "atom pulling velocity"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000401
+obo:MOLSIM_000401 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000398 ,
+                                  obo:MOLSIM_000416 ;
+                  obo:IAO_0000115 "In constant-force SMD, this specifies the magnitude of the external force applied to the steered atoms or coordinate. In constant-velocity SMD, it refers to the stiffness (force constant) of the harmonic potential used to pull the system along the reaction coordinate at the target velocity. (UNVERIFIED)"@en ;
+                  rdfs:label "force constant"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000402
+obo:MOLSIM_000402 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000398 ;
+                  obo:IAO_0000115 "Specifies the total number of distinct stages or windows used in a staged SMD simulation protocol, where the pulling might occur incrementally or parameters might change between stages. (UNVERIFIED)"@en ;
+                  rdfs:label "number of stages"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000403
+obo:MOLSIM_000403 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000398 ;
+                  obo:IAO_0000115 "In staged SMD protocols or related methods (like umbrella sampling along an SMD path), this specifies the number of independent simulation replicas run for each stage or window along the reaction coordinate. (UNVERIFIED)"@en ;
+                  rdfs:label "number of replicas per stage"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000404
+obo:MOLSIM_000404 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000398 ;
+                  obo:IAO_0000115 "The duration of simulation time allocated for each individual stage or window in a staged SMD protocol. (UNVERIFIED)"@en ;
+                  rdfs:label "simulation time per stage"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000405
+obo:MOLSIM_000405 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category for parameters and results related to Umbrella Sampling simulations, a technique used to enhance sampling along a specific coordinate (e.g., distance between molecules) for free energy calculations. It uses biasing potentials (umbrellas) to sample high-energy regions. These properties define the sampling setup and analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling  parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000406
+obo:MOLSIM_000406 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Umbrella sampling equilibration time signifies the period allowed for each sampling window to reach equilibrium before collecting data for analysis. This is done to ensure that the system in each window has adapted to the applied biasing potential and reached a stable state before data collection begins. This allows the system to equilibrate under the influence of the specific biasing potential applied in that window. (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling equilibration time"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000407
+obo:MOLSIM_000407 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Umbrella sampling distribution overlap  is the extent to which the probability distributions or histograms from adjacent sampling windows in an umbrella sampling simulation share common regions along the reaction coordinate, i.e., the degree of commonality between the sampled regions of neighboring windows in umbrella sampling simulations. Sufficient overlap is crucial for accurately reconstructing the unbiased free energy profile using methods like WHAM or MBAR. (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling distribution overlap value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000408
+obo:MOLSIM_000408 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Specifies the increment or step size (e.g., in simulation time or number of data points) used when assessing the convergence of the calculated Potential of Mean Force (PMF) during the analysis of umbrella sampling data. Convergence is checked by comparing PMFs calculated using progressively larger amounts of data. (UNVERIFIED)"@en ;
+                  rdfs:label "potential mean force convergence step size"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000409
+obo:MOLSIM_000409 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Umbrella sampling record time is the frequency of the values recording along the reaction coordinate. It is the total duration of simulation time, after equilibration, for which data was collected (recorded) in each individual umbrella sampling window for use in the final free energy profile calculation. (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling record time"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000410
+obo:MOLSIM_000410 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Defines the range or interval (e.g., confidence interval percentage like 95%) associated with the reported statistical error for quantities derived from umbrella sampling, such as the potential of mean force. (UNVERIFIED)"@en ;
+                  rdfs:label "error interval value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000411
+obo:MOLSIM_000411 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Specifies the frequency (e.g., every N steps or ps) at which statistical error estimates (e.g., for the potential of mean force) are calculated or updated during the analysis phase (e.g., WHAM) of umbrella sampling data. (UNVERIFIED)"@en ;
+                  rdfs:label "error frequency value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000412
+obo:MOLSIM_000412 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "The strength (force constant) of the harmonic (or other) biasing potential applied in each umbrella sampling window. This force constant determines how strongly the system is restrained around the target value of the reaction coordinate for that window. (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling force constant"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000413
+obo:MOLSIM_000413 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Umbrella sampling reaction coordinate is the distance component in the x,y,z used for applying the initial pulling force, and used for the sampling window extraction. It defines the specific geometric variable or collective variable along which the umbrella sampling is performed, synonymous with reaction coordinate defined under SMD.  (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling reaction coordinate distance"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000414
+obo:MOLSIM_000414 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Specifies the total number of individual simulations (windows) performed in an umbrella sampling calculation, each typically centered at a different value along the reaction coordinate and applying a biasing potential. (UNVERIFIED)"@en ;
+                  rdfs:label "number of umbrella sampling windows"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000415
+obo:MOLSIM_000415 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000405 ;
+                  obo:IAO_0000115 "Umbrella sampling recording interval indicates  time interval between successive recordings of the system's configuration or properties during an umbrella sampling simulation. It is the time interval between saving consecutive data points (e.g., reaction coordinate value, forces) during the production phase of each umbrella sampling window. (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling recording interval"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000416
+obo:MOLSIM_000416 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category encompassing parameters and settings used during the initial phases of a simulation designed to bring the system to the desired temperature and pressure (thermalization) and allow it to relax into a stable state (equilibration). These steps prepare the system for the main production simulation run. (UNVERIFIED)"@en ;
+                  rdfs:label "thermalization and equilibration  parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000417
+obo:MOLSIM_000417 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000416 ;
+                  obo:IAO_0000115 "The total duration of simulation time allocated specifically for the thermalization (heating) and/or equilibration phases before the main production run begins. Sufficient time must be allowed for the system to reach thermal and structural equilibrium. (UNVERIFIED)"@en ;
+                  rdfs:label "simulation time"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000418
+obo:MOLSIM_000418 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000416 ;
+                  obo:IAO_0000115 "The target temperature value used during the heating phase of simulation preparation, where the system temperature is gradually increased from its initial value (often 0 K after minimization) to the final target temperature for the production run. (UNVERIFIED)"@en ;
+                  rdfs:label "heated temperature value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000419
+obo:MOLSIM_000419 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000416 ;
+                  obo:IAO_0000115 "Pressure, in molecular simulation context, is the reference pressure (in units of bars, where 1 bar ≈ 0.987 atm) at which the system is maintained. The target pressure value (usually in bar or atm) that the simulation system is intended to maintain during equilibration and production dynamics, controlled via a barostat algorithm (pressure coupling). This is relevant for simulations run in the NPT (constant particle number, pressure, temperature) ensemble. (UNVERIFIED)"@en ;
+                  rdfs:label "pressure value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000420
+obo:MOLSIM_000420 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category for parameters and settings controlling the energy minimization process applied to a molecular system. Minimization aims to find a stable, low-energy conformation by adjusting atomic coordinates to reduce forces. These properties define how the minimization algorithm operates. (UNVERIFIED)"@en ;
+                  rdfs:label "minimization  parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000421
+obo:MOLSIM_000421 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "The numerical value specifying the strength (force constant) of the harmonic or other potential function used to apply positional or conformational restraints. A higher weight means a stronger force pulling the restrained atoms towards their target values or positions. (UNVERIFIED)"@en ;
+                  rdfs:label "restraint weight value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000422
+obo:MOLSIM_000422 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "A specification (often text-based or using atom indices) defining which atoms or groups of atoms within the simulation system are subject to positional or conformational restraints during minimization or dynamics. Restraints apply forces to keep selected atoms close to reference positions or maintain specific geometric features. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "restrained elements"@en ;
+                  rdfs:label "restraint mask value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000423
+obo:MOLSIM_000423 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "A sub-category grouping parameters specifically related to the preparation stages before the main production simulation run, which might include minimization, heating, and equilibration steps designed to ready the system. (UNVERIFIED)"@en ;
+                  rdfs:label "simulation preparation parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000424
+obo:MOLSIM_000424 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Collision frequency is the rate of collisions between two atomic or molecular species in a given volume, per unit time (ps⁻¹). It is a parameter used in certain thermostat algorithms (like Langevin dynamics, often used during minimization or equilibration) that controls the strength of coupling to the heat bath. It represents the effective frequency with which particles randomly collide with fictitious bath particles, influencing the rate of temperature relaxation and sampling efficiency. (UNVERIFIED)"@en ;
+                  rdfs:label "collision frequency"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000425
+obo:MOLSIM_000425 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "The desired temperature (usually in Kelvin) that the simulation system is intended to reach and maintain during minimization (if using temperature-coupled methods like Langevin), equilibration, or production dynamics, controlled via a thermostat algorithm. (UNVERIFIED)"@en ;
+                  rdfs:label "target temperature value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000426
+obo:MOLSIM_000426 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "A general term for a parameter that controls the strength of coupling between the simulated system and an external bath, used in thermostat (temperature control) or barostat (pressure control) algorithms. The specific meaning depends on the algorithm used (e.g., Berendsen, Nosé-Hoover). (UNVERIFIED)"@en ;
+                  rdfs:label "coupling constant"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000427
+obo:MOLSIM_000427 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Specifies the frequency (e.g., every N steps) at which the overall translational motion of the system's center of mass is removed during minimization or dynamics. This prevents the entire system from drifting spuriously due to accumulated numerical errors, keeping it centered in the simulation box. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "COM move removal"@en ;
+                  rdfs:label "center of mass move removal value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000428
+obo:MOLSIM_000428 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Specifies the total count of different spatial arrangements (conformations) of the ligand molecule(s) that are being considered or were generated during the simulation or analysis process (e.g., during docking, minimization of multiple starting poses, or clustering). (UNVERIFIED)"@en ;
+                  rdfs:label "number of ligand conformers"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000429
+obo:MOLSIM_000429 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "The discrete interval of time (typically in femtoseconds, fs) used to integrate the equations of motion in a molecular dynamics simulation. Choosing an appropriate time step is crucial for numerical stability (must be short enough to capture fastest motions) and computational efficiency (longer steps cover more simulation time). (UNVERIFIED)"@en ;
+                  rdfs:label "time step value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000430
+obo:MOLSIM_000430 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Shell radius is the radial distance from a central atom or molecule used to create a spherical shell (different size layers defined by an inner and outer radius around a reference point or particle) for analyzing neighboring particles or structural properties). It defines the radius of a spherical shell or layer, often used in specific simulation setups like QM/MM calculations (defining the QM region boundary) or simulations involving a sphere of explicit solvent around a solute. (UNVERIFIED)"@en ;
+                  rdfs:label "shell radius"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000431
+obo:MOLSIM_000431 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Specifies the number of times a particular simulation stage (like minimization or a short equilibration) is repeated, potentially with variations or from slightly different starting points. This could be used for automated protocols or exploring local conformational space. (UNVERIFIED)"@en ;
+                  rdfs:label "run repetitions"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000433
+obo:MOLSIM_000433 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Specifies the concentration of free (unesterified) fatty acid molecules included in the simulation system, potentially relevant in membrane simulations or studies involving lipid metabolism or signaling. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "FFA concentration"@en ;
+                  rdfs:label "free fatty acid concentration value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000434
+obo:MOLSIM_000434 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "The radius of a spherical probe (typically representing a solvent molecule, often water with radius ~1.4 Å) used in algorithms for calculating solvent-accessible surface area (SASA) or related geometric properties. This parameter defines the size of the 'solvent' rolling over the molecule's surface. (UNVERIFIED)"@en ;
+                  rdfs:label "probe radius"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000435
+obo:MOLSIM_000435 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Indicates whether the terminal ends (N-terminus and C-terminus) of protein chains or nucleic acid strands in the simulation were chemically modified ('capped'). Common caps include acetyl (ACE) for the N-terminus and N-methylamide (NME) for the C-terminus, used to mimic the peptide bond environment found internally in a longer chain and neutralize the termini charges. Likely a boolean or categorical flag. (UNVERIFIED). CAP flag (0 = no capping of termini, 1 = termini capped)."@en ;
+                  oboInOwl:hasExactSynonym "CAP flag"@en ;
+                  rdfs:label "termini capping flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000449
+obo:MOLSIM_000449 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000336 ;
+                  obo:IAO_0000115 "Indicates the specific version of a software or method used. It's important for reproducibility and comparing results across studies."@en ;
+                  rdfs:label "version number"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000450
+obo:MOLSIM_000450 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the pH value (a measure of acidity/alkalinity) of the solution being simulated or the target pH maintained during a constant-pH simulation. The pH affects the protonation states of titratable residues (like acids and bases) in proteins and ligands. (UNVERIFIED)"@en ;
+                  rdfs:label "pH value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000451
+obo:MOLSIM_000451 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Indicates whether one or more ligand molecules (typically small molecules binding to a larger macromolecule like a protein or nucleic acid) are present in the simulation system. Likely a boolean (true/false) flag. (UNVERIFIED)"@en ;
+                  rdfs:label "is using ligand flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000452
+obo:MOLSIM_000452 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the numerical ratio between different types of lipid molecules present in a simulated membrane, or potentially the ratio of lipids to protein. This quantifies the relative abundance defining the membrane composition. (UNVERIFIED)"@en ;
+                  rdfs:label "lipid ratio"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000453
+obo:MOLSIM_000453 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Describes the types and relative amounts of different lipid molecules used to construct the membrane in a trans-membrane simulation. This could be a textual description or potentially link to specific lipid types and their counts/ratios. Note: This might be better modeled using Object Properties linking the simulation to Lipid entities and specifying their counts or ratios. (UNVERIFIED)"@en ;
+                  rdfs:label "lipid composition"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000454
+obo:MOLSIM_000454 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Indicates whether salt ions (e.g., Na+, Cl-) were added to the simulation system, typically to neutralize the net charge of the solute molecules and/or to mimic a specific ionic strength of the experimental buffer. A boolean (true/false) flag. (UNVERIFIED)"@en ;
+                  rdfs:label "is salt used flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000455
+obo:MOLSIM_000455 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the molar concentration (e.g., in Molarity, mol/L) of the salt ions (e.g., NaCl, KCl) added to the simulation solvent. This defines the ionic strength of the simulated solution, which affects electrostatic interactions and mimics experimental buffer conditions. (UNVERIFIED)"@en ;
+                  rdfs:label "salt concentration value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000456
+obo:MOLSIM_000456 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Indicates whether the input structure for minimization (or simulation) contained multiple distinct conformations or locations for some atoms or residues (e.g., alternate locations in PDB files). This flag might determine how these multiple starting points are handled. Likely a boolean (true/false) flag. (UNVERIFIED)"@en ;
+                  rdfs:label "is multiple conformations flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000457
+obo:MOLSIM_000457 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Refers to specific numerical parameters used when applying hyperbolic potential functions as constraints or restraints in a simulation. These types of restraints can be used, for example, to keep distances or other collective variables within certain bounds, often employed in enhanced sampling methods. (UNVERIFIED)"@en ;
+                  rdfs:label "hyperbolic constraint values"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000458
+obo:MOLSIM_000458 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "A category grouping different distance thresholds used in simulations to limit the range over which certain interactions (like non-bonded forces or neighbor list calculations) are explicitly computed. Using cutoffs speeds up calculations by ignoring interactions between distant atoms. The specific type of cutoff is defined by child properties. (UNVERIFIED)"@en ;
+                  rdfs:label "cutoff characteristics"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000467
+obo:MOLSIM_000467 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000458 ;
+                  obo:IAO_0000115 "A threshold related to energy values, potentially used in specific algorithms or analyses. Its exact meaning depends heavily on the context (e.g., a cutoff for accepting Monte Carlo moves, a threshold for defining hydrogen bonds based on energy, or a parameter in QM calculations like plane-wave cutoff). Note: Definition is uncertain without more context. (UNVERIFIED)"@en ;
+                  rdfs:label "energy cutoff value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000477
+obo:MOLSIM_000477 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000458 ;
+                  obo:IAO_0000115 "A maximum allowed speed for any atom during certain simulation procedures, potentially used during initial velocity assignment or specific thermostatting methods to prevent instabilities caused by excessively high kinetic energies. Note: Less common in standard MD, definition might depend on specific context. (UNVERIFIED)"@en ;
+                  rdfs:label "velocity cutoff value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000478
+obo:MOLSIM_000478 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000458 ;
+                  obo:IAO_0000115 "The specific distance threshold beyond which non-bonded interactions (like Van der Waals and direct-space electrostatics) between pairs of atoms are typically ignored or handled approximately (e.g., using long-range corrections or methods like PME for electrostatics). This is a crucial parameter affecting simulation speed and accuracy. (UNVERIFIED)"@en ;
+                  rdfs:label "distance cutoff value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000479
+obo:MOLSIM_000479 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000420 ;
+                  obo:IAO_0000115 "Indicates that the restraints applied (as defined by the mask and weight) use a harmonic potential function, meaning the restraining energy increases quadratically with the deviation from the target value or position. This is a common type of restraint used in simulations. Likely a boolean flag or implied by the presence of a harmonic force constant. (UNVERIFIED)"@en ;
+                  rdfs:label "restraint with harmonic potential value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000480
+obo:MOLSIM_000480 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Specifies the number of independent simulation runs performed starting from the same (or similar) initial conditions but typically with different initial velocities. Running replicates helps assess the statistical robustness and convergence of simulation results by sampling different trajectories. (UNVERIFIED)"@en ;
+                  rdfs:label "number of replicates"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000481
+obo:MOLSIM_000481 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000362 ;
+                  obo:IAO_0000115 "Indicates whether the specific combination of Poisson-Boltzmann (PB) electrostatics and a Surface Area (SA) dependent nonpolar term was used to calculate the solvation free energy component within an MM/PBSA calculation. This is likely a boolean (true/false) flag distinguishing PB-based calculations from GB-based ones or other variants. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "is MMPBSA"@en ;
+                  rdfs:label "is molecular mechanics Poisson-Boltzmann surface area flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000482
+obo:MOLSIM_000482 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000362 ;
+                  obo:IAO_0000115 "Indicates whether the total MM/PBSA energy (or its components) was further broken down into contributions from individual residues, atoms, or interaction types. This decomposition analysis helps identify the key energetic drivers of the process being studied (e.g., which residues contribute most to binding). Likely a boolean (true/false) flag. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "is MMPBSA decomposed"@en ;
+                  rdfs:label "is molecular mechanics Poisson-Boltzmann surface area decomposed flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000483
+obo:MOLSIM_000483 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000362 ;
+                  obo:IAO_0000115 "Indicates whether an estimate of the change in conformational entropy (e.g., calculated via normal mode analysis, quasi-harmonic analysis, or interaction entropy methods on simulation snapshots) was included in the final MM/PBSA free energy value. Standard MM/PBSA often omits or uses simple approximations for this term. Likely a boolean (true/false) flag or the calculated entropy value itself. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "is MMPBSA entropy"@en ;
+                  rdfs:label "is molecular mechanics Poisson-Boltzmann surface area entropy flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000484
+obo:MOLSIM_000484 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000398 ;
+                  obo:IAO_0000115 "Indicates whether Adaptive Steered Molecular Dynamics (ASMD) is involved. ASMD is an enhanced sampling technique that builds upon traditional Steered Molecular Dynamics (SMD). ASMD divides the reaction coordinate into multiple segments or stages. Within each stage, multiple SMD simulations are performed."@en ;
+                  oboInOwl:hasExactSynonym "is ASMD"@en ;
+                  rdfs:label "is adaptive steered molecular dynamics flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000488
+obo:MOLSIM_000488 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000489 ;
+                  obo:IAO_0000115 "Specifies the mathematical function or algorithm used when calculating properties (like density, electrostatic potential) on a 3D grid representing the simulation space, often within analysis tools like CPPTRAJ. Different functions might be used for averaging, summing, or mapping specific atomic properties onto the grid points. (UNVERIFIED)"@en ;
+                  rdfs:label "grid function value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000489
+obo:MOLSIM_000489 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000140 ;
+                  obo:IAO_0000115 "Parameters specifically related to calculations performed using the CPPTRAJ software, a popular tool for analyzing biomolecular simulation trajectories. These settings control how CPPTRAJ performs tasks like clustering, distance calculations, or other analyses relevant to interpreting simulation data, potentially including confidence interval estimation steps. (UNVERIFIED)"@en ;
+                  rdfs:label "CPPTRAJ parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000500
+obo:MOLSIM_000500 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000308 ;
+                  obo:IAO_0000115 "Indicates whether the simulation system includes a lipid membrane and focuses on processes occurring across or within that membrane (e.g., transport, protein insertion). Likely a boolean (true/false) flag signifying the type of system setup. (UNVERIFIED)"@en ;
+                  rdfs:label "is trans-membrane simulation flag"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000509
+obo:MOLSIM_000509 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000362 ;
+                  obo:IAO_0000115 "The dimensionless value representing the dielectric constant assigned to the interior region occupied by the solute molecule(s) (e.g., protein, ligand) within continuum solvation models (PB/GB). This value is typically low (e.g., 1-4) to reflect the lower polarity and screening capacity inside the molecule compared to the bulk solvent. (UNVERIFIED)"@en ;
+                  rdfs:label "internal dielectric constant"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000510
+obo:MOLSIM_000510 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000362 ;
+                  obo:IAO_0000115 "The dimensionless value representing the dielectric constant of the bulk solvent environment (e.g., water ≈ 80) used in continuum solvation models like Poisson-Boltzmann (PB) or Generalized Born (GB). This parameter models the solvent's ability to screen electrostatic interactions outside the solute cavity. (UNVERIFIED)"@en ;
+                  rdfs:label "external dielectric constant"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000617
+obo:MOLSIM_000617 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category related to the properties and behavior of atomic nuclei within the simulation context, particularly relevant for NMR or quantum dynamics studies. This includes magnetic properties influencing NMR signals or forces acting directly on nuclei. (UNVERIFIED)"@en ;
+                  rdfs:label "nuclear  parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000618
+obo:MOLSIM_000618 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000617 ;
+                  obo:IAO_0000115 "A type of nuclear property describing how atomic nuclei interact with magnetic fields, whether externally applied or generated locally by electrons and other nuclei. These interactions form the basis of Nuclear Magnetic Resonance (NMR) spectroscopy, providing detailed information about molecular structure and dynamics. Calculating these interactions computationally helps interpret experimental NMR results. (UNVERIFIED)"@en ;
+                  rdfs:label "magnetic interactions parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000619
+obo:MOLSIM_000619 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000618 ;
+                  obo:IAO_0000115 "A specific magnetic interaction property where the electron cloud surrounding a nucleus diminishes (shields) the effect of an external magnetic field experienced by that nucleus, leading to a characteristic frequency (chemical shift) in an NMR spectrum. The chemical shift value is highly sensitive to the nucleus's local electronic and chemical environment, making it a powerful probe of molecular structure. Calculated shielding constants predict chemical shifts, aiding spectral analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "NMR shielding and chemical shifts value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000620
+obo:MOLSIM_000620 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000618 ;
+                  obo:IAO_0000115 "A magnetic interaction property quantifying the indirect coupling between the spins of two nuclei, transmitted through the intervening bonding electrons (measured as J-coupling). This interaction causes splitting of NMR signals and provides valuable information about covalent bond connectivity, bond angles, and dihedral angles between the coupled nuclei. Calculating J-couplings helps interpret NMR fine structure and confirm molecular constitution and conformation. (UNVERIFIED)"@en ;
+                  rdfs:label "NMR spin-spin coupling constants value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000621
+obo:MOLSIM_000621 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000617 ;
+                  obo:IAO_0000115 "A type of nuclear property related to the motion of atomic nuclei, governed by the forces acting upon them. This is the central focus of classical Molecular Dynamics (MD) simulations, where nuclei are treated as classical particles whose trajectories are determined by integrating Newton's equations of motion. Analyzing nuclear dynamics reveals how molecules move, vibrate, and undergo conformational changes over time. (UNVERIFIED)"@en ;
+                  rdfs:label "nuclear dynamics parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000622
+obo:MOLSIM_000622 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000621 ;
+                  obo:IAO_0000115 "The forces acting on individual atomic nuclei within a molecular system, arising from electrostatic interactions with electrons and other nuclei as defined by the system's potential energy function (either from a force field or a quantum mechanical calculation). These forces determine the acceleration of the nuclei and are calculated at each time step in Molecular Dynamics simulations to propagate their trajectories. They are fundamental drivers of all simulated nuclear motion. (UNVERIFIED)"@en ;
+                  rdfs:label "nuclei forces value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000627
+obo:MOLSIM_000627 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000647 ;
+                  obo:IAO_0000115 "A subset of nucleic acid parameters that describe the relative geometry and orientation of the two bases within a single base pair (e.g., A-T, G-C). This includes parameters quantifying non-planarity (buckle, propeller twist) and displacements within the pair (shear, stretch, stagger, opening) relative to an idealized reference frame. They characterize the internal conformation and potential distortions of individual base pairs. (UNVERIFIED)"@en ;
+                  rdfs:label "base pair parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000628
+obo:MOLSIM_000628 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An intra-base pair parameter quantifying the translational displacement of one base relative to the other within the pair, along the axis in the mean base pair plane pointing towards the major groove (y-axis). Shear represents a lateral 'slipping' of bases relative to each other within the pair. Significant shear is observed in alternative base pairings like Hoogsteen pairs. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid shear value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000629
+obo:MOLSIM_000629 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An intra-base pair parameter quantifying the translational displacement of the two bases relative to each other along the axis connecting them through the hydrogen bonds (often measured via C1'-C1' distance changes). Stretch measures how much the base pair is pulled apart or compressed relative to its ideal hydrogen bonding distance. It reflects the strength and dynamics of the hydrogen bonds holding the pair together. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid stretch value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000630
+obo:MOLSIM_000630 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category for properties related to the time-dependent behavior of electrons within the simulated system, often studied using quantum mechanical methods. This includes processes like excitation, ionization, or electron transfer. Properties here describe the system's propensity for such electronic changes. (UNVERIFIED)"@en ;
+                  rdfs:label "electron dynamics parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000631
+obo:MOLSIM_000631 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000630 ;
+                  obo:IAO_0000115 "The energy change occurring when an electron is added to a neutral atom or molecule to form a negative ion. A positive electron affinity indicates energy is released and the anion is stable. This property, calculated via electronic structure methods, reflects the molecule's ability to accept an electron. (UNVERIFIED)"@en ;
+                  rdfs:label "electron affinity value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000632
+obo:MOLSIM_000632 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000630 ;
+                  obo:IAO_0000115 "The minimum energy required to remove one electron from a neutral atom or molecule (in its gaseous state) to form a positive ion. It quantifies how strongly the outermost electron is bound. This property is calculated using electronic structure methods and indicates the molecule's resistance to losing an electron. (UNVERIFIED)"@en ;
+                  rdfs:label "ionization potential value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000637
+obo:MOLSIM_000637 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An intra-base pair parameter describing the relative translational displacement of the two bases within a pair along the axis perpendicular to the mean base pair plane (z-axis). Stagger quantifies differences in the 'height' of the two bases within the pair relative to each other. It contributes to the overall deviation from base pair planarity. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid stagger value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000638
+obo:MOLSIM_000638 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An intra-base pair parameter measuring the angle between the planes of the two bases within a pair, representing rotation around the long axis connecting them (roughly parallel to the hydrogen bonds). A non-zero buckle indicates the base pair is not perfectly flat along this axis. Buckle contributes to the overall helix shape and can be influenced by sequence context and binding interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid buckle value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000639
+obo:MOLSIM_000639 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An intra-base pair parameter quantifying the dihedral angle between the planes of the two bases within a pair, representing rotation around the axis connecting the purine N9 / pyrimidine N1 atoms (the short axis within the pair, roughly perpendicular to hydrogen bonds). This 'propeller-like' twist optimizes base stacking with adjacent pairs but can strain hydrogen bonds. It is a key determinant of helix stability and groove dimensions. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "propeller twist"@en ;
+                  rdfs:label "nucleic acid propel value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000640
+obo:MOLSIM_000640 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An intra-base pair parameter describing the angle related to the separation of the two bases towards the major or minor groove edges, essentially measuring the extent to which the hydrogen bonds are 'opened' or exposed. Large opening angles are associated with transient 'breathing' motions or strand separation. It quantifies the accessibility of base edges normally involved in hydrogen bonding. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid opening value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000641
+obo:MOLSIM_000641 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An inter-base pair (step) parameter describing the translational displacement between the origins of two successive base pair reference frames along the axis perpendicular to the helix axis and pointing towards the minor groove (x-axis in standard frames). Shift represents the lateral 'sliding' of one base pair relative to the next along this direction. It affects the alignment and stacking interactions between adjacent base pairs. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid shift value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000642
+obo:MOLSIM_000642 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An inter-base pair (step) parameter describing the translational displacement between the origins of two successive base pair reference frames along the axis perpendicular to the helix axis and pointing towards the major groove (y-axis in standard frames). Slide represents the lateral 'sliding' of one base pair relative to the next along the direction of their long axes. It significantly influences groove widths and DNA bending. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid slide value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000643
+obo:MOLSIM_000643 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An inter-base pair (step) parameter describing the translational distance between the origins of two successive base pair reference frames, measured along the central helical axis (z-axis). It quantifies the 'rise' or vertical separation per step of the helix. Rise is a primary determinant of the overall length and pitch of the DNA/RNA helix. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid rise value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000644
+obo:MOLSIM_000644 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the axis perpendicular to the helix axis and pointing towards the minor groove (x-axis in standard frames). Tilt represents the 'tilting' of one base pair relative to the next along their short axes. Along with roll, tilt contributes to the overall curvature and bending of the DNA/RNA helix. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid tilt value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000645
+obo:MOLSIM_000645 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the long axis connecting them (y-axis in standard frames). Roll angle variations cause the helix to bend into the major or minor groove. Sequence-dependent roll angles are crucial for DNA bendability and protein recognition. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid roll value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000646
+obo:MOLSIM_000646 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000627 ;
+                  obo:IAO_0000115 "An inter-base pair (step) parameter describing the rotational angle between two successive base pair reference frames around the central helical axis (z-axis). Twist quantifies the amount of helical rotation occurring between adjacent base pairs. It is the primary determinant of the number of base pairs per helical turn (helix pitch). (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid twist value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000647
+obo:MOLSIM_000647 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category grouping specific geometric parameters used to describe the structure and conformation of nucleic acids (DNA, RNA). These parameters quantify the relative orientation and displacement of base pairs and backbone segments. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid  parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000648
+obo:MOLSIM_000648 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000647 ;
+                  obo:IAO_0000115 "A category of nucleic acid parameters quantifying the translational position or displacement of a base pair's reference frame (or individual atoms/bases) relative to the global or local helical axis. These parameters measure how far off-axis the base pairs are located. They complement the inter- and intra-pair parameters in fully describing the helix geometry. (UNVERIFIED)"@en ;
+                  rdfs:label "displacement parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000649
+obo:MOLSIM_000649 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000648 ;
+                  obo:IAO_0000115 "A specific displacement parameter measuring the translation of a base pair's reference point (e.g., origin) along the local x-axis, typically defined as perpendicular to the helical axis and pointing towards the minor groove. It quantifies the extent to which the base pair is shifted towards or away from the minor groove side relative to the central helical axis. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid x-displacement*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000650
+obo:MOLSIM_000650 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000648 ;
+                  obo:IAO_0000115 "A specific displacement parameter measuring the translation of a base pair's reference point along the local y-axis, typically defined as perpendicular to both the helical axis (z-axis) and the local x-axis (often pointing roughly along the pseudo-dyad axis of the pair towards the major groove). It quantifies the base pair's shift orthogonal to the x-displacement, completing the description of its position in the plane perpendicular to the helix axis. (UNVERIFIED)"@en ;
+                  rdfs:label "nucleic acid y-displacement*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000651
+obo:MOLSIM_000651 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category for various calculated or descriptive properties of the simulated system that don't fit neatly into other major categories. This often includes structural descriptors, energetic terms, or specific analysis metrics. (UNVERIFIED)"@en ;
+                  rdfs:label "miscellaneous  parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000652
+obo:MOLSIM_000652 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "The heat of formation (ΔH∘f) represents the change in enthalpy (heat content) when one mole of a substance is created from its constituent elements in their most stable forms under standard conditions. It indicates the relative stability of the compound compared to its elements. This thermodynamic quantity is often computed using quantum mechanical methods. (UNVERIFIED)"@en ;
+                  rdfs:label "heat of formation value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000653
+obo:MOLSIM_000653 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "The delta G of solvation (ΔG solv) is the change in Gibbs free energy when a molecule is transferred from a vacuum environment into a specific solvent, like water. It quantifies the energetic cost or favourability of dissolving the molecule and is a key factor determining solubility. This property is frequently calculated in simulations to understand molecular interactions with their environment. (UNVERIFIED)"@en ;
+                  rdfs:label "delta G of solvation value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000654
+obo:MOLSIM_000654 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "The gradient is a vector containing the first partial derivatives of the energy with respect to the atomic coordinates. It indicates the direction and magnitude of the steepest slope on the potential energy surface at a given point. The negative of the gradient corresponds to the net force acting on each atom, driving geometry optimization and molecular dynamics simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "gradient value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000655
+obo:MOLSIM_000655 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "The Hessian is a square matrix containing the second partial derivatives of the energy with respect to the atomic coordinates, describing the curvature of the potential energy surface around a specific molecular geometry. Its eigenvalues and eigenvectors are used to calculate vibrational frequencies (normal modes) and to characterize stationary points (minima, transition states). It is a key component in frequency analysis and geometry optimization algorithms. (UNVERIFIED)"@en ;
+                  rdfs:label "hessian value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000656
+obo:MOLSIM_000656 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "2D-RMSD refers to a matrix plot where each element (i, j) represents the Root Mean Square Deviation (RMSD) calculated between snapshot 'i' and snapshot 'j' of a molecular dynamics trajectory. This visualization helps identify periods of structural stability (blocks of low RMSD along the diagonal) and conformational transitions within the simulation. It provides a global overview of the conformational space explored. (UNVERIFIED)"@en ;
+                  rdfs:label "2d-RMSD value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000657
+obo:MOLSIM_000657 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "Root Mean Square Deviation (RMSD) is a numerical measure quantifying the average distance between corresponding atoms in two optimally superimposed molecular structures. It is commonly used to evaluate the structural difference between a simulated conformation and a reference structure (e.g., experimental or initial structure). Lower RMSD values indicate greater structural similarity. (UNVERIFIED)"@en ;
+                  rdfs:label "RMSD value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000658
+obo:MOLSIM_000658 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "Distance RMSD (dRMSD) measures the similarity between two conformations based on the root-mean-square deviation of their corresponding internal pairwise atomic distances, rather than their Cartesian coordinates after superposition. This metric avoids the need for structural alignment and can be more sensitive to changes in internal structure, especially for flexible molecules. It compares the \"distance maps\" of two structures. (UNVERIFIED)"@en ;
+                  rdfs:label "distance RMSD value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000659
+obo:MOLSIM_000659 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "The TM-score (Template Modeling score) is a metric designed to assess the topological similarity between two protein structures, independent of protein size. Unlike RMSD, it is less sensitive to local structural deviations and gives higher weight to the global fold match, producing a score between 0 and 1. A TM-score above approximately 0.5 generally indicates that two proteins share the same fold. (UNVERIFIED)"@en ;
+                  rdfs:label "TM-score*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000660
+obo:MOLSIM_000660 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "A measure of atomic positional fluctuation or displacement, calculated from simulation data (often as the mean square fluctuation of atom positions after overall translation/rotation is removed). It is analogous to the crystallographic B-factor (temperature factor) and indicates the relative mobility or uncertainty in the position of each atom. (UNVERIFIED)"@en ;
+                  rdfs:label "B-factor value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000661
+obo:MOLSIM_000661 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "Specifies the number of interactions (e.g., hydrogen bonds, contacts within a certain distance) involving a specific atom or type of atom, often averaged over a simulation trajectory. This helps quantify the interaction environment of particular atoms or groups. (UNVERIFIED)"@en ;
+                  rdfs:label "atom interaction count*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000662
+obo:MOLSIM_000662 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001032 ;
+                  obo:IAO_0000115 "A category grouping properties derived from the quantum mechanical description of how electrons are arranged in a molecule (its electronic structure). These properties, like charge distribution or polarizability, determine the molecule's chemical behavior and interactions. They are typically calculated using QM or QM/MM methods. (UNVERIFIED)"@en ;
+                  rdfs:label "electronic structure  parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000663
+obo:MOLSIM_000663 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000662 ;
+                  obo:IAO_0000115 "A sub-category for properties describing how a molecule's electron distribution is distorted (polarized) in response to an external electric field. This includes the molecule's ability to form an induced dipole moment. Polarization effects are important for accurate modeling of interactions, especially in condensed phases or strong fields. (UNVERIFIED)"@en ;
+                  rdfs:label "polarization parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000664
+obo:MOLSIM_000664 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000663 ;
+                  obo:IAO_0000115 "A tensor property quantifying the linear response of a molecule's electron cloud to an external electric field, measuring how easily the electrons are displaced, inducing a dipole moment. It determines the strength of induced dipole interactions (part of Van der Waals forces) and affects how light interacts with the molecule (refraction). (UNVERIFIED)"@en ;
+                  rdfs:label "polarizability value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000665
+obo:MOLSIM_000665 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000663 ;
+                  obo:IAO_0000115 "A tensor property quantifying the non-linear response of a molecule's electron cloud (and induced dipole moment) to a strong external electric field. It describes effects beyond the simple linear relationship defined by polarizability. Hyperpolarizability is relevant for non-linear optics and requires advanced electronic structure calculations. (UNVERIFIED)"@en ;
+                  rdfs:label "hyperpolarizability value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000666
+obo:MOLSIM_000666 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000663 ;
+                  obo:IAO_0000115 "Describes the molecule's polarizability as a function of the frequency of an oscillating external electric field (like light). This frequency dependence is crucial for understanding optical phenomena such as light absorption and dispersion (how refractive index changes with wavelength). It's calculated using time-dependent quantum mechanical methods. (UNVERIFIED)"@en ;
+                  rdfs:label "time-dependent polarizability value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000667
+obo:MOLSIM_000667 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000662 ;
+                  obo:IAO_0000115 "A mathematical function resulting from solving the Schrödinger equation (or an approximation) for a molecule, describing the quantum state of its electrons. While the wavefunction itself is complex, properties like energy, electron density, and orbitals are derived from it. Note: This term might be better represented as a Class (Wavefunction) or linked via an Object Property (calculation hasOutput someWavefunction) rather than a Data Property category, as the wavefunction itself is a complex mathematical object, not typically a simple data value stored directly. (UNVERIFIED)"@en ;
+                  rdfs:label "wavefunction parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000668
+obo:MOLSIM_000668 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000667 ;
+                  obo:IAO_0000115 "The total electronic energy of the molecular system calculated from its quantum mechanical wavefunction at a specific nuclear geometry (within the Born-Oppenheimer approximation). This is a primary output of electronic structure calculations, representing the system's potential energy due to its electron arrangement. (UNVERIFIED)"@en ;
+                  rdfs:label "wave function energy value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000669
+obo:MOLSIM_000669 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000667 ;
+                  obo:IAO_0000115 "A numerical result from a wavefunction stability analysis, indicating whether the calculated quantum mechanical solution (wavefunction) corresponds to a true energy minimum or if a lower-energy solution might exist (an instability). It's a check on the reliability and nature (e.g., restricted vs. unrestricted) of the computed electronic state. (UNVERIFIED)"@en ;
+                  rdfs:label "stability index value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000670
+obo:MOLSIM_000670 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000662 ;
+                  obo:IAO_0000115 "A sub-category focusing on properties describing the distribution of electric charge within a molecule, derived from its electronic structure. This includes various schemes for assigning partial charges to atoms or describing the overall electrostatic potential. (UNVERIFIED)"@en ;
+                  rdfs:label "charge parameters*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000671
+obo:MOLSIM_000671 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000670 ;
+                  obo:IAO_0000115 "A numerical value assigned to an individual atom within a molecule representing its local share of the electron density, resulting in a partial positive or negative charge. Different methods (e.g., Mulliken, Löwdin, RESP, AM1-BCC) exist for calculating these charges, which are crucial for modeling electrostatic interactions in classical simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "atomic  charge value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000672
+obo:MOLSIM_000672 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000670 ;
+                  obo:IAO_0000115 "Atomic partial charges calculated by fitting point charges at atomic positions to best reproduce the Electrostatic Potential (ESP) surrounding the molecule, where the ESP is derived from a quantum mechanical wavefunction calculation. These charges aim to accurately reflect the molecule's external electrostatic field, important for intermolecular interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "ESP charge value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000678
+obo:MOLSIM_000678 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "Native contact loss measures the number or fraction of specific atom-atom contacts, defined as present in a reference (native) structure, that are broken or missing in a given conformation from a simulation. It quantifies the deviation from the native fold, often used as a reaction coordinate for protein folding or unfolding studies. A higher loss indicates greater structural disruption. (UNVERIFIED)"@en ;
+                  rdfs:label "native contact losses value*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000679
+obo:MOLSIM_000679 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "The Gibbs free energy change (ΔG_solv) associated with transferring a solute molecule from an ideal gas phase (vacuum) into a specific solvent (e.g., water) at a given temperature and pressure. It quantifies the thermodynamic favorability of dissolving the solute, reflecting solute-solvent interactions and solvent reorganization. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "delta G of solvation"@en ;
+                  rdfs:label "solvation-free energy parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000680
+obo:MOLSIM_000680 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000364 ;
+                  obo:IAO_0000115 "A sub-category grouping terms related to the contribution of electrostatic interactions (charge-charge, dipole-dipole, etc.) to a calculated (free) energy difference in a process like binding or solvation. This is distinct from fundamental electronic structure properties and focuses on the electrostatic component within specific energy calculation schemes (e.g., MM/PBSA, LIE). (UNVERIFIED)"@en ;
+                  rdfs:label "electrostatic parameters"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000681
+obo:MOLSIM_000681 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000680 ;
+                  obo:IAO_0000115 "A measure characterizing the distribution of electric charge in a molecule or system beyond the net charge (monopole) and dipole moment. Higher-order multipoles (quadrupole, octupole, etc.) describe the shape and symmetry of the charge distribution and are important for accurately modeling electrostatic interactions, especially at longer ranges. These can be derived from QM or used in advanced MM force fields. (UNVERIFIED)"@en ;
+                  rdfs:label "multipole moment value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000682
+obo:MOLSIM_000682 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000681 ;
+                  obo:IAO_0000115 "A vector quantity measuring the separation of positive and negative charge centers within a molecule, indicating its overall polarity and direction. The magnitude of the dipole moment influences intermolecular forces (dipole-dipole, dipole-induced dipole) and the molecule's interaction with external electric fields. (UNVERIFIED)"@en ;
+                  rdfs:label "dipole moment value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000683
+obo:MOLSIM_000683 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000651 ;
+                  obo:IAO_0000115 "A category grouping molecular properties that characterize the transition of a molecule from one electronic state to another, often involving the absorption or emission of light. These properties quantify aspects like the probability, energy difference, and nature of such electronic state changes. Examples include excitation energies and transition moments, which are fundamental to understanding spectroscopy and photochemistry. (UNVERIFIED)"@en ;
+                  rdfs:label "electronic transition characteristics"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000684
+obo:MOLSIM_000684 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000683 ;
+                  obo:IAO_0000115 "A measure representing the quantum mechanical amplitude for a transition between an initial and a final electronic state of a molecule caused by interaction with electromagnetic radiation. The square of its magnitude is proportional to the intensity of the corresponding spectroscopic transition (e.g., light absorption or emission). This property applies to a pair of electronic states. (UNVERIFIED)"@en ;
+                  rdfs:label "radiative transition moment  value"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001032
+obo:MOLSIM_001032 rdf:type owl:Class ;
+                  rdfs:label "measure parameters"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000723
+obo:MOLSIM_000723 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Data Bank - The single worldwide archive for information about the 3D structures of large biological molecules, including proteins, nucleic acids, and complex assemblies, determined experimentally (primarily by X-ray crystallography, NMR, and cryo-EM). PDB is a fundamental resource for structural biology, biochemistry, and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000724
+obo:MOLSIM_000724 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "One of the founding members of the Worldwide Protein Data Bank (wwPDB) organization, responsible for managing and disseminating PDB data. PDBe provides access to the global archive of macromolecular structures and offers additional curated data, analysis tools, and resources for structural biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBe"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000725
+obo:MOLSIM_000725 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A founding member of the Worldwide Protein Data Bank (wwPDB) organization, serving as the Asian regional center for the PDB. PDBj collects, processes, and disseminates macromolecular structure data, and develops tools and resources for structural biology research in Japan and globally. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBj"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000726
+obo:MOLSIM_000726 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A pictorial database that provides an at-a-glance overview of the contents of each 3D macromolecular structure deposited in the Protein Data Bank (PDB). PDBsum presents schematic diagrams of molecular interactions, protein domains, ligand binding sites, and other structural features. It is a useful tool for quickly understanding PDB entries. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBsum"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000727
+obo:MOLSIM_000727 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Nucleic Acid Database - A relational database that archives and disseminates three-dimensional structural information about nucleic acids (DNA, RNA) and their complexes, determined experimentally by X-ray crystallography, NMR, or electron microscopy. NDB provides tools for searching and analyzing these structures. It is the primary repository for nucleic acid 3D structures. (UNVERIFIED)"@en ;
+                  rdfs:label "NDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000728
+obo:MOLSIM_000728 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Data Bank - The primary public archive for three-dimensional electron microscopy density maps of biomolecular complexes and subcellular structures. EMDB stores 3D reconstructions obtained from techniques like cryo-electron microscopy (cryo-EM), electron tomography, and single particle analysis. It is essential for structural biologists studying large macromolecular assemblies. (UNVERIFIED)"@en ;
+                  rdfs:label "EMDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000729
+obo:MOLSIM_000729 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Public Image Archive - A public resource for raw 2D electron microscopy image data, including movies and tilt series, that underpins 3D structures in EMDB or other studies. EMPIAR promotes transparency, reproducibility, and the development of new image processing methods by providing access to the primary experimental data. (UNVERIFIED)"@en ;
+                  rdfs:label "EMPIAR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000730
+obo:MOLSIM_000730 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NIH genetic sequence database, an annotated collection of all publicly available DNA sequences, maintained by the National Center for Biotechnology Information (NCBI). As part of the INSDC, GenBank is a foundational resource for molecular biology, genomics, and evolutionary studies worldwide. (UNVERIFIED)"@en ;
+                  rdfs:label "GenBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000731
+obo:MOLSIM_000731 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "UniProt Knowledgebase - A comprehensive, high-quality, and freely accessible resource of protein sequence and functional information, created by joining the Swiss-Prot, TrEMBL, and PIR-PSD databases. UniProtKB consists of two sections: Swiss-Prot (manually annotated and reviewed) and TrEMBL (computationally annotated). It is a central hub for protein information. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000732
+obo:MOLSIM_000732 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "European Nucleotide Archive - A comprehensive public repository for nucleotide sequencing information, covering raw reads, assembled sequences, and functional annotations, from all domains of life. As part of the INSDC, ENA collaborates with GenBank and DDBJ to provide a global archive for sequence data. It is a fundamental resource for genomics and bioinformatics. (UNVERIFIED)"@en ;
+                  rdfs:label "ENA"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000733
+obo:MOLSIM_000733 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "DNA Data Bank of Japan - one of the three major international nucleotide sequence databases, along with GenBank (NCBI) and ENA (EMBL-EBI), forming the International Nucleotide Sequence Database Collaboration (INSDC). DDBJ collects, annotates, and provides public access to DNA and RNA sequences from all organisms. It is a fundamental resource for genomics and molecular biology. (UNVERIFIED)"@en ;
+                  rdfs:label "DDBJ"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000734
+obo:MOLSIM_000734 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The manually annotated and reviewed section of the UniProt Knowledgebase (UniProtKB). Swiss-Prot entries contain high-quality protein sequence information, detailed functional annotations, and extensive cross-references, derived from literature and curator evaluation. It represents the gold standard for protein annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/Swiss-Prot"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000811
+obo:MOLSIM_000811 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The computationally annotated section of the UniProt Knowledgebase (UniProtKB), containing protein sequences that are not yet manually curated. TrEMBL entries are largely derived from the translation of coding sequences in nucleotide sequence databases and are automatically annotated. It provides broad sequence coverage. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/TrEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000919
+obo:MOLSIM_000919 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for protein data, offering a curated, non-redundant set of protein sequences, often linked to corresponding nucleotide sequences and genomic annotations. RefSeq proteins serve as stable reference points for protein identification, annotation, and comparative analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "NCBI RefSeq Protein"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000920
+obo:MOLSIM_000920 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Information Resource - A long-standing public bioinformatics resource that created the Protein Sequence Database (PSD), one of the first curated collections of protein sequences. PIR now contributes to UniProt and develops other resources like iProClass for protein classification and functional annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "PIR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000922
+obo:MOLSIM_000922 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for nucleotide data, providing a comprehensive, integrated, non-redundant, and well-annotated set of sequences for chromosomes, genomic regions, transcripts, and RNAs. RefSeq aims to provide stable reference sequences for various organisms. It is a critical resource for genomics and gene annotation"@en ;
+                  rdfs:label "NCBI RefSeq Nucleotide"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000929
+obo:MOLSIM_000929 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that contains validated chemical structure information for small molecules, including their identifiers, properties, and links to related information. PubChem Compound is a comprehensive resource for chemical information and a key component of the PubChem suite. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem Compound"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000930
+obo:MOLSIM_000930 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Chemical Entities of Biological Interest - A freely available dictionary and ontology of molecular entities focused on 'small' chemical compounds that are either products or reactants in biological processes. ChEBI provides nomenclature, structural information, and links to other databases for a wide range of biologically relevant chemicals. It is essential for cheminformatics and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "ChEBI"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000931
+obo:MOLSIM_000931 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free database of commercially available chemical compounds prepared in ready-to-dock, 3D formats for virtual screening and computational drug discovery. ZINC20 contains millions of purchasable compounds with annotated properties, facilitating large-scale ligand docking and cheminformatics studies. (UNVERIFIED)"@en ;
+                  rdfs:label "ZINC20"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000932
+obo:MOLSIM_000932 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive, freely accessible online database containing detailed information on drugs, drug targets, drug interactions, and drug metabolism. It combines detailed drug data with comprehensive drug target information, making it a vital resource for pharmacology, medicinal chemistry, and pharmaceutical research. (UNVERIFIED)"@en ;
+                  rdfs:label "DrugBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000933
+obo:MOLSIM_000933 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free chemical structure database providing fast access to over millions of structures, properties, and associated information from various sources. It allows users to search by chemical name, synonym, trade name, registry number, or structure. ChemSpider is a comprehensive resource for chemists and researchers needing chemical information. (UNVERIFIED)"@en ;
+                  rdfs:label "ChemSpider"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000934
+obo:MOLSIM_000934 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Therapeutic Target Database - A database providing comprehensive information about therapeutic protein and nucleic acid targets, the approved and investigational drugs directed at these targets, and the corresponding diseases. TTD links target information with drug development pipelines and clinical trial data. It is a useful resource for drug discovery and pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "TTD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000935
+obo:MOLSIM_000935 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A website operated by the U.S. National Library of Medicine (NLM) that provides high-quality information about marketed drugs, including FDA-approved drug labels (package inserts). It offers comprehensive information for healthcare providers and the public on drug ingredients, indications, dosage, warnings, and adverse reactions. (UNVERIFIED)"@en ;
+                  rdfs:label "DailyMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000957
+obo:MOLSIM_000957 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A manually curated, large-scale database of bioactive drug-like small molecules and their quantitative bioactivity data against drug targets (primarily proteins). It brings together chemical, bioactivity, and genomic data to aid the translation of genomic information into effective new drugs. ChEMBL is a critical resource for drug discovery, pharmacology, and medicinal chemistry."@en ;
+                  rdfs:label "ChEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000958
+obo:MOLSIM_000958 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Mass Spectrometry Interactive Virtual Environment - A public data repository for mass spectrometry (MS) datasets, particularly from proteomics experiments, developed by the Center for Computational Mass Spectrometry at UCSD. MassIVE facilitates the deposition, storage, sharing, and reanalysis of MS data, supporting open science in the proteomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MassIVE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000959
+obo:MOLSIM_000959 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "An integrated spectral database system for organic compounds, maintained by the National Institute of Advanced Industrial Science and Technology (AIST), Japan. SDBS contains NMR (1H, 13C), mass spectra, IR, Raman, and ESR spectra for a large number of organic compounds. It is a valuable resource for chemical identification and structural elucidation. (UNVERIFIED)"@en ;
+                  rdfs:label "SDBS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000960
+obo:MOLSIM_000960 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Biological Magnetic Resonance Data Bank - A repository that collects, archives, and disseminates Nuclear Magnetic Resonance (NMR) spectroscopic data from biological macromolecules and metabolites. This includes assigned chemical shifts, coupling constants, relaxation rates, and derived structural information like distance and dihedral angle restraints. BMRB is the primary worldwide archive for biomolecular NMR data. (UNVERIFIED)"@en ;
+                  rdfs:label "BMRB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000961
+obo:MOLSIM_000961 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Complex Carbohydrate Magnetic Resonance Database for NMR - A specialized NMR database focusing on the assigned chemical shifts of complex carbohydrates (oligosaccharides and polysaccharides) and their complexes with proteins. It serves as a resource for researchers studying carbohydrate structures and interactions using NMR spectroscopy. (UNVERIFIED)"@en ;
+                  rdfs:label "ComplexCARP"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000962
+obo:MOLSIM_000962 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that integrates predictive signatures for protein families, domains, and functional sites from multiple member databases (e.g., Pfam, PROSITE, SMART, CDD, CATH, SCOP). InterPro provides a comprehensive overview of protein sequence features, aiding in functional annotation and comparative analysis. It is a powerful tool for protein characterization. (UNVERIFIED)"@en ;
+                  rdfs:label "InterPro"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000964
+obo:MOLSIM_000964 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs). Pfam is used to identify conserved domains and families in protein sequences, providing insights into their function and evolutionary relationships. It is a widely used resource for protein sequence annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "Pfam"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000965
+obo:MOLSIM_000965 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web-based resource used for the identification and annotation of genetically mobile domains and the analysis of domain architectures in proteins. SMART contains manually curated models for hundreds of domains involved in signaling, extracellular functions, and chromatin regulation. It is a valuable tool for protein sequence analysis and functional prediction. (UNVERIFIED)"@en ;
+                  rdfs:label "SMART"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000966
+obo:MOLSIM_000966 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of protein domains, families, and functional sites, characterized by patterns (regular expressions) or profiles (position-specific scoring matrices) derived from multiple sequence alignments. PROSITE is used to identify known motifs and domains in protein sequences, aiding in functional prediction. It is part of the SIB ExPASy server. (UNVERIFIED)"@en ;
+                  rdfs:label "PROSITE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000967
+obo:MOLSIM_000967 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Conserved Domain Database by NCBI -  A database maintained by NCBI containing manually curated models of ancient domains and full-length proteins, as well as models imported from other sources like Pfam and SMART. CDD is used to identify conserved domains within protein sequences, providing insights into their function. It is a key tool for protein sequence analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "CDD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000968
+obo:MOLSIM_000968 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that provides a detailed and comprehensive hierarchical classification of protein structural domains based on their evolutionary relationships and structural similarities. SCOP2 builds upon the original SCOP, aiming to provide a more automated and comprehensive classification. It is a key resource for understanding protein structure and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "SCOP2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000969
+obo:MOLSIM_000969 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Class, Architecture, Topology, Homologous superfamily - A hierarchical classification database of protein domain structures derived from the Protein Data Bank (PDB). CATH groups protein domains based on their evolutionary relationships and structural similarities at different levels: Class (secondary structure content), Architecture (overall shape), Topology (fold family), and Homologous superfamily. It provides insights into protein structure, function, and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "CATH"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000970
+obo:MOLSIM_000970 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Classification of Protein Domains - A hierarchical classification of protein domains based on evolutionary relationships, emphasizing distant homology. ECOD groups domains into families, homologous groups (H-groups), topological groups (T-groups), architectural groups (X-groups), and possible homology groups (Y-groups). It provides a framework for understanding protein evolution and structure. (UNVERIFIED)"@en ;
+                  rdfs:label "ECOD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000971
+obo:MOLSIM_000971 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of manually drawn pathway maps representing current knowledge on molecular interaction and reaction networks for metabolism, genetic information processing, environmental information processing, cellular processes, organismal systems, and human diseases. KEGG Pathway is part of the larger Kyoto Encyclopedia of Genes and Genomes (KEGG) resource. It is widely used for pathway analysis and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "KEGG Pathway"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000972
+obo:MOLSIM_000972 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free, open-source, curated, and peer-reviewed pathway database that provides detailed information on human biological pathways and processes. Reactome uses a hierarchical organization to describe molecular events, from individual reactions to complex pathways, linking genes, proteins, and small molecules. It is a key resource for systems biology and pathway analysis."@en ;
+                  rdfs:label "Reactome"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000973
+obo:MOLSIM_000973 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of thousands of Pathway/Genome Databases (PGDBs), each describing the genome and metabolic pathways of a specific organism, plus a multi-organism pathway database (MetaCyc). BioCyc provides curated information on genes, enzymes, metabolites, and reactions, facilitating comparative genomics and metabolic network analysis. It is a key resource for systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "BioCyc"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000977
+obo:MOLSIM_000977 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A community-curated, open, and collaborative platform for biological pathway diagrams. WikiPathways allows researchers to contribute, edit, and share pathway information, fostering a dynamic and up-to-date collection of pathway models across various species. It promotes open access to pathway knowledge. (UNVERIFIED)"@en ;
+                  rdfs:label "WikiPathways"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000991
+obo:MOLSIM_000991 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public, web-accessible database focusing on measured binding affinities of interactions between proteins (considered as drug targets) and small, drug-like molecules. It primarily contains data from enzyme assays, isothermal titration calorimetry, and surface plasmon resonance. BindingDB is a valuable resource for drug discovery, cheminformatics, and validating computational predictions. (UNVERIFIED)"@en ;
+                  rdfs:label "BindingDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000992
+obo:MOLSIM_000992 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that stores descriptions and results of biological screening assays on chemical substances, typically from high-throughput screening programs. PubChem BioAssay links chemical structures to their biological activities, providing valuable data for drug discovery and chemical biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem BioAssay"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000993
+obo:MOLSIM_000993 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "IUPHAR/BPS Guide to PHARMACOLOGY - An expert-curated database of pharmacological targets (receptors, ion channels, enzymes, transporters) and the drugs/ligands that act on them, developed by the International Union of Basic and Clinical Pharmacology (IUPHAR) and the British Pharmacological Society (BPS). It provides concise overviews, nomenclature, and key properties for these targets and ligands. It is an authoritative resource for pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "IUPHAR/BPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000994
+obo:MOLSIM_000994 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A discovery platform integrating and standardizing data on gene-disease associations (GDAs) and variant-disease associations (VDAs) from multiple public repositories and scientific literature. DisGeNET provides scores to rank these associations and tools for their analysis and interpretation. It is a valuable resource for studying the genetic basis of human diseases. (UNVERIFIED)"@en ;
+                  rdfs:label "DisGeNET"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000995
+obo:MOLSIM_000995 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Online Mendelian Inheritance in Man - A comprehensive, authoritative, and continuously updated catalog of human genes and genetic disorders and traits, with a particular focus on the gene-phenotype relationship. OMIM provides textual information, references, and links to other genetic resources. It is an essential resource for human genetics and clinical research. (UNVERIFIED)"@en ;
+                  rdfs:label "OMIM"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000996
+obo:MOLSIM_000996 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose open-access repository operated by CERN and OpenAIRE, allowing researchers in all disciplines to deposit research outputs, including datasets, software, publications, and figures. Zenodo assigns DOIs to uploads, making them citable and discoverable. It supports FAIR data principles. (UNVERIFIED)"@en ;
+                  rdfs:label "Zenodo"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000997
+obo:MOLSIM_000997 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose, curated repository that makes the data underlying scientific and medical publications discoverable, freely reusable, and citable. Dryad provides a platform for researchers to archive and share diverse datasets associated with their research articles. It promotes open science and data reproducibility. (UNVERIFIED)"@en ;
+                  rdfs:label "Dryad Digital Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000998
+obo:MOLSIM_000998 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose online digital repository where researchers can preserve and share their research outputs, including figures, datasets, images, and code. Figshare allows users to make their work citable and discoverable, supporting open science practices across various disciplines. (UNVERIFIED)"@en ;
+                  rdfs:label "Figshare"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000999
+obo:MOLSIM_000999 rdf:type owl:NamedIndividual ;
+                  rdfs:label "MDDBR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001000
+obo:MOLSIM_001000 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A publicly accessible database designed to store, search, and analyze biomolecular simulation data, including trajectories, input parameters, and analysis results. It aims to promote reproducibility, data sharing, and re-use of simulation data within the molecular modeling community. BioSimDB facilitates the discovery and comparison of simulation studies. (UNVERIFIED)"@en ;
+                  rdfs:label "BioSimDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001001
+obo:MOLSIM_001001 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database and web server that provides a collection of pre-equilibrated molecular dynamics simulations of proteins, particularly focusing on pharmaceutically relevant targets. MoDEL aims to offer ready-to-use starting points for further simulation studies, such as ligand binding or conformational analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "MoDEL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001002
+obo:MOLSIM_001002 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web server and platform designed for sharing, visualizing, and analyzing molecular dynamics (MD) simulation trajectories directly in a web browser. MDsrv allows researchers to easily disseminate their MD data and provides interactive tools for common trajectory analyses without requiring local software installation. (UNVERIFIED)"@en ;
+                  rdfs:label "MDsrv"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001003
+obo:MOLSIM_001003 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A prototype deposition and archiving system for structural models of biomolecular systems determined using integrative or hybrid (I/H) methods, which combine data from various experimental techniques and computational approaches. PDB-Dev aims to establish standards for archiving these complex structural models. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB-Dev"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001004
+obo:MOLSIM_001004 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive repository providing open access to millions of high-accuracy protein structure predictions generated by DeepMind's AlphaFold AI system. It significantly expands structural coverage of known protein sequences, offering valuable models for proteins lacking experimental structures. This database is a key resource for structural biology and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "AlphaFold Protein Structure Database"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001005
+obo:MOLSIM_001005 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of continuously updated, high-quality 3D protein structure models generated by the SWISS-MODEL homology modeling pipeline. It provides access to pre-computed models for a large number of protein sequences, particularly those from model organisms and UniProtKB. It is a key resource for obtaining theoretical protein models. (UNVERIFIED)"@en ;
+                  rdfs:label "SWISS-MODEL Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001006
+obo:MOLSIM_001006 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Scale Modeling Atlas - A database providing access to over 600 million metagenomic protein structure predictions generated using the ESMFold model, developed by Meta AI. ESMatlas significantly expands the structural coverage of proteins from diverse microbial environments. It is a valuable resource for exploring the structural landscape of the microbial world. (UNVERIFIED)"@en ;
+                  rdfs:label "ESMatlas"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001007
+obo:MOLSIM_001007 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for archiving and distributing 3D structural models of biomacromolecules, particularly those generated by computational methods that are not eligible for deposition in the PDB. ModelArchive supports the FAIR (Findable, Accessible, Interoperable, Reusable) principles for theoretical models. (UNVERIFIED)"@en ;
+                  rdfs:label "ModelArchive"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001025
+obo:MOLSIM_001025 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database for cross-species, cross-technique metabolomics experiments and derived information, maintained at EMBL-EBI. MetaboLights archives metadata about studies, raw experimental data, and processed metabolite identifications and quantifications. It is a key repository for the metabolomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MetaboLights"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001026
+obo:MOLSIM_001026 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Global Natural Products Social Molecular Networking - A web-based mass spectrometry ecosystem that enables the analysis, sharing, and discovery of natural products through molecular networking and community-curated spectral libraries. GNPS facilitates the identification of known and novel molecules from complex mixtures. It is a key platform for natural product research and metabolomics. (UNVERIFIED)"@en ;
+                  rdfs:label "GNPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001027
+obo:MOLSIM_001027 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for metabolomics data and metadata, part of the NIH Common Fund's Metabolomics Program. It serves as a national and international data repository and coordinating center, providing tools for data analysis, visualization, and integration with other omics data. (UNVERIFIED)"@en ;
+                  rdfs:label "Metabolomics Workbench"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001028
+obo:MOLSIM_001028 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free search engine primarily accessing the MEDLINE database of references and abstracts on life sciences and biomedical topics, maintained by the U.S. National Library of Medicine (NLM) at the National Institutes of Health (NIH). PubMed is the foremost resource for searching biomedical literature. (UNVERIFIED)"@en ;
+                  rdfs:label "PubMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001029
+obo:MOLSIM_001029 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large abstract and citation database of peer-reviewed literature: scientific journals, books, and conference proceedings, owned by Elsevier. Scopus provides tools for tracking, analyzing, and visualizing research output across various disciplines. It is a major competitor to Web of Science for literature searching and citation analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "Scopus"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001030
+obo:MOLSIM_001030 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A multidisciplinary citation indexing service and database platform owned by Clarivate Analytics. Web of Science provides access to multiple databases covering scholarly journals, books, conference proceedings, and patents, offering comprehensive citation data and research analytics. It is a major tool for literature discovery and impact assessment. (UNVERIFIED)"@en ;
+                  rdfs:label "Web of Science"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001031
+obo:MOLSIM_001031 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines. While not a curated database, it serves as a primary discovery tool for finding academic papers, theses, books, and abstracts. It is widely used by researchers for literature searches. (UNVERIFIED)"@en ;
+                  rdfs:label "Google Scholar"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

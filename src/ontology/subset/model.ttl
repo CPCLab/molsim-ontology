@@ -1,0 +1,1552 @@
+@prefix : <http://purl.obolibrary.org/obo/molsim.owl#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <http://purl.obolibrary.org/obo/molsim.owl#> .
+
+<http://purl.obolibrary.org/obo/molsim.owl> rdf:type owl:Ontology ;
+                                             owl:imports <http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/ncit_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl> ;
+                                             dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools." ;
+                                             dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
+                                             dcterms:title "Molecular Simulation Ontology" ;
+                                             rdfs:comment "" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                rdfs:label "definition" .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty ;
+                    rdfs:label "description" .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty ;
+                rdfs:label "license" .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty ;
+              rdfs:label "title" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000297
+obo:MOLSIM_000297 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"@en ;
+                  rdfs:label "periodic box type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000504
+obo:MOLSIM_000504 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Links a specific computational process or analysis step to the particular utility program from a molecular dynamics software suite that was used to perform it. For instance, an analysis of simulation trajectories might use a specific trajectory processing utility, or system preparation might involve a specific solvation tool. This property helps specify the exact software tools employed within a broader simulation workflow, where the utility is a component of a larger software package. (UNVERIFIED)"@en ;
+                  rdfs:label "molecular dynamics suite utility"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000507
+obo:MOLSIM_000507 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)"@en ;
+                  rdfs:label "alignment tool"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000508
+obo:MOLSIM_000508 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"@en ;
+                  rdfs:label "protein structure source"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001033
+obo:MOLSIM_001033 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"@en ;
+                  rdfs:label "simulation environment"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001034
+obo:MOLSIM_001034 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"@en ;
+                  rdfs:label "template complex structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001035
+obo:MOLSIM_001035 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en ;
+                  rdfs:label "validated ligand selection criteria"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001036
+obo:MOLSIM_001036 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en ;
+                  rdfs:label "reaction coordinate"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000006
+obo:MOLSIM_000006 rdf:type owl:Class ;
+                  obo:IAO_0000115 "A simplified representation used to study a real-world system, such as a molecule or collection of molecules. In biomolecular simulation, it defines the components (atoms, residues) and their properties needed for computational analysis. This framework allows scientists to simulate and predict the system's behavior. (UNVERIFIED)"@en ;
+                  rdfs:label "model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000007
+obo:MOLSIM_000007 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "A set of mathematical functions and associated parameters used to calculate the potential energy of a system of atoms or particles based on their positions. It defines the forces governing interactions within molecules and between different molecules, enabling the simulation of molecular behavior. Force fields are central to classical molecular dynamics and modeling. (UNVERIFIED)"@en ;
+                  rdfs:label "force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000008
+obo:MOLSIM_000008 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A force field specifically designed and parameterized for simulating lipid molecules and lipid bilayers, crucial components of cell membranes. It aims to accurately capture the unique properties of lipids, including their phase behavior and interactions with other molecules. Examples include LIPID14, LIPID17, and parameters within general force fields like CHARMM36m. (UNVERIFIED)"@en ;
+                  rdfs:label "lipid  force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000009
+obo:MOLSIM_000009 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A force field specifically designed and parameterized for simulating proteins and peptides, focusing on accurately representing amino acid properties and polypeptide chain behavior. These are crucial for studying protein folding, dynamics, and interactions. Many different protein force fields exist, often differing in their parameterization philosophy and target data. (UNVERIFIED)"@en ;
+                  rdfs:label "protein force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000010
+obo:MOLSIM_000010 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A force field specifically developed and parameterized for simulating Deoxyribonucleic Acid (DNA) molecules. It focuses on accurately representing the structure, dynamics, and interactions of DNA bases, sugars, and phosphate backbone, including features like sugar pucker and helical parameters. Accurate DNA force fields are essential for studying DNA replication, transcription, and drug binding. (UNVERIFIED)"@en ;
+                  rdfs:label "DNA force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000011
+obo:MOLSIM_000011 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A force field specifically developed and parameterized for simulating Ribonucleic Acid (RNA) molecules. It aims to accurately capture the complex conformational landscape and catalytic potential of RNA, which differs significantly from DNA due to the 2'-hydroxyl group and different structural motifs. Development often focuses on improving descriptions of sugar pucker, backbone torsions (especially the epsilon and zeta angles), and non-canonical base interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "RNA force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000012
+obo:MOLSIM_000012 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A force field specifically designed and parameterized for simulating carbohydrate molecules (sugars or glycans). It addresses the unique challenges of modeling the flexibility of glycosidic linkages between sugar units and the numerous hydrogen bonding possibilities involving hydroxyl groups. These are important for studying glycoproteins, glycolipids, and polysaccharides like cellulose. (UNVERIFIED)"@en ;
+                  rdfs:label "carbohydrates force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000013
+obo:MOLSIM_000013 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A force field designed for simulating a wide variety of small organic molecules, often those that might act as ligands, drugs, solvents, or building blocks not covered by specialized biomolecular force fields. These force fields aim for broad applicability across different chemical functional groups found in organic chemistry. They are often used in conjunction with biomolecular force fields when studying interactions like protein-ligand binding. (UNVERIFIED)"@en ;
+                  rdfs:label "organic molecules force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000014
+obo:MOLSIM_000014 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A force field specifically parameterized to simulate the behavior of water molecules, the most common solvent in biological systems and many chemical processes. Different water models vary in their geometry (number of interaction sites, e.g., 3-point, 4-point), parameter values (charges, Lennard-Jones parameters), and inclusion of flexibility or polarization. The choice of water model can significantly impact simulation results, particularly solvation and dynamics. (UNVERIFIED)"@en ;
+                  rdfs:label "water model force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000015
+obo:MOLSIM_000015 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "A set of parameters specifically developed to describe the interactions of ions (charged atoms or small molecules) within a simulation, typically in conjunction with a specific water model and other biomolecular force fields. These parameters define the ion's charge and non-bonded terms (usually Lennard-Jones parameters for size and interaction strength). Accurate ion parameters are crucial for modeling salt effects, ion channels, and metalloproteins, and often require careful tuning for compatibility with the chosen water model. (UNVERIFIED)"@en ;
+                  rdfs:label "ion force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000016
+obo:MOLSIM_000016 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000772 ;
+                  obo:IAO_0000115 "General purpose force fields applicable to a wide range of organic molecules not covered by protein, lipid, nucleic acid, or carbohydrate specific parameter sets. These general force fields (like GAFF, CGenFF) use atom typing rules based on chemical environment to assign parameters, making them versatile for arbitrary organic molecules like drugs or ligands. They contrast with highly specialized biomolecular force fields. (UNVERIFIED)"@en ;
+                  rdfs:label "other organic molecules force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000018
+obo:MOLSIM_000018 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000008 ;
+                  obo:IAO_0000115 "A specific version of a lipid force field, part of the AMBER family, providing parameters optimized for simulating lipids. Released around 2021, it incorporates updates and refinements based on contemporary data and methodologies to improve accuracy in membrane simulations. Its name indicates the originating group (AMBER) and year of major update. (UNVERIFIED)"@en ;
+                  rdfs:label "lipid21"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000019
+obo:MOLSIM_000019 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000008 ;
+                  obo:IAO_0000115 "A specific lipid force field parameter set developed for the AMBER simulation package, released around 2014. It provides parameters optimized for simulating a range of common lipid types found in biological membranes. This version aimed to improve upon previous lipid models within the AMBER family. (UNVERIFIED)"@en ;
+                  rdfs:label "lipid14"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000020
+obo:MOLSIM_000020 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000008 ;
+                  obo:IAO_0000115 "A specific lipid force field parameter set developed for the AMBER simulation package, released around 2017. It represents an update to Lipid14, incorporating refinements and potentially expanding the range of covered lipid types or improving accuracy for membrane simulations. It's designed for simulating lipid bilayers and membrane proteins. (UNVERIFIED)"@en ;
+                  rdfs:label "lipid17"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000021
+obo:MOLSIM_000021 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific protein force field parameter set from the AMBER family (ff), released around 2014, with optimizations primarily for side-chain (S) and backbone (B) torsion angles compared to earlier versions like ff99SB. It was widely adopted for its improved accuracy in representing protein secondary structure and dynamics. It is an all-atom force field. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff14SB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000022
+obo:MOLSIM_000022 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "TIP3P is a water force-field type. It specifies a 3-site rigid water molecule with charges and Lennard-Jones parameters assigned to each of the 3 atoms."@en ;
+                  rdfs:label "TIP3P"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000023
+obo:MOLSIM_000023 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000016 ;
+                  obo:IAO_0000115 "The General AMBER Force Field (GAFF), designed as a companion to the main AMBER biomolecular force fields (for proteins, nucleic acids). It provides parameters for a wide range of organic molecules based on atom types determined by chemical environment and bonding patterns, following the same functional forms as the AMBER force field. GAFF is widely used for parameterizing ligands, drugs, and organic cofactors in simulations involving AMBER biomolecular force fields. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "GAFF"@en ;
+                  rdfs:label "general AMBER force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000024
+obo:MOLSIM_000024 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000016 ;
+                  obo:IAO_0000115 "The second generation of the General AMBER Force Field (GAFF2), representing an update and refinement of the original GAFF. Released around 2015, GAFF2 incorporates more parameter types derived from fitting to higher-level quantum mechanical data, aiming to improve accuracy and coverage for a diverse range of organic molecules. It maintains compatibility with contemporary AMBER biomolecular force fields. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "GAFF2"@en ;
+                  rdfs:label "general AMBER force field 2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000030
+obo:MOLSIM_000030 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "Refers to specific parameterizations or types of water models commonly used in biomolecular simulations, often used somewhat interchangeably with 'water model'. Each 'water type' (e.g., SPC, TIP3P, TIP4P-Ew) defines the geometry, number of interaction sites, and associated parameters (charges, Lennard-Jones) for representing water molecules. The choice significantly influences simulation outcomes, particularly solvation effects and dynamics. (UNVERIFIED)"@en ;
+                  rdfs:label "water type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000031
+obo:MOLSIM_000031 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000030 ;
+                  obo:IAO_0000115 "Refers to water models, like the TIP series (Transferable Intermolecular Potential), where the partial charges assigned to the interaction sites are specifically optimized during parameter development to best reproduce a set of target experimental properties of liquid water (e.g., density, enthalpy of vaporization, dielectric constant). This optimization aims to improve the accuracy of simulations where water plays a crucial role as a solvent. The 'optimal' nature is relative to the properties targeted during parameterization. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "OPC"@en ;
+                  rdfs:label "optimal point charges"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000032
+obo:MOLSIM_000032 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "Specifies the geometric shape of the simulation cell used under periodic boundary conditions (PBCs), which replicate the central simulation system in three dimensions to mimic a bulk environment and avoid surface effects. The choice of shape (e.g., cubic, truncated octahedron, rhombic dodecahedron) affects the computational efficiency (volume of solvent needed) and how well the unit cell packs space. It determines the distance and geometry for interactions between a particle and its periodic images. (UNVERIFIED)"@en ;
+                  rdfs:label "box type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000033
+obo:MOLSIM_000033 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000032 ;
+                  obo:IAO_0000115 "A specific type of simulation box shape corresponding to a dodecahedron with rhombus-shaped faces. It is one of the space-filling polyhedra that is closer to a sphere than a cube, thus often requiring less solvent volume (and fewer solvent molecules) to solvate a roughly spherical solute while maintaining a minimum distance to the periodic images. It can offer computational savings compared to a cubic box of similar minimum image distance. (UNVERIFIED)"@en ;
+                  rdfs:label "rhombic dodecahedron"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000034
+obo:MOLSIM_000034 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000032 ;
+                  obo:IAO_0000115 "A specific type of simulation box shape created by cutting off the corners of an octahedron. Like the rhombic dodecahedron, it is a space-filling polyhedron that approximates a sphere more closely than a cube, reducing the required solvent volume for solvating non-cubic solutes under periodic boundary conditions. It offers similar computational efficiency benefits as the rhombic dodecahedron for many systems. (UNVERIFIED)"@en ;
+                  rdfs:label "truncated octahedron"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000035
+obo:MOLSIM_000035 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000032 ;
+                  obo:IAO_0000115 "A simulation box shape consisting of a hexagonal base extruded along a perpendicular axis. This shape is sometimes used for systems with inherent one-dimensional periodicity or symmetry, such as fibers (like DNA) or layered systems, where periodic boundary conditions are naturally applied across the hexagonal faces and along the prism axis. Its use is less common than cubic or truncated octahedral boxes for general globular protein simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "hexagonal prism"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000036
+obo:MOLSIM_000036 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000032 ;
+                  obo:IAO_0000115 "The simplest simulation box shape, defined by three mutually perpendicular axes (orthogonal box). If all edge lengths are equal, it is cubic; otherwise, it is rectangular (also called orthorhombic or cuboid). While straightforward to implement and visualize, cubic boxes can be inefficient for solvating non-cubic solutes, often requiring significantly more solvent molecules than more spherically approximating shapes like the truncated octahedron to achieve the same minimum distance between periodic images. (UNVERIFIED)"@en ;
+                  rdfs:label "rectangular/cubic"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000057
+obo:MOLSIM_000057 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "Refers to the classification of forces or potential energy contributions that describe how particles (atoms, ions, coarse-grained beads) affect each other within a simulation's model or force field. These types determine the structure, dynamics, and thermodynamics of the simulated system according to the chosen model. Interactions are typically divided into categories like covalent (bonded) and non-covalent (non-bonded), or sometimes by range (short-range vs. long-range) or specificity. (UNVERIFIED)"@en ;
+                  rdfs:label "interaction type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000058
+obo:MOLSIM_000058 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000057 ;
+                  obo:IAO_0000115 "An interaction between particles where the force or potential energy diminishes slowly with increasing distance, typically decaying as r^−n where n≤3 (e.g., electrostatic interactions decaying as 1/r). Because their influence extends significantly far, these interactions necessitate special computational techniques (like Particle Mesh Ewald (PME) or Ewald sums) in simulations using periodic boundary conditions to accurately account for contributions beyond a simple distance cutoff. They are crucial for the behavior of charged or polar molecules in condensed phases. (UNVERIFIED)"@en ;
+                  rdfs:label "long range interaction"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000059
+obo:MOLSIM_000059 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000057 ;
+                  obo:IAO_0000115 "An interaction between particles where the force or potential energy decreases rapidly with increasing distance, becoming negligible beyond a certain range (typically a few molecular diameters). Van der Waals interactions (often modeled with Lennard-Jones potentials decaying as 1/(r^6) for attraction) are the primary example. These interactions can often be computationally truncated using a cutoff radius in simulations without significant loss of accuracy, improving efficiency. (UNVERIFIED)"@en ;
+                  rdfs:label "short range interaction"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000060
+obo:MOLSIM_000060 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000057 ;
+                  obo:IAO_0000115 "An interaction whose strength and occurrence depend critically on the specific chemical identities, geometries, and relative orientations of the interacting partners. These often involve directional components and chemical complementarity, such as hydrogen bonds, salt bridges (ionic interactions), or π-stacking, playing key roles in molecular recognition, binding specificity, and defined structural motifs. They contrast with more general, less directional interactions like isotropic Van der Waals forces. (UNVERIFIED)"@en ;
+                  rdfs:label "specific interaction"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000061
+obo:MOLSIM_000061 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000057 ;
+                  obo:IAO_0000115 "Represents the energy contribution from interactions that are less dependent on the precise chemical nature or orientation of the interacting groups, such as general Van der Waals attraction (dispersion) and repulsion (excluded volume). These forces act broadly between molecules or parts of molecules, contributing significantly to overall cohesion, packing density, and solvation effects (e.g., the hydrophobic effect is driven by minimizing disruption of water, influenced by non-specific interactions). It contrasts with the energy from specific, directional interactions like hydrogen bonds. (UNVERIFIED)"@en ;
+                  rdfs:label "non specific interaction energy"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000062
+obo:MOLSIM_000062 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000057 ;
+                  obo:IAO_0000115 "An interaction between atoms, ions, or molecules that does not involve the sharing of valence electrons to form a covalent bond. These interactions, including Van der Waals forces, electrostatic interactions (encompassing hydrogen bonds, salt bridges, dipole interactions), π-effects, and hydrophobic effects, govern molecular recognition, self-assembly, folding, and the stability of biomolecular complexes. Though individually weaker than covalent bonds (typically 0.1-10 kcal/mol vs >50 kcal/mol), their cumulative effect is critical for biological structure and function. (UNVERIFIED)"@en ;
+                  rdfs:label "non-covalent interaction"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000063
+obo:MOLSIM_000063 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000057 ;
+                  obo:IAO_0000115 "Interactions resulting from the sharing of valence electrons between atoms, forming stable chemical bonds (e.g., C-C, C-N, C-O, S-S) that define the fundamental connectivity and constitution of a molecule. In classical biomolecular simulations using force fields, covalent bonds, along with bond angles and dihedral angles defining local geometry, are usually represented by potential energy terms (e.g., harmonic springs, periodic functions) that maintain the molecular structure, rather than allowing bonds to form or break dynamically (which requires QM or reactive force fields). These are the strongest interactions within molecules (>50 kcal/mol). (UNVERIFIED)"@en ;
+                  rdfs:label "covalent interaction"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000064
+obo:MOLSIM_000064 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000062 ;
+                  obo:IAO_0000115 "A short-range non-covalent interaction between atoms or molecules arising from temporary fluctuations in electron distribution causing transient dipoles (London dispersion forces) and interactions involving permanent or induced multipoles, counteracted by strong short-range repulsion due to overlapping electron clouds (Pauli exclusion principle). Commonly modeled using potentials like the Lennard-Jones 6-12 potential. These interactions determine molecular size, shape, packing efficiency, and contribute to binding affinity. (UNVERIFIED)"@en ;
+                  rdfs:label "Van der Waals interaction"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000065
+obo:MOLSIM_000065 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "The computational approach used within a simulation to represent the effects of the surrounding solvent environment (most commonly water in biomolecular contexts) on the properties and behavior of the solute molecule(s). These models range from explicitly including individual solvent molecules (explicit models) to representing the solvent as a continuous medium with averaged properties (implicit models), or using combinations or specialized representations (hybrid, coarse-grained, QM). The choice of solvation model profoundly impacts the accuracy of simulating phenomena like folding, binding, and reaction energetics, as well as the computational cost. (UNVERIFIED)"@en ;
+                  rdfs:label "solvation model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000066
+obo:MOLSIM_000066 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000065 ;
+                  obo:IAO_0000115 "A solvation model where individual solvent molecules (e.g., water molecules represented by a specific water model like TIP3P or SPC/E) are explicitly included in the simulation system alongside the solute molecule(s). This approach provides the most detailed, atomistic representation of solute-solvent interactions, capturing specific hydrogen bonding patterns, local solvent structure, and dynamic effects. However, it significantly increases the system size and computational expense due to the large number of solvent particles that must be simulated. (UNVERIFIED)"@en ;
+                  rdfs:label "explicit solvent model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000067
+obo:MOLSIM_000067 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000065 ;
+                  obo:IAO_0000115 "Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "water model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000068
+obo:MOLSIM_000068 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000065 ;
+                  obo:IAO_0000115 "A solvation model that approximates the average effect of the solvent environment without explicitly representing individual solvent molecules. Instead, the solvent is treated as a continuous medium characterized by macroscopic properties, primarily its dielectric constant (ϵ) to account for electrostatic screening, and sometimes surface tension to account for nonpolar effects like cavity formation. Common examples include Generalized Born (GB) models and methods based on solving the Poisson-Boltzmann (PB) equation, often combined with a surface area term (SASA); these significantly reduce computational cost compared to explicit solvent. (UNVERIFIED)"@en ;
+                  rdfs:label "implicit solvent model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000069
+obo:MOLSIM_000069 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000065 ;
+                  obo:IAO_0000115 "A solvation modeling approach that combines elements of both explicit and implicit solvent representations within the same simulation. Typically, a limited number of explicit solvent molecules are retained in a specific region of interest deemed critical (e.g., the active site of an enzyme, the first solvation shell around a solute), while the bulk solvent further away is represented using an implicit continuum model. This strategy aims to capture detailed local solvent effects accurately while maintaining computational efficiency by treating the less critical bulk solvent implicitly. (UNVERIFIED)"@en ;
+                  rdfs:label "hybrid solvent model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000070
+obo:MOLSIM_000070 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000065 ;
+                  obo:IAO_0000115 "A solvent model designed for compatibility with coarse-grained (CG) solute force fields, where the solvent representation is also simplified to match the reduced resolution of the solute. This can involve explicit CG solvent particles where each particle represents multiple (e.g., 3-4) real water molecules (like MARTINI water), or implicit CG solvent models that adapt continuum concepts to the coarse-grained scale. These models drastically reduce the number of degrees of freedom associated with the solvent, enabling simulations of very large systems or very long timescales. (UNVERIFIED)"@en ;
+                  rdfs:label "coarse grained solvent model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000071
+obo:MOLSIM_000071 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000065 ;
+                  obo:IAO_0000115 "An emerging class of solvation models where the complex relationship between a solute's structure/properties and its solvation free energy (or related solvent effects) is learned using machine learning (ML) algorithms. These algorithms are trained on large datasets generated from high-fidelity sources like explicit solvent simulations, quantum mechanical calculations, or experimental data. ML solvent models aim to achieve high accuracy approaching that of the training data but at a significantly reduced computational cost, potentially bridging the gap between fast implicit models and expensive explicit models. (UNVERIFIED)"@en ;
+                  rdfs:label "machine learning solvent model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000072
+obo:MOLSIM_000072 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000065 ;
+                  obo:IAO_0000115 "A solvation model where the electronic structure of the solvent, or its interaction with the solute, is treated using quantum mechanics (QM). This can range from embedding a QM description of the solute within a classical solvent model (either implicit or explicit) using QM/MM techniques, to treating a number of explicit solvent molecules quantum mechanically along with the solute, or using implicit solvent models derived from QM principles (like the SMD model). These models capture electronic polarization, charge transfer, and other quantum effects involving the solvent, providing high accuracy but at a very high computational cost, reserved for specific problems like chemical reactions in solution. (UNVERIFIED)"@en ;
+                  rdfs:label "quantum mechanical solvent model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000073
+obo:MOLSIM_000073 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000068 ;
+                  obo:IAO_0000115 "A specific type of implicit solvent model that provides an analytical approximation to the electrostatic component of the solvation free energy, based on the Born model for solvation of a spherical ion. It calculates effective Born radii for each atom in the solute, representing the degree of solvent exposure, and uses these radii in a formula that approximates the electrostatic polarization energy typically calculated by solving the more complex Poisson-Boltzmann equation. GB models are computationally much faster than PB methods, making them popular for applications like MD simulations or energy minimization, often paired with a surface area term (GBSA). (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "GB"@en ;
+                  rdfs:label "generalized Born"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000098
+obo:MOLSIM_000098 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "Refers to the specific condition or status of a ligand molecule, particularly in the context of its interaction with a receptor molecule (like a protein). This encompasses various aspects, including whether it is bound or unbound, its specific binding pose or conformation, its protonation or tautomeric form, and its electronic state. Characterizing different ligand states is fundamental to understanding molecular recognition and drug action. (UNVERIFIED)"@en ;
+                  rdfs:label "ligand state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000099
+obo:MOLSIM_000099 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "The state in which a ligand molecule is physically associated with its receptor molecule, typically residing within a specific binding site or pocket, stabilized by non-covalent interactions. Simulations often aim to characterize the structure, dynamics, and interaction energy of the ligand within the bound state, or calculate the free energy difference between the bound and unbound states (binding free energy). Multiple distinct bound poses or conformations might exist. (UNVERIFIED)"@en ;
+                  rdfs:label "bound state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000100
+obo:MOLSIM_000100 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "The state in which a ligand molecule is not associated with the receptor molecule, typically solvated freely in the surrounding solvent (e.g., water) or located far from the receptor's binding site. Defining the unbound state is necessary for calculating binding free energies, as it serves as the reference state relative to the bound state. It represents the ligand and receptor separated and independently solvated. (UNVERIFIED)"@en ;
+                  rdfs:label "unbound state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000101
+obo:MOLSIM_000101 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "In chemical kinetics and simulation, the transition state refers to a specific, high-energy, transient molecular configuration along the reaction coordinate connecting two stable states (e.g., reactant and product, or bound and unbound states). It represents the energy barrier that must be overcome for the transition to occur. While challenging to simulate directly due to its short lifetime, characterizing the transition state is crucial for understanding reaction mechanisms and rates, often studied using specialized simulation techniques or QM methods. (UNVERIFIED)"@en ;
+                  rdfs:label "transition state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000102
+obo:MOLSIM_000102 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "A state of a system that is locally stable (residing in a minimum on the potential energy surface) but has a higher free energy than the globally stable state. The system can persist in a metastable state for a significant time if the energy barrier to reach a more stable state is high. Examples in biomolecular systems include misfolded protein conformations, transiently bound ligand poses, or specific intermediate states along a functional cycle. (UNVERIFIED)"@en ;
+                  rdfs:label "metastable state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000103
+obo:MOLSIM_000103 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "A transient state occurring early in the binding process where the ligand and receptor molecules first come into close proximity and make non-specific contacts, largely driven by diffusion, before potentially rearranging into a specific, stable bound state. The encounter complex represents a collection of loosely associated configurations, often characterized by significant residual motion and non-optimal interactions, preceding the formation of the final bound pose. Studying these initial encounters can be important for understanding binding kinetics. (UNVERIFIED)"@en ;
+                  rdfs:label "encounter complex"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000104
+obo:MOLSIM_000104 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "A general state referring to a molecule (either ligand or receptor, or the complex) being surrounded by solvent molecules (typically water in biological contexts). This term emphasizes the presence and influence of the solvent on the molecule's structure, dynamics, and energetics. Both the bound and unbound states are typically solvated states, and solvation effects are crucial components of binding free energies and conformational preferences. (UNVERIFIED)"@en ;
+                  rdfs:label "solvated state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000105
+obo:MOLSIM_000105 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "A specific three-dimensional arrangement or shape adopted by a flexible molecule, such as a protein or ligand. Molecules can typically exist in multiple conformational states, corresponding to different local minima on their potential energy surface, separated by energy barriers. Simulations are often used to explore the accessible conformational states, their relative populations, and the transitions between them, which are essential for molecular function and binding. (UNVERIFIED)"@en ;
+                  rdfs:label "conformational state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000106
+obo:MOLSIM_000106 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "The specific state of a molecule defined by which of its ionizable functional groups are protonated (e.g., -COOH vs -COO-, -NH3+ vs -NH2) or deprotonated. The protonation state depends on the pKa values of the groups and the pH of the environment. Determining the correct protonation state(s) for amino acid residues and ligands is a critical step in preparing systems for simulation, as it dictates charge distribution and electrostatic interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "protonation state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000107
+obo:MOLSIM_000107 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "One of two or more structural isomers of a molecule that readily interconvert through a process called tautomerization, most commonly involving the migration of a proton accompanied by a switch of a single and adjacent double bond. For example, keto-enol tautomerism is common in organic chemistry. Identifying the relevant tautomeric state(s) for a ligand or residue under simulation conditions is important for accurate modeling, particularly for heterocyclic compounds often found in drugs and cofactors. (UNVERIFIED)"@en ;
+                  rdfs:label "tautomeric state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000108
+obo:MOLSIM_000108 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000098 ;
+                  obo:IAO_0000115 "An electronic state of a molecule where one or more electrons have been promoted to higher energy levels than in the ground electronic state, typically following the absorption of light (photoexcitation). Excited states have different electron distributions, geometries, and reactivity compared to the ground state and are central to photochemistry and spectroscopy (like fluorescence). Simulating excited states requires quantum mechanical methods (like TD-DFT or CASSCF) as classical force fields are typically parameterized only for the ground electronic state. (UNVERIFIED)"@en ;
+                  rdfs:label "excited state"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000132
+obo:MOLSIM_000132 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A widely used all-atom force field parameter set from the CHARMM family, optimized for proteins, lipids, nucleic acids, and carbohydrates, released around 2010-2012. It represents a significant update over earlier CHARMM versions (like CHARMM22/27), incorporating improved parameters derived from high-level quantum calculations and experimental data. The 'm' variant (CHARMM36m) includes further refinements, particularly for proteins. (UNVERIFIED)"@en ;
+                  rdfs:label "CHARMM 36"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000185
+obo:MOLSIM_000185 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000064 ;
+                  obo:IAO_0000115 "A non-covalent interaction occurring between aromatic rings, arising from a combination of electrostatic interactions between their quadrupole moments (electron-rich faces vs electron-poorer edges) and Van der Waals (dispersion) forces. The preferred geometry (e.g., stacked, parallel-displaced, T-shaped) depends on the specific aromatic systems and influences the interaction strength. They are important in protein structure (stacking of Phe, Tyr, Trp, His residues) and the stability of DNA/RNA helices (base stacking). (UNVERIFIED)"@en ;
+                  rdfs:label "π-π interactions"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000186
+obo:MOLSIM_000186 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000062 ;
+                  obo:IAO_0000115 "The observed tendency for nonpolar molecules or molecular groups to associate with each other when in an aqueous (water) environment, effectively minimizing their disruptive contact with water molecules. This phenomenon is primarily entropically driven by the favorable increase in the entropy of water molecules that are released from ordered \"cages\" (solvation shells) around the nonpolar surfaces when they aggregate. It is a major driving force for protein folding (burying hydrophobic residues), membrane formation, and ligand binding. (UNVERIFIED)"@en ;
+                  rdfs:label "hydrophobic interactions"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000187
+obo:MOLSIM_000187 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000062 ;
+                  obo:IAO_0000115 "Non-covalent interactions arising from the Coulombic forces between charged or polar species (possessing permanent or induced charge distributions). This encompasses interactions between ions (ion-ion, forming salt bridges), ions and dipoles, dipoles and dipoles, and higher-order multipoles, as well as interactions involving induced dipoles. These interactions can be long-range (decaying as 1/r for ion-ion) and are fundamental to the structure, function, solvation, and binding of biomolecules in their typically polar biological environment. (UNVERIFIED)"@en ;
+                  rdfs:label "electrostatic interactions"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000188
+obo:MOLSIM_000188 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000187 ;
+                  owl:disjointWith obo:MOLSIM_000189 ;
+                  obo:IAO_0000115 "A specific type of non-covalent electrostatic interaction involving the attractive force between a cation (a positively charged ion, e.g., Na+,K+,Lys+,Arg+) and the electron-rich face of an aromatic π-system (like benzene, or the side chains of Phe, Tyr, Trp, His). The cation is attracted to the negative electrostatic potential above and below the plane of the aromatic ring, which arises from its quadrupole moment. These interactions contribute significantly to protein structure stabilization and molecular recognition, including ligand binding. (UNVERIFIED)"@en ;
+                  rdfs:label "cation-π interactions"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000189
+obo:MOLSIM_000189 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000187 ;
+                  obo:IAO_0000115 "A specific, directional non-covalent interaction formed between a hydrogen atom covalently bonded to a highly electronegative atom (the donor, D, typically N, O, or F) and another nearby electronegative atom (the acceptor, A, also typically N, O, or F) which possesses a lone pair of electrons. Represented as D-H···A, it has characteristics of both electrostatic attraction (between the partially positive H and partially negative A) and weak orbital overlap/covalency. Hydrogen bonds (typically 2-10 kcal/mol) are crucial for the structure of water, protein secondary structures (alpha-helices, beta-sheets), DNA base pairing, and enzyme catalysis. (UNVERIFIED)"@en ;
+                  rdfs:label "hydrogen bond"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000190
+obo:MOLSIM_000190 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000189 ;
+                  obo:IAO_0000115 "Hydrogen bonds formed specifically between the atoms of the polypeptide backbone in proteins or peptides. The most common form involves the amide hydrogen (N-H group) of one residue acting as the donor and the carbonyl oxygen (C=O group) of another residue (often i→i+4 in helices or between strands in sheets) acting as the acceptor. These regularly repeating interactions are the primary stabilizing force defining canonical secondary structures like alpha-helices and beta-sheets. (UNVERIFIED)"@en ;
+                  rdfs:label "backbone hydrogen bonds"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000191
+obo:MOLSIM_000191 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000189 ;
+                  obo:IAO_0000115 "Hydrogen bonds where at least one of the participating atoms (either the donor hydrogen attached to its electronegative atom, or the acceptor electronegative atom) belongs to an amino acid side chain, rather than exclusively involving backbone atoms. These interactions can occur between two side chains, or between a side chain and the backbone, contributing to the stability of the protein's tertiary and quaternary structure, protein-ligand interactions, and enzyme active site chemistry. They involve polar or charged side chains (e.g., Ser, Thr, Tyr, Asp, Glu, Asn, Gln, Lys, Arg, His). (UNVERIFIED)"@en ;
+                  rdfs:label "side-chain hydrogen bonds"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000192
+obo:MOLSIM_000192 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000189 ;
+                  obo:IAO_0000115 "Hydrogen bonds formed specifically between an atom on the polypeptide backbone (either the amide N-H donor or the carbonyl C=O acceptor) and an atom within an amino acid side chain (acting as acceptor or donor, respectively). These interactions directly link the regular backbone structure to the specific side chain identities and conformations, playing crucial roles in stabilizing protein folds (tertiary structure) and positioning side chains for function (e.g., in active sites). They are a subset of both backbone and side-chain interactions considered broadly. (UNVERIFIED)"@en ;
+                  rdfs:label "backbone-side chain hydrogen bonds"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000193
+obo:MOLSIM_000193 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000063 ;
+                  owl:disjointWith obo:MOLSIM_000194 ;
+                  obo:IAO_0000115 "The specific type of covalent amide bond (CO−NH) formed between two consecutive amino acid residues in a peptide or protein chain through a dehydration reaction (loss of water). It links the alpha-carboxyl group (-COOH) of one amino acid to the alpha-amino group (-NH2) of the next, forming the repeating backbone structure (-N-C$\\alpha$-C-) of the polypeptide chain. Due to resonance, the peptide bond has partial double-bond character, making it planar and restricting rotation around the C-N bond, which significantly influences protein conformation. (UNVERIFIED)"@en ;
+                  rdfs:label "peptidic bond"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000194
+obo:MOLSIM_000194 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000063 ;
+                  obo:IAO_0000115 "A specific type of covalent bond formed by the oxidation of the thiol (-SH) groups of two cysteine amino acid residues, creating a sulfur-sulfur bond (-S-S-). These bonds can form between cysteines within the same polypeptide chain (intramolecular) or between different chains (intermolecular), acting as strong cross-links that significantly stabilize the folded tertiary or quaternary structure of many proteins, particularly extracellular ones. Formation and breakage of disulfide bridges are important biochemical processes. (UNVERIFIED)"@en ;
+                  rdfs:label "disulfide bridges"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000195
+obo:MOLSIM_000195 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "In statistical mechanics and molecular simulation, an ensemble is a theoretical construct representing an infinite collection of identical systems, each in a different possible microscopic state (defined by positions and momenta of all particles) but all corresponding to the same macroscopic thermodynamic state defined by a set of fixed variables (e.g., N, V, T or N, P, T). Molecular simulations generate trajectories that sample the microscopic states belonging to a specific ensemble, allowing the calculation of macroscopic properties as averages over these states. The choice of ensemble (e.g., NVE, NVT, NPT) determines which macroscopic variables are held constant during the simulation, mimicking specific experimental conditions. (UNVERIFIED)"@en ;
+                  rdfs:label "ensemble"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000196
+obo:MOLSIM_000196 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000195 ;
+                  obo:IAO_0000115 "A statistical ensemble representing systems where the number of particles (N), the system volume (V), and the temperature (T) are held constant; hence often called the NVT ensemble. The system is considered to be in thermal contact with an infinitely large heat bath at temperature T, allowing energy exchange. Simulations performed in the NVT ensemble generate configurations according to the Boltzmann probability distribution appropriate for that temperature, making it suitable for studying equilibrium properties under constant temperature and volume conditions. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "NVT ensemble"@en ;
+                  rdfs:label "canonical ensemble"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000197
+obo:MOLSIM_000197 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000195 ;
+                  obo:IAO_0000115 "A statistical ensemble representing systems where the number of particles (N), the temperature (T), and the pressure (P) are held constant; hence often called the NPT ensemble. The system is considered to be in contact with both a heat bath (constant T) and a pressure bath (constant P), allowing both energy and volume fluctuations. Simulations in the NPT ensemble are often preferred for mimicking typical laboratory conditions where experiments are conducted at constant atmospheric pressure and controlled temperature, allowing the system density to equilibrate naturally. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "NPT ensemble"@en ;
+                  rdfs:label "isothermal-isobaric ensemble"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000198
+obo:MOLSIM_000198 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000195 ;
+                  obo:IAO_0000115 "A statistical ensemble representing completely isolated systems, where the number of particles (N), the system volume (V), and the total energy (E) are all held constant; hence often called the NVE ensemble. There is no exchange of energy or particles with the surroundings. Simulations performed in the NVE ensemble directly follow Newtonian laws of motion (integrating Hamilton's equations), and conservation of total energy serves as a key check of simulation stability and accuracy, but it's less commonly used for equilibrium sampling compared to NVT or NPT as temperature can fluctuate. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "NVE ensemble"@en ;
+                  rdfs:label "microcanonical ensemble"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000199
+obo:MOLSIM_000199 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000195 ;
+                  obo:IAO_0000115 "A statistical ensemble representing open systems where the chemical potential (μ), the system volume (V), and the temperature (T) are held constant; hence often called the μVT ensemble. The system can exchange both energy (with a heat bath at T) and particles (with a particle reservoir at chemical potential μ). Simulations in this ensemble are useful for studying systems where the number of particles can change, such as adsorption phenomena, phase equilibria (vapor-liquid), or systems involving chemical reactions where concentrations are fixed rather than particle numbers. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "µVT ensemble"@en ;
+                  rdfs:label "grand canonical ensemble"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000204
+obo:MOLSIM_000204 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "A computational methodology or protocol used to assign partial atomic charges to the atoms of a small molecule (ligand), typically for use within a classical molecular mechanics force field during simulations of its interaction with a biomolecule (like a protein or nucleic acid). Since electrostatic interactions are crucial for molecular recognition and binding affinity, accurate and consistent charge assignment is critical. Different models (e.g., RESP, AM1-BCC, Mulliken, Löwdin) exist, often aiming to reproduce the quantum mechanically derived electrostatic potential around the molecule or fit to experimental data, with varying levels of theory, complexity, and computational cost. (UNVERIFIED)"@en ;
+                  rdfs:label "ligand charge model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000205
+obo:MOLSIM_000205 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000204 ;
+                  owl:disjointWith obo:MOLSIM_000206 ;
+                  obo:IAO_0000115 "A widely used method for assigning atom-centered partial charges to organic molecules, particularly suitable for general force fields like GAFF (stands for Austin Model 1 - Bond Charge Correction). It involves a two-step process: first, charges are calculated using the computationally inexpensive semi-empirical AM1 quantum mechanical method; second, empirical Bond Charge Corrections (BCCs) are added to these initial charges based on atom and bond types to make them better reproduce the electrostatic potential obtained from higher-level QM calculations (typically HF/6-31G*). AM1-BCC aims to provide a balance between speed and accuracy for charging diverse organic ligands. (UNVERIFIED)"@en ;
+                  rdfs:label "AM1-BCC"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000206
+obo:MOLSIM_000206 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000204 ;
+                  obo:IAO_0000115 "A popular method for deriving high-quality partial atomic charges for molecules, frequently used in conjunction with the AMBER force fields. It involves calculating the quantum mechanical electrostatic potential (ESP) on a grid of points around the molecule (typically using Hartree-Fock or DFT methods), and then fitting atom-centered point charges to reproduce this ESP using a least-squares algorithm. Crucially, 'restraints' (typically hyperbolic penalties) are applied during the fitting process to prevent unrealistically large charges on buried atoms and ensure transferability, often performed in multiple stages for chemical equivalence. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "RESP"@en ;
+                  rdfs:label "restraint electrostatic potential"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000231
+obo:MOLSIM_000231 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "Categorizes the different components or functional forms contributing to the total potential energy of the system as calculated by a specific molecular mechanics force field, or relates to fundamental forms of energy in physics relevant at the molecular scale. Within a typical force field, the total potential energy is partitioned into terms like bond stretching energy, angle bending energy, dihedral torsion energy, Van der Waals energy, and electrostatic energy. Analyzing these energy types helps understand molecular conformation, strain, stability, and interaction patterns during a simulation. (UNVERIFIED)"@en ;
+                  rdfs:label "energy type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000232
+obo:MOLSIM_000232 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000231 ;
+                  obo:IAO_0000115 "The component of the potential energy in a molecular mechanics force field associated with the deformation (stretching or compression) of covalent bonds away from their reference or equilibrium lengths (r0). It is typically modeled using a simple harmonic potential, E bond = kb.(r−r 0)^2, where kb is the force constant reflecting the bond stiffness. This energy term penalizes deviations from the ideal bond length defined by the force field parameters specific to the type of bond (e.g., C-C vs C=C). (UNVERIFIED)"@en ;
+                  rdfs:label "bond energy"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000233
+obo:MOLSIM_000233 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000231 ;
+                  obo:IAO_0000115 "The potential energy arising from the universal gravitational attraction between objects possessing mass, as described by Newton's law of gravitation. While a fundamental interaction governing celestial mechanics, the magnitude of gravitational forces between atoms and molecules is utterly negligible (many orders of magnitude weaker) compared to electromagnetic forces that dominate interactions at this scale. Therefore, gravitational energy is completely ignored in standard biomolecular simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "gravitational interaction energy"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000234
+obo:MOLSIM_000234 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000231 ;
+                  obo:IAO_0000115 "The potential energy arising from electromagnetic forces, which encompass both electrostatic (Coulomb) forces between charged particles and magnetic forces associated with moving charges and magnetic moments. In the context of biomolecular simulations using classical force fields, this fundamental interaction is modeled through specific terms: primarily the electrostatic or Coulomb energy between partial atomic charges, and the Van der Waals energy which accounts for both permanent/induced dipole interactions (electrostatic origin) and dispersion forces (quantum mechanical fluctuations leading to transient dipoles). Electromagnetic forces are the dominant interactions governing molecular structure, dynamics, and binding. (UNVERIFIED)"@en ;
+                  rdfs:label "electromagnetic interaction energy"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000235
+obo:MOLSIM_000235 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000231 ;
+                  obo:IAO_0000115 "The potential energy associated with the strong and weak nuclear forces, which operate only within the atomic nucleus at extremely short distances (on the order of femtometers, 10^−15 m). The strong force binds protons and neutrons together, overcoming electrostatic repulsion between protons, while the weak force is responsible for certain types of radioactive decay (beta decay). These forces and their associated energies are entirely irrelevant to the chemical bonding, conformational changes, and intermolecular interactions studied in typical biomolecular simulations, which focus on electron-level interactions, and are thus not included in force fields. (UNVERIFIED)"@en ;
+                  rdfs:label "nuclear interaction energy"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000249
+obo:MOLSIM_000249 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "Refers specifically to the set of numerical values used within a molecular mechanics force field to define the non-bonded interaction properties of simple atomic ions (e.g., Na+,Cl-,K+,Ca^2+).These typically consist of the ion's net charge (e.g.,+1e, −1e) and parameters for the Van der Waals interaction,most commonly the Lennard−Jones parameters (σ, defining the collision diameter, and ϵ, defining the energy well depth). Accurate ion parameters are essential for realistically modeling ionic solutions, salt effects on biomolecules, ion channels, and metalloprotein active sites, and are often carefully optimized for compatibility with a chosen water model. (UNVERIFIED)"@en ;
+                  rdfs:label "ion parameterization"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000250
+obo:MOLSIM_000250 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000249 ;
+                  obo:IAO_0000115 "A specific set of Lennard-Jones (LJ) parameters (using the 12-6 functional form: VLJ = 4ϵ[(σ/r)^12−(σ/r)^6 ]) for various common monoatomic ions, developed or published by Li and Merz (likely Pengfei Li and Kenneth M. Merz Jr.). These parameters define the Van der Waals size (σ) and interaction strength (ϵ) of ions for use in classical simulations. Such parameter sets are typically derived by fitting simulation results (e.g., solvation free energies, radial distribution functions) to experimental data, often ensuring compatibility with a particular water model (like TIP3P or SPC/E). (UNVERIFIED)"@en ;
+                  rdfs:label "Li and Merz 12-6"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000270
+obo:MOLSIM_000270 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000068 ;
+                  obo:IAO_0000115 "A method (often abbreviated PB/SA) for calculating the free energy of solvation by combining two components: the electrostatic contribution calculated by numerically solving the Poisson-Boltzmann (PB) equation, and the non-polar contribution estimated as being proportional to the solvent-accessible surface area (SASA) of the solute. The PB equation provides a more rigorous treatment of continuum electrostatics than GB models by accounting for solute shape and charge distribution within a dielectric medium, while the SASA term models the cost of creating the solute cavity in the solvent and attractive solute-solvent van der Waals interactions. This method is often used for post-processing simulation trajectories to estimate binding free energies. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "PBSA"@en ;
+                  rdfs:label "Poisson-Boltzmann surface area"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000271
+obo:MOLSIM_000271 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000068 ;
+                  obo:IAO_0000115 "A method (often abbreviated GB/SA) for calculating the free energy of solvation, similar to PB/SA, but using a Generalized Born (GB) model instead of the Poisson-Boltzmann equation to compute the electrostatic contribution. It combines the GB electrostatic energy with a non-polar energy term proportional to the solvent-accessible surface area (SASA). GBSA offers a computationally much cheaper alternative to PB/SA for estimating solvation free energies, suitable for use during simulations or large-scale analyses, though potentially less accurate depending on the GB implementation and system. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "GBSA"@en ;
+                  rdfs:label "generalized Born surface area"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000272
+obo:MOLSIM_000272 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000006 ;
+                  obo:IAO_0000115 "A defined collection or list that assigns specific atomic radius values to different atom types (defined by element, hybridization state, and sometimes chemical environment). These radii are used in various computational molecular modeling contexts, such as calculating molecular surfaces (like Van der Waals surface or Solvent Accessible Surface Area - SASA), estimating molecular volumes, defining cavities, or as parameters within implicit solvent models (e.g., determining effective Born radii for GB models or defining the dielectric boundary for PB models). Different radii sets exist (e.g., Bondi Van der Waals radii, radii optimized for solvation calculations like PARSE), derived from different physical principles or empirical fitting procedures. (UNVERIFIED)"@en ;
+                  rdfs:label "radii set"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000273
+obo:MOLSIM_000273 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000272 ;
+                  obo:IAO_0000115 "A widely recognized and frequently used set of Van der Waals radii for atoms across the periodic table, originally compiled by A. Bondi in the 1960s based on analysis of crystallographic data for molecular crystals, gas phase properties (like critical constants), and liquid state densities. These radii are intended to represent the effective size of non-bonded atoms, i.e., the distance at which strong repulsion occurs upon close contact. They serve as a common standard or starting point for defining atomic sizes in molecular modeling, visualization, and calculations like surface area determination. (UNVERIFIED)"@en ;
+                  rdfs:label "bondi"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000274
+obo:MOLSIM_000274 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000272 ;
+                  obo:IAO_0000115 "Refers to a modified set of Bondi radii, where adjustments have been made to the original Bondi values, often for specific atom types or elements, to improve performance in particular applications within molecular simulation software (the prefix 'm' often stands for 'modified'). For example, in the AMBER software package, 'mbondi' radii sets might involve different radii for hydrogens depending on the atom they are bonded to, optimized for better agreement between calculated and experimental solvation free energies when used with specific GB models. The exact definition can vary between different 'mbondi' versions (e.g., mbondi, mbondi2, mbondi3). (UNVERIFIED)"@en ;
+                  rdfs:label "mbondi"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000275
+obo:MOLSIM_000275 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000272 ;
+                  obo:IAO_0000115 "A specific version ('version 2') of modified Bondi radii, developed primarily for use within the AMBER simulation package, particularly in conjunction with specific Generalized Born (GB) implicit solvent models (like GB models with igb=2 or igb=5 in AMBER). These radii have been empirically optimized by adjusting values (especially for hydrogens, C, N, O, S, P) relative to the original Bondi set or earlier mbondi sets to yield improved accuracy in reproducing experimental solvation free energies of small molecules and potentially biomolecular energetics when using those particular GBSA methods. They represent a parameter set tuned for a specific computational model. (UNVERIFIED)"@en ;
+                  rdfs:label "mbondi2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000476
+obo:MOLSIM_000476 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000030 ;
+                  obo:IAO_0000115 "A specific, widely used 3-point water model type characterized by its simplicity and computational efficiency (Transferable Intermolecular Potential 3-Point). It places charges on the oxygen and two hydrogen atoms and represents water as a rigid molecule with experimentally derived geometry. While computationally fast, it is known to have limitations in reproducing some properties of real water (like the temperature of maximum density or dielectric constant) compared to more complex models. (UNVERIFIED)"@en ;
+                  rdfs:label "TIP3P water model"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000495
+obo:MOLSIM_000495 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000272 ;
+                  obo:IAO_0000115 "An empirically derived set of atomic radii developed by Sitkoff, Sharp, and Honig in the 1990s, specifically optimized for use in continuum electrostatic calculations, particularly Poisson-Boltzmann (PB) calculations aimed at reproducing experimental solvation energies (PARSE stands for \"Parameters for Solvation Energy\"). These radii define the boundary between the low-dielectric solute molecule and the high-dielectric solvent continuum in PB theory. They differ significantly from standard Van der Waals radii (like Bondi's) as they are optimized to implicitly account for various energetic contributions within that specific theoretical framework (PB/SA). (UNVERIFIED)"@en ;
+                  rdfs:label "parse radii"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000623
+obo:MOLSIM_000623 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000057 ;
+                  obo:IAO_0000115 "Interactions whose accurate description requires explicitly considering the principles of quantum mechanics, such as electron wave functions, quantization of energy levels, electron exchange and correlation, spin, and tunneling, which are not captured by the classical physics framework underlying standard molecular mechanics force fields. Simulating these interactions typically requires quantum chemical methods (like Density Functional Theory or ab initio methods) or hybrid QM/MM approaches. These are important for modeling chemical reactions (bond breaking/formation), electronic excitations (photochemistry), electron transfer, and some spectroscopic phenomena. (UNVERIFIED)"@en ;
+                  rdfs:label "quantum interaction*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000624
+obo:MOLSIM_000624 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000626 ;
+                  owl:disjointWith obo:MOLSIM_000625 ;
+                  obo:IAO_0000115 "A quantum mechanical interaction representing the coupling between the magnetic moment associated with the spin of an electron and the magnetic moment of a nearby atomic nucleus. This interaction leads to small shifts and splittings ('hyperfine structure') in atomic and molecular energy levels, which are observable in high-resolution spectroscopy, particularly Electron Paramagnetic Resonance (EPR) for species with unpaired electrons, and also in NMR. It provides valuable information about the electron distribution (spin density) near the nucleus and thus molecular structure. (UNVERIFIED)"@en ;
+                  rdfs:label "hyperfine coupling*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000625
+obo:MOLSIM_000625 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000626 ;
+                  obo:IAO_0000115 "A relativistic quantum mechanical interaction between a particle's intrinsic spin angular momentum and its orbital angular momentum (due to its motion, e.g., an electron orbiting a nucleus). This coupling mixes electronic states and becomes increasingly significant for electrons in atoms with high atomic number (heavy atoms). Spin-orbit coupling influences electronic energy levels, causes splitting of spectral lines (fine structure), and facilitates transitions between states of different spin multiplicity (e.g., intersystem crossing in photochemistry, important for phosphorescence). (UNVERIFIED)"@en ;
+                  rdfs:label "spin-orbit coupling*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000626
+obo:MOLSIM_000626 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000623 ;
+                  obo:IAO_0000115 "Quantum mechanical phenomena arising from the intrinsic angular momentum (spin) possessed by fundamental particles like electrons and atomic nuclei. Spin gives rise to magnetic moments, and interactions involving these moments (e.g., electron spin coupling with nuclear spin or orbital angular momentum, or interaction with external magnetic fields) lead to splitting of energy levels and specific spectroscopic signatures (e.g., in NMR, EPR). Spin effects are generally not included in classical force fields but are crucial for understanding magnetism and certain spectroscopic or reactive processes. (UNVERIFIED)"@en ;
+                  rdfs:label "spin effect*"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000735
+obo:MOLSIM_000735 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000007 ;
+                  obo:IAO_0000115 "A type of force field classified by the level of structural detail, or resolution, used to represent the system's components. This classification distinguishes between models that represent every atom explicitly versus those that group atoms into larger pseudo-atoms or beads. The resolution impacts the balance between computational efficiency and physical accuracy. (UNVERIFIED)"@en ;
+                  rdfs:label "resolution-based force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000736
+obo:MOLSIM_000736 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000735 ;
+                  owl:disjointWith obo:MOLSIM_000737 ;
+                  obo:IAO_0000115 "A force field employing a reduced representation where groups of atoms are treated as single interaction sites or 'beads'. This simplification decreases computational demands, enabling the simulation of larger systems and longer time scales compared to all-atom models. However, it comes at the cost of losing fine atomic detail. (UNVERIFIED)"@en ;
+                  rdfs:label "coarse-grained force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000737
+obo:MOLSIM_000737 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000735 ;
+                  obo:IAO_0000115 "A force field that explicitly includes parameters for every atom in the simulated system, including hydrogen atoms. This approach provides a high level of detail and aims for greater physical realism compared to coarse-grained models. All-atom simulations are generally more computationally intensive due to the larger number of particles. (UNVERIFIED)"@en ;
+                  rdfs:label "all-atom force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000738
+obo:MOLSIM_000738 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000012 ;
+                  owl:disjointWith obo:MOLSIM_000739 ;
+                  obo:IAO_0000115 "A specific parameter set within the AMBER family, developed by the GLYCAM group for simulating carbohydrates (glycans). Released around 2006, it provides parameters for common monosaccharides and the glycosidic linkages between them, enabling the study of oligosaccharides and the carbohydrate portions of glycoproteins/glycolipids. It is designed to be compatible with AMBER protein/lipid force fields. (UNVERIFIED)"@en ;
+                  rdfs:label "amber glycam 06"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000739
+obo:MOLSIM_000739 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000012 ;
+                  obo:IAO_0000115 "A specific version of the GLYCAM06 carbohydrate force field, where 'EP' refers to modifications involving Extra Points. These extra points, typically placed near oxygen atoms to represent lone pair electron density, are added to improve the description of electrostatic interactions, particularly the directionality and geometry of hydrogen bonding in carbohydrates. This aims for higher accuracy at an increased computational cost. (UNVERIFIED)"@en ;
+                  rdfs:label "amber glycam 06 EP"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000740
+obo:MOLSIM_000740 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000015 ;
+                  obo:IAO_0000115 "Ion parameters specifically designed for use with the AMOEBA (Atomic Multipole Optimized Energetics for Biomolecular Applications) polarizable force field within the AMBER simulation suite. Unlike fixed-charge models, AMOEBA uses atomic multipoles (charges, dipoles, quadrupoles) and induced dipoles to describe electrostatics more accurately. The corresponding ion parameters are developed to be consistent with this advanced electrostatic treatment, aiming for higher fidelity, especially for ion-water and ion-biomolecule interactions. (UNVERIFIED)"@en ;
+                  rdfs:label "amber AMOEBA"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000741
+obo:MOLSIM_000741 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific protein force field parameter set from the AMBER family, representing one of the earlier polarizable force fields. Unlike fixed-charge force fields (like ff99SB), ff02 includes electronic polarizability explicitly, aiming for a more accurate description of electrostatics but at a higher computational cost. Its adoption was less widespread than fixed-charge counterparts. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff02"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000742
+obo:MOLSIM_000742 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific protein force field parameter set from the AMBER family, incorporating updates (e.g., to backbone torsions) over ff99SB, developed around 2010. It served as an evolutionary step in the AMBER force field lineage. However, it was largely superseded by subsequent versions like ff12SB and ff14SB. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff10"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000743
+obo:MOLSIM_000743 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific protein force field parameter set from the AMBER family, representing an update released around 2012. It incorporated refinements, particularly related to sidechain torsion parameters, building upon the ff99SB lineage. It served as an intermediate improvement before the release of ff14SB. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff12SB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000744
+obo:MOLSIM_000744 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "An early, widely influential all-atom protein force field parameter set from the AMBER family, released around 1994. It provided a complete set of parameters for proteins and became a benchmark for subsequent developments. While largely superseded by newer versions (ff96, ff99, ff99SB, ff14SB etc.), its development laid crucial groundwork. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff94"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000745
+obo:MOLSIM_000745 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A subsequent refinement of the AMBER ff94 protein force field parameter set, released around 1996. It included adjustments based on accumulated experience and new data, aiming to improve performance compared to ff94. Like ff94, it has been largely replaced by later versions but represents a step in the evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff96"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000746
+obo:MOLSIM_000746 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "An important revision of the AMBER protein force field parameter set released around 1999, incorporating significant updates, especially to backbone torsion parameters, compared to ff94/ff96. It aimed to better reproduce secondary structure propensities. Several variants of ff99 exist, addressing specific issues or refining parameters further. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff99"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000747
+obo:MOLSIM_000747 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific modification of the AMBER ff99 protein force field. This variant likely involved adjustments targeted at the phi (ϕ) backbone dihedral angle parameters, aiming to correct specific structural biases observed with the original ff99. Such targeted modifications are common in force field development. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff99 phi"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000748
+obo:MOLSIM_000748 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific modification of the AMBER ff99 protein force field, where 'bsc0' refers to refinements of the chi (χ) dihedral angle parameters for nucleic acids (specifically DNA), developed by the Barcelona group (bsc = Barcelona Supercomputing Center, 0 likely version). This highlights that ff99 base parameters were sometimes combined with specialized parameters for other molecule types. Although listed under protein, bsc0 is primarily for DNA backbone. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff99bsc0"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000749
+obo:MOLSIM_000749 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A highly popular and widely used refinement of the AMBER ff99 protein force field, where 'SB' indicates improvements primarily focused on side-chain (S) and backbone (B) dihedral torsion potentials. It corrected some imbalances in secondary structure preference found in ff99. ff99SB served as a robust baseline before the development of ff14SB. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff99SB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000750
+obo:MOLSIM_000750 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific refinement of the AMBER ff99SB protein force field, where 'ILDN' refers to targeted improvements for the side-chain torsion potentials of four specific amino acids: Isoleucine (I), Leucine (L), Aspartate (D), and Asparagine (N). This modification aimed to improve the description of intrinsically disordered proteins and protein dynamics. It is often used in conjunction with ff99SB. (UNVERIFIED)"@en ;
+                  rdfs:label "amber ff99SB ILDN"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000751
+obo:MOLSIM_000751 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "An all-atom force field parameter set from the CHARMM family, widely used for protein simulations, often paired with the CMAP (Cross-term energy Correction Map) correction for backbone torsions. Released before CHARMM27 and CHARMM36, it represented a standard for many years. Parameterization relied heavily on fitting to experimental data available at the time. (UNVERIFIED)"@en ;
+                  rdfs:label "CHARMM 22"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000752
+obo:MOLSIM_000752 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "An earlier force field parameter set from the CHARMM family, notable for being a 'united-atom' force field for proteins. In this representation, nonpolar hydrogen atoms (e.g., on CH, CH2, CH3 groups) are implicitly included in the heavy atoms they are attached to, reducing the number of particles and computational cost compared to all-atom models. It is less commonly used today for high-resolution studies. (UNVERIFIED)"@en ;
+                  rdfs:label "CHARMM 19"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000753
+obo:MOLSIM_000753 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "An all-atom force field parameter set from the CHARMM family, representing an update and extension of CHARMM22, released around 2000-2001. It included refined parameters for proteins and also incorporated compatible parameters for nucleic acids (DNA, RNA). Like CHARMM22, it was often used with the CMAP correction for proteins. (UNVERIFIED)"@en ;
+                  rdfs:label "CHARMM 27"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000754
+obo:MOLSIM_000754 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "Specific versions 1 of the OPEP (Optimized Potential for Efficient peptide structure Prediction) coarse-grained force field. OPEP represents each amino acid residue using multiple beads (typically backbone N, H, Cα, C, O and a side-chain bead), aiming to retain chemical specificity while gaining computational efficiency. The different versions likely represent successive refinements and parameter updates. (UNVERIFIED)"@en ;
+                  rdfs:label "OPEP 1"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000755
+obo:MOLSIM_000755 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "Specific versions 2 of the OPEP (Optimized Potential for Efficient peptide structure Prediction) coarse-grained force field. OPEP represents each amino acid residue using multiple beads (typically backbone N, H, Cα, C, O and a side-chain bead), aiming to retain chemical specificity while gaining computational efficiency. The different versions likely represent successive refinements and parameter updates. (UNVERIFIED)"@en ;
+                  rdfs:label "OPEP 2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000756
+obo:MOLSIM_000756 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "Specific versions 3 of the OPEP (Optimized Potential for Efficient peptide structure Prediction) coarse-grained force field. OPEP represents each amino acid residue using multiple beads (typically backbone N, H, Cα, C, O and a side-chain bead), aiming to retain chemical specificity while gaining computational efficiency. The different versions likely represent successive refinements and parameter updates. (UNVERIFIED)"@en ;
+                  rdfs:label "OPEP 3"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000757
+obo:MOLSIM_000757 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "Specific versions 4 of the OPEP (Optimized Potential for Efficient peptide structure Prediction) coarse-grained force field. OPEP represents each amino acid residue using multiple beads (typically backbone N, H, Cα, C, O and a side-chain bead), aiming to retain chemical specificity while gaining computational efficiency. The different versions likely represent successive refinements and parameter updates. (UNVERIFIED)"@en ;
+                  rdfs:label "OPEP 4"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000758
+obo:MOLSIM_000758 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "The Optimized Potentials for Liquid Simulations force field family, developed by William L. Jorgensen and colleagues. This family encompasses several versions (e.g., OPLS-AA, OPLS-UA) designed for simulating organic liquids, proteins, and other biomolecules. A key focus during parameterization is accurately reproducing experimental properties of liquids, like density and heat of vaporization. (UNVERIFIED)"@en ;
+                  rdfs:label "OPLS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000759
+obo:MOLSIM_000759 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "The All-Atom version of the OPLS force field family. It explicitly represents all atoms, including hydrogens, aiming for higher accuracy and detail compared to united-atom versions. OPLS-AA parameters exist for proteins, nucleic acids, lipids, and many organic molecules. (UNVERIFIED)"@en ;
+                  rdfs:label "OPLS-AA"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000760
+obo:MOLSIM_000760 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "The United-Atom version of the OPLS force field family. In this version, nonpolar hydrogen atoms are grouped with the heavy atom they are bonded to (e.g., CH3 is treated as a single interaction center), reducing computational cost. OPLS-UA was particularly prominent for simulations of organic liquids and early protein simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "OPLS-UA"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000761
+obo:MOLSIM_000761 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A specific parameter set version within the OPLS-AA force field family, released around 2001. It contained parameters primarily for proteins and organic liquids available at that time. Subsequent versions like OPLS-2005 updated and expanded upon this set. (UNVERIFIED)"@en ;
+                  rdfs:label "OPLS-2001"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000762
+obo:MOLSIM_000762 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000009 ;
+                  obo:IAO_0000115 "A significant update and expansion of the OPLS-AA force field parameter set, released around 2005. It included refined parameters for proteins, nucleic acids, and a wider range of organic functional groups compared to OPLS-2001. It remains a widely used parameter set within the OPLS family. (UNVERIFIED)"@en ;
+                  rdfs:label "OPLS-2005"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000763
+obo:MOLSIM_000763 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "A 'Transferable Intermolecular Potential' 4-point water model that adds a fourth, massless interaction site (M-site) near the oxygen atom along the H-O-H bisector, representing the lone pair electron density. This additional site generally improves the description of water's electrostatic distribution, phase diagram, and properties like the dielectric constant compared to 3-point models like TIP3P. Several popular variants of TIP4P exist. (UNVERIFIED)"@en ;
+                  rdfs:label "TIP4P"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000764
+obo:MOLSIM_000764 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "A specific variant of the TIP4P water model, optimized for use with Ewald summation methods for calculating long-range electrostatic interactions, which are standard in modern simulations with periodic boundary conditions. The parameters are adjusted to provide good agreement with experimental properties of liquid water (like density, enthalpy of vaporization) under typical simulation conditions (room temperature and pressure). It is a popular choice for biomolecular simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "TIP4P-Ew"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000765
+obo:MOLSIM_000765 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "A specific variant of the TIP4P water model, parameterized specifically to reproduce the properties of different phases of ice (solid water), as well as liquid water properties. It aims to provide a better description of water's phase diagram, particularly the solid phases, compared to models optimized solely for the liquid state. It is useful for studying freezing, melting, or ice interfaces. (UNVERIFIED)"@en ;
+                  rdfs:label "TIP4P/Ice"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000766
+obo:MOLSIM_000766 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "A specific variant of the TIP4P water model, released around 2005, re-parameterized to provide improved agreement with a wider range of experimental properties of liquid water over various temperatures and pressures compared to earlier TIP4P versions. It is considered one of the most accurate rigid, non-polarizable 4-point models for general liquid water simulations. It accurately predicts properties like the temperature of maximum density. (UNVERIFIED)"@en ;
+                  rdfs:label "TIP4P/2005"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000767
+obo:MOLSIM_000767 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "A 'Transferable Intermolecular Potential' 5-point water model that introduces two massless lone-pair sites (M-sites) in a tetrahedral geometry around the oxygen atom, in addition to the oxygen and two hydrogen sites. This more complex geometry aims to improve the description of the tetrahedral hydrogen bonding network in liquid water, leading to a better prediction of the temperature of maximum density compared to 3-point models. It is computationally more expensive than TIP3P or TIP4P. (UNVERIFIED)"@en ;
+                  rdfs:label "TIP5P"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000768
+obo:MOLSIM_000768 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "A 'Transferable Intermolecular Potential' 6-point water model, which includes charges on all three atoms, two lone-pair sites, and potentially another site. This model is less common than 3, 4, or 5-point models; its additional complexity aims to capture subtle electrostatic or structural features but comes with significantly increased computational cost. Specific parameterizations might target particular properties or phases of water. (UNVERIFIED)"@en ;
+                  rdfs:label "TIP6P"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000769
+obo:MOLSIM_000769 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "The Simple Point Charge water model, a widely used rigid 3-point water model. It has a slightly different geometry (ideal tetrahedral H-O-H angle) and parameter set compared to TIP3P. SPC is known for its computational efficiency and reasonable reproduction of some structural and dynamic properties of water. (UNVERIFIED)"@en ;
+                  rdfs:label "SPC"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000770
+obo:MOLSIM_000770 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "A variation of the SPC water model where the normally rigid constraints on bond lengths (O-H) and/or angle (H-O-H) are replaced with flexible harmonic potentials. This allows the water molecule geometry to fluctuate during the simulation, which can affect dynamics and spectroscopic properties. It adds computational overhead compared to rigid SPC. (UNVERIFIED)"@en ;
+                  rdfs:label "SPC flexible"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000771
+obo:MOLSIM_000771 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  obo:IAO_0000115 "The Simple Point Charge / Extended water model, a modification of the SPC model. It retains the SPC geometry but uses slightly different charges and Lennard-Jones parameters, and crucially includes an average polarization correction term added to the potential energy. This correction improves agreement with experimental properties like density and diffusion coefficient compared to the original SPC model, while remaining computationally efficient. (UNVERIFIED)"@en ;
+                  rdfs:label "SPC/E"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000772
+obo:MOLSIM_000772 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000007 ;
+                  obo:IAO_0000115 "A force field specifically developed and parameterized to accurately model a particular class of chemical molecules, such as proteins, lipids, or nucleic acids. Its parameters are tuned based on experimental data and/or quantum mechanical calculations relevant to that molecular type. This specialization aims to improve the accuracy of simulations for specific biomolecular systems. (UNVERIFIED)"@en ;
+                  rdfs:label "chemical entity-based force field"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001064
+obo:MOLSIM_001064 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  rdfs:comment "A flexible three-site water model."@en ;
+                  rdfs:label "TIP3PFW"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001065
+obo:MOLSIM_001065 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000014 ;
+                  rdfs:comment "A flexible three-site water model."@en ;
+                  rdfs:label "SPCFW"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000723
+obo:MOLSIM_000723 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Data Bank - The single worldwide archive for information about the 3D structures of large biological molecules, including proteins, nucleic acids, and complex assemblies, determined experimentally (primarily by X-ray crystallography, NMR, and cryo-EM). PDB is a fundamental resource for structural biology, biochemistry, and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000724
+obo:MOLSIM_000724 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "One of the founding members of the Worldwide Protein Data Bank (wwPDB) organization, responsible for managing and disseminating PDB data. PDBe provides access to the global archive of macromolecular structures and offers additional curated data, analysis tools, and resources for structural biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBe"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000725
+obo:MOLSIM_000725 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A founding member of the Worldwide Protein Data Bank (wwPDB) organization, serving as the Asian regional center for the PDB. PDBj collects, processes, and disseminates macromolecular structure data, and develops tools and resources for structural biology research in Japan and globally. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBj"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000726
+obo:MOLSIM_000726 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A pictorial database that provides an at-a-glance overview of the contents of each 3D macromolecular structure deposited in the Protein Data Bank (PDB). PDBsum presents schematic diagrams of molecular interactions, protein domains, ligand binding sites, and other structural features. It is a useful tool for quickly understanding PDB entries. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBsum"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000727
+obo:MOLSIM_000727 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Nucleic Acid Database - A relational database that archives and disseminates three-dimensional structural information about nucleic acids (DNA, RNA) and their complexes, determined experimentally by X-ray crystallography, NMR, or electron microscopy. NDB provides tools for searching and analyzing these structures. It is the primary repository for nucleic acid 3D structures. (UNVERIFIED)"@en ;
+                  rdfs:label "NDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000728
+obo:MOLSIM_000728 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Data Bank - The primary public archive for three-dimensional electron microscopy density maps of biomolecular complexes and subcellular structures. EMDB stores 3D reconstructions obtained from techniques like cryo-electron microscopy (cryo-EM), electron tomography, and single particle analysis. It is essential for structural biologists studying large macromolecular assemblies. (UNVERIFIED)"@en ;
+                  rdfs:label "EMDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000729
+obo:MOLSIM_000729 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Public Image Archive - A public resource for raw 2D electron microscopy image data, including movies and tilt series, that underpins 3D structures in EMDB or other studies. EMPIAR promotes transparency, reproducibility, and the development of new image processing methods by providing access to the primary experimental data. (UNVERIFIED)"@en ;
+                  rdfs:label "EMPIAR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000730
+obo:MOLSIM_000730 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NIH genetic sequence database, an annotated collection of all publicly available DNA sequences, maintained by the National Center for Biotechnology Information (NCBI). As part of the INSDC, GenBank is a foundational resource for molecular biology, genomics, and evolutionary studies worldwide. (UNVERIFIED)"@en ;
+                  rdfs:label "GenBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000731
+obo:MOLSIM_000731 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "UniProt Knowledgebase - A comprehensive, high-quality, and freely accessible resource of protein sequence and functional information, created by joining the Swiss-Prot, TrEMBL, and PIR-PSD databases. UniProtKB consists of two sections: Swiss-Prot (manually annotated and reviewed) and TrEMBL (computationally annotated). It is a central hub for protein information. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000732
+obo:MOLSIM_000732 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "European Nucleotide Archive - A comprehensive public repository for nucleotide sequencing information, covering raw reads, assembled sequences, and functional annotations, from all domains of life. As part of the INSDC, ENA collaborates with GenBank and DDBJ to provide a global archive for sequence data. It is a fundamental resource for genomics and bioinformatics. (UNVERIFIED)"@en ;
+                  rdfs:label "ENA"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000733
+obo:MOLSIM_000733 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "DNA Data Bank of Japan - one of the three major international nucleotide sequence databases, along with GenBank (NCBI) and ENA (EMBL-EBI), forming the International Nucleotide Sequence Database Collaboration (INSDC). DDBJ collects, annotates, and provides public access to DNA and RNA sequences from all organisms. It is a fundamental resource for genomics and molecular biology. (UNVERIFIED)"@en ;
+                  rdfs:label "DDBJ"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000734
+obo:MOLSIM_000734 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The manually annotated and reviewed section of the UniProt Knowledgebase (UniProtKB). Swiss-Prot entries contain high-quality protein sequence information, detailed functional annotations, and extensive cross-references, derived from literature and curator evaluation. It represents the gold standard for protein annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/Swiss-Prot"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000811
+obo:MOLSIM_000811 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The computationally annotated section of the UniProt Knowledgebase (UniProtKB), containing protein sequences that are not yet manually curated. TrEMBL entries are largely derived from the translation of coding sequences in nucleotide sequence databases and are automatically annotated. It provides broad sequence coverage. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/TrEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000919
+obo:MOLSIM_000919 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for protein data, offering a curated, non-redundant set of protein sequences, often linked to corresponding nucleotide sequences and genomic annotations. RefSeq proteins serve as stable reference points for protein identification, annotation, and comparative analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "NCBI RefSeq Protein"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000920
+obo:MOLSIM_000920 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Information Resource - A long-standing public bioinformatics resource that created the Protein Sequence Database (PSD), one of the first curated collections of protein sequences. PIR now contributes to UniProt and develops other resources like iProClass for protein classification and functional annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "PIR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000922
+obo:MOLSIM_000922 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for nucleotide data, providing a comprehensive, integrated, non-redundant, and well-annotated set of sequences for chromosomes, genomic regions, transcripts, and RNAs. RefSeq aims to provide stable reference sequences for various organisms. It is a critical resource for genomics and gene annotation"@en ;
+                  rdfs:label "NCBI RefSeq Nucleotide"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000929
+obo:MOLSIM_000929 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that contains validated chemical structure information for small molecules, including their identifiers, properties, and links to related information. PubChem Compound is a comprehensive resource for chemical information and a key component of the PubChem suite. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem Compound"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000930
+obo:MOLSIM_000930 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Chemical Entities of Biological Interest - A freely available dictionary and ontology of molecular entities focused on 'small' chemical compounds that are either products or reactants in biological processes. ChEBI provides nomenclature, structural information, and links to other databases for a wide range of biologically relevant chemicals. It is essential for cheminformatics and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "ChEBI"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000931
+obo:MOLSIM_000931 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free database of commercially available chemical compounds prepared in ready-to-dock, 3D formats for virtual screening and computational drug discovery. ZINC20 contains millions of purchasable compounds with annotated properties, facilitating large-scale ligand docking and cheminformatics studies. (UNVERIFIED)"@en ;
+                  rdfs:label "ZINC20"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000932
+obo:MOLSIM_000932 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive, freely accessible online database containing detailed information on drugs, drug targets, drug interactions, and drug metabolism. It combines detailed drug data with comprehensive drug target information, making it a vital resource for pharmacology, medicinal chemistry, and pharmaceutical research. (UNVERIFIED)"@en ;
+                  rdfs:label "DrugBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000933
+obo:MOLSIM_000933 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free chemical structure database providing fast access to over millions of structures, properties, and associated information from various sources. It allows users to search by chemical name, synonym, trade name, registry number, or structure. ChemSpider is a comprehensive resource for chemists and researchers needing chemical information. (UNVERIFIED)"@en ;
+                  rdfs:label "ChemSpider"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000934
+obo:MOLSIM_000934 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Therapeutic Target Database - A database providing comprehensive information about therapeutic protein and nucleic acid targets, the approved and investigational drugs directed at these targets, and the corresponding diseases. TTD links target information with drug development pipelines and clinical trial data. It is a useful resource for drug discovery and pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "TTD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000935
+obo:MOLSIM_000935 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A website operated by the U.S. National Library of Medicine (NLM) that provides high-quality information about marketed drugs, including FDA-approved drug labels (package inserts). It offers comprehensive information for healthcare providers and the public on drug ingredients, indications, dosage, warnings, and adverse reactions. (UNVERIFIED)"@en ;
+                  rdfs:label "DailyMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000957
+obo:MOLSIM_000957 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A manually curated, large-scale database of bioactive drug-like small molecules and their quantitative bioactivity data against drug targets (primarily proteins). It brings together chemical, bioactivity, and genomic data to aid the translation of genomic information into effective new drugs. ChEMBL is a critical resource for drug discovery, pharmacology, and medicinal chemistry."@en ;
+                  rdfs:label "ChEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000958
+obo:MOLSIM_000958 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Mass Spectrometry Interactive Virtual Environment - A public data repository for mass spectrometry (MS) datasets, particularly from proteomics experiments, developed by the Center for Computational Mass Spectrometry at UCSD. MassIVE facilitates the deposition, storage, sharing, and reanalysis of MS data, supporting open science in the proteomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MassIVE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000959
+obo:MOLSIM_000959 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "An integrated spectral database system for organic compounds, maintained by the National Institute of Advanced Industrial Science and Technology (AIST), Japan. SDBS contains NMR (1H, 13C), mass spectra, IR, Raman, and ESR spectra for a large number of organic compounds. It is a valuable resource for chemical identification and structural elucidation. (UNVERIFIED)"@en ;
+                  rdfs:label "SDBS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000960
+obo:MOLSIM_000960 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Biological Magnetic Resonance Data Bank - A repository that collects, archives, and disseminates Nuclear Magnetic Resonance (NMR) spectroscopic data from biological macromolecules and metabolites. This includes assigned chemical shifts, coupling constants, relaxation rates, and derived structural information like distance and dihedral angle restraints. BMRB is the primary worldwide archive for biomolecular NMR data. (UNVERIFIED)"@en ;
+                  rdfs:label "BMRB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000961
+obo:MOLSIM_000961 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Complex Carbohydrate Magnetic Resonance Database for NMR - A specialized NMR database focusing on the assigned chemical shifts of complex carbohydrates (oligosaccharides and polysaccharides) and their complexes with proteins. It serves as a resource for researchers studying carbohydrate structures and interactions using NMR spectroscopy. (UNVERIFIED)"@en ;
+                  rdfs:label "ComplexCARP"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000962
+obo:MOLSIM_000962 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that integrates predictive signatures for protein families, domains, and functional sites from multiple member databases (e.g., Pfam, PROSITE, SMART, CDD, CATH, SCOP). InterPro provides a comprehensive overview of protein sequence features, aiding in functional annotation and comparative analysis. It is a powerful tool for protein characterization. (UNVERIFIED)"@en ;
+                  rdfs:label "InterPro"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000964
+obo:MOLSIM_000964 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs). Pfam is used to identify conserved domains and families in protein sequences, providing insights into their function and evolutionary relationships. It is a widely used resource for protein sequence annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "Pfam"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000965
+obo:MOLSIM_000965 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web-based resource used for the identification and annotation of genetically mobile domains and the analysis of domain architectures in proteins. SMART contains manually curated models for hundreds of domains involved in signaling, extracellular functions, and chromatin regulation. It is a valuable tool for protein sequence analysis and functional prediction. (UNVERIFIED)"@en ;
+                  rdfs:label "SMART"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000966
+obo:MOLSIM_000966 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of protein domains, families, and functional sites, characterized by patterns (regular expressions) or profiles (position-specific scoring matrices) derived from multiple sequence alignments. PROSITE is used to identify known motifs and domains in protein sequences, aiding in functional prediction. It is part of the SIB ExPASy server. (UNVERIFIED)"@en ;
+                  rdfs:label "PROSITE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000967
+obo:MOLSIM_000967 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Conserved Domain Database by NCBI -  A database maintained by NCBI containing manually curated models of ancient domains and full-length proteins, as well as models imported from other sources like Pfam and SMART. CDD is used to identify conserved domains within protein sequences, providing insights into their function. It is a key tool for protein sequence analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "CDD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000968
+obo:MOLSIM_000968 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that provides a detailed and comprehensive hierarchical classification of protein structural domains based on their evolutionary relationships and structural similarities. SCOP2 builds upon the original SCOP, aiming to provide a more automated and comprehensive classification. It is a key resource for understanding protein structure and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "SCOP2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000969
+obo:MOLSIM_000969 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Class, Architecture, Topology, Homologous superfamily - A hierarchical classification database of protein domain structures derived from the Protein Data Bank (PDB). CATH groups protein domains based on their evolutionary relationships and structural similarities at different levels: Class (secondary structure content), Architecture (overall shape), Topology (fold family), and Homologous superfamily. It provides insights into protein structure, function, and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "CATH"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000970
+obo:MOLSIM_000970 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Classification of Protein Domains - A hierarchical classification of protein domains based on evolutionary relationships, emphasizing distant homology. ECOD groups domains into families, homologous groups (H-groups), topological groups (T-groups), architectural groups (X-groups), and possible homology groups (Y-groups). It provides a framework for understanding protein evolution and structure. (UNVERIFIED)"@en ;
+                  rdfs:label "ECOD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000971
+obo:MOLSIM_000971 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of manually drawn pathway maps representing current knowledge on molecular interaction and reaction networks for metabolism, genetic information processing, environmental information processing, cellular processes, organismal systems, and human diseases. KEGG Pathway is part of the larger Kyoto Encyclopedia of Genes and Genomes (KEGG) resource. It is widely used for pathway analysis and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "KEGG Pathway"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000972
+obo:MOLSIM_000972 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free, open-source, curated, and peer-reviewed pathway database that provides detailed information on human biological pathways and processes. Reactome uses a hierarchical organization to describe molecular events, from individual reactions to complex pathways, linking genes, proteins, and small molecules. It is a key resource for systems biology and pathway analysis."@en ;
+                  rdfs:label "Reactome"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000973
+obo:MOLSIM_000973 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of thousands of Pathway/Genome Databases (PGDBs), each describing the genome and metabolic pathways of a specific organism, plus a multi-organism pathway database (MetaCyc). BioCyc provides curated information on genes, enzymes, metabolites, and reactions, facilitating comparative genomics and metabolic network analysis. It is a key resource for systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "BioCyc"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000977
+obo:MOLSIM_000977 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A community-curated, open, and collaborative platform for biological pathway diagrams. WikiPathways allows researchers to contribute, edit, and share pathway information, fostering a dynamic and up-to-date collection of pathway models across various species. It promotes open access to pathway knowledge. (UNVERIFIED)"@en ;
+                  rdfs:label "WikiPathways"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000991
+obo:MOLSIM_000991 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public, web-accessible database focusing on measured binding affinities of interactions between proteins (considered as drug targets) and small, drug-like molecules. It primarily contains data from enzyme assays, isothermal titration calorimetry, and surface plasmon resonance. BindingDB is a valuable resource for drug discovery, cheminformatics, and validating computational predictions. (UNVERIFIED)"@en ;
+                  rdfs:label "BindingDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000992
+obo:MOLSIM_000992 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that stores descriptions and results of biological screening assays on chemical substances, typically from high-throughput screening programs. PubChem BioAssay links chemical structures to their biological activities, providing valuable data for drug discovery and chemical biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem BioAssay"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000993
+obo:MOLSIM_000993 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "IUPHAR/BPS Guide to PHARMACOLOGY - An expert-curated database of pharmacological targets (receptors, ion channels, enzymes, transporters) and the drugs/ligands that act on them, developed by the International Union of Basic and Clinical Pharmacology (IUPHAR) and the British Pharmacological Society (BPS). It provides concise overviews, nomenclature, and key properties for these targets and ligands. It is an authoritative resource for pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "IUPHAR/BPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000994
+obo:MOLSIM_000994 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A discovery platform integrating and standardizing data on gene-disease associations (GDAs) and variant-disease associations (VDAs) from multiple public repositories and scientific literature. DisGeNET provides scores to rank these associations and tools for their analysis and interpretation. It is a valuable resource for studying the genetic basis of human diseases. (UNVERIFIED)"@en ;
+                  rdfs:label "DisGeNET"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000995
+obo:MOLSIM_000995 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Online Mendelian Inheritance in Man - A comprehensive, authoritative, and continuously updated catalog of human genes and genetic disorders and traits, with a particular focus on the gene-phenotype relationship. OMIM provides textual information, references, and links to other genetic resources. It is an essential resource for human genetics and clinical research. (UNVERIFIED)"@en ;
+                  rdfs:label "OMIM"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000996
+obo:MOLSIM_000996 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose open-access repository operated by CERN and OpenAIRE, allowing researchers in all disciplines to deposit research outputs, including datasets, software, publications, and figures. Zenodo assigns DOIs to uploads, making them citable and discoverable. It supports FAIR data principles. (UNVERIFIED)"@en ;
+                  rdfs:label "Zenodo"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000997
+obo:MOLSIM_000997 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose, curated repository that makes the data underlying scientific and medical publications discoverable, freely reusable, and citable. Dryad provides a platform for researchers to archive and share diverse datasets associated with their research articles. It promotes open science and data reproducibility. (UNVERIFIED)"@en ;
+                  rdfs:label "Dryad Digital Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000998
+obo:MOLSIM_000998 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose online digital repository where researchers can preserve and share their research outputs, including figures, datasets, images, and code. Figshare allows users to make their work citable and discoverable, supporting open science practices across various disciplines. (UNVERIFIED)"@en ;
+                  rdfs:label "Figshare"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000999
+obo:MOLSIM_000999 rdf:type owl:NamedIndividual ;
+                  rdfs:label "MDDBR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001000
+obo:MOLSIM_001000 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A publicly accessible database designed to store, search, and analyze biomolecular simulation data, including trajectories, input parameters, and analysis results. It aims to promote reproducibility, data sharing, and re-use of simulation data within the molecular modeling community. BioSimDB facilitates the discovery and comparison of simulation studies. (UNVERIFIED)"@en ;
+                  rdfs:label "BioSimDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001001
+obo:MOLSIM_001001 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database and web server that provides a collection of pre-equilibrated molecular dynamics simulations of proteins, particularly focusing on pharmaceutically relevant targets. MoDEL aims to offer ready-to-use starting points for further simulation studies, such as ligand binding or conformational analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "MoDEL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001002
+obo:MOLSIM_001002 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web server and platform designed for sharing, visualizing, and analyzing molecular dynamics (MD) simulation trajectories directly in a web browser. MDsrv allows researchers to easily disseminate their MD data and provides interactive tools for common trajectory analyses without requiring local software installation. (UNVERIFIED)"@en ;
+                  rdfs:label "MDsrv"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001003
+obo:MOLSIM_001003 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A prototype deposition and archiving system for structural models of biomolecular systems determined using integrative or hybrid (I/H) methods, which combine data from various experimental techniques and computational approaches. PDB-Dev aims to establish standards for archiving these complex structural models. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB-Dev"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001004
+obo:MOLSIM_001004 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive repository providing open access to millions of high-accuracy protein structure predictions generated by DeepMind's AlphaFold AI system. It significantly expands structural coverage of known protein sequences, offering valuable models for proteins lacking experimental structures. This database is a key resource for structural biology and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "AlphaFold Protein Structure Database"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001005
+obo:MOLSIM_001005 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of continuously updated, high-quality 3D protein structure models generated by the SWISS-MODEL homology modeling pipeline. It provides access to pre-computed models for a large number of protein sequences, particularly those from model organisms and UniProtKB. It is a key resource for obtaining theoretical protein models. (UNVERIFIED)"@en ;
+                  rdfs:label "SWISS-MODEL Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001006
+obo:MOLSIM_001006 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Scale Modeling Atlas - A database providing access to over 600 million metagenomic protein structure predictions generated using the ESMFold model, developed by Meta AI. ESMatlas significantly expands the structural coverage of proteins from diverse microbial environments. It is a valuable resource for exploring the structural landscape of the microbial world. (UNVERIFIED)"@en ;
+                  rdfs:label "ESMatlas"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001007
+obo:MOLSIM_001007 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for archiving and distributing 3D structural models of biomacromolecules, particularly those generated by computational methods that are not eligible for deposition in the PDB. ModelArchive supports the FAIR (Findable, Accessible, Interoperable, Reusable) principles for theoretical models. (UNVERIFIED)"@en ;
+                  rdfs:label "ModelArchive"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001025
+obo:MOLSIM_001025 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database for cross-species, cross-technique metabolomics experiments and derived information, maintained at EMBL-EBI. MetaboLights archives metadata about studies, raw experimental data, and processed metabolite identifications and quantifications. It is a key repository for the metabolomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MetaboLights"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001026
+obo:MOLSIM_001026 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Global Natural Products Social Molecular Networking - A web-based mass spectrometry ecosystem that enables the analysis, sharing, and discovery of natural products through molecular networking and community-curated spectral libraries. GNPS facilitates the identification of known and novel molecules from complex mixtures. It is a key platform for natural product research and metabolomics. (UNVERIFIED)"@en ;
+                  rdfs:label "GNPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001027
+obo:MOLSIM_001027 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for metabolomics data and metadata, part of the NIH Common Fund's Metabolomics Program. It serves as a national and international data repository and coordinating center, providing tools for data analysis, visualization, and integration with other omics data. (UNVERIFIED)"@en ;
+                  rdfs:label "Metabolomics Workbench"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001028
+obo:MOLSIM_001028 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free search engine primarily accessing the MEDLINE database of references and abstracts on life sciences and biomedical topics, maintained by the U.S. National Library of Medicine (NLM) at the National Institutes of Health (NIH). PubMed is the foremost resource for searching biomedical literature. (UNVERIFIED)"@en ;
+                  rdfs:label "PubMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001029
+obo:MOLSIM_001029 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large abstract and citation database of peer-reviewed literature: scientific journals, books, and conference proceedings, owned by Elsevier. Scopus provides tools for tracking, analyzing, and visualizing research output across various disciplines. It is a major competitor to Web of Science for literature searching and citation analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "Scopus"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001030
+obo:MOLSIM_001030 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A multidisciplinary citation indexing service and database platform owned by Clarivate Analytics. Web of Science provides access to multiple databases covering scholarly journals, books, conference proceedings, and patents, offering comprehensive citation data and research analytics. It is a major tool for literature discovery and impact assessment. (UNVERIFIED)"@en ;
+                  rdfs:label "Web of Science"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001031
+obo:MOLSIM_001031 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines. While not a curated database, it serves as a primary discovery tool for finding academic papers, theses, books, and abstracts. It is widely used by researchers for literature searches. (UNVERIFIED)"@en ;
+                  rdfs:label "Google Scholar"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000021
+                obo:MOLSIM_000132
+                obo:MOLSIM_000741
+                obo:MOLSIM_000742
+                obo:MOLSIM_000743
+                obo:MOLSIM_000744
+                obo:MOLSIM_000745
+                obo:MOLSIM_000746
+                obo:MOLSIM_000747
+                obo:MOLSIM_000748
+                obo:MOLSIM_000749
+                obo:MOLSIM_000750
+                obo:MOLSIM_000751
+                obo:MOLSIM_000752
+                obo:MOLSIM_000753
+                obo:MOLSIM_000754
+                obo:MOLSIM_000755
+                obo:MOLSIM_000756
+                obo:MOLSIM_000757
+                obo:MOLSIM_000758
+                obo:MOLSIM_000759
+                obo:MOLSIM_000760
+                obo:MOLSIM_000761
+                obo:MOLSIM_000762
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000022
+                obo:MOLSIM_000763
+                obo:MOLSIM_000764
+                obo:MOLSIM_000765
+                obo:MOLSIM_000766
+                obo:MOLSIM_000767
+                obo:MOLSIM_000768
+                obo:MOLSIM_000769
+                obo:MOLSIM_000770
+                obo:MOLSIM_000771
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000058
+                obo:MOLSIM_000059
+                obo:MOLSIM_000060
+                obo:MOLSIM_000061
+                obo:MOLSIM_000062
+                obo:MOLSIM_000063
+                obo:MOLSIM_000623
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000073
+                obo:MOLSIM_000270
+                obo:MOLSIM_000271
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000099
+                obo:MOLSIM_000100
+                obo:MOLSIM_000101
+                obo:MOLSIM_000102
+                obo:MOLSIM_000103
+                obo:MOLSIM_000104
+                obo:MOLSIM_000105
+                obo:MOLSIM_000106
+                obo:MOLSIM_000107
+                obo:MOLSIM_000108
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000190
+                obo:MOLSIM_000191
+                obo:MOLSIM_000192
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000196
+                obo:MOLSIM_000197
+                obo:MOLSIM_000198
+                obo:MOLSIM_000199
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000232
+                obo:MOLSIM_000233
+                obo:MOLSIM_000234
+                obo:MOLSIM_000235
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000273
+                obo:MOLSIM_000274
+                obo:MOLSIM_000275
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

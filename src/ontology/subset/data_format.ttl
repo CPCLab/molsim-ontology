@@ -1,0 +1,1490 @@
+@prefix : <http://purl.obolibrary.org/obo/molsim.owl#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <http://purl.obolibrary.org/obo/molsim.owl#> .
+
+<http://purl.obolibrary.org/obo/molsim.owl> rdf:type owl:Ontology ;
+                                             owl:imports <http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/ncit_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl> ;
+                                             dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools." ;
+                                             dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
+                                             dcterms:title "Molecular Simulation Ontology" ;
+                                             rdfs:comment "" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                rdfs:label "definition" .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty ;
+                    rdfs:label "description" .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty ;
+                rdfs:label "license" .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty ;
+              rdfs:label "title" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000297
+obo:MOLSIM_000297 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"@en ;
+                  rdfs:label "periodic box type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000504
+obo:MOLSIM_000504 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Links a specific computational process or analysis step to the particular utility program from a molecular dynamics software suite that was used to perform it. For instance, an analysis of simulation trajectories might use a specific trajectory processing utility, or system preparation might involve a specific solvation tool. This property helps specify the exact software tools employed within a broader simulation workflow, where the utility is a component of a larger software package. (UNVERIFIED)"@en ;
+                  rdfs:label "molecular dynamics suite utility"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000507
+obo:MOLSIM_000507 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)"@en ;
+                  rdfs:label "alignment tool"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000508
+obo:MOLSIM_000508 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain obo:MOLSIM_000443 ;
+                  obo:IAO_0000115 "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"@en ;
+                  rdfs:label "protein structure source"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001033
+obo:MOLSIM_001033 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"@en ;
+                  rdfs:label "simulation environment"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001034
+obo:MOLSIM_001034 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"@en ;
+                  rdfs:label "template complex structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001035
+obo:MOLSIM_001035 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en ;
+                  rdfs:label "validated ligand selection criteria"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001036
+obo:MOLSIM_001036 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en ;
+                  rdfs:label "reaction coordinate"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000097
+obo:MOLSIM_000097 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000844 ;
+                  obo:IAO_0000115 "In the vast majority of scientific applications, including molecular dynamics, climate science, and oceanography, a .nc file is a NetCDF file. There is no difference in the format itself. The .nc extension is simply the most common file name suffix for a file written using the NetCDF data model. (UNVERFIED)"@en ;
+                  rdfs:label "Amber NC format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000159
+obo:MOLSIM_000159 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  rdfs:label "Amber MDCRD File"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000352
+obo:MOLSIM_000352 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  obo:IAO_0000115 ".binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD."@en ;
+                  oboInOwl:hasExactSynonym ".binpos" ;
+                  rdfs:label "Scripps BINPOS format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000436
+obo:MOLSIM_000436 rdf:type owl:Class ;
+                  obo:IAO_0000115 "A data format defines the specific rules and conventions used to structure, store, and exchange data, particularly within computer files. In biomolecular simulation, this refers to the various standardized ways that information like molecular structures, simulation parameters, or results are organized. Understanding these formats is essential for using simulation software and sharing data. (UNVERIFIED)"@en ;
+                  rdfs:label "data format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000437
+obo:MOLSIM_000437 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "An input file provides the necessary instructions and starting information for a computational program to run a specific task, such as a simulation or quantum calculation. It typically contains keywords specifying the type of calculation, parameters controlling the simulation or method, and often the initial molecular geometry. The exact format is usually specific to each software package. (UNVERIFIED)"@en ;
+                  rdfs:label "input file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000438
+obo:MOLSIM_000438 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. Its content varies greatly depending on the program and the type of task performed, but typically includes computed energies, optimized geometries, properties, and diagnostic information. These files are crucial for analyzing the outcome of computational jobs. (UNVERIFIED)"@en ;
+                  rdfs:label "output file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000439
+obo:MOLSIM_000439 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "A restart file stores the intermediate state of a simulation or calculation at a specific point in time, containing enough information (like coordinates, velocities, wavefunction data) to allow the process to be resumed later. Using restart files is crucial for continuing long calculations that might be interrupted or need to be run in stages. The format is typically specific to the software package and often binary for efficiency. (UNVERIFIED)"@en ;
+                  rdfs:label "restart file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000440
+obo:MOLSIM_000440 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "A coordinate file primarily stores the three-dimensional positions (X, Y, Z coordinates) of atoms in a molecular system. It may also contain atom names, residue information, and potentially periodic box dimensions, but typically lacks detailed bonding (topology) or force field parameter information. Common examples include PDB, GRO, and XYZ formats, used for initial structures or snapshots from simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "coordinate format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000441
+obo:MOLSIM_000441 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "A topology file defines the constituent atoms of a molecular system, how they are bonded together (connectivity), and the specific force field parameters associated with them. This includes atom types, partial charges, and parameters for bonds, angles, dihedral angles, and non-bonded interactions (like Lennard-Jones parameters). It essentially provides the 'rules' for how atoms interact in a molecular mechanics simulation. (UNVERIFIED)"@en ;
+                  rdfs:label "topology file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000442
+obo:MOLSIM_000442 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "A trajectory file stores the history of atomic positions (and sometimes velocities or forces) recorded at regular intervals during a molecular dynamics simulation. It essentially contains a series of snapshots ('frames') representing the system's movement over time. Analyzing trajectories allows researchers to study dynamic processes, conformational changes, and calculate time-averaged properties. (UNVERIFIED)"@en ;
+                  rdfs:label "trajectory file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000443
+obo:MOLSIM_000443 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000904 ;
+                  obo:IAO_0000115 "Protein structure formats are specifically designed to represent the complex three-dimensional structures of large biological macromolecules like proteins and nucleic acids. They typically accommodate hierarchical descriptions (chains, residues, atoms), store atomic coordinates, and may include associated experimental data or annotations (like secondary structure). Common examples are the PDB and mmCIF formats. (UNVERIFIED)"@en ;
+                  rdfs:label "protein structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000444
+obo:MOLSIM_000444 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "This refers to an input script file used by the tleap program, part of the AmberTools suite, typically containing commands to build the necessary topology (prmtop) and coordinate (inpcrd) files for Amber simulations. It defines how to load molecular structures and apply force field parameters to prepare a system. The script uses specific tleap commands and syntax. (UNVERIFIED)"@en ;
+                  rdfs:label "tleap input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000445
+obo:MOLSIM_000445 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000443 ;
+                  owl:disjointWith obo:MOLSIM_000446 ;
+                  obo:IAO_0000115 "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)"@en ;
+                  rdfs:label "mmCIF structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000446
+obo:MOLSIM_000446 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000443 ;
+                  obo:IAO_0000115 "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000468
+obo:MOLSIM_000468 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000440 ;
+                  obo:IAO_0000115 "This refers to the file format used by Amber to store atomic coordinates, commonly the ASCII .inpcrd file (or sometimes .crd). It contains a list of coordinates, usually read alongside a topology (.prmtop) file, and may optionally include periodic box information. The binary/ASCII restart file (.rst7) format also inherently contains coordinates and is often used as a coordinate input. (UNVERIFIED)"@en ;
+                  rdfs:comment """The \"Coordinates Data Set\" or \"COORDS\" in Amber is not a file format, but rather a specialized, in-memory data structure used by the cpptraj analysis program. It is designed to efficiently hold and manipulate sets of coordinate frames (i.e., structures) loaded from trajectory files during an analysis session. Since the COORDS data set is an internal, in-memory representation, it does not have a file extension. 
+
+Users can interact with it using file-based commands:
+
+Loading:  users populate a COORDS data set by loading data from standard Amber file formats, such as restart files (.rst7), PDB files, or trajectory files (.nc, .mdcrd), using the loadcrd command.
+
+Saving: users write the contents of a COORDS data set to a file using the crdout command. The output will be in a standard coordinate or trajectory format (e.g., Amber restart, PDB, etc.), not a special \"COORDS format.\""""@en ;
+                  rdfs:label "Amber molecular dynamics coordinate"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000469
+obo:MOLSIM_000469 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "This is the primary input file for running molecular dynamics simulations using Amber's sander or pmemd programs, often conventionally named mdin. It contains control parameters, typically organized in Fortran namelists (like &cntrl), specifying simulation conditions such as timestep, duration, temperature/pressure coupling, and algorithms to use. The parameters dictate how the MD simulation is performed. (UNVERIFIED)"@en ;
+                  rdfs:label "Amber molecular dynamics input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000470
+obo:MOLSIM_000470 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "This refers to the main text output file generated by Amber's molecular dynamics engines (sander, pmemd), commonly named with .out or .mdout extensions. It provides a detailed log of the simulation's progress, including energy components, temperature, pressure, density, and performance timings printed at regular intervals. Analyzing this file is essential for monitoring simulation stability and extracting thermodynamic averages. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym "mdout"@en ;
+                  rdfs:label "Amber molecular dynamics output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000471
+obo:MOLSIM_000471 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000439 ;
+                  obo:IAO_0000115 "An Amber molecular dynamics restart file (.rst or .rst7) stores the system's state, primarily atomic coordinates and optionally velocities and periodic box dimensions, at the end of a simulation segment. Usually written in a formatted ASCII or binary NetCDF format, it serves as the input coordinate/velocity file for continuing the simulation (ntx=5 in the input file). This allows long simulations to be run piecewise. (UNVERIFIED)"@en ;
+                  rdfs:label "Amber molecular dynamics restart"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000472
+obo:MOLSIM_000472 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000441 ;
+                  obo:IAO_0000115 "The Amber molecular dynamics topology file (.prmtop or .parm7) contains all the static information about the molecular system needed for an Amber simulation, excluding coordinates. This includes atom definitions (names, types, masses, charges), molecular connectivity (bonds, angles, dihedrals), force field parameters for all interaction terms, and non-bonded interaction rules. It is generated by programs like tleap and used together with a coordinate file (.inpcrd, .rst7). (UNVERIFIED)"@en ;
+                  rdfs:label "Amber molecular dynamics topology"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000473
+obo:MOLSIM_000473 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  obo:IAO_0000115 "This refers to the trajectory file formats generated by Amber simulations, with the binary NetCDF format (.nc) being the modern standard, capable of storing coordinates, velocities, forces, and box dimensions efficiently. Older formats include the simpler ASCII coordinate trajectory (.mdcrd) and binary coordinate trajectory (.binpos). These files capture the time evolution of the system for post-simulation analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "Amber trajectory format (-) (Candidate for deletion)"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000590
+obo:MOLSIM_000590 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  rdfs:label "plotting format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000591
+obo:MOLSIM_000591 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000590 ;
+                  obo:IAO_0000115 "An data file format for the Grace/Xmgrace plotting tool."@en ;
+                  rdfs:label "AGR format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000592
+obo:MOLSIM_000592 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000441 ;
+                  obo:IAO_0000115 "A topology file corresponding to a structure after atom removal."@en ;
+                  rdfs:label "stripped topology format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000593
+obo:MOLSIM_000593 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The default, column-based data output format in cpptraj."@en ;
+                  rdfs:comment "Typically with .dat extension, but could be using other file extension."@en ;
+                  rdfs:label "CPPTRAJ standard output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000594
+obo:MOLSIM_000594 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000590 ;
+                  obo:IAO_0000115 "A data file format for the Gnuplot plotting program."@en ;
+                  rdfs:label "GNU format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000595
+obo:MOLSIM_000595 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000590 ;
+                  rdfs:label "XPLOR format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000596
+obo:MOLSIM_000596 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000590 ;
+                  obo:IAO_0000115 "A format for representing 3D grid data, from XPLOR-NIH."@en ;
+                  oboInOwl:hasExactSynonym ".grid"@en ,
+                                           ".xplor"@en ,
+                                           "xplor format"@en ;
+                  rdfs:label "GRID format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000597
+obo:MOLSIM_000597 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000590 ;
+                  obo:IAO_0000115 "A format for 3D grid data for the OpenDX visualization program."@en ;
+                  oboInOwl:hasExactSynonym ".dx"@en ;
+                  rdfs:label "DX format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000598
+obo:MOLSIM_000598 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  rdfs:label "log fie"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000599
+obo:MOLSIM_000599 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000598 ;
+                  obo:IAO_0000115 "Log file from an Amber Replica Exchange MD simulation. The main file extension for Amber REM (Replica Exchange Molecular Dynamics) log files is .log, typically named as rem.log, according to the Amber documentation and tutorial resources. This log file tracks exchanges, replica temperatures, and relevant statistics for the REMD process."@en ;
+                  oboInOwl:hasExactSynonym "Amber Replica Exchange Log"@en ,
+                                           "rem.log"@en ;
+                  rdfs:label "amber REM log"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000600
+obo:MOLSIM_000600 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The Amber evecs eigenvector file is a specialized output from Principal Component Analysis (PCA), normal mode analysis, or quasiharmonic analysis in AMBER (using cpptraj or ptraj). This file stores the eigenvectors (or “principal modes”) and eigenvalues resulting from the diagonalization of a covariance or mass-weighted covariance matrix, commonly used in essential dynamics analysis of molecular simulations. The output file is usually called evecs.dat, evecs.out, or follows a similar naming scheme. There is no fixed \"file extension\" required; however, the content and formatting are standardized for compatibility with AMBER utilities (e.g., cpptraj, ptraj),"@en ;
+                  oboInOwl:hasExactSynonym "evecs.dat"@en ,
+                                           "evecs.out"@en ;
+                  rdfs:label "Amber Eigenvector File"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000601
+obo:MOLSIM_000601 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations."@en ;
+                  oboInOwl:hasExactSynonym ".cpout" ;
+                  rdfs:label "AMBER cpout"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000608
+obo:MOLSIM_000608 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000909 ;
+                  obo:IAO_0000115 "The CCP4 map format is an industry-standard file format used in structural biology, particularly in X-ray crystallography and cryo-electron microscopy (Cryo-EM). It is designed to store three-dimensional volumetric data, most commonly representing electron density. These maps allow scientists to visualize the shape of molecules like proteins and nucleic acids. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym ".ccp4" ;
+                  rdfs:label "CCP4 Map Format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000609
+obo:MOLSIM_000609 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The file for storing pre-calculated pairwise distances does not have a single, mandatory extension, but a common convention exists. The recommended format is a binary file, for which the conventional extension is .cmatrix. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym ".cmatrix" ;
+                  rdfs:label "CPPTRAJ Pairwise Distance Cache"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000613
+obo:MOLSIM_000613 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "An Amber Prep file is a formatted text file used to define the structure, atom types, and partial charges of a new or non-standard residue or molecule for use in Amber's LEaP program. It serves as a blueprint for LEaP to construct a residue library entry that can then be used to build the full system's topology and coordinate files. (UNVERIFIED) (FATHONI: Unsure if this is similar to AMBER MD Input file)"@en ;
+                  oboInOwl:hasExactSynonym ".prep" ,
+                                           ".prepi" ;
+                  rdfs:label "Amber Prep File"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000614
+obo:MOLSIM_000614 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  oboInOwl:hasExactSynonym ".off"@en ,
+                                           "An Amber OFF Library file (Object File Format) is a text file that stores a library of molecular units or residues, including their force field parameters, atom types, connectivity, and charges. These files are a fundamental part of the Amber software suite, allowing the LEaP program to build simulation-ready topology files for systems containing non-standard molecules or modified residues (like amino acids with post-translational modifications). The file extension can be interchangeably provided as .lib/.off files UNVERIFIED)"@en ;
+                  rdfs:label "Amber OFF file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000844
+obo:MOLSIM_000844 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  obo:IAO_0000115 "The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, including earth sciences, climate modeling, and molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard. (UNVERIFIED)"@en ;
+                  rdfs:label "NetCDF format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000866
+obo:MOLSIM_000866 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "An ADF input file contains keywords and data blocks that instruct the Amsterdam Density Functional (ADF) software package on how to perform a quantum chemical calculation. It specifies details like the desired computational task (e.g., geometry optimization, frequency calculation), the molecular geometry, the choice of density functional and basis set, and other calculation parameters. The format uses specific ADF keywords and block structures (e.g., ATOMS, GEOMETRY). (UNVERIFIED)"@en ;
+                  rdfs:label "ADF input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000867
+obo:MOLSIM_000867 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "A CHARMM input file is a script containing a sequence of commands written in the CHARMM scripting language, which directs the CHARMM program to perform various tasks. These tasks can range from reading topology and coordinate files, setting up system parameters, running energy minimizations or molecular dynamics simulations, to analyzing results. The script provides flexibility for complex simulation protocols. (UNVERIFIED)"@en ;
+                  rdfs:label "CHARMM input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000868
+obo:MOLSIM_000868 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "A GAMESS input file provides instructions to the GAMESS (US) quantum chemistry program, structured into distinct groups identified by keywords starting with '$' (e.g., $CONTRL, $BASIS, $DATA). Within these groups, keywords specify the type of calculation (e.g., RUNTYP=OPTIMIZE), the theoretical method (e.g., SCFTYP=RHF), basis set, molecular geometry, and other computational details. The format follows specific Fortran namelist-like conventions. (UNVERIFIED)"@en ;
+                  rdfs:label "GAMESS input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000869
+obo:MOLSIM_000869 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "This refers to the input file format for the GAMESS-UK quantum chemistry software package, which is distinct from the US version of GAMESS. It uses specific directives (like TITLE, RUNTYPE, GEOMETRY, BASIS) and data sections to define the molecular system and the parameters for the desired quantum chemical calculation. The structure and keywords differ substantially from GAMESS (US). (UNVERIFIED)"@en ;
+                  rdfs:label "GAMESS-UK input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000870
+obo:MOLSIM_000870 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "A Gaussian input file, often with a .com or .gjf extension, instructs the Gaussian quantum chemistry software. It characteristically includes a 'route section' (starting with #) containing keywords that define the theoretical method, basis set, and calculation type (e.g., optimization, frequency), followed by a title section, charge and spin multiplicity, and the molecular geometry. The structure is highly standardized within the Gaussian ecosystem. (UNVERIFIED)"@en ;
+                  rdfs:label "GAUSSIAN com"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000871
+obo:MOLSIM_000871 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "In GROMACS, the primary molecular dynamics input file usually has an .mdp extension and contains keyword-value pairs defining the simulation parameters. Processed by the grompp tool, it controls aspects like the integration algorithm, timestep, simulation length, temperature and pressure coupling methods, and cutoff schemes. This file dictates how the MD simulation engine (mdrun) will execute the run. (UNVERIFIED)"@en ;
+                  rdfs:label "GROMACS MD input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000872
+obo:MOLSIM_000872 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "The HIN (.hin) file is the native format for the HyperChem molecular modeling software package. It stores information about the molecular system, including atomic coordinates, connectivity, atom types according to specific force fields, and potentially other parameters or calculation settings used within HyperChem. It serves as both an input and a way to save the molecular setup. (UNVERIFIED)"@en ;
+                  rdfs:label "HyperChem HIN"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000873
+obo:MOLSIM_000873 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "A Jaguar input file provides the instructions for a quantum chemistry calculation using the Jaguar software, often part of the Schrödinger suite. It uses a specific syntax with data sections delimited by &section_name (e.g., &gen, &zmat) and terminated by &, containing keywords and values controlling the calculation type, method, basis set, and molecular geometry. The structure facilitates setting up various QM tasks. (UNVERIFIED)"@en ;
+                  rdfs:label "Jaguar input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000874
+obo:MOLSIM_000874 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "This refers to an input file format for the MOPAC semi-empirical quantum chemistry program where the molecular structure is defined using Cartesian (X, Y, Z) coordinates for each atom. This format is used following the main keyword line that specifies the semi-empirical method (e.g., PM7), calculation type (e.g., OPT), and other options. It is an alternative to specifying geometry with internal coordinates. (UNVERIFIED)"@en ;
+                  rdfs:label "MOPAC Cartesian"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000875
+obo:MOLSIM_000875 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "This MOPAC input file format defines the molecular geometry using internal coordinates, typically in the form of a Z-matrix specifying bond lengths, bond angles, and dihedral angles relative to previously defined atoms. This format follows the main keyword line specifying the method and calculation options. It contrasts with the format using Cartesian coordinates. (UNVERIFIED)"@en ;
+                  rdfs:label "MOPAC Internal"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000876
+obo:MOLSIM_000876 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "A NAMD configuration file, typically ending in .namd, contains parameters and commands that control a molecular dynamics simulation run using the NAMD software. It uses a keyword-value pair format, often leveraging Tcl scripting capabilities, to specify input files (structure, coordinates, parameters), simulation conditions (temperature, pressure, duration), and algorithms. This file dictates the entire simulation protocol. (UNVERIFIED)"@en ;
+                  rdfs:label "NAMD configuration"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000877
+obo:MOLSIM_000877 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "An NWChem input file (.nw) uses directives and nested blocks to instruct the NWChem software package on performing computational chemistry tasks. It specifies the molecular geometry, basis sets, theoretical methods (ranging from quantum mechanics like DFT or MP2 to molecular mechanics), and the desired task (e.g., TASK SCF, TASK MD). The flexible block structure allows for setting up complex, multi-step calculations. (UNVERIFIED)"@en ;
+                  rdfs:label "NWChem input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000878
+obo:MOLSIM_000878 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  obo:IAO_0000115 "A Q-Chem input file provides instructions to the Q-Chem quantum chemistry program using distinct data blocks marked by $block_name and $end. Key blocks include $molecule (defining charge, multiplicity, and geometry), $rem (specifying calculation method, basis set, job type via keywords), and potentially others like $basis or $opt. This structure organizes the input required for a wide range of QM calculations. (UNVERIFIED)"@en ;
+                  rdfs:label "Q-Chem input"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000879
+obo:MOLSIM_000879 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The ADF output file is the main text file produced by the Amsterdam Density Functional (ADF) program, containing comprehensive results of the quantum chemical calculation. It includes details on the input parameters used, self-consistent field (SCF) convergence progress, final energies, calculated molecular properties (like dipole moments, charges), atomic coordinates, and timing information. This file is the primary source for analyzing ADF calculation outcomes. (UNVERIFIED)"@en ;
+                  rdfs:label "ADF output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000880
+obo:MOLSIM_000880 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "ADF Tape41 (now more commonly the .rkf or ADF Results File) is a structured binary file generated by the Amsterdam Density Functional package. It stores a comprehensive set of calculation results, including basis set details, molecular orbital coefficients, electron densities, gradients, and potentially Hessians, in a key-value database format. This file is essential for advanced analysis, visualization, and restarting calculations. (UNVERIFIED)"@en ;
+                  rdfs:label "ADF Tape41"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000881
+obo:MOLSIM_000881 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The CHARMM output file is the main text log generated during a CHARMM run, typically containing an echo of the input script commands interspersed with the results produced by those commands. This includes detailed energy breakdowns, progress information during dynamics or minimization (like step number, time, temperature, pressure, energies), and outputs from analysis routines. It serves as the primary record of the CHARMM job execution. (UNVERIFIED)"@en ;
+                  rdfs:label "CHARMM output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000882
+obo:MOLSIM_000882 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The GAMESS output file (.log or .out) is the primary text file generated by the GAMESS (US) quantum chemistry program. It contains a comprehensive record of the calculation, including echoed input parameters, details about the basis set and molecular geometry, step-by-step convergence information (e.g., for SCF or geometry optimization), final energies, molecular orbital information, and various calculated properties. This file is essential for extracting and analyzing results. (UNVERIFIED)"@en ;
+                  rdfs:label "GAMESS output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000883
+obo:MOLSIM_000883 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "This refers to the main text output file produced by the GAMESS-UK quantum chemistry software. While containing similar types of information as other QM outputs (input echo, convergence, energies, properties), its specific structure, keywords, and formatting are distinct from the GAMESS (US) package. Careful parsing is required to extract results like energies, molecular orbitals, and calculated properties. (UNVERIFIED)"@en ;
+                  rdfs:label "GAMESS-UK output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000884
+obo:MOLSIM_000884 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The Gaussian log file (.log) is the standard text output generated by the Gaussian quantum chemistry software suite. It contains a detailed, often verbose, record of the calculation, including setup information, convergence progress for SCF and geometry optimizations, final energies, molecular orbital details, calculated properties (like dipole moments, charges), and often vibrational frequencies and thermochemical analysis. A compact summary, the \"archive entry\", is usually included near the end. (UNVERIFIED)"@en ;
+                  rdfs:label "GAUSSIAN log"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000885
+obo:MOLSIM_000885 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The GROMACS MD output typically refers to the primary text log file (.log) generated by the mdrun simulation engine. It contains summary information about the simulation setup, detailed performance data (like PME load balancing and timings), step-by-step progress updates (if configured in the .mdp file), and final run statistics including energy averages and runtime. This file is crucial for monitoring performance and verifying run completion. (UNVERIFIED)"@en ;
+                  rdfs:label "GROMACS MD output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000886
+obo:MOLSIM_000886 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The Jaguar output file (.out) is the main text file generated by the Jaguar quantum chemistry program. It logs the progress and results of the calculation, including input parameters, convergence information for SCF and geometry optimization cycles, final energies, molecular properties such as charges and dipole moments, and vibrational frequencies if requested. Jaguar often produces associated structure files (e.g., .mae) containing the final geometry. (UNVERIFIED)"@en ;
+                  rdfs:label "Jaguar output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000887
+obo:MOLSIM_000887 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The MOPAC output file (.out) contains the results from a calculation performed by the MOPAC semi-empirical program. It typically includes an echo of the input keywords, details of geometry optimization steps (if performed), the final optimized geometry, the calculated heat of formation (ΔH f), ionization potential, dipole moment, and atomic charges. A summary section usually highlights the key results and timings. (UNVERIFIED)"@en ;
+                  rdfs:label "MOPAC Output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000888
+obo:MOLSIM_000888 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The NWChem output file (.out, .nwout) is the main text log generated by the NWChem computational chemistry package, documenting the execution of the tasks specified in the input file. It contains detailed information about the calculation setup, convergence progress for various steps (like SCF or geometry optimization), calculated energies using the requested methods (QM, MM, or combined), molecular properties, and timing information. Due to NWChem's flexibility, the output structure can vary depending on the complexity of the input directives. (UNVERIFIED)"@en ;
+                  rdfs:label "NWChem output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000889
+obo:MOLSIM_000889 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The Q-Chem output file (.out, .qcout) is the primary text output generated by the Q-Chem quantum chemistry program. It contains the results corresponding to the specifications in the input file, including details on the method and basis set used, convergence information for SCF and geometry optimization, final electronic energies, molecular orbital information, various calculated properties (charges, dipole moments), and potentially vibrational analysis results. A summary section often highlights key computed values. (UNVERIFIED)"@en ;
+                  rdfs:label "Q-Chem output"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000890
+obo:MOLSIM_000890 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000439 ;
+                  obo:IAO_0000115 "The Gaussian checkpoint file (.chk) is a binary file that stores a wealth of information about a completed or running Gaussian calculation, including the molecular geometry, basis set details, molecular orbital coefficients, density matrix, and forces. It is essential for restarting interrupted calculations (especially geometry optimizations or frequency calculations) and for post-processing tasks like generating cube files or performing wavefunction analysis. It can be converted to a formatted version (.fchk). (UNVERIFIED)"@en ;
+                  rdfs:label "GAUSSIAN chk"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000891
+obo:MOLSIM_000891 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000439 ;
+                  obo:IAO_0000115 "In Gaussian, restarting a calculation typically involves using the information stored in a checkpoint file (.chk). Specific keywords in the input file route section (like Geom=Checkpoint, Guess=Read, Opt=Restart, Freq=Restart) instruct Gaussian to read the necessary data (geometry, wavefunction, Hessian information) from the .chk file to continue the job from where it left off. This term refers to this process facilitated by the checkpoint file. (UNVERIFIED)"@en ;
+                  rdfs:label "GAUSSIAN restart"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000892
+obo:MOLSIM_000892 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000439 ;
+                  obo:IAO_0000115 "A GROMACS restart is typically facilitated by a checkpoint file (.cpt), which stores the full state of the simulation engine (mdrun) at specific intervals, including step number, time, velocities, and pressure/temperature coupling variables. Using the -cpi option with mdrun allows the simulation to resume exactly from the state saved in the .cpt file. These files are binary and essential for continuing interrupted runs or extending simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "GROMACS restart"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000893
+obo:MOLSIM_000893 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000439 ;
+                  obo:IAO_0000115 "Restarting an NWChem calculation involves using various files generated during a previous run, depending on the calculation type. This may include the run database (.db), molecular orbital vector files (.movecs), geometry files, or specific molecular dynamics restart files (.rst) containing coordinates and velocities. Input directives like RESTART or TASK MD RESTART instruct NWChem to utilize these files to continue the computation. (UNVERIFIED)"@en ;
+                  rdfs:label "NWChem restart"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000894
+obo:MOLSIM_000894 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000440 ;
+                  obo:IAO_0000115 "CHARMM commonly uses coordinate files in its own CARD format (.crd), which is a formatted ASCII file including atom coordinates along with atom numbers, residue names/numbers, atom types, and possibly weighting factors. It often starts with a title section describing the system. CHARMM also readily reads and writes coordinates in the standard Protein Data Bank (PDB) format. (UNVERIFIED)"@en ;
+                  rdfs:label "CHARMM coordinates"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000895
+obo:MOLSIM_000895 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000440 ;
+                  obo:IAO_0000115 "The GROMACS .gro file is a simple, formatted text file used to store molecular coordinates, atom/residue names, and optionally velocities. It includes a title line, the total number of atoms, and then one line per atom specifying residue and atom information, coordinates (in nanometers), and optionally velocities. The file concludes with the periodic box vectors. (UNVERIFIED)"@en ;
+                  rdfs:label "GROMACS GRO format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000896
+obo:MOLSIM_000896 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001063 ;
+                  obo:IAO_0000115 "The TINKER XYZ (.xyz) file format stores molecular coordinates and topology information for use with the TINKER software package. It starts with the atom count and a title line, followed by lines for each atom containing the atom index, atom name, coordinates (Angstroms), atom type (force field), and connectivity information. This format combines coordinates and basic topology. (UNVERIFIED)"@en ;
+                  rdfs:label "TINKER XYZ format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000897
+obo:MOLSIM_000897 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000440 ;
+                  obo:IAO_0000115 "In TURBOMOLE, coordinate information is typically provided within a specific data group, usually $coord, inside the main input or control file. This section lists the Cartesian coordinates (in Bohr by default, or Angstroms if specified) followed by an atom symbol (elemental symbol, usually lowercase) for each atom. This data group defines the molecular geometry for the TURBOMOLE calculation. (UNVERIFIED)"@en ;
+                  rdfs:label "TURBOMOLE Coordinate"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000898
+obo:MOLSIM_000898 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000441 ;
+                  obo:IAO_0000115 "A GROMACS include topology file (.itp) contains the topology definition for a specific type of molecule (like a protein, lipid, or solvent). It typically includes sections like [ moleculetype ], [ atoms ], [ bonds ], etc., and is designed to be reusable. These .itp files are incorporated into the main system topology (.top) file using the #include directive. (UNVERIFIED)"@en ;
+                  rdfs:label "GROMACS include topology"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000899
+obo:MOLSIM_000899 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000441 ;
+                  obo:IAO_0000115 "The GROMACS system topology file (.top) describes the entire molecular system to be simulated. It typically starts by including force field parameter files and specific molecule topology files (.itp) using #include directives. Crucially, it concludes with a [ molecules ] section listing the names and counts of each type of molecule present in the simulation box. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym ".top" ;
+                  rdfs:label "GROMACS system topology"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000900
+obo:MOLSIM_000900 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000441 ;
+                  obo:IAO_0000115 "In NWChem, topology information for molecular dynamics or QM/MM calculations is typically defined within the input file (.nw) using specific directives like TOPOLOGY. This section defines atom types, charges, and connectivity (bonds, angles, etc.) for the molecular system. Associated force field parameters are usually specified separately using directives like PARAMETERS. (UNVERIFIED)"@en ;
+                  rdfs:label "NWChem topology"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000901
+obo:MOLSIM_000901 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000441 ;
+                  obo:IAO_0000115 "A Protein Structure File (.psf) defines the atoms, connectivity (bonds, angles, dihedrals, impropers), and basic atomic properties (like type indices, charges, masses) for a molecular system. Importantly, it does not contain the actual force field parameters (like bond spring constants or Lennard-Jones values), which must be provided separately. PSF files are widely used by simulation programs like CHARMM, NAMD, and visualization tools like VMD. (UNVERIFIED)"@en ;
+                  rdfs:label "PSF"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000902
+obo:MOLSIM_000902 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  obo:IAO_0000115 "The DCD (.dcd) trajectory format is a widely used binary file format for storing atomic coordinates from molecular dynamics simulations, optionally including periodic box information. Originally developed for CHARMM, it is now supported by many simulation packages (like NAMD, LAMMPS) and analysis tools (like VMD) due to its efficiency and portability. It typically stores coordinates in single precision. (UNVERIFIED)"@en ;
+                  rdfs:label "DCD trajectory"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000903
+obo:MOLSIM_000903 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  obo:IAO_0000115 "GROMACS typically saves trajectories in binary formats: either .xtc which uses lossy compression for coordinates only, offering significant space savings, or .trr which stores coordinates, velocities, and forces at full precision. The choice between them depends on the required accuracy and data for subsequent analysis. Both capture the time-dependent evolution of the simulated system. (UNVERIFIED)"@en ;
+                  rdfs:label "GROMACS trajectory"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000904
+obo:MOLSIM_000904 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "Molecular structure formats are standardized ways to represent the chemical structure of molecules in computer files, including atomic elements, their 3D coordinates, and bond connectivity. These formats facilitate storage, visualization, and exchange of molecular information between different software programs. They range from simple coordinate lists to complex formats encoding rich chemical details. (UNVERIFIED)"@en ;
+                  rdfs:label "molecular structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000905
+obo:MOLSIM_000905 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000904 ;
+                  obo:IAO_0000115 "Small molecule structure formats are designed primarily for representing organic and drug-like molecules, often emphasizing chemical details like bond orders, formal charges, and stereochemistry. These formats are widely used in cheminformatics, drug discovery databases, and as input for various modeling tasks. Common examples include SDF, Mol2, and SMILES strings. (UNVERIFIED)"@en ;
+                  rdfs:label "small molecule structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000906
+obo:MOLSIM_000906 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000905 ;
+                  owl:disjointWith obo:MOLSIM_000907 ;
+                  obo:IAO_0000115 "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)"@en ;
+                  rdfs:label "Mol2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000907
+obo:MOLSIM_000907 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000905 ;
+                  obo:IAO_0000115 "The Structure-Data File (SDF, .sdf) format is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym ".sdf" ;
+                  rdfs:label "SDF"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000908
+obo:MOLSIM_000908 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "Sequence formats are standardized ways to represent the primary structure of biological macromolecules, such as the order of amino acids in a protein or nucleotides in DNA/RNA, using strings of characters. These formats usually include a header line providing an identifier and description, followed by the sequence itself using standard codes (e.g., one-letter codes). They are fundamental in bioinformatics for storing and exchanging sequence data. (UNVERIFIED)"@en ;
+                  rdfs:label "sequence format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000909
+obo:MOLSIM_000909 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "Volumetric data formats represent properties that vary continuously over three-dimensional space, such as electron density or electrostatic potential, by storing their values on a regular grid of points. These formats typically define the grid's origin, dimensions, and spacing, followed by the data values at each grid point. They are commonly used for visualization and analysis of spatial distributions calculated from simulations or experiments. (UNVERIFIED)"@en ;
+                  rdfs:label "volumetric data"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000910
+obo:MOLSIM_000910 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "General data formats are versatile, often standardized ways to structure and exchange data that are not tied to a specific application domain like molecular simulation. Formats like XML or JSON use tags or key-value pairs to create hierarchical and self-describing data structures. They are sometimes employed in simulation contexts for storing metadata, configuration, or for facilitating data exchange between different tools. (UNVERIFIED)"@en ;
+                  rdfs:label "general data format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000911
+obo:MOLSIM_000911 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000436 ;
+                  obo:IAO_0000115 "An analysis script contains a sequence of commands or code written for a specific analysis program or library (like Amber's cpptraj, VMD's Tcl interface, or Python libraries like MDAnalysis). These scripts automate the process of reading simulation output data (especially trajectories) and performing calculations such as RMSD, hydrogen bond analysis, distance measurements, or principal component analysis. They define the workflow for extracting meaningful insights from raw simulation data. (UNVERIFIED)"@en ;
+                  rdfs:label "analysis script"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000912
+obo:MOLSIM_000912 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000908 ;
+                  obo:IAO_0000115 "The Fasta format is a simple and widely used text-based format for storing biological sequence data (nucleotides or amino acids). Each sequence entry begins with a single-line description header, marked by a greater-than symbol ('>'), followed by the sequence data on one or more subsequent lines. Its simplicity makes it easily readable by humans and parsable by many bioinformatics tools. (UNVERIFIED)"@en ;
+                  rdfs:label "Fasta"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000913
+obo:MOLSIM_000913 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000909 ;
+                  obo:IAO_0000115 "The Gaussian cube file format (.cube) is a text-based format for storing scalar data (like electron density, electrostatic potential, or molecular orbital values) on a regular three-dimensional grid. It includes header information defining the grid origin, dimensions, axis vectors, and the atomic coordinates, followed by the data values listed for each grid point in sequence. This format is widely used for visualizing volumetric properties derived from Gaussian and other QM calculations. (UNVERIFIED)"@en ;
+                  rdfs:label "GAUSSIAN cube"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000914
+obo:MOLSIM_000914 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000910 ;
+                  obo:IAO_0000115 "XML (Extensible Markup Language) is a flexible, text-based markup language used to encode data in a format that is both human-readable and machine-readable. It uses user-defined tags to structure data hierarchically with elements and attributes. XML is widely used for data exchange on the web and in various scientific domains, including bioinformatics (e.g., CML). (UNVERIFIED)"@en ;
+                  rdfs:label "XML"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000915
+obo:MOLSIM_000915 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000910 ;
+                  obo:IAO_0000115 "CML (Chemical Markup Language) is an application of XML specifically designed for representing chemical information in a structured way. It defines a vocabulary of XML tags and conventions for encoding molecular structures, reactions, spectra, computational chemistry results, and related data. CML aims to facilitate the storage, exchange, and management of chemical information across different software and platforms. (UNVERIFIED)"@en ;
+                  rdfs:label "CML"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000916
+obo:MOLSIM_000916 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000911 ;
+                  obo:IAO_0000115 "A Ptraj script is an input file containing commands for the ptraj or its successor cpptraj programs, which are part of the AmberTools suite used for analyzing molecular dynamics trajectories. The script specifies input trajectory files (trajin), reference structures, and a series of analysis commands (e.g., rms, distance, hbond, radgyr, cluster) to calculate specific properties or perform structural analyses. It defines the post-processing workflow for Amber or other compatible trajectory formats."@en ;
+                  rdfs:label "Ptraj script"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000921
+obo:MOLSIM_000921 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000440 ;
+                  rdfs:label "CRD format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000940
+obo:MOLSIM_000940 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000921 ;
+                  rdfs:label "CHARMM CRD format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000963
+obo:MOLSIM_000963 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000921 ;
+                  rdfs:comment "Amber's standard ASCII coordinate trajectory file format."@en ;
+                  rdfs:label "Amber CRD format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001037
+obo:MOLSIM_001037 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000921 ;
+                  rdfs:label "GROMOS CRD format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001038
+obo:MOLSIM_001038 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000921 ;
+                  rdfs:label "MPDyn CRD format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001039
+obo:MOLSIM_001039 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  obo:IAO_0000115 "The .trj format is an ASCII (text-based) trajectory file format used by the Amber molecular dynamics software suite and other analysis programs. Its fundamental purpose is to store a time-series of atomic coordinates, capturing the dynamic motion of a system during a simulation. The file contains sequential \"frames,\" where each frame is a complete set of X, Y, and Z coordinates for every atom in the system at a specific point in time. It can also store periodic box dimensions, although this capability is sometimes limited. .trj files are used for post-simulation analysis, such as calculating properties over time, analyzing conformational changes, and creating visualizations or movies of molecular motion. (UNVERIFIED)"@en ;
+                  rdfs:comment """The .trj format belongs to a family of older Amber text-based trajectory formats. Its role is best understood in comparison to its relatives:
+
+vs. .mdcrd: The .trj and .mdcrd formats are functionally identical. Both are safe, relatively unambiguous choices for storing Amber ASCII trajectories. A file with one extension can often be renamed to the other without causing issues in analysis software.
+
+vs. .crd: The .crd extension is highly ambiguous and problematic. It is the native format for the CHARMM simulation package and is interpreted as such by default in many tools. Using .trj avoids this critical format conflict.
+
+vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended format for Amber trajectories. Compared to .trj, NetCDF (.nc) files are smaller, faster to read/write, and store data with higher precision. The .trj format is considered a legacy option."""@en ;
+                  rdfs:label "Amber TRJ format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001040
+obo:MOLSIM_001040 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "A distance matrix in molecular simulation is a 2D data set that stores the pairwise distances between a selection of particles, such as atoms or residues, calculated from a simulation trajectory. It is a common form of analysis used to study conformational changes, structural stability, and the relative movement of different parts of a molecule. There is no single, standardized file extension for a distance matrix file. The format is often dependent on the analysis program that generates it or is saved in a general-purpose data format. (UNVERIFIED)"@en ;
+                  rdfs:comment """Common examples include:
+
+- General Text Formats: Often saved as plain text (.txt), comma-separated values (.csv), or a generic data (.dat) file for easy parsing and use in other programs.
+
+- Program-Specific Formats: Some simulation packages output the matrix in their own specific formats. For example, GROMACS can generate a distance matrix as an .xpm file, which is a portable pixmap image format.
+
+- Binary Formats: For efficiency, especially with large matrices, they may be saved in binary formats like NumPy's .npy format, which is common in Python-based analysis workflows."""@en ;
+                  rdfs:label "distance matrix file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001041
+obo:MOLSIM_001041 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_001040 ;
+                  obo:IAO_0000115 "The GROMACS XPM file is an ASCII text file format used by the GROMACS molecular dynamics suite to store two-dimensional matrix data. It is a specialized application of the general XPixMap (.xpm) format, adapted to represent scientific data such as distance matrices, root-mean-square deviation (RMSD) matrices, or hydrogen bond patterns. The format is human-readable and designed for easy visualization. It encodes numerical data as a color-coded image defined by characters, making it viewable with standard XPM viewers and convertible into graphical formats like PostScript using GROMACS utilities such as gmx xpm2ps. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym ".xpm" ;
+                  rdfs:label "GROMACS XPM file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001042
+obo:MOLSIM_001042 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000472 ;
+                  rdfs:label "Amber PRMTOP file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001043
+obo:MOLSIM_001043 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000472 ;
+                  rdfs:label "Amber PARM7 file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001044
+obo:MOLSIM_001044 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000443 ;
+                  rdfs:label "CIF structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001045
+obo:MOLSIM_001045 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  oboInOwl:hasExactSynonym ".arc" ;
+                  rdfs:comment "This can also be a coordinate format from Tinker package as well." ;
+                  rdfs:label "Tinker ARC format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001049
+obo:MOLSIM_001049 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000471 ;
+                  rdfs:label "RST file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001050
+obo:MOLSIM_001050 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000471 ;
+                  rdfs:label "RST7 file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001051
+obo:MOLSIM_001051 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000471 ;
+                  rdfs:comment "A NetCDF-based restart file for Amber simulations."@en ;
+                  rdfs:label "NCRST file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001052
+obo:MOLSIM_001052 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000894 ;
+                  rdfs:label "CHARMM CRD coordinate file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001053
+obo:MOLSIM_001053 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000894 ;
+                  rdfs:label "CHARMM COR coordinate file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001054
+obo:MOLSIM_001054 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000903 ;
+                  rdfs:label "GROMACS TRR format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001055
+obo:MOLSIM_001055 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000903 ;
+                  rdfs:label "GROMACS XTC format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001056
+obo:MOLSIM_001056 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000903 ;
+                  rdfs:label "GROMACS TNG format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001057
+obo:MOLSIM_001057 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  oboInOwl:hasExactSynonym ".sqm" ;
+                  rdfs:comment "An input file format for the semi-empirical QM program SQM."@en ;
+                  rdfs:label "SQM input format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001058
+obo:MOLSIM_001058 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  oboInOwl:hasExactSynonym ".dtr" ;
+                  rdfs:comment "A trajectory file format used by the Desmond simulation software."@en ;
+                  rdfs:label "Desmond DTR file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001059
+obo:MOLSIM_001059 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000437 ;
+                  oboInOwl:hasExactSynonym ".conflib" ,
+                                           "The .conflib file format is a conformational library file used by the LMOD (Low-Mode) conformational search software, a component of the AmberTools suite. Its primary purpose is to store a pre-calculated or pre-defined collection of molecular conformations (i.e., different 3D structures of the same molecule). The LMOD program reads a .conflib file as input to guide its search of a molecule's conformational landscape. By providing a starting library of structures, the software can more efficiently sample, cluster, or select representative conformations for further analysis or more detailed simulations. (UNVERIFIED)"@en ;
+                  rdfs:label "LMOD conflib file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001060
+obo:MOLSIM_001060 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  oboInOwl:hasExactSynonym ".h5" ;
+                  rdfs:comment "An HDF5-based trajectory file format used by the MDTraj library." ;
+                  rdfs:label "MDTraj H5 File"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001061
+obo:MOLSIM_001061 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  oboInOwl:hasExactSynonym ".h5md" ;
+                  rdfs:comment "An HDF5-based trajectory file format used by the MDAnalysis library."@en ;
+                  rdfs:label "MDAnalysis H5MD file"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001062
+obo:MOLSIM_001062 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000440 ;
+                  obo:IAO_0000115 "The PQR format is a modification of the standard Protein Data Bank (PDB) format used in computational biology to store atomic coordinate data along with atomic partial charges (Q) and radii (R). The name itself is a mnemonic, representing PDB + Q (charge) + R (radius). Its primary advantage is that it bundles the necessary structural and electrostatic parameters into a single, PDB-like file that is easily parsed by both analysis software and molecular visualization programs. These files are most commonly generated by the PDB2PQR software, which processes a standard PDB file, adds missing hydrogen atoms, and assigns atomic charges and radii based on a chosen force field. (UNVERIFIED)"@en ;
+                  oboInOwl:hasExactSynonym ".pqr" ;
+                  rdfs:label "PQR Format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001063
+obo:MOLSIM_001063 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000440 ;
+                  rdfs:comment "A simple text-based chemical file format for coordinates." ;
+                  rdfs:label "XYZ format"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001066
+obo:MOLSIM_001066 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000438 ;
+                  obo:IAO_0000115 "The term \"ptrajformat\" does not refer to a distinct file type with its own extension. Instead, it is a keyword or an option used within the secstruct command of Amber's cpptraj analysis program. When this keyword is used, it directs cpptraj to write secondary structure data in a specific ASCII text format that mimics the output style of the older ptraj software. Since ptrajformat is a formatting option and not a file type, there is no mandatory or standard file extension. The output is saved to the filename provided by the user via the out <filename> directive in the secstruct command. Common practice is to use a generic but descriptive extension, such as .dat, .txt, .sec or .ss. (UNVERIFIED)"@en ;
+                  rdfs:label "CPPTRAJ ptrajformat"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001071
+obo:MOLSIM_001071 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000442 ;
+                  rdfs:comment "The traj3d \"pseudo-trajectory\" is not a standard, independent file format but rather a specialized output option available within the hist command in Amber's cpptraj analysis program. It is created by taking the three data dimensions of a 3D histogram and writing them out as the X, Y, and Z coordinates of a single \"atom\" over time. This reformatting creates a trajectory-like file that can be loaded into molecular visualization software. The purpose is to allow researchers to visually inspect the 3D distribution of data from the histogram in a more intuitive, interactive 3D space, rather than as a static 2D plot. There is no mandatory file extension for the output file itself."@en ;
+                  rdfs:label "CPPTRAJ traj3d format"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000723
+obo:MOLSIM_000723 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Data Bank - The single worldwide archive for information about the 3D structures of large biological molecules, including proteins, nucleic acids, and complex assemblies, determined experimentally (primarily by X-ray crystallography, NMR, and cryo-EM). PDB is a fundamental resource for structural biology, biochemistry, and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000724
+obo:MOLSIM_000724 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "One of the founding members of the Worldwide Protein Data Bank (wwPDB) organization, responsible for managing and disseminating PDB data. PDBe provides access to the global archive of macromolecular structures and offers additional curated data, analysis tools, and resources for structural biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBe"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000725
+obo:MOLSIM_000725 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A founding member of the Worldwide Protein Data Bank (wwPDB) organization, serving as the Asian regional center for the PDB. PDBj collects, processes, and disseminates macromolecular structure data, and develops tools and resources for structural biology research in Japan and globally. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBj"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000726
+obo:MOLSIM_000726 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A pictorial database that provides an at-a-glance overview of the contents of each 3D macromolecular structure deposited in the Protein Data Bank (PDB). PDBsum presents schematic diagrams of molecular interactions, protein domains, ligand binding sites, and other structural features. It is a useful tool for quickly understanding PDB entries. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBsum"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000727
+obo:MOLSIM_000727 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Nucleic Acid Database - A relational database that archives and disseminates three-dimensional structural information about nucleic acids (DNA, RNA) and their complexes, determined experimentally by X-ray crystallography, NMR, or electron microscopy. NDB provides tools for searching and analyzing these structures. It is the primary repository for nucleic acid 3D structures. (UNVERIFIED)"@en ;
+                  rdfs:label "NDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000728
+obo:MOLSIM_000728 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Data Bank - The primary public archive for three-dimensional electron microscopy density maps of biomolecular complexes and subcellular structures. EMDB stores 3D reconstructions obtained from techniques like cryo-electron microscopy (cryo-EM), electron tomography, and single particle analysis. It is essential for structural biologists studying large macromolecular assemblies. (UNVERIFIED)"@en ;
+                  rdfs:label "EMDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000729
+obo:MOLSIM_000729 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Public Image Archive - A public resource for raw 2D electron microscopy image data, including movies and tilt series, that underpins 3D structures in EMDB or other studies. EMPIAR promotes transparency, reproducibility, and the development of new image processing methods by providing access to the primary experimental data. (UNVERIFIED)"@en ;
+                  rdfs:label "EMPIAR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000730
+obo:MOLSIM_000730 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NIH genetic sequence database, an annotated collection of all publicly available DNA sequences, maintained by the National Center for Biotechnology Information (NCBI). As part of the INSDC, GenBank is a foundational resource for molecular biology, genomics, and evolutionary studies worldwide. (UNVERIFIED)"@en ;
+                  rdfs:label "GenBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000731
+obo:MOLSIM_000731 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "UniProt Knowledgebase - A comprehensive, high-quality, and freely accessible resource of protein sequence and functional information, created by joining the Swiss-Prot, TrEMBL, and PIR-PSD databases. UniProtKB consists of two sections: Swiss-Prot (manually annotated and reviewed) and TrEMBL (computationally annotated). It is a central hub for protein information. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000732
+obo:MOLSIM_000732 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "European Nucleotide Archive - A comprehensive public repository for nucleotide sequencing information, covering raw reads, assembled sequences, and functional annotations, from all domains of life. As part of the INSDC, ENA collaborates with GenBank and DDBJ to provide a global archive for sequence data. It is a fundamental resource for genomics and bioinformatics. (UNVERIFIED)"@en ;
+                  rdfs:label "ENA"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000733
+obo:MOLSIM_000733 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "DNA Data Bank of Japan - one of the three major international nucleotide sequence databases, along with GenBank (NCBI) and ENA (EMBL-EBI), forming the International Nucleotide Sequence Database Collaboration (INSDC). DDBJ collects, annotates, and provides public access to DNA and RNA sequences from all organisms. It is a fundamental resource for genomics and molecular biology. (UNVERIFIED)"@en ;
+                  rdfs:label "DDBJ"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000734
+obo:MOLSIM_000734 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The manually annotated and reviewed section of the UniProt Knowledgebase (UniProtKB). Swiss-Prot entries contain high-quality protein sequence information, detailed functional annotations, and extensive cross-references, derived from literature and curator evaluation. It represents the gold standard for protein annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/Swiss-Prot"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000811
+obo:MOLSIM_000811 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The computationally annotated section of the UniProt Knowledgebase (UniProtKB), containing protein sequences that are not yet manually curated. TrEMBL entries are largely derived from the translation of coding sequences in nucleotide sequence databases and are automatically annotated. It provides broad sequence coverage. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/TrEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000919
+obo:MOLSIM_000919 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for protein data, offering a curated, non-redundant set of protein sequences, often linked to corresponding nucleotide sequences and genomic annotations. RefSeq proteins serve as stable reference points for protein identification, annotation, and comparative analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "NCBI RefSeq Protein"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000920
+obo:MOLSIM_000920 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Information Resource - A long-standing public bioinformatics resource that created the Protein Sequence Database (PSD), one of the first curated collections of protein sequences. PIR now contributes to UniProt and develops other resources like iProClass for protein classification and functional annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "PIR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000922
+obo:MOLSIM_000922 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for nucleotide data, providing a comprehensive, integrated, non-redundant, and well-annotated set of sequences for chromosomes, genomic regions, transcripts, and RNAs. RefSeq aims to provide stable reference sequences for various organisms. It is a critical resource for genomics and gene annotation"@en ;
+                  rdfs:label "NCBI RefSeq Nucleotide"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000929
+obo:MOLSIM_000929 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that contains validated chemical structure information for small molecules, including their identifiers, properties, and links to related information. PubChem Compound is a comprehensive resource for chemical information and a key component of the PubChem suite. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem Compound"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000930
+obo:MOLSIM_000930 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Chemical Entities of Biological Interest - A freely available dictionary and ontology of molecular entities focused on 'small' chemical compounds that are either products or reactants in biological processes. ChEBI provides nomenclature, structural information, and links to other databases for a wide range of biologically relevant chemicals. It is essential for cheminformatics and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "ChEBI"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000931
+obo:MOLSIM_000931 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free database of commercially available chemical compounds prepared in ready-to-dock, 3D formats for virtual screening and computational drug discovery. ZINC20 contains millions of purchasable compounds with annotated properties, facilitating large-scale ligand docking and cheminformatics studies. (UNVERIFIED)"@en ;
+                  rdfs:label "ZINC20"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000932
+obo:MOLSIM_000932 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive, freely accessible online database containing detailed information on drugs, drug targets, drug interactions, and drug metabolism. It combines detailed drug data with comprehensive drug target information, making it a vital resource for pharmacology, medicinal chemistry, and pharmaceutical research. (UNVERIFIED)"@en ;
+                  rdfs:label "DrugBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000933
+obo:MOLSIM_000933 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free chemical structure database providing fast access to over millions of structures, properties, and associated information from various sources. It allows users to search by chemical name, synonym, trade name, registry number, or structure. ChemSpider is a comprehensive resource for chemists and researchers needing chemical information. (UNVERIFIED)"@en ;
+                  rdfs:label "ChemSpider"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000934
+obo:MOLSIM_000934 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Therapeutic Target Database - A database providing comprehensive information about therapeutic protein and nucleic acid targets, the approved and investigational drugs directed at these targets, and the corresponding diseases. TTD links target information with drug development pipelines and clinical trial data. It is a useful resource for drug discovery and pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "TTD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000935
+obo:MOLSIM_000935 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A website operated by the U.S. National Library of Medicine (NLM) that provides high-quality information about marketed drugs, including FDA-approved drug labels (package inserts). It offers comprehensive information for healthcare providers and the public on drug ingredients, indications, dosage, warnings, and adverse reactions. (UNVERIFIED)"@en ;
+                  rdfs:label "DailyMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000957
+obo:MOLSIM_000957 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A manually curated, large-scale database of bioactive drug-like small molecules and their quantitative bioactivity data against drug targets (primarily proteins). It brings together chemical, bioactivity, and genomic data to aid the translation of genomic information into effective new drugs. ChEMBL is a critical resource for drug discovery, pharmacology, and medicinal chemistry."@en ;
+                  rdfs:label "ChEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000958
+obo:MOLSIM_000958 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Mass Spectrometry Interactive Virtual Environment - A public data repository for mass spectrometry (MS) datasets, particularly from proteomics experiments, developed by the Center for Computational Mass Spectrometry at UCSD. MassIVE facilitates the deposition, storage, sharing, and reanalysis of MS data, supporting open science in the proteomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MassIVE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000959
+obo:MOLSIM_000959 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "An integrated spectral database system for organic compounds, maintained by the National Institute of Advanced Industrial Science and Technology (AIST), Japan. SDBS contains NMR (1H, 13C), mass spectra, IR, Raman, and ESR spectra for a large number of organic compounds. It is a valuable resource for chemical identification and structural elucidation. (UNVERIFIED)"@en ;
+                  rdfs:label "SDBS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000960
+obo:MOLSIM_000960 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Biological Magnetic Resonance Data Bank - A repository that collects, archives, and disseminates Nuclear Magnetic Resonance (NMR) spectroscopic data from biological macromolecules and metabolites. This includes assigned chemical shifts, coupling constants, relaxation rates, and derived structural information like distance and dihedral angle restraints. BMRB is the primary worldwide archive for biomolecular NMR data. (UNVERIFIED)"@en ;
+                  rdfs:label "BMRB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000961
+obo:MOLSIM_000961 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Complex Carbohydrate Magnetic Resonance Database for NMR - A specialized NMR database focusing on the assigned chemical shifts of complex carbohydrates (oligosaccharides and polysaccharides) and their complexes with proteins. It serves as a resource for researchers studying carbohydrate structures and interactions using NMR spectroscopy. (UNVERIFIED)"@en ;
+                  rdfs:label "ComplexCARP"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000962
+obo:MOLSIM_000962 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that integrates predictive signatures for protein families, domains, and functional sites from multiple member databases (e.g., Pfam, PROSITE, SMART, CDD, CATH, SCOP). InterPro provides a comprehensive overview of protein sequence features, aiding in functional annotation and comparative analysis. It is a powerful tool for protein characterization. (UNVERIFIED)"@en ;
+                  rdfs:label "InterPro"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000964
+obo:MOLSIM_000964 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs). Pfam is used to identify conserved domains and families in protein sequences, providing insights into their function and evolutionary relationships. It is a widely used resource for protein sequence annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "Pfam"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000965
+obo:MOLSIM_000965 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web-based resource used for the identification and annotation of genetically mobile domains and the analysis of domain architectures in proteins. SMART contains manually curated models for hundreds of domains involved in signaling, extracellular functions, and chromatin regulation. It is a valuable tool for protein sequence analysis and functional prediction. (UNVERIFIED)"@en ;
+                  rdfs:label "SMART"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000966
+obo:MOLSIM_000966 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of protein domains, families, and functional sites, characterized by patterns (regular expressions) or profiles (position-specific scoring matrices) derived from multiple sequence alignments. PROSITE is used to identify known motifs and domains in protein sequences, aiding in functional prediction. It is part of the SIB ExPASy server. (UNVERIFIED)"@en ;
+                  rdfs:label "PROSITE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000967
+obo:MOLSIM_000967 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Conserved Domain Database by NCBI -  A database maintained by NCBI containing manually curated models of ancient domains and full-length proteins, as well as models imported from other sources like Pfam and SMART. CDD is used to identify conserved domains within protein sequences, providing insights into their function. It is a key tool for protein sequence analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "CDD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000968
+obo:MOLSIM_000968 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that provides a detailed and comprehensive hierarchical classification of protein structural domains based on their evolutionary relationships and structural similarities. SCOP2 builds upon the original SCOP, aiming to provide a more automated and comprehensive classification. It is a key resource for understanding protein structure and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "SCOP2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000969
+obo:MOLSIM_000969 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Class, Architecture, Topology, Homologous superfamily - A hierarchical classification database of protein domain structures derived from the Protein Data Bank (PDB). CATH groups protein domains based on their evolutionary relationships and structural similarities at different levels: Class (secondary structure content), Architecture (overall shape), Topology (fold family), and Homologous superfamily. It provides insights into protein structure, function, and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "CATH"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000970
+obo:MOLSIM_000970 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Classification of Protein Domains - A hierarchical classification of protein domains based on evolutionary relationships, emphasizing distant homology. ECOD groups domains into families, homologous groups (H-groups), topological groups (T-groups), architectural groups (X-groups), and possible homology groups (Y-groups). It provides a framework for understanding protein evolution and structure. (UNVERIFIED)"@en ;
+                  rdfs:label "ECOD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000971
+obo:MOLSIM_000971 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of manually drawn pathway maps representing current knowledge on molecular interaction and reaction networks for metabolism, genetic information processing, environmental information processing, cellular processes, organismal systems, and human diseases. KEGG Pathway is part of the larger Kyoto Encyclopedia of Genes and Genomes (KEGG) resource. It is widely used for pathway analysis and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "KEGG Pathway"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000972
+obo:MOLSIM_000972 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free, open-source, curated, and peer-reviewed pathway database that provides detailed information on human biological pathways and processes. Reactome uses a hierarchical organization to describe molecular events, from individual reactions to complex pathways, linking genes, proteins, and small molecules. It is a key resource for systems biology and pathway analysis."@en ;
+                  rdfs:label "Reactome"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000973
+obo:MOLSIM_000973 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of thousands of Pathway/Genome Databases (PGDBs), each describing the genome and metabolic pathways of a specific organism, plus a multi-organism pathway database (MetaCyc). BioCyc provides curated information on genes, enzymes, metabolites, and reactions, facilitating comparative genomics and metabolic network analysis. It is a key resource for systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "BioCyc"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000977
+obo:MOLSIM_000977 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A community-curated, open, and collaborative platform for biological pathway diagrams. WikiPathways allows researchers to contribute, edit, and share pathway information, fostering a dynamic and up-to-date collection of pathway models across various species. It promotes open access to pathway knowledge. (UNVERIFIED)"@en ;
+                  rdfs:label "WikiPathways"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000991
+obo:MOLSIM_000991 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public, web-accessible database focusing on measured binding affinities of interactions between proteins (considered as drug targets) and small, drug-like molecules. It primarily contains data from enzyme assays, isothermal titration calorimetry, and surface plasmon resonance. BindingDB is a valuable resource for drug discovery, cheminformatics, and validating computational predictions. (UNVERIFIED)"@en ;
+                  rdfs:label "BindingDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000992
+obo:MOLSIM_000992 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that stores descriptions and results of biological screening assays on chemical substances, typically from high-throughput screening programs. PubChem BioAssay links chemical structures to their biological activities, providing valuable data for drug discovery and chemical biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem BioAssay"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000993
+obo:MOLSIM_000993 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "IUPHAR/BPS Guide to PHARMACOLOGY - An expert-curated database of pharmacological targets (receptors, ion channels, enzymes, transporters) and the drugs/ligands that act on them, developed by the International Union of Basic and Clinical Pharmacology (IUPHAR) and the British Pharmacological Society (BPS). It provides concise overviews, nomenclature, and key properties for these targets and ligands. It is an authoritative resource for pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "IUPHAR/BPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000994
+obo:MOLSIM_000994 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A discovery platform integrating and standardizing data on gene-disease associations (GDAs) and variant-disease associations (VDAs) from multiple public repositories and scientific literature. DisGeNET provides scores to rank these associations and tools for their analysis and interpretation. It is a valuable resource for studying the genetic basis of human diseases. (UNVERIFIED)"@en ;
+                  rdfs:label "DisGeNET"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000995
+obo:MOLSIM_000995 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Online Mendelian Inheritance in Man - A comprehensive, authoritative, and continuously updated catalog of human genes and genetic disorders and traits, with a particular focus on the gene-phenotype relationship. OMIM provides textual information, references, and links to other genetic resources. It is an essential resource for human genetics and clinical research. (UNVERIFIED)"@en ;
+                  rdfs:label "OMIM"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000996
+obo:MOLSIM_000996 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose open-access repository operated by CERN and OpenAIRE, allowing researchers in all disciplines to deposit research outputs, including datasets, software, publications, and figures. Zenodo assigns DOIs to uploads, making them citable and discoverable. It supports FAIR data principles. (UNVERIFIED)"@en ;
+                  rdfs:label "Zenodo"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000997
+obo:MOLSIM_000997 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose, curated repository that makes the data underlying scientific and medical publications discoverable, freely reusable, and citable. Dryad provides a platform for researchers to archive and share diverse datasets associated with their research articles. It promotes open science and data reproducibility. (UNVERIFIED)"@en ;
+                  rdfs:label "Dryad Digital Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000998
+obo:MOLSIM_000998 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose online digital repository where researchers can preserve and share their research outputs, including figures, datasets, images, and code. Figshare allows users to make their work citable and discoverable, supporting open science practices across various disciplines. (UNVERIFIED)"@en ;
+                  rdfs:label "Figshare"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000999
+obo:MOLSIM_000999 rdf:type owl:NamedIndividual ;
+                  rdfs:label "MDDBR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001000
+obo:MOLSIM_001000 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A publicly accessible database designed to store, search, and analyze biomolecular simulation data, including trajectories, input parameters, and analysis results. It aims to promote reproducibility, data sharing, and re-use of simulation data within the molecular modeling community. BioSimDB facilitates the discovery and comparison of simulation studies. (UNVERIFIED)"@en ;
+                  rdfs:label "BioSimDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001001
+obo:MOLSIM_001001 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database and web server that provides a collection of pre-equilibrated molecular dynamics simulations of proteins, particularly focusing on pharmaceutically relevant targets. MoDEL aims to offer ready-to-use starting points for further simulation studies, such as ligand binding or conformational analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "MoDEL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001002
+obo:MOLSIM_001002 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web server and platform designed for sharing, visualizing, and analyzing molecular dynamics (MD) simulation trajectories directly in a web browser. MDsrv allows researchers to easily disseminate their MD data and provides interactive tools for common trajectory analyses without requiring local software installation. (UNVERIFIED)"@en ;
+                  rdfs:label "MDsrv"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001003
+obo:MOLSIM_001003 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A prototype deposition and archiving system for structural models of biomolecular systems determined using integrative or hybrid (I/H) methods, which combine data from various experimental techniques and computational approaches. PDB-Dev aims to establish standards for archiving these complex structural models. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB-Dev"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001004
+obo:MOLSIM_001004 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive repository providing open access to millions of high-accuracy protein structure predictions generated by DeepMind's AlphaFold AI system. It significantly expands structural coverage of known protein sequences, offering valuable models for proteins lacking experimental structures. This database is a key resource for structural biology and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "AlphaFold Protein Structure Database"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001005
+obo:MOLSIM_001005 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of continuously updated, high-quality 3D protein structure models generated by the SWISS-MODEL homology modeling pipeline. It provides access to pre-computed models for a large number of protein sequences, particularly those from model organisms and UniProtKB. It is a key resource for obtaining theoretical protein models. (UNVERIFIED)"@en ;
+                  rdfs:label "SWISS-MODEL Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001006
+obo:MOLSIM_001006 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Scale Modeling Atlas - A database providing access to over 600 million metagenomic protein structure predictions generated using the ESMFold model, developed by Meta AI. ESMatlas significantly expands the structural coverage of proteins from diverse microbial environments. It is a valuable resource for exploring the structural landscape of the microbial world. (UNVERIFIED)"@en ;
+                  rdfs:label "ESMatlas"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001007
+obo:MOLSIM_001007 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for archiving and distributing 3D structural models of biomacromolecules, particularly those generated by computational methods that are not eligible for deposition in the PDB. ModelArchive supports the FAIR (Findable, Accessible, Interoperable, Reusable) principles for theoretical models. (UNVERIFIED)"@en ;
+                  rdfs:label "ModelArchive"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001025
+obo:MOLSIM_001025 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database for cross-species, cross-technique metabolomics experiments and derived information, maintained at EMBL-EBI. MetaboLights archives metadata about studies, raw experimental data, and processed metabolite identifications and quantifications. It is a key repository for the metabolomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MetaboLights"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001026
+obo:MOLSIM_001026 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Global Natural Products Social Molecular Networking - A web-based mass spectrometry ecosystem that enables the analysis, sharing, and discovery of natural products through molecular networking and community-curated spectral libraries. GNPS facilitates the identification of known and novel molecules from complex mixtures. It is a key platform for natural product research and metabolomics. (UNVERIFIED)"@en ;
+                  rdfs:label "GNPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001027
+obo:MOLSIM_001027 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for metabolomics data and metadata, part of the NIH Common Fund's Metabolomics Program. It serves as a national and international data repository and coordinating center, providing tools for data analysis, visualization, and integration with other omics data. (UNVERIFIED)"@en ;
+                  rdfs:label "Metabolomics Workbench"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001028
+obo:MOLSIM_001028 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free search engine primarily accessing the MEDLINE database of references and abstracts on life sciences and biomedical topics, maintained by the U.S. National Library of Medicine (NLM) at the National Institutes of Health (NIH). PubMed is the foremost resource for searching biomedical literature. (UNVERIFIED)"@en ;
+                  rdfs:label "PubMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001029
+obo:MOLSIM_001029 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large abstract and citation database of peer-reviewed literature: scientific journals, books, and conference proceedings, owned by Elsevier. Scopus provides tools for tracking, analyzing, and visualizing research output across various disciplines. It is a major competitor to Web of Science for literature searching and citation analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "Scopus"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001030
+obo:MOLSIM_001030 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A multidisciplinary citation indexing service and database platform owned by Clarivate Analytics. Web of Science provides access to multiple databases covering scholarly journals, books, conference proceedings, and patents, offering comprehensive citation data and research analytics. It is a major tool for literature discovery and impact assessment. (UNVERIFIED)"@en ;
+                  rdfs:label "Web of Science"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001031
+obo:MOLSIM_001031 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines. While not a curated database, it serves as a primary discovery tool for finding academic papers, theses, books, and abstracts. It is widely used by researchers for literature searches. (UNVERIFIED)"@en ;
+                  rdfs:label "Google Scholar"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000097
+                obo:MOLSIM_000159
+                obo:MOLSIM_000352
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000437
+                obo:MOLSIM_000438
+                obo:MOLSIM_000439
+                obo:MOLSIM_000440
+                obo:MOLSIM_000441
+                obo:MOLSIM_000442
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000437
+                obo:MOLSIM_000438
+                obo:MOLSIM_000439
+                obo:MOLSIM_000440
+                obo:MOLSIM_000441
+                obo:MOLSIM_000442
+                obo:MOLSIM_000904
+                obo:MOLSIM_000908
+                obo:MOLSIM_000909
+                obo:MOLSIM_000910
+                obo:MOLSIM_000911
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000444
+                obo:MOLSIM_000469
+                obo:MOLSIM_000866
+                obo:MOLSIM_000867
+                obo:MOLSIM_000868
+                obo:MOLSIM_000869
+                obo:MOLSIM_000870
+                obo:MOLSIM_000871
+                obo:MOLSIM_000872
+                obo:MOLSIM_000873
+                obo:MOLSIM_000874
+                obo:MOLSIM_000875
+                obo:MOLSIM_000876
+                obo:MOLSIM_000877
+                obo:MOLSIM_000878
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000468
+                obo:MOLSIM_000894
+                obo:MOLSIM_000895
+                obo:MOLSIM_000896
+                obo:MOLSIM_000897
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000470
+                obo:MOLSIM_000593
+                obo:MOLSIM_000600
+                obo:MOLSIM_000601
+                obo:MOLSIM_000609
+                obo:MOLSIM_000879
+                obo:MOLSIM_000880
+                obo:MOLSIM_000881
+                obo:MOLSIM_000882
+                obo:MOLSIM_000883
+                obo:MOLSIM_000884
+                obo:MOLSIM_000885
+                obo:MOLSIM_000886
+                obo:MOLSIM_000887
+                obo:MOLSIM_000888
+                obo:MOLSIM_000889
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000470
+                obo:MOLSIM_000879
+                obo:MOLSIM_000880
+                obo:MOLSIM_000881
+                obo:MOLSIM_000882
+                obo:MOLSIM_000883
+                obo:MOLSIM_000884
+                obo:MOLSIM_000885
+                obo:MOLSIM_000886
+                obo:MOLSIM_000887
+                obo:MOLSIM_000888
+                obo:MOLSIM_000889
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000471
+                obo:MOLSIM_000890
+                obo:MOLSIM_000891
+                obo:MOLSIM_000892
+                obo:MOLSIM_000893
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000472
+                obo:MOLSIM_000898
+                obo:MOLSIM_000899
+                obo:MOLSIM_000900
+                obo:MOLSIM_000901
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000591
+                obo:MOLSIM_000594
+                obo:MOLSIM_000595
+                obo:MOLSIM_000596
+                obo:MOLSIM_000597
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

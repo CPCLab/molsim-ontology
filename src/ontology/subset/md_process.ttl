@@ -1,0 +1,613 @@
+@prefix : <http://purl.obolibrary.org/obo/molsim.owl#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <http://purl.obolibrary.org/obo/molsim.owl#> .
+
+<http://purl.obolibrary.org/obo/molsim.owl> rdf:type owl:Ontology ;
+                                             owl:imports <http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/ncit_import.owl> ,
+                                                         <http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl> ;
+                                             dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools." ;
+                                             dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
+                                             dcterms:title "Molecular Simulation Ontology" ;
+                                             rdfs:comment "" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+obo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                rdfs:label "definition" .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty ;
+                    rdfs:label "description" .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty ;
+                rdfs:label "license" .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty ;
+              rdfs:label "title" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#hasExactSynonym
+oboInOwl:hasExactSynonym rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000297
+obo:MOLSIM_000297 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"@en ;
+                  rdfs:label "periodic box type"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000504
+obo:MOLSIM_000504 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain obo:MOLSIM_000000 ;
+                  obo:IAO_0000115 "Links a specific computational process or analysis step to the particular utility program from a molecular dynamics software suite that was used to perform it. For instance, an analysis of simulation trajectories might use a specific trajectory processing utility, or system preparation might involve a specific solvation tool. This property helps specify the exact software tools employed within a broader simulation workflow, where the utility is a component of a larger software package. (UNVERIFIED)"@en ;
+                  rdfs:label "molecular dynamics suite utility"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000507
+obo:MOLSIM_000507 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)"@en ;
+                  rdfs:label "alignment tool"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000508
+obo:MOLSIM_000508 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"@en ;
+                  rdfs:label "protein structure source"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001033
+obo:MOLSIM_001033 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"@en ;
+                  rdfs:label "simulation environment"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001034
+obo:MOLSIM_001034 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"@en ;
+                  rdfs:label "template complex structure"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001035
+obo:MOLSIM_001035 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en ;
+                  rdfs:label "validated ligand selection criteria"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001036
+obo:MOLSIM_001036 rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  obo:IAO_0000115 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en ;
+                  rdfs:label "reaction coordinate"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000000
+obo:MOLSIM_000000 rdf:type owl:Class ;
+                  obo:IAO_0000115 "A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation. Different types of processes address distinct phases or goals within the overall workflow. (UNVERIFIED)"@en ;
+                  rdfs:label "molecular dynamics process"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000002
+obo:MOLSIM_000002 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000000 ;
+                  obo:IAO_0000115 "The initial stage of a biomolecular simulation process, focused on setting up the molecular system and simulation environment before running the main simulation. This typically involves obtaining structures, adding missing atoms or molecules (like solvent), assigning force field parameters, defining simulation conditions (box, ensemble), and performing initial minimization and equilibration. Proper preparation is crucial for the stability and validity of subsequent simulation steps. (UNVERIFIED)"@en ;
+                  rdfs:label "preparation"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000003
+obo:MOLSIM_000003 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000000 ;
+                  obo:IAO_0000115 "The stage of a biomolecular simulation process where the main simulation runs are performed according to the prepared system and defined parameters to generate trajectory data. This phase involves propagating the system forward in time using algorithms like molecular dynamics or Monte Carlo, under specific ensemble conditions. The goal is typically to sample conformational space, observe dynamic events, or calculate specific properties like free energies. (UNVERIFIED)"@en ;
+                  rdfs:label "execution"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000004
+obo:MOLSIM_000004 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000000 ;
+                  obo:IAO_0000115 "The stage following simulation execution, where the generated trajectory data and energy files are processed and interpreted to extract meaningful scientific insights. This involves calculating various structural, dynamic, and thermodynamic properties, such as RMSD, RMSF, distances, angles, hydrogen bonds, interaction energies, free energies, diffusion coefficients, and clustering conformations. Appropriate analysis techniques are crucial for drawing valid conclusions from simulation results. (UNVERIFIED)"@en ;
+                  rdfs:label "analysis"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000005
+obo:MOLSIM_000005 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000002 ;
+                  obo:IAO_0000115 "A specific step within the preparation process where the ionization states (presence or absence of protons) of ionizable residues (like acids, bases, histidines) and ligands are determined and assigned based on estimated pKa values relevant to the target pH of the simulation. Correct protonation is critical for accurately modeling electrostatic interactions and pH-dependent phenomena. Specialized tools are often used for this task. (UNVERIFIED)"@en ;
+                  rdfs:label "protonation"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000208
+obo:MOLSIM_000208 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000002 ;
+                  obo:IAO_0000115 "A step within the preparation or equilibration phase where the system's temperature is gradually raised or adjusted to the desired target temperature for the production simulation. This is typically done by coupling the system to a thermostat while velocities are assigned or rescaled. Proper thermalization ensures the system reaches the correct kinetic energy distribution before equilibration or production runs. (UNVERIFIED)"@en ;
+                  rdfs:label "thermalization"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000209
+obo:MOLSIM_000209 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000002 ;
+                  obo:IAO_0000115 "A crucial phase in simulation preparation, following initial setup and minimization/thermalization, where the system is simulated under the target ensemble conditions (e.g., NVT or NPT) for a period to allow it to relax and reach a stable state. Key properties like temperature, pressure, density, potential energy, and RMSD are monitored to ensure the system is well-equilibrated before starting the production simulation intended for data collection. This phase allows the system to 'forget' its initial, potentially artificial starting configuration. (UNVERIFIED)"@en ;
+                  rdfs:label "equilibration"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000210
+obo:MOLSIM_000210 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000003 ;
+                  obo:IAO_0000115 "A specific simulation execution technique used to enhance sampling along a chosen reaction coordinate or order parameter, often for calculating the potential of mean force (PMF) or free energy profile associated with a process like ligand unbinding or a conformational change. It involves running multiple simulations, each confined ('biased') by a potential (the 'umbrella') to sample a specific window along the coordinate, with subsequent analysis required to unbias the results and reconstruct the overall profile. It falls under the category of enhanced sampling methods. (UNVERIFIED)"@en ;
+                  rdfs:label "umbrella sampling"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000211
+obo:MOLSIM_000211 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000003 ;
+                  obo:IAO_0000115 "The main data-gathering phase of a simulation execution, performed after the system has been properly prepared and equilibrated. During the production run, the system is simulated for a significant length of time under the desired conditions (ensemble, temperature, pressure) without strong restraints or equilibration protocols, and the resulting trajectory (positions and velocities over time) is saved for later analysis. The goal is to generate statistically meaningful data about the system's behavior. (UNVERIFIED)"@en ;
+                  rdfs:label "production"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000212
+obo:MOLSIM_000212 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000003 ;
+                  obo:IAO_0000115 "A type of simulation execution specifically designed to compute the free energy difference between two states (e.g., bound vs unbound, state A vs state B) or the free energy profile along a reaction coordinate. Common methods include Free Energy Perturbation (FEP), Thermodynamic Integration (TI), Umbrella Sampling (for PMFs), and sometimes methods based on endpoint analysis like MM/PBSA or MM/GBSA (though these are technically post-processing analyses estimating free energy). These calculations are computationally demanding but crucial for understanding binding affinities, reaction barriers, and relative stabilities. (UNVERIFIED)"@en ;
+                  rdfs:label "free energy calculation"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000213
+obo:MOLSIM_000213 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000003 ;
+                  obo:IAO_0000115 "An enhanced sampling simulation technique used to explore large conformational changes or dissociation pathways, often related to free energy calculations. It involves applying an external steering force to pull the system along a reaction coordinate, but unlike standard Steered MD, the pulling velocity or force application is adapted 'on-the-fly' based on the system's response, aiming for improved efficiency or convergence, particularly in exploring transition pathways. It is a specialized execution method for studying specific molecular events. (UNVERIFIED)"@en ;
+                  rdfs:label "adaptive steered molecular dynamics"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000216
+obo:MOLSIM_000216 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000004 ;
+                  obo:IAO_0000115 "The process of creating graphical representations of molecular structures, trajectories, and simulation data using specialized software. Visualization is essential for inspecting system setup, monitoring simulation progress, understanding molecular motion and interactions, identifying structural features, and communicating results effectively through images and animations. It is an integral part of both preparation and analysis stages. (UNVERIFIED)"@en ;
+                  rdfs:label "visualization"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000494
+obo:MOLSIM_000494 rdf:type owl:Class ;
+                  rdfs:subClassOf obo:MOLSIM_000002 ;
+                  rdfs:label "minimization"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000723
+obo:MOLSIM_000723 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Data Bank - The single worldwide archive for information about the 3D structures of large biological molecules, including proteins, nucleic acids, and complex assemblies, determined experimentally (primarily by X-ray crystallography, NMR, and cryo-EM). PDB is a fundamental resource for structural biology, biochemistry, and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000724
+obo:MOLSIM_000724 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "One of the founding members of the Worldwide Protein Data Bank (wwPDB) organization, responsible for managing and disseminating PDB data. PDBe provides access to the global archive of macromolecular structures and offers additional curated data, analysis tools, and resources for structural biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBe"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000725
+obo:MOLSIM_000725 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A founding member of the Worldwide Protein Data Bank (wwPDB) organization, serving as the Asian regional center for the PDB. PDBj collects, processes, and disseminates macromolecular structure data, and develops tools and resources for structural biology research in Japan and globally. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBj"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000726
+obo:MOLSIM_000726 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A pictorial database that provides an at-a-glance overview of the contents of each 3D macromolecular structure deposited in the Protein Data Bank (PDB). PDBsum presents schematic diagrams of molecular interactions, protein domains, ligand binding sites, and other structural features. It is a useful tool for quickly understanding PDB entries. (UNVERIFIED)"@en ;
+                  rdfs:label "PDBsum"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000727
+obo:MOLSIM_000727 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Nucleic Acid Database - A relational database that archives and disseminates three-dimensional structural information about nucleic acids (DNA, RNA) and their complexes, determined experimentally by X-ray crystallography, NMR, or electron microscopy. NDB provides tools for searching and analyzing these structures. It is the primary repository for nucleic acid 3D structures. (UNVERIFIED)"@en ;
+                  rdfs:label "NDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000728
+obo:MOLSIM_000728 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Data Bank - The primary public archive for three-dimensional electron microscopy density maps of biomolecular complexes and subcellular structures. EMDB stores 3D reconstructions obtained from techniques like cryo-electron microscopy (cryo-EM), electron tomography, and single particle analysis. It is essential for structural biologists studying large macromolecular assemblies. (UNVERIFIED)"@en ;
+                  rdfs:label "EMDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000729
+obo:MOLSIM_000729 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Electron Microscopy Public Image Archive - A public resource for raw 2D electron microscopy image data, including movies and tilt series, that underpins 3D structures in EMDB or other studies. EMPIAR promotes transparency, reproducibility, and the development of new image processing methods by providing access to the primary experimental data. (UNVERIFIED)"@en ;
+                  rdfs:label "EMPIAR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000730
+obo:MOLSIM_000730 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NIH genetic sequence database, an annotated collection of all publicly available DNA sequences, maintained by the National Center for Biotechnology Information (NCBI). As part of the INSDC, GenBank is a foundational resource for molecular biology, genomics, and evolutionary studies worldwide. (UNVERIFIED)"@en ;
+                  rdfs:label "GenBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000731
+obo:MOLSIM_000731 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "UniProt Knowledgebase - A comprehensive, high-quality, and freely accessible resource of protein sequence and functional information, created by joining the Swiss-Prot, TrEMBL, and PIR-PSD databases. UniProtKB consists of two sections: Swiss-Prot (manually annotated and reviewed) and TrEMBL (computationally annotated). It is a central hub for protein information. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000732
+obo:MOLSIM_000732 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "European Nucleotide Archive - A comprehensive public repository for nucleotide sequencing information, covering raw reads, assembled sequences, and functional annotations, from all domains of life. As part of the INSDC, ENA collaborates with GenBank and DDBJ to provide a global archive for sequence data. It is a fundamental resource for genomics and bioinformatics. (UNVERIFIED)"@en ;
+                  rdfs:label "ENA"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000733
+obo:MOLSIM_000733 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "DNA Data Bank of Japan - one of the three major international nucleotide sequence databases, along with GenBank (NCBI) and ENA (EMBL-EBI), forming the International Nucleotide Sequence Database Collaboration (INSDC). DDBJ collects, annotates, and provides public access to DNA and RNA sequences from all organisms. It is a fundamental resource for genomics and molecular biology. (UNVERIFIED)"@en ;
+                  rdfs:label "DDBJ"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000734
+obo:MOLSIM_000734 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The manually annotated and reviewed section of the UniProt Knowledgebase (UniProtKB). Swiss-Prot entries contain high-quality protein sequence information, detailed functional annotations, and extensive cross-references, derived from literature and curator evaluation. It represents the gold standard for protein annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/Swiss-Prot"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000811
+obo:MOLSIM_000811 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The computationally annotated section of the UniProt Knowledgebase (UniProtKB), containing protein sequences that are not yet manually curated. TrEMBL entries are largely derived from the translation of coding sequences in nucleotide sequence databases and are automatically annotated. It provides broad sequence coverage. (UNVERIFIED)"@en ;
+                  rdfs:label "UniProtKB/TrEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000919
+obo:MOLSIM_000919 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for protein data, offering a curated, non-redundant set of protein sequences, often linked to corresponding nucleotide sequences and genomic annotations. RefSeq proteins serve as stable reference points for protein identification, annotation, and comparative analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "NCBI RefSeq Protein"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000920
+obo:MOLSIM_000920 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Protein Information Resource - A long-standing public bioinformatics resource that created the Protein Sequence Database (PSD), one of the first curated collections of protein sequences. PIR now contributes to UniProt and develops other resources like iProClass for protein classification and functional annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "PIR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000922
+obo:MOLSIM_000922 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "The NCBI Reference Sequence (RefSeq) collection for nucleotide data, providing a comprehensive, integrated, non-redundant, and well-annotated set of sequences for chromosomes, genomic regions, transcripts, and RNAs. RefSeq aims to provide stable reference sequences for various organisms. It is a critical resource for genomics and gene annotation"@en ;
+                  rdfs:label "NCBI RefSeq Nucleotide"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000929
+obo:MOLSIM_000929 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that contains validated chemical structure information for small molecules, including their identifiers, properties, and links to related information. PubChem Compound is a comprehensive resource for chemical information and a key component of the PubChem suite. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem Compound"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000930
+obo:MOLSIM_000930 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Chemical Entities of Biological Interest - A freely available dictionary and ontology of molecular entities focused on 'small' chemical compounds that are either products or reactants in biological processes. ChEBI provides nomenclature, structural information, and links to other databases for a wide range of biologically relevant chemicals. It is essential for cheminformatics and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "ChEBI"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000931
+obo:MOLSIM_000931 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free database of commercially available chemical compounds prepared in ready-to-dock, 3D formats for virtual screening and computational drug discovery. ZINC20 contains millions of purchasable compounds with annotated properties, facilitating large-scale ligand docking and cheminformatics studies. (UNVERIFIED)"@en ;
+                  rdfs:label "ZINC20"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000932
+obo:MOLSIM_000932 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive, freely accessible online database containing detailed information on drugs, drug targets, drug interactions, and drug metabolism. It combines detailed drug data with comprehensive drug target information, making it a vital resource for pharmacology, medicinal chemistry, and pharmaceutical research. (UNVERIFIED)"@en ;
+                  rdfs:label "DrugBank"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000933
+obo:MOLSIM_000933 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free chemical structure database providing fast access to over millions of structures, properties, and associated information from various sources. It allows users to search by chemical name, synonym, trade name, registry number, or structure. ChemSpider is a comprehensive resource for chemists and researchers needing chemical information. (UNVERIFIED)"@en ;
+                  rdfs:label "ChemSpider"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000934
+obo:MOLSIM_000934 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Therapeutic Target Database - A database providing comprehensive information about therapeutic protein and nucleic acid targets, the approved and investigational drugs directed at these targets, and the corresponding diseases. TTD links target information with drug development pipelines and clinical trial data. It is a useful resource for drug discovery and pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "TTD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000935
+obo:MOLSIM_000935 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A website operated by the U.S. National Library of Medicine (NLM) that provides high-quality information about marketed drugs, including FDA-approved drug labels (package inserts). It offers comprehensive information for healthcare providers and the public on drug ingredients, indications, dosage, warnings, and adverse reactions. (UNVERIFIED)"@en ;
+                  rdfs:label "DailyMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000957
+obo:MOLSIM_000957 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A manually curated, large-scale database of bioactive drug-like small molecules and their quantitative bioactivity data against drug targets (primarily proteins). It brings together chemical, bioactivity, and genomic data to aid the translation of genomic information into effective new drugs. ChEMBL is a critical resource for drug discovery, pharmacology, and medicinal chemistry."@en ;
+                  rdfs:label "ChEMBL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000958
+obo:MOLSIM_000958 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Mass Spectrometry Interactive Virtual Environment - A public data repository for mass spectrometry (MS) datasets, particularly from proteomics experiments, developed by the Center for Computational Mass Spectrometry at UCSD. MassIVE facilitates the deposition, storage, sharing, and reanalysis of MS data, supporting open science in the proteomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MassIVE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000959
+obo:MOLSIM_000959 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "An integrated spectral database system for organic compounds, maintained by the National Institute of Advanced Industrial Science and Technology (AIST), Japan. SDBS contains NMR (1H, 13C), mass spectra, IR, Raman, and ESR spectra for a large number of organic compounds. It is a valuable resource for chemical identification and structural elucidation. (UNVERIFIED)"@en ;
+                  rdfs:label "SDBS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000960
+obo:MOLSIM_000960 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Biological Magnetic Resonance Data Bank - A repository that collects, archives, and disseminates Nuclear Magnetic Resonance (NMR) spectroscopic data from biological macromolecules and metabolites. This includes assigned chemical shifts, coupling constants, relaxation rates, and derived structural information like distance and dihedral angle restraints. BMRB is the primary worldwide archive for biomolecular NMR data. (UNVERIFIED)"@en ;
+                  rdfs:label "BMRB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000961
+obo:MOLSIM_000961 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Complex Carbohydrate Magnetic Resonance Database for NMR - A specialized NMR database focusing on the assigned chemical shifts of complex carbohydrates (oligosaccharides and polysaccharides) and their complexes with proteins. It serves as a resource for researchers studying carbohydrate structures and interactions using NMR spectroscopy. (UNVERIFIED)"@en ;
+                  rdfs:label "ComplexCARP"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000962
+obo:MOLSIM_000962 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that integrates predictive signatures for protein families, domains, and functional sites from multiple member databases (e.g., Pfam, PROSITE, SMART, CDD, CATH, SCOP). InterPro provides a comprehensive overview of protein sequence features, aiding in functional annotation and comparative analysis. It is a powerful tool for protein characterization. (UNVERIFIED)"@en ;
+                  rdfs:label "InterPro"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000964
+obo:MOLSIM_000964 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs). Pfam is used to identify conserved domains and families in protein sequences, providing insights into their function and evolutionary relationships. It is a widely used resource for protein sequence annotation. (UNVERIFIED)"@en ;
+                  rdfs:label "Pfam"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000965
+obo:MOLSIM_000965 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web-based resource used for the identification and annotation of genetically mobile domains and the analysis of domain architectures in proteins. SMART contains manually curated models for hundreds of domains involved in signaling, extracellular functions, and chromatin regulation. It is a valuable tool for protein sequence analysis and functional prediction. (UNVERIFIED)"@en ;
+                  rdfs:label "SMART"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000966
+obo:MOLSIM_000966 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of protein domains, families, and functional sites, characterized by patterns (regular expressions) or profiles (position-specific scoring matrices) derived from multiple sequence alignments. PROSITE is used to identify known motifs and domains in protein sequences, aiding in functional prediction. It is part of the SIB ExPASy server. (UNVERIFIED)"@en ;
+                  rdfs:label "PROSITE"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000967
+obo:MOLSIM_000967 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Conserved Domain Database by NCBI -  A database maintained by NCBI containing manually curated models of ancient domains and full-length proteins, as well as models imported from other sources like Pfam and SMART. CDD is used to identify conserved domains within protein sequences, providing insights into their function. It is a key tool for protein sequence analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "CDD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000968
+obo:MOLSIM_000968 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database that provides a detailed and comprehensive hierarchical classification of protein structural domains based on their evolutionary relationships and structural similarities. SCOP2 builds upon the original SCOP, aiming to provide a more automated and comprehensive classification. It is a key resource for understanding protein structure and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "SCOP2"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000969
+obo:MOLSIM_000969 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Class, Architecture, Topology, Homologous superfamily - A hierarchical classification database of protein domain structures derived from the Protein Data Bank (PDB). CATH groups protein domains based on their evolutionary relationships and structural similarities at different levels: Class (secondary structure content), Architecture (overall shape), Topology (fold family), and Homologous superfamily. It provides insights into protein structure, function, and evolution. (UNVERIFIED)"@en ;
+                  rdfs:label "CATH"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000970
+obo:MOLSIM_000970 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Classification of Protein Domains - A hierarchical classification of protein domains based on evolutionary relationships, emphasizing distant homology. ECOD groups domains into families, homologous groups (H-groups), topological groups (T-groups), architectural groups (X-groups), and possible homology groups (Y-groups). It provides a framework for understanding protein evolution and structure. (UNVERIFIED)"@en ;
+                  rdfs:label "ECOD"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000971
+obo:MOLSIM_000971 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of manually drawn pathway maps representing current knowledge on molecular interaction and reaction networks for metabolism, genetic information processing, environmental information processing, cellular processes, organismal systems, and human diseases. KEGG Pathway is part of the larger Kyoto Encyclopedia of Genes and Genomes (KEGG) resource. It is widely used for pathway analysis and systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "KEGG Pathway"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000972
+obo:MOLSIM_000972 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free, open-source, curated, and peer-reviewed pathway database that provides detailed information on human biological pathways and processes. Reactome uses a hierarchical organization to describe molecular events, from individual reactions to complex pathways, linking genes, proteins, and small molecules. It is a key resource for systems biology and pathway analysis."@en ;
+                  rdfs:label "Reactome"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000973
+obo:MOLSIM_000973 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A collection of thousands of Pathway/Genome Databases (PGDBs), each describing the genome and metabolic pathways of a specific organism, plus a multi-organism pathway database (MetaCyc). BioCyc provides curated information on genes, enzymes, metabolites, and reactions, facilitating comparative genomics and metabolic network analysis. It is a key resource for systems biology. (UNVERIFIED)"@en ;
+                  rdfs:label "BioCyc"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000977
+obo:MOLSIM_000977 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A community-curated, open, and collaborative platform for biological pathway diagrams. WikiPathways allows researchers to contribute, edit, and share pathway information, fostering a dynamic and up-to-date collection of pathway models across various species. It promotes open access to pathway knowledge. (UNVERIFIED)"@en ;
+                  rdfs:label "WikiPathways"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000991
+obo:MOLSIM_000991 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public, web-accessible database focusing on measured binding affinities of interactions between proteins (considered as drug targets) and small, drug-like molecules. It primarily contains data from enzyme assays, isothermal titration calorimetry, and surface plasmon resonance. BindingDB is a valuable resource for drug discovery, cheminformatics, and validating computational predictions. (UNVERIFIED)"@en ;
+                  rdfs:label "BindingDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000992
+obo:MOLSIM_000992 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository within PubChem that stores descriptions and results of biological screening assays on chemical substances, typically from high-throughput screening programs. PubChem BioAssay links chemical structures to their biological activities, providing valuable data for drug discovery and chemical biology. (UNVERIFIED)"@en ;
+                  rdfs:label "PubChem BioAssay"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000993
+obo:MOLSIM_000993 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "IUPHAR/BPS Guide to PHARMACOLOGY - An expert-curated database of pharmacological targets (receptors, ion channels, enzymes, transporters) and the drugs/ligands that act on them, developed by the International Union of Basic and Clinical Pharmacology (IUPHAR) and the British Pharmacological Society (BPS). It provides concise overviews, nomenclature, and key properties for these targets and ligands. It is an authoritative resource for pharmacology. (UNVERIFIED)"@en ;
+                  rdfs:label "IUPHAR/BPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000994
+obo:MOLSIM_000994 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A discovery platform integrating and standardizing data on gene-disease associations (GDAs) and variant-disease associations (VDAs) from multiple public repositories and scientific literature. DisGeNET provides scores to rank these associations and tools for their analysis and interpretation. It is a valuable resource for studying the genetic basis of human diseases. (UNVERIFIED)"@en ;
+                  rdfs:label "DisGeNET"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000995
+obo:MOLSIM_000995 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Online Mendelian Inheritance in Man - A comprehensive, authoritative, and continuously updated catalog of human genes and genetic disorders and traits, with a particular focus on the gene-phenotype relationship. OMIM provides textual information, references, and links to other genetic resources. It is an essential resource for human genetics and clinical research. (UNVERIFIED)"@en ;
+                  rdfs:label "OMIM"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000996
+obo:MOLSIM_000996 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose open-access repository operated by CERN and OpenAIRE, allowing researchers in all disciplines to deposit research outputs, including datasets, software, publications, and figures. Zenodo assigns DOIs to uploads, making them citable and discoverable. It supports FAIR data principles. (UNVERIFIED)"@en ;
+                  rdfs:label "Zenodo"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000997
+obo:MOLSIM_000997 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose, curated repository that makes the data underlying scientific and medical publications discoverable, freely reusable, and citable. Dryad provides a platform for researchers to archive and share diverse datasets associated with their research articles. It promotes open science and data reproducibility. (UNVERIFIED)"@en ;
+                  rdfs:label "Dryad Digital Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000998
+obo:MOLSIM_000998 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A general-purpose online digital repository where researchers can preserve and share their research outputs, including figures, datasets, images, and code. Figshare allows users to make their work citable and discoverable, supporting open science practices across various disciplines. (UNVERIFIED)"@en ;
+                  rdfs:label "Figshare"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_000999
+obo:MOLSIM_000999 rdf:type owl:NamedIndividual ;
+                  rdfs:label "MDDBR"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001000
+obo:MOLSIM_001000 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A publicly accessible database designed to store, search, and analyze biomolecular simulation data, including trajectories, input parameters, and analysis results. It aims to promote reproducibility, data sharing, and re-use of simulation data within the molecular modeling community. BioSimDB facilitates the discovery and comparison of simulation studies. (UNVERIFIED)"@en ;
+                  rdfs:label "BioSimDB"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001001
+obo:MOLSIM_001001 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database and web server that provides a collection of pre-equilibrated molecular dynamics simulations of proteins, particularly focusing on pharmaceutically relevant targets. MoDEL aims to offer ready-to-use starting points for further simulation studies, such as ligand binding or conformational analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "MoDEL"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001002
+obo:MOLSIM_001002 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A web server and platform designed for sharing, visualizing, and analyzing molecular dynamics (MD) simulation trajectories directly in a web browser. MDsrv allows researchers to easily disseminate their MD data and provides interactive tools for common trajectory analyses without requiring local software installation. (UNVERIFIED)"@en ;
+                  rdfs:label "MDsrv"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001003
+obo:MOLSIM_001003 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A prototype deposition and archiving system for structural models of biomolecular systems determined using integrative or hybrid (I/H) methods, which combine data from various experimental techniques and computational approaches. PDB-Dev aims to establish standards for archiving these complex structural models. (UNVERIFIED)"@en ;
+                  rdfs:label "PDB-Dev"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001004
+obo:MOLSIM_001004 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A comprehensive repository providing open access to millions of high-accuracy protein structure predictions generated by DeepMind's AlphaFold AI system. It significantly expands structural coverage of known protein sequences, offering valuable models for proteins lacking experimental structures. This database is a key resource for structural biology and drug discovery. (UNVERIFIED)"@en ;
+                  rdfs:label "AlphaFold Protein Structure Database"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001005
+obo:MOLSIM_001005 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database of continuously updated, high-quality 3D protein structure models generated by the SWISS-MODEL homology modeling pipeline. It provides access to pre-computed models for a large number of protein sequences, particularly those from model organisms and UniProtKB. It is a key resource for obtaining theoretical protein models. (UNVERIFIED)"@en ;
+                  rdfs:label "SWISS-MODEL Repository"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001006
+obo:MOLSIM_001006 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Evolutionary Scale Modeling Atlas - A database providing access to over 600 million metagenomic protein structure predictions generated using the ESMFold model, developed by Meta AI. ESMatlas significantly expands the structural coverage of proteins from diverse microbial environments. It is a valuable resource for exploring the structural landscape of the microbial world. (UNVERIFIED)"@en ;
+                  rdfs:label "ESMatlas"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001007
+obo:MOLSIM_001007 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for archiving and distributing 3D structural models of biomacromolecules, particularly those generated by computational methods that are not eligible for deposition in the PDB. ModelArchive supports the FAIR (Findable, Accessible, Interoperable, Reusable) principles for theoretical models. (UNVERIFIED)"@en ;
+                  rdfs:label "ModelArchive"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001025
+obo:MOLSIM_001025 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A database for cross-species, cross-technique metabolomics experiments and derived information, maintained at EMBL-EBI. MetaboLights archives metadata about studies, raw experimental data, and processed metabolite identifications and quantifications. It is a key repository for the metabolomics community. (UNVERIFIED)"@en ;
+                  rdfs:label "MetaboLights"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001026
+obo:MOLSIM_001026 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "Global Natural Products Social Molecular Networking - A web-based mass spectrometry ecosystem that enables the analysis, sharing, and discovery of natural products through molecular networking and community-curated spectral libraries. GNPS facilitates the identification of known and novel molecules from complex mixtures. It is a key platform for natural product research and metabolomics. (UNVERIFIED)"@en ;
+                  rdfs:label "GNPS"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001027
+obo:MOLSIM_001027 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A public repository for metabolomics data and metadata, part of the NIH Common Fund's Metabolomics Program. It serves as a national and international data repository and coordinating center, providing tools for data analysis, visualization, and integration with other omics data. (UNVERIFIED)"@en ;
+                  rdfs:label "Metabolomics Workbench"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001028
+obo:MOLSIM_001028 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A free search engine primarily accessing the MEDLINE database of references and abstracts on life sciences and biomedical topics, maintained by the U.S. National Library of Medicine (NLM) at the National Institutes of Health (NIH). PubMed is the foremost resource for searching biomedical literature. (UNVERIFIED)"@en ;
+                  rdfs:label "PubMed"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001029
+obo:MOLSIM_001029 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A large abstract and citation database of peer-reviewed literature: scientific journals, books, and conference proceedings, owned by Elsevier. Scopus provides tools for tracking, analyzing, and visualizing research output across various disciplines. It is a major competitor to Web of Science for literature searching and citation analysis. (UNVERIFIED)"@en ;
+                  rdfs:label "Scopus"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001030
+obo:MOLSIM_001030 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A multidisciplinary citation indexing service and database platform owned by Clarivate Analytics. Web of Science provides access to multiple databases covering scholarly journals, books, conference proceedings, and patents, offering comprehensive citation data and research analytics. It is a major tool for literature discovery and impact assessment. (UNVERIFIED)"@en ;
+                  rdfs:label "Web of Science"@en .
+
+
+###  http://purl.obolibrary.org/obo/MOLSIM_001031
+obo:MOLSIM_001031 rdf:type owl:NamedIndividual ;
+                  obo:IAO_0000115 "A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines. While not a curated database, it serves as a primary discovery tool for finding academic papers, theses, books, and abstracts. It is widely used by researchers for literature searches. (UNVERIFIED)"@en ;
+                  rdfs:label "Google Scholar"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000005
+                obo:MOLSIM_000208
+                obo:MOLSIM_000209
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( obo:MOLSIM_000210
+                obo:MOLSIM_000211
+                obo:MOLSIM_000212
+                obo:MOLSIM_000213
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
