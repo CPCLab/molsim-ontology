@@ -2200,6 +2200,7 @@ SubClassOf(obo:MOLSIM_000158 obo:MOLSIM_000001)
 
 # Class: obo:MOLSIM_000159 (AMBER mdcrd format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000159 "A text-based file format from the Amber software that stores the movement of atoms over time from a simulation. It contains a series of snapshots, or frames, where each frame lists the x, y, and z coordinates of every atom at a specific time point. This format is widely used for analyzing and visualizing simulation trajectories. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000159 "AMBER mdcrd format"@en)
 SubClassOf(obo:MOLSIM_000159 obo:MOLSIM_001090)
 
@@ -3944,13 +3945,13 @@ SubClassOf(obo:MOLSIM_000442 obo:MOLSIM_001085)
 
 # Class: obo:MOLSIM_000443 (xyzv format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000443 "A simple text-based format for storing volumetric data as a list of points in space. Each line typically contains an x, y, and z coordinate followed by the data value at that point. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000443 "A simple text-based file format for storing data that exists at various points in 3D space. Each line in the file specifies an x, y, and z coordinate, followed by the data value at that point. It is a straightforward, human-readable format for representing sparse or irregular grid data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000443 "xyzv format"@en)
 SubClassOf(obo:MOLSIM_000443 obo:MOLSIM_000909)
 
 # Class: obo:MOLSIM_000444 (tleap input format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000444 "This refers to an input script file used by the tleap program, part of the AmberTools suite, typically containing commands to build the necessary topology (prmtop) and coordinate (inpcrd) files for Amber simulations. It defines how to load molecular structures and apply force field parameters to prepare a system. The script uses specific tleap commands and syntax. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000444 "A script file format for the tleap program in AmberTools, used to build a molecular system for simulation. It contains a sequence of commands to load molecular structures, apply force fields, add solvent, and save the final topology and coordinate files. This format is a fundamental part of the system preparation stage in an Amber workflow. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000444 "tleap input format"@en)
 SubClassOf(obo:MOLSIM_000444 obo:MOLSIM_000437)
 
@@ -4100,7 +4101,7 @@ SubClassOf(obo:MOLSIM_000467 obo:MOLSIM_000458)
 
 # Class: obo:MOLSIM_000468 (mrc format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000468 "A binary file format used to store three-dimensional volumetric data, such as electron density maps. It is a standard format in the cryo-electron microscopy (cryo-EM) community for representing 3D reconstructions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000468 "A binary file format used to store three-dimensional images or maps, common in electron microscopy. It is the standard format for storing 3D density maps in cryo-electron microscopy (cryo-EM) and is also used in X-ray crystallography. This format is essential for the visualization and analysis of volumetric data in structural biology. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000468 "mrc format"@en)
 SubClassOf(obo:MOLSIM_000468 obo:MOLSIM_000909)
 
@@ -4819,17 +4820,20 @@ SubClassOf(obo:MOLSIM_000589 obo:MOLSIM_000588)
 
 # Class: obo:MOLSIM_000590 (plotting format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000590 "A category for file formats designed to store data in a way that is easily read by graphing or plotting software. These formats typically contain columns of numerical data that can be visualized as 2D or 3D plots. They are used to create visual representations of scientific data, such as graphs of energy over time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000590 "plotting format"@en)
 SubClassOf(obo:MOLSIM_000590 obo:MOLSIM_000436)
 
 # Class: obo:MOLSIM_000591 (agr format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000591 "A text-based data file format for the Grace/Xmgrace plotting program. It contains numerical data along with commands that specify the appearance of the graph, such as titles, labels, and colors. This format allows for the creation of complex, publication-quality plots. (UNVERIFIED)"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000591 "An data file format for the Grace/Xmgrace plotting tool."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000591 "agr format"@en)
 SubClassOf(obo:MOLSIM_000591 obo:MOLSIM_000590)
 
 # Class: obo:MOLSIM_000592 (stripped topology format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000592 "A file format that represents a molecular system's topology after certain atoms, typically solvent or ions, have been removed. This format is created to simplify analysis by focusing only on the solute, while retaining the necessary parameter information for calculations. It is commonly used in post-processing steps like MM/PBSA free energy calculations. (UNVERIFIED)"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000592 "A topology file corresponding to a structure after atom removal."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000592 "stripped topology format"@en)
 SubClassOf(obo:MOLSIM_000592 obo:MOLSIM_001091)
@@ -4843,28 +4847,29 @@ SubClassOf(obo:MOLSIM_000593 obo:MOLSIM_000442)
 
 # Class: obo:MOLSIM_000594 (gnu format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000594 "A data file format designed to be used with the Gnuplot plotting program. It typically consists of columns of numerical data in a simple text-based layout that Gnuplot can easily parse and visualize. This format is widely used for generating scientific graphs and plots from raw data. (UNVERIFIED)"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000594 "A data file format for the Gnuplot plotting program."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000594 "gnu format"@en)
 SubClassOf(obo:MOLSIM_000594 obo:MOLSIM_000590)
 
 # Class: obo:MOLSIM_000595 (xplor format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000595 "A file format associated with the XPLOR-NIH software, used for representing 3D grid data. It is a text-based format that defines a grid and the data values at each point, often used for electron density maps. This format is a common way to store volumetric data in crystallography and NMR. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000595 "xplor format"@en)
 SubClassOf(obo:MOLSIM_000595 obo:MOLSIM_000590)
 
 # Class: obo:MOLSIM_000596 (grid format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000596 "A format for representing 3D grid data, from XPLOR-NIH."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000596 "A file format for representing data that is distributed over a three-dimensional grid. Originating from the XPLOR-NIH software, it is used to store volumetric data like electron density or potential maps. This format is used in structural biology to visualize grid-based properties around a molecule. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000596 ".grid"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000596 ".xplor"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000596 "xplor format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000596 "grid format"@en)
 SubClassOf(obo:MOLSIM_000596 obo:MOLSIM_000590)
 
 # Class: obo:MOLSIM_000597 (dx format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000597 "A file format for the OpenDX (Data Explorer) visualization program, used to represent 3D grid-based data. It stores scalar or vector data on a regular grid, making it suitable for visualizing properties like electrostatic potential or molecular density. This format is a common output for scientific programs that generate volumetric data. (UNVERIFIED)"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000597 "A format for 3D grid data for the OpenDX visualization program."@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000597 ".dx"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000597 "OpenDX format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000597 "dx format"@en)
 SubClassOf(obo:MOLSIM_000597 obo:MOLSIM_000590)
 
@@ -4979,6 +4984,7 @@ SubClassOf(obo:MOLSIM_000613 obo:MOLSIM_000437)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000614 "An Amber OFF Library file (Object File Format) is a text file that stores a library of molecular units or residues, including their force field parameters, atom types, connectivity, and charges. These files are a fundamental part of the Amber software suite, allowing the LEaP program to build simulation-ready topology files for systems containing non-standard molecules or modified residues (like amino acids with post-translational modifications). The file extension can be interchangeably provided as .lib/.off files UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000614 ".off"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000614 "AMBER Object File Format"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000614 "AMBER lib format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000614 "AMBER off format"@en)
 SubClassOf(obo:MOLSIM_000614 obo:MOLSIM_000437)
 
@@ -6751,6 +6757,7 @@ SubClassOf(obo:MOLSIM_000918 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000921 (crd format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000921 "A generic name for a text-based file format that stores the Cartesian (x, y, z) coordinates of atoms in a molecular system. The specific layout can vary, as multiple simulation packages like CHARMM and Amber have their own distinct versions of a \".crd\" file. Due to its ambiguity, it is often necessary to specify which software's CRD format is being used. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000921 "crd format"@en)
 SubClassOf(obo:MOLSIM_000921 obo:MOLSIM_001089)
 
@@ -6920,7 +6927,8 @@ SubClassOf(obo:MOLSIM_000956 obo:MOLSIM_000954)
 # Class: obo:MOLSIM_000963 (AMBER crd format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000963 "This refers to the file format used by Amber to store atomic coordinates, commonly the ASCII .inpcrd file (or sometimes .crd). It contains a list of coordinates, usually read alongside a topology (.prmtop) file, and may optionally include periodic box information. The binary/ASCII restart file (.rst7) format also inherently contains coordinates and is often used as a coordinate input. (UNVERIFIED)"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000963 "Amber .inpcrd format"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000963 "AMBER inpcrd format"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000963 "AMBER prmcrd format"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000963 "Amber's standard ASCII coordinate trajectory file format.
 
 The \"Coordinates Data Set\" or \"COORDS\" in Amber is not a file format, but rather a specialized, in-memory data structure used by the cpptraj analysis program. It is designed to efficiently hold and manipulate sets of coordinate frames (i.e., structures) loaded from trajectory files during an analysis session. Since the COORDS data set is an internal, in-memory representation, it does not have a file extension. 
@@ -7140,11 +7148,13 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001032 "measure parameters"@en)
 
 # Class: obo:MOLSIM_001037 (GROMOS crd format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001037 "A text-based file format used by the GROMOS simulation package to store the atomic coordinates of a molecular system. The format includes sections for title, atom information, and positional coordinates, often with specific formatting for atom and residue names. It serves as a standard way to represent molecular structures within the GROMOS ecosystem. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001037 "GROMOS crd format"@en)
 SubClassOf(obo:MOLSIM_001037 obo:MOLSIM_000921)
 
 # Class: obo:MOLSIM_001038 (MPDyn crd format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001038 "A file format for the MPDyn simulation program that stores the atomic coordinates of a molecular system. This format contains the x, y, and z positions for each atom, structured for use with the MPDyn software package. It provides the essential structural input for running simulations with MPDyn. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001038 "MPDyn crd format"@en)
 SubClassOf(obo:MOLSIM_001038 obo:MOLSIM_000921)
 
@@ -7183,6 +7193,7 @@ SubClassOf(obo:MOLSIM_001041 obo:MOLSIM_001040)
 
 # Class: obo:MOLSIM_001042 (AMBER prmtop format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001042 "The standard file format in the Amber software suite that contains all the information needed to describe a molecular system, except for the coordinates. It includes the system's topology, force field parameters, atom types, and charges. This file is used in combination with a coordinate file to run a simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001042 "AMBER PRMTOP format"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001042 "AMBER parmtop format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001042 "AMBER prmtop format"@en)
@@ -7190,6 +7201,7 @@ SubClassOf(obo:MOLSIM_001042 obo:MOLSIM_000472)
 
 # Class: obo:MOLSIM_001043 (AMBER parm7 format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001043 "A file format from the Amber simulation software that describes the structure and force field parameters of a molecule. This is the traditional, ASCII-based version of the Amber parameter/topology file, containing all information needed to calculate forces on the system. It is often used interchangeably with the prmtop format. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001043 "AMBER PARM7 format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001043 "AMBER parm7 format"@en)
 SubClassOf(obo:MOLSIM_001043 obo:MOLSIM_000472)
@@ -7202,6 +7214,7 @@ SubClassOf(obo:MOLSIM_001044 obo:MOLSIM_001087)
 
 # Class: obo:MOLSIM_001045 (Tinker arc format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001045 "A file format used by the TINKER simulation package to store the trajectory of a molecular system. It archives the atomic coordinates from different snapshots of a simulation in a single file for later analysis. This is the standard trajectory output for TINKER simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001045 ".arc")
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001045 "This can also be a coordinate format from Tinker package as well.")
 AnnotationAssertion(rdfs:label obo:MOLSIM_001045 "Tinker arc format"@en)
@@ -7230,16 +7243,19 @@ SubClassOf(obo:MOLSIM_001048 obo:MOLSIM_000447)
 
 # Class: obo:MOLSIM_001049 (rst  format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001049 "A file format from the Amber software that saves the state of a simulation, allowing it to be continued later. This is a general term for Amber restart files, which can be either text-based or binary. It contains the atomic coordinates, velocities, and simulation box dimensions at a specific point in time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001049 "rst  format"@en)
 SubClassOf(obo:MOLSIM_001049 obo:MOLSIM_000471)
 
 # Class: obo:MOLSIM_001050 (rst7  format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001050 "A text-based file format from the Amber software that saves the state of a simulation. It is the ASCII version of the Amber restart file, containing coordinates, velocities, and box information in a human-readable format. This format is often used for its portability and ease of inspection. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001050 "rst7  format"@en)
 SubClassOf(obo:MOLSIM_001050 obo:MOLSIM_000471)
 
 # Class: obo:MOLSIM_001051 (ncrst format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001051 "A binary file format from the Amber software that saves the complete state of a simulation. It is a NetCDF-based version of the Amber restart file, storing coordinates, velocities, and box vectors with high precision. This is the modern, preferred format for restarting Amber simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001051 "A NetCDF-based restart file for Amber simulations."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001051 "ncrst format"@en)
 SubClassOf(obo:MOLSIM_001051 obo:MOLSIM_000471)
@@ -7252,26 +7268,31 @@ SubClassOf(obo:MOLSIM_001052 obo:MOLSIM_000921)
 
 # Class: obo:MOLSIM_001053 (CHARMM cor format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001053 "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule. It is a binary, unformatted version of the CHARMM coordinate file, making it more compact and faster to read than its text-based counterpart. This format is often used for saving and reading structures within CHARMM workflows. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001053 "CHARMM cor format"@en)
 SubClassOf(obo:MOLSIM_001053 obo:MOLSIM_000921)
 
 # Class: obo:MOLSIM_001054 (GROMACS trr format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001054 "A binary file format from the GROMACS software that stores the full-precision trajectory of a simulation. It saves the atomic coordinates, velocities, and forces at each time step without any loss of precision. This format is used when high accuracy is needed for analysis, such as for calculating kinetic properties. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001054 "GROMACS trr format"@en)
 SubClassOf(obo:MOLSIM_001054 obo:MOLSIM_000903)
 
 # Class: obo:MOLSIM_001055 (GROMACS xtc format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001055 "A compressed, binary file format from the GROMACS software for storing the trajectory of a molecular simulation. It uses a lossy compression algorithm to store atomic coordinates with reduced precision, resulting in much smaller file sizes. This is the most common trajectory format for GROMACS users when only atomic positions are needed for analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001055 "GROMACS xtc format"@en)
 SubClassOf(obo:MOLSIM_001055 obo:MOLSIM_000903)
 
 # Class: obo:MOLSIM_001056 (GROMACS tng format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001056 "A modern, binary file format from the GROMACS software used to store the results of a molecular simulation. It supports various compression algorithms and can store not only coordinates but also velocities, forces, and other trajectory data. This format is designed for high efficiency and flexibility in storing large simulation datasets. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001056 "GROMACS tng format"@en)
 SubClassOf(obo:MOLSIM_001056 obo:MOLSIM_000903)
 
 # Class: obo:MOLSIM_001057 (SQM input format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001057 "An input file format for the SQM program, which performs a type of quantum mechanical calculation. It contains keywords and molecular geometry specifications that control the semi-empirical quantum mechanics calculation within the AmberTools suite. This format is typically used for generating atomic charges for new molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001057 ".sqm")
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001057 "An input file format for the semi-empirical QM program SQM."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001057 "SQM input format"@en)
@@ -7279,6 +7300,7 @@ SubClassOf(obo:MOLSIM_001057 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_001058 (Desmond dtr format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001058 "A binary file format used by the Desmond simulation software to store the trajectory of a molecular system. It efficiently stores atomic coordinates, velocities, and other data in a block-based structure. This is the native trajectory output format for simulations run with Desmond. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001058 ".dtr")
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001058 "A trajectory file format used by the Desmond simulation software."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001058 "Desmond dtr format"@en)
@@ -7300,6 +7322,7 @@ SubClassOf(obo:MOLSIM_001060 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_001061 (MDAnalysis h5md format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001061 "A file format based on the HDF5 standard, used by the MDAnalysis library to store simulation data. It provides a flexible and efficient way to store large datasets, including atomic coordinates, velocities, and other time-series data from a simulation. This format promotes interoperability by using the widely supported HDF5 data model. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001061 ".h5md")
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001061 "An HDF5-based trajectory file format used by the MDAnalysis library."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001061 "MDAnalysis h5md format"@en)
@@ -7443,6 +7466,7 @@ SubClassOf(obo:MOLSIM_001084 obo:MOLSIM_001075)
 
 # Class: obo:MOLSIM_001085 (molecular data format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001085 "A category for file formats designed to store information about molecules, such as their structure, movement, or the forces governing them. These formats provide standardized ways to represent molecular systems for use in computational chemistry and biology software. This class includes formats for atomic coordinates, trajectories, and force field parameters. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001085 "molecular data format"@en)
 SubClassOf(obo:MOLSIM_001085 obo:MOLSIM_000436)
 
@@ -7454,11 +7478,13 @@ SubClassOf(obo:MOLSIM_001086 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_001087 (macromolecular structure format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001087 "A file format specifically designed to describe the complex, three-dimensional structures of large biological molecules like proteins and DNA. These formats accommodate hierarchical descriptions, such as chains and residues, in addition to atomic coordinates. Examples include the widely used PDB and mmCIF formats. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001087 "macromolecular structure format"@en)
 SubClassOf(obo:MOLSIM_001087 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_001088 (molecular structure format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001088 "A type of file format that describes the three-dimensional arrangement of atoms in a molecule. These formats store atomic coordinates and often include information about chemical bonds and residue identity. They are essential for visualizing molecules and providing the starting point for simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001088 "molecular structure format"@en)
 SubClassOf(obo:MOLSIM_001088 obo:MOLSIM_001085)
 
@@ -7538,6 +7564,7 @@ SubClassOf(obo:MOLSIM_001100 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_001101 (reservoir cluster info file format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001101 "A file format that provides settings for a specialized type of simulation designed to enhance the sampling of molecular motions. It specifies dihedral angle definitions that are used for applying a non-Boltzmann reservoir weighting in enhanced sampling simulations. This format is used as input for advanced simulation techniques that target specific conformational changes. (UNVERIFIED)"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001101 "A file format that specifies dihedral angle definitions used for a non-Boltzmann reservoir weighting in enhanced sampling simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001101 "reservoir cluster info file format"@en)
 SubClassOf(obo:MOLSIM_001101 obo:MOLSIM_000437)
@@ -7654,6 +7681,7 @@ SubClassOf(obo:MOLSIM_001119 obo:MOLSIM_000442)
 # Class: obo:MOLSIM_001120 (nef format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001120 "A standard text-based file format designed for exchanging NMR-derived information, particularly structural restraints like distances and angles. It provides a standardized way to represent experimental data used for structure calculation and simulation refinement. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001120 "NMR exchange format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001120 "nef format"@en)
 SubClassOf(obo:MOLSIM_001120 obo:MOLSIM_000440)
 
