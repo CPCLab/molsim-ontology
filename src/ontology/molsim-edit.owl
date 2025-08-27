@@ -15,7 +15,8 @@ Import(<http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.
 Import(<http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/ncit_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl>)
-Annotation(dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic molecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of molecular simulation data, processes, and methodologies across different platforms and tools.")
+Annotation(<http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "en")
+Annotation(dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.")
 Annotation(dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
@@ -1259,6 +1260,7 @@ Declaration(NamedIndividual(obo:MOLSIM_001028))
 Declaration(NamedIndividual(obo:MOLSIM_001029))
 Declaration(NamedIndividual(obo:MOLSIM_001030))
 Declaration(NamedIndividual(obo:MOLSIM_001031))
+Declaration(AnnotationProperty(<http://protege.stanford.edu/plugins/owl/protege#defaultLanguage>))
 Declaration(AnnotationProperty(obo:IAO_0000115))
 Declaration(AnnotationProperty(dcterms:description))
 Declaration(AnnotationProperty(dcterms:license))
@@ -6960,645 +6962,774 @@ SubClassOf(obo:MOLSIM_001120 obo:MOLSIM_000440)
 
 # Class: obo:MOLSIM_001163 (parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001163 "A category for any user-specified variable or setting that controls the behavior of a computational process. Parameters are the inputs that define how a simulation or analysis will be performed. They are distinct from output descriptors, which are the results of a process. In input files, these are the keywords and values that direct the software's execution. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001163 "parameter"@en)
 
 # Class: obo:MOLSIM_001164 (simulation parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001164 "A type of parameter that directly controls the physics, algorithms, and conditions of a molecular simulation. These settings define the integration of equations of motion, the thermodynamic ensemble, and the potential energy function used. Correctly specifying each simulation parameter is essential for ensuring the reproducibility and physical validity of the simulation. These are typically set in files like the AMBER mdin file or the GROMACS mdp file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001164 "simulation parameter"@en)
 SubClassOf(obo:MOLSIM_001164 obo:MOLSIM_001163)
 
 # Class: obo:MOLSIM_001165 (integration parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001165 "A type of simulation parameter that controls the numerical algorithm used to advance the positions and velocities of atoms through time. These parameters define the fundamental aspects of how the simulation trajectory is generated. Key integration parameters include the simulation time step and the total simulation duration. These are often found in the main control section of an input file, such as the &cntrl namelist in AMBER. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001165 "integration parameter"@en)
 SubClassOf(obo:MOLSIM_001165 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001166 (simulation time step)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001166 "A type of integration parameter that specifies the discrete interval of time between successive steps in a molecular dynamics simulation. The choice of simulation time step is a critical balance between computational efficiency and numerical stability, as it must be short enough to capture the fastest atomic motions. This is commonly specified in input files with the keyword dt. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001166 "simulation time step"@en)
 SubClassOf(obo:MOLSIM_001166 obo:MOLSIM_001165)
 
 # Class: obo:MOLSIM_001167 (simulation duration)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001167 "A type of integration parameter that specifies the total length of time the simulation is run. This determines how much conformational space can be explored and the timescale of the phenomena that can be observed. The simulation duration is typically set by specifying the total number of steps, nsteps, in the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001167 "simulation duration"@en)
 SubClassOf(obo:MOLSIM_001167 obo:MOLSIM_001165)
 
 # Class: obo:MOLSIM_001168 (simulation time per stage)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001168 "A specific type of simulation duration that defines the length of a single stage within a multi-stage simulation protocol. This is used in methods like steered MD or umbrella sampling, where the overall process is broken down into smaller, sequential runs. The simulation time per stage ensures that each part of the protocol is run for a defined period. This is often specified as nsteps within a block for a specific stage. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001168 "simulation time per stage"@en)
 SubClassOf(obo:MOLSIM_001168 obo:MOLSIM_001167)
 
 # Class: obo:MOLSIM_001169 (minimization convergence criteria)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001169 "A type of integration parameter that defines the conditions under which an energy minimization process is considered complete and will terminate. These criteria are based on the magnitude of the forces acting on the atoms. The goal of minimization is to satisfy these minimization convergence criteria to find a stable, low-energy structure. These are often set using keywords like ntmin or emtol. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001169 "minimization convergence criteria"@en)
 SubClassOf(obo:MOLSIM_001169 obo:MOLSIM_001165)
 
 # Class: obo:MOLSIM_001170 (minimization drms criterion)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001170 "A specific minimization convergence criteria based on the root-mean-square of the gradient, which represents the forces on the atoms. The minimization will stop when the RMS of the forces falls below this specified threshold. This is a common way to define convergence and is often set with the keyword drms. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001170 "minimization drms criterion"@en)
 SubClassOf(obo:MOLSIM_001170 obo:MOLSIM_001169)
 
 # Class: obo:MOLSIM_001171 (minimization gradient tolerance)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001171 "A specific minimization convergence criteria that sets the root-mean-square gradient threshold for terminating an energy minimization run. The minimization is considered converged when the RMS of the forces on the atoms is less than this gradient tolerance. This is a key parameter for controlling the strictness of the geometry optimization, often set with grms_tol. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001171 "minimization gradient tolerance"@en)
 SubClassOf(obo:MOLSIM_001171 obo:MOLSIM_001169)
 
 # Class: obo:MOLSIM_001172 (thermodynamic ensemble parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001172 "A type of simulation parameter that defines the statistical ensemble (e.g., NVT, NPT) in which the simulation is performed. These parameters control the macroscopic properties like temperature and pressure that are held constant during the run. The choice of thermodynamic ensemble parameter is crucial for mimicking specific experimental conditions. These are often set with keywords like itemp or ipres. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001172 "thermodynamic ensemble parameter"@en)
 SubClassOf(obo:MOLSIM_001172 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001173 (temperature control parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001173 "A type of thermodynamic ensemble parameter that specifies how the temperature of the system is maintained. This includes the choice of thermostat algorithm and the target temperature value. These temperature control parameter settings ensure that the simulation samples the correct canonical or isothermal-isobaric ensemble. These are often set with keywords like temp0 and ntt. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001173 "temperature control parameter"@en)
 SubClassOf(obo:MOLSIM_001173 obo:MOLSIM_001172)
 
 # Class: obo:MOLSIM_001174 (thermostat algorithm parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001174 "A temperature control parameter that specifies which algorithm is used to regulate the system's temperature. Different thermostat algorithms, such as Berendsen, Nosé-Hoover, or Langevin, have different effects on the system's dynamics and statistical properties. The choice of thermostat algorithm parameter is a critical decision for both equilibration and production simulations. This is often set with the keyword ntt in AMBER or tcoupl in GROMACS. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001174 "thermostat algorithm parameter"@en)
 SubClassOf(obo:MOLSIM_001174 obo:MOLSIM_001173)
 
 # Class: obo:MOLSIM_001175 (target temperature)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001175 "A temperature control parameter that specifies the desired temperature for the simulation. The thermostat algorithm will adjust the kinetic energy of the atoms to keep the average temperature fluctuating around this target temperature. This is a fundamental parameter for any simulation and is often set with the keyword temp0. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001175 "target temperature"@en)
 SubClassOf(obo:MOLSIM_001175 obo:MOLSIM_001173)
 
 # Class: obo:MOLSIM_001176 (thermostat coupling parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001176 "A temperature control parameter that controls the strength or frequency of the coupling between the simulation system and the virtual heat bath. This parameter determines how quickly the system's temperature relaxes to the target value. The choice of thermostat coupling parameter can affect the stability and efficiency of the temperature control. This is often set with keywords like tautp or gamma_ln. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001176 "thermostat coupling parameter"@en)
 SubClassOf(obo:MOLSIM_001176 obo:MOLSIM_001173)
 
 # Class: obo:MOLSIM_001177 (thermostat coupling constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001177 "A specific thermostat coupling parameter, often used in thermostats like Berendsen or Nosé-Hoover, that defines the time constant for temperature relaxation. A smaller value results in tighter, more aggressive temperature coupling. The thermostat coupling constant is a key parameter for tuning the thermostat's behavior. This is often set with the keyword tautp. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001177 "thermostat coupling constant"@en)
 SubClassOf(obo:MOLSIM_001177 obo:MOLSIM_001176)
 
 # Class: obo:MOLSIM_001178 (thermostat collision frequency)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001178 "A specific thermostat coupling parameter used in stochastic thermostats like the Langevin integrator. It represents the effective frequency with which the simulated particles collide with fictitious solvent particles, controlling the rate of heat exchange. The thermostat collision frequency also influences the system's dynamics by introducing a frictional component. This is often set with the keyword gamma_ln. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001178 "thermostat collision frequency"@en)
 SubClassOf(obo:MOLSIM_001178 obo:MOLSIM_001176)
 
 # Class: obo:MOLSIM_001179 (pressure control parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001179 "A type of thermodynamic ensemble parameter that specifies how the pressure of the system is maintained in simulations run at constant pressure. This includes the choice of barostat algorithm and the target pressure value. These pressure control parameter settings are essential for simulations in the NPT ensemble, allowing the system's density to equilibrate. These are often set with keywords like pres0 and ntp. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001179 "pressure control parameter"@en)
 SubClassOf(obo:MOLSIM_001179 obo:MOLSIM_001172)
 
 # Class: obo:MOLSIM_001180 (barostat algorithm parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001180 "A pressure control parameter that specifies which algorithm is used to regulate the system's pressure. Different barostat algorithms, such as Berendsen, Parrinello-Rahman, or Monte Carlo, have different effects on the system's volume fluctuations and statistical properties. The choice of barostat algorithm parameter is a critical decision for NPT simulations. This is often set with the keyword ntp in AMBER or pcoupl in GROMACS. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001180 "barostat algorithm parameter"@en)
 SubClassOf(obo:MOLSIM_001180 obo:MOLSIM_001179)
 
 # Class: obo:MOLSIM_001181 (target pressure)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001181 "A pressure control parameter that specifies the desired pressure for the simulation. The barostat algorithm will adjust the volume of the simulation box to keep the average pressure fluctuating around this target pressure. This is a fundamental parameter for any constant pressure simulation and is often set with the keyword pres0. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001181 "target pressure"@en)
 SubClassOf(obo:MOLSIM_001181 obo:MOLSIM_001179)
 
 # Class: obo:MOLSIM_001182 (barostat coupling constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001182 "A pressure control parameter that defines the time constant for pressure relaxation in algorithms like the Berendsen barostat. A smaller value results in tighter, more aggressive pressure coupling. The barostat coupling constant is a key parameter for tuning the barostat's behavior during equilibration. This is often set with the keyword taup. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001182 "barostat coupling constant"@en)
 SubClassOf(obo:MOLSIM_001182 obo:MOLSIM_001179)
 
 # Class: obo:MOLSIM_001183 (compressibility)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001183 "A pressure control parameter that specifies the compressibility of the solvent used in the simulation. This value is required by some barostat algorithms to correctly calculate the pressure and adjust the box volume. The compressibility is a physical property of the simulated medium. This is often set with the keyword comp. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001183 "compressibility"@en)
 SubClassOf(obo:MOLSIM_001183 obo:MOLSIM_001179)
 
 # Class: obo:MOLSIM_001184 (interaction parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001184 "A type of simulation parameter that controls how the interactions between atoms are calculated. These parameters define the methods and cutoffs used for computing non-bonded forces, which are the most computationally expensive part of a simulation. The choice of interaction parameter has a major impact on both the accuracy and performance of the simulation. These are often set with keywords like cut or ewald. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001184 "interaction parameter"@en)
 SubClassOf(obo:MOLSIM_001184 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001185 (non-bonded interaction parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001185 "A type of interaction parameter that specifically controls the calculation of van der Waals and short-range electrostatic interactions. This includes the cutoff distance beyond which interactions are ignored or approximated. These non-bonded interaction parameter settings are fundamental to the performance and accuracy of the simulation. These are often set with keywords like cut or vdw-cutoff. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001185 "non-bonded interaction parameter"@en)
 SubClassOf(obo:MOLSIM_001185 obo:MOLSIM_001184)
 
 # Class: obo:MOLSIM_001186 (non-bonded method parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001186 "A non-bonded interaction parameter that specifies the method used to handle non-bonded interactions, such as using a simple cutoff or a switching function. This parameter defines the functional form of the potential at the cutoff distance. The choice of non-bonded method parameter can affect the energy conservation and stability of the simulation. This is often set with keywords like vdw-method. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001186 "non-bonded method parameter"@en)
 SubClassOf(obo:MOLSIM_001186 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_001187 (non-bonded cutoff distance)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001187 "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001187 "non-bonded cutoff distance"@en)
 SubClassOf(obo:MOLSIM_001187 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_001188 (switching distance)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001188 "A non-bonded interaction parameter that specifies the distance at which a switching or smoothing function begins to be applied to the potential energy. This is used to smoothly bring the energy and forces to zero at the cutoff distance, which can improve energy conservation. The switching distance is typically set to a value slightly less than the main cutoff distance. This is often set with keywords like r-switch. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001188 "switching distance"@en)
 SubClassOf(obo:MOLSIM_001188 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_001189 (pairlist update frequency)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001189 "A non-bonded interaction parameter that specifies how often the list of neighboring atoms (the pairlist) is updated during the simulation. A more frequent update is more accurate but computationally more expensive. The pairlist update frequency is a key parameter for tuning simulation performance. This is often set with the keyword nsnb. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001189 "pairlist update frequency"@en)
 SubClassOf(obo:MOLSIM_001189 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_001190 (pairlist skin)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001190 "A non-bonded interaction parameter that specifies a buffer region or \"skin\" beyond the non-bonded cutoff distance when generating the pairlist. Atoms within this skin are included in the pairlist to account for their movement between updates. A larger pairlist skin allows for less frequent pairlist updates. This is often set with the keyword skinnb or rlist. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001190 "pairlist skin"@en)
 SubClassOf(obo:MOLSIM_001190 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_001191 (electrostatic parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001191 "A type of interaction parameter that specifically controls the calculation of long-range electrostatic interactions. This includes the choice of method, such as Particle Mesh Ewald (PME), and the parameters that control its accuracy. These electrostatic parameter settings are critical for accurately modeling charged or polar systems. These are often set with keywords like ewald or coulombtype. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001191 "electrostatic parameter"@en)
 SubClassOf(obo:MOLSIM_001191 obo:MOLSIM_001184)
 
 # Class: obo:MOLSIM_001192 (long-range electrostatic method parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001192 "An electrostatic parameter that specifies the algorithm used to calculate long-range electrostatic interactions in a periodic system. Common choices include Particle Mesh Ewald (PME), Ewald sum, or reaction field methods. The choice of long-range electrostatic method parameter is one of the most important for the accuracy of simulations of biomolecules. This is often set with keywords like ewald or coulombtype. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001192 "long-range electrostatic method parameter"@en)
 SubClassOf(obo:MOLSIM_001192 obo:MOLSIM_001191)
 
 # Class: obo:MOLSIM_001193 (PME grid spacing)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001193 "An electrostatic parameter used by the Particle Mesh Ewald (PME) method that specifies the spacing of the grid used for the reciprocal space calculation. A smaller PME grid spacing results in a more accurate calculation but is computationally more expensive. This is a key parameter for tuning the accuracy of the PME method. This is often set with keywords like fft_grids_per_ang or by setting the grid dimensions directly. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001193 "PME grid spacing"@en)
 SubClassOf(obo:MOLSIM_001193 obo:MOLSIM_001191)
 
 # Class: obo:MOLSIM_001194 (PME grid dimensions)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001194 "An electrostatic parameter used by the Particle Mesh Ewald (PME) method that specifies the number of grid points in each dimension for the reciprocal space calculation. Larger PME grid dimensions result in a more accurate calculation but are computationally more expensive. These are often set automatically based on the grid spacing, but can be specified directly with keywords like nfft1, nfft2, and nfft3. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001194 "PME grid dimensions"@en)
 SubClassOf(obo:MOLSIM_001194 obo:MOLSIM_001191)
 
 # Class: obo:MOLSIM_001195 (dielectric constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001195 "An electrostatic parameter that specifies the dielectric constant of the medium, which models the ability of the medium to screen electrostatic interactions. In explicit solvent simulations, this is typically set to 1.0, while in implicit solvent models, it is set to a higher value to represent the solvent. The dielectric constant is a fundamental parameter in electrostatic calculations. This is often set with the keyword epsilon. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001195 "dielectric constant"@en)
 SubClassOf(obo:MOLSIM_001195 obo:MOLSIM_001191)
 
 # Class: obo:MOLSIM_001196 (internal dielectric constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001196 "A specific dielectric constant parameter used in continuum solvent models like Poisson-Boltzmann or Generalized Born. It represents the dielectric constant of the solute molecule itself, which is typically low to reflect its non-polar interior. The internal dielectric constant is a key parameter for MM/PBSA and MM/GBSA calculations. This is often set with the keyword indi or epsin. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001196 "internal dielectric constant"@en)
 SubClassOf(obo:MOLSIM_001196 obo:MOLSIM_001195)
 
 # Class: obo:MOLSIM_001197 (external dielectric constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001197 "A specific dielectric constant parameter used in continuum solvent models like Poisson-Boltzmann or Generalized Born. It represents the dielectric constant of the bulk solvent, which is typically high for polar solvents like water. The external dielectric constant is a key parameter for MM/PBSA and MM/GBSA calculations. This is often set with the keyword exdi or epsout. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001197 "external dielectric constant"@en)
 SubClassOf(obo:MOLSIM_001197 obo:MOLSIM_001195)
 
 # Class: obo:MOLSIM_001198 (direct sum cutoff)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001198 "An electrostatic parameter used in Ewald-based methods that specifies the cutoff distance for the real-space (direct sum) part of the calculation. This parameter balances the computational work done in real space versus reciprocal space. The direct sum cutoff is a key parameter for tuning the performance of the PME method. This is often set with the keyword es_cutoff or rcoulomb. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001198 "direct sum cutoff"@en)
 SubClassOf(obo:MOLSIM_001198 obo:MOLSIM_001191)
 
 # Class: obo:MOLSIM_001199 (external field parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001199 "A type of interaction parameter that specifies the properties of an external electric or magnetic field applied to the simulation system. This is used to study the response of the system to external fields. The external field parameter allows for the simulation of systems under non-standard conditions. This is often set with keywords like efx. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001199 "external field parameter"@en)
 SubClassOf(obo:MOLSIM_001199 obo:MOLSIM_001184)
 
 # Class: obo:MOLSIM_001200 (external electric field component)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001200 "A specific external field parameter that defines the magnitude of an applied external electric field along a particular axis. This is used to simulate the effect of a uniform electric field on the molecular system. The external electric field component is often specified for each axis, such as efx, efy, and efz. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001200 "external electric field component"@en)
 SubClassOf(obo:MOLSIM_001200 obo:MOLSIM_001199)
 
 # Class: obo:MOLSIM_001201 (constraint and restraint parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001201 "A type of simulation parameter that controls the application of geometric constraints or restraints to the system. Constraints are used to fix certain degrees of freedom, while restraints are used to guide the system towards a particular conformation. These constraint and restraint parameter settings are used to control the flexibility of the system or to apply experimental data. These are often set with keywords like ntc or restraint_wt. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001201 "constraint and restraint parameter"@en)
 SubClassOf(obo:MOLSIM_001201 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001202 (constraint parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001202 "A type of constraint and restraint parameter that specifies how geometric constraints are applied to the system, typically to fix the length of bonds involving hydrogen. This allows for a longer simulation time step. The constraint parameter settings are crucial for the efficiency of many biomolecular simulations. These are often set with keywords like ntc or constraints. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001202 "constraint parameter"@en)
 SubClassOf(obo:MOLSIM_001202 obo:MOLSIM_001201)
 
 # Class: obo:MOLSIM_001203 (constraint algorithm parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001203 "A constraint parameter that specifies which algorithm is used to enforce the geometric constraints. Common choices include SHAKE, RATTLE, LINCS, or SETTLE. The choice of constraint algorithm parameter depends on the type of constraints and the desired level of accuracy and performance. This is often set with the keyword ntc in AMBER or constraints in GROMACS. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001203 "constraint algorithm parameter"@en)
 SubClassOf(obo:MOLSIM_001203 obo:MOLSIM_001202)
 
 # Class: obo:MOLSIM_001204 (constrained bonds)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001204 "A constraint parameter that specifies which bonds in the system should be constrained. Common choices include constraining all bonds, only bonds involving hydrogen, or no bonds. The constrained bonds parameter determines which degrees of freedom are removed from the system. This is often set with a keyword that specifies the scope of the constraints, such as all-bonds or h-bonds. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001204 "constrained bonds"@en)
 SubClassOf(obo:MOLSIM_001204 obo:MOLSIM_001202)
 
 # Class: obo:MOLSIM_001205 (SHAKE tolerance)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001205 "A constraint parameter that specifies the geometric tolerance for the iterative SHAKE algorithm. A smaller SHAKE tolerance results in a more accurate enforcement of the constraints but may require more computational iterations. This is a key parameter for tuning the accuracy and performance of the SHAKE algorithm. This is often set with the keyword tol. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001205 "SHAKE tolerance"@en)
 SubClassOf(obo:MOLSIM_001205 obo:MOLSIM_001202)
 
 # Class: obo:MOLSIM_001206 (restraint parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001206 "A type of constraint and restraint parameter that specifies how artificial restraining potentials are applied to the system. These are used to guide the simulation towards a specific conformation or to incorporate experimental data. The restraint parameter settings are essential for biased simulations and structure refinement. These are often set with keywords like restraint_wt and restraintmask. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001206 "restraint parameter"@en)
 SubClassOf(obo:MOLSIM_001206 obo:MOLSIM_001201)
 
 # Class: obo:MOLSIM_001207 (restraint energy constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001207 "A restraint parameter that specifies the force constant for a harmonic or other restraining potential. A larger restraint energy constant results in a stronger force pulling the restrained atoms towards their target values. This is a key parameter for controlling the strength of the applied restraints. This is often set with the keyword restraint_wt. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001207 "restraint energy constant"@en)
 SubClassOf(obo:MOLSIM_001207 obo:MOLSIM_001206)
 
 # Class: obo:MOLSIM_001208 (restraint mask)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001208 "A restraint parameter that specifies which atoms or groups of atoms in the system are subject to the restraining potential. The restraint mask allows for the application of restraints to specific parts of the molecule, such as the backbone or a particular residue. This is a key parameter for defining the scope of the restraints. This is often set with the keyword restraintmask. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001208 "restraint mask"@en)
 SubClassOf(obo:MOLSIM_001208 obo:MOLSIM_001206)
 
 # Class: obo:MOLSIM_001209 (water cap force constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001209 "A specific restraint energy constant used to apply a restraining potential to a spherical cap of water molecules around a solute. This is used in some simulation setups to prevent the solute from becoming exposed to the vacuum. The water cap force constant controls the strength of this spherical boundary potential. This is often set with the keyword fcap. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001209 "water cap force constant"@en)
 SubClassOf(obo:MOLSIM_001209 obo:MOLSIM_001206)
 
 # Class: obo:MOLSIM_001210 (system setup parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001210 "A type of simulation parameter that defines the overall state and composition of the molecular system being simulated. These parameters are typically set once during the system building phase and remain constant throughout the simulation. The system setup parameter settings provide essential context for interpreting the simulation results. These are often specified in the input to programs like tleap or gmx solvate. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001210 "system setup parameter"@en)
 SubClassOf(obo:MOLSIM_001210 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001211 (pH)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001211 "A system setup parameter that specifies the pH value of the solution being simulated. The pH affects the protonation states of titratable residues in proteins and ligands. This is a critical parameter for ensuring that the simulation accurately represents the experimental conditions. This is often set with the keyword solvph. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001211 "pH"@en)
 SubClassOf(obo:MOLSIM_001211 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001212 (ionic strength)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001212 "A system setup parameter that specifies the molar concentration of salt in the simulation solvent. The ionic strength affects the screening of electrostatic interactions and is crucial for mimicking experimental buffer conditions. This is a key parameter for accurately modeling the electrostatic environment of the system. This is often set with the keyword ion_concentration or saltcon. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001212 "ionic strength"@en)
 SubClassOf(obo:MOLSIM_001212 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001213 (periodic box dimensions)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001213 "A system setup parameter that specifies the size and shape of the periodic box used to create a periodic system. The periodic box dimensions are essential for any simulation using periodic boundary conditions. They determine the overall density of the system. These are often specified in the coordinate file or with keywords like box. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001213 "periodic box dimensions"@en)
 SubClassOf(obo:MOLSIM_001213 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001214 (molecular termini state)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001214 "A system setup parameter that specifies the chemical state of the N- and C-termini of a polymer chain. This parameter indicates whether the termini are neutral (capped) or charged (uncapped). The molecular termini state is a key descriptor of the chemical composition of the simulated protein or nucleic acid. This is often controlled by a termini capping flag. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001214 "molecular termini state"@en)
 SubClassOf(obo:MOLSIM_001214 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001215 (alchemical transformation state)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001215 "A system setup parameter that specifies whether the simulation involves an alchemical transformation for a free energy calculation. This parameter indicates that some atoms in the system have their properties changed over the course of the simulation. The alchemical transformation state is a key descriptor for identifying free energy calculations. This is often controlled by a perturbation flag. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001215 "alchemical transformation state"@en)
 SubClassOf(obo:MOLSIM_001215 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001216 (number of replicates)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001216 "A system setup parameter that specifies the number of independent simulation runs performed from the same or similar initial conditions. Running number of replicates helps to assess the statistical robustness and convergence of simulation results. This is a key parameter of the overall simulation experimental design. This is often specified in the simulation submission script. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001216 "number of replicates"@en)
 SubClassOf(obo:MOLSIM_001216 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001217 (surface tension)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001217 "A system setup parameter used in some constant pressure simulations that specifies the target surface tension of the system. This is relevant for simulations of interfaces, such as lipid bilayers or liquid-vapor interfaces. The surface tension parameter allows the barostat to correctly handle anisotropic systems. This is often set with the keyword gamma_ten. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001217 "surface tension"@en)
 SubClassOf(obo:MOLSIM_001217 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001218 (number of QM/MM partitions)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001218 "A system setup parameter used in adaptive QM/MM simulations that defines the number of different QM/MM regions or partitions that will be used. This parameter controls the complexity of the adaptive QM/MM setup. The number of QM/MM partitions is a key input for setting up these advanced simulations. This is often set with the keyword n_partition. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001218 "number of QM/MM partitions"@en)
 SubClassOf(obo:MOLSIM_001218 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001219 (enhanced sampling parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001219 "A type of simulation parameter that controls the application of a specific enhanced sampling method designed to accelerate the exploration of the system's conformational space. These parameters define the nature and strength of the biasing potential or other modifications to the standard simulation protocol. The enhanced sampling parameter settings are crucial for studying rare events like protein folding or ligand unbinding. These are often set in a special section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001219 "enhanced sampling parameter"@en)
 SubClassOf(obo:MOLSIM_001219 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001220 (steered molecular dynamics parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001220 "A type of enhanced sampling parameter that controls a steered molecular dynamics (SMD) simulation, where an external force is applied to pull the system along a specific coordinate. These parameters define the pulling speed, force constant, and direction of the steering. The steered molecular dynamics parameter settings are essential for setting up non-equilibrium pulling simulations. These are often set with keywords like smd. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001220 "steered molecular dynamics parameter"@en)
 SubClassOf(obo:MOLSIM_001220 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001221 (atom pulling velocity)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001221 "A steered molecular dynamics parameter that specifies the constant speed at which the steered coordinate is changed during a constant-velocity SMD simulation. The atom pulling velocity determines the rate at which the system is pulled along the reaction coordinate. This is a key parameter for controlling the degree of non-equilibrium work. This is often set with the keyword v. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001221 "atom pulling velocity"@en)
 SubClassOf(obo:MOLSIM_001221 obo:MOLSIM_001220)
 
 # Class: obo:MOLSIM_001222 (steered MD restraint energy constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001222 "A steered molecular dynamics parameter that specifies the stiffness of the harmonic potential used to pull the system along the reaction coordinate. A larger steered MD restraint energy constant results in a stiffer spring and less deviation from the target path. This is a key parameter for controlling the strength of the steering. This is often set with the keyword harm. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001222 "steered MD restraint energy constant"@en)
 SubClassOf(obo:MOLSIM_001222 obo:MOLSIM_001220)
 
 # Class: obo:MOLSIM_001223 (number of SMD stages)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001223 "A steered molecular dynamics parameter that specifies the total number of distinct stages or windows used in a staged SMD simulation protocol. This allows for the pulling to occur incrementally or for parameters to be changed between stages. The number of SMD stages is a key parameter for setting up complex pulling protocols. This is often set with the keyword nstage. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001223 "number of SMD stages"@en)
 SubClassOf(obo:MOLSIM_001223 obo:MOLSIM_001220)
 
 # Class: obo:MOLSIM_001224 (umbrella sampling parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001224 "A type of enhanced sampling parameter that controls an umbrella sampling simulation, where a biasing potential is used to confine the system to specific windows along a reaction coordinate. These parameters define the location and strength of the biasing potential in each window. The umbrella sampling parameter settings are essential for setting up simulations to calculate a potential of mean force. These are often set in the input file for each window. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001224 "umbrella sampling parameter"@en)
 SubClassOf(obo:MOLSIM_001224 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001225 (umbrella sampling restraint energy constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001225 "An umbrella sampling parameter that specifies the strength of the harmonic biasing potential applied in each umbrella sampling window. This force constant determines how strongly the system is restrained around the target value of the reaction coordinate for that window. The umbrella sampling restraint energy constant is a key parameter for ensuring sufficient sampling within each window. This is often set with the keyword anchor_strength. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001225 "umbrella sampling restraint energy constant"@en)
 SubClassOf(obo:MOLSIM_001225 obo:MOLSIM_001224)
 
 # Class: obo:MOLSIM_001226 (number of umbrella sampling windows)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001226 "An umbrella sampling parameter that specifies the total number of individual simulations (windows) performed in an umbrella sampling calculation. Each window is typically centered at a different value along the reaction coordinate. The number of umbrella sampling windows is a key parameter for ensuring adequate coverage of the entire reaction coordinate. This is a key parameter of the overall simulation design. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001226 "number of umbrella sampling windows"@en)
 SubClassOf(obo:MOLSIM_001226 obo:MOLSIM_001224)
 
 # Class: obo:MOLSIM_001227 (umbrella anchor position)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001227 "An umbrella sampling parameter that determines the center or boundaries of the harmonic potential for a specific umbrella sampling window. This parameter defines the region of the reaction coordinate that will be sampled in that window. The umbrella anchor position is a key parameter that is varied between different windows. This is often set with the keyword anchor_position. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001227 "umbrella anchor position"@en)
 SubClassOf(obo:MOLSIM_001227 obo:MOLSIM_001224)
 
 # Class: obo:MOLSIM_001228 (accelerated MD parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001228 "A type of enhanced sampling parameter that controls an accelerated molecular dynamics (aMD) simulation. These parameters define the energy threshold and strength of the boost potential that is applied to flatten the energy landscape. The accelerated MD parameter settings are crucial for controlling the degree of enhanced sampling. These are often set in a specific amd section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001228 "accelerated MD parameter"@en)
 SubClassOf(obo:MOLSIM_001228 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001229 (aMD dihedral energy threshold)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001229 "An accelerated MD parameter that specifies the energy threshold for the dihedral energy, below which the boost potential is applied. This parameter controls when the dihedral energy term is biased. The aMD dihedral energy threshold is a key parameter for tuning the aMD simulation. This is often set with the keyword EthreshD. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001229 "aMD dihedral energy threshold"@en)
 SubClassOf(obo:MOLSIM_001229 obo:MOLSIM_001228)
 
 # Class: obo:MOLSIM_001230 (aMD dihedral alpha factor)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001230 "An accelerated MD parameter that determines the strength of the boost potential applied to the dihedral energy term. A smaller aMD dihedral alpha factor results in a larger boost. This is a key parameter for tuning the aMD simulation. This is often set with the keyword alphaD. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001230 "aMD dihedral alpha factor"@en)
 SubClassOf(obo:MOLSIM_001230 obo:MOLSIM_001228)
 
 # Class: obo:MOLSIM_001231 (aMD potential energy threshold)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001231 "An accelerated MD parameter that specifies the energy threshold for the total potential energy, below which the boost potential is applied. This parameter controls when the total potential energy is biased. The aMD potential energy threshold is a key parameter for tuning the aMD simulation. This is often set with the keyword EthreshP. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001231 "aMD potential energy threshold"@en)
 SubClassOf(obo:MOLSIM_001231 obo:MOLSIM_001228)
 
 # Class: obo:MOLSIM_001232 (aMD potential alpha factor)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001232 "An accelerated MD parameter that determines the strength of the boost potential applied to the total potential energy term. A smaller aMD potential alpha factor results in a larger boost. This is a key parameter for tuning the aMD simulation. This is often set with the keyword alphaP. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001232 "aMD potential alpha factor"@en)
 SubClassOf(obo:MOLSIM_001232 obo:MOLSIM_001228)
 
 # Class: obo:MOLSIM_001233 (Gaussian accelerated MD parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001233 "A type of enhanced sampling parameter that controls a Gaussian accelerated molecular dynamics (GaMD) simulation. These parameters define the upper limit of the standard deviation for the potential energy boost. The Gaussian accelerated MD parameter settings are crucial for controlling the balance between accuracy and enhanced sampling. These are often set in a specific gamd section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001233 "Gaussian accelerated MD parameter"@en)
 SubClassOf(obo:MOLSIM_001233 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001234 (GaMD potential boost stddev limit)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001234 "A Gaussian accelerated MD parameter that specifies the upper limit of the standard deviation for the potential energy boost. This parameter controls the maximum strength of the applied bias. The GaMD potential boost stddev limit is a key parameter for tuning the GaMD simulation. This is often set with keywords like sigma0P or sigma0D. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001234 "GaMD potential boost stddev limit"@en)
 SubClassOf(obo:MOLSIM_001234 obo:MOLSIM_001233)
 
 # Class: obo:MOLSIM_001235 (random acceleration MD parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001235 "A type of enhanced sampling parameter that controls a random acceleration molecular dynamics (RAMD) simulation. These parameters define the strength of the randomly applied acceleration force. The random acceleration MD parameter settings are crucial for enhancing the exploration of conformational space. These are often set in a specific ramd section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001235 "random acceleration MD parameter"@en)
 SubClassOf(obo:MOLSIM_001235 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001236 (RAMD boost strength)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001236 "A random acceleration MD parameter that specifies the strength of the acceleration boost applied in a Random Acceleration Molecular Dynamics (RAMD) simulation. This parameter controls the magnitude of the random forces used to accelerate the system's exploration. The RAMD boost strength is a key parameter for tuning the RAMD simulation. This is often set with the keyword ramdboost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001236 "RAMD boost strength"@en)
 SubClassOf(obo:MOLSIM_001236 obo:MOLSIM_001235)
 
 # Class: obo:MOLSIM_001237 (targeted MD parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001237 "A type of enhanced sampling parameter that controls a targeted molecular dynamics (TMD) simulation. These parameters define the target structure and the strength of the biasing potential used to guide the simulation towards it. The targeted MD parameter settings are essential for simulating large-scale conformational transitions between known start and end states. These are often set in a specific tmd section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001237 "targeted MD parameter"@en)
 SubClassOf(obo:MOLSIM_001237 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001238 (targeted MD force constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001238 "A targeted MD parameter that specifies the force constant for the RMSD restraint potential used to guide the simulation towards the target structure. A larger targeted MD force constant results in a stronger biasing force. This is a key parameter for controlling the strength of the targeted MD simulation. This is often set with the keyword tgtmdfrc. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001238 "targeted MD force constant"@en)
 SubClassOf(obo:MOLSIM_001238 obo:MOLSIM_001237)
 
 # Class: obo:MOLSIM_001239 (targeted MD RMSD target)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001239 "A targeted MD parameter that specifies the target root-mean-square deviation (RMSD) value for the restraint. The simulation is guided to reduce the RMSD of the current structure relative to a reference structure to this targeted MD RMSD target value. This is a key parameter for defining the endpoint of the TMD simulation. This is often set with the keyword tgtrmsd. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001239 "targeted MD RMSD target"@en)
 SubClassOf(obo:MOLSIM_001239 obo:MOLSIM_001237)
 
 # Class: obo:MOLSIM_001240 (nudged elastic band parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001240 "A type of enhanced sampling parameter that controls a nudged elastic band (NEB) simulation, which is used to find the minimum energy path between two conformations. These parameters define the number of intermediate structures (images) and the spring constants connecting them. The nudged elastic band parameter settings are essential for accurately mapping reaction pathways. These are often set in a specific neb section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001240 "nudged elastic band parameter"@en)
 SubClassOf(obo:MOLSIM_001240 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001241 (NEB spring constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001241 "A nudged elastic band parameter that specifies the spring force constant connecting adjacent images along the reaction path. This parameter ensures that the images are evenly spaced and do not drift off the path. The NEB spring constant is a key parameter for the stability and convergence of the NEB calculation. This is often set with the keyword nebk. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001241 "NEB spring constant"@en)
 SubClassOf(obo:MOLSIM_001241 obo:MOLSIM_001240)
 
 # Class: obo:MOLSIM_001242 (NEB number of images)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001242 "A nudged elastic band parameter that specifies the number of intermediate structures (images) to optimize along the reaction path. A larger NEB number of images provides a more detailed representation of the path but is computationally more expensive. This is a key parameter for controlling the resolution of the NEB calculation. This is often set with the keyword neb_nimage. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001242 "NEB number of images"@en)
 SubClassOf(obo:MOLSIM_001242 obo:MOLSIM_001240)
 
 # Class: obo:MOLSIM_001243 (well-tempered metadynamics parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001243 "A type of enhanced sampling parameter that controls a well-tempered metadynamics simulation. These parameters define how the height of the added Gaussian hills is rescaled over time, ensuring that the simulation eventually converges. The well-tempered metadynamics parameter settings are crucial for obtaining converged free energy surfaces. These are often set in a specific metadynamics section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001243 "well-tempered metadynamics parameter"@en)
 SubClassOf(obo:MOLSIM_001243 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_001244 (well-tempered pseudo-temperature)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001244 "A well-tempered metadynamics parameter that controls the rate at which the height of the added Gaussian hills decreases. A higher well-tempered pseudo-temperature results in a faster convergence but a less detailed exploration of the energy landscape. This is a key parameter for tuning the well-tempered metadynamics simulation. This is often set with the keyword wt_temperature. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001244 "well-tempered pseudo-temperature"@en)
 SubClassOf(obo:MOLSIM_001244 obo:MOLSIM_001243)
 
 # Class: obo:MOLSIM_001245 (QM/MM parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001245 "A type of simulation parameter that controls a hybrid quantum mechanics/molecular mechanics (QM/MM) simulation. These parameters define the size of the QM region, the treatment of the QM/MM boundary, and the specific QM method used. The QM/MM parameter settings are essential for simulations of chemical reactions in complex environments. These are often set in a specific qmmm section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001245 "QM/MM parameter"@en)
 SubClassOf(obo:MOLSIM_001245 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001246 (QM charge)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001246 "A QM/MM parameter that specifies the total integer charge of the quantum mechanical (QM) region. This is a critical parameter for ensuring that the QM calculation is performed with the correct electronic state. The QM charge must be set correctly for the QM/MM simulation to be physically meaningful. This is often set with the keyword qmcharge. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001246 "QM charge"@en)
 SubClassOf(obo:MOLSIM_001246 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001247 (QM/MM link atom distance)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001247 "A QM/MM parameter that specifies the distance from a QM atom to its corresponding link atom, which is used to saturate the valency at the QM/MM boundary. The QM/MM link atom distance is a key parameter for ensuring a stable and accurate treatment of the QM/MM interface. This is often set with the keyword lnk_dis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001247 "QM/MM link atom distance"@en)
 SubClassOf(obo:MOLSIM_001247 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001248 (QM/MM non-bonded cutoff)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001248 "A QM/MM parameter that specifies the cutoff distance for non-bonded interactions between the QM region and the MM region. This is a key parameter for controlling the computational cost and accuracy of the QM/MM calculation. The QM/MM non-bonded cutoff is often set with the keyword qmcut. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001248 "QM/MM non-bonded cutoff"@en)
 SubClassOf(obo:MOLSIM_001248 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001249 (DFTB parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001249 "A QM/MM parameter that controls a Density Functional Tight Binding (DFTB) calculation, which is a fast, approximate quantum mechanical method. These parameters define the settings for the DFTB calculation within a QM/MM simulation. The DFTB parameter settings are crucial for efficient QM/MM simulations. These are often set in a specific dftb section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001249 "DFTB parameter"@en)
 SubClassOf(obo:MOLSIM_001249 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001250 (DFTB max iterations)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001250 "A DFTB parameter that specifies the maximum number of self-consistent charge (SCC) iterations for the DFTB calculation. This parameter controls the convergence of the DFTB calculation. The DFTB max iterations is a key parameter for ensuring a converged electronic structure. This is often set with the keyword dftb_maxiter. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001250 "DFTB max iterations"@en)
 SubClassOf(obo:MOLSIM_001250 obo:MOLSIM_001249)
 
 # Class: obo:MOLSIM_001251 (DFTB electronic temperature)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001251 "A DFTB parameter that specifies an electronic temperature to accelerate the convergence of the DFTB calculation. This is a numerical trick used to improve the stability of the SCF procedure. The DFTB electronic temperature is a key parameter for difficult-to-converge systems. This is often set with the keyword dftb_telec. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001251 "DFTB electronic temperature"@en)
 SubClassOf(obo:MOLSIM_001251 obo:MOLSIM_001249)
 
 # Class: obo:MOLSIM_001252 (SCF parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001252 "A QM/MM parameter that controls the Self-Consistent Field (SCF) procedure used in quantum mechanical calculations. These parameters define the convergence criteria and algorithms used to solve for the electronic wavefunction. The SCF parameter settings are crucial for obtaining a converged and accurate QM energy. These are often set in a specific scf section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001252 "SCF parameter"@en)
 SubClassOf(obo:MOLSIM_001252 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001253 (max SCF iterations)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001253 "An SCF parameter that specifies the maximum number of iterations allowed for the Self-Consistent Field (SCF) procedure to converge. This parameter prevents the calculation from running indefinitely if it fails to converge. The max SCF iterations is a key parameter for controlling the computational cost of the QM calculation. This is often set with the keyword itrmax. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001253 "max SCF iterations"@en)
 SubClassOf(obo:MOLSIM_001253 obo:MOLSIM_001252)
 
 # Class: obo:MOLSIM_001254 (SCF convergence criteria)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001254 "An SCF parameter that specifies the energy or density threshold for the self-consistent field (SCF) procedure to be considered converged. A smaller SCF convergence criteria results in a more accurate calculation but may require more iterations. This is a key parameter for controlling the accuracy of the QM calculation. This is often set with the keyword scfconv. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001254 "SCF convergence criteria"@en)
 SubClassOf(obo:MOLSIM_001254 obo:MOLSIM_001252)
 
 # Class: obo:MOLSIM_001255 (SCF damping factor)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001255 "An SCF parameter that specifies a damping factor used to improve the convergence of the Self-Consistent Field (SCF) procedure. This is a numerical trick used to prevent oscillations in the SCF energy. The SCF damping factor is a key parameter for difficult-to-converge systems. This is often set with the keyword damp. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001255 "SCF damping factor"@en)
 SubClassOf(obo:MOLSIM_001255 obo:MOLSIM_001252)
 
 # Class: obo:MOLSIM_001256 (DIIS parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001256 "An SCF parameter that controls the Direct Inversion in the Iterative Subspace (DIIS) algorithm, which is used to accelerate the convergence of the SCF procedure. These parameters define the size of the subspace and the number of attempts for the DIIS extrapolation. The DIIS parameter settings are crucial for the efficient convergence of many QM calculations. These are often set in a specific diis section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001256 "DIIS parameter"@en)
 SubClassOf(obo:MOLSIM_001256 obo:MOLSIM_001252)
 
 # Class: obo:MOLSIM_001257 (DIIS attempts)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001257 "A DIIS parameter that specifies the number of DIIS extrapolation attempts to be made to aid SCF convergence. This parameter controls how aggressively the DIIS algorithm is applied. The DIIS attempts is a key parameter for tuning the SCF convergence. This is often set with the keyword ndiis_attempts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001257 "DIIS attempts"@en)
 SubClassOf(obo:MOLSIM_001257 obo:MOLSIM_001256)
 
 # Class: obo:MOLSIM_001258 (DIIS matrices)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001258 "A DIIS parameter that specifies the number of error vectors (matrices) to be used by the DIIS convergence algorithm. This parameter defines the size of the subspace used for the extrapolation. The DIIS matrices is a key parameter for tuning the DIIS algorithm. This is often set with the keyword ndiis_matrices. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001258 "DIIS matrices"@en)
 SubClassOf(obo:MOLSIM_001258 obo:MOLSIM_001256)
 
 # Class: obo:MOLSIM_001259 (constant pH parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001259 "A type of simulation parameter that controls a constant pH molecular dynamics (CpHMD) simulation. These parameters define the frequency of protonation state changes and the relaxation protocol used after each change. The constant pH parameter settings are essential for simulations where the protonation state of residues is expected to change. These are often set in a specific cph section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001259 "constant pH parameter"@en)
 SubClassOf(obo:MOLSIM_001259 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001260 (CpHMD state change attempt frequency)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001260 "A constant pH parameter that specifies the number of MD steps between attempts to change the protonation state of a titratable residue. A smaller CpHMD state change attempt frequency results in more frequent sampling of protonation states but is computationally more expensive. This is a key parameter for controlling the CpHMD simulation. This is often set with the keyword ntcnstph. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001260 "CpHMD state change attempt frequency"@en)
 SubClassOf(obo:MOLSIM_001260 obo:MOLSIM_001259)
 
 # Class: obo:MOLSIM_001261 (CpHMD solvent relaxation steps)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001261 "A constant pH parameter that specifies the number of solvent relaxation steps to be performed after a protonation state change. This allows the solvent to reorient around the newly charged or neutralized residue. The CpHMD solvent relaxation steps is a key parameter for ensuring a stable CpHMD simulation. This is often set with the keyword ntrelax. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001261 "CpHMD solvent relaxation steps"@en)
 SubClassOf(obo:MOLSIM_001261 obo:MOLSIM_001259)
 
 # Class: obo:MOLSIM_001262 (polarizable force field parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001262 "A type of simulation parameter that controls a simulation using a polarizable force field. These parameters define the convergence criteria for the induced dipole calculation and other aspects of the polarizable model. The polarizable force field parameter settings are essential for simulations that aim for a high level of electrostatic accuracy. These are often set in a specific polar section of the input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001262 "polarizable force field parameter"@en)
 SubClassOf(obo:MOLSIM_001262 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_001263 (induced dipole convergence criterion)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001263 "A polarizable force field parameter that specifies the convergence criterion for the self-consistent field calculation of the induced dipoles. A smaller induced dipole convergence criterion results in a more accurate calculation but may require more iterations. This is a key parameter for controlling the accuracy and performance of a polarizable simulation. This is often set with the keyword dipole_scf_tol. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001263 "induced dipole convergence criterion"@en)
 SubClassOf(obo:MOLSIM_001263 obo:MOLSIM_001262)
 
 # Class: obo:MOLSIM_001264 (analysis parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001264 "A type of parameter that controls the behavior of a post-processing analysis of simulation data. These settings define the algorithms and thresholds used to extract meaningful information from raw trajectories and log files. The analysis parameter settings are crucial for ensuring that the analysis is performed in a reproducible and well-defined manner. These are often set in the input file for an analysis program like cpptraj or gmx analyze. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001264 "analysis parameter"@en)
 SubClassOf(obo:MOLSIM_001264 obo:MOLSIM_001163)
 
 # Class: obo:MOLSIM_001265 (clustering parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001265 "A type of analysis parameter that controls a clustering algorithm used to group similar molecular conformations from a trajectory. These parameters define the distance metric, the cutoff for cluster membership, and the number of clusters to be generated. The clustering parameter settings are crucial for identifying the dominant conformational states sampled in a simulation. These are often set in a cluster command in an analysis script. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001265 "clustering parameter"@en)
 SubClassOf(obo:MOLSIM_001265 obo:MOLSIM_001264)
 
 # Class: obo:MOLSIM_001266 (clustering distance cutoff)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001266 "A clustering parameter that specifies the distance threshold for grouping conformations into the same cluster. Two structures with a distance (e.g., RMSD) less than the clustering distance cutoff are considered to be in the same cluster. This is a key parameter for defining the granularity of the clustering. This is often set with the keyword epsilon or cutoff. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001266 "clustering distance cutoff"@en)
 SubClassOf(obo:MOLSIM_001266 obo:MOLSIM_001265)
 
 # Class: obo:MOLSIM_001267 (number of clusters to generate)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001267 "A clustering parameter that specifies the desired number of clusters to be generated by the algorithm. This is used in algorithms like k-means, where the number of clusters is a direct input. The number of clusters to generate is a key parameter for controlling the output of the clustering analysis. This is often set with the keyword k or nclusters. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001267 "number of clusters to generate"@en)
 SubClassOf(obo:MOLSIM_001267 obo:MOLSIM_001265)
 
 # Class: obo:MOLSIM_001268 (volumetric analysis parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001268 "A type of analysis parameter that controls the generation of three-dimensional volumetric data, such as density grids or electrostatic potential maps. These parameters define the size, spacing, and function used to create the grid. The volumetric analysis parameter settings are crucial for visualizing the spatial properties of the system. These are often set in a grid command in an analysis script. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001268 "volumetric analysis parameter"@en)
 SubClassOf(obo:MOLSIM_001268 obo:MOLSIM_001264)
 
 # Class: obo:MOLSIM_001269 (grid spacing)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001269 "A volumetric analysis parameter that specifies the spacing between points in a 3D grid used for spatial analysis of simulation data. A smaller grid spacing yields a higher resolution grid but increases the computational cost of the grid-based calculation. This is a key parameter for controlling the resolution of the volumetric data. This is often set with the keyword spacing or grdspc. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001269 "grid spacing"@en)
 SubClassOf(obo:MOLSIM_001269 obo:MOLSIM_001268)
 
 # Class: obo:MOLSIM_001270 (grid function)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001270 "A volumetric analysis parameter that specifies the mathematical function or algorithm used when calculating properties on a 3D grid. Different functions might be used for averaging, summing, or mapping specific atomic properties onto the grid points. The grid function determines what property is being represented by the volumetric data. This is often set with a keyword that specifies the function name. (UNVERIFIED)e"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001270 "grid function"@en)
 SubClassOf(obo:MOLSIM_001270 obo:MOLSIM_001268)
 
 # Class: obo:MOLSIM_001271 (grid points)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001271 "A volumetric analysis parameter that specifies the number of points in each dimension of a 3D grid. This parameter directly controls the size and resolution of the volumetric data. The grid points are a key parameter for defining the scope of the grid-based analysis. This is often set with the keyword --ng. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001271 "grid points"@en)
 SubClassOf(obo:MOLSIM_001271 obo:MOLSIM_001268)
 
 # Class: obo:MOLSIM_001272 (statistical analysis parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001272 "A type of analysis parameter that controls a statistical analysis performed on simulation data. These parameters define the significance levels, number of trials, and other settings for statistical tests and resampling methods. The statistical analysis parameter settings are crucial for assessing the reliability and significance of the simulation results. These are often set as options in a statistical software package. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001272 "statistical analysis parameter"@en)
 SubClassOf(obo:MOLSIM_001272 obo:MOLSIM_001264)
 
 # Class: obo:MOLSIM_001273 (p-value threshold)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001273 "A statistical analysis parameter that specifies the significance level (alpha) used in hypothesis testing. If the calculated p-value is below the p-value threshold, the result is considered statistically significant. This is a fundamental parameter for controlling the interpretation of statistical tests. This is often set to a value like 0.05 or 0.01. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001273 "p-value threshold"@en)
 SubClassOf(obo:MOLSIM_001273 obo:MOLSIM_001272)
 
 # Class: obo:MOLSIM_001274 (confidence level)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001274 "A statistical analysis parameter that specifies the desired confidence level for calculating a confidence interval. A confidence level of 95% means that the calculated interval is expected to contain the true value of the parameter in 95% of cases. This is a key parameter for quantifying the uncertainty of a calculated property. This is often set as a percentage. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001274 "confidence level"@en)
 SubClassOf(obo:MOLSIM_001274 obo:MOLSIM_001272)
 
 # Class: obo:MOLSIM_001275 (number of bootstrap replications)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001275 "A statistical analysis parameter that specifies the total number of times the original data is randomly resampled during a bootstrap analysis. A larger number of bootstrap replications improves the stability and reliability of the estimated uncertainty. This is a key parameter for controlling the robustness of the bootstrap analysis. This is often set to a value of 1000 or more. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001275 "number of bootstrap replications"@en)
 SubClassOf(obo:MOLSIM_001275 obo:MOLSIM_001272)
 
 # Class: obo:MOLSIM_001276 (kernel density bandwidth)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001276 "A statistical analysis parameter that controls the smoothing in a Kernel Density Estimation (KDE) calculation. The kernel density bandwidth determines the trade-off between bias and variance in the resulting probability distribution. This is a key parameter for generating smooth density plots from discrete data. This is often set with the keyword bandwidth. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001276 "kernel density bandwidth"@en)
 SubClassOf(obo:MOLSIM_001276 obo:MOLSIM_001272)
 
 # Class: obo:MOLSIM_001277 (free energy analysis parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001277 "A type of analysis parameter that controls the calculation of free energy from simulation data. These parameters define the settings for methods like MM/PBSA, thermodynamic integration, or umbrella sampling analysis. The free energy analysis parameter settings are crucial for obtaining accurate and converged free energy estimates. These are often set in the input file for a free energy analysis program. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001277 "free energy analysis parameter"@en)
 SubClassOf(obo:MOLSIM_001277 obo:MOLSIM_001264)
 
 # Class: obo:MOLSIM_001278 (MM-PBSA/GBSA parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001278 "A type of free energy analysis parameter that controls a Molecular Mechanics / Poisson-Boltzmann (or Generalized Born) Surface Area calculation. These parameters define the settings for the continuum solvent model and the surface area calculation. The MM-PBSA/GBSA parameter settings are crucial for obtaining reliable binding free energy estimates. These are often set in the input file for MMPBSA.py. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001278 "MM-PBSA/GBSA parameter"@en)
 SubClassOf(obo:MOLSIM_001278 obo:MOLSIM_001277)
 
 # Class: obo:MOLSIM_001279 (membrane dielectric constant)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001279 "An MM-PBSA/GBSA parameter that specifies the dielectric constant of the implicit membrane region in a continuum solvent calculation. This is a key parameter for accurately modeling the electrostatic environment of a membrane protein. The membrane dielectric constant is typically set to a low value to represent the non-polar lipid core. This is often set with the keyword emem. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001279 "membrane dielectric constant"@en)
 SubClassOf(obo:MOLSIM_001279 obo:MOLSIM_001278)
 
 # Class: obo:MOLSIM_001280 (probe radius)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001280 "An MM-PBSA/GBSA parameter that specifies the radius of the probe molecule (typically water) used to calculate the solvent-accessible surface area. The probe radius is a key parameter for the non-polar part of the solvation free energy calculation. This is often set with the keyword probe or prbrad. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001280 "probe radius"@en)
 SubClassOf(obo:MOLSIM_001280 obo:MOLSIM_001278)
 
 # Class: obo:MOLSIM_001281 (cavity offset)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001281 "An MM-PBSA/GBSA parameter that specifies an offset to correct the non-polar free energy contribution. This is an empirical parameter used to improve the accuracy of the non-polar solvation energy calculation. The cavity offset is a key parameter for tuning the MM/PBSA or MM/GBSA calculation. This is often set with the keyword cavity_offset. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001281 "cavity offset"@en)
 SubClassOf(obo:MOLSIM_001281 obo:MOLSIM_001278)
 
 # Class: obo:MOLSIM_001282 (cavity surface tension)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001282 "An MM-PBSA/GBSA parameter that specifies the surface tension value for the non-polar energy calculation. This parameter relates the solvent-accessible surface area to the non-polar solvation free energy. The cavity surface tension is a key parameter for the non-polar part of the MM/PBSA or MM/GBSA calculation. This is often set with the keyword cavity_surften. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001282 "cavity surface tension"@en)
 SubClassOf(obo:MOLSIM_001282 obo:MOLSIM_001278)
 
 # Class: obo:MOLSIM_001283 (thermodynamic integration parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001283 "A type of free energy analysis parameter that controls a thermodynamic integration (TI) calculation. These parameters define the number and spacing of the intermediate states (lambda windows) used to calculate the free energy difference. The thermodynamic integration parameter settings are crucial for obtaining a converged and accurate free energy difference. These are often set in the input file for each lambda window. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001283 "thermodynamic integration parameter"@en)
 SubClassOf(obo:MOLSIM_001283 obo:MOLSIM_001277)
 
 # Class: obo:MOLSIM_001284 (number of lambda windows)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001284 "A thermodynamic integration parameter that specifies the number of intermediate states (lambda windows) to be simulated along the alchemical transformation path. A larger number of lambda windows provides a more accurate numerical integration of the free energy but is computationally more expensive. This is a key parameter for controlling the accuracy of a TI calculation. This is often set by the number of input files for the different lambda values. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001284 "number of lambda windows"@en)
 SubClassOf(obo:MOLSIM_001284 obo:MOLSIM_001283)
 
 # Class: obo:MOLSIM_001285 (umbrella sampling analysis parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001285 "A type of free energy analysis parameter that controls the analysis of umbrella sampling simulations to generate a potential of mean force. These parameters define the settings for the histogramming and reweighting procedure. The umbrella sampling analysis parameter settings are crucial for correctly combining the data from multiple windows. These are often set in the input file for a WHAM or MBAR analysis program. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001285 "umbrella sampling analysis parameter"@en)
 SubClassOf(obo:MOLSIM_001285 obo:MOLSIM_001277)
 
 # Class: obo:MOLSIM_001286 (potential mean force convergence step size)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001286 "An umbrella sampling analysis parameter that specifies the increment or step size used when assessing the convergence of the calculated Potential of Mean Force (PMF). The PMF is calculated using progressively larger amounts of data to check for convergence. The potential of mean force convergence step size is a key parameter for ensuring that the calculated free energy profile is reliable. This is a key parameter for WHAM analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001286 "potential mean force convergence step size"@en)
 SubClassOf(obo:MOLSIM_001286 obo:MOLSIM_001285)
 
 # Class: obo:MOLSIM_001287 (3D-RISM parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001287 "A type of free energy analysis parameter that controls a 3D Reference Interaction Site Model (3D-RISM) calculation. These parameters define the convergence criteria and cutoffs for the integral equation theory calculation. The 3D-RISM parameter settings are crucial for obtaining a converged and accurate solvation free energy. These are often set in the input file for the 3D-RISM program. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001287 "3D-RISM parameter"@en)
 SubClassOf(obo:MOLSIM_001287 obo:MOLSIM_001277)
 
 # Class: obo:MOLSIM_001288 (3D-RISM convergence tolerance)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001288 "A 3D-RISM parameter that specifies the convergence criterion for the self-consistent solution of the integral equations. A smaller 3D-RISM convergence tolerance results in a more accurate calculation but may require more iterations. This is a key parameter for controlling the accuracy of the 3D-RISM calculation. This is often set with the keyword tolerance. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001288 "3D-RISM convergence tolerance"@en)
 SubClassOf(obo:MOLSIM_001288 obo:MOLSIM_001287)
 
 # Class: obo:MOLSIM_001289 (solute-solvent interaction cutoff)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001289 "A 3D-RISM parameter that specifies the cutoff distance for the solute-solvent interactions in the 3D-RISM calculation. This is a key parameter for controlling the computational cost and accuracy of the calculation. The solute-solvent interaction cutoff is often set with the keyword solvcut. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001289 "solute-solvent interaction cutoff"@en)
 SubClassOf(obo:MOLSIM_001289 obo:MOLSIM_001287)
 
 # Class: obo:MOLSIM_001290 (NMR analysis parameter)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001290 "A type of analysis parameter that controls the analysis of simulation data to generate properties that can be compared with Nuclear Magnetic Resonance (NMR) experiments. These parameters define the settings for calculating NMR-related observables from a trajectory. The NMR analysis parameter settings are crucial for validating simulations against experimental data. These are often set in the input file for an NMR analysis program. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001290 "NMR analysis parameter"@en)
 SubClassOf(obo:MOLSIM_001290 obo:MOLSIM_001264)
 
 # Class: obo:MOLSIM_001291 (R6 averaged distance)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001291 "An NMR analysis parameter that specifies a particular form of distance averaging used in NMR structure calculation and refinement. This method involves averaging the inverse sixth power of the distance between two atoms, which is directly related to the Nuclear Overhauser Effect (NOE) intensity. The <r⁻⁶>⁻¹/⁶ averaged distance is a key parameter for back-calculating NOEs from a simulation trajectory. This is often referred to as R6 averaging. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001291 "R6 averaged distance"@en)
 SubClassOf(obo:MOLSIM_001291 obo:MOLSIM_001290)
 
