@@ -15,7 +15,7 @@ Import(<http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/ncit_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl>)
 Annotation(<http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "en")
-Annotation(dcterms:description "Molsim is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.")
+Annotation(dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools."@en)
 Annotation(dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
@@ -340,7 +340,6 @@ Declaration(Class(obo:MOLSIM_000327))
 Declaration(Class(obo:MOLSIM_000328))
 Declaration(Class(obo:MOLSIM_000329))
 Declaration(Class(obo:MOLSIM_000330))
-Declaration(Class(obo:MOLSIM_000331))
 Declaration(Class(obo:MOLSIM_000332))
 Declaration(Class(obo:MOLSIM_000333))
 Declaration(Class(obo:MOLSIM_000334))
@@ -1318,6 +1317,11 @@ Declaration(Class(obo:MOLSIM_001430))
 Declaration(Class(obo:MOLSIM_001431))
 Declaration(Class(obo:MOLSIM_001432))
 Declaration(Class(obo:MOLSIM_001433))
+Declaration(Class(obo:MOLSIM_001434))
+Declaration(Class(obo:MOLSIM_001435))
+Declaration(Class(obo:MOLSIM_001436))
+Declaration(Class(obo:MOLSIM_001437))
+Declaration(Class(obo:MOLSIM_001438))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -2141,13 +2145,13 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000037 "algorithm"@en)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000038 "An algorithm used in molecular dynamics simulations to control the temperature of the simulated system, ensuring it samples configurations corresponding to a specific target temperature (e.g., for the NVT or NPT ensembles). Thermostats work by adjusting particle velocities or adding/removing kinetic energy in various ways to mimic coupling with an external heat bath. Different thermostat algorithms vary in their theoretical basis, efficiency, and how accurately they reproduce correct statistical mechanics (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000038 "thermostat algorithm"@en)
-SubClassOf(obo:MOLSIM_000038 obo:MOLSIM_000037)
+SubClassOf(obo:MOLSIM_000038 obo:MOLSIM_000382)
 
 # Class: obo:MOLSIM_000039 (barostat algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000039 "An algorithm used in molecular dynamics simulations, typically alongside a thermostat, to control the pressure of the simulated system by adjusting the simulation box volume. This allows simulations to be performed under conditions of constant pressure and temperature (NPT ensemble), mimicking typical laboratory conditions. Different barostats vary in how they couple the volume changes to the pressure difference and whether they allow anisotropic box changes (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000039 "barostat algorithm"@en)
-SubClassOf(obo:MOLSIM_000039 obo:MOLSIM_000037)
+SubClassOf(obo:MOLSIM_000039 obo:MOLSIM_000382)
 
 # Class: obo:MOLSIM_000040 (Berendsen barostat)
 
@@ -2235,12 +2239,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000053 "An algorithm designed to 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000053 "electrostatic interaction algorithm"@en)
 SubClassOf(obo:MOLSIM_000053 obo:MOLSIM_000384)
 
-# Class: obo:MOLSIM_000054 (particle mesh ewald)
+# Class: obo:MOLSIM_000054 (particle mesh Ewald)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000054 "A highly efficient grid-based algorithm for calculating long-range electrostatic interactions in periodic systems, based on the Ewald summation technique. It splits the calculation into a short-range part computed directly in real space and a long-range part computed efficiently in reciprocal space using Fast Fourier Transforms (FFTs) on a grid. PME is a standard method for accurate electrostatics in biomolecular simulations (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000054 "PME"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000054 "particle mesh ewald"@en)
-SubClassOf(obo:MOLSIM_000054 obo:MOLSIM_000053)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000054 "particle mesh Ewald"@en)
+SubClassOf(obo:MOLSIM_000054 obo:MOLSIM_000428)
 
 # Class: obo:MOLSIM_000055 (reaction field)
 
@@ -3168,11 +3172,11 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000205 "AM1-BCC"@en)
 SubClassOf(obo:MOLSIM_000205 obo:MOLSIM_000204)
 DisjointClasses(obo:MOLSIM_000205 obo:MOLSIM_000206)
 
-# Class: obo:MOLSIM_000206 (restraint electrostatic potential)
+# Class: obo:MOLSIM_000206 (restraint electrostatic potential (RESP))
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000206 "A popular method for deriving high-quality partial atomic charges for molecules, frequently used in conjunction with the AMBER force fields. It involves calculating the quantum mechanical electrostatic potential (ESP) on a grid of points around the molecule (typically using Hartree-Fock or DFT methods), and then fitting atom-centered point charges to reproduce this ESP using a least-squares algorithm. Crucially, 'restraints' (typically hyperbolic penalties) are applied during the fitting process to prevent unrealistically large charges on buried atoms and ensure transferability, often performed in multiple stages for chemical equivalence. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000206 "RESP"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000206 "restraint electrostatic potential"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000206 "restraint electrostatic potential (RESP)"@en)
 SubClassOf(obo:MOLSIM_000206 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_000207 (custom script)
@@ -3879,15 +3883,10 @@ SubClassOf(obo:MOLSIM_000329 obo:MOLSIM_000328)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000330 "ion concentration calculation method"@en)
 SubClassOf(obo:MOLSIM_000330 obo:MOLSIM_000329)
 
-# Class: obo:MOLSIM_000331 (quantum mechanics algorithm)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_000331 "quantum mechanics algorithm"@en)
-SubClassOf(obo:MOLSIM_000331 obo:MOLSIM_000037)
-
 # Class: obo:MOLSIM_000332 (SCF convergence algorithm)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000332 "SCF convergence algorithm"@en)
-SubClassOf(obo:MOLSIM_000332 obo:MOLSIM_000331)
+SubClassOf(obo:MOLSIM_000332 obo:MOLSIM_000407)
 
 # Class: obo:MOLSIM_000333 (level shifting)
 
@@ -4174,7 +4173,7 @@ SubClassOf(obo:MOLSIM_000384 obo:MOLSIM_000382)
 # Class: obo:MOLSIM_000385 (Mulliken Ewald summation)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000385 "Mulliken Ewald summation"@en)
-SubClassOf(obo:MOLSIM_000385 obo:MOLSIM_000053)
+SubClassOf(obo:MOLSIM_000385 obo:MOLSIM_000428)
 
 # Class: obo:MOLSIM_000386 (QM-QM derivative calculation method)
 
@@ -4184,7 +4183,7 @@ SubClassOf(obo:MOLSIM_000386 obo:MOLSIM_000367)
 # Class: obo:MOLSIM_000387 (QM Ewald treatment)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000387 "QM Ewald treatment"@en)
-SubClassOf(obo:MOLSIM_000387 obo:MOLSIM_000053)
+SubClassOf(obo:MOLSIM_000387 obo:MOLSIM_000428)
 
 # Class: obo:MOLSIM_000388 (QM/MM simulation)
 
@@ -5547,7 +5546,7 @@ SubClassOf(obo:MOLSIM_000628 obo:MOLSIM_000388)
 
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000629 "Ewald for QM/MM"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000629 "QM/MM Ewald summation"@en)
-SubClassOf(obo:MOLSIM_000629 obo:MOLSIM_000053)
+SubClassOf(obo:MOLSIM_000629 obo:MOLSIM_000428)
 
 # Class: obo:MOLSIM_000630 (multilayer QM/MM)
 
@@ -9706,6 +9705,31 @@ SubClassOf(obo:MOLSIM_001432 obo:MOLSIM_000860)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001433 "ensemble trajectory analysis"@en)
 SubClassOf(obo:MOLSIM_001433 obo:MOLSIM_000939)
+
+# Class: obo:MOLSIM_001434 (ABCG2 charge model)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001434 "ABCG2 charge model"@en)
+SubClassOf(obo:MOLSIM_001434 obo:MOLSIM_000204)
+
+# Class: obo:MOLSIM_001435 (CM1 charge method)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001435 "CM1 charge method"@en)
+SubClassOf(obo:MOLSIM_001435 obo:MOLSIM_000204)
+
+# Class: obo:MOLSIM_001436 (CM2 charge model)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001436 "CM2 charge model"@en)
+SubClassOf(obo:MOLSIM_001436 obo:MOLSIM_000204)
+
+# Class: obo:MOLSIM_001437 (Gasteiger charge model)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001437 "Gasteiger charge model"@en)
+SubClassOf(obo:MOLSIM_001437 obo:MOLSIM_000204)
+
+# Class: obo:MOLSIM_001438 (iterative polarizable charge model)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001438 "iterative polarizable charge model"@en)
+SubClassOf(obo:MOLSIM_001438 obo:MOLSIM_000204)
 
 
 ############################
