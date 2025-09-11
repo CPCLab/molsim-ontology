@@ -494,8 +494,6 @@ Declaration(Class(obo:MOLSIM_000484))
 Declaration(Class(obo:MOLSIM_000485))
 Declaration(Class(obo:MOLSIM_000486))
 Declaration(Class(obo:MOLSIM_000487))
-Declaration(Class(obo:MOLSIM_000488))
-Declaration(Class(obo:MOLSIM_000489))
 Declaration(Class(obo:MOLSIM_000490))
 Declaration(Class(obo:MOLSIM_000491))
 Declaration(Class(obo:MOLSIM_000492))
@@ -1223,6 +1221,7 @@ Declaration(Class(obo:MOLSIM_001333))
 Declaration(Class(obo:MOLSIM_001334))
 Declaration(Class(obo:MOLSIM_001335))
 Declaration(Class(obo:MOLSIM_001336))
+Declaration(Class(obo:MOLSIM_001337))
 Declaration(Class(obo:MOLSIM_001338))
 Declaration(Class(obo:MOLSIM_001339))
 Declaration(Class(obo:MOLSIM_001340))
@@ -1317,6 +1316,8 @@ Declaration(Class(obo:MOLSIM_001428))
 Declaration(Class(obo:MOLSIM_001429))
 Declaration(Class(obo:MOLSIM_001430))
 Declaration(Class(obo:MOLSIM_001431))
+Declaration(Class(obo:MOLSIM_001432))
+Declaration(Class(obo:MOLSIM_001433))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -3902,7 +3903,7 @@ SubClassOf(obo:MOLSIM_000334 obo:MOLSIM_000076)
 # Class: obo:MOLSIM_000335 (restrained subset dynamics)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000335 "restrained subset dynamics"@en)
-SubClassOf(obo:MOLSIM_000335 obo:MOLSIM_000843)
+SubClassOf(obo:MOLSIM_000335 obo:MOLSIM_000364)
 
 # Class: obo:MOLSIM_000336 (multiscale simulation method)
 
@@ -4359,7 +4360,7 @@ SubClassOf(obo:MOLSIM_000421 obo:MOLSIM_000615)
 # Class: obo:MOLSIM_000422 (generalized weighted thermodynamic perturbation theory)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000422 "generalized weighted thermodynamic perturbation theory"@en)
-SubClassOf(obo:MOLSIM_000422 obo:MOLSIM_000615)
+SubClassOf(obo:MOLSIM_000422 obo:MOLSIM_000421)
 
 # Class: obo:MOLSIM_000423 (multidimensional replica-exchange molecular dynamics)
 
@@ -4710,16 +4711,6 @@ SubClassOf(obo:MOLSIM_000486 obo:MOLSIM_000485)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000487 "The 4-21G basis set is a Pople-style split-valence basis conceptually similar to 3-21G, but it uses a contraction of 4 Gaussian functions to represent core orbitals. Like 3-21G, it uses a two-function split (contracted from 2 Gaussians and 1 Gaussian) for the valence orbitals. It provides basic split-valence flexibility with a slightly different core description than 3-21G. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000487 "4-21G"@en)
 SubClassOf(obo:MOLSIM_000487 obo:MOLSIM_000485)
-
-# Class: obo:MOLSIM_000488 (charge calculation method)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_000488 "charge calculation method"@en)
-SubClassOf(obo:MOLSIM_000488 obo:MOLSIM_000374)
-
-# Class: obo:MOLSIM_000489 (iterative polarizable charge method)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_000489 "iterative polarizable charge method"@en)
-SubClassOf(obo:MOLSIM_000489 obo:MOLSIM_000488)
 
 # Class: obo:MOLSIM_000490 (structure preparation software)
 
@@ -5514,7 +5505,7 @@ SubClassOf(obo:MOLSIM_000621 obo:MOLSIM_000620)
 
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000622 "DFTB3"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000622 "third-order self-consistent-charge density-functional based tight-binding"@en)
-SubClassOf(obo:MOLSIM_000622 obo:MOLSIM_000620)
+SubClassOf(obo:MOLSIM_000622 obo:MOLSIM_000621)
 
 # Class: obo:MOLSIM_000623 (quantum interaction*)
 
@@ -5545,7 +5536,7 @@ SubClassOf(obo:MOLSIM_000626 obo:MOLSIM_000623)
 
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000627 "DFT"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000627 "density functional theory"@en)
-SubClassOf(obo:MOLSIM_000627 obo:MOLSIM_000803)
+SubClassOf(obo:MOLSIM_000627 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000628 (electrostatic embedding QM/MM)
 
@@ -6460,7 +6451,7 @@ SubClassOf(obo:MOLSIM_000802 obo:MOLSIM_000038)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000803 "A category of quantum chemistry calculation methods that bridges the gap between highly accurate but slow ab initio methods and very fast but simple molecular mechanics. It simplifies the complex equations of quantum mechanics (often starting from the Hartree-Fock framework) by neglecting certain terms and using parameters derived from experimental data to approximate others. These methods aim to provide a reasonable balance between computational cost and accuracy for studying molecular properties like geometry and energy (UNVERIFIED)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000803 "semi-empirical method"@en)
-SubClassOf(obo:MOLSIM_000803 obo:MOLSIM_000141)
+SubClassOf(obo:MOLSIM_000803 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000804 (all-valence-electron restricted)
 
@@ -7386,16 +7377,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000982 "Refers to the dynamic tra
 AnnotationAssertion(rdfs:label obo:MOLSIM_000982 "secondary structure changes"@en)
 SubClassOf(obo:MOLSIM_000982 obo:MOLSIM_000981)
 
-# Class: obo:MOLSIM_000983 (hydration)
+# Class: obo:MOLSIM_000983 (hydration analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000983 "A specific type of solvent analysis focusing on the direct interaction of water molecules with a solute molecule. It involves characterizing the arrangement, orientation, dynamics, and energetics of water molecules in the immediate vicinity of the solute, often referred to as the hydration shell(s). Understanding hydration patterns is critical as these interfacial water molecules strongly influence the solute's structure, stability, dynamics, and interactions with other molecules. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000983 "hydration"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000983 "hydration analysis"@en)
 SubClassOf(obo:MOLSIM_000983 obo:MOLSIM_000974)
 
-# Class: obo:MOLSIM_000984 (distribution)
+# Class: obo:MOLSIM_000984 (distribution analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000984 "A solvent analysis technique focused on determining the average spatial arrangement or probability density of solvent molecules relative to the solute molecule, averaged over a simulation trajectory. This often involves calculating various distribution functions (e.g., radial, spatial, or angular) that quantify how the likelihood of finding a solvent molecule varies with position and/or orientation around the solute. It reveals preferred solvation sites and the overall structure of the solvent environment. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000984 "distribution"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000984 "distribution analysis"@en)
 SubClassOf(obo:MOLSIM_000984 obo:MOLSIM_000974)
 
 # Class: obo:MOLSIM_000985 (matrix diagonalization)
@@ -9137,6 +9128,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001336 "A type of structural prop
 AnnotationAssertion(rdfs:label obo:MOLSIM_001336 "distance RMSD (dRMSD)"@en)
 SubClassOf(obo:MOLSIM_001336 obo:MOLSIM_001333)
 
+# Class: obo:MOLSIM_001337 (hydrogen mass repartitioning)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001337 "hydrogen mass repartitioning"@en)
+SubClassOf(obo:MOLSIM_001337 obo:MOLSIM_000328)
+
 # Class: obo:MOLSIM_001338 (ion-oxygen distance)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001338 "A specific type of distance that measures the average separation between an ion and the oxygen atoms of surrounding water molecules. This value is a key descriptor of an ion's first solvation shell. It is used to validate and parameterize ion force fields by comparing to experimental data. This value is often referred to as IOD or Ion-Oxygen Distance. (UNVERIFIED)"@en)
@@ -9700,6 +9696,16 @@ SubClassOf(obo:MOLSIM_001430 obo:MOLSIM_001427)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001431 "A type of miscellaneous descriptor that provides a metric for measuring the similarity between two entities, such as molecular structures or atom types. The similarity score is a quantitative measure used in various contexts, from virtual screening to parameter estimation. This is a key output of cheminformatics tools. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001431 "similarity score"@en)
 SubClassOf(obo:MOLSIM_001431 obo:MOLSIM_001427)
+
+# Class: obo:MOLSIM_001432 (adaptive string method)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001432 "adaptive string method"@en)
+SubClassOf(obo:MOLSIM_001432 obo:MOLSIM_000860)
+
+# Class: obo:MOLSIM_001433 (ensemble trajectory analysis)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001433 "ensemble trajectory analysis"@en)
+SubClassOf(obo:MOLSIM_001433 obo:MOLSIM_000939)
 
 
 ############################
