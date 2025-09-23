@@ -177,7 +177,6 @@ Declaration(Class(obo:MOLSIM_000154))
 Declaration(Class(obo:MOLSIM_000155))
 Declaration(Class(obo:MOLSIM_000156))
 Declaration(Class(obo:MOLSIM_000157))
-Declaration(Class(obo:MOLSIM_000158))
 Declaration(Class(obo:MOLSIM_000159))
 Declaration(Class(obo:MOLSIM_000160))
 Declaration(Class(obo:MOLSIM_000161))
@@ -189,9 +188,6 @@ Declaration(Class(obo:MOLSIM_000166))
 Declaration(Class(obo:MOLSIM_000167))
 Declaration(Class(obo:MOLSIM_000168))
 Declaration(Class(obo:MOLSIM_000169))
-Declaration(Class(obo:MOLSIM_000170))
-Declaration(Class(obo:MOLSIM_000171))
-Declaration(Class(obo:MOLSIM_000172))
 Declaration(Class(obo:MOLSIM_000173))
 Declaration(Class(obo:MOLSIM_000174))
 Declaration(Class(obo:MOLSIM_000175))
@@ -276,7 +272,6 @@ Declaration(Class(obo:MOLSIM_000253))
 Declaration(Class(obo:MOLSIM_000254))
 Declaration(Class(obo:MOLSIM_000255))
 Declaration(Class(obo:MOLSIM_000256))
-Declaration(Class(obo:MOLSIM_000257))
 Declaration(Class(obo:MOLSIM_000258))
 Declaration(Class(obo:MOLSIM_000259))
 Declaration(Class(obo:MOLSIM_000260))
@@ -1697,6 +1692,7 @@ Declaration(Class(obo:MOLSIM_001798))
 Declaration(Class(obo:MOLSIM_001799))
 Declaration(Class(obo:MOLSIM_001800))
 Declaration(Class(obo:MOLSIM_001801))
+Declaration(Class(obo:MOLSIM_001802))
 Declaration(Class(obo:MOLSIM_001803))
 Declaration(Class(obo:MOLSIM_001804))
 Declaration(Class(obo:MOLSIM_001805))
@@ -1742,6 +1738,9 @@ Declaration(Class(obo:MOLSIM_001844))
 Declaration(Class(obo:MOLSIM_001846))
 Declaration(Class(obo:MOLSIM_001847))
 Declaration(Class(obo:MOLSIM_001848))
+Declaration(Class(obo:MOLSIM_001849))
+Declaration(Class(obo:MOLSIM_001850))
+Declaration(Class(obo:MOLSIM_001851))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -3280,10 +3279,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000155 "Ligand efficiency (LE) is
 AnnotationAssertion(rdfs:label obo:MOLSIM_000155 "ligand efficiency"@en)
 SubClassOf(obo:MOLSIM_000155 obo:MOLSIM_000143)
 
-# Class: obo:MOLSIM_000156 (application program)
+# Class: obo:MOLSIM_000156 (application)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000156 "A type of software designed to perform specific tasks directly for the end-user, as opposed to system software that manages the computer itself. In biomolecular simulation, application programs include molecular dynamics engines (like AMBER, GROMACS), quantum chemistry packages (like Gaussian, Q-Chem), visualization tools (like VMD, PyMOL), and analysis programs. These are the primary software packages researchers interact with. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000156 "application program"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000156 "application"@en)
 SubClassOf(obo:MOLSIM_000156 obo:MOLSIM_000001)
 
 # Class: obo:MOLSIM_000157 (framework)
@@ -3292,96 +3291,71 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000157 "A reusable software platf
 AnnotationAssertion(rdfs:label obo:MOLSIM_000157 "framework"@en)
 SubClassOf(obo:MOLSIM_000157 obo:MOLSIM_000001)
 
-# Class: obo:MOLSIM_000158 (tool)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000158 "A piece of software, often an application program or a component within a larger package, designed to perform a specific, well-defined task or function within the overall biomolecular simulation workflow. Tools can range from simple file converters or data extractors to complex programs for docking, visualization, analysis, or structure preparation. They are typically used to accomplish specific sub-goals within the broader preparation, execution, or analysis processes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000158 "tool"@en)
-SubClassOf(obo:MOLSIM_000158 obo:MOLSIM_000001)
-
 # Class: obo:MOLSIM_000159 (AMBER mdcrd format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000159 "A text-based file format from the Amber software that stores the movement of atoms over time from a simulation. It contains a series of snapshots, or frames, where each frame lists the x, y, and z coordinates of every atom at a specific time point. This format is widely used for analyzing and visualizing simulation trajectories. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000159 "AMBER mdcrd format"@en)
 SubClassOf(obo:MOLSIM_000159 obo:MOLSIM_001090)
 
-# Class: obo:MOLSIM_000160 (molecular dynamics software)
+# Class: obo:MOLSIM_000160 (molecular dynamics engine)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000160 "Application programs specifically designed to perform molecular dynamics (MD) simulations, which calculate the motion of atoms and molecules over time based on classical mechanics and a chosen force field. These packages typically include capabilities for system preparation, simulation execution (often optimized for high-performance computing), and basic trajectory analysis. Examples include AMBER, GROMACS, NAMD, CHARMM, Desmond, and LAMMPS. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000160 "molecular dynamics software"@en)
-SubClassOf(obo:MOLSIM_000160 obo:MOLSIM_000156)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000160 "molecular dynamics engine"@en)
+SubClassOf(obo:MOLSIM_000160 obo:MOLSIM_001851)
 
-# Class: obo:MOLSIM_000161 (quantum chemistry software)
+# Class: obo:MOLSIM_000161 (quantum chemistry engine)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000161 "Application programs specifically designed to solve the electronic structure of atoms and molecules using the principles of quantum mechanics. These packages implement various theoretical methods, such as Hartree-Fock, Density Functional Theory (DFT), Møller-Plesset perturbation theory (MPn), configuration interaction (CI), and coupled cluster (CC), to calculate energies, wavefunctions, molecular properties, and reaction pathways. Examples include Gaussian, Q-Chem, NWChem, Orca, Molpro, etc., often used for parameterizing force fields, studying reaction mechanisms, or in QM/MM simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000161 "quantum chemistry software"@en)
-SubClassOf(obo:MOLSIM_000161 obo:MOLSIM_000156)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000161 "quantum chemistry engine"@en)
+SubClassOf(obo:MOLSIM_000161 obo:MOLSIM_001851)
 
 # Class: obo:MOLSIM_000162 (docking tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000162 "A computational tool used to predict the preferred binding orientation and affinity (scoring) of one molecule (typically a small ligand) to another (usually a larger receptor like a protein or nucleic acid). Docking tools employ search algorithms to explore possible binding poses within a target site and use scoring functions to estimate the binding strength for each pose. Widely used in drug discovery and understanding molecular recognition, examples include AutoDock, Vina, Glide, GOLD, and DOCK. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000162 "docking tool"@en)
-SubClassOf(obo:MOLSIM_000162 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000162 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000163 (visualization tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000163 "Software specifically designed for creating interactive 3D graphical representations of molecular structures, densities, surfaces, and dynamic trajectories generated from simulations or experiments. These tools allow researchers to visually inspect molecular details, understand complex spatial relationships, analyze interactions, monitor simulations, and create figures and animations for communication. Common examples include VMD, PyMOL, Chimera/ChimeraX, and DeepView (Swiss-PdbViewer). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000163 "visualization tool"@en)
-SubClassOf(obo:MOLSIM_000163 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000163 obo:MOLSIM_000156)
 
 # Class: obo:MOLSIM_000164 (analysis tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000164 "Software designed to process raw data generated from biomolecular simulations (like trajectories, energy files) to calculate specific quantitative properties and extract meaningful insights. Analysis tools implement algorithms for calculating metrics like RMSD, RMSF, radius of gyration, hydrogen bonds, interaction energies, principal components (PCA), free energy estimations (MM/PBSA), clustering, etc. Examples include cpptraj (AmberTools), GROMACS analysis utilities, MDAnalysis (Python library), and specialized scripts or programs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000164 "analysis tool"@en)
-SubClassOf(obo:MOLSIM_000164 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000164 obo:MOLSIM_000156)
 
 # Class: obo:MOLSIM_000165 (data processing tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000165 "A tool focused on manipulating, converting, filtering, or extracting information from data files generated during a simulation workflow. This can involve tasks like converting file formats, extracting specific columns or frames, merging datasets, calculating simple statistics, or preparing data for input into other analysis or visualization tools. These tools handle the logistical aspects of managing simulation data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000165 "data processing tool"@en)
-SubClassOf(obo:MOLSIM_000165 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000165 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_000166 (file conversion tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000166 "A specific type of data processing tool dedicated to converting molecular structure, trajectory, or data files from one format to another (e.g., PDB to MOL2, GROMACS trajectory to AMBER format). File format compatibility is a common issue when using different software packages, making these tools essential for interoperability within a simulation workflow. Many simulation packages include their own conversion utilities, or general tools like Open Babel can be used. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000166 "file conversion tool"@en)
-SubClassOf(obo:MOLSIM_000166 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000166 obo:MOLSIM_000165)
 
 # Class: obo:MOLSIM_000167 (automation script)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000167 "A script specifically designed to automate a series of steps in a workflow that would otherwise need to be performed manually. In simulations, this could involve automatically setting up multiple simulation replicas, submitting jobs to a computing cluster, checking job status, and organizing output files, thereby reducing manual effort and potential errors. Workflow management systems often rely heavily on automation scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000167 "automation script"@en)
-SubClassOf(obo:MOLSIM_000167 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000167 obo:MOLSIM_001802)
 
 # Class: obo:MOLSIM_000168 (data analysis script)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000168 "A script written to perform specific analysis tasks on data generated from simulations, often going beyond the standard capabilities of packaged analysis tools or requiring custom calculations. Examples include scripts to calculate specific geometric parameters over time, parse log files for specific energy terms, perform advanced statistical analysis or time-series analysis on trajectory data, or generate data for custom plots. These are often written in Python (using libraries like MDAnalysis, NumPy, Pandas) or R. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000168 "data analysis script"@en)
-SubClassOf(obo:MOLSIM_000168 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000168 obo:MOLSIM_001802)
 
 # Class: obo:MOLSIM_000169 (workflow script)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000169 "A script that defines and executes an entire sequence of computational tasks constituting a specific workflow, often involving multiple steps like data preparation, running simulations (potentially submitting to clusters), performing analysis, and summarizing results. These scripts orchestrate the execution of various tools and other scripts, manage intermediate data, and handle dependencies between steps, ensuring the entire process runs smoothly and reproducibly. Tools like Snakemake or Nextflow help in creating robust workflow scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000169 "workflow script"@en)
-SubClassOf(obo:MOLSIM_000169 obo:MOLSIM_000158)
-
-# Class: obo:MOLSIM_000170 (executables)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000170 "Programs that can be run directly by a computer in molecular simulations. These are typically compiled from source code and optimized for performance."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000170 "executables"@en)
-SubClassOf(obo:MOLSIM_000170 obo:MOLSIM_000001)
-
-# Class: obo:MOLSIM_000171 (command-line program)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000171 "An executable program that is operated primarily through text commands typed into a command-line interface (CLI) or terminal, rather than through a graphical user interface (GUI). Most core simulation engines (like GROMACS' gmx mdrun, AMBER's pmemd), analysis tools (cpptraj), and many utility programs in biomolecular simulation are command-line programs, making them well-suited for scripting and remote execution on computing clusters. They typically accept input parameters via command-line arguments or input files. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000171 "command-line program"@en)
-SubClassOf(obo:MOLSIM_000171 obo:MOLSIM_000170)
-DisjointClasses(obo:MOLSIM_000171 obo:MOLSIM_000172)
-
-# Class: obo:MOLSIM_000172 (compiled program)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000172 "A program that has been translated from a high-level programming language (like C++, Fortran) into low-level machine code specific to a particular computer architecture (CPU instruction set) by a compiler. This compiled code is stored in an executable file. Compiled programs generally run much faster than interpreted scripts (like Python or Perl) because the translation to machine code happens only once, making compilation essential for computationally intensive tasks like running MD simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000172 "compiled program"@en)
-SubClassOf(obo:MOLSIM_000172 obo:MOLSIM_000170)
+SubClassOf(obo:MOLSIM_000169 obo:MOLSIM_001802)
 
 # Class: obo:MOLSIM_000173 (quantum mechanics)
 
@@ -3604,7 +3578,7 @@ SubClassOf(obo:MOLSIM_000206 obo:MOLSIM_000204)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000207 "A script created by a user for a specific, often unique, purpose within their research project that is not covered by standard tools or generic scripts. This could be for a non-standard analysis method, a specific data manipulation task, interfacing between incompatible programs, or automating a highly specialized workflow. Custom scripts offer maximum flexibility but require programming effort and careful validation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000207 "custom script"@en)
-SubClassOf(obo:MOLSIM_000207 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000207 obo:MOLSIM_001802)
 
 # Class: obo:MOLSIM_000208 (thermalization)
 
@@ -3671,19 +3645,19 @@ SubClassOf(obo:MOLSIM_000217 obo:MOLSIM_000160)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000218 "The freely available component of the AMBER software package, containing numerous programs and utilities for biomolecular simulation tasks excluding the main high-performance simulation engine (pmemd). AmberTools includes programs for system setup (tleap), trajectory analysis (cpptraj), structure preparation (antechamber), energy minimization (sander), basic MD simulation (sander), QM calculations (sqm), free energy analysis (MMPBSA.py), and many others. It provides the essential infrastructure for preparing, analyzing, and modeling simulations run with AMBER or other programs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000218 "AmberTools"@en)
-SubClassOf(obo:MOLSIM_000218 obo:MOLSIM_000217)
+SubClassOf(obo:MOLSIM_000218 obo:MOLSIM_001664)
 
 # Class: obo:MOLSIM_000219 (amber.sh)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000219 "This likely refers to a shell script used within the AMBER software ecosystem, possibly for setting up environment variables, running specific AmberTools programs, or launching simulations. It represents a specific script file used to execute or configure parts of the AMBER software suite. Its exact function would depend on the specific context or script content. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000219 "amber.sh"@en)
-SubClassOf(obo:MOLSIM_000219 obo:MOLSIM_000217)
+SubClassOf(obo:MOLSIM_000219 obo:MOLSIM_001569)
 
 # Class: obo:MOLSIM_000220 (protonation tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000220 "A computational tool specifically designed to predict and assign the appropriate protonation states (ionization states) of titratable residues (Asp, Glu, His, Lys, Arg, Cys, Tyr) and ligands within a biomolecular structure at a given pH value. These tools typically use methods based on solving the Poisson-Boltzmann equation or empirical pKa prediction algorithms to determine whether each site is likely to be protonated or deprotonated. Accurate protonation is critical for realistic electrostatic modeling in simulations; examples include PDB2PQR, H++, PROPKA, and modules within larger modeling suites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000220 "protonation tool"@en)
-SubClassOf(obo:MOLSIM_000220 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000220 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000221 (PDB2PQR)
 
@@ -3713,7 +3687,7 @@ SubClassOf(obo:MOLSIM_000224 obo:MOLSIM_000222)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000225 "A computational tool specifically designed to generate realistic initial configurations of lipid bilayers, often including embedded proteins, for use in membrane simulations. These tools arrange lipid molecules (and potentially cholesterol, solvent) according to specified lipid types, compositions, and area per lipid, ensuring proper packing density and avoiding steric clashes, which is challenging to do manually. Examples include PACKMOL-Memgen, CHARMM-GUI's Membrane Builder, and InflateGRO. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000225 "membrane packing tool"@en)
-SubClassOf(obo:MOLSIM_000225 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000225 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000226 (PACKMOL-Memgen)
 
@@ -3725,7 +3699,7 @@ SubClassOf(obo:MOLSIM_000226 obo:MOLSIM_000225)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000227 "A computational tool designed to predict or determine the likely orientation and transmembrane embedding depth of a protein structure within a lipid bilayer. Correctly positioning a membrane protein in the bilayer is a critical first step for setting up realistic membrane protein simulations. These tools often use algorithms based on hydrophobicity analysis, sequence features, or structural properties to find the most favorable position relative to the hydrophobic core and hydrophilic headgroup regions of the membrane. Examples include OPM, PPM, MemProtMD, and MemEmbed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000227 "membrane protein orientation tool"@en)
-SubClassOf(obo:MOLSIM_000227 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000227 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000228 (memembed)
 
@@ -3806,7 +3780,7 @@ SubClassOf(obo:MOLSIM_000239 obo:MOLSIM_000238)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000240 "A computational tool specifically designed to predict the pKa values of ionizable groups (acidic or basic sites) within a molecule, typically amino acid residues in a protein or functional groups in a ligand. The pKa value indicates the pH at which a group is 50% protonated/deprotonated. These tools use various methods, ranging from simple empirical rules to sophisticated calculations involving continuum electrostatics (solving Poisson-Boltzmann equation) or QM methods, to estimate how the molecular environment shifts the intrinsic pKa of a group. PROPKA is a well-known example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000240 "pKa tool"@en)
-SubClassOf(obo:MOLSIM_000240 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000240 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000241 (PROPKA)
 
@@ -3818,14 +3792,13 @@ SubClassOf(obo:MOLSIM_000241 obo:MOLSIM_000240)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000242 "A specific implementation of the MM/PBSA and MM/GBSA methods, distributed as a Python script within the AmberTools software suite. It reads trajectory files (from AMBER or other packages) and calculates binding free energies by computing the MM energy components (using sander or other external programs), the electrostatic solvation energy (using PB or GB solvers), and the nonpolar solvation energy (SASA-based), and combining them according to the MM/PBSA or MM/GBSA schemes. It automates this popular but approximate free energy estimation procedure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000242 "MMPBSA.py"@en)
-SubClassOf(obo:MOLSIM_000242 obo:MOLSIM_000158)
 SubClassOf(obo:MOLSIM_000242 obo:MOLSIM_000460)
 
 # Class: obo:MOLSIM_000243 (in-silico mutagenesis tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000243 "A computational tool that allows researchers to simulate the effects of mutations (changing one amino acid residue to another) on the structure, stability, dynamics, or binding affinity of a protein. These tools typically take a protein structure, allow the user to specify mutations, and then use algorithms (often based on molecular mechanics energy functions, rotamer libraries, or machine learning) to model the structural changes and estimate the impact on stability (ddG) or other properties. FoldX is a prominent example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000243 "in-silico mutagenesis tool"@en)
-SubClassOf(obo:MOLSIM_000243 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000243 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000244 (FoldX)
 
@@ -3837,7 +3810,7 @@ SubClassOf(obo:MOLSIM_000244 obo:MOLSIM_000243)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000245 "A computational tool designed to identify and characterize pathways, channels, or tunnels within the structure of a macromolecule, typically a protein enzyme. These tunnels often connect a buried active site to the protein surface and are important for ligand entry/egress, solvent access, or product release. Tools like CAVER use geometric algorithms to find voids and pathways within the protein structure based on atomic coordinates. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000245 "tunnel predictor tool"@en)
-SubClassOf(obo:MOLSIM_000245 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000245 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_000246 (CAVER)
 
@@ -3873,7 +3846,7 @@ SubClassOf(obo:MOLSIM_000250 obo:MOLSIM_000249)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000251 "An analysis tool specifically focused on reading, processing, manipulating, and analyzing molecular dynamics trajectory files. These tools provide functionalities to read various trajectory formats, select specific atoms or frames, perform calculations over time (like RMSD, distances, angles), calculate average structures, remove solvent, re-image periodic boundaries, and write out modified trajectories or extracted data. CPPTRAJ (AmberTools) and GROMACS analysis utilities are key examples. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000251 "trajectory processing tool"@en)
-SubClassOf(obo:MOLSIM_000251 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000251 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_000252 (CPPTRAJ)
 
@@ -3905,23 +3878,17 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000256 "Protein-protein docking i
 AnnotationAssertion(rdfs:label obo:MOLSIM_000256 "protein-ligand docking"@en)
 SubClassOf(obo:MOLSIM_000256 obo:MOLSIM_000255)
 
-# Class: obo:MOLSIM_000257 (molecular mechanics software)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000257 "Application programs designed to perform calculations based on molecular mechanics (MM), using classical force fields to compute the potential energy and forces within a molecular system. This typically includes functionalities for energy minimization, conformational searching, sometimes basic MD or Monte Carlo simulations, and structure preparation (e.g., assigning atom types and charges). While full MD packages heavily rely on MM, this category might also include specialized tools focused purely on MM calculations or setup, like Antechamber for parameter assignment. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000257 "molecular mechanics software"@en)
-SubClassOf(obo:MOLSIM_000257 obo:MOLSIM_000156)
-
 # Class: obo:MOLSIM_000258 (Antechamber)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000258 "A specific program, typically distributed as part of the AmberTools suite, designed to automatically assign atom types and calculate partial atomic charges for organic molecules, preparing them for use with molecular mechanics force fields like GAFF (General AMBER Force Field). Antechamber reads common molecular file formats and generates topology and parameter files needed for subsequent energy minimization or molecular dynamics simulations using programs like SANDER or PMEMD from the AMBER package. It is a crucial tool for preparing non-standard residues or ligands for simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000258 "Antechamber"@en)
-SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_000257)
+SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_000160)
 
 # Class: obo:MOLSIM_000259 (topology and coordinate generation tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000259 "A tool used in the preparation stage of a simulation to generate the molecular topology file (defining atom types, bonds, angles, dihedrals, charges, non-bonded parameters according to a force field) and initial coordinate file for the system to be simulated. These tools typically take structural information (like a PDB file) and force field definitions as input and assemble the complete system description required by the simulation engine. tleap in AmberTools is a classic example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000259 "topology and coordinate generation tool"@en)
-SubClassOf(obo:MOLSIM_000259 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000259 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000260 (tleap)
 
@@ -4066,7 +4033,7 @@ SubClassOf(obo:MOLSIM_000280 obo:MOLSIM_000238)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000281 "Tool used to calculate TI similarity."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000281 "thermodynamic integration similarity calculation tool"@en)
-SubClassOf(obo:MOLSIM_000281 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000281 obo:MOLSIM_001564)
 
 # Class: obo:MOLSIM_000282 (rapid overlay of chemical structures)
 
@@ -4987,14 +4954,13 @@ SubClassOf(obo:MOLSIM_000458 obo:MOLSIM_001008)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000459 "A computational tool, method, or workflow specifically designed to compute free energy differences or profiles, which are crucial thermodynamic quantities governing molecular processes like binding, conformational change, or solvation. These tools implement various statistical mechanics techniques, such as Free Energy Perturbation (FEP), Thermodynamic Integration (TI), Umbrella Sampling (US), Bennett Acceptance Ratio (BAR), or endpoint methods like MM/PBSA or MM/GBSA, often requiring specialized simulation setups and analysis procedures. Examples range from specific modules in MD packages to dedicated analysis scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000459 "free energy calculations tool"@en)
-SubClassOf(obo:MOLSIM_000459 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000459 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_000460 (molecular mechanics Poisson-Boltzmann surface area tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000460 "A computational tool or script that implements the MM/PBSA (Molecular Mechanics / Poisson-Boltzmann Surface Area) method for estimating free energy changes, typically ligand binding affinities or solvation free energies. This approach involves calculating molecular mechanics energies (MM), electrostatic solvation free energies using the Poisson-Boltzmann (PB) equation, and non-polar solvation free energies using a term proportional to the Solvent Accessible Surface Area (SASA), usually averaged over snapshots from an MD trajectory. It's an endpoint free energy method, computationally cheaper than FEP or TI but generally considered less rigorous. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000460 "MMPBSA tool"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000460 "molecular mechanics Poisson-Boltzmann surface area tool"@en)
-SubClassOf(obo:MOLSIM_000460 obo:MOLSIM_000158)
 SubClassOf(obo:MOLSIM_000460 obo:MOLSIM_000459)
 
 # Class: obo:MOLSIM_000461 (molecular mechanics Poisson-Boltzmann surface area module)
@@ -5164,11 +5130,11 @@ SubClassOf(obo:MOLSIM_000488 obo:MOLSIM_000431)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000489 "Lennard-Jones potential"@en)
 SubClassOf(obo:MOLSIM_000489 obo:MOLSIM_000430)
 
-# Class: obo:MOLSIM_000490 (structure preparation software)
+# Class: obo:MOLSIM_000490 (structure preparation tool)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000490 "Application programs focused on preparing, modifying, and validating molecular structures, particularly those obtained from experimental sources like the Protein Data Bank (PDB), before they are used in simulations. Tasks include adding missing atoms (like hydrogens), correcting structural issues, building missing loops, modeling mutations, protonating residues, and generating initial conformations. Examples range from specialized academic tools (like PDB2PQR) to comprehensive commercial modeling suites (like MOE, Schrödinger Maestro, SYBYL). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000490 "structure preparation software"@en)
-SubClassOf(obo:MOLSIM_000490 obo:MOLSIM_000156)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000490 "structure preparation tool"@en)
+SubClassOf(obo:MOLSIM_000490 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_000491 (SYBYL)
 
@@ -5205,7 +5171,7 @@ SubClassOf(obo:MOLSIM_000495 obo:MOLSIM_000272)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000496 "pyMBAR refers to a specific Python software library implementation of the Multistate Bennett Acceptance Ratio (MBAR) method. MBAR itself is a statistical technique for optimally combining data from multiple simulations to calculate free energies and expectation values. Therefore, pyMBAR is a tool used for the analysis stage of free energy calculations, particularly for processing data generated by methods like umbrella sampling or replica exchange simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000496 "pyMBAR"@en)
-SubClassOf(obo:MOLSIM_000496 obo:MOLSIM_000158)
+SubClassOf(obo:MOLSIM_000496 obo:MOLSIM_001566)
 
 # Class: obo:MOLSIM_000497 (computational method statistical measure)
 
@@ -10809,17 +10775,17 @@ SubClassOf(obo:MOLSIM_001555 obo:MOLSIM_000845)
 # Class: obo:MOLSIM_001556 (system setup tool)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001556 "system setup tool"@en)
-SubClassOf(obo:MOLSIM_001556 obo:MOLSIM_000156)
+SubClassOf(obo:MOLSIM_001556 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_001557 (AddToBox)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001557 "AddToBox"@en)
 SubClassOf(obo:MOLSIM_001557 obo:MOLSIM_001556)
 
-# Class: obo:MOLSIM_001558 (electrostatics calculation software)
+# Class: obo:MOLSIM_001558 (electrostatics analysis tool)
 
-AnnotationAssertion(rdfs:label obo:MOLSIM_001558 "electrostatics calculation software"@en)
-SubClassOf(obo:MOLSIM_001558 obo:MOLSIM_000156)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001558 "electrostatics analysis tool"@en)
+SubClassOf(obo:MOLSIM_001558 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_001559 (adaptive Poisson-Boltzmann solver)
 
@@ -10874,7 +10840,7 @@ SubClassOf(obo:MOLSIM_001568 obo:MOLSIM_000160)
 # Class: obo:MOLSIM_001569 (utility script)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001569 "utility script"@en)
-SubClassOf(obo:MOLSIM_001569 obo:MOLSIM_000156)
+SubClassOf(obo:MOLSIM_001569 obo:MOLSIM_001802)
 
 # Class: obo:MOLSIM_001570 (metalpdb2mol2.py)
 
@@ -10954,7 +10920,7 @@ SubClassOf(obo:MOLSIM_001584 obo:MOLSIM_001556)
 # Class: obo:MOLSIM_001585 (build system tool)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001585 "build system tool"@en)
-SubClassOf(obo:MOLSIM_001585 obo:MOLSIM_000156)
+SubClassOf(obo:MOLSIM_001585 obo:MOLSIM_001849)
 
 # Class: obo:MOLSIM_001586 (CMake)
 
@@ -10969,7 +10935,7 @@ SubClassOf(obo:MOLSIM_001587 obo:MOLSIM_001566)
 # Class: obo:MOLSIM_001588 (package manager)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001588 "package manager"@en)
-SubClassOf(obo:MOLSIM_001588 obo:MOLSIM_000156)
+SubClassOf(obo:MOLSIM_001588 obo:MOLSIM_001849)
 
 # Class: obo:MOLSIM_001589 (Miniconda)
 
@@ -11054,7 +11020,7 @@ SubClassOf(obo:MOLSIM_001604 obo:MOLSIM_001556)
 # Class: obo:MOLSIM_001605 (parameter fitting tool)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001605 "parameter fitting tool"@en)
-SubClassOf(obo:MOLSIM_001605 obo:MOLSIM_000156)
+SubClassOf(obo:MOLSIM_001605 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_001606 (PARMSCAN)
 
@@ -11384,7 +11350,7 @@ SubClassOf(obo:MOLSIM_001670 obo:MOLSIM_000160)
 # Class: obo:MOLSIM_001671 (web server)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001671 "web server"@en)
-SubClassOf(obo:MOLSIM_001671 obo:MOLSIM_000001)
+SubClassOf(obo:MOLSIM_001671 obo:MOLSIM_001849)
 
 # Class: obo:MOLSIM_001672 (GLYCAM-Web)
 
@@ -12036,6 +12002,11 @@ SubClassOf(obo:MOLSIM_001800 obo:MOLSIM_001292)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001801 "atomic scattering factor"@en)
 SubClassOf(obo:MOLSIM_001801 obo:MOLSIM_001800)
 
+# Class: obo:MOLSIM_001802 (script)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001802 "script"@en)
+SubClassOf(obo:MOLSIM_001802 obo:MOLSIM_000001)
+
 # Class: obo:MOLSIM_001803 (interaction energy)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001803 "interaction energy"@en)
@@ -12260,6 +12231,21 @@ SubClassOf(obo:MOLSIM_001847 obo:MOLSIM_001800)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001848 "QM/MM switching function"@en)
 SubClassOf(obo:MOLSIM_001848 obo:MOLSIM_001463)
+
+# Class: obo:MOLSIM_001849 (supporting software)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001849 "supporting software"@en)
+SubClassOf(obo:MOLSIM_001849 obo:MOLSIM_000156)
+
+# Class: obo:MOLSIM_001850 (modeling and setup tool)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001850 "modeling and setup tool"@en)
+SubClassOf(obo:MOLSIM_001850 obo:MOLSIM_000156)
+
+# Class: obo:MOLSIM_001851 (simulation engine)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001851 "simulation engine"@en)
+SubClassOf(obo:MOLSIM_001851 obo:MOLSIM_000156)
 
 
 ############################
