@@ -256,9 +256,6 @@ Declaration(Class(obo:MOLSIM_000269))
 Declaration(Class(obo:MOLSIM_000270))
 Declaration(Class(obo:MOLSIM_000271))
 Declaration(Class(obo:MOLSIM_000272))
-Declaration(Class(obo:MOLSIM_000273))
-Declaration(Class(obo:MOLSIM_000274))
-Declaration(Class(obo:MOLSIM_000275))
 Declaration(Class(obo:MOLSIM_000276))
 Declaration(Class(obo:MOLSIM_000277))
 Declaration(Class(obo:MOLSIM_000278))
@@ -457,7 +454,6 @@ Declaration(Class(obo:MOLSIM_000488))
 Declaration(Class(obo:MOLSIM_000489))
 Declaration(Class(obo:MOLSIM_000490))
 Declaration(Class(obo:MOLSIM_000494))
-Declaration(Class(obo:MOLSIM_000495))
 Declaration(Class(obo:MOLSIM_000497))
 Declaration(Class(obo:MOLSIM_000498))
 Declaration(Class(obo:MOLSIM_000499))
@@ -1311,12 +1307,10 @@ Declaration(Class(obo:MOLSIM_001554))
 Declaration(Class(obo:MOLSIM_001555))
 Declaration(Class(obo:MOLSIM_001556))
 Declaration(Class(obo:MOLSIM_001558))
-Declaration(Class(obo:MOLSIM_001560))
 Declaration(Class(obo:MOLSIM_001562))
 Declaration(Class(obo:MOLSIM_001564))
 Declaration(Class(obo:MOLSIM_001566))
 Declaration(Class(obo:MOLSIM_001569))
-Declaration(Class(obo:MOLSIM_001571))
 Declaration(Class(obo:MOLSIM_001585))
 Declaration(Class(obo:MOLSIM_001588))
 Declaration(Class(obo:MOLSIM_001605))
@@ -1353,7 +1347,6 @@ Declaration(Class(obo:MOLSIM_001709))
 Declaration(Class(obo:MOLSIM_001710))
 Declaration(Class(obo:MOLSIM_001711))
 Declaration(Class(obo:MOLSIM_001712))
-Declaration(Class(obo:MOLSIM_001713))
 Declaration(Class(obo:MOLSIM_001714))
 Declaration(Class(obo:MOLSIM_001715))
 Declaration(Class(obo:MOLSIM_001716))
@@ -1376,7 +1369,6 @@ Declaration(Class(obo:MOLSIM_001732))
 Declaration(Class(obo:MOLSIM_001733))
 Declaration(Class(obo:MOLSIM_001734))
 Declaration(Class(obo:MOLSIM_001735))
-Declaration(Class(obo:MOLSIM_001736))
 Declaration(Class(obo:MOLSIM_001737))
 Declaration(Class(obo:MOLSIM_001738))
 Declaration(Class(obo:MOLSIM_001739))
@@ -1755,6 +1747,14 @@ Declaration(NamedIndividual(obo:MOLSIM_001630))
 Declaration(NamedIndividual(obo:MOLSIM_001631))
 Declaration(NamedIndividual(obo:MOLSIM_001632))
 Declaration(NamedIndividual(obo:MOLSIM_001633))
+Declaration(NamedIndividual(obo:MOLSIM_001634))
+Declaration(NamedIndividual(obo:MOLSIM_001635))
+Declaration(NamedIndividual(obo:MOLSIM_001636))
+Declaration(NamedIndividual(obo:MOLSIM_001637))
+Declaration(NamedIndividual(obo:MOLSIM_001638))
+Declaration(NamedIndividual(obo:MOLSIM_001639))
+Declaration(NamedIndividual(obo:MOLSIM_001640))
+Declaration(NamedIndividual(obo:MOLSIM_001641))
 Declaration(NamedIndividual(obo:MOLSIM_001657))
 Declaration(NamedIndividual(obo:MOLSIM_001658))
 Declaration(NamedIndividual(obo:MOLSIM_001662))
@@ -3779,24 +3779,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000272 "A defined collection or l
 AnnotationAssertion(rdfs:label obo:MOLSIM_000272 "radii set"@en)
 SubClassOf(obo:MOLSIM_000272 obo:MOLSIM_000006)
 
-# Class: obo:MOLSIM_000273 (bondi)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000273 "A widely recognized and frequently used set of Van der Waals radii for atoms across the periodic table, originally compiled by A. Bondi in the 1960s based on analysis of crystallographic data for molecular crystals, gas phase properties (like critical constants), and liquid state densities. These radii are intended to represent the effective size of non-bonded atoms, i.e., the distance at which strong repulsion occurs upon close contact. They serve as a common standard or starting point for defining atomic sizes in molecular modeling, visualization, and calculations like surface area determination. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000273 "bondi"@en)
-SubClassOf(obo:MOLSIM_000273 obo:MOLSIM_000272)
-
-# Class: obo:MOLSIM_000274 (mbondi)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000274 "Refers to a modified set of Bondi radii, where adjustments have been made to the original Bondi values, often for specific atom types or elements, to improve performance in particular applications within molecular simulation software (the prefix 'm' often stands for 'modified'). For example, in the AMBER software package, 'mbondi' radii sets might involve different radii for hydrogens depending on the atom they are bonded to, optimized for better agreement between calculated and experimental solvation free energies when used with specific GB models. The exact definition can vary between different 'mbondi' versions (e.g., mbondi, mbondi2, mbondi3). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000274 "mbondi"@en)
-SubClassOf(obo:MOLSIM_000274 obo:MOLSIM_000272)
-
-# Class: obo:MOLSIM_000275 (mbondi2)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000275 "A specific version ('version 2') of modified Bondi radii, developed primarily for use within the AMBER simulation package, particularly in conjunction with specific Generalized Born (GB) implicit solvent models (like GB models with igb=2 or igb=5 in AMBER). These radii have been empirically optimized by adjusting values (especially for hydrogens, C, N, O, S, P) relative to the original Bondi set or earlier mbondi sets to yield improved accuracy in reproducing experimental solvation free energies of small molecules and potentially biomolecular energetics when using those particular GBSA methods. They represent a parameter set tuned for a specific computational model. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000275 "mbondi2"@en)
-SubClassOf(obo:MOLSIM_000275 obo:MOLSIM_000272)
-
 # Class: obo:MOLSIM_000276 (enthropic contributions mode)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000276 "This term refers to methods used to estimate the entropic contribution (−TS) to the free energy, often by analyzing the vibrational modes of the system. Entropy quantifies the disorder or number of accessible states, and these methods typically approximate it by considering the system's vibrations around an average structure. Common approaches include normal mode analysis and quasiharmonic analysis based on simulation fluctuations. (UNVERIFIED)"@en)
@@ -4892,12 +4874,6 @@ SubClassOf(obo:MOLSIM_000490 obo:MOLSIM_001850)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000494 "Minimization is a computational step that relaxes a molecular structure to remove any bad clashes between atoms. As a stage of the preparation process, energy minimization is a procedure that adjusts the atomic coordinates to find a nearby local minimum on the potential energy surface, thereby removing steric strain from the initial model. This is achieved by using algorithms like steepest descent or conjugate gradient to iteratively reduce the net forces on the atoms until a convergence criterion, such as grms_tol, is met. This process is referred to in log files and inputs with terms like \"MINIMIZATION,\" \"ntmin=1,\" \"emtol,\" and \"ncyc.\" (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000494 "minimization"@en)
 SubClassOf(obo:MOLSIM_000494 obo:MOLSIM_000002)
-
-# Class: obo:MOLSIM_000495 (parse radii)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000495 "An empirically derived set of atomic radii developed by Sitkoff, Sharp, and Honig in the 1990s, specifically optimized for use in continuum electrostatic calculations, particularly Poisson-Boltzmann (PB) calculations aimed at reproducing experimental solvation energies (PARSE stands for \"Parameters for Solvation Energy\"). These radii define the boundary between the low-dielectric solute molecule and the high-dielectric solvent continuum in PB theory. They differ significantly from standard Van der Waals radii (like Bondi's) as they are optimized to implicitly account for various energetic contributions within that specific theoretical framework (PB/SA). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000495 "parse radii"@en)
-SubClassOf(obo:MOLSIM_000495 obo:MOLSIM_000272)
 
 # Class: obo:MOLSIM_000497 (computational method statistical measure)
 
@@ -9972,11 +9948,6 @@ SubClassOf(obo:MOLSIM_001556 obo:MOLSIM_001850)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001558 "electrostatics analysis tool"@en)
 SubClassOf(obo:MOLSIM_001558 obo:MOLSIM_000164)
 
-# Class: obo:MOLSIM_001560 (mbondi3)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_001560 "mbondi3"@en)
-SubClassOf(obo:MOLSIM_001560 obo:MOLSIM_000272)
-
 # Class: obo:MOLSIM_001562 (application programming interface)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001562 "application programming interface"@en)
@@ -9996,11 +9967,6 @@ SubClassOf(obo:MOLSIM_001566 obo:MOLSIM_000170)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001569 "utility script"@en)
 SubClassOf(obo:MOLSIM_001569 obo:MOLSIM_001802)
-
-# Class: obo:MOLSIM_001571 (Onufriev-Bashford-Case radii set)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_001571 "Onufriev-Bashford-Case radii set"@en)
-SubClassOf(obo:MOLSIM_001571 obo:MOLSIM_000272)
 
 # Class: obo:MOLSIM_001585 (build system tool)
 
@@ -10182,11 +10148,6 @@ SubClassOf(obo:MOLSIM_001711 obo:MOLSIM_000331)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001712 "downhill simplex minimizer"@en)
 SubClassOf(obo:MOLSIM_001712 obo:MOLSIM_000408)
 
-# Class: obo:MOLSIM_001713 (Hawkins-Cramer-Truhlar radii set)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_001713 "Hawkins-Cramer-Truhlar radii set"@en)
-SubClassOf(obo:MOLSIM_001713 obo:MOLSIM_000272)
-
 # Class: obo:MOLSIM_001714 (Gaussian quadrature)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001714 "Gaussian quadrature"@en)
@@ -10296,11 +10257,6 @@ SubClassOf(obo:MOLSIM_001734 obo:MOLSIM_001546)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001735 "middle thermostat scheme"@en)
 SubClassOf(obo:MOLSIM_001735 obo:MOLSIM_000038)
-
-# Class: obo:MOLSIM_001736 (Tan&Luo radii set)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_001736 "Tan&Luo radii set"@en)
-SubClassOf(obo:MOLSIM_001736 obo:MOLSIM_000272)
 
 # Class: obo:MOLSIM_001737 (Polak-Ribiere conjugate gradient algorithm)
 
@@ -11969,6 +11925,46 @@ ClassAssertion(obo:MOLSIM_000204 obo:MOLSIM_001632)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001633 "HF/6-31G RESP*"@en)
 ClassAssertion(obo:MOLSIM_000206 obo:MOLSIM_001633)
 
+# Individual: obo:MOLSIM_001634 (Onufriev-Bashford-Case radii set)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001634 "Onufriev-Bashford-Case radii set"@en)
+ClassAssertion(obo:MOLSIM_000272 obo:MOLSIM_001634)
+
+# Individual: obo:MOLSIM_001635 (Hawkins-Cramer-Truhlar radii set)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001635 "Hawkins-Cramer-Truhlar radii set"@en)
+ClassAssertion(obo:MOLSIM_000272 obo:MOLSIM_001635)
+
+# Individual: obo:MOLSIM_001636 (Tan&Luo radii set)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001636 "Tan&Luo radii set"@en)
+ClassAssertion(obo:MOLSIM_000272 obo:MOLSIM_001636)
+
+# Individual: obo:MOLSIM_001637 (parse radii)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001637 "parse radii"@en)
+ClassAssertion(obo:MOLSIM_000272 obo:MOLSIM_001637)
+
+# Individual: obo:MOLSIM_001638 (bondi)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001638 "bondi"@en)
+ClassAssertion(obo:MOLSIM_001846 obo:MOLSIM_001638)
+
+# Individual: obo:MOLSIM_001639 (mbondi)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001639 "mbondi"@en)
+ClassAssertion(obo:MOLSIM_001846 obo:MOLSIM_001639)
+
+# Individual: obo:MOLSIM_001640 (mbondi2)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001640 "mbondi2"@en)
+ClassAssertion(obo:MOLSIM_001846 obo:MOLSIM_001640)
+
+# Individual: obo:MOLSIM_001641 (mbondi3)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001641 "mbondi3"@en)
+ClassAssertion(obo:MOLSIM_001846 obo:MOLSIM_001641)
+
 # Individual: obo:MOLSIM_001657 (NMWiz)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001657 "NMWiz"@en)
@@ -12607,7 +12603,6 @@ DisjointClasses(obo:MOLSIM_000232 obo:MOLSIM_000233 obo:MOLSIM_000234 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000239 obo:MOLSIM_000279 obo:MOLSIM_000280)
 DisjointClasses(obo:MOLSIM_000262 obo:MOLSIM_000263 obo:MOLSIM_000264 obo:MOLSIM_000265 obo:MOLSIM_000266 obo:MOLSIM_000267)
 DisjointClasses(obo:MOLSIM_000262 obo:MOLSIM_000263 obo:MOLSIM_000264 obo:MOLSIM_000265 obo:MOLSIM_000266 obo:MOLSIM_000267 obo:MOLSIM_000268 obo:MOLSIM_000269)
-DisjointClasses(obo:MOLSIM_000273 obo:MOLSIM_000274 obo:MOLSIM_000275)
 DisjointClasses(obo:MOLSIM_000287 obo:MOLSIM_000288 obo:MOLSIM_000289 obo:MOLSIM_000290 obo:MOLSIM_000291 obo:MOLSIM_000292 obo:MOLSIM_000293 obo:MOLSIM_000294 obo:MOLSIM_000295)
 DisjointClasses(obo:MOLSIM_000432 obo:MOLSIM_000827 obo:MOLSIM_000832 obo:MOLSIM_000838)
 DisjointClasses(obo:MOLSIM_000444 obo:MOLSIM_000469 obo:MOLSIM_000613 obo:MOLSIM_000614 obo:MOLSIM_000866 obo:MOLSIM_000867 obo:MOLSIM_000868 obo:MOLSIM_000869 obo:MOLSIM_000870 obo:MOLSIM_000871 obo:MOLSIM_000872 obo:MOLSIM_000873 obo:MOLSIM_000874 obo:MOLSIM_000875 obo:MOLSIM_000876 obo:MOLSIM_000877 obo:MOLSIM_000878 obo:MOLSIM_001057 obo:MOLSIM_001059 obo:MOLSIM_001079 obo:MOLSIM_001086 obo:MOLSIM_001092 obo:MOLSIM_001093)
