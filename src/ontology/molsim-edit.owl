@@ -1756,7 +1756,6 @@ Declaration(Class(obo:MOLSIM_001858))
 Declaration(Class(obo:MOLSIM_001859))
 Declaration(Class(obo:MOLSIM_001860))
 Declaration(Class(obo:MOLSIM_001861))
-Declaration(Class(obo:MOLSIM_001862))
 Declaration(Class(obo:MOLSIM_001863))
 Declaration(Class(obo:MOLSIM_001864))
 Declaration(Class(obo:MOLSIM_001865))
@@ -3370,6 +3369,7 @@ SubClassOf(obo:MOLSIM_000155 obo:MOLSIM_000143)
 
 # Class: obo:MOLSIM_000156 (GROMACS mdp format)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000156 "The GROMACS mdp format is the specific simulation parameter format used by the GROMACS software package. The file, which typically has a \".mdp\" extension, contains a series of keyword-value pairs that control every aspect of the simulation run, from the integrator and time step to the thermostat and pressure coupling methods. For GROMACS users, creating and editing the mdp file is the primary way to define the simulation protocol. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000156 "GROMACS mdp format"@en)
 SubClassOf(obo:MOLSIM_000156 obo:MOLSIM_000437)
 
@@ -4403,11 +4403,13 @@ SubClassOf(obo:MOLSIM_000331 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000332 (SCF convergence algorithm)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000332 "An SCF convergence algorithm is a specific type of optimization algorithm used in quantum chemistry to find a stable solution for a molecule's electronic wavefunction. It is the iterative procedure that solves the Self-Consistent Field (SCF) equations until the calculated electron density and the potential it generates are mutually consistent. For experts, using robust convergence algorithms like DIIS is essential for successfully completing the SCF calculation, which is the core of most quantum mechanical methods. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000332 "SCF convergence algorithm"@en)
 SubClassOf(obo:MOLSIM_000332 obo:MOLSIM_000407)
 
 # Class: obo:MOLSIM_000333 (level shifting)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000333 "Level shifting is a specific technique used by SCF convergence algorithms to help them find a solution, especially in difficult cases. It works by artificially raising the energy of the unoccupied molecular orbitals during the iterative process, which can prevent the orbitals from mixing in an unstable way. For computational chemists, applying a level shift is a common and effective trick to overcome SCF convergence problems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000333 "level shifting"@en)
 SubClassOf(obo:MOLSIM_000333 obo:MOLSIM_000332)
 
@@ -4575,6 +4577,7 @@ SubClassOf(obo:MOLSIM_000360 obo:MOLSIM_000329)
 
 # Class: obo:MOLSIM_000361 (adaptively biased molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000361 "Adaptively biased molecular dynamics is an enhanced sampling method where an artificial energy bias is gradually built up during the simulation to push the system out of energetic traps. The bias is \"adaptive\" because it is updated on-the-fly based on the conformations the system has already visited. For experts, this category includes methods like metadynamics, where the history-dependent bias potential discourages resampling and facilitates the exploration of the free energy landscape along chosen collective variables. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000361 "adaptively biased molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000361 obo:MOLSIM_000845)
 
@@ -4585,6 +4588,7 @@ SubClassOf(obo:MOLSIM_000362 obo:MOLSIM_000361)
 
 # Class: obo:MOLSIM_000363 (redox potential replica-exchange molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000363 "Redox potential replica-exchange molecular dynamics is a specialized version of the REMD method where the different parallel simulations are run at different electrochemical redox potentials, rather than different temperatures. This allows the system to efficiently sample different oxidation states in a simulation that is coupled to an electron bath. For experts, this method is used to study the thermodynamics of electron transfer proteins and other redox-active systems. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000363 "redox potential REMD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000363 "redox potential replica-exchange molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000363 obo:MOLSIM_000858)
@@ -4621,26 +4625,31 @@ SubClassOf(obo:MOLSIM_000368 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000369 (low-mode conformational search)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000369 "A low-mode conformational search is an enhanced sampling method that accelerates the exploration of a molecule's shapes by pushing it along its natural, large-scale motions. These \"low modes\" are the slowest, most collective movements of the molecule, which are often calculated using methods like Normal Mode Analysis. For experts, this technique efficiently generates new conformations by preferentially moving the system along the softest vibrational eigenvectors, effectively targeting functionally relevant motions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000369 "low-mode conformational search"@en)
 SubClassOf(obo:MOLSIM_000369 obo:MOLSIM_000845)
 
 # Class: obo:MOLSIM_000370 (constant pH replica-exchange molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000370 "Constant pH replica-exchange molecular dynamics is an advanced enhanced sampling method that combines constant pH simulations with the replica-exchange technique. It runs multiple simulations in parallel, each at a different target pH value, and periodically attempts to swap coordinates between them. For experts, this method dramatically enhances the sampling of both conformational and protonation state space, making it a powerful tool for studying complex pH-dependent phenomena. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000370 "constant pH replica-exchange molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000370 obo:MOLSIM_000858)
 
 # Class: obo:MOLSIM_000371 (NMR analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000371 "NMR analysis in a simulation context refers to the methods used to calculate NMR-related properties from a molecular dynamics trajectory. This allows for a direct comparison between the simulation results and experimental data from Nuclear Magnetic Resonance (NMR) spectroscopy. For experts, this includes calculating observables like J-couplings, nuclear Overhauser effects (NOEs), and relaxation times, which are crucial for validating the accuracy of the simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000371 "NMR analysis"@en)
 SubClassOf(obo:MOLSIM_000371 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000372 (r-6 weighted distance averaging)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000372 "The r-6 weighted distance averaging is a specific calculation method used in NMR analysis to compute an effective distance from a simulation trajectory that can be directly compared to an experimental nuclear Overhauser effect (NOE). Because the NOE intensity is proportional to the inverse sixth power of the distance between two protons, a simple average of the distance is incorrect. For experts, performing this <r⁻⁶>⁻¹/⁶ averaging is the physically correct way to back-calculate NOE-derived distances from a dynamic ensemble of structures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000372 "r-6 weighted distance averaging"@en)
 SubClassOf(obo:MOLSIM_000372 obo:MOLSIM_000371)
 
 # Class: obo:MOLSIM_000373 (replica-exchange self-guided Langevin dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000373 "This is an enhanced sampling method that combines the replica-exchange method with self-guided Langevin dynamics (SGLD). It runs multiple SGLD simulations in parallel, typically at different temperatures, and attempts to swap their coordinates. This combination aims to leverage the accelerated local exploration of SGLD with the global barrier-crossing capability of replica-exchange for very efficient conformational sampling. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000373 "replica-exchange self-guided Langevin dynamics"@en)
 SubClassOf(obo:MOLSIM_000373 obo:MOLSIM_000858)
 
@@ -4658,11 +4667,13 @@ SubClassOf(obo:MOLSIM_000375 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000376 (temperature replica-exchange molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000376 "Temperature replica-exchange molecular dynamics is the standard and most common form of the REMD method. It involves running multiple parallel simulations at a range of different temperatures and attempting to swap their coordinates. For experts, this is a robust and widely used method for enhancing the sampling of systems with complex energy landscapes, such as in protein folding simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000376 "temperature replica-exchange molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000376 obo:MOLSIM_000858)
 
 # Class: obo:MOLSIM_000377 (well-tempered adaptively biased molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000377 "Well-tempered adaptively biased molecular dynamics is a refinement of methods like metadynamics that ensures the simulation will eventually converge. It works by gradually reducing the size of the energy hills added to the bias potential as the simulation progresses. For experts, this well-tempered variant prevents the bias potential from growing infinitely, ensuring that the underlying free energy surface can be accurately recovered. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000377 "well-tempered adaptively biased molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000377 obo:MOLSIM_000361)
 
@@ -4685,11 +4696,13 @@ SubClassOf(obo:MOLSIM_000380 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000381 (adaptive thermostat)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000381 "An adaptive thermostat is a type of temperature control algorithm that can adjust its behavior during the course of a simulation. This allows it to respond more effectively to changes in the system, such as a protein undergoing a large conformational change. For experts, these thermostats often modify their coupling strength or other parameters on-the-fly to provide more stable and efficient temperature control compared to static methods. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000381 "adaptive thermostat"@en)
 SubClassOf(obo:MOLSIM_000381 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000382 (simulation control algorithm)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000382 "A simulation control algorithm is a procedure that governs the core mechanics of how a simulation progresses and maintains its physical conditions. This includes the algorithms that advance the positions of atoms in time, as well as those that regulate temperature and pressure. For experts, these algorithms are the fundamental components specified in an input file that define the integrator, thermostat, and barostat for a molecular dynamics run. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000382 "simulation control algorithm"@en)
 SubClassOf(obo:MOLSIM_000382 obo:MOLSIM_000037)
 
@@ -4717,6 +4730,7 @@ SubClassOf(obo:MOLSIM_000386 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000387 (QM Ewald treatment)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000387 "A QM Ewald treatment is the application of the Ewald summation method to a system that is described by quantum mechanics, typically within a periodic boundary condition framework. This is necessary for DFT calculations on periodic systems like crystals, where it correctly sums the electrostatic interactions between the electrons and nuclei and their periodic images. This method is the standard for handling long-range electrostatics in solid-state quantum chemistry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000387 "QM Ewald treatment"@en)
 SubClassOf(obo:MOLSIM_000387 obo:MOLSIM_000428)
 
@@ -4750,6 +4764,7 @@ SubClassOf(obo:MOLSIM_000392 obo:MOLSIM_000053)
 
 # Class: obo:MOLSIM_000393 (self-guided Langevin dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000393 "Self-guided Langevin dynamics is an enhanced sampling method that accelerates conformational searching by adding a memory-dependent guiding force to the standard equations of motion. This guiding force is calculated from a local average of the forces the system has recently experienced, effectively pushing the system to explore new regions faster. For experts, SGLD enhances sampling by reducing random fluctuations and promoting more directed exploration of the potential energy surface. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000393 "self-guided Langevin dynamics"@en)
 SubClassOf(obo:MOLSIM_000393 obo:MOLSIM_000845)
 
@@ -4760,26 +4775,31 @@ SubClassOf(obo:MOLSIM_000394 obo:MOLSIM_000393)
 
 # Class: obo:MOLSIM_000395 (accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000395 "Accelerated molecular dynamics is a special type of simulation that helps molecules explore different shapes much faster than they normally would. It works by adding a \"boost\" to the system's energy, effectively lowering the energy barriers that separate different molecular conformations. For experts, aMD is an enhanced sampling method that adds a non-negative, history-independent bias potential when the system's potential energy is below a certain threshold, allowing for the recovery of canonical averages through energetic reweighting. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000395 "accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000395 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000396 (Gaussian accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000396 "Gaussian accelerated molecular dynamics (GaMD) is an enhanced sampling method that speeds up simulations by adding a boost potential that has a Gaussian distribution. This method smooths the potential energy surface, allowing the system to more easily escape from local energy minima. For experts, GaMD is a robust method that does not require predefined collective variables and allows for the accurate recovery of the original free energy landscape through cumulant expansion. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000396 "Gaussian accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000396 obo:MOLSIM_000845)
 
 # Class: obo:MOLSIM_000397 (ligand Gaussian accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000397 "Ligand Gaussian accelerated molecular dynamics is a specific application of the GaMD method focused on enhancing the sampling of a ligand's movement and conformational changes. The boost potential is applied in a way that specifically accelerates the dynamics of the ligand, its binding site, or both. For experts, this method is a powerful tool for exploring ligand binding pathways and estimating binding free energies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000397 "ligand Gaussian accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000397 obo:MOLSIM_000396)
 
 # Class: obo:MOLSIM_000398 (dual-boost ligand Gaussian accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000398 "Dual-boost ligand Gaussian accelerated molecular dynamics is a variant of the GaMD method where two separate boost potentials are applied simultaneously. Typically, one boost is applied to the dihedral angles of the ligand to enhance its conformational sampling, while a second boost is applied to the total potential energy of the system to accelerate its overall dynamics. For experts, this dual-boost approach provides more targeted and efficient enhancement of ligand binding and unbinding events. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000398 "dual-boost ligand Gaussian accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000398 obo:MOLSIM_000397)
 
 # Class: obo:MOLSIM_000399 (peptide Gaussian accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000399 "Peptide Gaussian accelerated molecular dynamics is a specific application of the GaMD method tailored to enhance the conformational sampling of peptides. The boost potential is applied to accelerate the slow folding and conformational transition events that are characteristic of flexible peptide molecules. For experts, this method is useful for studying peptide folding mechanisms and their interactions with other molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000399 "peptide Gaussian accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000399 obo:MOLSIM_000396)
 
@@ -4791,6 +4811,7 @@ SubClassOf(obo:MOLSIM_000400 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000401 (dual-boost peptide Gaussian accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000401 "Dual-boost peptide Gaussian accelerated molecular dynamics is a variant of GaMD where two separate boost potentials are applied to enhance peptide sampling. One boost is typically applied to the peptide's dihedral angles to accelerate local conformational changes, while the second is applied to the total system potential to overcome larger energy barriers. For experts, this dual-boost strategy provides a more powerful and efficient way to explore the complex free energy landscape of flexible peptides. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000401 "dual-boost peptide Gaussian accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000401 obo:MOLSIM_000399)
 
@@ -4801,11 +4822,13 @@ SubClassOf(obo:MOLSIM_000402 obo:MOLSIM_000397)
 
 # Class: obo:MOLSIM_000403 (protein-protein interaction Gaussian accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000403 "This is an application of the GaMD method specifically designed to enhance the sampling of protein-protein binding and unbinding events. The boost potential is applied to the potential energy of the entire complex to accelerate the slow association and dissociation processes. For experts, this method can be used to explore the pathways of protein complex formation and to estimate the thermodynamics of the interaction. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000403 "protein-protein interaction Gaussian accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000403 obo:MOLSIM_000396)
 
 # Class: obo:MOLSIM_000404 (dual-boost protein-protein interaction Gaussian accelerated molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000404 "This is a variant of GaMD where two boost potentials are used to accelerate the simulation of protein-protein interactions. One boost potential is typically applied to the dihedral angles at the protein-protein interface to enhance local conformational sampling, while a second boost is applied to the total system potential to speed up the overall binding or unbinding process. For experts, this dual-boost approach offers a more targeted way to enhance the sampling of complex protein association events. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000404 "dual-boost protein-protein interaction Gaussian accelerated molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000404 obo:MOLSIM_000403)
 
@@ -4838,21 +4861,25 @@ SubClassOf(obo:MOLSIM_000409 obo:MOLSIM_000408)
 
 # Class: obo:MOLSIM_000410 (lambda-scheduling free energy method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000410 "A lambda-scheduling free energy method is a technique where the alchemical transformation between two states is performed in a single, continuous simulation run. This is achieved by slowly and continuously changing the coupling parameter, lambda, according to a predefined schedule over the course of the simulation. For experts, this non-equilibrium approach can be computationally efficient, and the free energy can be estimated from the work performed during the transformation using fluctuation theorems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000410 "lambda-scheduling free energy method"@en)
 SubClassOf(obo:MOLSIM_000410 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000411 (hybrid solvent replica-exchange molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000411 "Hybrid solvent replica-exchange molecular dynamics is a specialized version of the REMD method where the different parallel simulations use different solvent models. For example, some replicas might use an implicit solvent model, which allows for very fast sampling, while others use a more accurate explicit solvent model. Swapping between these replicas allows the simulation to combine the sampling efficiency of implicit solvent with the accuracy of explicit solvent. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000411 "hybrid solvent replica-exchange molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000411 obo:MOLSIM_000858)
 
 # Class: obo:MOLSIM_000412 (reservoir replica-exchange molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000412 "Reservoir replica-exchange molecular dynamics is an efficient variant of the REMD method for simulations with a very large number of replicas. Instead of attempting swaps between all adjacent pairs, it attempts swaps between a master simulation and a large \"reservoir\" of simulations running at different temperatures. For experts, this can significantly improve the efficiency of the exchange process when a very wide temperature range needs to be sampled. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000412 "reservoir replica-exchange molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000412 obo:MOLSIM_000858)
 
 # Class: obo:MOLSIM_000413 (replica-exchange umbrella sampling)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000413 "Replica-exchange umbrella sampling is an enhanced sampling method that combines two powerful techniques to calculate free energy profiles. It runs multiple umbrella sampling simulations in parallel, each restraining the system to a different window along a reaction coordinate, and periodically attempts to swap the coordinates between these simulations. For experts, this combination helps to overcome slow conformational sampling within each umbrella window, leading to faster convergence of the potential of mean force. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000413 "replica-exchange umbrella sampling"@en)
 SubClassOf(obo:MOLSIM_000413 obo:MOLSIM_000845)
 
@@ -4880,6 +4907,7 @@ SubClassOf(obo:MOLSIM_000417 obo:MOLSIM_000416)
 
 # Class: obo:MOLSIM_000418 (lambda-dynamics free energy method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000418 "Lambda-dynamics is a free energy calculation method where the coupling parameter, lambda, is treated as a dynamic variable that evolves in time, just like an atomic coordinate. A fictitious mass is assigned to lambda, and its \"motion\" along the transformation pathway is simulated, allowing it to sample different intermediate states. For experts, this method can enhance the sampling of the alchemical pathway and provide an estimate of the free energy profile from the distribution of the lambda coordinate. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000418 "lambda-dynamics free energy method"@en)
 SubClassOf(obo:MOLSIM_000418 obo:MOLSIM_000615)
 
@@ -4891,21 +4919,25 @@ SubClassOf(obo:MOLSIM_000419 obo:MOLSIM_000417)
 
 # Class: obo:MOLSIM_000420 (variational free energy profile method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000420 "A variational free energy profile method is a class of techniques for finding the minimum free energy path between two states. These methods work by optimizing a trial pathway to minimize a functional that represents the free energy, based on a variational principle. For experts, methods like the string method are a type of variational approach for identifying the most probable transition pathway and the associated free energy barrier. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000420 "variational free energy profile method"@en)
 SubClassOf(obo:MOLSIM_000420 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000421 (weighted thermodynamic perturbation theory)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000421 "Weighted thermodynamic perturbation theory is a free energy calculation method that aims to improve the efficiency of standard free energy perturbation (FEP). It uses a weighting function to optimize the sampling and improve the convergence of the free energy calculation, especially when there is poor overlap between the states. For experts, this represents an advanced technique to make FEP calculations more robust and efficient. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000421 "weighted thermodynamic perturbation theory"@en)
 SubClassOf(obo:MOLSIM_000421 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000422 (generalized weighted thermodynamic perturbation theory)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000422 "Generalized weighted thermodynamic perturbation theory is an extension of the weighted thermodynamic perturbation method. It provides a more general mathematical framework for the use of weighting functions to optimize free energy calculations. For experts, this represents a further theoretical refinement aimed at maximizing the efficiency and accuracy of free energy perturbation calculations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000422 "generalized weighted thermodynamic perturbation theory"@en)
 SubClassOf(obo:MOLSIM_000422 obo:MOLSIM_000421)
 
 # Class: obo:MOLSIM_000423 (multidimensional replica-exchange molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000423 "Multidimensional replica-exchange molecular dynamics is an extension of the REMD method where exchanges are performed along more than one variable simultaneously. For example, parallel simulations could be run at different temperatures and different pH values, with swaps attempted in both the temperature and pH dimensions. For experts, this powerful method allows for the efficient sampling of a system's response to multiple thermodynamic variables at once. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000423 "multidimensional replica-exchange molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000423 obo:MOLSIM_000858)
 
@@ -4933,6 +4965,7 @@ SubClassOf(obo:MOLSIM_000427 obo:MOLSIM_000974)
 
 # Class: obo:MOLSIM_000428 (Ewald summation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000428 "Ewald summation is a mathematical technique for accurately and efficiently calculating the total electrostatic energy in a periodic system, such as a crystal or a simulation box with periodic boundary conditions. It cleverly splits the calculation of the long-range Coulomb interactions into two parts: a short-range part calculated in real space and a long-range part calculated in reciprocal (Fourier) space. The Ewald method and its modern implementations like PME are the gold standard for correctly handling electrostatics in biomolecular simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000428 "Ewald summation"@en)
 SubClassOf(obo:MOLSIM_000428 obo:MOLSIM_000053)
 
@@ -4960,11 +4993,13 @@ SubClassOf(obo:MOLSIM_000432 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000433 (Altona & Sundaralingam pucker analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000433 "The Altona & Sundaralingam pucker analysis is a classic and widely used method for describing the conformation of five-membered rings, such as the ribose sugar in nucleic acids. It defines the ring's pucker in terms of two parameters: the phase angle of pseudorotation (P) and the puckering amplitude (τm). For experts, this method provides a standardized and quantitative way to classify sugar puckers into conformational families like C2'-endo or C3'-endo. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000433 "Altona & Sundaralingam pucker analysis"@en)
 SubClassOf(obo:MOLSIM_000433 obo:MOLSIM_000927)
 
 # Class: obo:MOLSIM_000434 (Cremer & Pople pucker analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000434 "The Cremer & Pople pucker analysis is a general and mathematically rigorous method for quantifying the conformation of any non-planar ring molecule. It defines a set of puckering coordinates, including a total puckering amplitude and a set of pseudorotational angles, that uniquely describe the ring's shape. For experts, this method provides a more general and complete description of ring conformation than other methods and is applicable to any ring size. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000434 "Cremer & Pople pucker analysis"@en)
 SubClassOf(obo:MOLSIM_000434 obo:MOLSIM_000927)
 
@@ -5060,6 +5095,7 @@ SubClassOf(obo:MOLSIM_000449 obo:MOLSIM_000430)
 
 # Class: obo:MOLSIM_000450 (hydrogen bond analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000450 "Hydrogen bond analysis is a structural analysis method used to identify and quantify the hydrogen bonds that are formed and broken during a simulation. The analysis typically uses a set of geometric criteria, such as a maximum distance between the donor and acceptor atoms and a minimum angle, to define when a hydrogen bond exists. For researchers, tracking the number and lifetime of hydrogen bonds is a fundamental way to understand the stability of protein and nucleic acid structures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000450 "hydrogen bond analysis"@en)
 SubClassOf(obo:MOLSIM_000450 obo:MOLSIM_000917)
 
@@ -5070,16 +5106,19 @@ SubClassOf(obo:MOLSIM_000451 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000452 (isotropic reorientational eigenmode dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000452 "Isotropic reorientational eigenmode dynamics is an advanced dynamics analysis method used to study the overall rotational motion of a molecule. It decomposes the complex tumbling of a molecule in solution into a set of simpler, independent rotational modes, or eigenmodes. For experts, this method provides a detailed picture of the molecule's rotational diffusion, which can be compared to experimental data from techniques like NMR relaxation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000452 "isotropic reorientational eigenmode dynamics"@en)
 SubClassOf(obo:MOLSIM_000452 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000453 (nucleic acid structure analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000453 "Nucleic acid structure analysis is a specialized type of structural analysis that calculates a set of parameters describing the detailed geometry of a DNA or RNA helix. This includes parameters that describe the geometry of individual base pairs as well as the relationship between adjacent base pairs, such as twist, roll, and slide. For experts, these helical parameters are essential for characterizing the sequence-dependent structure of nucleic acids and for comparing simulated structures to experimental data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000453 "nucleic acid structure analysis"@en)
 SubClassOf(obo:MOLSIM_000453 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000454 (native contact analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000454 "Native contact analysis is a structural analysis method used to monitor the formation of a molecule's correct, folded structure, often during a protein folding simulation. It works by defining a set of atom-atom contacts that are present in the final, \"native\" folded state and then calculating what fraction of these contacts are formed at any given time. For researchers, the fraction of native contacts is a common and simple reaction coordinate used to track the progress of a folding simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000454 "native contact analysis"@en)
 SubClassOf(obo:MOLSIM_000454 obo:MOLSIM_000917)
 
@@ -5090,16 +5129,19 @@ SubClassOf(obo:MOLSIM_000455 obo:MOLSIM_000120)
 
 # Class: obo:MOLSIM_000456 (wavelet analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000456 "Wavelet analysis is a sophisticated dynamics analysis technique used to study time-series data where the frequency content is changing over time. Unlike a standard Fourier transform, a wavelet transform can reveal both the frequency of a motion and the time at which it occurred. For experts, this method is a powerful tool for analyzing complex molecular motions, such as identifying transient conformational changes or intermittent dynamic events in a simulation trajectory. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000456 "wavelet analysis"@en)
 SubClassOf(obo:MOLSIM_000456 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000457 (wavelet analysis feature extraction)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000457 "Wavelet analysis feature extraction is a method that uses the results of a wavelet analysis to identify and extract key features from a dynamic signal. This could involve identifying the times at which specific high-frequency events occur or characterizing the dominant low-frequency motions. For experts, this is a data processing step that can be used to reduce the complexity of a trajectory and focus on the most important dynamic events. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000457 "wavelet analysis feature extraction"@en)
 SubClassOf(obo:MOLSIM_000457 obo:MOLSIM_000456)
 
 # Class: obo:MOLSIM_000458 (fluoroscence spectroscopy)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000458 "Fluorescence spectroscopy is an experimental technique that measures the light emitted by a substance after it has absorbed light. A molecule absorbs light at one wavelength, promoting it to an excited electronic state, and then emits light at a longer, lower-energy wavelength as it relaxes back down. This technique is highly sensitive and is widely used to study molecular conformation, binding, and dynamics by monitoring changes in the fluorescence signal. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000458 "fluoroscence spectroscopy"@en)
 SubClassOf(obo:MOLSIM_000458 obo:MOLSIM_001008)
 
@@ -5156,6 +5198,7 @@ SubClassOf(obo:MOLSIM_000466 obo:MOLSIM_000227)
 
 # Class: obo:MOLSIM_000467 (Forster resonance energy transfer)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000467 "Förster Resonance Energy Transfer, or FRET, is a specific phenomenon in fluorescence spectroscopy where an excited donor fluorophore non-radiatively transfers its energy to a nearby acceptor fluorophore. The efficiency of this energy transfer is extremely sensitive to the distance between the two molecules, making it a \"spectroscopic ruler.\" For biophysicists, FRET is a powerful experimental method for measuring distances and distance changes within and between biomolecules, providing data that can be used to validate simulation results. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000467 "Forster resonance energy transfer"@en)
 SubClassOf(obo:MOLSIM_000467 obo:MOLSIM_000458)
 
@@ -5216,36 +5259,43 @@ SubClassOf(obo:MOLSIM_000476 obo:MOLSIM_000030)
 
 # Class: obo:MOLSIM_000477 (CHELPG charge analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000477 "CHELPG charge analysis is a specific method for calculating atomic partial charges that are designed to reproduce the molecule's external electrostatic potential. It fits the charges to the quantum mechanical electrostatic potential calculated on a grid of points that extends well beyond the molecule's van der Waals surface. For experts, CHELPG charges are known for providing a good representation of the electrostatic potential at a distance from the molecule, though they can sometimes be less stable than RESP charges. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000477 "CHELPG charge analysis"@en)
 SubClassOf(obo:MOLSIM_000477 obo:MOLSIM_000674)
 
 # Class: obo:MOLSIM_000478 (molecular surface analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000478 "Molecular surface analysis is a category of analysis methods used to calculate and characterize the surface of a molecule. This includes calculating properties like the total surface area, identifying pockets and cavities, and mapping properties like electrostatic potential onto the surface. For researchers, analyzing the molecular surface is crucial for understanding how a molecule interacts with its environment, binds to other molecules, and is recognized by partners. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000478 "molecular surface analysis"@en)
 SubClassOf(obo:MOLSIM_000478 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000479 (Connolly surface calculation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000479 "A Connolly surface calculation is a specific algorithm used to compute the solvent-accessible surface of a molecule, which is the surface traced out by the center of a probe sphere as it rolls over the molecule. It is a widely used method for defining the boundary between a molecule and the surrounding solvent. For experts, the Connolly algorithm provides a smooth and mathematically well-defined surface that is essential for visualization and for continuum solvent models. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000479 "Connolly surface calculation"@en)
 SubClassOf(obo:MOLSIM_000479 obo:MOLSIM_000478)
 
 # Class: obo:MOLSIM_000480 (covariance matrix calculation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000480 "A covariance matrix calculation is an analysis method that quantifies the correlated motions of atoms in a simulation. The resulting matrix describes how the displacement of each atom is correlated with the displacement of every other atom. For experts, calculating and diagonalizing the covariance matrix is the central step in Principal Component Analysis (PCA), which is used to identify the dominant, large-scale collective motions of a protein or other macromolecule. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000480 "covariance matrix calculation"@en)
 SubClassOf(obo:MOLSIM_000480 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000481 (2D RMSD analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000481 "A 2D RMSD analysis is a method where the Root-Mean-Square Deviation (RMSD) is calculated for every pair of frames in a simulation trajectory. The results are typically visualized as a two-dimensional plot or heat map, where each point (i, j) represents the RMSD between frame i and frame j. For experts, this analysis provides a powerful way to visualize the conformational landscape, identifying stable states as blocks of low RMSD and transitions as off-diagonal regions of high RMSD. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000481 "2D RMSD analysis"@en)
 SubClassOf(obo:MOLSIM_000481 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000482 (lipid SCD order parameter calculation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000482 "A lipid SCD order parameter calculation is a specific analysis method used to quantify the orientational order of the carbon-hydrogen bonds in the acyl tails of lipid molecules in a membrane simulation. The SCD parameter measures the motional restriction of these bonds relative to the membrane normal. For experts, calculating these order parameters and comparing them to experimental values from NMR is a primary method for validating the accuracy of a membrane simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000482 "lipid SCD order parameter calculation"@en)
 SubClassOf(obo:MOLSIM_000482 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000483 (3D reference interaction site model)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000483 "The 3D Reference Interaction Site Model (3D-RISM) is a sophisticated analysis method based on statistical mechanics that calculates the three-dimensional distribution of solvent molecules around a solute. It is an implicit solvent model that provides a detailed, atomistic picture of the solvation structure without the computational cost of simulating explicit solvent molecules. For experts, 3D-RISM is a powerful method for calculating solvation free energies and for predicting the location of tightly bound water molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000483 "3D reference interaction site model"@en)
 SubClassOf(obo:MOLSIM_000483 obo:MOLSIM_000615)
 
@@ -6067,18 +6117,21 @@ SubClassOf(obo:MOLSIM_000619 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000620 (density-functional based tight-binding)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000620 "Density-Functional based Tight-Binding (DFTB) is a specific type of semi-empirical quantum mechanical method that is derived from Density Functional Theory. It simplifies the DFT equations by using a minimal basis set and pre-calculated parameters for the interactions between different atom types. For experts, DFTB is a very fast quantum method that can be used to run QM/MM simulations or to study the electronic properties of very large systems. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000620 "DFTB"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000620 "density-functional based tight-binding"@en)
 SubClassOf(obo:MOLSIM_000620 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_000621 (self-consistent-charge density-functional based tight-binding)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000621 "Self-Consistent-Charge Density-Functional based Tight-Binding (SCC-DFTB) is a refinement of the basic DFTB method. It adds a self-consistent treatment of the charge distribution, allowing the charges on the atoms to fluctuate and respond to their chemical environment. For experts, this SCC step provides a more accurate description of electrostatic interactions and charge transfer compared to the non-self-consistent DFTB method. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000621 "SCC-DFTB"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000621 "self-consistent-charge density-functional based tight-binding"@en)
 SubClassOf(obo:MOLSIM_000621 obo:MOLSIM_000620)
 
 # Class: obo:MOLSIM_000622 (third-order self-consistent-charge density-functional based tight-binding)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000622 "Third-order SCC-DFTB, or DFTB3, is a further refinement of the SCC-DFTB semi-empirical method. It includes a third-order correction term in the expansion of the DFT total energy, which improves the description of hydrogen bonding and proton affinities. For experts, DFTB3 is a more accurate and robust method than earlier versions, particularly for systems where hydrogen bonds play a critical role. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000622 "DFTB3"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000622 "third-order self-consistent-charge density-functional based tight-binding"@en)
 SubClassOf(obo:MOLSIM_000622 obo:MOLSIM_000621)
@@ -6123,6 +6176,7 @@ SubClassOf(obo:MOLSIM_000628 obo:MOLSIM_000388)
 
 # Class: obo:MOLSIM_000629 (QM/MM Ewald summation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000629 "QM/MM Ewald summation is the specific formulation of the Ewald method used to calculate long-range electrostatic interactions in a periodic QM/MM simulation. It must correctly handle the three types of interactions: MM-MM, QM-MM, and QM-QM, including the interaction of the QM region's electron density with the periodic MM charges. A correct and efficient implementation of QM/MM Ewald is essential for running accurate simulations of reactions in a periodic, explicitly solvated environment. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000629 "Ewald for QM/MM"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000629 "QM/MM Ewald summation"@en)
 SubClassOf(obo:MOLSIM_000629 obo:MOLSIM_000428)
@@ -6169,23 +6223,27 @@ SubClassOf(obo:MOLSIM_000636 obo:MOLSIM_000635)
 
 # Class: obo:MOLSIM_000637 (semi-empirical Born-Oppenheimer molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000637 "This is a type of molecular dynamics where the forces between atoms are calculated using a fast, approximate quantum mechanical method at each step. This allows the simulation to model changes in chemical bonds, like reactions, which is not possible with standard, non-reactive force fields. This is an ab initio MD method where forces are calculated \"on-the-fly\" using a semi-empirical quantum method (like DFTB or PM6) under the Born-Oppenheimer approximation, providing a balance between computational cost and the ability to model electronic effects. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000637 "SEBOMD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000637 "semi-empirical Born-Oppenheimer molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000637 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000638 (hybrid ReaxFF/AMBER molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000638 "This is a simulation method that combines two different types of force fields to model a complex system. It uses a reactive force field (ReaxFF) for a small part of the system where chemical reactions can happen, and a standard, faster force field (AMBER) for the rest. For experts, this is a multiscale simulation technique, similar to QM/MM, that couples a reactive potential with a classical non-reactive potential, enabling the study of chemical events within a large, explicitly represented biomolecular environment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000638 "hybrid ReaxFF/AMBER molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000638 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000639 (polarizable force field)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000639 "A polarizable force field is an advanced type of force field that explicitly models the phenomenon of electronic polarization. Unlike standard fixed-charge force fields, it allows the charge distribution of a molecule to change in response to the local electric field of its environment. For experts, polarizable force fields provide a more physically accurate description of electrostatic interactions, which can be critical for systems involving ions or highly charged interfaces. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000639 "fluctuating charge model"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000639 "polarizable force field"@en)
 SubClassOf(obo:MOLSIM_000639 obo:MOLSIM_000735)
 
 # Class: obo:MOLSIM_000640 (polarizable Gaussian multipole force field)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000640 "A polarizable Gaussian multipole force field is a specific type of polarizable force field that represents the electrostatic properties of atoms using Gaussian functions to describe their charge distribution, including multipoles like dipoles and quadrupoles. This provides a more detailed and anisotropic description of atomic electrostatics compared to simple point charges. For experts, this is a sophisticated model that aims for very high accuracy in describing intermolecular interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000640 "polarizable Gaussian multipole force field"@en)
 SubClassOf(obo:MOLSIM_000640 obo:MOLSIM_000639)
 
@@ -6216,6 +6274,7 @@ SubClassOf(obo:MOLSIM_000644 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_000645 (SIRAH force field)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000645 "The SIRAH force field is a specific and widely used coarse-grained force field for biomolecular simulations. It uses a reduced representation for amino acids and nucleic acids that is designed to preserve the chemical nature and directionality of the interactions. For experts, SIRAH provides a computationally efficient model that retains a higher degree of chemical detail than some other coarse-grained models, making it well-suited for studying protein-DNA interactions and folding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000645 "SIRAH force field"@en)
 SubClassOf(obo:MOLSIM_000645 obo:MOLSIM_000736)
 
@@ -6232,6 +6291,7 @@ SubClassOf(obo:MOLSIM_000647 obo:MOLSIM_000262)
 
 # Class: obo:MOLSIM_000648 (BAR/PBSA method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000648 "The BAR/PBSA method is a hybrid free energy calculation technique that combines the Bennett Acceptance Ratio (BAR) method with MM/PBSA endpoint calculations. It likely uses BAR to calculate the free energy change for a short-range, explicit part of the system, and then adds a correction for the long-range solvation effects using the faster MM/PBSA method. For experts, this represents a multi-step approach to balance the rigor of alchemical methods with the efficiency of continuum solvent models. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000648 "BAR/PBSA method"@en)
 SubClassOf(obo:MOLSIM_000648 obo:MOLSIM_000615)
 
@@ -6262,11 +6322,13 @@ SubClassOf(obo:MOLSIM_000653 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_000654 (path integral molecular dynamics)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000654 "Path integral molecular dynamics is an advanced simulation method that includes quantum mechanical effects for the atomic nuclei, not just the electrons. This is important for accurately simulating systems with light atoms like hydrogen, where effects like tunneling and zero-point energy can be significant. For experts, PIMD is a method based on the Feynman path integral formulation of quantum mechanics, where each quantum particle is represented by a ring polymer of classical particles, allowing for the calculation of quantum statistical properties. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000654 "path integral molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000654 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000655 (replica-exchange free energy perturbation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000655 "Replica-exchange free energy perturbation is an enhanced sampling method that combines replica-exchange with an alchemical free energy calculation. It runs multiple simulations in parallel, each at a different intermediate state (lambda value) of the alchemical transformation, and periodically attempts to swap the lambda values between replicas. For experts, this method can significantly improve the sampling and convergence of free energy calculations, especially for transformations involving large structural changes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000655 "replica-exchange free energy perturbation"@en)
 SubClassOf(obo:MOLSIM_000655 obo:MOLSIM_000845)
 
@@ -6283,11 +6345,13 @@ SubClassOf(obo:MOLSIM_000657 obo:MOLSIM_000201)
 
 # Class: obo:MOLSIM_000658 (grid binning analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000658 "Grid binning analysis is a structural analysis method where the simulation box is divided into a three-dimensional grid of small cubes, or voxels. The analysis then involves counting how many times atoms of a certain type appear in each voxel over the course of a trajectory. This method is used to calculate the average spatial density of molecules, such as the distribution of water or ions around a protein. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000658 "grid binning analysis"@en)
 SubClassOf(obo:MOLSIM_000658 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000659 (periodic boundary imaging)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000659 "Periodic boundary imaging is a fundamental post-processing step in structural analysis that is used to make simulation trajectories easier to visualize. It corrects for the fact that molecules can become \"broken\" or jump across the box when they cross a periodic boundary. The imaging algorithm translates the coordinates of the atoms to ensure that molecules remain whole and centered in the box, providing a continuous and visually coherent movie of the dynamics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000659 "periodic boundary imaging"@en)
 SubClassOf(obo:MOLSIM_000659 obo:MOLSIM_000917)
 
@@ -6328,6 +6392,7 @@ SubClassOf(obo:MOLSIM_000665 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000666 (volumetric map generation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000666 "Volumetric map generation is an analysis method that creates a three-dimensional grid of data representing a specific property in space. This can be used to visualize the average density of solvent molecules around a solute or the electrostatic potential surrounding a protein. For experts, this method transforms the discrete atomic information from a trajectory into a continuous field that can be visualized as a contoured surface or volume. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000666 "volumetric map generation"@en)
 SubClassOf(obo:MOLSIM_000666 obo:MOLSIM_000917)
 
@@ -6345,11 +6410,13 @@ SubClassOf(obo:MOLSIM_000668 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000669 (average structure calculation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000669 "An average structure calculation is a structural analysis method that computes the average coordinates of all atoms over a simulation trajectory. This provides a single, representative structure that reflects the central conformation of the system during the simulation. For experts, it is important to note that this average structure may not be a physically realistic conformation itself, especially if the molecule is highly flexible. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000669 "average structure calculation"@en)
 SubClassOf(obo:MOLSIM_000669 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000670 (coordinate centering)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000670 "Coordinate centering is a structural analysis method, often performed as a pre-processing step, that translates the coordinates of a molecular system so that its center of mass is at the origin of the coordinate system. This is a standard procedure to ensure that the molecule remains in the center of the simulation box for easier analysis and visualization. For experts, this is a routine part of trajectory post-processing to remove the overall translational motion of the system. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000670 "coordinate centering"@en)
 SubClassOf(obo:MOLSIM_000670 obo:MOLSIM_000917)
 
@@ -6412,6 +6479,7 @@ SubClassOf(obo:MOLSIM_000680 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000681 (Gaussian electrostatic model force field)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000681 "The Gaussian electrostatic model (GEM) force field is a type of polarizable force field that uses a combination of permanent and induced multipoles represented by Gaussian functions to describe the electrostatics. It aims to provide a highly accurate representation of the molecular charge distribution and its response to the environment. For force field developers, GEM is an advanced model for capturing the details of electrostatic interactions with high fidelity. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000681 "GEM force field"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000681 "Gaussian electrostatic model force field"@en)
 SubClassOf(obo:MOLSIM_000681 obo:MOLSIM_000639)
@@ -6423,6 +6491,7 @@ SubClassOf(obo:MOLSIM_000682 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000683 (vector analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000683 "Vector analysis in this context refers to a class of structural analysis methods that focus on the properties of vectors defined within a molecule, such as the vector along a chemical bond or the vector normal to a plane. This can include calculating the orientation of these vectors over time or the angle between them. For experts, vector analysis is used to quantify the orientation and rotational dynamics of specific molecular components. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000683 "vector analysis"@en)
 SubClassOf(obo:MOLSIM_000683 obo:MOLSIM_000917)
 
@@ -6673,7 +6742,7 @@ SubClassOf(obo:MOLSIM_000735 obo:MOLSIM_000007)
 
 # Class: obo:MOLSIM_000736 (coarse-grained force field)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000736 "A force field employing a reduced representation where groups of atoms are treated as single interaction sites or 'beads'. This simplification decreases computational demands, enabling the simulation of larger systems and longer time scales compared to all-atom models. However, it comes at the cost of losing fine atomic detail. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000736 "A coarse-grained force field is a type of force field that uses a simplified representation where groups of atoms are treated as single interaction sites, or \"beads.\" This reduction in the number of particles significantly decreases the computational cost, allowing for the simulation of much larger systems and for much longer timescales. For researchers, coarse-grained force fields like MARTINI or SIRAH are essential for studying large-scale phenomena like membrane self-assembly or the dynamics of large protein complexes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000736 "coarse-grained force field"@en)
 SubClassOf(obo:MOLSIM_000736 obo:MOLSIM_000735)
 DisjointClasses(obo:MOLSIM_000736 obo:MOLSIM_000737)
@@ -8165,6 +8234,7 @@ SubClassOf(obo:MOLSIM_001024 obo:MOLSIM_001022)
 
 # Class: obo:MOLSIM_001032 (running average calculation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001032 "A running average calculation is a statistical analysis technique used to smooth out short-term fluctuations in time-series data and highlight longer-term trends. It is calculated by averaging a property over a sliding time window as the simulation progresses. For simulation experts, monitoring the running average of properties like the total energy or temperature is a standard method for assessing whether a simulation has reached a stable equilibrium. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001032 "running average calculation"@en)
 SubClassOf(obo:MOLSIM_001032 obo:MOLSIM_000400)
 
@@ -10336,6 +10406,7 @@ SubClassOf(obo:MOLSIM_001431 obo:MOLSIM_001427)
 
 # Class: obo:MOLSIM_001432 (adaptive string method)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001432 "The adaptive string method is an improvement on the standard string method for finding transition pathways. It adaptively adjusts the distribution of the images along the string, concentrating them in regions where the path has high curvature or where the free energy is changing rapidly. For experts, this adaptive placement of images leads to a more efficient and accurate determination of the minimum free energy path. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001432 "adaptive string method"@en)
 SubClassOf(obo:MOLSIM_001432 obo:MOLSIM_000860)
 
@@ -10464,11 +10535,13 @@ SubClassOf(obo:MOLSIM_001455 obo:MOLSIM_000013)
 
 # Class: obo:MOLSIM_001456 (PDDG/PM3)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001456 "PDDG/PM3 is a specific semi-empirical quantum mechanical method that is a modification of the standard PM3 method. The PDDG (Pairwise Distance Directed Gaussian) part refers to the addition of Gaussian correction functions to the core-core repulsion terms to improve the description of non-covalent interactions. For experts, PDDG/PM3 is a refinement that aims to provide better accuracy for intermolecular interaction energies compared to the original PM3 method. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001456 "PDDG/PM3"@en)
 SubClassOf(obo:MOLSIM_001456 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_001457 (MNDO/d)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001457 "MNDO/d is a specific semi-empirical quantum mechanical method that is an extension of the original MNDO method. The \"/d\" indicates that d-orbitals have been added to the basis set for second-row and heavier elements. This addition is crucial for correctly describing the geometry and electronic structure of hypervalent compounds and transition metal complexes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001457 "MNDO/d"@en)
 SubClassOf(obo:MOLSIM_001457 obo:MOLSIM_000803)
 
@@ -10925,11 +10998,13 @@ SubClassOf(obo:MOLSIM_001538 obo:MOLSIM_001463)
 
 # Class: obo:MOLSIM_001539 (GFN1-xTB)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001539 "GFN1-xTB is a specific semi-empirical tight-binding quantum chemistry method that is part of the \"xtended Tight-Binding\" (xTB) family developed by Grimme and coworkers. It is a robust and broadly parameterized method designed for speed and reliability across a large portion of the periodic table. For experts, GFN1-xTB is a powerful tool for rapid geometry optimization and frequency calculations on large and complex molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001539 "GFN1-xTB"@en)
 SubClassOf(obo:MOLSIM_001539 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_001540 (GFN2-xTB)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001540 "GFN2-xTB is the second-generation \"Geometry, Frequency, Noncovalent, eXtended Tight-Binding\" method from the Grimme group. It improves upon GFN1-xTB with a more accurate description of non-covalent interactions, making it particularly well-suited for calculations on molecular complexes and condensed-phase systems. For computational chemists, GFN2-xTB is a state-of-the-art semi-empirical method that provides an excellent balance of speed and accuracy for a wide range of applications. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001540 "GFN2-xTB"@en)
 SubClassOf(obo:MOLSIM_001540 obo:MOLSIM_000803)
 
@@ -11013,6 +11088,7 @@ SubClassOf(obo:MOLSIM_001554 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_001555 (expanded ensemble simulation)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001555 "An expanded ensemble simulation is an enhanced sampling method where the simulation samples not only the coordinates of the system but also an additional thermodynamic variable, such as temperature or an alchemical coupling parameter. The system can move dynamically between different temperatures or states, which helps it to overcome energy barriers and sample a wider range of conformations. For experts, this method is a powerful framework that generalizes techniques like replica-exchange and lambda-dynamics for calculating free energies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001555 "expanded ensemble simulation"@en)
 SubClassOf(obo:MOLSIM_001555 obo:MOLSIM_000845)
 
@@ -11754,11 +11830,13 @@ SubClassOf(obo:MOLSIM_001690 obo:MOLSIM_001688)
 
 # Class: obo:MOLSIM_001691 (integration algorithm)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001691 "An integration algorithm is the numerical engine of a molecular dynamics simulation, responsible for calculating how the positions and velocities of atoms change over time. It works by taking the forces on the atoms at one moment and using them to predict the atomic positions a very short time later. For experts, the choice of integration algorithm, such as the common velocity-Verlet integrator, is a critical parameter that affects the stability, accuracy, and energy conservation of the simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001691 "integration algorithm"@en)
 SubClassOf(obo:MOLSIM_001691 obo:MOLSIM_000382)
 
 # Class: obo:MOLSIM_001692 (Beeman integrator)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001692 "The Beeman integrator is a specific type of integration algorithm used to solve the equations of motion in a molecular dynamics simulation. It is mathematically related to the more common Verlet algorithm but uses a different formula that calculates positions and velocities with high accuracy. For experts, the Beeman integrator is known for its good energy conservation properties, although it can be more computationally complex than the standard velocity-Verlet algorithm. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001692 "Beeman integrator"@en)
 SubClassOf(obo:MOLSIM_001692 obo:MOLSIM_001691)
 
@@ -11934,11 +12012,13 @@ SubClassOf(obo:MOLSIM_001721 obo:MOLSIM_000407)
 
 # Class: obo:MOLSIM_001722 (multiple time-stepping algorithm)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001722 "A multiple time-stepping algorithm is an advanced integration algorithm that uses different time steps to update different types of forces in a simulation. It calculates the fast-changing forces, like bond vibrations, more frequently with a small time step, while the slower-changing forces, like long-range electrostatics, are calculated less often with a larger time step. For experts, this method, often implemented as r-RESPA, can significantly speed up a simulation by reducing the number of expensive force calculations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001722 "multiple time-stepping algorithm"@en)
 SubClassOf(obo:MOLSIM_001722 obo:MOLSIM_001691)
 
 # Class: obo:MOLSIM_001723 (r-RESPA integrator)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001723 "The r-RESPA integrator is a specific and widely used implementation of a multiple time-stepping algorithm. The name stands for reversible Reference System Propagator Algorithm, and it carefully separates the forces into different classes that are updated at different frequencies. For experts, r-RESPA is a powerful technique for accelerating simulations by allowing a larger overall time step while maintaining numerical stability and energy conservation. (UNVERIFIED)")
 AnnotationAssertion(rdfs:label obo:MOLSIM_001723 "r-RESPA integrator"@en)
 SubClassOf(obo:MOLSIM_001723 obo:MOLSIM_001722)
 
@@ -11954,11 +12034,13 @@ SubClassOf(obo:MOLSIM_001725 obo:MOLSIM_001722)
 
 # Class: obo:MOLSIM_001726 (QM/MM region selection algorithm)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001726 "A QM/MM region selection algorithm is a procedure used in adaptive QM/MM simulations to automatically decide which atoms should be included in the high-accuracy quantum mechanics (QM) region. This algorithm dynamically updates the QM/MM boundary during the simulation based on predefined rules, such as the distance of atoms from a reaction center. For experts, these algorithms are the core of adaptive methods that allow the QM region to follow the chemical action. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001726 "QM/MM region selection algorithm"@en)
 SubClassOf(obo:MOLSIM_001726 obo:MOLSIM_000382)
 
 # Class: obo:MOLSIM_001727 (hysteretic region selection algorithm)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001727 "A hysteretic region selection algorithm is a specific type of QM/MM region selection algorithm that includes a \"memory\" effect to prevent atoms from rapidly switching in and out of the QM region. It uses different distance thresholds for an atom to enter the QM region versus leaving it, which stabilizes the QM/MM boundary. For experts, this hysteresis is crucial for preventing numerical noise and instability in adaptive QM/MM simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001727 "hysteretic region selection algorithm"@en)
 SubClassOf(obo:MOLSIM_001727 obo:MOLSIM_001726)
 
@@ -11976,6 +12058,7 @@ SubClassOf(obo:MOLSIM_001729 obo:MOLSIM_001728)
 
 # Class: obo:MOLSIM_001730 (I/r-RESPA integrator)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001730 "The I/r-RESPA integrator is a specialized multiple time-stepping algorithm designed for simulations that include polarizable force fields. The \"I/r\" refers to the separation of forces into long-range (\"r\") and short-range plus polarization (\"I\") components, which are updated at different frequencies. For experts, this method is essential for efficiently integrating the equations of motion in polarizable simulations, where the iterative calculation of induced dipoles adds significant computational cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001730 "I/r-RESPA integrator"@en)
 SubClassOf(obo:MOLSIM_001730 obo:MOLSIM_001722)
 
@@ -12616,6 +12699,7 @@ SubClassOf(obo:MOLSIM_001853 obo:MOLSIM_001403)
 
 # Class: obo:MOLSIM_001854 (flexibility analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001854 "Flexibility analysis is a category of structural analysis methods aimed at identifying which parts of a molecule are rigid and which are mobile. This is often done by calculating the root-mean-square fluctuation (RMSF) of each atom or residue around its average position. For researchers, this analysis is crucial for understanding protein dynamics, identifying functionally important flexible loops, and interpreting experimental B-factors. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001854 "flexibility analysis"@en)
 SubClassOf(obo:MOLSIM_001854 obo:MOLSIM_000917)
 
@@ -12646,6 +12730,7 @@ SubClassOf(obo:MOLSIM_001859 obo:MOLSIM_000004)
 
 # Class: obo:MOLSIM_001860 (pocket analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001860 "Pocket analysis is a structural analysis method used to identify, characterize, and track the properties of cavities or \"pockets\" on the surface of a protein. This analysis can calculate the volume, surface area, and physicochemical properties of these pockets over the course of a simulation. For drug discovery researchers, this method is essential for identifying potential ligand binding sites and understanding how their shape and size change over time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001860 "pocket analysis"@en)
 SubClassOf(obo:MOLSIM_001860 obo:MOLSIM_000917)
 
@@ -12654,14 +12739,11 @@ SubClassOf(obo:MOLSIM_001860 obo:MOLSIM_000917)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001861 "ligand analysis"@en)
 SubClassOf(obo:MOLSIM_001861 obo:MOLSIM_000004)
 
-# Class: obo:MOLSIM_001862 (ligand cavity characterization)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_001862 "ligand cavity characterization"@en)
-SubClassOf(obo:MOLSIM_001862 obo:MOLSIM_000984)
-
 # Class: obo:MOLSIM_001863 (ligand cavity characterization)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001863 "Ligand cavity characterization is a specific type of pocket analysis that focuses on the binding site occupied by a ligand. It involves analyzing the size, shape, and properties of the cavity when the ligand is present or absent. For experts, this analysis is used to understand the determinants of binding specificity and to assess how the binding pocket adapts to different ligands. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001863 "ligand cavity characterization"@en)
+SubClassOf(obo:MOLSIM_001863 obo:MOLSIM_000984)
 SubClassOf(obo:MOLSIM_001863 obo:MOLSIM_001860)
 
 # Class: obo:MOLSIM_001864 (residence times)
@@ -12681,16 +12763,19 @@ SubClassOf(obo:MOLSIM_001866 obo:MOLSIM_001333)
 
 # Class: obo:MOLSIM_001867 (membrane analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001867 "Membrane analysis is a category of analysis methods specifically focused on characterizing the properties of lipid bilayer simulations. These methods are used to quantify the structural and dynamic behavior of the membrane itself and its interactions with other molecules, like embedded proteins. For experts, this includes calculating key properties such as the area per lipid, membrane thickness, and lipid order parameters to validate the simulation and understand membrane function. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001867 "membrane analysis"@en)
 SubClassOf(obo:MOLSIM_001867 obo:MOLSIM_000004)
 
 # Class: obo:MOLSIM_001868 (area per lipid)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001868 "The area per lipid is a fundamental property calculated in membrane analysis that represents the average surface area occupied by a single lipid molecule in the plane of the bilayer. It is calculated by dividing the total area of the simulation box in the membrane plane by the number of lipids in one leaflet. For experts, obtaining a stable and correct area per lipid is one of the most critical checks for confirming that a membrane simulation is properly equilibrated and physically realistic. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001868 "area per lipid"@en)
 SubClassOf(obo:MOLSIM_001868 obo:MOLSIM_000004)
 
 # Class: obo:MOLSIM_001869 (lipid contact analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001869 "Lipid contact analysis is a membrane analysis method used to identify and quantify the interactions between lipid molecules and a protein embedded in the membrane. The analysis tracks which specific lipid molecules are in close contact with the protein over the course of a simulation. For experts, this method is crucial for identifying potential \"hotspot\" lipid binding sites on a membrane protein and understanding the composition of the annular lipid shell. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001869 "lipid contact analysis"@en)
 SubClassOf(obo:MOLSIM_001869 obo:MOLSIM_001867)
 
@@ -12771,165 +12856,198 @@ SubClassOf(obo:MOLSIM_001884 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_001885 (trajectory meta analysis)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001885 "Trajectory meta-analysis refers to a higher level of analysis that involves comparing, contrasting, or combining the results from multiple, independent simulation trajectories. This can be used to improve statistical certainty, assess the convergence of a simulation, or identify the differences in dynamics between a wild-type protein and a mutant. For experts, this approach is essential for drawing robust conclusions that are not dependent on a single simulation run. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001885 "trajectory meta analysis"@en)
 SubClassOf(obo:MOLSIM_001885 obo:MOLSIM_000004)
 
 # Class: obo:MOLSIM_001886 (trajectory comparison)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001886 "Trajectory comparison is a specific type of meta-analysis where two or more simulation trajectories are quantitatively compared to identify similarities and differences in their conformational sampling. This is often done by calculating metrics that measure the overlap of the conformational ensembles or by projecting the trajectories onto a common free energy landscape. For experts, this method is used to rigorously assess the impact of a mutation or ligand binding on a protein's dynamics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001886 "trajectory comparison"@en)
 SubClassOf(obo:MOLSIM_001886 obo:MOLSIM_001885)
 
 # Class: obo:MOLSIM_001887 (molecular simulation system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001887 "A molecular simulation system is the complete collection of all the molecules included in a computational model for a simulation. This includes the main molecule of interest, such as a protein, as well as all the surrounding solvent molecules, ions, and any other components. For experts, the precise definition of the system, including its size and composition, is a fundamental part of the simulation protocol that must be reported for reproducibility. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001887 "molecular simulation system"@en)
 
 # Class: obo:MOLSIM_001888 (carbohydrate system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001888 "A carbohydrate system is a type of molecular simulation system where the primary molecule being studied is a carbohydrate. This can range from a single sugar molecule in water to a complex polysaccharide or the glycan portion of a glycoprotein. For experts, these systems require specialized force fields and analysis techniques to accurately model the unique stereochemistry and flexibility of glycosidic linkages. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001888 "carbohydrate system"@en)
 SubClassOf(obo:MOLSIM_001888 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001889 (complex system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001889 "A complex system in this context refers to a molecular simulation system that contains two or more interacting macromolecules, or a macromolecule interacting with a smaller molecule like a drug. The primary focus of simulating such a system is to study the interactions, binding, and functional consequences of the molecules coming together. For experts, this category encompasses the vast majority of simulations aimed at understanding molecular recognition. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001889 "complex system"@en)
 SubClassOf(obo:MOLSIM_001889 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001890 (ligand complex system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001890 "A ligand complex system is a type of complex system where the focus is on the interaction between a large macromolecule, such as a protein or DNA, and a smaller molecule, known as a ligand. These simulations are central to the field of drug discovery, where the goal is to understand how a potential drug molecule binds to its biological target. For experts, these systems are the primary subject of binding free energy calculations and docking studies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001890 "ligand complex system"@en)
 SubClassOf(obo:MOLSIM_001890 obo:MOLSIM_001889)
 
 # Class: obo:MOLSIM_001891 (DNA-ligand system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001891 "A DNA-ligand system is a specific type of ligand complex system composed of a DNA molecule interacting with a small molecule ligand. These simulations are used to study how drugs or other small molecules bind to DNA, which can be a mechanism for anti-cancer or anti-viral therapies. For experts, these systems are important for understanding intercalation, groove binding, and the structural changes induced in DNA upon ligand binding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001891 "DNA-ligand system"@en)
 SubClassOf(obo:MOLSIM_001891 obo:MOLSIM_001890)
 
 # Class: obo:MOLSIM_001892 (RNA-ligand system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001892 "An RNA-ligand system is a specific type of ligand complex system composed of an RNA molecule interacting with a small molecule ligand. With the growing recognition of RNA as a major drug target, these simulations are becoming increasingly important for discovering and designing new therapeutics. For experts, these systems are challenging due to the high flexibility of RNA and the often subtle nature of the binding interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001892 "RNA-ligand system"@en)
 SubClassOf(obo:MOLSIM_001892 obo:MOLSIM_001890)
 
 # Class: obo:MOLSIM_001893 (protein-ligand system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001893 "A protein-ligand system is the most common type of ligand complex system, consisting of a protein receptor interacting with a small molecule ligand. These simulations are the cornerstone of modern structure-based drug design, used to understand binding mechanisms, predict binding affinities, and guide the optimization of drug candidates. For experts, the accurate simulation of protein-ligand systems is a primary goal of the computational chemistry field. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001893 "protein-ligand system"@en)
 SubClassOf(obo:MOLSIM_001893 obo:MOLSIM_001890)
 
 # Class: obo:MOLSIM_001894 (hybrid complex system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001894 "A hybrid complex system is a type of complex system composed of macromolecules from different biological classes. This most commonly refers to a complex formed between a protein and a nucleic acid, such as a transcription factor bound to DNA. Simulating these systems is essential for understanding many fundamental biological processes like gene regulation and DNA repair. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001894 "hybrid complex system"@en)
 SubClassOf(obo:MOLSIM_001894 obo:MOLSIM_001889)
 
 # Class: obo:MOLSIM_001895 (nucleic acid complex system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001895 "A nucleic acid complex system is a type of complex system where the interacting components are two or more nucleic acid molecules. This can include a standard DNA double helix, an RNA duplex, or more complex structures like DNA-RNA hybrids or multi-stranded RNA junctions. For experts, these simulations are crucial for understanding the structure and stability of the genetic material and functional RNA molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001895 "nucleic acid complex system"@en)
 SubClassOf(obo:MOLSIM_001895 obo:MOLSIM_001889)
 
 # Class: obo:MOLSIM_001896 (DNA-DNA system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001896 "A DNA-DNA system is a specific type of nucleic acid complex system composed of two or more interacting strands of DNA. The most common example is the simulation of a DNA double helix to study its sequence-dependent structure and dynamics. For experts, these systems are also used to study more complex assemblies like DNA quadruplexes or Holliday junctions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001896 "DNA-DNA system"@en)
 SubClassOf(obo:MOLSIM_001896 obo:MOLSIM_001895)
 
 # Class: obo:MOLSIM_001897 (DNA-RNA system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001897 "A DNA-RNA system is a specific type of nucleic acid complex system composed of an interacting DNA strand and an RNA strand. Such hybrid helices are important biological intermediates that occur during processes like transcription and reverse transcription. For experts, simulating these systems is important for understanding the structural basis of these fundamental genetic processes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001897 "DNA-RNA system"@en)
 SubClassOf(obo:MOLSIM_001897 obo:MOLSIM_001895)
 
 # Class: obo:MOLSIM_001898 (RNA-RNA system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001898 "An RNA-RNA system is a specific type of nucleic acid complex system composed of two or more interacting RNA strands. This includes RNA duplexes, which are common in viral genomes and regulatory RNAs, as well as the vast and complex RNA assemblies that form the ribosome. For experts, simulating these systems is critical for understanding the structural basis of RNA function and catalysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001898 "RNA-RNA system"@en)
 SubClassOf(obo:MOLSIM_001898 obo:MOLSIM_001895)
 
 # Class: obo:MOLSIM_001899 (protein complex system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001899 "A protein complex system is a type of complex system where a protein is interacting with another macromolecule. This other molecule could be another protein, forming a protein-protein complex, or a nucleic acid, forming a protein-nucleic acid complex. These simulations are essential for understanding how proteins function in the context of larger biological assemblies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001899 "protein complex system"@en)
 SubClassOf(obo:MOLSIM_001899 obo:MOLSIM_001889)
 
 # Class: obo:MOLSIM_001900 (protein-DNA system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001900 "A protein-DNA system is a specific type of protein complex system composed of one or more proteins interacting with a DNA molecule. These systems are fundamental to nearly all aspects of genetics, including DNA replication, repair, and the regulation of gene expression by transcription factors. For experts, simulating these complexes is crucial for understanding the molecular basis of how proteins read and manipulate the genetic code. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001900 "protein-DNA system"@en)
 SubClassOf(obo:MOLSIM_001900 obo:MOLSIM_001899)
 
 # Class: obo:MOLSIM_001901 (protein-RNA system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001901 "A protein-RNA system is a specific type of protein complex system composed of one or more proteins interacting with an RNA molecule. These complexes, known as ribonucleoproteins, are central to a vast range of cellular processes, including protein synthesis by the ribosome and RNA splicing. For experts, simulating these systems is essential for understanding the intricate interplay between proteins and RNA that governs much of cell biology. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001901 "protein-RNA system"@en)
 SubClassOf(obo:MOLSIM_001901 obo:MOLSIM_001899)
 
 # Class: obo:MOLSIM_001902 (protein-protein system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001902 "A protein-protein system is a specific type of protein complex system composed of two or more interacting protein molecules. These interactions are the basis for most cellular signaling pathways and structural assemblies. For researchers, simulating these systems is crucial for understanding how proteins form functional complexes and for designing drugs that can modulate these interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001902 "protein-protein system"@en)
 SubClassOf(obo:MOLSIM_001902 obo:MOLSIM_001899)
 
 # Class: obo:MOLSIM_001903 (ion system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001903 "An ion system is a molecular simulation system where the primary focus is on the behavior of ions, typically in an aqueous solution. These simulations are used to study the fundamental properties of electrolyte solutions, such as ion pairing and solvation structure. For experts, these simple systems are often used to develop and validate the force field parameters for ions and water models. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001903 "ion system"@en)
 SubClassOf(obo:MOLSIM_001903 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001904 (lipid system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001904 "A lipid system is a molecular simulation system composed primarily of lipid molecules, usually arranged as a bilayer in water. These simulations are used to study the fundamental physical properties of biological membranes, such as their phase behavior, fluidity, and permeability. For experts, these systems are the necessary starting point for any simulation involving a membrane-embedded protein. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001904 "lipid system"@en)
 SubClassOf(obo:MOLSIM_001904 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001905 (nucleic acid system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001905 "A nucleic acid system is a molecular simulation system where the main molecule of interest is a single nucleic acid molecule, such as a DNA duplex or a folded RNA. These simulations are typically performed in a box of water and ions to study the intrinsic structure, flexibility, and conformational dynamics of the nucleic acid. For experts, these simulations are fundamental for understanding the physical properties of our genetic material. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001905 "nucleic acid system"@en)
 SubClassOf(obo:MOLSIM_001905 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001906 (DNA system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001906 "A DNA system is a specific type of nucleic acid system where the primary molecule being studied is DNA. This most often involves the simulation of a DNA double helix to investigate its sequence-dependent structure, flexibility, and dynamics. For experts, these simulations are used to understand properties like DNA bending and the transitions between different helical forms like A- and B-DNA. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001906 "DNA system"@en)
 SubClassOf(obo:MOLSIM_001906 obo:MOLSIM_001905)
 
 # Class: obo:MOLSIM_001907 (RNA system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001907 "An RNA system is a specific type of nucleic acid system where the primary molecule being studied is RNA. Unlike DNA, RNA molecules often fold into complex and specific three-dimensional structures to perform their biological functions. For experts, simulating these systems is crucial for understanding the principles of RNA folding and the structural basis of RNA catalysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001907 "RNA system"@en)
 SubClassOf(obo:MOLSIM_001907 obo:MOLSIM_001905)
 
 # Class: obo:MOLSIM_001908 (protein system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001908 "A protein system is a molecular simulation system where the main molecule of interest is a single protein molecule, or polypeptide chain. These simulations are typically run with the protein solvated in a box of water and ions to study its structural stability, intrinsic flexibility, and conformational changes. For researchers, this is the most common type of simulation, fundamental to understanding how a protein's structure relates to its function. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001908 "protein system"@en)
 SubClassOf(obo:MOLSIM_001908 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001909 (intrinsically disordered protein system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001909 "An intrinsically disordered protein (IDP) system is a specific type of protein system focused on a protein that does not have a stable, folded three-dimensional structure. These proteins exist as a highly dynamic ensemble of different conformations. For experts, simulating IDPs is a major challenge that requires long simulations and advanced analysis techniques to characterize the broad range of structures they can adopt. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001909 "intrinsically disordered protein system"@en)
 SubClassOf(obo:MOLSIM_001909 obo:MOLSIM_001908)
 
 # Class: obo:MOLSIM_001910 (membrane protein system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001910 "A membrane protein system is a specific type of protein system where the protein is embedded within a lipid bilayer, mimicking its native environment in a cell membrane. These are among the most complex and computationally demanding types of simulations to set up and run. For experts, these simulations are essential for understanding the function of a huge class of proteins that act as channels, transporters, and receptors in the cell. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001910 "membrane protein system"@en)
 SubClassOf(obo:MOLSIM_001910 obo:MOLSIM_001908)
 
 # Class: obo:MOLSIM_001911 (small molecule system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001911 "A small molecule system is a molecular simulation system where the primary focus is on the behavior of small organic molecules. This typically involves simulating a box of a pure liquid or a mixture of liquids to calculate their bulk physical properties. For experts, these simulations are often used to develop and validate the force field parameters for organic molecules before they are used in more complex biological simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001911 "small molecule system"@en)
 SubClassOf(obo:MOLSIM_001911 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001912 (water system)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001912 "A water system is a molecular simulation system that consists only of water molecules. These simulations are performed to study the fundamental properties of water itself, such as its density, diffusion rate, and hydrogen bonding network. For force field developers, simulating a pure water system is the most critical test for validating the accuracy of a new water model. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001912 "water system"@en)
 SubClassOf(obo:MOLSIM_001912 obo:MOLSIM_001887)
 
 # Class: obo:MOLSIM_001913 (simulation model resolution)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001913 "Simulation model resolution refers to the level of detail used to represent the molecules in a simulation. This is a fundamental choice that determines the balance between the physical accuracy of the model and the computational cost of the simulation. For experts, the resolution can range from all-atom, where every atom is explicit, to coarse-grained, where groups of atoms are represented as single particles. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001913 "simulation model resolution"@en)
 
 # Class: obo:MOLSIM_001914 (all atom)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001914 "All-atom is a simulation model resolution where every atom in the system, including all hydrogen atoms, is represented as an individual particle with its own parameters. This provides the highest level of structural detail and is the standard for most high-resolution biomolecular simulations. For experts, all-atom models are necessary for studying processes that involve specific chemical interactions like hydrogen bonding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001914 "all atom"@en)
 SubClassOf(obo:MOLSIM_001914 obo:MOLSIM_001913)
 
 # Class: obo:MOLSIM_001915 (coarse grained)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001915 "Coarse-grained is a simulation model resolution where groups of atoms are simplified and represented as a single interaction site or \"bead.\" This reduction in the number of particles allows for the simulation of much larger systems over much longer timescales than is possible with all-atom models. For experts, coarse-graining is an essential technique for studying large-scale phenomena like membrane self-assembly or the dynamics of viral capsids. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001915 "coarse grained"@en)
 SubClassOf(obo:MOLSIM_001915 obo:MOLSIM_001913)
 
 # Class: obo:MOLSIM_001916 (mesoscopic)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001916 "Mesoscopic is a very low-resolution simulation model that bridges the gap between the atomic scale and the macroscopic continuum. In these models, very large components, such as entire proteins or large segments of a polymer, are represented as single interacting particles. For experts, mesoscopic models are used to study the collective behavior of very large biological assemblies or materials over long time and length scales. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001916 "mesoscopic"@en)
 SubClassOf(obo:MOLSIM_001916 obo:MOLSIM_001913)
 
-# Class: obo:MOLSIM_001917 (unified atom)
+# Class: obo:MOLSIM_001917 (united-atom)
 
-AnnotationAssertion(rdfs:label obo:MOLSIM_001917 "unified atom"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001917 "A united-atom model is a simulation resolution where non-polar hydrogen atoms are not explicitly represented but are computationally merged with the heavy atom to which they are attached. This reduces the total number of interaction sites in the system, leading to a significant speed-up in calculations compared to an all-atom model. For experts, the united-atom approach offers a compromise between the detail of all-atom models and the speed of coarse-grained models. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001917 "united-atom"@en)
 SubClassOf(obo:MOLSIM_001917 obo:MOLSIM_001913)
 
 # Class: obo:MOLSIM_001918 (MDAnalysis)
@@ -12998,6 +13116,7 @@ SubClassOf(obo:MOLSIM_001928 obo:MOLSIM_001850)
 
 # Class: obo:MOLSIM_001929 (ACEMD)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001929 "ACEMD is a high-performance molecular dynamics software package specifically designed and optimized to run on NVIDIA graphics processing units (GPUs). It is known for achieving very high simulation speeds, allowing researchers to generate long trajectories in a short amount of time. For experts, ACEMD is a powerful tool for brute-force sampling of conformational space and for studying long-timescale events. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001929 "ACEMD"@en)
 SubClassOf(obo:MOLSIM_001929 obo:MOLSIM_000160)
 
@@ -13009,21 +13128,25 @@ SubClassOf(obo:MOLSIM_001930 obo:MOLSIM_001664)
 
 # Class: obo:MOLSIM_001931 (Blender)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001931 "Blender is a free and open-source 3D computer graphics software suite used for creating animated films, visual effects, art, and 3D printed models. While not a dedicated molecular viewer, it is often used by computational biologists to import molecular structures and create high-quality, cinematic renderings and scientific animations. For experts, Blender provides a professional-level tool for producing visually stunning figures and movies for publications and presentations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001931 "Blender"@en)
 SubClassOf(obo:MOLSIM_001931 obo:MOLSIM_000163)
 
 # Class: obo:MOLSIM_001932 (Jmol)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001932 "Jmol is a free, open-source molecular viewer for 3D chemical structures, written in the Java programming language. Because it is Java-based, it can run on a wide variety of operating systems and is often used as a tool for displaying molecules on websites. For researchers and educators, Jmol provides a versatile and accessible tool for basic molecular visualization and analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001932 "Jmol"@en)
 SubClassOf(obo:MOLSIM_001932 obo:MOLSIM_000163)
 
 # Class: obo:MOLSIM_001933 (MolStar)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001933 "Mol* is a modern, web-based toolkit for visualizing and analyzing large-scale molecular data. It is designed for high-performance rendering of extremely large structures, such as those from cryo-electron microscopy, directly in a web browser. For the structural biology community, Mol* is the state-of-the-art viewer integrated into databases like the PDB for exploring complex biological assemblies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001933 "MolStar"@en)
 SubClassOf(obo:MOLSIM_001933 obo:MOLSIM_000163)
 
 # Class: obo:MOLSIM_001934 (UCSF Chimera)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001934 "UCSF Chimera is a powerful and highly extensible desktop program for the interactive visualization and analysis of molecular structures and related data. It is known for its high-quality graphics, comprehensive feature set, and its ability to handle a wide range of data types beyond simple structures, such as density maps and sequence alignments. For many researchers, Chimera (and its successor, ChimeraX) is an indispensable day-to-day tool for analyzing simulation results and preparing publication-quality figures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001934 "UCSF Chimera"@en)
 SubClassOf(obo:MOLSIM_001934 obo:MOLSIM_000163)
 
