@@ -3414,6 +3414,7 @@ SubClassOf(obo:MOLSIM_000162 obo:MOLSIM_001850)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000163 "Software specifically designed for creating interactive 3D graphical representations of molecular structures, densities, surfaces, and dynamic trajectories generated from simulations or experiments. These tools allow researchers to visually inspect molecular details, understand complex spatial relationships, analyze interactions, monitor simulations, and create figures and animations for communication. Common examples include VMD, PyMOL, Chimera/ChimeraX, and DeepView (Swiss-PdbViewer). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000163 "visualization tool"@en)
+EquivalentClasses(obo:MOLSIM_000163 obo:MOLSIM_001934)
 SubClassOf(obo:MOLSIM_000163 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000164 (analysis tool)
@@ -4484,13 +4485,12 @@ SubClassOf(obo:MOLSIM_000344 obo:MOLSIM_000124)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000345 "Auto-correlation coefficients are the numerical values that make up the Auto-Correlation Function (ACF) at different time lags (τ). Each coefficient measures the linear correlation between the time series and the same series shifted by τ time steps. Plotting these coefficients against the lag reveals the temporal structure and memory effects within the data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000345 "auto-correlation coefficients"@en)
 SubClassOf(obo:MOLSIM_000345 obo:MOLSIM_000341)
-DisjointClasses(obo:MOLSIM_000345 obo:MOLSIM_000346)
 
 # Class: obo:MOLSIM_000346 (partial auto-correlation coefficients)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000346 "Partial auto-correlation coefficients measure the correlation between a time series and a lagged version of itself (at lag τ) after removing the linear dependence associated with all the shorter, intermediate lags (1 to τ−1). The Partial Auto-Correlation Function (PACF) helps identify the direct relationship between an observation and its value at a specific earlier time point, distinct from indirect correlations mediated by intermediate points. It is useful in time series modeling (e.g., ARIMA). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000346 "partial auto-correlation coefficients"@en)
-SubClassOf(obo:MOLSIM_000346 obo:MOLSIM_000341)
+SubClassOf(obo:MOLSIM_000346 obo:MOLSIM_000345)
 
 # Class: obo:MOLSIM_000347 (regression analysis)
 
@@ -6062,7 +6062,6 @@ SubClassOf(obo:MOLSIM_000610 obo:MOLSIM_000026)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000611 "A subset of thermodynamics analysis specifically dealing with how a system's properties change with temperature or involve heat exchange. This includes calculating quantities like heat capacity (how much energy is needed to raise the temperature), coefficients of thermal expansion, or enthalpy changes associated with specific processes. These properties are important for understanding temperature dependence and energy balance in molecular systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000611 "thermal property analysis"@en)
 SubClassOf(obo:MOLSIM_000611 obo:MOLSIM_000610)
-DisjointClasses(obo:MOLSIM_000611 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000612 (thermochemical analysis)
 
@@ -7896,13 +7895,12 @@ SubClassOf(obo:MOLSIM_000936 obo:MOLSIM_000010)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000937 "The most common form of clustering analysis where molecular structures are grouped based on their overall geometric similarity, typically quantified by the root-mean-square deviation (RMSD) of atomic coordinates after optimal superposition. Structures with low pairwise RMSD values are grouped into the same cluster. This method effectively identifies the dominant overall conformations visited during a simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000937 "structure clustering"@en)
 SubClassOf(obo:MOLSIM_000937 obo:MOLSIM_000123)
-DisjointClasses(obo:MOLSIM_000937 obo:MOLSIM_000938)
 
 # Class: obo:MOLSIM_000938 (structure clustering with dihedral binning)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000938 "A specialized structure clustering approach where conformations are grouped primarily based on the values of selected dihedral angles, rather than overall coordinate RMSD. Structures are assigned to bins based on which ranges their key dihedral angles fall into, and clusters are formed by grouping structures within the same or similar bins. This method is particularly useful for analyzing conformational changes driven by specific torsions, like backbone transitions or sidechain rotations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000938 "structure clustering with dihedral binning"@en)
-SubClassOf(obo:MOLSIM_000938 obo:MOLSIM_000123)
+SubClassOf(obo:MOLSIM_000938 obo:MOLSIM_000937)
 
 # Class: obo:MOLSIM_000939 (dynamics analysis)
 
@@ -13148,7 +13146,6 @@ SubClassOf(obo:MOLSIM_001933 obo:MOLSIM_000163)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001934 "UCSF Chimera is a powerful and highly extensible desktop program for the interactive visualization and analysis of molecular structures and related data. It is known for its high-quality graphics, comprehensive feature set, and its ability to handle a wide range of data types beyond simple structures, such as density maps and sequence alignments. For many researchers, Chimera (and its successor, ChimeraX) is an indispensable day-to-day tool for analyzing simulation results and preparing publication-quality figures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001934 "UCSF Chimera"@en)
-SubClassOf(obo:MOLSIM_001934 obo:MOLSIM_000163)
 
 # Class: obo:MOLSIM_001935 (YASARA)
 
@@ -13554,7 +13551,6 @@ DisjointClasses(obo:MOLSIM_000005 obo:MOLSIM_000208 obo:MOLSIM_000209)
 DisjointClasses(obo:MOLSIM_000017 obo:MOLSIM_000485 obo:MOLSIM_000580 obo:MOLSIM_000581)
 DisjointClasses(obo:MOLSIM_000021 obo:MOLSIM_000132 obo:MOLSIM_000741 obo:MOLSIM_000742 obo:MOLSIM_000743 obo:MOLSIM_000744 obo:MOLSIM_000745 obo:MOLSIM_000746 obo:MOLSIM_000747 obo:MOLSIM_000748 obo:MOLSIM_000749 obo:MOLSIM_000750 obo:MOLSIM_000751 obo:MOLSIM_000752 obo:MOLSIM_000753 obo:MOLSIM_000754 obo:MOLSIM_000755 obo:MOLSIM_000756 obo:MOLSIM_000757 obo:MOLSIM_000758 obo:MOLSIM_000759 obo:MOLSIM_000760 obo:MOLSIM_000761 obo:MOLSIM_000762)
 DisjointClasses(obo:MOLSIM_000022 obo:MOLSIM_000763 obo:MOLSIM_000764 obo:MOLSIM_000765 obo:MOLSIM_000766 obo:MOLSIM_000767 obo:MOLSIM_000768 obo:MOLSIM_000769 obo:MOLSIM_000770 obo:MOLSIM_000771)
-DisjointClasses(obo:MOLSIM_000027 obo:MOLSIM_000122 obo:MOLSIM_000610 obo:MOLSIM_000635 obo:MOLSIM_000673 obo:MOLSIM_000917 obo:MOLSIM_000939 obo:MOLSIM_000950 obo:MOLSIM_000974)
 DisjointClasses(obo:MOLSIM_000038 obo:MOLSIM_000039 obo:MOLSIM_000384 obo:MOLSIM_001546)
 DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_000802)
 DisjointClasses(obo:MOLSIM_000050 obo:MOLSIM_000051 obo:MOLSIM_000052 obo:MOLSIM_000795 obo:MOLSIM_000796 obo:MOLSIM_000797 obo:MOLSIM_000798 obo:MOLSIM_000799)
@@ -13563,10 +13559,8 @@ DisjointClasses(obo:MOLSIM_000073 obo:MOLSIM_000270 obo:MOLSIM_000271)
 DisjointClasses(obo:MOLSIM_000088 obo:MOLSIM_000089 obo:MOLSIM_000090 obo:MOLSIM_000091 obo:MOLSIM_000092 obo:MOLSIM_000093 obo:MOLSIM_000094 obo:MOLSIM_000095 obo:MOLSIM_000096)
 DisjointClasses(obo:MOLSIM_000097 obo:MOLSIM_000159 obo:MOLSIM_000352)
 DisjointClasses(obo:MOLSIM_000099 obo:MOLSIM_000100 obo:MOLSIM_000101 obo:MOLSIM_000102 obo:MOLSIM_000103 obo:MOLSIM_000104 obo:MOLSIM_000105 obo:MOLSIM_000106 obo:MOLSIM_000107 obo:MOLSIM_000108)
-DisjointClasses(obo:MOLSIM_000120 obo:MOLSIM_000123 obo:MOLSIM_000126 obo:MOLSIM_000127 obo:MOLSIM_000135 obo:MOLSIM_000300 obo:MOLSIM_000342 obo:MOLSIM_000347 obo:MOLSIM_000348 obo:MOLSIM_000349 obo:MOLSIM_000351 obo:MOLSIM_000353 obo:MOLSIM_000917 obo:MOLSIM_000939)
 DisjointClasses(obo:MOLSIM_000128 obo:MOLSIM_000129 obo:MOLSIM_000130 obo:MOLSIM_000131)
 DisjointClasses(obo:MOLSIM_000144 obo:MOLSIM_000145 obo:MOLSIM_000146 obo:MOLSIM_000147 obo:MOLSIM_000148 obo:MOLSIM_000149 obo:MOLSIM_000150 obo:MOLSIM_000151 obo:MOLSIM_000152 obo:MOLSIM_000153 obo:MOLSIM_000154 obo:MOLSIM_000155)
-DisjointClasses(obo:MOLSIM_000162 obo:MOLSIM_000163 obo:MOLSIM_000164 obo:MOLSIM_000165 obo:MOLSIM_000166)
 DisjointClasses(obo:MOLSIM_000167 obo:MOLSIM_000168 obo:MOLSIM_000169)
 DisjointClasses(obo:MOLSIM_000174 obo:MOLSIM_000214 obo:MOLSIM_000215 obo:MOLSIM_000464)
 DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000176 obo:MOLSIM_000177 obo:MOLSIM_000178 obo:MOLSIM_000179 obo:MOLSIM_000180 obo:MOLSIM_000181 obo:MOLSIM_000182 obo:MOLSIM_000183 obo:MOLSIM_000184)
@@ -13576,9 +13570,6 @@ DisjointClasses(obo:MOLSIM_000196 obo:MOLSIM_000197 obo:MOLSIM_000198 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000201 obo:MOLSIM_000202 obo:MOLSIM_000203)
 DisjointClasses(obo:MOLSIM_000210 obo:MOLSIM_000211 obo:MOLSIM_000212 obo:MOLSIM_000213)
 DisjointClasses(obo:MOLSIM_000232 obo:MOLSIM_000233 obo:MOLSIM_000234 obo:MOLSIM_000235)
-DisjointClasses(obo:MOLSIM_000239 obo:MOLSIM_000279 obo:MOLSIM_000280)
-DisjointClasses(obo:MOLSIM_000262 obo:MOLSIM_000263 obo:MOLSIM_000264 obo:MOLSIM_000265 obo:MOLSIM_000266 obo:MOLSIM_000267)
-DisjointClasses(obo:MOLSIM_000262 obo:MOLSIM_000263 obo:MOLSIM_000264 obo:MOLSIM_000265 obo:MOLSIM_000266 obo:MOLSIM_000267 obo:MOLSIM_000268 obo:MOLSIM_000269)
 DisjointClasses(obo:MOLSIM_000273 obo:MOLSIM_000274 obo:MOLSIM_000275)
 DisjointClasses(obo:MOLSIM_000282 obo:MOLSIM_000283 obo:MOLSIM_000284 obo:MOLSIM_000285)
 DisjointClasses(obo:MOLSIM_000287 obo:MOLSIM_000288 obo:MOLSIM_000289 obo:MOLSIM_000290 obo:MOLSIM_000291 obo:MOLSIM_000292 obo:MOLSIM_000293 obo:MOLSIM_000294 obo:MOLSIM_000295)
