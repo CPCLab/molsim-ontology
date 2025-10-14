@@ -97,3 +97,29 @@ WHERE {
 }
 ORDER BY ?class ?property
 ```
+3. Get classes or properties without language tag accompanying `definition` (`obo:IAO_0000115`) property
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT DISTINCT ?entity ?definition ?type
+WHERE {
+  {
+    ?entity a owl:Class ;
+            obo:IAO_0000115 ?definition .
+    BIND("Class" AS ?type)
+  } 
+  UNION 
+  {
+    ?entity a rdf:Property ;
+            obo:IAO_0000115 ?definition .
+    BIND("Property" AS ?type)
+  }
+
+  FILTER (lang(?definition) = "")
+}
+ORDER BY ?type ?entity
+```
