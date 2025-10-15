@@ -1740,6 +1740,7 @@ Declaration(Class(obo:MOLSIM_001841))
 Declaration(Class(obo:MOLSIM_001842))
 Declaration(Class(obo:MOLSIM_001843))
 Declaration(Class(obo:MOLSIM_001844))
+Declaration(Class(obo:MOLSIM_001845))
 Declaration(Class(obo:MOLSIM_001846))
 Declaration(Class(obo:MOLSIM_001847))
 Declaration(Class(obo:MOLSIM_001848))
@@ -1756,6 +1757,7 @@ Declaration(Class(obo:MOLSIM_001858))
 Declaration(Class(obo:MOLSIM_001859))
 Declaration(Class(obo:MOLSIM_001860))
 Declaration(Class(obo:MOLSIM_001861))
+Declaration(Class(obo:MOLSIM_001862))
 Declaration(Class(obo:MOLSIM_001863))
 Declaration(Class(obo:MOLSIM_001864))
 Declaration(Class(obo:MOLSIM_001865))
@@ -1829,6 +1831,17 @@ Declaration(Class(obo:MOLSIM_001932))
 Declaration(Class(obo:MOLSIM_001933))
 Declaration(Class(obo:MOLSIM_001934))
 Declaration(Class(obo:MOLSIM_001935))
+Declaration(Class(obo:MOLSIM_001936))
+Declaration(Class(obo:MOLSIM_001937))
+Declaration(Class(obo:MOLSIM_001938))
+Declaration(Class(obo:MOLSIM_001939))
+Declaration(Class(obo:MOLSIM_001940))
+Declaration(Class(obo:MOLSIM_001941))
+Declaration(Class(obo:MOLSIM_001942))
+Declaration(Class(obo:MOLSIM_001943))
+Declaration(Class(obo:MOLSIM_001947))
+Declaration(Class(obo:MOLSIM_001948))
+Declaration(Class(obo:MOLSIM_001949))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -1954,6 +1967,7 @@ Declaration(NamedIndividual(obo:MOLSIM_001029))
 Declaration(NamedIndividual(obo:MOLSIM_001030))
 Declaration(NamedIndividual(obo:MOLSIM_001031))
 Declaration(NamedIndividual(obo:MOLSIM_001532))
+Declaration(NamedIndividual(obo:MOLSIM_001945))
 Declaration(AnnotationProperty(<http://protege.stanford.edu/plugins/owl/protege#defaultLanguage>))
 Declaration(AnnotationProperty(obo:IAO_0000115))
 Declaration(AnnotationProperty(dcterms:description))
@@ -12908,6 +12922,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001844 "A structure factor is a m
 AnnotationAssertion(rdfs:label obo:MOLSIM_001844 "structure factor"@en)
 SubClassOf(obo:MOLSIM_001844 obo:MOLSIM_001800)
 
+# Class: obo:MOLSIM_001845 (hardware)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001845 "Hardware refers to the physical components of a computer system that are used to run software and perform calculations. This includes the processors, memory, storage drives, and networking equipment that together form the computational machinery for a simulation. Documenting the specific hardware is important for scientific reproducibility, as performance and even numerical results can be influenced by the underlying architecture. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001845 "hardware"@en)
+
 # Class: obo:MOLSIM_001846 (van der Waals radius)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001846 "The van der Waals radius represents the effective size of an atom, defining how closely it can approach another atom before they start to repel each other. It is the radius of an imaginary hard sphere that represents the distance of closest approach for another atom, corresponding to the region where strong Pauli repulsion dominates the weak, attractive van der Waals forces. These radii are fundamental for defining molecular surfaces, checking for steric clashes, and as a basis for the \"sigma\" parameter in the Lennard-Jones potential used in force fields. (UNVERIFIED)"@en)
@@ -13003,6 +13022,12 @@ SubClassOf(obo:MOLSIM_001860 obo:MOLSIM_000917)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001861 "Ligand analysis is a broad category of methods focused on characterizing the behavior of a small molecule, or ligand, during a simulation of its complex with a larger receptor. This includes analyzing the stability of its binding pose, its internal flexibility and conformational changes, and its specific interactions with the protein or nucleic acid. These analyses are fundamental to structure-based drug design for understanding the determinants of binding affinity and specificity. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001861 "ligand analysis"@en)
 SubClassOf(obo:MOLSIM_001861 obo:MOLSIM_000004)
+
+# Class: obo:MOLSIM_001862 (computing system)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001862 "A computing system is the complete set of hardware that works together to run a simulation, ranging from a single computer to a massive cluster. This term describes the overall environment where the computational job was executed, such as a personal workstation, a university supercomputer, or a cloud-based platform. Specifying the type of computing system provides essential context on the scale of the simulation and the resources required to perform it. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001862 "computing system"@en)
+SubClassOf(obo:MOLSIM_001862 obo:MOLSIM_001845)
 
 # Class: obo:MOLSIM_001863 (ligand cavity characterization)
 
@@ -13433,12 +13458,80 @@ SubClassOf(obo:MOLSIM_001933 obo:MOLSIM_000163)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001934 "UCSF Chimera is a powerful and highly extensible desktop program for the interactive visualization and analysis of molecular structures and related data. It is known for its high-quality graphics, comprehensive feature set, and its ability to handle a wide range of data types beyond simple structures, such as density maps and sequence alignments. For many researchers, Chimera (and its successor, ChimeraX) is an indispensable day-to-day tool for analyzing simulation results and preparing publication-quality figures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001934 "UCSF Chimera"@en)
+SubClassOf(obo:MOLSIM_001934 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_001935 (YASARA)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001935 "YASARA is a comprehensive molecular modeling and simulation software suite known for its high degree of automation and user-friendly interface. It integrates a wide range of functionalities, from structure prediction and cleaning to running full molecular dynamics simulations with its own force field. For scientists, YASARA aims to make complex simulation protocols accessible through automated workflows that can be executed with minimal manual setup. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001935 "YASARA"@en)
 SubClassOf(obo:MOLSIM_001935 obo:MOLSIM_001664)
+
+# Class: obo:MOLSIM_001936 (high-performance computing cluster)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001936 "A high-performance computing cluster is a group of individual computers, called nodes, that are linked together by a fast network to function as a single, powerful system. In biomolecular simulation, these clusters are used to run a single simulation in parallel across many processors, which is essential for studying large molecular systems. The overall performance of a parallel simulation on a cluster depends critically on the speed of both the processors and the network connecting them. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001936 "high-performance computing cluster"@en)
+SubClassOf(obo:MOLSIM_001936 obo:MOLSIM_001862)
+
+# Class: obo:MOLSIM_001937 (supercomputer)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001937 "A supercomputer is one of the fastest and most powerful types of computers in the world, designed for extremely complex and large-scale scientific calculations. It is a tightly integrated system, often featuring custom processors and a specialized, ultra-fast network to enable efficient communication between hundreds of thousands of processor cores. These machines are used for the most demanding biomolecular simulations, such as modeling an entire virus or achieving simulation timescales of milliseconds. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001937 "supercomputer"@en)
+SubClassOf(obo:MOLSIM_001937 obo:MOLSIM_001862)
+
+# Class: obo:MOLSIM_001938 (cloud computing platform)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001938 "A cloud computing platform is a service that provides on-demand access to powerful computing resources over the internet. This allows researchers to run large-scale simulations on virtual clusters hosted by commercial providers like Amazon Web Services (AWS) or Google Cloud. This approach offers flexible access to the latest hardware, such as high-end GPUs, without the cost and maintenance of owning a physical supercomputer. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001938 "cloud computing platform"@en)
+SubClassOf(obo:MOLSIM_001938 obo:MOLSIM_001862)
+
+# Class: obo:MOLSIM_001939 (processing unit)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001939 "A processing unit is the core component of a computer that acts as its \"brain,\" performing the calculations and logical operations. This is the hardware that executes the instructions from the simulation software to calculate the forces between atoms and update their positions over time. The two main types used in modern simulations are the general-purpose Central Processing Unit (CPU) and the highly parallel Graphics Processing Unit (GPU). (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001939 "processing unit"@en)
+SubClassOf(obo:MOLSIM_001939 obo:MOLSIM_001845)
+
+# Class: obo:MOLSIM_001940 (central processing unit)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001940 "The central processing unit (CPU) is the primary, general-purpose processor in a computer that handles a wide variety of tasks. In a simulation context, the CPU manages the overall workflow, handles data input and output, and performs any parts of the calculation that are not easily run in parallel. While GPUs now handle the bulk of the force calculations, a fast CPU is still essential for the overall performance of the simulation and for all subsequent data analysis. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001940 "central processing unit"@en)
+SubClassOf(obo:MOLSIM_001940 obo:MOLSIM_001939)
+
+# Class: obo:MOLSIM_001941 (graphics processing unit)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001941 "A graphics processing unit (GPU) is a specialized processor with thousands of small cores, designed to perform many simple calculations simultaneously. This massively parallel architecture makes it extremely well-suited for the force calculation step in molecular dynamics, where the same calculation must be performed for thousands of pairs of atoms at once. The use of GPUs has dramatically accelerated biomolecular simulations, enabling routine access to timescales that were once only possible on the largest supercomputers. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001941 "graphics processing unit"@en)
+SubClassOf(obo:MOLSIM_001941 obo:MOLSIM_001939)
+
+# Class: obo:MOLSIM_001942 (application-specific integrated circuit)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001942 "An application-specific integrated circuit (ASIC) is a computer chip that has been custom-designed to perform a single, specific task with the highest possible speed and efficiency. Unlike a general-purpose CPU, an ASIC is hard-wired to execute a particular algorithm, making it much faster for that one job. The most famous example in molecular simulation is the Anton supercomputer, which uses ASICs built specifically to accelerate the force calculations in molecular dynamics. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001942 "ASIC")
+AnnotationAssertion(rdfs:label obo:MOLSIM_001942 "application-specific integrated circuit"@en)
+SubClassOf(obo:MOLSIM_001942 obo:MOLSIM_001939)
+
+# Class: obo:MOLSIM_001943 (network interconnect)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001943 "The network interconnect is the high-speed communication system that links all the individual computers, or nodes, together in a high-performance cluster. It is the fabric of hardware and protocols that manages the data transfer between nodes running different parts of a parallel simulation. The performance of this system, particularly its low latency and high bandwidth, is a critical factor in how well a large molecular dynamics simulation can scale across many nodes. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001943 "network interconnect"@en)
+SubClassOf(obo:MOLSIM_001943 obo:MOLSIM_001845)
+
+# Class: obo:MOLSIM_001947 (ethernet)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001947 "Ethernet is the standard technology used to connect computers in most local networks, such as in an office or home - as well as Metropolitan Area Network and Wide Area Network. While basic Ethernet is too slow for demanding parallel simulations, high-speed versions (such as 100 Gigabit Ethernet) can be used as the network interconnect in some high-performance computing clusters. It is a common and cost-effective choice for smaller clusters, though it typically has higher communication delays than specialized interconnects like InfiniBand. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001947 "ethernet"@en)
+SubClassOf(obo:MOLSIM_001947 obo:MOLSIM_001943)
+
+# Class: obo:MOLSIM_001948 (infiniband)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001948 "InfiniBand is a high-performance networking technology that is the most common standard for connecting the computers in a high-performance computing cluster. It is a switched fabric interconnect designed to provide the extremely low communication delay (latency) and high data transfer rate (bandwidth) that are essential for parallel simulations to run efficiently across many nodes. The quality of the InfiniBand network is often the most critical factor determining the scalability and performance of a large simulation job. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001948 "infiniband"@en)
+SubClassOf(obo:MOLSIM_001948 obo:MOLSIM_001943)
+
+# Class: obo:MOLSIM_001949 (omni-path)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001949 "Omni-Path is a high-speed networking technology that was designed specifically to connect the nodes of a large supercomputer. The Intel Omni-Path Architecture provides the low-latency and high-bandwidth communication needed for large-scale parallel applications like molecular dynamics. It was developed as a competitor to InfiniBand and has been used as the network interconnect in many of the world's top supercomputing systems. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001949 "omni-path"@en)
+SubClassOf(obo:MOLSIM_001949 obo:MOLSIM_001943)
 
 
 ############################
@@ -13834,6 +13927,10 @@ ClassAssertion(obo:MOLSIM_000713 obo:MOLSIM_001031)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001532 "The Cambridge Structural Database (CSD) is the world's primary repository for the three-dimensional crystal structures of small organic and metal-organic molecules. It contains hundreds of thousands of experimentally determined structures, providing a vast resource for chemical and biological research. This database is essential for validating force field parameters and for obtaining high-quality starting geometries for computational studies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001532 "Cambridge Structural Database"@en)
 ClassAssertion(obo:MOLSIM_001522 obo:MOLSIM_001532)
+
+# Individual: obo:MOLSIM_001945 (Omni-Path)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001945 "Omni-Path"@en)
 
 
 DisjointClasses(obo:MOLSIM_000005 obo:MOLSIM_000208 obo:MOLSIM_000209)
