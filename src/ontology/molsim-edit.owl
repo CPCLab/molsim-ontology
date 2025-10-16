@@ -1432,7 +1432,6 @@ Declaration(Class(obo:MOLSIM_001533))
 Declaration(Class(obo:MOLSIM_001534))
 Declaration(Class(obo:MOLSIM_001535))
 Declaration(Class(obo:MOLSIM_001536))
-Declaration(Class(obo:MOLSIM_001537))
 Declaration(Class(obo:MOLSIM_001538))
 Declaration(Class(obo:MOLSIM_001539))
 Declaration(Class(obo:MOLSIM_001540))
@@ -3399,6 +3398,7 @@ SubClassOf(obo:MOLSIM_000156 obo:MOLSIM_000437)
 # Class: obo:MOLSIM_000157 (framework)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000157 "A reusable software platform or environment that provides a basic structure and set of tools or libraries for developing applications or performing complex tasks within a specific domain. In biomolecular simulation, a framework might offer standardized ways to set up simulations, manage data, integrate different tools, or build custom analysis workflows, providing a higher level of abstraction than individual tools or scripts. Examples could include workflow management systems (like Galaxy, KNIME adapted for simulation) or simulation setup environments (like CHARMM-GUI). (UNVERIFIED)"@en)
+AnnotationAssertion(dcterms:source obo:MOLSIM_000157 <https://doi.org/10.1002/jcc>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000157 "framework"@en)
 SubClassOf(obo:MOLSIM_000157 obo:MOLSIM_000001)
 
@@ -11090,11 +11090,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001536 "A dielectrically consiste
 AnnotationAssertion(rdfs:label obo:MOLSIM_001536 "dielectrically consistent RISM model"@en)
 SubClassOf(obo:MOLSIM_001536 obo:MOLSIM_001535)
 
-# Class: obo:MOLSIM_001537 (QMHEADER format)
-
-AnnotationAssertion(rdfs:label obo:MOLSIM_001537 "QMHEADER format"@en)
-SubClassOf(obo:MOLSIM_001537 obo:MOLSIM_000437)
-
 # Class: obo:MOLSIM_001538 (charge-dependent van der Waals correction)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001538 "This is an advanced force field feature where the size of an atom (its van der Waals radius) can change depending on its partial atomic charge. This correction is used to model the physical effect where a positively charged atom tends to be smaller and a negatively charged atom tends to be larger. It is a feature of some advanced or polarizable force fields designed to provide a more accurate description of intermolecular interactions, especially for ions and highly polar molecules. (UNVERIFIED)"@en)
@@ -11320,6 +11315,8 @@ SubClassOf(obo:MOLSIM_001574 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_001575 (PropPDB)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001575 "The PropPDB tool is a system setup program used to build a larger simulation box by replicating a small, initial crystal unit cell in specified directions. This process is necessary when the original crystallographic unit cell is too small to satisfy the minimum size requirements imposed by the simulation's non-bonded interaction cutoff distance. For experts, this method creates a larger \"supercell\" that is large enough to avoid artifacts from periodic symmetry and to meet the stringent size requirements of modern simulation engines, particularly those running on GPUs. (UNVERIFIED)"@en)
+AnnotationAssertion(dcterms:source obo:MOLSIM_001575 <https://ambermd.org/doc12/Amber25.pdf>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001575 "PropPDB"@en)
 SubClassOf(obo:MOLSIM_001575 obo:MOLSIM_001556)
 
@@ -11474,6 +11471,9 @@ SubClassOf(obo:MOLSIM_001600 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_001601 (gwh)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001601 "The gwh (guess water hydrogens) tool is a system setup utility used to add or optimize the positions of hydrogen atoms for water molecules in a structural model. The program iteratively rotates the water molecules to find an optimal orientation for their hydrogens, aiming to satisfy the most favorable hydrogen bonding network and electrostatic interactions with the surrounding environment. For experts, gwh serves as a specialized complement to the reduce program (which handles protein hydrogens), providing a method to generate a more physically realistic and lower-energy initial solvent configuration than the arbitrary placement offered by standard system-building tools like tleap. (UNVERIFIED)"@en)
+AnnotationAssertion(dcterms:source obo:MOLSIM_001601 <https://ambermd.org/doc12/Amber25.pdf>)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001601 "guess water hydrogens"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001601 "gwh"@en)
 SubClassOf(obo:MOLSIM_001601 obo:MOLSIM_001556)
 
@@ -11491,6 +11491,9 @@ SubClassOf(obo:MOLSIM_001603 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_001604 (AMBAT)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001604 "AMBAT is a software tool used to construct three-dimensional models of cell membranes for use in molecular simulations. Consisting of a set of scripts, it automates the complex process of arranging lipid molecules to form a proper bilayer and can then embed a protein structure within that prepared membrane. As part of the AmberTools suite, AMBAT (Amber Membrane Builder and Analysis Tool) provides a script-based workflow for both the initial construction of lipid bilayer systems and for subsequent analysis of membrane properties, serving as a specialized tool for preparing membrane protein simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(dcterms:source obo:MOLSIM_001604 <https://ambermd.org/doc12/Amber25.pdf>)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001604 "Amber Membrane Builder and Analysis Tool"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001604 "AMBAT"@en)
 SubClassOf(obo:MOLSIM_001604 obo:MOLSIM_001556)
 
@@ -11975,16 +11978,24 @@ SubClassOf(obo:MOLSIM_001684 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_001685 (WAMM)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001685 "The Weighted Averaging Momentum Method (WAMM) is an advanced algorithm used to integrate the equations of motion in a molecular dynamics simulation. It improves upon standard integrators by using a weighted average of momentum information from several previous time steps, which helps to filter out high-frequency noise and increase the numerical stability of the simulation. For experts, this momentum-averaging scheme effectively damps the fastest atomic motions, allowing for the use of a significantly longer integration time step compared to standard algorithms like velocity-Verlet, thereby increasing computational efficiency. (UNVERIFIED)"@en)
+AnnotationAssertion(dcterms:source obo:MOLSIM_001685 <https://doi.org/10.1016/j.jcp.2013.06.039>)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001685 "Weighted Averaging Momentum Method"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001685 "WAMM"@en)
 SubClassOf(obo:MOLSIM_001685 obo:MOLSIM_000157)
 
 # Class: obo:MOLSIM_001686 (LIEW)
 
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001686 "The Linear Interaction Energy Workflow (LIEW) is a software framework designed to automatically calculate how strongly a small molecule binds to its target protein using the Linear Interaction Energy (LIE) method. It automates the entire process by running the two required simulations (the ligand bound to the receptor and the ligand free in solvent) and then processing the trajectories to extract the necessary interaction energies. For experts, LIEW is a collection of scripts that manages the setup, execution, and analysis of the bound and free state simulations, ultimately calculating the ensemble-averaged van der Waals and electrostatic interaction energies and applying the empirical α and β coefficients to compute the final binding free energy. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001686 "Linear Interaction Energy Workflow"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001686 "LIEW"@en)
 SubClassOf(obo:MOLSIM_001686 obo:MOLSIM_000157)
 
 # Class: obo:MOLSIM_001687 (TIW)
 
+AnnotationAssertion(dcterms:source obo:MOLSIM_001687 <https://doi.org/10.1002/jcc.23218>)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001687 "The Thermodynamic Integration Workflow (TIW) is a software framework that automates the complex process of calculating relative binding free energies using the thermodynamic integration (TI) method. It streamlines the entire procedure by automatically preparing the molecular system, running the required series of simulations across different intermediate states, and analyzing the final results. For experts, TIW is a collection of modular scripts that handles the creation of hybrid topologies, the generation of input files for each lambda window, and the final integration of the dV/dλ data, thereby ensuring reproducibility and minimizing manual errors in alchemical free energy calculations. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001687 "Thermodynamic Integration Workflow"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001687 "TIW"@en)
 SubClassOf(obo:MOLSIM_001687 obo:MOLSIM_000157)
 
