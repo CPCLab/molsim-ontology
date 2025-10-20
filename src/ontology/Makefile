@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                24b99f14ccf913136314d59b21bb1ce8623c3ac137afe9fd78808015f8220d2d
+CONFIG_HASH=                18b62c5f49db8abe25cd18e5103c6a1ba6a4f3794afaef2342392209518130c1
 
 
 # ----------------------------------------
@@ -187,7 +187,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  uo chebi ncit
+IMPORTS =  uo chebi
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -423,14 +423,6 @@ $(IMPORTDIR)/chebi_import.owl:
 	@false
 endif # IMP_LARGE=true
 
-## Module for ontology: ncit (custom)
-ifeq ($(IMP_LARGE),true)
-$(IMPORTDIR)/ncit_import.owl: 
-	@echo "ERROR: You have configured ncit as a custom module;"
-	@echo "       This rule needs to be overwritten in molsim.Makefile!"
-	@false
-endif # IMP_LARGE=true
-
 endif # IMP=true
 
 .PHONY: refresh-imports
@@ -516,15 +508,6 @@ ifeq ($(IMP_LARGE),true)
 mirror-chebi: | $(TMPDIR)
 	curl -L $(OBOBASE)/chebi.owl.gz --create-dirs -o $(MIRRORDIR)/chebi.owl.gz --retry 4 --max-time 200 && \
 	$(ROBOT) convert -i $(MIRRORDIR)/chebi.owl.gz -o $(TMPDIR)/$@.owl
-endif
-
-
-## ONTOLOGY: ncit
-
-ifeq ($(IMP_LARGE),true)
-mirror-ncit: | $(TMPDIR)
-	curl -L $(OBOBASE)/ncit.owl.gz --create-dirs -o $(MIRRORDIR)/ncit.owl.gz --retry 4 --max-time 200 && \
-	$(ROBOT) convert -i $(MIRRORDIR)/ncit.owl.gz -o $(TMPDIR)/$@.owl
 endif
 
 

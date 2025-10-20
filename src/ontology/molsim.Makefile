@@ -14,10 +14,10 @@ $(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
 		--output $@
 # $(IMPORTDIR)/ncit_import_no_intermediate.owl: $(MIRRORDIR)/ncit.owl
 #	$(ROBOT) extract --input $< \
-		--method MIREOT \
-		--lower-terms $(IMPORTDIR)/ncit_terms.txt \
-		--intermediates none \
-		--output $@
+#		--method MIREOT \
+#		--lower-terms $(IMPORTDIR)/ncit_terms.txt \
+#		--intermediates none \
+#		--output $@
 # $(IMPORTDIR)/iao_import_no_intermediate.owl: $(MIRRORDIR)/iao.owl
 #	$(ROBOT) extract --input $< \
 		--method MIREOT \
