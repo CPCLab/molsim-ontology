@@ -157,7 +157,7 @@ In the end, this rule creates a subset of the Units of Measurement (UO) ontology
 Once the molsim.Makefile is modified, run:
 
 ```bash
-sh run.sh make update_repo
+sh run.sh update_repo # OR sh run.sh make update_repo if your ODK < v.1.6.0
 
 sh run.sh make refresh-uo
 ```
