@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2025-10-20
+data-version: releases/2025-10-27
 idspace: chemrof https://w3id.org/chemrof/ 
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -9,8 +9,53 @@ ontology: molsim
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2025-10-20" xsd:string
+property_value: owl:versionInfo "2025-10-27" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
+
+[Term]
+id: CHEBI:12936
+name: D-galactose
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "D-Gal" RELATED [jcbn]
+synonym: "D-galacto-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-galacto-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-galactose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-galactose" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:17608 ! D-aldohexose
+is_a: CHEBI:28260 ! galactose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:131619
+name: C27-steroid
+namespace: chebi_ontology
+def: "A steroid compound with a structure based on a 27-carbon (cholestane) skeleton." []
+subset: 3:STAR
+synonym: "C27-steroids" RELATED [chebi]
+is_a: CHEBI:35341 ! steroid
+
+[Term]
+id: CHEBI:131702
+name: stigmastane derivative
+namespace: chebi_ontology
+def: "Any steroid (or derivative) based on a stigmastane skeleton." []
+subset: 3:STAR
+synonym: "stigmastane derivatives" RELATED [chebi]
+is_a: CHEBI:35341 ! steroid
+
+[Term]
+id: CHEBI:131703
+name: stigmastane sterol
+namespace: chebi_ontology
+def: "Any sterol based on a stigmastane skeleton." []
+subset: 3:STAR
+synonym: "stigmastane sterols" RELATED [chebi]
+is_a: CHEBI:131702 ! stigmastane derivative
+is_a: CHEBI:15889 ! sterol
 
 [Term]
 id: CHEBI:134360
@@ -92,6 +137,20 @@ is_a: CHEBI:17087 ! ketone
 is_a: CHEBI:33822 ! organic hydroxy compound
 
 [Term]
+id: CHEBI:140325
+name: secondary carboxamide
+namespace: chebi_ontology
+def: "A carboxamide resulting from the formal condensation of a carboxylic acid with a primary amine; formula RC(=O)NHR<small><sup>1</small></sup>." []
+subset: 3:STAR
+synonym: "secondary carboxamides" RELATED [chebi]
+is_a: CHEBI:37622 ! carboxamide
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "CHNOR2" xsd:string
+property_value: chemrof:mass "43.025" xsd:decimal
+property_value: chemrof:monoisotopic_mass "43.00581" xsd:decimal
+property_value: chemrof:smiles_string "*C(=O)N([1*])[H]" xsd:string
+
+[Term]
 id: CHEBI:15429
 name: hydroxylamine
 namespace: chebi_ontology
@@ -141,6 +200,164 @@ property_value: chemrof:monoisotopic_mass "33.02146" xsd:decimal
 property_value: chemrof:smiles_string "NO" xsd:string
 
 [Term]
+id: CHEBI:15693
+name: aldose
+namespace: chebi_ontology
+alt_id: CHEBI:13755
+alt_id: CHEBI:22305
+alt_id: CHEBI:2561
+def: "Aldehydic parent sugars (polyhydroxy aldehydes H[CH(OH)]<small><sub><em>n</em></sub></small>C(=O)H, <em>n</em> ≥ 2) and their intramolecular hemiacetals." []
+subset: 3:STAR
+synonym: "Aldose" RELATED [kegg.compound]
+synonym: "aldoses" RELATED [chebi]
+synonym: "an aldose" RELATED [uniprot_ft]
+xref: kegg.compound:C01370 {source="kegg.compound"}
+xref: wikipedia.en:Aldose {source="wikipedia.en"}
+is_a: CHEBI:35381 ! monosaccharide
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "(CH2O)n.C2H4O2" xsd:string
+property_value: chemrof:inchi_key_string "MNQZXJOMYWMBOU-UHFFFAOYSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C3H6O3/c4-1-3(6)2-5/h1,3,5-6H,2H2" xsd:string
+property_value: chemrof:mass "90.078" xsd:decimal
+property_value: chemrof:monoisotopic_mass "90.03169" xsd:decimal
+property_value: chemrof:smiles_string "[H]C(=O)C(O)CO" xsd:string
+
+[Term]
+id: CHEBI:15824
+name: D-fructose
+namespace: chebi_ontology
+alt_id: CHEBI:12923
+alt_id: CHEBI:20929
+alt_id: CHEBI:4118
+def: "Fructose is a levorotatory monosaccharide and an isomer of glucose.  Although fructose is a hexose (6 carbon sugar), it generally exists as a 5-member hemiketal ring (a furanose)." []
+subset: 3:STAR
+synonym: "D-arabino-hex-2-ulose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-arabino-hex-2-ulose" RELATED IUPAC:NAME [iupac]
+synonym: "D-arabino-Hexulose" RELATED [kegg.compound]
+synonym: "D-Fru" RELATED [jcbn]
+synonym: "D-fructose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-fructose" RELATED IUPAC:NAME [iupac]
+synonym: "D-laevulose" RELATED [chebi]
+synonym: "Fruit sugar" RELATED [kegg.compound]
+synonym: "Laevulose" RELATED [chebi]
+synonym: "Levulose" RELATED [kegg.compound]
+xref: cas:57-48-7 {source="cas"}
+xref: hmdb:HMDB0000660 {source="hmdb"}
+xref: kegg.compound:C00095 {source="kegg.compound"}
+xref: metacyc.compound:FRU {source="metacyc.compound"}
+xref: pdb-ccd:FRU {source="pdb-ccd"}
+xref: pubmed:22735334 {source="pubmed"}
+is_a: CHEBI:28757 ! fructose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:15889
+name: sterol
+namespace: chebi_ontology
+alt_id: CHEBI:13688
+alt_id: CHEBI:15114
+alt_id: CHEBI:26771
+alt_id: CHEBI:9266
+def: "Any 3-hydroxy steroid whose skeleton is closely related to cholestan-3-ol (additional carbon atoms may be present in the side chain)." []
+subset: 3:STAR
+synonym: "3-hydroxysteroids" RELATED [chebi]
+synonym: "a sterol" RELATED [uniprot_ft]
+synonym: "Sterol" RELATED [kegg.compound]
+synonym: "sterols" EXACT IUPAC:NAME [IUPAC]
+synonym: "sterols" RELATED IUPAC:NAME [iupac]
+xref: kegg.compound:C00370 {source="kegg.compound"}
+xref: lipidmaps_class:LMST01 {source="lipidmaps_class"}
+xref: metacyc.compound:Sterols {source="metacyc.compound"}
+xref: wikipedia.en:Sterol {source="wikipedia.en"}
+is_a: CHEBI:36834 ! 3-hydroxy steroid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C19H31OR" xsd:string
+property_value: chemrof:mass "275.45" xsd:decimal
+property_value: chemrof:monoisotopic_mass "275.23749" xsd:decimal
+property_value: chemrof:smiles_string "*C1CCC2C3CCC4CC(O)CCC4(C)C3CCC12C" xsd:string
+
+[Term]
+id: CHEBI:16024
+name: D-mannose
+namespace: chebi_ontology
+alt_id: CHEBI:12999
+alt_id: CHEBI:21057
+def: "A mannose with <small>D</small>-configuration." []
+subset: 3:STAR
+synonym: "D-manno-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-manno-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-mannose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-mannose" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:17608 ! D-aldohexose
+is_a: CHEBI:37684 ! mannose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:16038
+name: phosphatidylethanolamine
+namespace: chebi_ontology
+alt_id: CHEBI:12701
+alt_id: CHEBI:14803
+alt_id: CHEBI:26030
+alt_id: CHEBI:26031
+alt_id: CHEBI:7661
+alt_id: CHEBI:8129
+def: "A class of glycerophospholipids in which a phosphatidyl group is esterified to the hydroxy group of ethanolamine." []
+subset: 3:STAR
+synonym: "(3-Phosphatidyl)-ethanolamine" RELATED [kegg.compound]
+synonym: "(3-Phosphatidyl)ethanolamine" RELATED [kegg.compound]
+synonym: "1,2-diacyl-sn-glycero-3-phosphoethanolamine" RELATED [lipidmaps]
+synonym: "1-Acyl-2-acyl-sn-glycero-3-phosphoethanolamine" RELATED [kegg.compound]
+synonym: "Cephalin" RELATED [kegg.compound]
+synonym: "O-(1-beta-Acyl-2-acyl-sn-glycero-3-phospho)ethanolamine" RELATED [kegg.compound]
+synonym: "PE" RELATED [chebi]
+synonym: "phosphatidyl(amino)ethanols" EXACT IUPAC:NAME [IUPAC]
+synonym: "phosphatidyl(amino)ethanols" RELATED IUPAC:NAME [iupac]
+synonym: "Phosphatidylethanolamine" RELATED [kegg.compound]
+synonym: "phosphatidylethanolamines" EXACT IUPAC:NAME [IUPAC]
+synonym: "phosphatidylethanolamines" RELATED [chebi]
+synonym: "phosphatidylethanolamines" RELATED IUPAC:NAME [iupac]
+synonym: "PtdEtn" RELATED [chebi]
+xref: drugbank:DB04327 {source="drugbank"}
+xref: hmdb:HMDB0060501 {source="hmdb"}
+xref: kegg.compound:C00350 {source="kegg.compound"}
+xref: lipidmaps:LMGP02010000 {source="lipidmaps"}
+xref: pubmed:10540156 {source="pubmed"}
+xref: pubmed:11042504 {source="pubmed"}
+xref: pubmed:11159918 {source="pubmed"}
+xref: pubmed:11829744 {source="pubmed"}
+xref: pubmed:12139474 {source="pubmed"}
+xref: pubmed:15653902 {source="pubmed"}
+xref: pubmed:16037249 {source="pubmed"}
+xref: pubmed:16303767 {source="pubmed"}
+xref: pubmed:16620109 {source="pubmed"}
+xref: pubmed:18034796 {source="pubmed"}
+xref: pubmed:18259190 {source="pubmed"}
+xref: pubmed:18398168 {source="pubmed"}
+xref: pubmed:18462396 {source="pubmed"}
+xref: pubmed:18570887 {source="pubmed"}
+xref: pubmed:18957134 {source="pubmed"}
+xref: pubmed:19393163 {source="pubmed"}
+xref: pubmed:23354482 {source="pubmed"}
+xref: pubmed:23369752 {source="pubmed"}
+xref: pubmed:23543734 {source="pubmed"}
+xref: pubmed:3196084 {source="pubmed"}
+xref: pubmed:7980848 {source="pubmed"}
+xref: wikipedia.en:Phosphatidylethanolamine {source="wikipedia.en"}
+is_a: CHEBI:36314 ! glycerophosphoethanolamine
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C7H12NO8PR2" xsd:string
+property_value: chemrof:mass "269.146" xsd:decimal
+property_value: chemrof:monoisotopic_mass "269.03005" xsd:decimal
+property_value: chemrof:smiles_string "[1*]C(=O)OCC(COP(=O)(O)OCCN)OC([2*])=O" xsd:string
+
+[Term]
 id: CHEBI:16040
 name: cytosine
 namespace: chebi_ontology
@@ -182,6 +399,60 @@ property_value: chemrof:inchi_string "InChI=1S/C4H5N3O/c5-3-1-2-6-4(8)7-3/h1-2H,
 property_value: chemrof:mass "111.104" xsd:decimal
 property_value: chemrof:monoisotopic_mass "111.04326" xsd:decimal
 property_value: chemrof:smiles_string "Nc1ccnc(=O)n1" xsd:string
+
+[Term]
+id: CHEBI:16113
+name: cholesterol
+namespace: chebi_ontology
+alt_id: CHEBI:13982
+alt_id: CHEBI:23204
+alt_id: CHEBI:3659
+alt_id: CHEBI:41564
+def: "A cholestanoid consisting of cholestane having a double bond at the 5,6-position as well as a 3β-hydroxy group." []
+subset: 3:STAR
+synonym: "(3beta,14beta,17alpha)-cholest-5-en-3-ol" RELATED [iupac]
+synonym: "Cholest-5-en-3beta-ol" EXACT [KEGG_COMPOUND]
+synonym: "Cholest-5-en-3beta-ol" RELATED [kegg.compound]
+synonym: "cholest-5-en-3beta-ol" EXACT IUPAC:NAME [IUPAC]
+synonym: "cholest-5-en-3beta-ol" RELATED IUPAC:NAME [iupac]
+synonym: "Cholesterin" RELATED [nist]
+synonym: "CHOLESTEROL" RELATED [pdb-ccd]
+synonym: "Cholesterol" RELATED [kegg.compound]
+synonym: "cholesterol" RELATED [uniprot_ft]
+xref: cas:57-88-5 {source="cas"}
+xref: drugbank:DB04540 {source="drugbank"}
+xref: gmelin:550297 {source="gmelin"}
+xref: hmdb:HMDB0000067 {source="hmdb"}
+xref: kegg.compound:C00187 {source="kegg.compound"}
+xref: kegg.drug:D00040 {source="kegg.drug"}
+xref: knapsack:C00003648 {source="knapsack"}
+xref: lipidmaps:LMST01010001 {source="lipidmaps"}
+xref: metacyc.compound:CHOLESTEROL {source="metacyc.compound"}
+xref: pdb-ccd:CLR {source="pdb-ccd"}
+xref: pubmed:10901445 {source="pubmed"}
+xref: pubmed:11412894 {source="pubmed"}
+xref: pubmed:16341241 {source="pubmed"}
+xref: pubmed:24287311 {source="pubmed"}
+xref: pubmed:25308664 {source="pubmed"}
+xref: pubmed:25451949 {source="pubmed"}
+xref: pubmed:25522988 {source="pubmed"}
+xref: pubmed:25658343 {source="pubmed"}
+xref: pubmed:25977713 {source="pubmed"}
+xref: pubmed:4696527 {source="pubmed"}
+xref: pubmed:8838010 {source="pubmed"}
+xref: reaxys:2060565 {source="reaxys"}
+xref: wikipedia.en:Cholesterol {source="wikipedia.en"}
+is_a: CHEBI:131619 ! C27-steroid
+is_a: CHEBI:1722 ! 3beta-hydroxy-Delta(5)-steroid
+is_a: CHEBI:35348 ! 3beta-sterol
+is_a: CHEBI:50401 ! cholestanoid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C27H46O" xsd:string
+property_value: chemrof:inchi_key_string "HVYWMOMLDIMFJA-DPAQBDIFSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C27H46O/c1-18(2)7-6-8-19(3)23-11-12-24-22-10-9-20-17-21(28)13-15-26(20,4)25(22)14-16-27(23,24)5/h9,18-19,21-25,28H,6-8,10-17H2,1-5H3/t19-,21+,22+,23-,24+,25+,26+,27-/m1/s1" xsd:string
+property_value: chemrof:mass "386.664" xsd:decimal
+property_value: chemrof:monoisotopic_mass "386.35487" xsd:decimal
+property_value: chemrof:smiles_string "[H][C@@]12CC=C3C[C@@H](O)CC[C@]3(C)[C@@]1([H])CC[C@@]1(C)[C@@]2([H])CC[C@]1([H])[C@H](C)CCCC(C)C" xsd:string
 
 [Term]
 id: CHEBI:16199
@@ -282,6 +553,77 @@ property_value: chemrof:monoisotopic_mass "151.04941" xsd:decimal
 property_value: chemrof:smiles_string "Nc1nc(=O)c2ncnc2n1" xsd:string
 
 [Term]
+id: CHEBI:16247
+name: phospholipid
+namespace: chebi_ontology
+alt_id: CHEBI:14816
+alt_id: CHEBI:26063
+alt_id: CHEBI:8150
+def: "A lipid containing phosphoric acid as a mono- or di-ester. The term encompasses phosphatidic acids and phosphoglycerides." []
+subset: 3:STAR
+synonym: "a phospholipid derivative" RELATED [uniprot_ft]
+synonym: "Phospholipid" RELATED [kegg.compound]
+synonym: "phospholipids" RELATED [chebi]
+xref: kegg.compound:C00865 {source="kegg.compound"}
+is_a: CHEBI:18059 ! lipid
+is_a: CHEBI:25703 ! organic phosphate
+is_a: CHEBI:37734 ! phosphoric ester
+
+[Term]
+id: CHEBI:16443
+name: D-tagatose
+namespace: chebi_ontology
+alt_id: CHEBI:13023
+alt_id: CHEBI:21095
+def: "The <small>D</small>-enantiomer of tagatose." []
+subset: 3:STAR
+synonym: "D-lyxo-hex-2-ulose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-lyxo-hex-2-ulose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Tag" RELATED [jcbn]
+synonym: "D-tagatose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-tagatose" RELATED IUPAC:NAME [iupac]
+xref: hmdb:HMDB0003418 {source="hmdb"}
+xref: pubmed:17492284 {source="pubmed"}
+xref: pubmed:24419630 {source="pubmed"}
+xref: pubmed:24979201 {source="pubmed"}
+xref: pubmed:9465271 {source="pubmed"}
+xref: reaxys:1724555 {source="reaxys"}
+is_a: CHEBI:33954 ! tagatose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:16646
+name: carbohydrate
+namespace: chebi_ontology
+alt_id: CHEBI:15131
+alt_id: CHEBI:23008
+alt_id: CHEBI:9318
+def: "Any member of the class of organooxygen compounds that is a polyhydroxy-aldehyde or -ketone or a lactol resulting from their intramolecular condensation (monosaccharides); substances derived from these by reduction of the carbonyl group (alditols), by oxidation of one or more hydroxy groups to afford the corresponding aldehydes, ketones, or carboxylic acids, or by replacement of one or more hydroxy group(s) by a hydrogen atom; and polymeric products arising by intermolecular acetal formation between two or more such molecules (disaccharides, polysaccharides and oligosaccharides). Carbohydrates contain only carbon, hydrogen and oxygen atoms; prior to any oxidation or reduction, most have the empirical formula C<small><sub><em>m</em></sub></small>(H<small><sub>2</sub></small>O)<small><sub><em>n</em></sub></small>. Compounds obtained from carbohydrates by substitution, etc., are known as carbohydrate derivatives and may contain other elements. Cyclitols are generally not regarded as carbohydrates." []
+subset: 3:STAR
+synonym: "a carbohydrate" RELATED [uniprot_ft]
+synonym: "carbohidrato" RELATED [iupac]
+synonym: "carbohidratos" RELATED [iupac]
+synonym: "carbohydrate" EXACT IUPAC:NAME [IUPAC]
+synonym: "carbohydrate" RELATED IUPAC:NAME [iupac]
+synonym: "carbohydrates" EXACT IUPAC:NAME [IUPAC]
+synonym: "carbohydrates" RELATED IUPAC:NAME [iupac]
+synonym: "glucide" RELATED [chebi]
+synonym: "glucides" RELATED [chebi]
+synonym: "glucido" RELATED [chebi]
+synonym: "glucidos" RELATED [chebi]
+synonym: "hydrates de carbone" RELATED [chebi]
+synonym: "Kohlenhydrat" RELATED [chebi]
+synonym: "Kohlenhydrate" RELATED [chebi]
+synonym: "saccharide" RELATED [iupac]
+synonym: "saccharides" RELATED [iupac]
+synonym: "saccharidum" RELATED [chebi]
+xref: wikipedia.en:Carbohydrate {source="wikipedia.en"}
+is_a: CHEBI:78616 ! carbohydrates and carbohydrate derivatives
+
+[Term]
 id: CHEBI:16698
 name: cyanamide
 namespace: chebi_ontology
@@ -327,6 +669,20 @@ property_value: chemrof:inchi_string "InChI=1S/CH2N2/c2-1-3/h2H2" xsd:string
 property_value: chemrof:mass "42.041" xsd:decimal
 property_value: chemrof:monoisotopic_mass "42.0218" xsd:decimal
 property_value: chemrof:smiles_string "N#CN" xsd:string
+
+[Term]
+id: CHEBI:166988
+name: glycerophosphoglycerophosphoglycerol
+namespace: chebi_ontology
+def: "A glycerophospholipid composed of two molecules of glycerol phosphate covalently linked to a molecule of glycerol, and in which each of the glycerol phosphate moieties may be esterified to one or two fatty acids." []
+subset: 2:STAR
+synonym: "GPGPG" RELATED [submitter]
+is_a: CHEBI:37739 ! glycerophospholipid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C9H18O13P2R4" xsd:string
+property_value: chemrof:mass "396.179" xsd:decimal
+property_value: chemrof:monoisotopic_mass "396.02226" xsd:decimal
+property_value: chemrof:smiles_string "*OC[C@H](COP(=O)(O)OCC(O)COP(=O)(O)OC[C@@H](CO*)O*)O*" xsd:string
 
 [Term]
 id: CHEBI:16708
@@ -390,6 +746,66 @@ xref: wikipedia.en:Mineral_(nutrient) {source="wikipedia.en"}
 is_a: CHEBI:46662 ! mineral
 
 [Term]
+id: CHEBI:16933
+name: ergosterol
+namespace: chebi_ontology
+alt_id: CHEBI:14214
+alt_id: CHEBI:23942
+alt_id: CHEBI:42264
+alt_id: CHEBI:4825
+def: "A phytosterol consisting of ergostane having double bonds at the 5,6-, 7,8- and 22,23-positions as well as a 3β-hydroxy group." []
+subset: 3:STAR
+synonym: "(22E)-ergosta-5,7,22-trien-3beta-ol" EXACT IUPAC:NAME [IUPAC]
+synonym: "(22E)-ergosta-5,7,22-trien-3beta-ol" RELATED IUPAC:NAME [iupac]
+synonym: "(22E,24S)-24-methylcholesta-5,7,22-trien-3beta-ol" RELATED [jcbn]
+synonym: "ERGOSTEROL" RELATED [pdb-ccd]
+synonym: "Ergosterol" RELATED [kegg.compound]
+synonym: "ergosterol" RELATED [uniprot_ft]
+synonym: "Provitamin D2" RELATED [kegg.compound]
+xref: beilstein:2338604 {source="beilstein"}
+xref: cas:57-87-4 {source="cas"}
+xref: drugbank:DB04038 {source="drugbank"}
+xref: kegg.compound:C01694 {source="kegg.compound"}
+xref: knapsack:C00003652 {source="knapsack"}
+xref: knapsack:C00023755 {source="knapsack"}
+xref: lipidmaps:LMST01030093 {source="lipidmaps"}
+xref: pdb-ccd:ERG {source="pdb-ccd"}
+xref: reaxys:2338604 {source="reaxys"}
+is_a: CHEBI:1722 ! 3beta-hydroxy-Delta(5)-steroid
+is_a: CHEBI:26125 ! phytosterols
+is_a: CHEBI:35348 ! 3beta-sterol
+is_a: CHEBI:50403 ! ergostanoid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C28H44O" xsd:string
+property_value: chemrof:inchi_key_string "DNVPQKQSNYMLRS-APGDWVJJSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C28H44O/c1-18(2)19(3)7-8-20(4)24-11-12-25-23-10-9-21-17-22(29)13-15-27(21,5)26(23)14-16-28(24,25)6/h7-10,18-20,22,24-26,29H,11-17H2,1-6H3/b8-7+/t19-,20+,22-,24+,25-,26-,27-,28+/m0/s1" xsd:string
+property_value: chemrof:mass "396.659" xsd:decimal
+property_value: chemrof:monoisotopic_mass "396.33922" xsd:decimal
+property_value: chemrof:smiles_string "[H][C@@]12CC[C@]([H])([C@H](C)/C=C/[C@H](C)C(C)C)[C@@]1(C)CC[C@@]1([H])C2=CC=C2C[C@@H](O)CC[C@@]21C" xsd:string
+
+[Term]
+id: CHEBI:16988
+name: D-ribose
+namespace: chebi_ontology
+alt_id: CHEBI:13011
+alt_id: CHEBI:21078
+def: "A ribose in which the chiral carbon atom furthest away from the aldehyde group (C4') has the same configuration as in <small>D</small>-glyceraldehyde." []
+subset: 3:STAR
+synonym: "D-Rib" RELATED [jcbn]
+synonym: "D-ribo-pentose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-ribo-pentose" RELATED IUPAC:NAME [iupac]
+synonym: "D-ribose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-ribose" RELATED IUPAC:NAME [iupac]
+xref: drugbank:DB01936 {source="drugbank"}
+xref: pubmed:24404872 {source="pubmed"}
+xref: pubmed:24752650 {source="pubmed"}
+is_a: CHEBI:33942 ! ribose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C5H10O5" xsd:string
+property_value: chemrof:mass "150.13" xsd:decimal
+property_value: chemrof:monoisotopic_mass "150.05282" xsd:decimal
+
+[Term]
 id: CHEBI:17087
 name: ketone
 namespace: chebi_ontology
@@ -417,6 +833,119 @@ property_value: chemrof:generalized_empirical_formula "COR2" xsd:string
 property_value: chemrof:mass "28.01" xsd:decimal
 property_value: chemrof:monoisotopic_mass "27.99491" xsd:decimal
 property_value: chemrof:smiles_string "[1*]C([2*])=O" xsd:string
+
+[Term]
+id: CHEBI:17089
+name: glycoprotein
+namespace: chebi_ontology
+alt_id: CHEBI:14349
+alt_id: CHEBI:5481
+alt_id: CHEBI:5493
+def: "A compound in which a carbohydrate component is covalently bound to a protein component." []
+subset: 3:STAR
+synonym: "a glycoprotein" RELATED [uniprot_ft]
+synonym: "glicoproteina" RELATED [chebi]
+synonym: "glicoproteinas" RELATED [chebi]
+synonym: "Glycoprotein" RELATED [kegg.compound]
+synonym: "glycoproteine" RELATED [chebi]
+synonym: "glycoproteines" RELATED [chebi]
+synonym: "glycoproteins" EXACT IUPAC:NAME [IUPAC]
+synonym: "glycoproteins" RELATED IUPAC:NAME [iupac]
+synonym: "Glykoprotein" RELATED [chebi]
+synonym: "Glykoproteine" RELATED [chebi]
+xref: kegg.compound:C00326 {source="kegg.compound"}
+is_a: CHEBI:33837 ! conjugated protein
+is_a: CHEBI:63299 ! carbohydrate derivative
+
+[Term]
+id: CHEBI:1722
+name: 3beta-hydroxy-Delta(5)-steroid
+namespace: chebi_ontology
+alt_id: CHEBI:13608
+alt_id: CHEBI:136845
+alt_id: CHEBI:20245
+def: "Any 3β-hydroxy-steroid that contains a double bond between positions 5 and 6." []
+subset: 3:STAR
+synonym: "3beta-hydroxy Delta(5)-steroids" RELATED [chebi]
+synonym: "3beta-hydroxy-Delta(5)-steroids" RELATED [chebi]
+synonym: "a 3-beta-hydroxy-Delta(5)-steroid" RELATED [uniprot_ft]
+xref: kegg.compound:C03836 {source="kegg.compound"}
+xref: metacyc.compound:3b-hydroxy-D5-steroids {source="metacyc.compound"}
+is_a: CHEBI:36836 ! 3beta-hydroxy steroid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C19H29OR" xsd:string
+property_value: chemrof:mass "273.434" xsd:decimal
+property_value: chemrof:monoisotopic_mass "273.22184" xsd:decimal
+property_value: chemrof:smiles_string "*C1CCC2C3CC=C4C[C@@H](O)CCC4(C)C3CCC12C" xsd:string
+
+[Term]
+id: CHEBI:17234
+name: glucose
+namespace: chebi_ontology
+alt_id: CHEBI:14313
+alt_id: CHEBI:24277
+alt_id: CHEBI:33929
+alt_id: CHEBI:5418
+def: "An aldohexose used as a source of energy and metabolic intermediate." []
+subset: 3:STAR
+synonym: "DL-glucose" RELATED [chebi]
+synonym: "Glc" RELATED [jcbn]
+synonym: "gluco-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "gluco-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "Glucose" EXACT [KEGG_COMPOUND]
+synonym: "Glucose" RELATED [kegg.compound]
+synonym: "glucose" EXACT IUPAC:NAME [IUPAC]
+synonym: "glucose" RELATED IUPAC:NAME [iupac]
+synonym: "Glukose" RELATED [chebi]
+xref: cas:50-99-7 {source="cas"}
+xref: kegg.compound:C00293 {source="kegg.compound"}
+xref: wikipedia.en:Glucose {source="wikipedia.en"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:17317
+name: D-sorbose
+namespace: chebi_ontology
+alt_id: CHEBI:21094
+alt_id: CHEBI:4248
+def: "Any form of sorbose that has <small>D</small>-configuration." []
+subset: 3:STAR
+synonym: "D-Sor" RELATED [jcbn]
+synonym: "D-Sorbose" EXACT [KEGG_COMPOUND]
+synonym: "D-Sorbose" RELATED [kegg.compound]
+synonym: "D-sorbose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-sorbose" RELATED IUPAC:NAME [iupac]
+synonym: "D-xylo-hex-2-ulose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-xylo-hex-2-ulose" RELATED IUPAC:NAME [iupac]
+synonym: "D-xylo-Hexulose" RELATED [kegg.compound]
+is_a: CHEBI:27922 ! sorbose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:17393
+name: D-allose
+namespace: chebi_ontology
+alt_id: CHEBI:12906
+alt_id: CHEBI:20900
+subset: 3:STAR
+synonym: "D-All" RELATED [jcbn]
+synonym: "D-allo-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-allo-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-allose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-allose" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:17608 ! D-aldohexose
+is_a: CHEBI:37690 ! allose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
 
 [Term]
 id: CHEBI:17478
@@ -454,6 +983,25 @@ property_value: chemrof:generalized_empirical_formula "CHOR" xsd:string
 property_value: chemrof:mass "29.018" xsd:decimal
 property_value: chemrof:monoisotopic_mass "29.00274" xsd:decimal
 property_value: chemrof:smiles_string "*C([H])=O" xsd:string
+
+[Term]
+id: CHEBI:17517
+name: phosphatidylglycerol
+namespace: chebi_ontology
+alt_id: CHEBI:14804
+alt_id: CHEBI:26032
+alt_id: CHEBI:26033
+alt_id: CHEBI:8130
+def: "A glycerophosphoglycerol that is glycerol in which the hydrogen of one of the primary hydroxy groups has been replaced by a phosphatidyl group." []
+subset: 3:STAR
+synonym: "phosphatidylglycerols" RELATED [chebi]
+xref: kegg.compound:C00344 {source="kegg.compound"}
+is_a: CHEBI:24360 ! glycerophosphoglycerols
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C8H13O10PR2" xsd:string
+property_value: chemrof:mass "300.157" xsd:decimal
+property_value: chemrof:monoisotopic_mass "300.02463" xsd:decimal
+property_value: chemrof:smiles_string "[1*]C(=O)OCC(COP(=O)(O)OCC(O)CO)OC([2*])=O" xsd:string
 
 [Term]
 id: CHEBI:17568
@@ -518,6 +1066,22 @@ property_value: chemrof:monoisotopic_mass "112.02728" xsd:decimal
 property_value: chemrof:smiles_string "O=c1ccnc(=O)n1" xsd:string
 
 [Term]
+id: CHEBI:17608
+name: D-aldohexose
+namespace: chebi_ontology
+alt_id: CHEBI:12990
+alt_id: CHEBI:21038
+def: "Any <small>D</small>-aldose having a chain of six carbon atoms in the molecule." []
+subset: 3:STAR
+synonym: "D-aldohexoses" RELATED [chebi]
+is_a: CHEBI:33917 ! aldohexose
+is_a: CHEBI:4194 ! D-hexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
 id: CHEBI:17632
 name: nitrate
 namespace: chebi_ontology
@@ -557,6 +1121,31 @@ property_value: chemrof:inchi_string "InChI=1S/NO3/c2-1(3)4/q-1" xsd:string
 property_value: chemrof:mass "62.004" xsd:decimal
 property_value: chemrof:monoisotopic_mass "61.98837" xsd:decimal
 property_value: chemrof:smiles_string "O=[N+]([O-])[O-]" xsd:string
+
+[Term]
+id: CHEBI:17634
+name: D-glucose
+namespace: chebi_ontology
+alt_id: CHEBI:12965
+alt_id: CHEBI:20999
+def: "A glucose with <small>D</small>-configuration." []
+subset: 3:STAR
+synonym: "D(+)-glucose" RELATED [chemidplus]
+synonym: "D-(+)-glucose" RELATED [nist]
+synonym: "D-gluco-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-gluco-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-glucose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-glucose" RELATED IUPAC:NAME [iupac]
+synonym: "dextrose" RELATED [nist]
+synonym: "grape sugar" RELATED [chemidplus]
+synonym: "Traubenzucker" RELATED [chemidplus]
+xref: cas:50-99-7 {source="cas"}
+is_a: CHEBI:17234 ! glucose
+is_a: CHEBI:17608 ! D-aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
 
 [Term]
 id: CHEBI:17792
@@ -667,6 +1256,58 @@ property_value: chemrof:monoisotopic_mass "57.97569" xsd:decimal
 property_value: chemrof:smiles_string "N#C[S-]" xsd:string
 
 [Term]
+id: CHEBI:18024
+name: D-galacturonic acid
+namespace: chebi_ontology
+alt_id: CHEBI:20976
+alt_id: CHEBI:20978
+def: "The <small>D</small>-enantiomer of galacturonic acid. It is the main component of pectin." []
+subset: 3:STAR
+synonym: "D-galacturonate" EXACT [ChEBI]
+synonym: "D-galacturonate" RELATED [chebi]
+synonym: "D-galacturonic acid" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-galacturonic acid" RELATED IUPAC:NAME [iupac]
+synonym: "D-galacturonic acids" RELATED [chebi]
+xref: pubmed:21683149 {source="pubmed"}
+xref: pubmed:24502254 {source="pubmed"}
+is_a: CHEBI:33830 ! galacturonic acid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H10O7" xsd:string
+property_value: chemrof:mass "194.14" xsd:decimal
+property_value: chemrof:monoisotopic_mass "194.04265" xsd:decimal
+
+[Term]
+id: CHEBI:18059
+name: lipid
+namespace: chebi_ontology
+alt_id: CHEBI:14517
+alt_id: CHEBI:25054
+alt_id: CHEBI:6486
+def: "'Lipids' is a loosely defined term for substances of biological origin that are soluble in nonpolar solvents. They consist of saponifiable lipids, such as glycerides (fats and oils) and phospholipids, as well as nonsaponifiable lipids, principally steroids." []
+subset: 3:STAR
+synonym: "Lipid" RELATED [kegg.compound]
+synonym: "lipids" EXACT IUPAC:NAME [IUPAC]
+synonym: "lipids" RELATED IUPAC:NAME [iupac]
+xref: kegg.compound:C01356 {source="kegg.compound"}
+is_a: CHEBI:50860 ! organic molecular entity
+
+[Term]
+id: CHEBI:18133
+name: hexose
+namespace: chebi_ontology
+alt_id: CHEBI:14399
+alt_id: CHEBI:24590
+alt_id: CHEBI:5709
+def: "Any six-carbon monosaccharide which in its linear form contains either an aldehyde group at position 1 (aldohexose) or a ketone group at position 2 (ketohexose)." []
+subset: 3:STAR
+synonym: "Hexose" RELATED [kegg.compound]
+synonym: "hexoses" RELATED [chebi]
+xref: glygen:G70994MS {source="glygen"}
+xref: glytoucan:G70994MS {source="glytoucan"}
+xref: kegg.compound:C00738 {source="kegg.compound"}
+is_a: CHEBI:35381 ! monosaccharide
+
+[Term]
 id: CHEBI:18138
 name: biuret
 namespace: chebi_ontology
@@ -703,6 +1344,33 @@ property_value: chemrof:inchi_string "InChI=1S/C2H5N3O2/c3-1(6)5-2(4)7/h(H5,3,4,
 property_value: chemrof:mass "103.081" xsd:decimal
 property_value: chemrof:monoisotopic_mass "103.03818" xsd:decimal
 property_value: chemrof:smiles_string "NC(=O)NC(N)=O" xsd:string
+
+[Term]
+id: CHEBI:18222
+name: xylose
+namespace: chebi_ontology
+alt_id: CHEBI:10085
+alt_id: CHEBI:15332
+alt_id: CHEBI:27348
+alt_id: CHEBI:33944
+alt_id: CHEBI:46500
+def: "An aldopentose, found in the embryos of most edible plants and used in medicine to test for malabsorption by administration in water to the patient." []
+subset: 3:STAR
+synonym: "DL-xylose" RELATED [chebi]
+synonym: "Xyl" RELATED [jcbn]
+synonym: "xylo-pentose" EXACT IUPAC:NAME [IUPAC]
+synonym: "xylo-pentose" RELATED IUPAC:NAME [iupac]
+synonym: "Xylose" EXACT [KEGG_COMPOUND]
+synonym: "Xylose" RELATED [kegg.compound]
+synonym: "xylose" EXACT IUPAC:NAME [IUPAC]
+synonym: "xylose" RELATED IUPAC:NAME [iupac]
+xref: kegg.compound:C01394 {source="kegg.compound"}
+xref: wikipedia.en:Xylose {source="wikipedia.en"}
+is_a: CHEBI:33916 ! aldopentose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C5H10O5" xsd:string
+property_value: chemrof:mass "150.13" xsd:decimal
+property_value: chemrof:monoisotopic_mass "150.05282" xsd:decimal
 
 [Term]
 id: CHEBI:18248
@@ -845,6 +1513,40 @@ property_value: chemrof:generalized_empirical_formula "CNR" xsd:string
 property_value: chemrof:mass "26.017" xsd:decimal
 property_value: chemrof:monoisotopic_mass "26.00307" xsd:decimal
 property_value: chemrof:smiles_string "*C#N" xsd:string
+
+[Term]
+id: CHEBI:188921
+name: C28-steroid
+namespace: chebi_ontology
+subset: 2:STAR
+synonym: "a C28-steroid" RELATED [uniprot_ft]
+xref: metacyc.compound:C28-Steroids {source="metacyc.compound"}
+xref: pubmed:16460510 {source="pubmed"}
+is_a: CHEBI:35341 ! steroid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C28H50" xsd:string
+property_value: chemrof:inchi_key_string "WAAWMJYYKITCGF-UHFFFAOYSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C28H50/c1-19(2)20(3)10-11-21(4)24-14-15-25-23-13-12-22-9-7-8-17-27(22,5)26(23)16-18-28(24,25)6/h19-26H,7-18H2,1-6H3" xsd:string
+property_value: chemrof:mass "386.708" xsd:decimal
+property_value: chemrof:monoisotopic_mass "386.39125" xsd:decimal
+property_value: chemrof:smiles_string "CC(C)C(C)CCC(C)C1CCC2C3CCC4CCCCC4(C)C3CCC12C" xsd:string
+
+[Term]
+id: CHEBI:188923
+name: C29-steroid
+namespace: chebi_ontology
+subset: 2:STAR
+synonym: "a C29-steroid" RELATED [uniprot_ft]
+xref: metacyc.compound:C29-Steroids {source="metacyc.compound"}
+xref: pubmed:16460510 {source="pubmed"}
+is_a: CHEBI:35341 ! steroid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C29H52" xsd:string
+property_value: chemrof:inchi_key_string "GKBHKNPLNHLYHT-UHFFFAOYSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C29H52/c1-7-22(20(2)3)12-11-21(4)25-15-16-26-24-14-13-23-10-8-9-18-28(23,5)27(24)17-19-29(25,26)6/h20-27H,7-19H2,1-6H3" xsd:string
+property_value: chemrof:mass "400.735" xsd:decimal
+property_value: chemrof:monoisotopic_mass "400.4069" xsd:decimal
+property_value: chemrof:smiles_string "CCC(CCC(C)C1CCC2C3CCC4CCCCC4(C)C3CCC12C)C(C)C" xsd:string
 
 [Term]
 id: CHEBI:190295
@@ -1198,6 +1900,16 @@ is_a: CHEBI:25693 ! organic heteromonocyclic compound
 is_a: CHEBI:38101 ! organonitrogen heterocyclic compound
 
 [Term]
+id: CHEBI:22727
+name: benzopyran
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "benzopyrans" RELATED [chebi]
+xref: wikipedia.en:Benzopyran {source="wikipedia.en"}
+is_a: CHEBI:38104 ! oxacycle
+is_a: CHEBI:38166 ! organic heteropolycyclic compound
+
+[Term]
 id: CHEBI:22916
 name: boron molecular entity
 namespace: chebi_ontology
@@ -1360,6 +2072,30 @@ subset: 3:STAR
 is_a: CHEBI:24471 ! halogen molecular entity
 
 [Term]
+id: CHEBI:23213
+name: choline ester
+namespace: chebi_ontology
+alt_id: CHEBI:3666
+subset: 3:STAR
+synonym: "choline esters" RELATED [chebi]
+is_a: CHEBI:35701 ! ester
+
+[Term]
+id: CHEBI:23217
+name: cholines
+namespace: chebi_ontology
+def: "A quaternary ammonium ion based on the choline ion and its substituted derivatives thereof." []
+subset: 3:STAR
+is_a: CHEBI:35267 ! quaternary ammonium ion
+
+[Term]
+id: CHEBI:23232
+name: chromenes
+namespace: chebi_ontology
+subset: 3:STAR
+is_a: CHEBI:38443 ! 1-benzopyran
+
+[Term]
 id: CHEBI:233500
 name: post-transition metal atom
 namespace: chebi_ontology
@@ -1442,6 +2178,56 @@ synonym: "cyclic amides" RELATED [chebi]
 is_a: CHEBI:32988 ! amide
 
 [Term]
+id: CHEBI:23622
+name: deoxygalactose
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "deoxygalactose" RELATED [chebi]
+synonym: "deoxygalactoses" RELATED [chebi]
+is_a: CHEBI:23628 ! deoxyhexose
+
+[Term]
+id: CHEBI:23623
+name: deoxyglucose
+namespace: chebi_ontology
+def: "A deoxyhexose comprising glucose having at least one hydroxy group replaced by hydrogen." []
+subset: 3:STAR
+synonym: "deoxyglucose" RELATED [chebi]
+synonym: "deoxyglucoses" RELATED [chebi]
+is_a: CHEBI:23628 ! deoxyhexose
+
+[Term]
+id: CHEBI:23628
+name: deoxyhexose
+namespace: chebi_ontology
+def: "Any C<small><sub>6</sub></small> deoxy sugar having at least one hydroxy group replaced by hydrogen." []
+subset: 3:STAR
+synonym: "deoxyhexose" RELATED [chebi]
+synonym: "deoxyhexoses" RELATED [chebi]
+is_a: CHEBI:23639 ! deoxy sugar
+is_a: CHEBI:33917 ! aldohexose
+
+[Term]
+id: CHEBI:23639
+name: deoxy sugar
+namespace: chebi_ontology
+def: "Any sugar having a hydroxy group replaced with a hydrogen atom." []
+subset: 3:STAR
+synonym: "deoxy sugars" RELATED [chebi]
+synonym: "deoxysugar" RELATED [chebi]
+synonym: "deoxysugars" RELATED [chebi]
+is_a: CHEBI:16646 ! carbohydrate
+
+[Term]
+id: CHEBI:23677
+name: diazole
+namespace: chebi_ontology
+def: "An azole that is either one of a pair of heterocyclic organic compounds comprising three carbon atoms and two nitrogen atoms arranged in a ring." []
+subset: 3:STAR
+synonym: "diazoles" RELATED [chebi]
+is_a: CHEBI:68452 ! azole
+
+[Term]
 id: CHEBI:23824
 name: diol
 namespace: chebi_ontology
@@ -1475,6 +2261,58 @@ property_value: chemrof:inchi_string "InChI=1S/F" xsd:string
 property_value: chemrof:mass "18.998" xsd:decimal
 property_value: chemrof:monoisotopic_mass "18.9984" xsd:decimal
 property_value: chemrof:smiles_string "[F]" xsd:string
+
+[Term]
+id: CHEBI:241349
+name: dimyristoyl phosphatidylcholine
+namespace: chebi_ontology
+def: "A phosphatidylcholine where the phosphatidyl acyl groups are specified as tetradecanoyl (myristoyl)." []
+subset: 3:STAR
+synonym: "(1)-(7-myristoyl-4-oxido-10-oxo-3,5,9-trioxa-4-phosphatricosyl)trimethylammonium 4-oxide" RELATED [chemidplus]
+synonym: "2,3-bis(tetradecanoyloxy)propyl 2-(trimethylammonio)ethyl phosphate" RELATED [iupac]
+synonym: "2,3-bis(tetradecanoyloxy)propyl 2-(trimethylazaniumyl)ethyl phosphate" EXACT IUPAC:NAME [IUPAC]
+synonym: "2,3-bis(tetradecanoyloxy)propyl 2-(trimethylazaniumyl)ethyl phosphate" RELATED IUPAC:NAME [iupac]
+synonym: "[2-({[2,3-bis(tetradecanoyloxy)propyl] phosphonato}oxy)ethyl]trimethylazanium" RELATED [chebi]
+synonym: "dimyristoyl-phosphatidylcholine" RELATED [chebi]
+synonym: "dimyristoylphosphatidylcholine" RELATED [chebi]
+synonym: "DMPC" RELATED [chebi]
+xref: cas:18656-38-7 {source="cas"}
+xref: drugcentral:4651 {source="drugcentral"}
+xref: pubmed:2190620 {source="pubmed"}
+xref: pubmed:2538726 {source="pubmed"}
+xref: reaxys:1917934 {source="reaxys"}
+is_a: CHEBI:64482 ! phosphatidylcholine
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C36H72NO8P" xsd:string
+property_value: chemrof:inchi_key_string "CITHEXJVPOWHKC-UHFFFAOYSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C36H72NO8P/c1-6-8-10-12-14-16-18-20-22-24-26-28-35(38)42-32-34(33-44-46(40,41)43-31-30-37(3,4)5)45-36(39)29-27-25-23-21-19-17-15-13-11-9-7-2/h34H,6-33H2,1-5H3" xsd:string
+property_value: chemrof:mass "677.945" xsd:decimal
+property_value: chemrof:monoisotopic_mass "677.49955" xsd:decimal
+property_value: chemrof:smiles_string "CCCCCCCCCCCCCC(=O)OCC(COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)CCCCCCCCCCCCC" xsd:string
+
+[Term]
+id: CHEBI:24298
+name: glucuronic acid
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "glucuronic acid" EXACT IUPAC:NAME [IUPAC]
+synonym: "glucuronic acid" RELATED IUPAC:NAME [iupac]
+synonym: "Glucuronsaeure" RELATED [chebi]
+synonym: "Glukuronsaeure" RELATED [chebi]
+xref: pubmed:24617284 {source="pubmed"}
+xref: pubmed:24879518 {source="pubmed"}
+is_a: CHEBI:33886 ! glucuronic acids
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H10O7" xsd:string
+property_value: chemrof:mass "194.14" xsd:decimal
+property_value: chemrof:monoisotopic_mass "194.04265" xsd:decimal
+
+[Term]
+id: CHEBI:24360
+name: glycerophosphoglycerols
+namespace: chebi_ontology
+subset: 3:STAR
+is_a: CHEBI:37739 ! glycerophospholipid
 
 [Term]
 id: CHEBI:24431
@@ -1539,6 +2377,15 @@ synonym: "organic heterocyclic compounds" RELATED [chebi]
 is_a: CHEBI:33285 ! heteroorganic entity
 is_a: CHEBI:33832 ! organic cyclic compound
 is_a: CHEBI:5686 ! heterocyclic compound
+
+[Term]
+id: CHEBI:24592
+name: hexuronic acid
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "hexuronic acid" RELATED [chebi]
+synonym: "hexuronic acids" RELATED [chebi]
+is_a: CHEBI:27252 ! uronic acid
 
 [Term]
 id: CHEBI:24632
@@ -1621,6 +2468,14 @@ namespace: chebi_ontology
 def: "Any nitrile compound which also contains a hydroxy group." []
 subset: 3:STAR
 is_a: CHEBI:18379 ! nitrile
+
+[Term]
+id: CHEBI:24780
+name: imidazoles
+namespace: chebi_ontology
+def: "A five-membered organic heterocycle containing two nitrogen atoms at positions 1 and 3, or any of its derivatives; compounds containing an imidazole skeleton." []
+subset: 3:STAR
+is_a: CHEBI:23677 ! diazole
 
 [Term]
 id: CHEBI:24783
@@ -1757,6 +2612,28 @@ synonym: "ions" RELATED [chebi]
 is_a: CHEBI:23367 ! molecular entity
 
 [Term]
+id: CHEBI:24973
+name: ketohexose
+namespace: chebi_ontology
+def: "Any hexose containing a single ketone group." []
+subset: 3:STAR
+synonym: "ketohexose" RELATED [chebi]
+synonym: "ketohexoses" RELATED [chebi]
+is_a: CHEBI:18133 ! hexose
+is_a: CHEBI:24978 ! ketose
+
+[Term]
+id: CHEBI:24978
+name: ketose
+namespace: chebi_ontology
+alt_id: CHEBI:6131
+def: "Ketonic parent sugars (polyhydroxy ketones H[CH(OH)]<small><sub>n</sub></small>C(=O)[CH(OH)]<em><small><sub>m</sub></small></em>H) and their intramolecular hemiketals." []
+subset: 3:STAR
+synonym: "ketose" RELATED [chebi]
+synonym: "ketoses" RELATED [chebi]
+is_a: CHEBI:35381 ! monosaccharide
+
+[Term]
 id: CHEBI:24995
 name: lactam
 namespace: chebi_ontology
@@ -1815,6 +2692,28 @@ property_value: chemrof:inchi_string "InChI=1S/Pb" xsd:string
 property_value: chemrof:mass "207.2" xsd:decimal
 property_value: chemrof:monoisotopic_mass "207.97665" xsd:decimal
 property_value: chemrof:smiles_string "[Pb]" xsd:string
+
+[Term]
+id: CHEBI:25097
+name: lyxose
+namespace: chebi_ontology
+alt_id: CHEBI:33945
+def: "An aldopentose that occurs only rarely in nature." []
+subset: 3:STAR
+synonym: "(+-)-Lyxose" RELATED [chemidplus]
+synonym: "dl-Lyxose" RELATED [chemidplus]
+synonym: "Lyx" RELATED [jcbn]
+synonym: "lyxo-pentose" EXACT IUPAC:NAME [IUPAC]
+synonym: "lyxo-pentose" RELATED IUPAC:NAME [iupac]
+synonym: "lyxose" EXACT IUPAC:NAME [IUPAC]
+synonym: "lyxose" RELATED IUPAC:NAME [iupac]
+xref: cas:65-42-9 {source="cas"}
+xref: pubmed:23353634 {source="pubmed"}
+is_a: CHEBI:33916 ! aldopentose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C5H10O5" xsd:string
+property_value: chemrof:mass "150.13" xsd:decimal
+property_value: chemrof:monoisotopic_mass "150.05282" xsd:decimal
 
 [Term]
 id: CHEBI:25107
@@ -1885,6 +2784,15 @@ synonym: "neutral molecular compounds" RELATED [iupac]
 is_a: CHEBI:36357 ! polyatomic entity
 
 [Term]
+id: CHEBI:25384
+name: monocarboxylic acid
+namespace: chebi_ontology
+def: "An oxoacid containing a single carboxy group." []
+subset: 3:STAR
+synonym: "monocarboxylic acids" RELATED [chebi]
+is_a: CHEBI:33575 ! carboxylic acid
+
+[Term]
 id: CHEBI:25555
 name: nitrogen atom
 namespace: chebi_ontology
@@ -1945,6 +2853,16 @@ is_a: CHEBI:22563 ! anion
 is_a: CHEBI:25699 ! organic ion
 
 [Term]
+id: CHEBI:25697
+name: organic cation
+namespace: chebi_ontology
+def: "Any organic ion with a net positive charge." []
+subset: 3:STAR
+synonym: "organic cations" RELATED [chebi]
+is_a: CHEBI:25699 ! organic ion
+is_a: CHEBI:36916 ! cation
+
+[Term]
 id: CHEBI:25698
 name: ether
 namespace: chebi_ontology
@@ -1972,6 +2890,21 @@ is_a: CHEBI:24870 ! ion
 is_a: CHEBI:50860 ! organic molecular entity
 
 [Term]
+id: CHEBI:25703
+name: organic phosphate
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "organic phosphate" RELATED [chebi]
+synonym: "organic phosphate ester" RELATED [chebi]
+synonym: "organic phosphate esters" RELATED [chebi]
+synonym: "organic phosphates" RELATED [chebi]
+synonym: "organophosphate ester" RELATED [chebi]
+synonym: "organophosphate esters" RELATED [chebi]
+xref: wikipedia.en:Organophosphate {source="wikipedia.en"}
+is_a: CHEBI:25710 ! organophosphorus compound
+is_a: CHEBI:26020 ! phosphate
+
+[Term]
 id: CHEBI:25707
 name: organometallic compound
 namespace: chebi_ontology
@@ -1984,6 +2917,18 @@ synonym: "organometallic compounds" EXACT IUPAC:NAME [IUPAC]
 synonym: "organometallic compounds" RELATED IUPAC:NAME [iupac]
 synonym: "organometallics" RELATED [chebi]
 is_a: CHEBI:50860 ! organic molecular entity
+
+[Term]
+id: CHEBI:25710
+name: organophosphorus compound
+namespace: chebi_ontology
+def: "An organophosphorus compound is formally a compound containing at least one carbon-phosphorus bond, but the term is often extended to include esters and thioesters." []
+subset: 3:STAR
+synonym: "organophosphorus compound" RELATED [chebi]
+synonym: "organophosphorus compounds" RELATED [chebi]
+xref: wikipedia.en:Organophosphorus_compound {source="wikipedia.en"}
+is_a: CHEBI:26082 ! phosphorus molecular entity
+is_a: CHEBI:33285 ! heteroorganic entity
 
 [Term]
 id: CHEBI:25713
@@ -2069,6 +3014,16 @@ synonym: "oxopurines" RELATED [chebi]
 is_a: CHEBI:26401 ! purines
 
 [Term]
+id: CHEBI:25901
+name: pentose
+namespace: chebi_ontology
+def: "A five-carbon monosaccharide which in its linear form contains either an aldehyde group at position 1 (aldopentose) or a ketone group at position 2 (ketopentose)." []
+subset: 3:STAR
+synonym: "pentose" RELATED [chebi]
+synonym: "pentoses" RELATED [chebi]
+is_a: CHEBI:35381 ! monosaccharide
+
+[Term]
 id: CHEBI:26020
 name: phosphate
 namespace: chebi_ontology
@@ -2103,6 +3058,44 @@ namespace: chebi_ontology
 subset: 3:STAR
 synonym: "phosphorus molecular entities" RELATED [chebi]
 is_a: CHEBI:33302 ! pnictogen molecular entity
+
+[Term]
+id: CHEBI:26124
+name: phytosteroid
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "phytosteroids" RELATED [chebi]
+is_a: CHEBI:35350 ! hydroxy steroid
+
+[Term]
+id: CHEBI:26125
+name: phytosterols
+namespace: chebi_ontology
+def: "Sterols similar to cholesterol which occur in plants and vary only in carbon side chains and/or presence or absence of a double bond." []
+subset: 3:STAR
+xref: wikipedia.en:Phytosterol {source="wikipedia.en"}
+is_a: CHEBI:15889 ! sterol
+is_a: CHEBI:26124 ! phytosteroid
+
+[Term]
+id: CHEBI:26167
+name: polar amino acid
+namespace: chebi_ontology
+alt_id: CHEBI:8283
+def: "Any amino acid whose side chain is capable of forming one or more hydrogen bonds." []
+subset: 3:STAR
+synonym: "polar amino acid" RELATED [chebi]
+synonym: "polar amino acids" RELATED [chebi]
+synonym: "polar amino-acid" RELATED [chebi]
+synonym: "polar amino-acids" RELATED [chebi]
+xref: metacyc.compound:Polar-amino-acids {source="metacyc.compound"}
+xref: pubmed:12016058 {source="pubmed"}
+is_a: CHEBI:33709 ! amino acid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C2H4NO2R" xsd:string
+property_value: chemrof:mass "74.059" xsd:decimal
+property_value: chemrof:monoisotopic_mass "74.0242" xsd:decimal
+property_value: chemrof:smiles_string "*C(N)C(=O)O" xsd:string
 
 [Term]
 id: CHEBI:26191
@@ -2260,6 +3253,21 @@ xref: wikipedia.en:Reactive_oxygen_species {source="wikipedia.en"}
 is_a: CHEBI:25806 ! oxygen molecular entity
 
 [Term]
+id: CHEBI:26546
+name: rhamnose
+namespace: chebi_ontology
+def: "A deoxymannose sugar that is the 6-deoxy derivative of hexose." []
+subset: 3:STAR
+synonym: "ramnose" RELATED [chebi]
+xref: pubmed:24211429 {source="pubmed"}
+xref: pubmed:24831810 {source="pubmed"}
+is_a: CHEBI:33983 ! deoxymannose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O5" xsd:string
+property_value: chemrof:mass "164.157" xsd:decimal
+property_value: chemrof:monoisotopic_mass "164.06847" xsd:decimal
+
+[Term]
 id: CHEBI:26628
 name: selenium molecular entity
 namespace: chebi_ontology
@@ -2362,6 +3370,17 @@ synonym: "Natriumsalze" RELATED [chebi]
 synonym: "sodium salts" RELATED [chebi]
 is_a: CHEBI:26712 ! sodium molecular entity
 is_a: CHEBI:35479 ! alkali metal salt
+
+[Term]
+id: CHEBI:26739
+name: sphingolipid
+namespace: chebi_ontology
+def: "Sphingolipids are a complex family of compounds that share a common structural feature, a sphingoid base backbone." []
+subset: 3:STAR
+synonym: "sphingolipids" RELATED [chebi]
+is_a: CHEBI:18059 ! lipid
+is_a: CHEBI:35352 ! organonitrogen compound
+is_a: CHEBI:36963 ! organooxygen compound
 
 [Term]
 id: CHEBI:26822
@@ -2538,6 +3557,18 @@ property_value: chemrof:monoisotopic_mass "238.05079" xsd:decimal
 property_value: chemrof:smiles_string "[U]" xsd:string
 
 [Term]
+id: CHEBI:27252
+name: uronic acid
+namespace: chebi_ontology
+def: "A carbohydrate acid formally derived by oxidation to a carboxy group of the terminal ‒CH<small><sub>2</sub></small>OH group of any aldose or ketose." []
+subset: 3:STAR
+synonym: "uronic acid" RELATED [chebi]
+synonym: "uronic acids" RELATED [chebi]
+is_a: CHEBI:25384 ! monocarboxylic acid
+is_a: CHEBI:33720 ! carbohydrate acid
+is_a: CHEBI:35381 ! monosaccharide
+
+[Term]
 id: CHEBI:27363
 name: zinc atom
 namespace: chebi_ontology
@@ -2646,6 +3677,47 @@ property_value: chemrof:monoisotopic_mass "79.91652" xsd:decimal
 property_value: chemrof:smiles_string "[Se]" xsd:string
 
 [Term]
+id: CHEBI:27570
+name: histidine
+namespace: chebi_ontology
+alt_id: CHEBI:24598
+alt_id: CHEBI:43118
+alt_id: CHEBI:5733
+def: "An α-amino acid that is propanoic acid bearing an amino substituent at position 2 and a 1<em>H</em>-imidazol-4-yl group at position 3." []
+subset: 3:STAR
+synonym: "2-amino-3-(1H-imidazol-4-yl)propanoic acid" EXACT IUPAC:NAME [IUPAC]
+synonym: "2-amino-3-(1H-imidazol-4-yl)propanoic acid" RELATED IUPAC:NAME [iupac]
+synonym: "alpha-Amino-1H-imidazole-4-propionic acid" RELATED [kegg.compound]
+synonym: "DL-Histidine" RELATED [kegg.compound]
+synonym: "Histidin" RELATED [chebi]
+synonym: "histidina" RELATED [chebi]
+synonym: "Histidine" EXACT [KEGG_COMPOUND]
+synonym: "Histidine" RELATED [kegg.compound]
+synonym: "histidine" EXACT IUPAC:NAME [IUPAC]
+synonym: "histidine" RELATED IUPAC:NAME [iupac]
+xref: cas:4998-57-6 {source="cas"}
+xref: gmelin:3656 {source="gmelin"}
+xref: kegg.compound:C00768 {source="kegg.compound"}
+xref: knapsack:C00001363 {source="knapsack"}
+xref: pubmed:17190852 {source="pubmed"}
+xref: pubmed:22264337 {source="pubmed"}
+xref: pubmed:22770225 {source="pubmed"}
+xref: pubmed:29286160 {source="pubmed"}
+xref: reaxys:84087 {source="reaxys"}
+xref: wikipedia.en:Histidine {source="wikipedia.en"}
+is_a: CHEBI:24780 ! imidazoles
+is_a: CHEBI:26167 ! polar amino acid
+is_a: CHEBI:33704 ! alpha-amino acid
+is_a: CHEBI:33856 ! aromatic amino acid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H9N3O2" xsd:string
+property_value: chemrof:inchi_key_string "HNDVDQJCIGZPNO-UHFFFAOYSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C6H9N3O2/c7-5(6(10)11)1-4-2-8-3-9-4/h2-3,5H,1,7H2,(H,8,9)(H,10,11)" xsd:string
+property_value: chemrof:mass "155.157" xsd:decimal
+property_value: chemrof:monoisotopic_mass "155.06948" xsd:decimal
+property_value: chemrof:smiles_string "NC(Cc1cncn1)C(=O)O" xsd:string
+
+[Term]
 id: CHEBI:27573
 name: silicon atom
 namespace: chebi_ontology
@@ -2676,6 +3748,64 @@ property_value: chemrof:inchi_string "InChI=1S/Si" xsd:string
 property_value: chemrof:mass "28.086" xsd:decimal
 property_value: chemrof:monoisotopic_mass "27.97693" xsd:decimal
 property_value: chemrof:smiles_string "[Si]" xsd:string
+
+[Term]
+id: CHEBI:27605
+name: D-psicose
+namespace: chebi_ontology
+alt_id: CHEBI:21071
+alt_id: CHEBI:4227
+def: "The <small>D</small>-enantiomer of psicose." []
+subset: 3:STAR
+synonym: "D-Allulose" RELATED [kegg.compound]
+synonym: "D-allulose" RELATED [uniprot_ft]
+synonym: "D-Altrulose" RELATED [kegg.compound]
+synonym: "D-erythro-Hexulose" RELATED [kegg.compound]
+synonym: "D-Pseudofructose" RELATED [kegg.compound]
+synonym: "D-Psi" RELATED [jcbn]
+synonym: "D-Psicose" EXACT [KEGG_COMPOUND]
+synonym: "D-Psicose" RELATED [kegg.compound]
+synonym: "D-Psicose" RELATED [chemidplus]
+synonym: "D-psicose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-psicose" RELATED IUPAC:NAME [iupac]
+synonym: "D-ribo-2-Hexulose" RELATED [kegg.compound]
+synonym: "D-ribo-2-Ketohexulose" RELATED [kegg.compound]
+synonym: "D-ribo-hex-2-ulose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-ribo-hex-2-ulose" RELATED IUPAC:NAME [iupac]
+xref: cas:551-68-8 {source="cas"}
+xref: kegg.compound:C06468 {source="kegg.compound"}
+xref: metacyc.compound:PSICOSE {source="metacyc.compound"}
+xref: pubmed:18517216 {source="pubmed"}
+xref: pubmed:22224918 {source="pubmed"}
+xref: wikipedia.en:Psicose {source="wikipedia.en"}
+is_a: CHEBI:33951 ! psicose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:inchi_key_string "BJHIKXHVCXFQLS-PUFIMZNGSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C6H12O6/c7-1-3(9)5(11)6(12)4(10)2-8/h3,5-9,11-12H,1-2H2/t3-,5-,6+/m1/s1" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+property_value: chemrof:smiles_string "O=C(CO)[C@H](O)[C@H](O)[C@H](O)CO" xsd:string
+property_value: chemrof:wurcs_representation "WURCS=2.0/1,1,0/[hO222h]/1/" xsd:string
+
+[Term]
+id: CHEBI:27611
+name: D-gulose
+namespace: chebi_ontology
+alt_id: CHEBI:21033
+subset: 3:STAR
+synonym: "D-Gul" RELATED [jcbn]
+synonym: "D-gulo-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-gulo-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-gulose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-gulose" RELATED IUPAC:NAME [iupac]
+xref: cas:4205-23-6 {source="cas"}
+is_a: CHEBI:17608 ! D-aldohexose
+is_a: CHEBI:37691 ! gulose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
 
 [Term]
 id: CHEBI:27638
@@ -2712,6 +3842,59 @@ property_value: chemrof:monoisotopic_mass "58.93319" xsd:decimal
 property_value: chemrof:smiles_string "[Co]" xsd:string
 
 [Term]
+id: CHEBI:27693
+name: sitosterol
+namespace: chebi_ontology
+alt_id: CHEBI:26692
+alt_id: CHEBI:9170
+def: "A member of the class of phytosterols that is stigmast-5-ene substituted by a β-hydroxy group at position 3." []
+subset: 3:STAR
+synonym: "(-)-beta-Sitosterol" RELATED [chemidplus]
+synonym: "(24R)-Ethylcholest-5-en-3beta-ol" RELATED [chemidplus]
+synonym: "(24R)-Stigmast-5-en-3beta-ol" RELATED [chemidplus]
+synonym: "(3beta)-Stigmast-5-en-3-ol" RELATED [chemidplus]
+synonym: "22,23-Dihydrostigmasterol" RELATED [chemidplus]
+synonym: "24alpha-Ethylcholesterol" RELATED [chemidplus]
+synonym: "alpha-Dihydrofucosterol" RELATED [chemidplus]
+synonym: "Azuprostat" RELATED [chemidplus]
+synonym: "beta-Sitosterin" RELATED [chemidplus]
+synonym: "beta-Sitosterol" RELATED [kegg.compound]
+synonym: "Cupreol" RELATED [chemidplus]
+synonym: "Nimbosterol" RELATED [chemidplus]
+synonym: "Sitosterol" RELATED [kegg.compound]
+synonym: "sitosterol" RELATED [uniprot_ft]
+synonym: "stigmast-5-en-3beta-ol" EXACT IUPAC:NAME [IUPAC]
+synonym: "stigmast-5-en-3beta-ol" RELATED IUPAC:NAME [iupac]
+synonym: "Triastonal" RELATED [chemidplus]
+xref: beilstein:1916156 {source="beilstein"}
+xref: cas:83-46-5 {source="cas"}
+xref: drugcentral:2451 {source="drugcentral"}
+xref: kegg.compound:C01753 {source="kegg.compound"}
+xref: kegg.drug:D08518 {source="kegg.drug"}
+xref: knapsack:C00003672 {source="knapsack"}
+xref: knapsack:C00023770 {source="knapsack"}
+xref: lipidmaps:LMST01040129 {source="lipidmaps"}
+xref: pubmed:20525330 {source="pubmed"}
+xref: pubmed:23199991 {source="pubmed"}
+xref: pubmed:23215694 {source="pubmed"}
+xref: pubmed:23250922 {source="pubmed"}
+xref: pubmed:23266618 {source="pubmed"}
+xref: pubmed:23516045 {source="pubmed"}
+xref: pubmed:23624268 {source="pubmed"}
+is_a: CHEBI:131703 ! stigmastane sterol
+is_a: CHEBI:1722 ! 3beta-hydroxy-Delta(5)-steroid
+is_a: CHEBI:188923 ! C29-steroid
+is_a: CHEBI:26125 ! phytosterols
+is_a: CHEBI:35348 ! 3beta-sterol
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C29H50O" xsd:string
+property_value: chemrof:inchi_key_string "KZJWDPNRJALLNS-VJSFXXLFSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C29H50O/c1-7-21(19(2)3)9-8-20(4)25-12-13-26-24-11-10-22-18-23(30)14-16-28(22,5)27(24)15-17-29(25,26)6/h10,19-21,23-27,30H,7-9,11-18H2,1-6H3/t20-,21-,23+,24+,25-,26+,27+,28+,29-/m1/s1" xsd:string
+property_value: chemrof:mass "414.718" xsd:decimal
+property_value: chemrof:monoisotopic_mass "414.38617" xsd:decimal
+property_value: chemrof:smiles_string "[H][C@@]12CC=C3C[C@@H](O)CC[C@]3(C)[C@@]1([H])CC[C@@]1(C)[C@@]2([H])CC[C@]1([H])[C@H](C)CC[C@@H](CC)C(C)C" xsd:string
+
+[Term]
 id: CHEBI:27698
 name: vanadium atom
 namespace: chebi_ontology
@@ -2738,6 +3921,23 @@ property_value: chemrof:inchi_string "InChI=1S/V" xsd:string
 property_value: chemrof:mass "50.944" xsd:decimal
 property_value: chemrof:monoisotopic_mass "50.94396" xsd:decimal
 property_value: chemrof:smiles_string "[V]" xsd:string
+
+[Term]
+id: CHEBI:27922
+name: sorbose
+namespace: chebi_ontology
+alt_id: CHEBI:26727
+alt_id: CHEBI:9203
+def: "A ketohexose often involved in the commercial production of vitamin C. It has been found to occur naturally in grapes." []
+subset: 3:STAR
+synonym: "Sorbose" RELATED [kegg.compound]
+synonym: "xylo-Hexulose" RELATED [kegg.compound]
+xref: kegg.compound:C01452 {source="kegg.compound"}
+xref: kegg.compound:C08356 {source="kegg.compound"}
+xref: pubmed:24619085 {source="pubmed"}
+xref: pubmed:24702787 {source="pubmed"}
+xref: wikipedia.en:Sorbose {source="wikipedia.en"}
+is_a: CHEBI:24973 ! ketohexose
 
 [Term]
 id: CHEBI:27998
@@ -2775,6 +3975,29 @@ property_value: chemrof:inchi_string "InChI=1S/W" xsd:string
 property_value: chemrof:mass "183.84" xsd:decimal
 property_value: chemrof:monoisotopic_mass "183.95093" xsd:decimal
 property_value: chemrof:smiles_string "[W]" xsd:string
+
+[Term]
+id: CHEBI:28014
+name: D-idose
+namespace: chebi_ontology
+alt_id: CHEBI:21043
+alt_id: CHEBI:4199
+subset: 3:STAR
+synonym: "D-Ido" RELATED [jcbn]
+synonym: "D-ido-Hexose" EXACT [KEGG_COMPOUND]
+synonym: "D-ido-Hexose" RELATED [kegg.compound]
+synonym: "D-ido-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-ido-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Idose" EXACT [KEGG_COMPOUND]
+synonym: "D-Idose" RELATED [kegg.compound]
+synonym: "D-idose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-idose" RELATED IUPAC:NAME [iupac]
+xref: cas:5978-95-0 {source="cas"}
+xref: glytoucan:G97146EI {source="glytoucan"}
+xref: kegg.compound:C06466 {source="kegg.compound"}
+is_a: CHEBI:17608 ! D-aldohexose
+is_a: CHEBI:37709 ! idose
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
 
 [Term]
 id: CHEBI:28073
@@ -2861,6 +4084,63 @@ property_value: chemrof:monoisotopic_mass "57.93534" xsd:decimal
 property_value: chemrof:smiles_string "[Ni]" xsd:string
 
 [Term]
+id: CHEBI:28140
+name: D-quinovose
+namespace: chebi_ontology
+alt_id: CHEBI:20713
+alt_id: CHEBI:2180
+subset: 3:STAR
+synonym: "6-Deoxy-D-glucose" EXACT [KEGG_COMPOUND]
+synonym: "6-Deoxy-D-glucose" RELATED [kegg.compound]
+synonym: "6-deoxy-D-glucose" EXACT IUPAC:NAME [IUPAC]
+synonym: "6-deoxy-D-glucose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Chinovose" RELATED [kegg.compound]
+synonym: "D-Epifucose" RELATED [kegg.compound]
+synonym: "D-Glucomethylose" RELATED [kegg.compound]
+synonym: "D-Qui" RELATED [jcbn]
+synonym: "D-Quinovose" RELATED [kegg.compound]
+synonym: "Isorhamnose" RELATED [kegg.compound]
+synonym: "Isorhodeose" RELATED [kegg.compound]
+xref: cas:7658-08-4 {source="cas"}
+xref: kegg.compound:C02522 {source="kegg.compound"}
+xref: knapsack:C00001128 {source="knapsack"}
+is_a: CHEBI:33980 ! quinovose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O5" xsd:string
+property_value: chemrof:inchi_key_string "PNNNRSAQSRJVSB-JGWLITMVSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C6H12O5/c1-3(8)5(10)6(11)4(9)2-7/h2-6,8-11H,1H3/t3-,4+,5-,6-/m1/s1" xsd:string
+property_value: chemrof:mass "164.157" xsd:decimal
+property_value: chemrof:monoisotopic_mass "164.06847" xsd:decimal
+property_value: chemrof:smiles_string "[H][C@](O)([C@]([H])(O)[C@@]([H])(O)C=O)[C@@]([H])(C)O" xsd:string
+property_value: chemrof:wurcs_representation "WURCS=2.0/1,1,0/[o2122m]/1/" xsd:string
+
+[Term]
+id: CHEBI:28260
+name: galactose
+namespace: chebi_ontology
+alt_id: CHEBI:24162
+alt_id: CHEBI:33933
+alt_id: CHEBI:5256
+def: "An aldohexose that is the C-4 epimer of glucose." []
+subset: 3:STAR
+synonym: "Gal" RELATED [jcbn]
+synonym: "galacto-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "galacto-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "Galactose" EXACT [KEGG_COMPOUND]
+synonym: "Galactose" RELATED [kegg.compound]
+synonym: "galactose" EXACT IUPAC:NAME [IUPAC]
+synonym: "galactose" RELATED IUPAC:NAME [iupac]
+synonym: "Galaktose" RELATED [chebi]
+xref: cas:26566-61-0 {source="cas"}
+xref: kegg.compound:C01582 {source="kegg.compound"}
+xref: wikipedia.en:Galactose {source="wikipedia.en"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
 id: CHEBI:28306
 name: semicarbazide
 namespace: chebi_ontology
@@ -2901,6 +4181,173 @@ property_value: chemrof:inchi_string "InChI=1S/CH5N3O/c2-1(5)4-3/h3H2,(H3,2,4,5)
 property_value: chemrof:mass "75.071" xsd:decimal
 property_value: chemrof:monoisotopic_mass "75.04326" xsd:decimal
 property_value: chemrof:smiles_string "NNC(N)=O" xsd:string
+
+[Term]
+id: CHEBI:28385
+name: D-altrose
+namespace: chebi_ontology
+alt_id: CHEBI:20905
+alt_id: CHEBI:4096
+def: "An altrose that has <small>D</small>- configuration." []
+subset: 3:STAR
+synonym: "D-Alt" RELATED [jcbn]
+synonym: "D-altro-Hexose" EXACT [KEGG_COMPOUND]
+synonym: "D-altro-Hexose" RELATED [kegg.compound]
+synonym: "D-altro-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-altro-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Altrose" EXACT [KEGG_COMPOUND]
+synonym: "D-Altrose" RELATED [kegg.compound]
+synonym: "D-altrose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-altrose" RELATED IUPAC:NAME [iupac]
+xref: cas:1990-29-0 {source="cas"}
+xref: glytoucan:G64863OF {source="glytoucan"}
+xref: kegg.compound:C06464 {source="kegg.compound"}
+is_a: CHEBI:17608 ! D-aldohexose
+is_a: CHEBI:37708 ! altrose
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+
+[Term]
+id: CHEBI:28458
+name: D-talose
+namespace: chebi_ontology
+alt_id: CHEBI:21102
+alt_id: CHEBI:4253
+def: "A talose that is the C-2 epimer of <small>D</small>-galactose." []
+subset: 3:STAR
+synonym: "D-talo-Hexose" EXACT [KEGG_COMPOUND]
+synonym: "D-talo-Hexose" RELATED [kegg.compound]
+synonym: "D-talo-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-talo-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Talose" EXACT [KEGG_COMPOUND]
+synonym: "D-Talose" RELATED [kegg.compound]
+synonym: "D-talose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-talose" RELATED IUPAC:NAME [iupac]
+xref: cas:2595-98-4 {source="cas"}
+xref: kegg.compound:C06467 {source="kegg.compound"}
+xref: patent:KR20090081435 {source="patent"}
+xref: patent:US2010222285 {source="patent"}
+xref: pubmed:1325421 {source="pubmed"}
+xref: pubmed:15632978 {source="pubmed"}
+xref: pubmed:18984017 {source="pubmed"}
+xref: pubmed:19362721 {source="pubmed"}
+xref: pubmed:20541111 {source="pubmed"}
+xref: pubmed:21215963 {source="pubmed"}
+xref: pubmed:9568372 {source="pubmed"}
+xref: wikipedia.en:Talose {source="wikipedia.en"}
+is_a: CHEBI:17608 ! D-aldohexose
+is_a: CHEBI:37710 ! talose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:28494
+name: cardiolipin
+namespace: chebi_ontology
+alt_id: CHEBI:23037
+alt_id: CHEBI:3411
+alt_id: CHEBI:41403
+def: "A phosphatidylglycerol composed of two molecules of phosphatidic acid covalently linked to a molecule of glycerol." []
+subset: 3:STAR
+synonym: "1',3'-Bis(1,2-diacyl-sn-glycero-3-phospho)-sn-glycerol" EXACT [KEGG_COMPOUND]
+synonym: "1',3'-Bis(1,2-diacyl-sn-glycero-3-phospho)-sn-glycerol" RELATED [kegg.compound]
+synonym: "1',3'-bis(1,2-diacyl-sn-glycero-3-phospho)-sn-glycerol" EXACT IUPAC:NAME [IUPAC]
+synonym: "1',3'-bis(1,2-diacyl-sn-glycero-3-phospho)-sn-glycerol" RELATED IUPAC:NAME [iupac]
+synonym: "CARDIOLIPIN" RELATED [pdb-ccd]
+synonym: "Cardiolipin" RELATED [kegg.compound]
+synonym: "cardiolipins" RELATED [chebi]
+synonym: "Diphosphatidylglycerol" RELATED [kegg.compound]
+synonym: "DPG" RELATED [chebi]
+xref: drugbank:DB03429 {source="drugbank"}
+xref: kegg.compound:C05980 {source="kegg.compound"}
+xref: lipidmaps:LMGP12010000 {source="lipidmaps"}
+xref: pdb-ccd:CDN {source="pdb-ccd"}
+xref: pubmed:10540156 {source="pubmed"}
+xref: pubmed:11339809 {source="pubmed"}
+xref: pubmed:16341241 {source="pubmed"}
+xref: pubmed:1694860 {source="pubmed"}
+xref: pubmed:17294083 {source="pubmed"}
+xref: pubmed:18515061 {source="pubmed"}
+xref: pubmed:18790112 {source="pubmed"}
+xref: pubmed:19303420 {source="pubmed"}
+xref: pubmed:19962311 {source="pubmed"}
+xref: pubmed:22819940 {source="pubmed"}
+xref: pubmed:2413066 {source="pubmed"}
+xref: pubmed:28458255 {source="pubmed"}
+xref: pubmed:3196084 {source="pubmed"}
+xref: wikipedia.en:Cardiolipin {source="wikipedia.en"}
+is_a: CHEBI:166988 ! glycerophosphoglycerophosphoglycerol
+is_a: CHEBI:17517 ! phosphatidylglycerol
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C13H18O17P2R4" xsd:string
+property_value: chemrof:mass "508.219" xsd:decimal
+property_value: chemrof:monoisotopic_mass "508.00192" xsd:decimal
+property_value: chemrof:smiles_string "[1*]C(=O)OC[C@H](COP(=O)(O)OCC(O)COP(=O)(O)OC[C@@H](COC([3*])=O)OC([4*])=O)OC([2*])=O" xsd:string
+
+[Term]
+id: CHEBI:28563
+name: beta-D-mannose
+namespace: chebi_ontology
+alt_id: CHEBI:10406
+alt_id: CHEBI:22807
+alt_id: CHEBI:41167
+def: "A <small>D</small>-mannopyranose in which the anomeric centre has β configuration." []
+subset: 3:STAR
+synonym: "beta-D-mannopyranose" EXACT IUPAC:NAME [IUPAC]
+synonym: "beta-D-mannopyranose" RELATED IUPAC:NAME [iupac]
+synonym: "BETA-D-MANNOSE" RELATED [pdb-ccd]
+synonym: "beta-D-Mannose" RELATED [kegg.compound]
+synonym: "beta-D-mannose" RELATED [uniprot_ft]
+xref: cas:7322-31-8 {source="cas"}
+xref: drugbank:DB02687 {source="drugbank"}
+xref: glygen:G74840NI {source="glygen"}
+xref: glytoucan:G74840NI {source="glytoucan"}
+xref: gmelin:648640 {source="gmelin"}
+xref: kegg.compound:C02209 {source="kegg.compound"}
+xref: metacyc.compound:CPD-12601 {source="metacyc.compound"}
+xref: pdb-ccd:BMA {source="pdb-ccd"}
+xref: pubmed:17157281 {source="pubmed"}
+xref: pubmed:25568069 {source="pubmed"}
+xref: pubmed:31537530 {source="pubmed"}
+xref: reaxys:1680742 {source="reaxys"}
+is_a: CHEBI:4208 ! D-mannopyranose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:inchi_key_string "WQZGKKKJIJFFOK-RWOPYEJCSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C6H12O6/c7-1-2-3(8)4(9)5(10)6(11)12-2/h2-11H,1H2/t2-,3-,4+,5+,6-/m1/s1" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+property_value: chemrof:smiles_string "OC[C@H]1O[C@@H](O)[C@@H](O)[C@@H](O)[C@@H]1O" xsd:string
+property_value: chemrof:wurcs_representation "WURCS=2.0/1,1,0/[a1122h-1b_1-5]/1/" xsd:string
+
+[Term]
+id: CHEBI:28623
+name: campesterol
+namespace: chebi_ontology
+alt_id: CHEBI:22994
+alt_id: CHEBI:3342
+subset: 3:STAR
+synonym: "(24R)ergost-5-en-3beta-ol" RELATED [iupac]
+synonym: "campest-5-en-3beta-ol" EXACT IUPAC:NAME [IUPAC]
+synonym: "campest-5-en-3beta-ol" RELATED IUPAC:NAME [iupac]
+synonym: "Campesterol" RELATED [kegg.compound]
+synonym: "campesterol" RELATED [uniprot_ft]
+xref: cas:474-62-4 {source="cas"}
+xref: kegg.compound:C01789 {source="kegg.compound"}
+xref: knapsack:C00003647 {source="knapsack"}
+xref: lipidmaps:LMST01030097 {source="lipidmaps"}
+is_a: CHEBI:1722 ! 3beta-hydroxy-Delta(5)-steroid
+is_a: CHEBI:188921 ! C28-steroid
+is_a: CHEBI:26125 ! phytosterols
+is_a: CHEBI:35348 ! 3beta-sterol
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C28H48O" xsd:string
+property_value: chemrof:inchi_key_string "SGNBVLSWZMBQTH-PODYLUTMSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C28H48O/c1-18(2)19(3)7-8-20(4)24-11-12-25-23-10-9-21-17-22(29)13-15-27(21,5)26(23)14-16-28(24,25)6/h9,18-20,22-26,29H,7-8,10-17H2,1-6H3/t19-,20-,22+,23+,24-,25+,26+,27+,28-/m1/s1" xsd:string
+property_value: chemrof:mass "400.691" xsd:decimal
+property_value: chemrof:monoisotopic_mass "400.37052" xsd:decimal
+property_value: chemrof:smiles_string "[H][C@@]12CC=C3C[C@@H](O)CC[C@]3(C)[C@@]1([H])CC[C@@]1(C)[C@@]2([H])CC[C@]1([H])[C@H](C)CC[C@@H](C)C(C)C" xsd:string
 
 [Term]
 id: CHEBI:28659
@@ -2998,6 +4445,110 @@ property_value: chemrof:inchi_string "InChI=1S/Cu" xsd:string
 property_value: chemrof:mass "63.546" xsd:decimal
 property_value: chemrof:monoisotopic_mass "62.9296" xsd:decimal
 property_value: chemrof:smiles_string "[Cu]" xsd:string
+
+[Term]
+id: CHEBI:28757
+name: fructose
+namespace: chebi_ontology
+alt_id: CHEBI:24104
+alt_id: CHEBI:24110
+alt_id: CHEBI:5172
+def: "A ketohexose that is an isomer of glucose." []
+subset: 3:STAR
+synonym: "arabino-hex-2-ulose" EXACT IUPAC:NAME [IUPAC]
+synonym: "arabino-hex-2-ulose" RELATED IUPAC:NAME [iupac]
+synonym: "arabino-Hexulose" RELATED [kegg.compound]
+synonym: "Fru" RELATED [jcbn]
+synonym: "Fruchtzucker" RELATED [chebi]
+synonym: "Fructose" EXACT [KEGG_COMPOUND]
+synonym: "Fructose" RELATED [kegg.compound]
+synonym: "fructose" EXACT IUPAC:NAME [IUPAC]
+synonym: "fructose" RELATED IUPAC:NAME [iupac]
+synonym: "Fruktose" RELATED [chebi]
+xref: cas:30237-26-4 {source="cas"}
+xref: drugbank:DB04173 {source="drugbank"}
+xref: kegg.compound:C01496 {source="kegg.compound"}
+xref: wikipedia.en:Fructose {source="wikipedia.en"}
+is_a: CHEBI:24973 ! ketohexose
+
+[Term]
+id: CHEBI:28824
+name: stigmasterol
+namespace: chebi_ontology
+alt_id: CHEBI:26774
+alt_id: CHEBI:8195
+def: "A 3β-sterol that consists of 3β-hydroxystigmastane having double bonds at the 5,6- and 22,23-positions." []
+subset: 3:STAR
+synonym: "(22E)-stigmasta-5,22-dien-3beta-ol" EXACT IUPAC:NAME [IUPAC]
+synonym: "(22E)-stigmasta-5,22-dien-3beta-ol" RELATED IUPAC:NAME [iupac]
+synonym: "(3beta,22E)-stigmasta-5,22-dien-3-ol" RELATED [hmdb]
+synonym: "5,22-Cholestadien-24-ethyl-3beta-ol" RELATED [nist]
+synonym: "beta-stigmasterol" RELATED [nist]
+synonym: "phytosterol" RELATED [nist]
+synonym: "poriferasterol" RELATED [hmdb]
+synonym: "stigmasta-5,22-dien-3beta-ol" RELATED [nist]
+synonym: "Stigmasterol" RELATED [kegg.compound]
+synonym: "stigmasterol" RELATED [uniprot_ft]
+xref: cas:83-48-7 {source="cas"}
+xref: hmdb:HMDB0000937 {source="hmdb"}
+xref: kegg.compound:C05442 {source="kegg.compound"}
+xref: knapsack:C00003674 {source="knapsack"}
+xref: knapsack:C00023774 {source="knapsack"}
+xref: lipidmaps:LMST01040123 {source="lipidmaps"}
+xref: pubmed:13318319 {source="pubmed"}
+xref: pubmed:13547565 {source="pubmed"}
+xref: reaxys:2568182 {source="reaxys"}
+xref: wikipedia.en:Stigmasterol {source="wikipedia.en"}
+is_a: CHEBI:131703 ! stigmastane sterol
+is_a: CHEBI:1722 ! 3beta-hydroxy-Delta(5)-steroid
+is_a: CHEBI:26125 ! phytosterols
+is_a: CHEBI:35348 ! 3beta-sterol
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C29H48O" xsd:string
+property_value: chemrof:inchi_key_string "HCXVJBMSMIARIN-PHZDYDNGSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C29H48O/c1-7-21(19(2)3)9-8-20(4)25-12-13-26-24-11-10-22-18-23(30)14-16-28(22,5)27(24)15-17-29(25,26)6/h8-10,19-21,23-27,30H,7,11-18H2,1-6H3/b9-8+/t20-,21-,23+,24+,25-,26+,27+,28+,29-/m1/s1" xsd:string
+property_value: chemrof:mass "412.702" xsd:decimal
+property_value: chemrof:monoisotopic_mass "412.37052" xsd:decimal
+property_value: chemrof:smiles_string "[H][C@@]12CC=C3C[C@@H](O)CC[C@]3(C)[C@@]1([H])CC[C@@]1(C)[C@@]2([H])CC[C@]1([H])[C@H](C)/C=C/[C@@H](CC)C(C)C" xsd:string
+
+[Term]
+id: CHEBI:28847
+name: D-fucose
+namespace: chebi_ontology
+alt_id: CHEBI:20941
+subset: 3:STAR
+synonym: "6-deoxy-D-galactose" EXACT IUPAC:NAME [IUPAC]
+synonym: "6-deoxy-D-galactose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Fuc" RELATED [jcbn]
+synonym: "D-fucose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-fucose" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:33984 ! fucose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O5" xsd:string
+property_value: chemrof:mass "164.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "164.06847" xsd:decimal
+
+[Term]
+id: CHEBI:28874
+name: phosphatidylinositol
+namespace: chebi_ontology
+alt_id: CHEBI:18877
+alt_id: CHEBI:494
+def: "Any glycerophosphoinositol having one phosphatidyl group esterified to one of the hydroxy groups of inositol." []
+subset: 3:STAR
+synonym: "phosphatidylinositols" RELATED [chebi]
+synonym: "PI" RELATED [chebi]
+synonym: "PtdIns" RELATED [chebi]
+xref: drugbank:DB02144 {source="drugbank"}
+xref: pubmed:15634688 {source="pubmed"}
+xref: pubmed:15967713 {source="pubmed"}
+xref: pubmed:17417879 {source="pubmed"}
+xref: pubmed:18189424 {source="pubmed"}
+xref: pubmed:19456874 {source="pubmed"}
+xref: pubmed:23015060 {source="pubmed"}
+xref: pubmed:23118092 {source="pubmed"}
+xref: wikipedia.en:Phosphatidylinositol {source="wikipedia.en"}
+is_a: CHEBI:36315 ! glycerophosphoinositol
 
 [Term]
 id: CHEBI:28984
@@ -6263,6 +7814,23 @@ property_value: chemrof:monoisotopic_mass "80.96519" xsd:decimal
 property_value: chemrof:smiles_string "[H]S(=O)(=O)[O-]" xsd:string
 
 [Term]
+id: CHEBI:33551
+name: organosulfonic acid
+namespace: chebi_ontology
+def: "An organic derivative of sulfonic acid in which the sulfo group is linked directly to carbon." []
+subset: 3:STAR
+synonym: "organosulfonic acids" RELATED [chebi]
+synonym: "sulfonic acids" RELATED [chebi]
+is_a: CHEBI:33261 ! organosulfur compound
+is_a: CHEBI:33552 ! sulfonic acid derivative
+is_a: CHEBI:64709 ! organic acid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "HO3SR" xsd:string
+property_value: chemrof:mass "81.071" xsd:decimal
+property_value: chemrof:monoisotopic_mass "80.96464" xsd:decimal
+property_value: chemrof:smiles_string "*S(=O)(=O)O" xsd:string
+
+[Term]
 id: CHEBI:33552
 name: sulfonic acid derivative
 namespace: chebi_ontology
@@ -6578,6 +8146,33 @@ synonym: "oxygen hydrides" RELATED [chebi]
 is_a: CHEBI:36902 ! chalcogen hydride
 
 [Term]
+id: CHEBI:33694
+name: biomacromolecule
+namespace: chebi_ontology
+def: "A macromolecule formed by a living organism." []
+subset: 3:STAR
+synonym: "biomacromolecules" RELATED [chebi]
+synonym: "biopolymer" EXACT IUPAC:NAME [IUPAC]
+synonym: "biopolymer" RELATED IUPAC:NAME [iupac]
+synonym: "Biopolymere" RELATED [chebi]
+synonym: "biopolymers" RELATED [chebi]
+is_a: CHEBI:33839 ! macromolecule
+is_a: CHEBI:50860 ! organic molecular entity
+
+[Term]
+id: CHEBI:33695
+name: information biomacromolecule
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "genetically encoded biomacromolecules" RELATED [chebi]
+synonym: "genetically encoded biopolymers" RELATED [chebi]
+synonym: "information biomacromolecules" RELATED [chebi]
+synonym: "information biopolymers" RELATED [chebi]
+synonym: "information macromolecule" RELATED [chebi]
+synonym: "information macromolecules" RELATED [chebi]
+is_a: CHEBI:33694 ! biomacromolecule
+
+[Term]
 id: CHEBI:33700
 name: proteinogenic amino-acid residue
 namespace: chebi_ontology
@@ -6589,6 +8184,42 @@ synonym: "proteinogenic amino-acid residues" RELATED [chebi]
 synonym: "standard amino acid residues" RELATED [chebi]
 synonym: "standard amino-acid residues" RELATED [chebi]
 is_a: CHEBI:33710 ! alpha-amino-acid residue
+
+[Term]
+id: CHEBI:33702
+name: polyatomic cation
+namespace: chebi_ontology
+def: "A cation consisting of more than one atom." []
+subset: 3:STAR
+synonym: "polyatomic cations" RELATED [chebi]
+is_a: CHEBI:36358 ! polyatomic ion
+is_a: CHEBI:36916 ! cation
+
+[Term]
+id: CHEBI:33704
+name: alpha-amino acid
+namespace: chebi_ontology
+alt_id: CHEBI:10208
+alt_id: CHEBI:13779
+alt_id: CHEBI:22442
+alt_id: CHEBI:2642
+def: "An amino acid in which the amino group is located on the carbon atom at the position α to the carboxy group." []
+subset: 3:STAR
+synonym: "alpha-amino acid" EXACT IUPAC:NAME [IUPAC]
+synonym: "alpha-amino acid" RELATED IUPAC:NAME [iupac]
+synonym: "alpha-amino acids" RELATED [jcbn]
+synonym: "alpha-amino acids" RELATED [chebi]
+synonym: "alpha-amino carboxylic acids" RELATED [iupac]
+synonym: "Amino acid" RELATED [kegg.compound]
+synonym: "Amino acids" RELATED [kegg.compound]
+xref: kegg.compound:C00045 {source="kegg.compound"}
+xref: kegg.compound:C05167 {source="kegg.compound"}
+is_a: CHEBI:33709 ! amino acid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C2H4NO2R" xsd:string
+property_value: chemrof:mass "74.059" xsd:decimal
+property_value: chemrof:monoisotopic_mass "74.0242" xsd:decimal
+property_value: chemrof:smiles_string "*C(N)C(=O)O" xsd:string
 
 [Term]
 id: CHEBI:33708
@@ -6604,6 +8235,22 @@ synonym: "amino-acid residues" RELATED [jcbn]
 is_a: CHEBI:33247 ! organic group
 
 [Term]
+id: CHEBI:33709
+name: amino acid
+namespace: chebi_ontology
+alt_id: CHEBI:13815
+alt_id: CHEBI:22477
+def: "A carboxylic acid containing one or more amino groups." []
+subset: 3:STAR
+synonym: "amino acids" RELATED [chebi]
+synonym: "Aminocarbonsaeure" RELATED [chebi]
+synonym: "Aminokarbonsaeure" RELATED [chebi]
+synonym: "Aminosaeure" RELATED [chebi]
+xref: wikipedia.en:Amino_acid {source="wikipedia.en"}
+is_a: CHEBI:33575 ! carboxylic acid
+is_a: CHEBI:50047 ! organic amino compound
+
+[Term]
 id: CHEBI:33710
 name: alpha-amino-acid residue
 namespace: chebi_ontology
@@ -6617,6 +8264,23 @@ property_value: chemrof:generalized_empirical_formula "C2H2NOR" xsd:string
 property_value: chemrof:mass "56.043" xsd:decimal
 property_value: chemrof:monoisotopic_mass "56.01364" xsd:decimal
 property_value: chemrof:smiles_string "*NC(*)C(*)=O" xsd:string
+
+[Term]
+id: CHEBI:33720
+name: carbohydrate acid
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "carbohydrate acid" RELATED [chebi]
+synonym: "carbohydrate acids" RELATED [chebi]
+is_a: CHEBI:16646 ! carbohydrate
+is_a: CHEBI:33575 ! carboxylic acid
+
+[Term]
+id: CHEBI:33808
+name: galacturonic acids
+namespace: chebi_ontology
+subset: 3:STAR
+is_a: CHEBI:24592 ! hexuronic acid
 
 [Term]
 id: CHEBI:33822
@@ -6652,6 +8316,25 @@ property_value: chemrof:monoisotopic_mass "41.00274" xsd:decimal
 property_value: chemrof:smiles_string "[1*]/C(O)=C([2*])[3*]" xsd:string
 
 [Term]
+id: CHEBI:33830
+name: galacturonic acid
+namespace: chebi_ontology
+alt_id: CHEBI:24176
+alt_id: CHEBI:42929
+alt_id: CHEBI:5261
+subset: 3:STAR
+synonym: "Galacturonic acid" RELATED [kegg.compound]
+xref: cas:14982-50-4 {source="cas"}
+xref: drugbank:DB03511 {source="drugbank"}
+xref: kegg.compound:C08348 {source="kegg.compound"}
+xref: pubmed:24315943 {source="pubmed"}
+is_a: CHEBI:33808 ! galacturonic acids
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H10O7" xsd:string
+property_value: chemrof:mass "194.139" xsd:decimal
+property_value: chemrof:monoisotopic_mass "194.04265" xsd:decimal
+
+[Term]
 id: CHEBI:33832
 name: organic cyclic compound
 namespace: chebi_ontology
@@ -6672,6 +8355,31 @@ synonym: "heteroarenes" EXACT IUPAC:NAME [IUPAC]
 synonym: "heteroarenes" RELATED IUPAC:NAME [iupac]
 is_a: CHEBI:24532 ! organic heterocyclic compound
 is_a: CHEBI:33659 ! organic aromatic compound
+
+[Term]
+id: CHEBI:33837
+name: conjugated protein
+namespace: chebi_ontology
+def: "Conjugated protein is a protein that contains a non-peptide component, usually in stoichiometric proportion." []
+subset: 3:STAR
+synonym: "conjugated proteins" EXACT IUPAC:NAME [IUPAC]
+synonym: "conjugated proteins" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:36080 ! protein
+
+[Term]
+id: CHEBI:33839
+name: macromolecule
+namespace: chebi_ontology
+def: "A macromolecule is a molecule of high relative molecular mass, the structure of which essentially comprises the multiple repetition of units derived, actually or conceptually, from molecules of low relative molecular mass." []
+subset: 3:STAR
+synonym: "macromolecule" EXACT IUPAC:NAME [IUPAC]
+synonym: "macromolecule" RELATED IUPAC:NAME [iupac]
+synonym: "macromolecules" RELATED [chebi]
+synonym: "polymer" RELATED [chebi]
+synonym: "polymer molecule" RELATED [iupac]
+synonym: "polymers" RELATED [chebi]
+xref: wikipedia.en:Macromolecule {source="wikipedia.en"}
+is_a: CHEBI:36357 ! polyatomic entity
 
 [Term]
 id: CHEBI:33853
@@ -6701,6 +8409,22 @@ property_value: chemrof:monoisotopic_mass "89.00274" xsd:decimal
 property_value: chemrof:smiles_string "*c1c(*)c(*)c(O)c(*)c1*" xsd:string
 
 [Term]
+id: CHEBI:33856
+name: aromatic amino acid
+namespace: chebi_ontology
+alt_id: CHEBI:13820
+alt_id: CHEBI:22623
+alt_id: CHEBI:2835
+def: "An amino acid whose structure includes an aromatic ring." []
+subset: 3:STAR
+synonym: "Aromatic amino acid" RELATED [kegg.compound]
+synonym: "aromatic amino acids" RELATED [chebi]
+xref: kegg.compound:C01021 {source="kegg.compound"}
+xref: wikipedia.en:Aromatic_amino_acid {source="wikipedia.en"}
+is_a: CHEBI:33659 ! organic aromatic compound
+is_a: CHEBI:33709 ! amino acid
+
+[Term]
 id: CHEBI:33860
 name: aromatic amine
 namespace: chebi_ontology
@@ -6720,6 +8444,83 @@ is_a: CHEBI:33659 ! organic aromatic compound
 is_a: CHEBI:50047 ! organic amino compound
 
 [Term]
+id: CHEBI:33886
+name: glucuronic acids
+namespace: chebi_ontology
+subset: 3:STAR
+is_a: CHEBI:24592 ! hexuronic acid
+
+[Term]
+id: CHEBI:33916
+name: aldopentose
+namespace: chebi_ontology
+def: "A pentose with a (potential) aldehyde group at one end." []
+subset: 3:STAR
+synonym: "aldopentose" RELATED [chebi]
+synonym: "aldopentoses" RELATED [chebi]
+xref: pubmed:10723607 {source="pubmed"}
+is_a: CHEBI:15693 ! aldose
+is_a: CHEBI:25901 ! pentose
+
+[Term]
+id: CHEBI:33917
+name: aldohexose
+namespace: chebi_ontology
+alt_id: CHEBI:2558
+def: "A hexose with a (potential) aldehyde group at one end." []
+subset: 3:STAR
+synonym: "aldohexose" RELATED [chebi]
+synonym: "aldohexoses" RELATED [chebi]
+is_a: CHEBI:15693 ! aldose
+is_a: CHEBI:18133 ! hexose
+
+[Term]
+id: CHEBI:33942
+name: ribose
+namespace: chebi_ontology
+alt_id: CHEBI:26564
+def: "Any aldopentose where the open-chain form has all the hydroxy groups on the same side in the Fischer projection. Occurrs in two enantiomeric forms, <small>D</small>- and <small>L</small>-ribose, of which only the former is found in nature." []
+subset: 3:STAR
+synonym: "Rib" RELATED [jcbn]
+synonym: "ribo-pentose" EXACT IUPAC:NAME [IUPAC]
+synonym: "ribo-pentose" RELATED IUPAC:NAME [iupac]
+synonym: "ribose" EXACT IUPAC:NAME [IUPAC]
+synonym: "ribose" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:33916 ! aldopentose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C5H10O5" xsd:string
+property_value: chemrof:mass "150.13" xsd:decimal
+property_value: chemrof:monoisotopic_mass "150.05282" xsd:decimal
+
+[Term]
+id: CHEBI:33951
+name: psicose
+namespace: chebi_ontology
+def: "A ketohexose that is the C-3 epimer of fructose." []
+subset: 3:STAR
+synonym: "allulose" RELATED [chebi]
+xref: pubmed:22224918 {source="pubmed"}
+xref: pubmed:22569636 {source="pubmed"}
+xref: wikipedia.en:Psicose {source="wikipedia.en"}
+is_a: CHEBI:24973 ! ketohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:33954
+name: tagatose
+namespace: chebi_ontology
+def: "A ketohexose used as a functional sweetener." []
+subset: 3:STAR
+is_a: CHEBI:24973 ! ketohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
 id: CHEBI:33958
 name: halide salt
 namespace: chebi_ontology
@@ -6728,6 +8529,53 @@ synonym: "halide salts" RELATED [chebi]
 synonym: "halides" RELATED [chebi]
 is_a: CHEBI:24866 ! salt
 is_a: CHEBI:37578 ! halide
+
+[Term]
+id: CHEBI:33980
+name: quinovose
+namespace: chebi_ontology
+def: "A deoxyglucose that is glucose in which the hydroxy group at position 6 has been replaced by a hydrogen." []
+subset: 3:STAR
+synonym: "6-deoxyglucose" EXACT IUPAC:NAME [IUPAC]
+synonym: "6-deoxyglucose" RELATED IUPAC:NAME [iupac]
+synonym: "epifucose" RELATED [knapsack]
+xref: knapsack:C00001128 {source="knapsack"}
+xref: pubmed:24689225 {source="pubmed"}
+is_a: CHEBI:23623 ! deoxyglucose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O5" xsd:string
+property_value: chemrof:mass "164.157" xsd:decimal
+property_value: chemrof:monoisotopic_mass "164.06847" xsd:decimal
+
+[Term]
+id: CHEBI:33983
+name: deoxymannose
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "deoxymannoses" RELATED [chebi]
+is_a: CHEBI:23628 ! deoxyhexose
+
+[Term]
+id: CHEBI:33984
+name: fucose
+namespace: chebi_ontology
+alt_id: CHEBI:24118
+alt_id: CHEBI:5182
+def: "Any deoxygalactose that is deoxygenated at the 6-position." []
+subset: 3:STAR
+synonym: "6-Deoxygalactose" EXACT [KEGG_COMPOUND]
+synonym: "6-Deoxygalactose" RELATED [kegg.compound]
+synonym: "6-deoxygalactose" EXACT IUPAC:NAME [IUPAC]
+synonym: "6-deoxygalactose" RELATED IUPAC:NAME [iupac]
+synonym: "Fuc" RELATED [jcbn]
+synonym: "Fucose" EXACT [KEGG_COMPOUND]
+synonym: "Fucose" RELATED [kegg.compound]
+synonym: "fucose" EXACT IUPAC:NAME [IUPAC]
+synonym: "fucose" RELATED IUPAC:NAME [iupac]
+xref: cas:7724-73-4 {source="cas"}
+xref: kegg.compound:C00382 {source="kegg.compound"}
+xref: pubmed:12651883 {source="pubmed"}
+is_a: CHEBI:23622 ! deoxygalactose
 
 [Term]
 id: CHEBI:35106
@@ -6748,6 +8596,40 @@ synonym: "Kalziumsalz" RELATED [chebi]
 synonym: "Kalziumsalze" RELATED [chebi]
 is_a: CHEBI:22985 ! calcium molecular entity
 is_a: CHEBI:36364 ! alkaline earth salt
+
+[Term]
+id: CHEBI:35267
+name: quaternary ammonium ion
+namespace: chebi_ontology
+alt_id: CHEBI:26470
+alt_id: CHEBI:8693
+def: "A derivative of ammonium, NH<small><sub>4</sub></small><small><sup>+</small></sup>, in which all four of the hydrogens bonded to nitrogen have been replaced with univalent (usually organyl) groups." []
+subset: 3:STAR
+synonym: "a quaternary ammonium" RELATED [uniprot_ft]
+synonym: "Quaternary amine" RELATED [kegg.compound]
+synonym: "quaternary ammonium ion" EXACT IUPAC:NAME [IUPAC]
+synonym: "quaternary ammonium ion" RELATED IUPAC:NAME [iupac]
+synonym: "quaternary ammonium ions" RELATED [chebi]
+xref: kegg.compound:C06703 {source="kegg.compound"}
+is_a: CHEBI:25697 ! organic cation
+is_a: CHEBI:35274 ! ammonium ion derivative
+property_value: chemrof:charge "1" xsd:integer
+property_value: chemrof:generalized_empirical_formula "NR4" xsd:string
+property_value: chemrof:mass "14.007" xsd:decimal
+property_value: chemrof:monoisotopic_mass "14.00307" xsd:decimal
+property_value: chemrof:smiles_string "*[N+]([1*])([2*])[3*]" xsd:string
+
+[Term]
+id: CHEBI:35274
+name: ammonium ion derivative
+namespace: chebi_ontology
+def: "A derivative of ammonium, NH<small><sub>4</sub></small><small><sup>+</small></sup>, in which one (or more) of the hydrogens bonded to the nitrogen have been replaced with univalent organyl groups. The substituting carbon of the organyl group must not itself be directly attached to a heteroatom (thereby excluding protonated amides, hemiaminals, etc)." []
+subset: 3:STAR
+synonym: "ammonium ion derivatives" RELATED [chebi]
+synonym: "azanium ion derivative" RELATED [chebi]
+synonym: "azanium ion derivatives" RELATED [chebi]
+is_a: CHEBI:33702 ! polyatomic cation
+is_a: CHEBI:51143 ! nitrogen molecular entity
 
 [Term]
 id: CHEBI:35277
@@ -6782,6 +8664,73 @@ synonym: "nitrilium betaines" RELATED IUPAC:NAME [iupac]
 synonym: "nitrilium betaines" RELATED [chebi]
 is_a: CHEBI:26469 ! quaternary nitrogen compound
 is_a: CHEBI:35281 ! onium betaine
+
+[Term]
+id: CHEBI:35284
+name: ammonium betaine
+namespace: chebi_ontology
+def: "Any neutral molecule having charge-separated forms with a quaternary ammonium atom which bears no hydrogen atoms and that is not adjacent to the anionic atom." []
+subset: 3:STAR
+synonym: "ammonium betaines" RELATED [chebi]
+is_a: CHEBI:26469 ! quaternary nitrogen compound
+is_a: CHEBI:35281 ! onium betaine
+
+[Term]
+id: CHEBI:35341
+name: steroid
+namespace: chebi_ontology
+alt_id: CHEBI:13687
+alt_id: CHEBI:26768
+alt_id: CHEBI:9263
+def: "Any of naturally occurring compounds and synthetic analogues, based on the cyclopenta[<em>a</em>]phenanthrene carbon skeleton, partially or completely hydrogenated; there are usually methyl groups at C-10 and C-13, and often an alkyl group at C-17. By extension, one or more bond scissions, ring expansions and/or ring contractions of the skeleton may have occurred. Natural steroids are derived biogenetically from squalene which is a triterpene." []
+subset: 3:STAR
+synonym: "a steroid" RELATED [uniprot_ft]
+synonym: "Steroid" RELATED [kegg.compound]
+synonym: "steroids" EXACT IUPAC:NAME [IUPAC]
+synonym: "steroids" RELATED IUPAC:NAME [iupac]
+xref: kegg.compound:C00377 {source="kegg.compound"}
+xref: metacyc.compound:Steroids {source="metacyc.compound"}
+is_a: CHEBI:18059 ! lipid
+is_a: CHEBI:51958 ! organic polycyclic compound
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C19H31R" xsd:string
+property_value: chemrof:mass "259.45" xsd:decimal
+property_value: chemrof:monoisotopic_mass "259.24258" xsd:decimal
+property_value: chemrof:smiles_string "*C1CCC2C3CCC4CCCCC4(C)C3CCC12C" xsd:string
+
+[Term]
+id: CHEBI:35348
+name: 3beta-sterol
+namespace: chebi_ontology
+alt_id: CHEBI:13609
+alt_id: CHEBI:1725
+alt_id: CHEBI:1726
+alt_id: CHEBI:20248
+def: "A sterol in which the hydroxy group at position 3 has β- configuration." []
+subset: 3:STAR
+synonym: "3beta-hydroxysteroids" RELATED [chebi]
+synonym: "3beta-sterols" RELATED [chebi]
+is_a: CHEBI:15889 ! sterol
+is_a: CHEBI:36836 ! 3beta-hydroxy steroid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C19H31OR" xsd:string
+property_value: chemrof:mass "275.45" xsd:decimal
+property_value: chemrof:monoisotopic_mass "275.23749" xsd:decimal
+property_value: chemrof:smiles_string "*C1CCC2C3CCC4C[C@@H](O)CCC4(C)C3CCC12C" xsd:string
+
+[Term]
+id: CHEBI:35350
+name: hydroxy steroid
+namespace: chebi_ontology
+alt_id: CHEBI:24748
+alt_id: CHEBI:5814
+subset: 3:STAR
+synonym: "hydroxy steroids" RELATED [chebi]
+synonym: "Hydroxysteroid" RELATED [kegg.compound]
+synonym: "hydroxysteroids" RELATED [chebi]
+xref: kegg.compound:C02159 {source="kegg.compound"}
+is_a: CHEBI:33822 ! organic hydroxy compound
+is_a: CHEBI:35341 ! steroid
 
 [Term]
 id: CHEBI:35352
@@ -6845,6 +8794,24 @@ property_value: chemrof:generalized_empirical_formula "CN2OR4" xsd:string
 property_value: chemrof:mass "56.024" xsd:decimal
 property_value: chemrof:monoisotopic_mass "56.00106" xsd:decimal
 property_value: chemrof:smiles_string "[1*]C(=O)N([2*])N([3*])[4*]" xsd:string
+
+[Term]
+id: CHEBI:35381
+name: monosaccharide
+namespace: chebi_ontology
+alt_id: CHEBI:25407
+alt_id: CHEBI:6984
+def: "Parent monosaccharides are polyhydroxy aldehydes H[CH(OH)]<small><sub><em>n</em></sub></small>C(=O)H or polyhydroxy ketones H‒[CHOH]<small><sub><em>n</em></sub></small>‒C(=O)[CHOH]<small><sub><em>m</em></sub></small>‒H with three or more carbon atoms. The generic term 'monosaccharide' (as opposed to oligosaccharide or polysaccharide) denotes a single unit, without glycosidic connection to other such units. It includes aldoses, dialdoses, aldoketoses, ketoses and diketoses, as well as deoxy sugars, provided that the parent compound has a (potential) carbonyl group." []
+subset: 3:STAR
+synonym: "monosacarido" RELATED [chebi]
+synonym: "monosacaridos" RELATED [iupac]
+synonym: "Monosaccharid" RELATED [chebi]
+synonym: "Monosaccharide" RELATED [kegg.compound]
+synonym: "monosaccharides" EXACT IUPAC:NAME [IUPAC]
+synonym: "monosaccharides" RELATED IUPAC:NAME [iupac]
+synonym: "Monosacharid" RELATED [chebi]
+xref: kegg.compound:C06698 {source="kegg.compound"}
+is_a: CHEBI:16646 ! carbohydrate
 
 [Term]
 id: CHEBI:35406
@@ -6988,6 +8955,27 @@ synonym: "nitro compounds" RELATED IUPAC:NAME [iupac]
 is_a: CHEBI:51143 ! nitrogen molecular entity
 
 [Term]
+id: CHEBI:35741
+name: glycerolipid
+namespace: chebi_ontology
+def: "Any member of the group of lipids containing a common glycerol backbone to which at least one fatty acid-derived group is attached." []
+subset: 3:STAR
+synonym: "glycerolipids" RELATED [chebi]
+xref: pubmed:18606873 {source="pubmed"}
+is_a: CHEBI:18059 ! lipid
+
+[Term]
+id: CHEBI:35786
+name: phosphosphingolipid
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "phosphosphingolipids" RELATED [chebi]
+synonym: "sphingophospholipid" RELATED [chebi]
+synonym: "sphingophospholipids" RELATED [chebi]
+is_a: CHEBI:16247 ! phospholipid
+is_a: CHEBI:26739 ! sphingolipid
+
+[Term]
 id: CHEBI:35800
 name: nitroso compound
 namespace: chebi_ontology
@@ -7088,6 +9076,18 @@ synonym: "phosphoranes" RELATED IUPAC:NAME [iupac]
 is_a: CHEBI:26082 ! phosphorus molecular entity
 
 [Term]
+id: CHEBI:36080
+name: protein
+namespace: chebi_ontology
+alt_id: CHEBI:13677
+alt_id: CHEBI:14911
+def: "A biological macromolecule minimally consisting of one polypeptide chain synthesized at the ribosome." []
+subset: 3:STAR
+synonym: "proteins" EXACT IUPAC:NAME [IUPAC]
+synonym: "proteins" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:33695 ! information biomacromolecule
+
+[Term]
 id: CHEBI:36093
 name: inorganic chloride
 namespace: chebi_ontology
@@ -7097,6 +9097,43 @@ synonym: "inorganic chloride salts" RELATED [chebi]
 synonym: "inorganic chlorides" RELATED [chebi]
 is_a: CHEBI:23114 ! chloride salt
 is_a: CHEBI:24839 ! inorganic salt
+
+[Term]
+id: CHEBI:36313
+name: glycerophosphocholine
+namespace: chebi_ontology
+alt_id: CHEBI:26698
+alt_id: CHEBI:35763
+def: "The glycerol phosphate ester of a phosphocholine. A nutrient with many different roles in human health." []
+subset: 3:STAR
+synonym: "glycerophosphocholines" RELATED [chebi]
+xref: pubmed:8467564 {source="pubmed"}
+is_a: CHEBI:36700 ! phosphocholines
+is_a: CHEBI:37739 ! glycerophospholipid
+
+[Term]
+id: CHEBI:36314
+name: glycerophosphoethanolamine
+namespace: chebi_ontology
+alt_id: CHEBI:26700
+alt_id: CHEBI:35765
+subset: 3:STAR
+synonym: "glycerophosphoethanolamines" RELATED [chebi]
+is_a: CHEBI:36711 ! phosphoethanolamine
+is_a: CHEBI:37739 ! glycerophospholipid
+
+[Term]
+id: CHEBI:36315
+name: glycerophosphoinositol
+namespace: chebi_ontology
+alt_id: CHEBI:26040
+alt_id: CHEBI:35770
+def: "Any glycerophospholipid having the polar alcohol inositol esterified to the phosphate group at the <em>sn</em>-3 position of the glycerol backbone." []
+subset: 3:STAR
+synonym: "glycerophosphoinositols" RELATED [chebi]
+synonym: "GPI" RELATED [chebi]
+xref: pubmed:14706866 {source="pubmed"}
+is_a: CHEBI:37739 ! glycerophospholipid
 
 [Term]
 id: CHEBI:36357
@@ -7278,6 +9315,29 @@ is_a: CHEBI:36683 ! organochlorine compound
 is_a: CHEBI:37579 ! acyl halide
 
 [Term]
+id: CHEBI:36700
+name: phosphocholines
+namespace: chebi_ontology
+def: "Any compound having phosphocholine as part of its structure." []
+subset: 3:STAR
+synonym: "choline phosphates" RELATED [chebi]
+synonym: "O-phosphocholines" RELATED [chebi]
+synonym: "phosphorylcholines" RELATED [chebi]
+is_a: CHEBI:23213 ! choline ester
+is_a: CHEBI:23217 ! cholines
+is_a: CHEBI:25703 ! organic phosphate
+is_a: CHEBI:37734 ! phosphoric ester
+
+[Term]
+id: CHEBI:36711
+name: phosphoethanolamine
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "phosphoethanolamines" RELATED [chebi]
+is_a: CHEBI:25703 ! organic phosphate
+is_a: CHEBI:37734 ! phosphoric ester
+
+[Term]
 id: CHEBI:36828
 name: pseudohalide anion
 namespace: chebi_ontology
@@ -7319,6 +9379,36 @@ synonym: "cyanate esters" RELATED [chebi]
 is_a: CHEBI:23420 ! cyanates
 
 [Term]
+id: CHEBI:36834
+name: 3-hydroxy steroid
+namespace: chebi_ontology
+def: "Any hydroxy steroid carrying a hydroxy group at position 3." []
+subset: 3:STAR
+synonym: "3-hydroxy steroids" RELATED [chebi]
+is_a: CHEBI:35350 ! hydroxy steroid
+
+[Term]
+id: CHEBI:36836
+name: 3beta-hydroxy steroid
+namespace: chebi_ontology
+alt_id: CHEBI:71195
+def: "A 3-hydroxy steroid in which the 3-hydroxy substituent is in the  β-position." []
+subset: 3:STAR
+synonym: "3beta-hydroxy steroids" RELATED [chebi]
+synonym: "a 3beta-hydroxysteroid" RELATED [uniprot_ft]
+xref: kegg.compound:C02945 {source="kegg.compound"}
+xref: metacyc.compound:3-Beta-Hydroxysterols {source="metacyc.compound"}
+xref: pubmed:10535978 {source="pubmed"}
+xref: pubmed:12829805 {source="pubmed"}
+is_a: CHEBI:35681 ! secondary alcohol
+is_a: CHEBI:36834 ! 3-hydroxy steroid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C19H31OR" xsd:string
+property_value: chemrof:mass "275.45" xsd:decimal
+property_value: chemrof:monoisotopic_mass "275.23749" xsd:decimal
+property_value: chemrof:smiles_string "*C1CCC2C3CCC4C[C@@H](O)CCC4(C)C3CCC12C" xsd:string
+
+[Term]
 id: CHEBI:36871
 name: inorganic radical
 namespace: chebi_ontology
@@ -7352,6 +9442,26 @@ namespace: chebi_ontology
 subset: 3:STAR
 synonym: "inorganic ions" RELATED [chebi]
 is_a: CHEBI:24835 ! inorganic molecular entity
+is_a: CHEBI:24870 ! ion
+
+[Term]
+id: CHEBI:36916
+name: cation
+namespace: chebi_ontology
+alt_id: CHEBI:23058
+alt_id: CHEBI:3473
+def: "A monoatomic or polyatomic species having one or more elementary charges of the proton." []
+subset: 3:STAR
+synonym: "Cation" EXACT [KEGG_COMPOUND]
+synonym: "Cation" RELATED [kegg.compound]
+synonym: "cation" EXACT IUPAC:NAME [IUPAC]
+synonym: "cation" RELATED IUPAC:NAME [iupac]
+synonym: "cation" RELATED [chebi]
+synonym: "cationes" RELATED [chebi]
+synonym: "cations" RELATED [chebi]
+synonym: "Kation" RELATED [chebi]
+synonym: "Kationen" RELATED [chebi]
+xref: kegg.compound:C01373 {source="kegg.compound"}
 is_a: CHEBI:24870 ! ion
 
 [Term]
@@ -7599,6 +9709,173 @@ property_value: chemrof:monoisotopic_mass "41.99799" xsd:decimal
 property_value: chemrof:smiles_string "[1*]C(=O)N([2*])[3*]" xsd:string
 
 [Term]
+id: CHEBI:37683
+name: mannopyranose
+namespace: chebi_ontology
+def: "The pyranose form of mannose." []
+subset: 3:STAR
+synonym: "mannopyranose" EXACT IUPAC:NAME [IUPAC]
+synonym: "mannopyranose" RELATED IUPAC:NAME [iupac]
+is_a: CHEBI:37684 ! mannose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:37684
+name: mannose
+namespace: chebi_ontology
+alt_id: CHEBI:14575
+alt_id: CHEBI:33930
+def: "An aldohexose that is the C-2 epimer of glucose." []
+subset: 3:STAR
+synonym: "Man" RELATED [jcbn]
+synonym: "manno-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "manno-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "mannose" EXACT IUPAC:NAME [IUPAC]
+synonym: "mannose" RELATED IUPAC:NAME [iupac]
+xref: pubmed:16180318 {source="pubmed"}
+xref: pubmed:24407290 {source="pubmed"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:37690
+name: allose
+namespace: chebi_ontology
+alt_id: CHEBI:33927
+alt_id: CHEBI:33935
+def: "An aldohexose that is the C-3 epimer of glucose." []
+subset: 3:STAR
+synonym: "All" RELATED [jcbn]
+synonym: "allo-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "allo-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "allose" EXACT IUPAC:NAME [IUPAC]
+synonym: "allose" RELATED IUPAC:NAME [iupac]
+xref: pubmed:24696548 {source="pubmed"}
+xref: wikipedia.en:Allose {source="wikipedia.en"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:37691
+name: gulose
+namespace: chebi_ontology
+alt_id: CHEBI:33931
+alt_id: CHEBI:33938
+def: "An aldohexose that is the C-3 epimer of galactose." []
+subset: 3:STAR
+synonym: "Gul" RELATED [jcbn]
+synonym: "gulo-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "gulo-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "gulose" EXACT IUPAC:NAME [IUPAC]
+synonym: "gulose" RELATED IUPAC:NAME [iupac]
+xref: metacyc.compound:Guloses {source="metacyc.compound"}
+xref: pubmed:24096672 {source="pubmed"}
+xref: pubmed:24367410 {source="pubmed"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:37708
+name: altrose
+namespace: chebi_ontology
+alt_id: CHEBI:33928
+alt_id: CHEBI:33936
+subset: 3:STAR
+synonym: "Alt" RELATED [jcbn]
+synonym: "altro-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "altro-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "altrose" EXACT IUPAC:NAME [IUPAC]
+synonym: "altrose" RELATED IUPAC:NAME [iupac]
+xref: pubmed:19968553 {source="pubmed"}
+xref: pubmed:22038371 {source="pubmed"}
+xref: wikipedia.en:Altrose {source="wikipedia.en"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:37709
+name: idose
+namespace: chebi_ontology
+alt_id: CHEBI:33932
+alt_id: CHEBI:33939
+subset: 3:STAR
+synonym: "Ido" RELATED [jcbn]
+synonym: "ido-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "ido-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "idose" EXACT IUPAC:NAME [IUPAC]
+synonym: "idose" RELATED IUPAC:NAME [iupac]
+xref: wikipedia.en:Idose {source="wikipedia.en"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:37710
+name: talose
+namespace: chebi_ontology
+alt_id: CHEBI:33934
+alt_id: CHEBI:33941
+def: "An aldohexose that is the C-2 epimer of galactose." []
+subset: 3:STAR
+synonym: "Tal" RELATED [jcbn]
+synonym: "talo-hexose" EXACT IUPAC:NAME [IUPAC]
+synonym: "talo-hexose" RELATED IUPAC:NAME [iupac]
+synonym: "talose" EXACT IUPAC:NAME [IUPAC]
+synonym: "talose" RELATED IUPAC:NAME [iupac]
+xref: pubmed:24367410 {source="pubmed"}
+xref: wikipedia.en:Talose {source="wikipedia.en"}
+is_a: CHEBI:33917 ! aldohexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:37734
+name: phosphoric ester
+namespace: chebi_ontology
+alt_id: CHEBI:26019
+subset: 1:STAR
+synonym: "phosphate esters" RELATED [chebi]
+synonym: "phosphoric esters" RELATED [chebi]
+is_a: CHEBI:26079 ! phosphoric acid derivative
+is_a: CHEBI:35701 ! ester
+
+[Term]
+id: CHEBI:37739
+name: glycerophospholipid
+namespace: chebi_ontology
+alt_id: CHEBI:24362
+alt_id: CHEBI:5456
+def: "Any glycerolipid having a phosphate group ester-linked to a terminal carbon of the glycerol backbone." []
+subset: 3:STAR
+synonym: "glycerophospholipids" RELATED [chebi]
+synonym: "phosphatide" RELATED [chebi]
+synonym: "phosphatides" RELATED [chebi]
+synonym: "phosphoglyceride" RELATED [chebi]
+synonym: "phosphoglycerides" RELATED [chebi]
+xref: pubmed:17393491 {source="pubmed"}
+is_a: CHEBI:16247 ! phospholipid
+is_a: CHEBI:35741 ! glycerolipid
+
+[Term]
 id: CHEBI:37826
 name: sulfuric acid derivative
 namespace: chebi_ontology
@@ -7722,6 +9999,25 @@ is_a: CHEBI:24532 ! organic heterocyclic compound
 is_a: CHEBI:33671 ! heteropolycyclic compound
 
 [Term]
+id: CHEBI:38179
+name: monocyclic heteroarene
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "monocyclic heteroarenes" RELATED [chebi]
+is_a: CHEBI:33833 ! heteroarene
+
+[Term]
+id: CHEBI:38260
+name: pyrrolidines
+namespace: chebi_ontology
+alt_id: CHEBI:26922
+alt_id: CHEBI:38191
+def: "Any of a class of heterocyclic amines having a saturated five-membered ring." []
+subset: 3:STAR
+is_a: CHEBI:25693 ! organic heteromonocyclic compound
+is_a: CHEBI:38101 ! organonitrogen heterocyclic compound
+
+[Term]
 id: CHEBI:38267
 name: boronic acid
 namespace: chebi_ontology
@@ -7763,6 +10059,14 @@ property_value: chemrof:monoisotopic_mass "45.01478" xsd:decimal
 property_value: chemrof:smiles_string "[1*]B(O)O" xsd:string
 
 [Term]
+id: CHEBI:38275
+name: pyrrolidinone
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "pyrrolidinones" RELATED [chebi]
+is_a: CHEBI:38260 ! pyrrolidines
+
+[Term]
 id: CHEBI:38313
 name: diazines
 namespace: chebi_ontology
@@ -7789,6 +10093,22 @@ subset: 3:STAR
 synonym: "aminopyrimidines" RELATED [chebi]
 is_a: CHEBI:33860 ! aromatic amine
 is_a: CHEBI:39447 ! pyrimidines
+
+[Term]
+id: CHEBI:38443
+name: 1-benzopyran
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "1-benzopyrans" RELATED [chebi]
+is_a: CHEBI:22727 ! benzopyran
+
+[Term]
+id: CHEBI:38445
+name: chromenone
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "chromenones" RELATED [chebi]
+is_a: CHEBI:23232 ! chromenes
 
 [Term]
 id: CHEBI:38532
@@ -7907,6 +10227,92 @@ property_value: chemrof:generalized_empirical_formula "C2H3O" xsd:string
 property_value: chemrof:mass "43.045" xsd:decimal
 property_value: chemrof:monoisotopic_mass "43.01839" xsd:decimal
 property_value: chemrof:smiles_string "*C(C)=O" xsd:string
+
+[Term]
+id: CHEBI:4178
+name: D-glucuronic acid
+namespace: chebi_ontology
+def: "The <small>D</small>-enantiomer of glucuronic acid." []
+subset: 3:STAR
+synonym: "D-glucuronic acid" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-glucuronic acid" RELATED IUPAC:NAME [iupac]
+synonym: "D-Glucuronsaeure" RELATED [chebi]
+synonym: "D-Glukuronsaeure" RELATED [chebi]
+synonym: "Glucuronic acid" RELATED [kegg.compound]
+xref: cas:6556-12-3 {source="cas"}
+xref: kegg.compound:C00191 {source="kegg.compound"}
+is_a: CHEBI:24298 ! glucuronic acid
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H10O7" xsd:string
+property_value: chemrof:mass "194.139" xsd:decimal
+property_value: chemrof:monoisotopic_mass "194.04265" xsd:decimal
+
+[Term]
+id: CHEBI:4194
+name: D-hexose
+namespace: chebi_ontology
+def: "A hexose that has <small>D</small>-configuration at position 5." []
+subset: 3:STAR
+synonym: "a D-hexose" RELATED [uniprot_ft]
+synonym: "D-hexopyranose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-hexopyranose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Hexose" RELATED [kegg.compound]
+synonym: "D-hexoses" RELATED [chebi]
+xref: kegg.compound:C00738 {source="kegg.compound"}
+is_a: CHEBI:18133 ! hexose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+
+[Term]
+id: CHEBI:4208
+name: D-mannopyranose
+namespace: chebi_ontology
+def: "<small>D</small>-Mannose in its six-membered ring form." []
+subset: 3:STAR
+synonym: "(3S,4S,5R,6R)-6-(hydroxymethyl)oxane-2,3,4,5-tetrol" RELATED [iupac]
+synonym: "(3S,4S,5R,6R)-6-(hydroxymethyl)tetrahydropyran-2,3,4,5-tetrol" RELATED [iupac]
+synonym: "(3S,4S,5R,6R)-6-methyloltetrahydropyran-2,3,4,5-tetrol" RELATED [iupac]
+synonym: "(3S,4S,5S,6R)-6-(hydroxymethyl)oxane-2,3,4,5-tetrol" RELATED [hmdb]
+synonym: "Carubinose" RELATED [kegg.compound]
+synonym: "D-mannopyranose" EXACT IUPAC:NAME [IUPAC]
+synonym: "D-mannopyranose" RELATED IUPAC:NAME [iupac]
+synonym: "D-Mannose" RELATED [kegg.compound]
+synonym: "D-mannose" RELATED [uniprot_ft]
+synonym: "mannopyranose" RELATED [metacyc.compound]
+synonym: "Seminose" RELATED [kegg.compound]
+xref: cas:31103-86-3 {source="cas"}
+xref: cas:3458-28-4 {source="cas"}
+xref: cas:530-26-7 {source="cas"}
+xref: glygen:G70323CJ {source="glygen"}
+xref: glytoucan:G70323CJ {source="glytoucan"}
+xref: gmelin:83255 {source="gmelin"}
+xref: hmdb:HMDB0000169 {source="hmdb"}
+xref: kegg.compound:C00159 {source="kegg.compound"}
+xref: knapsack:C00001126 {source="knapsack"}
+xref: metacyc.compound:MANNOSE {source="metacyc.compound"}
+xref: pubmed:11414367 {source="pubmed"}
+xref: pubmed:16154739 {source="pubmed"}
+xref: pubmed:17336832 {source="pubmed"}
+xref: pubmed:17439666 {source="pubmed"}
+xref: pubmed:19913595 {source="pubmed"}
+xref: pubmed:23623960 {source="pubmed"}
+xref: pubmed:7504304 {source="pubmed"}
+xref: pubmed:7540499 {source="pubmed"}
+xref: pubmed:9488699 {source="pubmed"}
+xref: reaxys:1423215 {source="reaxys"}
+xref: wikipedia.en:Mannose {source="wikipedia.en"}
+is_a: CHEBI:16024 ! D-mannose
+is_a: CHEBI:37683 ! mannopyranose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C6H12O6" xsd:string
+property_value: chemrof:inchi_key_string "WQZGKKKJIJFFOK-QTVWNMPRSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C6H12O6/c7-1-2-3(8)4(9)5(10)6(11)12-2/h2-11H,1H2/t2-,3-,4+,5+,6?/m1/s1" xsd:string
+property_value: chemrof:mass "180.156" xsd:decimal
+property_value: chemrof:monoisotopic_mass "180.06339" xsd:decimal
+property_value: chemrof:smiles_string "OC[C@H]1OC(O)[C@@H](O)[C@@H](O)[C@@H]1O" xsd:string
+property_value: chemrof:wurcs_representation "WURCS=2.0/1,1,0/[a2122h-1x_1-5]/1/" xsd:string
 
 [Term]
 id: CHEBI:44785
@@ -8367,6 +10773,23 @@ synonym: "proteinogenic amino-acid side-chains" RELATED [chebi]
 is_a: CHEBI:33249 ! organyl group
 
 [Term]
+id: CHEBI:50401
+name: cholestanoid
+namespace: chebi_ontology
+def: "Any steroid based on a cholestane skeleton and its derivatives." []
+subset: 3:STAR
+synonym: "cholestanoids" RELATED [chebi]
+is_a: CHEBI:35341 ! steroid
+
+[Term]
+id: CHEBI:50403
+name: ergostanoid
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "ergostanoids" RELATED [iubmb]
+is_a: CHEBI:35341 ! steroid
+
+[Term]
 id: CHEBI:50492
 name: thiocarbonyl compound
 namespace: chebi_ontology
@@ -8568,6 +10991,25 @@ synonym: "alpha,beta-unsaturated ketones" RELATED [chebi]
 is_a: CHEBI:17087 ! ketone
 
 [Term]
+id: CHEBI:51744
+name: Alexa Fluor 350
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "7-amino-3-{[(2,5-dioxopyrrolidin-1-yl)oxy]-2-oxoethyl}-4-methyl-2-oxo-2H-chromene-6-sulfonic acid" EXACT IUPAC:NAME [IUPAC]
+synonym: "7-amino-3-{[(2,5-dioxopyrrolidin-1-yl)oxy]-2-oxoethyl}-4-methyl-2-oxo-2H-chromene-6-sulfonic acid" RELATED IUPAC:NAME [iupac]
+synonym: "Alexa Fluor 350 carboxylic acid, succinimidyl ester" RELATED [chebi]
+is_a: CHEBI:33551 ! organosulfonic acid
+is_a: CHEBI:38275 ! pyrrolidinone
+is_a: CHEBI:38445 ! chromenone
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C16H14N2O9S" xsd:string
+property_value: chemrof:inchi_key_string "IKYJCHYORFJFRR-UHFFFAOYSA-N" xsd:string
+property_value: chemrof:inchi_string "InChI=1S/C16H14N2O9S/c1-7-8-4-12(28(23,24)25)10(17)6-11(8)26-16(22)9(7)5-15(21)27-18-13(19)2-3-14(18)20/h4,6H,2-3,5,17H2,1H3,(H,23,24,25)" xsd:string
+property_value: chemrof:mass "410.36" xsd:decimal
+property_value: chemrof:monoisotopic_mass "410.042" xsd:decimal
+property_value: chemrof:smiles_string "Cc1c(CC(=O)ON2C(=O)CCC2=O)c(=O)oc2cc(N)c(S(=O)(=O)O)cc12" xsd:string
+
+[Term]
 id: CHEBI:51838
 name: haloketone
 namespace: chebi_ontology
@@ -8578,6 +11020,15 @@ synonym: "halogenoketones" RELATED [chebi]
 synonym: "haloketones" RELATED [chebi]
 is_a: CHEBI:17087 ! ketone
 is_a: CHEBI:17792 ! organohalogen compound
+
+[Term]
+id: CHEBI:51958
+name: organic polycyclic compound
+namespace: chebi_ontology
+subset: 3:STAR
+synonym: "organic polycyclic compounds" RELATED [chebi]
+is_a: CHEBI:33635 ! polycyclic compound
+is_a: CHEBI:33832 ! organic cyclic compound
 
 [Term]
 id: CHEBI:52094
@@ -8739,6 +11190,15 @@ property_value: chemrof:monoisotopic_mass "90.05416" xsd:decimal
 property_value: chemrof:smiles_string "NNC(=O)NN" xsd:string
 
 [Term]
+id: CHEBI:62318
+name: D-lyxose
+namespace: chebi_ontology
+def: "Any lyxose having <small>D</small>-configuration." []
+subset: 3:STAR
+synonym: "D-lyxoses" RELATED [chebi]
+is_a: CHEBI:25097 ! lyxose
+
+[Term]
 id: CHEBI:62764
 name: reactive nitrogen species
 namespace: chebi_ontology
@@ -8751,6 +11211,70 @@ xref: pubmed:17667957 {source="pubmed"}
 xref: pubmed:9741578 {source="pubmed"}
 xref: wikipedia.en:Reactive_nitrogen_species {source="wikipedia.en"}
 is_a: CHEBI:51143 ! nitrogen molecular entity
+
+[Term]
+id: CHEBI:63150
+name: D-rhamnose
+namespace: chebi_ontology
+def: "Any rhamnose having <small>D</small>-configuration." []
+subset: 3:STAR
+synonym: "D-rhamnoses" RELATED [chebi]
+xref: pubmed:12504387 {source="pubmed"}
+xref: pubmed:22099380 {source="pubmed"}
+xref: pubmed:24516380 {source="pubmed"}
+is_a: CHEBI:26546 ! rhamnose
+
+[Term]
+id: CHEBI:63299
+name: carbohydrate derivative
+namespace: chebi_ontology
+def: "Any organooxygen compound derived from a carbohydrate by replacement of one or more hydroxy group(s) by an amino group, a thiol group or similar heteroatomic groups. The term also includes derivatives of these compounds." []
+subset: 3:STAR
+synonym: "carbohydrate derivatives" RELATED [chebi]
+synonym: "derivatised carbohydrate" RELATED [chebi]
+synonym: "derivatised carbohydrates" RELATED [chebi]
+synonym: "derivatized carbohydrate" RELATED [chebi]
+synonym: "derivatized carbohydrates" RELATED [chebi]
+is_a: CHEBI:78616 ! carbohydrates and carbohydrate derivatives
+
+[Term]
+id: CHEBI:64482
+name: phosphatidylcholine
+namespace: chebi_ontology
+def: "A glycerophosphocholine that is glycero-3-phosphocholine bearing two acyl substituents at positions 1 and 2." []
+subset: 3:STAR
+synonym: "1,2-diacyl-glycero-3-phosphocholine" RELATED [uniprot_ft]
+synonym: "2,3-bis(acyloxy)propyl 2-(trimethylammonio)ethyl phosphate" EXACT IUPAC:NAME [IUPAC]
+synonym: "2,3-bis(acyloxy)propyl 2-(trimethylammonio)ethyl phosphate" RELATED IUPAC:NAME [iupac]
+synonym: "a phosphatidylcholine (0)" RELATED [chebi]
+xref: pubmed:2474544 {source="pubmed"}
+is_a: CHEBI:35284 ! ammonium betaine
+is_a: CHEBI:36313 ! glycerophosphocholine
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C10H18NO8PR2" xsd:string
+property_value: chemrof:mass "311.226" xsd:decimal
+property_value: chemrof:monoisotopic_mass "311.077" xsd:decimal
+property_value: chemrof:smiles_string "*C(=O)OCC(COP(=O)([O-])OCC[N+](C)(C)C)OC(*)=O" xsd:string
+
+[Term]
+id: CHEBI:64583
+name: sphingomyelin
+namespace: chebi_ontology
+def: "Any of a class of phospholipids in which the amino group of a sphingoid base is in amide linkage with one of several fatty acids, while the terminal hydroxy group of the sphingoid base is esterified to phosphorylcholine." []
+subset: 3:STAR
+synonym: "an N-(acyl)-sphingosylphosphocholine" RELATED [uniprot_ft]
+synonym: "Ceramide phosphocholine" RELATED [lipidmaps]
+xref: lipidmaps_class:LMSP0301 {source="lipidmaps_class"}
+xref: pubmed:27242221 {source="pubmed"}
+is_a: CHEBI:140325 ! secondary carboxamide
+is_a: CHEBI:35284 ! ammonium betaine
+is_a: CHEBI:35786 ! phosphosphingolipid
+is_a: CHEBI:36700 ! phosphocholines
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C9H19N2O6PR2" xsd:string
+property_value: chemrof:mass "282.231" xsd:decimal
+property_value: chemrof:monoisotopic_mass "282.09807" xsd:decimal
+property_value: chemrof:smiles_string "[1*][C@@H](O)[C@H](COP(=O)([O-])OCC[N+](C)(C)C)NC([2*])=O" xsd:string
 
 [Term]
 id: CHEBI:64708
@@ -8769,6 +11293,30 @@ def: "Any organic molecular entity that is acidic and contains carbon in covalen
 subset: 3:STAR
 synonym: "organic acids" RELATED [chebi]
 is_a: CHEBI:50860 ! organic molecular entity
+
+[Term]
+id: CHEBI:65327
+name: D-xylose
+namespace: chebi_ontology
+def: "Any xylose with <small>D</small>-configuration." []
+subset: 3:STAR
+xref: hmdb:HMDB0000098 {source="hmdb"}
+is_a: CHEBI:18222 ! xylose
+property_value: chemrof:charge "0" xsd:integer
+property_value: chemrof:generalized_empirical_formula "C5H10O5" xsd:string
+property_value: chemrof:mass "150.13" xsd:decimal
+property_value: chemrof:monoisotopic_mass "150.05282" xsd:decimal
+
+[Term]
+id: CHEBI:68452
+name: azole
+namespace: chebi_ontology
+def: "Any monocyclic heteroarene consisting of a five-membered ring containing nitrogen. Azoles can also contain one or more other non-carbon atoms, such as nitrogen, sulfur or oxygen." []
+subset: 3:STAR
+synonym: "azoles" RELATED [chebi]
+xref: wikipedia.en:Azole {source="wikipedia.en"}
+is_a: CHEBI:38101 ! organonitrogen heterocyclic compound
+is_a: CHEBI:38179 ! monocyclic heteroarene
 
 [Term]
 id: CHEBI:71989
@@ -8869,6 +11417,16 @@ property_value: chemrof:generalized_empirical_formula "CNOR3" xsd:string
 property_value: chemrof:mass "42.017" xsd:decimal
 property_value: chemrof:monoisotopic_mass "41.99799" xsd:decimal
 property_value: chemrof:smiles_string "*C(*)=[N+](*)[O-]" xsd:string
+
+[Term]
+id: CHEBI:78616
+name: carbohydrates and carbohydrate derivatives
+namespace: chebi_ontology
+def: "Any organooxygen compound that is a polyhydroxy-aldehyde or -ketone, or a compound derived from one. Carbohydrates contain only carbon, hydrogen and oxygen and usually have an empirical formula C<small><sub><em>m</em></sub></small>(H<small><sub>2</sub></small>O)<small><sub><em>n</em></sub></small>; carbohydrate derivatives may contain other elements by substitution or condensation." []
+subset: 3:STAR
+synonym: "carbohydrates and derivatives" RELATED [chebi]
+synonym: "carbohydrates and their derivatives" RELATED [chebi]
+is_a: CHEBI:36963 ! organooxygen compound
 
 [Term]
 id: CHEBI:78840
@@ -17591,6 +20149,13 @@ def: "A dielectrically consistent RISM model is an advanced version of the Refer
 is_a: MOLSIM:001535 ! RISM model
 
 [Term]
+id: MOLSIM:001537
+name: temperature
+def: "Temperature is a thermodynamic property that measures the average kinetic energy of the atoms and molecules in the simulation. It is the primary indicator of the system's thermal state and is constantly monitored to ensure the simulation is stable and correctly samples the target ensemble. For experts, this value is calculated from the particle velocities via the equipartition theorem and is maintained by a thermostat to correspond to a specific thermodynamic temperature. (UNVERIFIED)" []
+is_a: MOLSIM:001293 ! thermodynamic property
+property_value: dcterms:contributor https://orcid.org/0000-0003-4846-8051
+
+[Term]
 id: MOLSIM:001538
 name: charge-dependent van der Waals correction
 def: "This is an advanced force field feature where the size of an atom (its van der Waals radius) can change depending on its partial atomic charge. This correction is used to model the physical effect where a positively charged atom tends to be smaller and a negatively charged atom tends to be larger. It is a feature of some advanced or polarizable force fields designed to provide a more accurate description of intermolecular interactions, especially for ions and highly polar molecules. (UNVERIFIED)" []
@@ -20033,6 +22598,20 @@ id: MOLSIM:001943
 name: network interconnect
 def: "The network interconnect is the high-speed communication system that links all the individual computers, or nodes, together in a high-performance cluster. It is the fabric of hardware and protocols that manages the data transfer between nodes running different parts of a parallel simulation. The performance of this system, particularly its low latency and high bandwidth, is a critical factor in how well a large molecular dynamics simulation can scale across many nodes. (UNVERIFIED)" []
 is_a: MOLSIM:001845 ! hardware
+
+[Term]
+id: MOLSIM:001944
+name: pressure
+def: "Pressure is a thermodynamic property that represents the force per unit area exerted by the particles on the boundaries of the simulation box. It is a key indicator of the system's physical state and is monitored to ensure the simulation has reached the correct density under constant pressure conditions. For experts, this value is calculated from the kinetic energy and the virial of internal forces and is maintained by a barostat algorithm in the NPT ensemble. (UNVERIFIED)" []
+is_a: MOLSIM:001293 ! thermodynamic property
+property_value: dcterms:contributor https://orcid.org/0000-0003-4846-8051
+
+[Term]
+id: MOLSIM:001946
+name: volume
+def: "Volume is a thermodynamic property that represents the three-dimensional size of the periodic simulation box containing the molecular system. In simulations run at constant pressure, this value fluctuates as the barostat adjusts the box dimensions to maintain the target pressure. For experts, the average volume is a primary output used to determine the equilibrium density of the system, a key property for validating the simulation model. (UNVERIFIED)" []
+is_a: MOLSIM:001293 ! thermodynamic property
+property_value: dcterms:contributor https://orcid.org/0000-0003-4846-8051
 
 [Term]
 id: MOLSIM:001947

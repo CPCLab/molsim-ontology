@@ -12,14 +12,14 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2025-10-20/molsim-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2025-10-27/molsim-base.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description xml:lang="en">MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <rdfs:comment></rdfs:comment>
-        <owl:versionInfo>2025-10-20</owl:versionInfo>
+        <owl:versionInfo>2025-10-27</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -15083,6 +15083,17 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_001537 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001537">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001293"/>
+        <obo:IAO_0000115 xml:lang="en">Temperature is a thermodynamic property that measures the average kinetic energy of the atoms and molecules in the simulation. It is the primary indicator of the system&apos;s thermal state and is constantly monitored to ensure the simulation is stable and correctly samples the target ensemble. For experts, this value is calculated from the particle velocities via the equipartition theorem and is maintained by a thermostat to correspond to a specific thermodynamic temperature. (UNVERIFIED)</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4846-8051"/>
+        <rdfs:label xml:lang="en">temperature</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001538 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001538">
@@ -19148,6 +19159,28 @@ NMR refinement is a computational process used to generate or improve a three-di
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001845"/>
         <obo:IAO_0000115 xml:lang="en">The network interconnect is the high-speed communication system that links all the individual computers, or nodes, together in a high-performance cluster. It is the fabric of hardware and protocols that manages the data transfer between nodes running different parts of a parallel simulation. The performance of this system, particularly its low latency and high bandwidth, is a critical factor in how well a large molecular dynamics simulation can scale across many nodes. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">network interconnect</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_001944 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001944">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001293"/>
+        <obo:IAO_0000115 xml:lang="en">Pressure is a thermodynamic property that represents the force per unit area exerted by the particles on the boundaries of the simulation box. It is a key indicator of the system&apos;s physical state and is monitored to ensure the simulation has reached the correct density under constant pressure conditions. For experts, this value is calculated from the kinetic energy and the virial of internal forces and is maintained by a barostat algorithm in the NPT ensemble. (UNVERIFIED)</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4846-8051"/>
+        <rdfs:label xml:lang="en">pressure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_001946 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001946">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001293"/>
+        <obo:IAO_0000115 xml:lang="en">Volume is a thermodynamic property that represents the three-dimensional size of the periodic simulation box containing the molecular system. In simulations run at constant pressure, this value fluctuates as the barostat adjusts the box dimensions to maintain the target pressure. For experts, the average volume is a primary output used to determine the equilibrium density of the system, a key property for validating the simulation model. (UNVERIFIED)</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4846-8051"/>
+        <rdfs:label xml:lang="en">volume</rdfs:label>
     </owl:Class>
     
 

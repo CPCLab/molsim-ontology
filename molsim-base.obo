@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2025-10-20/molsim-base.owl
+data-version: molsim/releases/2025-10-27/molsim-base.owl
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
@@ -9,7 +9,7 @@ property_value: dce:type IAO:8000001
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2025-10-20" xsd:string
+property_value: owl:versionInfo "2025-10-27" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -8689,6 +8689,13 @@ def: "A dielectrically consistent RISM model is an advanced version of the Refer
 is_a: MOLSIM:001535 ! RISM model
 
 [Term]
+id: MOLSIM:001537
+name: temperature
+def: "Temperature is a thermodynamic property that measures the average kinetic energy of the atoms and molecules in the simulation. It is the primary indicator of the system's thermal state and is constantly monitored to ensure the simulation is stable and correctly samples the target ensemble. For experts, this value is calculated from the particle velocities via the equipartition theorem and is maintained by a thermostat to correspond to a specific thermodynamic temperature. (UNVERIFIED)" []
+is_a: MOLSIM:001293 ! thermodynamic property
+property_value: dcterms:contributor https://orcid.org/0000-0003-4846-8051
+
+[Term]
 id: MOLSIM:001538
 name: charge-dependent van der Waals correction
 def: "This is an advanced force field feature where the size of an atom (its van der Waals radius) can change depending on its partial atomic charge. This correction is used to model the physical effect where a positively charged atom tends to be smaller and a negatively charged atom tends to be larger. It is a feature of some advanced or polarizable force fields designed to provide a more accurate description of intermolecular interactions, especially for ions and highly polar molecules. (UNVERIFIED)" []
@@ -11131,6 +11138,20 @@ id: MOLSIM:001943
 name: network interconnect
 def: "The network interconnect is the high-speed communication system that links all the individual computers, or nodes, together in a high-performance cluster. It is the fabric of hardware and protocols that manages the data transfer between nodes running different parts of a parallel simulation. The performance of this system, particularly its low latency and high bandwidth, is a critical factor in how well a large molecular dynamics simulation can scale across many nodes. (UNVERIFIED)" []
 is_a: MOLSIM:001845 ! hardware
+
+[Term]
+id: MOLSIM:001944
+name: pressure
+def: "Pressure is a thermodynamic property that represents the force per unit area exerted by the particles on the boundaries of the simulation box. It is a key indicator of the system's physical state and is monitored to ensure the simulation has reached the correct density under constant pressure conditions. For experts, this value is calculated from the kinetic energy and the virial of internal forces and is maintained by a barostat algorithm in the NPT ensemble. (UNVERIFIED)" []
+is_a: MOLSIM:001293 ! thermodynamic property
+property_value: dcterms:contributor https://orcid.org/0000-0003-4846-8051
+
+[Term]
+id: MOLSIM:001946
+name: volume
+def: "Volume is a thermodynamic property that represents the three-dimensional size of the periodic simulation box containing the molecular system. In simulations run at constant pressure, this value fluctuates as the barostat adjusts the box dimensions to maintain the target pressure. For experts, the average volume is a primary output used to determine the equilibrium density of the system, a key property for validating the simulation model. (UNVERIFIED)" []
+is_a: MOLSIM:001293 ! thermodynamic property
+property_value: dcterms:contributor https://orcid.org/0000-0003-4846-8051
 
 [Term]
 id: MOLSIM:001947
