@@ -22667,6 +22667,39 @@ synonym: "kcal/mol/Å^2|kilocalorie/mole/angstrom^2" EXACT []
 is_a: UO:0000111 ! energy unit
 
 [Term]
+id: MOLSIM:010006
+name: elementary charge
+def: "A unit of electric charge defined as the charge carried by a single proton. It is a fundamental physical constant, with a value of exactly 1.602176634 × 10^-19 coulombs." []
+synonym: "e" EXACT []
+is_a: UO:0000219 ! electric charge
+
+[Term]
+id: MOLSIM:010007
+name: kinematic viscosity unit
+def: "A unit that measures a fluid's resistance to flow under the influence of gravity. It is the ratio of the fluid's dynamic viscosity to its density." []
+is_a: UO:0000000 ! unit
+
+[Term]
+id: MOLSIM:010008
+name: square centimeter per second
+def: "A centimeter-gram-second (CGS) unit of kinematic viscosity, defined as the kinematic viscosity of a fluid that passes one square centimeter in one second. It is equivalent to the unit Stokes (St)." []
+synonym: "cm^2/s|stokes|St" EXACT []
+is_a: MOLSIM:010007 ! kinematic viscosity unit
+
+[Term]
+id: MOLSIM:010009
+name: electric dipole moment unit
+def: "A unit that measures the separation of positive and negative electrical charges within a system, indicating the system's overall polarity." []
+is_a: UO:0000000 ! unit
+
+[Term]
+id: MOLSIM:010010
+name: debye
+def: "A centimeter-gram-second (CGS) unit of electric dipole moment, defined as 10^-18 statcoulomb-centimeters. One Debye is approximately equal to 3.33564 × 10^-30 coulomb-meters." []
+synonym: "D" EXACT []
+is_a: MOLSIM:010009 ! electric dipole moment unit
+
+[Term]
 id: UO:0000000
 name: unit
 comment: "A unit of measurement is a standardized quantity of a physical quality." [Wikipedia:Wikipedia]
@@ -22675,6 +22708,12 @@ comment: "A unit of measurement is a standardized quantity of a physical quality
 id: UO:0000001
 name: length unit
 comment: "A unit which is a standard measure of the distance between two points." [Wikipedia:Wikipedia]
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000002
+name: mass unit
+comment: "A unit which is a standard measure of the amount of matter/energy of a physical object." [Wikipedia:Wikipedia]
 is_a: UO:0000000 ! unit
 
 [Term]
@@ -22699,6 +22738,12 @@ synonym: "ps" EXACT []
 is_a: UO:1000010 ! second based unit
 
 [Term]
+id: UO:0000047
+name: area unit
+comment: "A unit which is a standard measure of the amount of a 2-dimensional flat surface." [UOC:GVG]
+is_a: UO:0000000 ! unit
+
+[Term]
 id: UO:0000051
 name: concentration unit
 comment: "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance." [UOC:GVG]
@@ -22717,6 +22762,13 @@ comment: "A concentration unit which is a standard measure of the number of mole
 is_a: UO:0000051 ! concentration unit
 
 [Term]
+id: UO:0000062
+name: molar
+comment: "A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L)." [UOC:GVG]
+synonym: "M" EXACT []
+is_a: UO:1000062 ! molar based unit
+
+[Term]
 id: UO:0000063
 name: millimolar
 comment: "A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M." [UOC:GVG]
@@ -22730,6 +22782,12 @@ comment: "A speed/velocity unit which is equal to the speed of an object traveli
 synonym: "m/s" EXACT []
 synonym: "metre per second" EXACT []
 is_a: UO:1000094 ! meter per second based unit
+
+[Term]
+id: UO:0000105
+name: frequency unit
+comment: "A unit which is a standard measure of the number of repetitive actions in a particular time." [NIST:NIST]
+is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000109
@@ -22751,6 +22809,37 @@ synonym: "ns" EXACT []
 is_a: UO:1000010 ! second based unit
 
 [Term]
+id: UO:0000219
+name: electric charge
+comment: "A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons." [WordNet:WordNet]
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000221
+name: dalton
+comment: "An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state." [Wikipedia:Wikipedia]
+synonym: "amu" EXACT []
+synonym: "Da" EXACT []
+synonym: "u" EXACT []
+synonym: "unified atomic mass unit" EXACT []
+is_a: UO:1000221 ! dalton based unit
+
+[Term]
+id: UO:0000324
+name: square angstrom
+comment: "An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long." [UOC:GVG]
+synonym: "A^[2]" RELATED []
+is_a: UO:0000047 ! area unit
+
+[Term]
+id: UO:0000325
+name: megaHertz
+comment: "A frequency unit which is equal to one million hertz or 10^[6] V." [UOC:GVG]
+synonym: "megahertz" RELATED []
+synonym: "mH" RELATED []
+is_a: UO:0000105 ! frequency unit
+
+[Term]
 id: UO:1000010
 name: second based unit
 is_a: UO:0000003 ! time unit
@@ -22769,6 +22858,11 @@ is_a: UO:0000061 ! unit of molarity
 id: UO:1000094
 name: meter per second based unit
 is_a: UO:0000060 ! speed/velocity unit
+
+[Term]
+id: UO:1000221
+name: dalton based unit
+is_a: UO:0000002 ! mass unit
 
 [Typedef]
 id: MOLSIM:000110
