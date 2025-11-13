@@ -1850,6 +1850,9 @@ Declaration(Class(obo:MOLSIM_010016))
 Declaration(Class(obo:MOLSIM_010017))
 Declaration(Class(obo:MOLSIM_010018))
 Declaration(Class(obo:MOLSIM_010019))
+Declaration(Class(obo:MOLSIM_010020))
+Declaration(Class(obo:MOLSIM_010021))
+Declaration(Class(obo:MOLSIM_010022))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -5078,10 +5081,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000438 "A data format for a file 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000438 "script format"@en)
 SubClassOf(obo:MOLSIM_000438 obo:MOLSIM_001085)
 
-# Class: obo:MOLSIM_000439 (log format)
+# Class: obo:MOLSIM_000439 (output format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000439 "A log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation's stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000439 "log format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000439 "output format"@en)
 SubClassOf(obo:MOLSIM_000439 obo:MOLSIM_001085)
 
 # Class: obo:MOLSIM_000440 (NMR data format)
@@ -5096,10 +5099,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000441 "A data format for a file 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000441 "simulation state format"@en)
 SubClassOf(obo:MOLSIM_000441 obo:MOLSIM_001085)
 
-# Class: obo:MOLSIM_000442 (computational results format)
+# Class: obo:MOLSIM_000442 (Molden format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000442 "A data format for a file containing the processed results or complex data products from a simulation or analysis. This is distinct from a simple log file or a trajectory, often storing derived quantities like eigenvectors, distance matrices, or volumetric data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000442 "computational results format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000442 "Molden format"@en)
 SubClassOf(obo:MOLSIM_000442 obo:MOLSIM_001085)
 
 # Class: obo:MOLSIM_000443 (xyzv format)
@@ -5992,12 +5995,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000592 "A file format that repres
 AnnotationAssertion(rdfs:label obo:MOLSIM_000592 "stripped topology format"@en)
 SubClassOf(obo:MOLSIM_000592 obo:MOLSIM_001091)
 
-# Class: obo:MOLSIM_000593 (CPPTRAJ standard output  format)
+# Class: obo:MOLSIM_000593 (CPPTRAJ standard output format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000593 "The CPPTRAJ standard output format is the default text-based format used by the cpptraj analysis program to write time-series data. This format typically consists of simple columns of numerical data, where the first column is the frame or time, and subsequent columns contain the calculated values for a given analysis command. While often saved with a .dat extension, this straightforward, space-delimited format is designed for easy parsing by plotting programs like Gnuplot or for import into data analysis software. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000593 "Typically with .dat extension, but could be using other file extension."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000593 "CPPTRAJ standard output  format"@en)
-SubClassOf(obo:MOLSIM_000593 obo:MOLSIM_000442)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000593 "CPPTRAJ standard output format"@en)
+SubClassOf(obo:MOLSIM_000593 obo:MOLSIM_000439)
 
 # Class: obo:MOLSIM_000594 (gnu format)
 
@@ -6039,20 +6042,20 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000599 "rem.log"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000599 "AMBER REM log  format"@en)
 SubClassOf(obo:MOLSIM_000599 obo:MOLSIM_000439)
 
-# Class: obo:MOLSIM_000600 (AMBER eigenvector  format)
+# Class: obo:MOLSIM_000600 (AMBER eigenvector format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000600 "The Amber evecs eigenvector file is a specialized output from Principal Component Analysis (PCA), normal mode analysis, or quasiharmonic analysis in AMBER (using cpptraj or ptraj). This file stores the eigenvectors (or “principal modes”) and eigenvalues resulting from the diagonalization of a covariance or mass-weighted covariance matrix, commonly used in essential dynamics analysis of molecular simulations. The output file is usually called evecs.dat, evecs.out, or follows a similar naming scheme. There is no fixed \"file extension\" required; however, the content and formatting are standardized for compatibility with AMBER utilities (e.g., cpptraj, ptraj),"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000600 "evecs.dat"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000600 "evecs.out"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000600 "AMBER eigenvector  format"@en)
-SubClassOf(obo:MOLSIM_000600 obo:MOLSIM_000442)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000600 "AMBER eigenvector format"@en)
+SubClassOf(obo:MOLSIM_000600 obo:MOLSIM_000439)
 
-# Class: obo:MOLSIM_000601 (AMBER cpout  format)
+# Class: obo:MOLSIM_000601 (AMBER cpout format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000601 "A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000601 ".cpout")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000601 "AMBER cpout  format"@en)
-SubClassOf(obo:MOLSIM_000601 obo:MOLSIM_000442)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000601 "AMBER cpout format"@en)
+SubClassOf(obo:MOLSIM_000601 obo:MOLSIM_000439)
 
 # Class: obo:MOLSIM_000602 (geometry optimization)
 
@@ -6097,12 +6100,12 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000608 ".ccp4")
 AnnotationAssertion(rdfs:label obo:MOLSIM_000608 "ccp4 map format"@en)
 SubClassOf(obo:MOLSIM_000608 obo:MOLSIM_000909)
 
-# Class: obo:MOLSIM_000609 (CPPTRAJ pairwise distance cache  format)
+# Class: obo:MOLSIM_000609 (CPPTRAJ pairwise distance cache format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000609 "The file for storing pre-calculated pairwise distances does not have a single, mandatory extension, but a common convention exists. The recommended format is a binary file, for which the conventional extension is .cmatrix. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000609 ".cmatrix")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000609 "CPPTRAJ pairwise distance cache  format"@en)
-SubClassOf(obo:MOLSIM_000609 obo:MOLSIM_000442)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000609 "CPPTRAJ pairwise distance cache format"@en)
+SubClassOf(obo:MOLSIM_000609 obo:MOLSIM_010020)
 
 # Class: obo:MOLSIM_000610 (thermodynamics analysis)
 
@@ -7673,12 +7676,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000879 "The ADF output file is th
 AnnotationAssertion(rdfs:label obo:MOLSIM_000879 "ADF output format"@en)
 SubClassOf(obo:MOLSIM_000879 obo:MOLSIM_000439)
 
-# Class: obo:MOLSIM_000880 (ADF rkf  format)
+# Class: obo:MOLSIM_000880 (ADF rkf format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000880 "ADF Tape41 (now more commonly the .rkf or ADF Results File) is a structured binary file generated by the Amsterdam Density Functional package. It stores a comprehensive set of calculation results, including basis set details, molecular orbital coefficients, electron densities, gradients, and potentially Hessians, in a key-value database format. This file is essential for advanced analysis, visualization, and restarting calculations. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000880 "ADF Tape41 format"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000880 "ADF rkf  format"@en)
-SubClassOf(obo:MOLSIM_000880 obo:MOLSIM_000442)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000880 "ADF rkf format"@en)
+SubClassOf(obo:MOLSIM_000880 obo:MOLSIM_000441)
 
 # Class: obo:MOLSIM_000881 (CHARMM output  format)
 
@@ -8344,7 +8347,7 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_001040 "Common examples include:
 
 - Binary Formats: For efficiency, especially with large matrices, they may be saved in binary formats like NumPy's .npy format, which is common in Python-based analysis workflows."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001040 "distance matrix format"@en)
-SubClassOf(obo:MOLSIM_001040 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001040 obo:MOLSIM_010020)
 
 # Class: obo:MOLSIM_001041 (GROMACS xpm  format)
 
@@ -8526,7 +8529,7 @@ SubClassOf(obo:MOLSIM_001065 obo:MOLSIM_000014)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001066 "The term \"ptrajformat\" does not refer to a distinct file type with its own extension. Instead, it is a keyword or an option used within the secstruct command of Amber's cpptraj analysis program. When this keyword is used, it directs cpptraj to write secondary structure data in a specific ASCII text format that mimics the output style of the older ptraj software. Since ptrajformat is a formatting option and not a file type, there is no mandatory or standard file extension. The output is saved to the filename provided by the user via the out <filename> directive in the secstruct command. Common practice is to use a generic but descriptive extension, such as .dat, .txt, .sec or .ss. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001066 "CPPTRAJ ptraj format"@en)
-SubClassOf(obo:MOLSIM_001066 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001066 obo:MOLSIM_010020)
 
 # Class: obo:MOLSIM_001067 (xmgrace)
 
@@ -8773,79 +8776,79 @@ SubClassOf(obo:MOLSIM_001105 obo:MOLSIM_001087)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001106 "This is a category for file formats that store the results from analyzing the arrangement and properties of solvent molecules around a central molecule. These formats typically contain data on a 3D grid, representing quantities like the probability of finding a solvent atom or the average interaction energy at different points in space. Common examples include formats for storing solvent density maps or various correlation functions calculated by methods like 3D-RISM theory. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001106 "solvent analysis data format"@en)
-SubClassOf(obo:MOLSIM_001106 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001106 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001107 (solvent pair distribution format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001107 "This file format stores a 3D map that shows the probability of finding a solvent molecule at various positions around a central solute molecule. The value at each point in the grid, known as g(r), indicates whether the solvent is more or less likely to be found there compared to a purely random distribution. This format is used to visualize the detailed structure of the solvent shells, with peaks in the data corresponding to regions of high solvent density, such as in hydrogen bonding sites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001107 "solvent pair distribution format"@en)
-SubClassOf(obo:MOLSIM_001107 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001107 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001108 (solvent direct correlation format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001108 "This file format stores a 3D data grid representing the direct correlation between a central molecule and the surrounding solvent molecules. This function, known as c(r), isolates the direct influence of the solute on a solvent molecule at a specific position, filtering out indirect effects that are transmitted through other solvent molecules. It is a fundamental quantity in statistical mechanical liquid-state theories like 3D-RISM and is used to calculate other thermodynamic properties of solvation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001108 "solvent direct correlation format"@en)
-SubClassOf(obo:MOLSIM_001108 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001108 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001109 (solvent total correlation format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001109 "This file format stores a 3D data grid that describes the total structural correlation between a central solute and the surrounding solvent. This function, known as h(r), represents the total deviation from a random solvent distribution caused by the solute's presence, including both direct and indirect effects. It is directly related to the pair distribution function (h(r) = g(r) - 1) and is a fundamental quantity in liquid-state theories used to calculate solvation properties. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001109 "solvent total correlation format"@en)
-SubClassOf(obo:MOLSIM_001109 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001109 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001110 (solvent potential file format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001110 "This file format stores a 3D map of the potential energy experienced by the solvent molecules in the space surrounding a central solute. The value at each grid point represents the average potential energy of the solvent at that location, reflecting the combined interactions with the solute and other solvent molecules. This format provides a view of the energetic landscape of the solvent, which can be used to identify energetically favorable or unfavorable regions for solvation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001110 "solvent potential file format"@en)
-SubClassOf(obo:MOLSIM_001110 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001110 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001111 (solvent charge density distribution format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001111 "This file format stores a 3D map representing the average distribution of electric charge from the solvent molecules surrounding a central solute. Instead of just showing where solvent atoms are, it shows the net positive or negative charge density at each point in space, averaged over a simulation. This provides a detailed picture of the electrostatic environment created by the solvent, which is crucial for understanding how the solvent screens and interacts with the solute's own charge distribution. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001111 "solvent charge density distribution format"@en)
-SubClassOf(obo:MOLSIM_001111 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001111 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001112 (solvent charge distribution format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001112 "This file format stores a 3D map showing the probability of finding the individual atomic point charges of solvent molecules at different locations around a solute. It differs from a charge density map by representing the distribution of the discrete positive (e.g., hydrogen) and negative (e.g., oxygen) partial charges separately. This format provides a more detailed view of the solvent's electrostatic structure, revealing the specific preferred locations of positive and negative charge centers, which is important for analyzing hydrogen bonding and ion solvation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001112 "solvent charge distribution format"@en)
-SubClassOf(obo:MOLSIM_001112 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001112 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001113 (solute-solvent potential energy format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001113 "This file format stores a three-dimensional map of the interaction energy between a central molecule (the solute) and the surrounding solvent. The data is typically stored on a 3D grid, where the value at each grid point represents the potential energy a solvent molecule would experience at that location. This format is used to visualize the energetic landscape around a solute, highlighting regions of strong attraction or repulsion that dictate how solvent molecules will arrange themselves. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001113 "solute-solvent potential energy format"@en)
-SubClassOf(obo:MOLSIM_001113 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001113 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001114 (site-site functionals format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001114 "A data file format used in advanced solvent analysis to describe how the interaction between different types of atoms changes with distance. It stores the mathematical functions, known as pair functionals, that are the core components of integral equation theories like the 3D Reference Interaction Site Model (3D-RISM). These files contain the pre-calculated correlation functions for a pure solvent, which are then used by the 3D-RISM method to determine the solvent structure around a solute molecule. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001114 "site-site functionals format"@en)
-SubClassOf(obo:MOLSIM_001114 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001114 obo:MOLSIM_010022)
 
 # Class: obo:MOLSIM_001115 (total excess coordination number format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001115 "This file format stores data that measures the average number of extra solvent molecules that gather around a central solvent molecule, compared to the bulk liquid. It quantifies the degree of solvent structuring or clustering that occurs in the solution. This is a specialized output from 1D-RISM calculations that provides insight into the local packing and organization of the solvent molecules themselves. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001115 "total excess coordination number format"@en)
-SubClassOf(obo:MOLSIM_001115 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001115 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001116 (total excess charge format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001116 "This file format stores data that quantifies how much extra electric charge from the solvent accumulates around different types of solvent atoms. It provides a measure of the net charge separation or polarization in the solvent induced by the presence of the solute. This is a specialized output from 3D-RISM calculations that helps to characterize the electrostatic response of the solvent to the solute. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001116 "total excess charge format"@en)
-SubClassOf(obo:MOLSIM_001116 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001116 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001117 (GAUSSIAN electrostatic potential format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001117 "The Gaussian electrostatic potential format refers to the way the Gaussian quantum chemistry program stores electrostatic potential (ESP) values calculated on a grid of points in space. This data is most commonly stored in the Gaussian Cube file format (.cube), which includes the grid definition and the ESP value at each grid point. This volumetric data file is essential for visualizing the electrostatic potential around a molecule and is the primary input for deriving ESP-fitted atomic charges using methods like RESP. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001117 "GAUSSIAN electrostatic potential format"@en)
-SubClassOf(obo:MOLSIM_001117 obo:MOLSIM_000442)
+SubClassOf(obo:MOLSIM_001117 obo:MOLSIM_010022)
 
-# Class: obo:MOLSIM_001118 (mdinfo format)
+# Class: obo:MOLSIM_001118 (AMBER mdinfo format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001118 "The mdinfo format is a text file generated by the Amber simulation software that provides a concise, real-time summary of a running simulation. It contains the most recently calculated energy terms and thermodynamic properties, such as temperature and pressure, formatted for easy monitoring. This file is continuously updated during a run, making it useful for checking the immediate status and stability of a simulation without having to parse the much larger main output file. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001118 "mdinfo format"@en)
-SubClassOf(obo:MOLSIM_001118 obo:MOLSIM_000442)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001118 "AMBER mdinfo format"@en)
+SubClassOf(obo:MOLSIM_001118 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_001119 (Molden format)
 
@@ -13626,6 +13629,21 @@ SubClassOf(obo:MOLSIM_010018 obo:MOLSIM_000075)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_010019 "Tanimoto combo score"@en)
 SubClassOf(obo:MOLSIM_010019 obo:MOLSIM_000075)
+
+# Class: obo:MOLSIM_010020 (molecular trajectory analysis format)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010020 "molecular trajectory analysis format"@en)
+SubClassOf(obo:MOLSIM_010020 obo:MOLSIM_001085)
+
+# Class: obo:MOLSIM_010021 (solvent analysis format)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010021 "solvent analysis format"@en)
+SubClassOf(obo:MOLSIM_010021 obo:MOLSIM_001085)
+
+# Class: obo:MOLSIM_010022 (quantum chemistry format)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010022 "quantum chemistry format"@en)
+SubClassOf(obo:MOLSIM_010022 obo:MOLSIM_001085)
 
 
 ############################
