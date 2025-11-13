@@ -1847,6 +1847,9 @@ Declaration(Class(obo:MOLSIM_010013))
 Declaration(Class(obo:MOLSIM_010014))
 Declaration(Class(obo:MOLSIM_010015))
 Declaration(Class(obo:MOLSIM_010016))
+Declaration(Class(obo:MOLSIM_010017))
+Declaration(Class(obo:MOLSIM_010018))
+Declaration(Class(obo:MOLSIM_010019))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -2750,23 +2753,23 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000049 "An algorithm used in mole
 AnnotationAssertion(rdfs:label obo:MOLSIM_000049 "constraining algorithm"@en)
 SubClassOf(obo:MOLSIM_000049 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_000050 (SHAKE)
+# Class: obo:MOLSIM_000050 (SHAKE algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000050 "An iterative constraint algorithm widely used in molecular dynamics to fix bond lengths. It adjusts the positions of atoms involved in a constraint at the end of a time step until the constraint condition (e.g., fixed bond distance) is satisfied within a defined tolerance. It handles coupled constraints involving multiple atoms connected together (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000050 "SHAKE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000050 "SHAKE algorithm"@en)
 SubClassOf(obo:MOLSIM_000050 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000051 (RATTLE)
+# Class: obo:MOLSIM_000051 (RATTLE algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000051 "A constraint algorithm similar to SHAKE but designed for velocity-Verlet type integrators, ensuring that both positions and velocities satisfy the constraint conditions at the end of each time step. It involves solving constraint equations for positions first, then using those positions to solve for constrained velocities. This maintains consistency between positions and velocities under constraint (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000051 "RATTLE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000051 "RATTLE algorithm"@en)
 SubClassOf(obo:MOLSIM_000051 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000052 (linear constraint solver)
+# Class: obo:MOLSIM_000052 (linear constraint solver algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000052 "A general term for algorithms designed to solve systems of linear equations that arise from geometric constraints in molecular simulations, particularly when constraints are applied before integrating equations of motion (e.g., in Lagrangian multiplier methods). While iterative methods like SHAKE/RATTLE solve non-linear equations implicitly, linear solvers might be used in different formulations. It represents the mathematical task underlying some constraint methods (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000052 "LINCS"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000052 "linear constraint solver"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000052 "linear constraint solver algorithm"@en)
 SubClassOf(obo:MOLSIM_000052 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000053 (electrostatic interaction algorithm)
@@ -2906,22 +2909,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000074 "An algorithm used to quan
 AnnotationAssertion(rdfs:label obo:MOLSIM_000074 "similarity calculation algorithm"@en)
 SubClassOf(obo:MOLSIM_000074 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_000075 (Tanimoto combo score)
+# Class: obo:MOLSIM_000075 (Tanimoto similarity algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000075 "This likely refers to a similarity score derived by combining the standard Tanimoto coefficient (often calculated on molecular fingerprints) with other similarity measures or scores. The goal of combining scores is often to leverage the strengths of different metrics to get a more robust or comprehensive assessment of similarity. The exact combination formula would define the specific \"combo score\" (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000075 "Tanimoto combo score"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000075 "This likely refers to a similarity score derived by combining the standard Tanimoto coefficient (often calculated on molecular fingerprints) with other similarity measures or scores. The goal of combining scores is often to leverage the strengths of different metrics to get a more robust or comprehensive assessment of similarity.  (UNVERIFIED)."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000075 "Tanimoto similarity algorithm"@en)
 SubClassOf(obo:MOLSIM_000075 obo:MOLSIM_000074)
 
-# Class: obo:MOLSIM_000076 (Tversky index)
+# Class: obo:MOLSIM_000076 (Tversky index algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000076 "A molecular similarity measure that compares two molecular structures by calculating their overlap while allowing asymmetric weighting through parameters α and β. The measure ranges from 0 (completely different) to 1 (identical), and can be adjusted to emphasize either the reference or query molecule in the comparison. It is particularly useful in molecular screening as it can identify both substructure and superstructure relationships between molecules."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000076 "Tversky index"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000076 "Tversky index algorithm"@en)
 SubClassOf(obo:MOLSIM_000076 obo:MOLSIM_000074)
 
-# Class: obo:MOLSIM_000077 (Dice coefficient)
+# Class: obo:MOLSIM_000077 (Dice coefficient algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000077 "A similarity calculation method used to compare two sets (e.g., features in molecular fingerprints), closely related to the Tanimoto coefficient and Jaccard index. It measures the overlap between the sets, normalized by the average size of the two sets. It is often used in information retrieval and cheminformatics as an alternative similarity metric (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000077 "Dice coefficient"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000077 "Dice coefficient algorithm"@en)
 SubClassOf(obo:MOLSIM_000077 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000078 (Euclidean distance)
@@ -2942,22 +2945,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000080 "A type of `structural pro
 AnnotationAssertion(rdfs:label obo:MOLSIM_000080 "distance"@en)
 SubClassOf(obo:MOLSIM_000080 obo:MOLSIM_001333)
 
-# Class: obo:MOLSIM_000081 (Hamming distance)
+# Class: obo:MOLSIM_000081 (Hamming distance algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000081 "A similarity calculation method specifically used for comparing two strings or bit vectors (like binary molecular fingerprints) of equal length. It counts the number of positions at which the corresponding symbols or bits are different. A lower Hamming distance indicates higher similarity between the binary representations (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000081 "Hamming distance"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000081 "Hamming distance algorithm"@en)
 SubClassOf(obo:MOLSIM_000081 obo:MOLSIM_000074)
 
-# Class: obo:MOLSIM_000082 (Jaccard index)
+# Class: obo:MOLSIM_000082 (Jaccard index algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000082 "A similarity calculation method used for comparing two sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets) (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000082 "Jaccard index"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000082 "Jaccard index algorithm"@en)
 SubClassOf(obo:MOLSIM_000082 obo:MOLSIM_000074)
 
-# Class: obo:MOLSIM_000083 (overlap coefficient)
+# Class: obo:MOLSIM_000083 (overlap coefficient algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000083 "A similarity calculation method that measures the overlap between two sets, defined as the size of the intersection divided by the size of the smaller of the two sets. Unlike Tanimoto/Jaccard, it reaches 1 if one set is a subset of the other. It is useful for assessing containment or sub-structure relationships (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000083 "overlap coefficient"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000083 "overlap coefficient algorithm"@en)
 SubClassOf(obo:MOLSIM_000083 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000084 (fit Tversky combo)
@@ -2972,10 +2975,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000085 "A specialized variant of 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000085 "ref Tversky"@en)
 SubClassOf(obo:MOLSIM_000085 obo:MOLSIM_000076)
 
-# Class: obo:MOLSIM_000086 (combo score)
+# Class: obo:MOLSIM_000086 (combo score algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000086 "A general term for a similarity score obtained by combining results from multiple different similarity calculation methods or metrics. The rationale is often to capture different aspects of similarity (e.g., structural, feature-based) into a single, potentially more informative score. The specific combination formula and constituent metrics define the particular combo score (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000086 "combo score"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000086 "combo score algorithm"@en)
 SubClassOf(obo:MOLSIM_000086 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000087 (optimal transformation path algorithm)
@@ -3014,10 +3017,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000092 "Generally refers to algor
 AnnotationAssertion(rdfs:label obo:MOLSIM_000092 "nearest neighbor algorithm"@en)
 SubClassOf(obo:MOLSIM_000092 obo:MOLSIM_000087)
 
-# Class: obo:MOLSIM_000093 (genetic algorithms)
+# Class: obo:MOLSIM_000093 (genetic algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000093 "A class of heuristic optimization algorithms inspired by the process of natural selection and evolution. They maintain a population of candidate solutions (chromosomes) that evolve over generations through processes like selection, crossover (recombination), and mutation, guided by a fitness function that evaluates solution quality. Genetic algorithms are often used for complex optimization problems where exact methods are infeasible (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000093 "genetic algorithms"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000093 "genetic algorithm"@en)
 SubClassOf(obo:MOLSIM_000093 obo:MOLSIM_000087)
 
 # Class: obo:MOLSIM_000094 (simulated annealing algorithm)
@@ -4002,10 +4005,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000253 "An algorithm used in data
 AnnotationAssertion(rdfs:label obo:MOLSIM_000253 "clustering algorithm"@en)
 SubClassOf(obo:MOLSIM_000253 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_000254 (hierarchical agglomerative bottom-up)
+# Class: obo:MOLSIM_000254 (hierarchical agglomerative bottom-up algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000254 "A specific type of clustering algorithm that builds a hierarchy of clusters starting with each data point as its own cluster and iteratively merging the two closest clusters until only one cluster (containing all points) remains. This process creates a tree-like structure (dendrogram) that can be cut at different levels to obtain different numbers of clusters. It provides a nested partitioning of the data based on similarity (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000254 "hierarchical agglomerative bottom-up"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000254 "hierarchical agglomerative bottom-up algorithm"@en)
 SubClassOf(obo:MOLSIM_000254 obo:MOLSIM_000253)
 
 # Class: obo:MOLSIM_000255 (static molecular interaction prediction)
@@ -4437,10 +4440,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000332 "An SCF convergence algori
 AnnotationAssertion(rdfs:label obo:MOLSIM_000332 "SCF convergence algorithm"@en)
 SubClassOf(obo:MOLSIM_000332 obo:MOLSIM_000407)
 
-# Class: obo:MOLSIM_000333 (level shifting)
+# Class: obo:MOLSIM_000333 (level shifting algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000333 "Level shifting is a specific technique used by SCF convergence algorithms to help them find a solution, especially in difficult cases. It works by artificially raising the energy of the unoccupied molecular orbitals during the iterative process, which can prevent the orbitals from mixing in an unstable way. For computational chemists, applying a level shift is a common and effective trick to overcome SCF convergence problems. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000333 "level shifting"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000333 "level shifting algorithm"@en)
 SubClassOf(obo:MOLSIM_000333 obo:MOLSIM_000332)
 
 # Class: obo:MOLSIM_000334 (fit color Tversky)
@@ -4896,10 +4899,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000408 "An energy minimization al
 AnnotationAssertion(rdfs:label obo:MOLSIM_000408 "energy minimization algorithm"@en)
 SubClassOf(obo:MOLSIM_000408 obo:MOLSIM_000407)
 
-# Class: obo:MOLSIM_000409 (XMIN minimization)
+# Class: obo:MOLSIM_000409 (XMIN minimization algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000409 "XMIN is a family of energy minimization algorithms used to find the stable, low-energy structure of a molecule. It is a quasi-Newton method that efficiently moves the atoms \"downhill\" on the potential energy surface to find a local minimum. This algorithm is a robust choice for geometry optimization, particularly in quantum chemistry calculations where it can converge quickly to a stable conformation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000409 "XMIN minimization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000409 "XMIN minimization algorithm"@en)
 SubClassOf(obo:MOLSIM_000409 obo:MOLSIM_000408)
 
 # Class: obo:MOLSIM_000410 (lambda-scheduling free energy method)
@@ -4992,10 +4995,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000424 "A transition state search
 AnnotationAssertion(rdfs:label obo:MOLSIM_000424 "transition state search algorithm"@en)
 SubClassOf(obo:MOLSIM_000424 obo:MOLSIM_000407)
 
-# Class: obo:MOLSIM_000425 (dimer method)
+# Class: obo:MOLSIM_000425 (dimer method algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000425 "The dimer method is a specific algorithm used to find transition state structures on a potential energy surface. It works by optimizing a \"dimer,\" which consists of two closely spaced copies of the molecular structure, to find the direction of lowest energy curvature. The dimer is then moved \"uphill\" along this direction to converge on the saddle point, making it an effective method that only requires first derivatives (forces). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000425 "dimer method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000425 "dimer method algorithm"@en)
 SubClassOf(obo:MOLSIM_000425 obo:MOLSIM_000424)
 
 # Class: obo:MOLSIM_000426 (grid inhomogeneous solvation theory)
@@ -7163,34 +7166,34 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000794 "Refers to implementations
 AnnotationAssertion(rdfs:label obo:MOLSIM_000794 "Hoover barostat"@en)
 SubClassOf(obo:MOLSIM_000794 obo:MOLSIM_000039)
 
-# Class: obo:MOLSIM_000795 (M-SHAKE)
+# Class: obo:MOLSIM_000795 (M-SHAKE algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000795 "A modification of the SHAKE algorithm designed to handle constraints more efficiently in parallel computing environments. It addresses issues related to communication overhead when constraints span across different processors by optimizing the way constraint information is shared and processed. It aims to improve the scalability of constrained simulations on parallel machines (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000795 "M-SHAKE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000795 "M-SHAKE algorithm"@en)
 SubClassOf(obo:MOLSIM_000795 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000796 (P-SHAKE)
+# Class: obo:MOLSIM_000796 (P-SHAKE algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000796 "Parallel SHAKE, another variation of the SHAKE algorithm optimized for parallel execution. Similar to M-SHAKE, it focuses on efficiently handling the communication and computation required for constraints that involve atoms distributed across multiple processors. The goal is to minimize the performance bottleneck caused by constraints in large-scale parallel simulations (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000796 "P-SHAKE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000796 "P-SHAKE algorithm"@en)
 SubClassOf(obo:MOLSIM_000796 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000797 (SETTLE)
+# Class: obo:MOLSIM_000797 (SETTLE algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000797 "An analytical (non-iterative) constraint algorithm specifically designed for rigid water models like TIP3P or SPC/E, where both bond lengths and the bond angle are fixed. Because the geometry is simple and fixed, the constraint equations for a water molecule can be solved analytically, making SETTLE significantly faster than iterative methods like SHAKE for constraining water. It is highly efficient for simulations with explicit water (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000797 "SETTLE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000797 "SETTLE algorithm"@en)
 SubClassOf(obo:MOLSIM_000797 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000798 (SHAPE)
+# Class: obo:MOLSIM_000798 (SHAPE algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000798 "A constraint algorithm related to SHAKE, often used for fixing distances within rigid clusters of atoms larger than simple bonds or angles. It iteratively adjusts the positions of atoms within the defined rigid body to maintain their relative positions. It extends the concept of bond constraints to more complex rigid units (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000798 "SHAPE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000798 "SHAPE algorithm"@en)
 SubClassOf(obo:MOLSIM_000798 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000799 (WIGGLE)
+# Class: obo:MOLSIM_000799 (WIGGLE algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000799 "The WIGGLE constraining algorithm is a method used in molecular dynamics simulations to hold atomic bonds at fixed lengths, which allows for larger time steps and more efficient computation. It is an extension of the popular SHAKE and RATTLE algorithms, but improves upon them by using particle velocities to make an intelligent initial guess for the constraint forces required. This more advanced initial estimate allows the algorithm to solve the constraint equations faster, reducing the computational cost at each step of the simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000799 "WIGGLE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000799 "WIGGLE algorithm"@en)
 SubClassOf(obo:MOLSIM_000799 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000800 (Nose thermostat)
@@ -12018,16 +12021,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001688 "A numerical solver is an 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001688 "numerical solver algorithm"@en)
 SubClassOf(obo:MOLSIM_001688 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_001689 (biconjugate gradient solver)
+# Class: obo:MOLSIM_001689 (biconjugate gradient solver algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001689 "The biconjugate gradient solver is a specific type of numerical solver algorithm used for solving systems of linear equations. It is an iterative method that is particularly well-suited for large, sparse matrices that are not symmetric. In biomolecular simulation, this solver is frequently employed in the numerical solution of the Poisson-Boltzmann equation for calculating continuum electrostatic energies. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001689 "biconjugate gradient solver"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001689 "biconjugate gradient solver algorithm"@en)
 SubClassOf(obo:MOLSIM_001689 obo:MOLSIM_001688)
 
-# Class: obo:MOLSIM_001690 (modified direct inversion in the iterative subspace solver)
+# Class: obo:MOLSIM_001690 (modified direct inversion in the iterative subspace solver algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001690 "This is an advanced algorithm used to accelerate the convergence of complex, iterative calculations in quantum chemistry. It works by using information from previous steps to intelligently guess a better solution for the next step. For experts, this solver is a variant of the DIIS (Direct Inversion in the Iterative Subspace) algorithm, which is essential for efficiently finding a stable electronic wavefunction in a Self-Consistent Field (SCF) procedure. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001690 "modified direct inversion in the iterative subspace solver"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001690 "modified direct inversion in the iterative subspace solver algorithm"@en)
 SubClassOf(obo:MOLSIM_001690 obo:MOLSIM_001688)
 
 # Class: obo:MOLSIM_001691 (integration algorithm)
@@ -12042,10 +12045,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001692 "The Beeman integrator is 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001692 "Beeman integrator"@en)
 SubClassOf(obo:MOLSIM_001692 obo:MOLSIM_001691)
 
-# Class: obo:MOLSIM_001693 (modified incomplete Choleski conjugate gradient solver)
+# Class: obo:MOLSIM_001693 (modified incomplete Choleski conjugate gradient solver algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001693 "This is a specialized numerical solver used to efficiently solve large systems of linear equations. It is a type of conjugate gradient algorithm that uses a technique called preconditioning to speed up the convergence to the solution. For experts, this solver uses a modified incomplete Cholesky factorization as a preconditioner, making it effective for the large, sparse matrices encountered in methods like normal mode analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001693 "modified incomplete Choleski conjugate gradient solver"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001693 "modified incomplete Choleski conjugate gradient solver algorithm"@en)
 SubClassOf(obo:MOLSIM_001693 obo:MOLSIM_001688)
 
 # Class: obo:MOLSIM_001694 (numerical integration algorithm)
@@ -12054,10 +12057,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001694 "A numerical integration a
 AnnotationAssertion(rdfs:label obo:MOLSIM_001694 "numerical integration algorithm"@en)
 SubClassOf(obo:MOLSIM_001694 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_001695 (Lebedev quadrature)
+# Class: obo:MOLSIM_001695 (Lebedev quadrature algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001695 "Lebedev quadrature is a specific numerical integration algorithm designed for accurately integrating functions over the surface of a sphere. It uses a predefined set of points and weights on the sphere that are optimized for high efficiency. For computational chemists, this algorithm is a standard and critical component of Density Functional Theory (DFT) calculations for evaluating the angular part of the exchange-correlation functional. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001695 "Lebedev quadrature"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001695 "Lebedev quadrature algorithm"@en)
 SubClassOf(obo:MOLSIM_001695 obo:MOLSIM_001694)
 
 # Class: obo:MOLSIM_001696 (analysis algorithm)
@@ -12078,40 +12081,40 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001698 "A Butterworth filter is a
 AnnotationAssertion(rdfs:label obo:MOLSIM_001698 "butterworth filter algorithm"@en)
 SubClassOf(obo:MOLSIM_001698 obo:MOLSIM_001697)
 
-# Class: obo:MOLSIM_001699 (trapezoid integration)
+# Class: obo:MOLSIM_001699 (trapezoid integration algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001699 "Trapezoid integration, or the trapezoidal rule, is a straightforward numerical integration algorithm that approximates the area under a curve by summing the areas of trapezoids formed between adjacent data points. While simple, it is a robust method for integrating functions defined by a series of discrete points. For simulation experts, this is the most common algorithm used to numerically integrate the results from a series of lambda windows in a thermodynamic integration (TI) free energy calculation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001699 "trapezoid integration"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001699 "trapezoid integration algorithm"@en)
 SubClassOf(obo:MOLSIM_001699 obo:MOLSIM_001694)
 
-# Class: obo:MOLSIM_001700 (random number generator)
+# Class: obo:MOLSIM_001700 (random number generator algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001700 "A random number generator is an algorithm designed to produce a sequence of numbers that lacks any discernible pattern, appearing to be random. In computational science, these are essential for introducing the element of chance required by certain simulation methods. For experts, these pseudo-random number generators are critical components of stochastic thermostats and Monte Carlo algorithms. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001700 "random number generator"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001700 "random number generator algorithm"@en)
 SubClassOf(obo:MOLSIM_001700 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_001701 (Marsaglia random number generator)
+# Class: obo:MOLSIM_001701 (Marsaglia random number generator algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001701 "The Marsaglia random number generator refers to a class of pseudo-random number generators known for their high speed and good statistical properties. This class includes well-known algorithms like the \"kiss\" and \"xorshift\" generators. For developers of simulation software, these algorithms are an excellent choice for applications requiring a large volume of statistically robust random numbers with low computational overhead. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001701 "Marsaglia random number generator"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001701 "Marsaglia random number generator algorithm"@en)
 SubClassOf(obo:MOLSIM_001701 obo:MOLSIM_001700)
 
-# Class: obo:MOLSIM_001702 (Mersenne Twister random number generator)
+# Class: obo:MOLSIM_001702 (Mersenne Twister random number generator algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001702 "The Mersenne Twister is a very popular and widely used pseudo-random number generator algorithm. It is known for its extremely long period and its excellent statistical properties, meaning the sequence it produces is very difficult to distinguish from a truly random one. Because of its reliability and widespread availability, it is a default choice in many programming languages and scientific libraries used for stochastic simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001702 "Mersenne Twister random number generator"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001702 "Mersenne Twister random number generator algorithm"@en)
 SubClassOf(obo:MOLSIM_001702 obo:MOLSIM_001700)
 
-# Class: obo:MOLSIM_001703 (permuted congruential random number generator)
+# Class: obo:MOLSIM_001703 (permuted congruential random number generator algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001703 "A permuted congruential generator is a type of pseudo-random number generator that aims to improve the statistical properties of simpler linear congruential generators. It takes the output of a standard congruential generator and applies a permutation (shuffling) to its bits to break up correlations. For experts, this represents a class of generators that offers a good trade-off between computational simplicity and improved statistical quality. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001703 "permuted congruential random number generator"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001703 "permuted congruential random number generator algorithm"@en)
 SubClassOf(obo:MOLSIM_001703 obo:MOLSIM_001700)
 
-# Class: obo:MOLSIM_001704 (Xoshiro128++ random number generator)
+# Class: obo:MOLSIM_001704 (Xoshiro128++ random number generator algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001704 "Xoshiro128++ is a state-of-the-art pseudo-random number generator algorithm known for its excellent speed and strong statistical properties. It is part of a family of generators based on shift-register operations, making it very fast on modern computer architectures. For demanding simulation applications, Xoshiro128++ is a top-tier choice for generating high-quality random numbers with minimal performance impact. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001704 "Xoshiro128++ random number generator"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001704 "Xoshiro128++ random number generator algorithm"@en)
 SubClassOf(obo:MOLSIM_001704 obo:MOLSIM_001700)
 
 # Class: obo:MOLSIM_001706 (fast fourier transform algorithm)
@@ -12120,22 +12123,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001706 "The Fast Fourier Transfor
 AnnotationAssertion(rdfs:label obo:MOLSIM_001706 "fast fourier transform algorithm"@en)
 SubClassOf(obo:MOLSIM_001706 obo:MOLSIM_001697)
 
-# Class: obo:MOLSIM_001707 (DBSCAN clustering)
+# Class: obo:MOLSIM_001707 (DBSCAN clustering algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001707 "DBSCAN is a clustering algorithm that groups together molecular structures from a simulation that are closely packed together in conformational space. It operates based on density, identifying core samples in high-density regions and expanding clusters from them, which allows it to find arbitrarily shaped clusters and identify outliers that do not belong to any cluster. This method is particularly useful because it does not require the number of clusters to be specified in advance, making it well-suited for exploring complex conformational landscapes with unknown states. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001707 "DBSCAN clustering"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001707 "DBSCAN clustering algorithm"@en)
 SubClassOf(obo:MOLSIM_001707 obo:MOLSIM_000253)
 
-# Class: obo:MOLSIM_001708 (k-means clustering)
+# Class: obo:MOLSIM_001708 (k-means clustering algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001708 "K-means is a widely used algorithm that partitions a simulation trajectory into a pre-determined number, 'k', of distinct conformational clusters. The algorithm iteratively assigns each structure to the nearest cluster center (centroid) and then recalculates the centroids, aiming to minimize the overall variance within each cluster. While computationally efficient and simple to implement, its performance depends on the user specifying the correct number of clusters beforehand and its tendency to find spherical-shaped clusters. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001708 "k-means clustering"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001708 "k-means clustering algorithm"@en)
 SubClassOf(obo:MOLSIM_001708 obo:MOLSIM_000253)
 
-# Class: obo:MOLSIM_001709 (density peaks clustering)
+# Class: obo:MOLSIM_001709 (density peaks clustering algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001709 "Density peaks clustering is an algorithm that identifies the centers of conformational clusters by finding points that have both a high local density and a large distance from points of even higher density. The method is based on the simple idea that cluster centers are characterized by being local density maxima that are relatively far from other high-density points. This approach is advantageous for analyzing simulation trajectories as it can automatically determine the number of clusters and is robust in identifying non-spherical clusters and their most representative structures. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001709 "density peaks clustering"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001709 "density peaks clustering algorithm"@en)
 SubClassOf(obo:MOLSIM_001709 obo:MOLSIM_000253)
 
 # Class: obo:MOLSIM_001710 (Levenberg-Marquardt algorithm)
@@ -12150,10 +12153,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001711 "A residue library is a da
 AnnotationAssertion(rdfs:label obo:MOLSIM_001711 "residue library"@en)
 SubClassOf(obo:MOLSIM_001711 obo:MOLSIM_000331)
 
-# Class: obo:MOLSIM_001712 (downhill simplex minimizer)
+# Class: obo:MOLSIM_001712 (downhill simplex minimizer algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001712 "The downhill simplex minimizer, also known as the Nelder-Mead algorithm, is an optimization algorithm used to find the minimum of a function in a multi-dimensional space. It works by evaluating the function at the vertices of a geometric shape (a simplex) and iteratively moving, shrinking, or expanding the simplex towards the minimum. For experts, this algorithm is notable because it does not require the calculation of gradients, making it useful for optimizing complex or noisy functions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001712 "downhill simplex minimizer"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001712 "downhill simplex minimizer algorithm"@en)
 SubClassOf(obo:MOLSIM_001712 obo:MOLSIM_000408)
 
 # Class: obo:MOLSIM_001713 (Hawkins-Cramer-Truhlar radii set)
@@ -12162,10 +12165,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001713 "This is a specific set of
 AnnotationAssertion(rdfs:label obo:MOLSIM_001713 "Hawkins-Cramer-Truhlar radii set"@en)
 SubClassOf(obo:MOLSIM_001713 obo:MOLSIM_000272)
 
-# Class: obo:MOLSIM_001714 (Gaussian quadrature)
+# Class: obo:MOLSIM_001714 (Gaussian quadrature algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001714 "Gaussian quadrature is a powerful and highly accurate numerical integration algorithm. It approximates an integral by summing function values at a set of optimally chosen points, known as Gaussian nodes, multiplied by specific weights. For experts, this method is used in various high-level quantum chemistry calculations to achieve a high degree of accuracy with a relatively small number of function evaluations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001714 "Gaussian quadrature"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001714 "Gaussian quadrature algorithm"@en)
 SubClassOf(obo:MOLSIM_001714 obo:MOLSIM_001694)
 
 # Class: obo:MOLSIM_001715 (surface area calculation algorithm)
@@ -12204,10 +12207,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001720 "The conjugate gradient al
 AnnotationAssertion(rdfs:label obo:MOLSIM_001720 "conjugate gradient algorithm"@en)
 SubClassOf(obo:MOLSIM_001720 obo:MOLSIM_000408)
 
-# Class: obo:MOLSIM_001721 (Powell's method)
+# Class: obo:MOLSIM_001721 (Powell's algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001721 "Powell's method is a type of optimization algorithm that can find the local minimum of a function without requiring the calculation of its derivatives (gradients). It works by iteratively performing line searches along a set of directions, which are updated during the optimization. For experts, Powell's method is a useful option for minimizing functions where the gradient is not available or is unreliable. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001721 "Powell's method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001721 "Powell's algorithm"@en)
 SubClassOf(obo:MOLSIM_001721 obo:MOLSIM_000407)
 
 # Class: obo:MOLSIM_001722 (multiple time-stepping algorithm)
@@ -12324,11 +12327,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001740 "An enhanced sampling algo
 AnnotationAssertion(rdfs:label obo:MOLSIM_001740 "enhanced sampling algorithm"@en)
 SubClassOf(obo:MOLSIM_001740 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_001741 (multiple-walker selection algorithm)
+# Class: obo:MOLSIM_001741 (multiple-walkers metadynamics)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001741 "A multiple-walker selection algorithm is a procedure used in some enhanced sampling methods that involves running many parallel simulation trajectories, known as \"walkers.\" The algorithm includes rules for selecting which walkers are terminated and which are replicated based on their progress along a reaction coordinate or other criterion. This approach is used in methods like weighted ensemble or forward flux sampling to efficiently focus computational effort on rare but important events. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001741 "multiple-walker selection algorithm"@en)
-SubClassOf(obo:MOLSIM_001741 obo:MOLSIM_001740)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001741 ""@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001741 "multiple-walkers metadynamics"@en)
+SubClassOf(obo:MOLSIM_001741 obo:MOLSIM_000852)
 
 # Class: obo:MOLSIM_001742 (InChI code)
 
@@ -12366,10 +12369,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001747 "A trajectory analysis alg
 AnnotationAssertion(rdfs:label obo:MOLSIM_001747 "trajectory analysis algorithm"@en)
 SubClassOf(obo:MOLSIM_001747 obo:MOLSIM_000037)
 
-# Class: obo:MOLSIM_001748 (toroidal-view-preserving scheme)
+# Class: obo:MOLSIM_001748 (toroidal-view-preserving algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001748 "A specialized algorithm for visualizing molecules in a periodic simulation box that ensures chemical bonds are always drawn correctly, even when they cross a boundary. It treats the periodic box as a torus (a donut shape), so that when a molecule is viewed, its connectivity is preserved without being artificially \"broken\" at the box edges. This scheme is important for creating clear and unambiguous visualizations of molecular structures and their interactions within a periodic environment. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001748 "toroidal-view-preserving scheme"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001748 "toroidal-view-preserving algorithm"@en)
 SubClassOf(obo:MOLSIM_001748 obo:MOLSIM_001747)
 
 # Class: obo:MOLSIM_001749 (cubic spline interpolation algorithm)
@@ -13608,6 +13611,21 @@ SubClassOf(obo:MOLSIM_010015 obo:MOLSIM_001751)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010016 "The Schrake-Rupley algorithm is a classic method for calculating the solvent accessible surface area (SASA) of a molecule by \"rolling\" a probe sphere over the atoms' van der Waals surfaces.")
 AnnotationAssertion(rdfs:label obo:MOLSIM_010016 "Shrake-Rupley algorithm"@en)
 SubClassOf(obo:MOLSIM_010016 obo:MOLSIM_001715)
+
+# Class: obo:MOLSIM_010017 (color Tanimoto score)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010017 "color Tanimoto score"@en)
+SubClassOf(obo:MOLSIM_010017 obo:MOLSIM_000075)
+
+# Class: obo:MOLSIM_010018 (shape Tanimoto score)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010018 "shape Tanimoto score"@en)
+SubClassOf(obo:MOLSIM_010018 obo:MOLSIM_000075)
+
+# Class: obo:MOLSIM_010019 (Tanimoto combo score)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010019 "Tanimoto combo score"@en)
+SubClassOf(obo:MOLSIM_010019 obo:MOLSIM_000075)
 
 
 ############################
