@@ -131,8 +131,6 @@ Declaration(Class(obo:MOLSIM_000109))
 Declaration(Class(obo:MOLSIM_000111))
 Declaration(Class(obo:MOLSIM_000112))
 Declaration(Class(obo:MOLSIM_000113))
-Declaration(Class(obo:MOLSIM_000114))
-Declaration(Class(obo:MOLSIM_000115))
 Declaration(Class(obo:MOLSIM_000116))
 Declaration(Class(obo:MOLSIM_000117))
 Declaration(Class(obo:MOLSIM_000118))
@@ -1854,6 +1852,7 @@ Declaration(Class(obo:MOLSIM_010021))
 Declaration(Class(obo:MOLSIM_010022))
 Declaration(Class(obo:MOLSIM_010023))
 Declaration(Class(obo:MOLSIM_010024))
+Declaration(Class(obo:MOLSIM_010025))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -2629,10 +2628,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000028 "A subset of reaction anal
 AnnotationAssertion(rdfs:label obo:MOLSIM_000028 "coordinate analysis"@en)
 SubClassOf(obo:MOLSIM_000028 obo:MOLSIM_000027)
 
-# Class: obo:MOLSIM_000029 (direct reaction coordinate)
+# Class: obo:MOLSIM_000029 (direct reaction coordinate analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000029 "A type of coordinate analysis where the reaction progress is described using simple, intuitive geometric parameters like bond distances, angles, or dihedrals directly involved in the transformation. This provides a straightforward way to monitor specific structural changes assumed to be representative of the reaction pathway. It is often used for initial pathway explorations or simple bond-breaking/forming events. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000029 "direct reaction coordinate"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000029 "direct reaction coordinate analysis"@en)
 SubClassOf(obo:MOLSIM_000029 obo:MOLSIM_000028)
 
 # Class: obo:MOLSIM_000030 (water type)
@@ -3141,37 +3140,23 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000113 "A specific type of `orien
 AnnotationAssertion(rdfs:label obo:MOLSIM_000113 "tilt orientation"@en)
 SubClassOf(obo:MOLSIM_000113 obo:MOLSIM_001352)
 
-# Class: obo:MOLSIM_000114 (root-mean-square deviation)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000114 "Root Mean Square Deviation (RMSD) is a numerical measure quantifying the average distance between corresponding atoms in two optimally superimposed molecular structures. It is commonly used in MD analysis to track how much a structure deviates from a reference structure (e.g., initial or experimental) over time, indicating structural stability or conformational changes. Lower RMSD values generally indicate greater structural similarity. (UNVERIFIED)"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000114 "RMSD"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000114 "root-mean-square deviation"@en)
-SubClassOf(obo:MOLSIM_000114 obo:MOLSIM_000300)
-
-# Class: obo:MOLSIM_000115 (root mean square fluctuation)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000115 "Root Mean Square Fluctuation (RMSF) measures the fluctuation of each individual atom (or residue) around its average position calculated over the course of a molecular dynamics trajectory. Unlike RMSD which measures global deviation, RMSF highlights the flexibility of different parts of the molecule. Higher RMSF values indicate regions with greater conformational mobility. (UNVERIFIED)"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000115 "RMSF"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000115 "root mean square fluctuation"@en)
-SubClassOf(obo:MOLSIM_000115 obo:MOLSIM_000300)
-
 # Class: obo:MOLSIM_000116 (bootstrap analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000116 "Bootstrapping is a specific resampling technique used to estimate the sampling distribution of a statistic by repeatedly drawing samples with replacement from the original observed dataset, where each drawn sample has the same size as the original dataset. The statistic of interest (e.g., mean, standard deviation, correlation coefficient) is calculated for each bootstrap sample. The distribution of these calculated statistics is then used to estimate properties like standard errors or confidence intervals for the original statistic. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000116 "bootstrap analysis"@en)
 SubClassOf(obo:MOLSIM_000116 obo:MOLSIM_000349)
 
-# Class: obo:MOLSIM_000117 (Markov state models)
+# Class: obo:MOLSIM_000117 (Markov state models analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000117 "Markov State Models (MSMs) are statistical models constructed from molecular dynamics simulation data to analyze the long-timescale kinetics and thermodynamics of the system. By discretizing conformational space into states and modeling transitions between them as memoryless (Markovian), MSMs allow estimation of properties like relaxation timescales, equilibrium populations, and dominant transition pathways from trajectory data. They are powerful tools for analyzing complex dynamics. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000117 "MSMs"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000117 "Markov state models"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000117 "Markov state models analysis"@en)
 SubClassOf(obo:MOLSIM_000117 obo:MOLSIM_000300)
 
-# Class: obo:MOLSIM_000118 (Jensen-Shannon divergence)
+# Class: obo:MOLSIM_000118 (Jensen-Shannon divergence analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000118 "Jensen-Shannon Divergence (JSD) is a method for measuring the similarity between two probability distributions, based on the Kullback-Leibler (KL) divergence. Unlike KL divergence, JSD is symmetric (JSD(P||Q) = JSD(Q||P)) and always has a finite value. It essentially measures the divergence of each distribution from the average of the two distributions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000118 "Jensen-Shannon divergence"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000118 "Jensen-Shannon divergence analysis"@en)
 SubClassOf(obo:MOLSIM_000118 obo:MOLSIM_000351)
 
 # Class: obo:MOLSIM_000119 (Kullback-Leibler divergence)
@@ -3180,10 +3165,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000119 "Kullback-Leibler (KL) div
 AnnotationAssertion(rdfs:label obo:MOLSIM_000119 "Kullback-Leibler divergence"@en)
 SubClassOf(obo:MOLSIM_000119 obo:MOLSIM_001403)
 
-# Class: obo:MOLSIM_000120 (dimensionality reduction technique)
+# Class: obo:MOLSIM_000120 (dimensionality reduction technique analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000120 "Dimensionality reduction techniques are mathematical methods used to transform high-dimensional data, like the coordinates of all atoms in a simulation trajectory, into a lower-dimensional representation while retaining the most important features or variance. This simplifies visualization, analysis, and interpretation of complex datasets common in molecular simulations. Principal Component Analysis (PCA) is a widely used example. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000120 "dimensionality reduction technique"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000120 "dimensionality reduction technique analysis"@en)
 SubClassOf(obo:MOLSIM_000120 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_000121 (principal component analysis)
@@ -3205,56 +3190,56 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000123 "Clustering analysis encom
 AnnotationAssertion(rdfs:label obo:MOLSIM_000123 "clustering analysis"@en)
 SubClassOf(obo:MOLSIM_000123 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000124 (statistical test)
+# Class: obo:MOLSIM_000124 (statistical test analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000124 "A statistical test is a specific procedure used within the framework of hypothesis testing to decide whether to reject or fail to reject the null hypothesis. It involves calculating a test statistic (a value derived from the sample data) and comparing it to a critical value or calculating a p-value (the probability of observing the data, or more extreme data, if the null hypothesis were true). Examples include t-tests, chi-squared tests, and ANOVA. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000124 "statistical test"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000124 "statistical test analysis"@en)
 SubClassOf(obo:MOLSIM_000124 obo:MOLSIM_000348)
 
-# Class: obo:MOLSIM_000125 (Kolmogorov-Smirnov test)
+# Class: obo:MOLSIM_000125 (Kolmogorov-Smirnov test analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000125 "The Kolmogorov-Smirnov (KS) test is a non-parametric statistical test used to determine if two underlying one-dimensional probability distributions differ, or if a sample of data comes from a specific reference probability distribution. It quantifies the maximum distance between the empirical distribution function of the sample(s) and the cumulative distribution function of the reference distribution or the other sample. It is sensitive to differences in location, scale, and shape. (UNVERIFIED)  "@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000125 "Kolmogorov-Smirnov test"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000125 "Kolmogorov-Smirnov test analysis"@en)
 SubClassOf(obo:MOLSIM_000125 obo:MOLSIM_000124)
 
-# Class: obo:MOLSIM_000126 (confidence intervals)
+# Class: obo:MOLSIM_000126 (confidence intervals analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000126 "A confidence interval provides a range of values, calculated from sample data (e.g., simulation results), that is estimated to contain the true underlying value of a population parameter (e.g., the true average energy) with a specified probability or confidence level (e.g., 95%). It quantifies the uncertainty associated with estimating a parameter from limited or noisy data. Wider intervals indicate greater uncertainty. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000126 "confidence intervals"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000126 "confidence intervals analysis"@en)
 SubClassOf(obo:MOLSIM_000126 obo:MOLSIM_000400)
 
-# Class: obo:MOLSIM_000127 (error metrics)
+# Class: obo:MOLSIM_000127 (error metrics analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000127 "Error metrics are quantitative measures used to evaluate the discrepancy between predicted or calculated values (e.g., from a simulation or model) and true, reference, or experimentally observed values. Different metrics capture different aspects of the error, such as bias or average magnitude of deviation. They are essential for assessing the accuracy and reliability of computational predictions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000127 "error metrics"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000127 "error metrics analysis"@en)
 SubClassOf(obo:MOLSIM_000127 obo:MOLSIM_000400)
 
-# Class: obo:MOLSIM_000128 (standard error of the mean)
+# Class: obo:MOLSIM_000128 (standard error of the mean analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000128 "The Standard Error of the Mean (SEM) quantifies the precision of the sample mean as an estimate of the true population mean; it estimates how much the sample mean is likely to vary if the sampling process were repeated. It is calculated as the sample standard deviation divided by the square root of the sample size (N). A smaller SEM indicates a more precise estimate of the population mean. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000128 "SEM"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000128 "standard error of the mean"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000128 "standard error of the mean analysis"@en)
 SubClassOf(obo:MOLSIM_000128 obo:MOLSIM_000127)
 
-# Class: obo:MOLSIM_000129 (root mean square error)
+# Class: obo:MOLSIM_000129 (root mean square error analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000129 "Root Mean Square Error (RMSE) is a commonly used error metric that measures the average magnitude of the errors between predicted values and observed values. It is calculated as the square root of the average of the squared differences between predictions and actual values. RMSE penalizes larger errors more heavily due to the squaring term and is reported in the same units as the original variable. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000129 "RMSE"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000129 "root mean square error"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000129 "root mean square error analysis"@en)
 SubClassOf(obo:MOLSIM_000129 obo:MOLSIM_000127)
 
-# Class: obo:MOLSIM_000130 (mean absolute error)
+# Class: obo:MOLSIM_000130 (mean absolute error analyisis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000130 "Mean Absolute Error (MAE) is an error metric that measures the average magnitude of the absolute differences between predicted values and observed values. Unlike RMSE, it does not square the errors, meaning large errors are not penalized disproportionately, and the result is directly interpretable in the original units. It provides a measure of the average absolute deviation of predictions from reality. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000130 "MAE"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000130 "mean absolute error"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000130 "mean absolute error analyisis"@en)
 SubClassOf(obo:MOLSIM_000130 obo:MOLSIM_000127)
 
-# Class: obo:MOLSIM_000131 (mean squared error)
+# Class: obo:MOLSIM_000131 (mean squared error analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000131 "Mean Squared Error (MSE) measures the average of the squares of the errors, i.e., the average squared difference between the estimated values and the actual value. It is the square of the RMSE and is sensitive to large errors due to the squaring. MSE is frequently used in statistical optimization and model fitting procedures. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000131 "MSE"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000131 "mean squared error"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000131 "mean squared error analysis"@en)
 SubClassOf(obo:MOLSIM_000131 obo:MOLSIM_000127)
 
 # Class: obo:MOLSIM_000132 (CHARMM 36)
@@ -3263,47 +3248,47 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000132 "A widely used all-atom fo
 AnnotationAssertion(rdfs:label obo:MOLSIM_000132 "CHARMM 36"@en)
 SubClassOf(obo:MOLSIM_000132 obo:MOLSIM_000009)
 
-# Class: obo:MOLSIM_000133 (cross-validation errors)
+# Class: obo:MOLSIM_000133 (cross-validation errors analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000133 "Cross-validation errors are error metrics calculated using a cross-validation procedure, where a dataset is repeatedly partitioned into training subsets (used to build a model) and testing subsets (used to evaluate the model's predictions). Averaging the errors obtained on the independent testing subsets provides a more robust estimate of the model's generalization performance (how well it predicts unseen data) compared to evaluating only on the training data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000133 "cross-validation errors"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000133 "cross-validation errors analysis"@en)
 SubClassOf(obo:MOLSIM_000133 obo:MOLSIM_000135)
 
-# Class: obo:MOLSIM_000134 (bootstrapped error estimates)
+# Class: obo:MOLSIM_000134 (bootstrapped error estimates analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000134 "Using bootstrapped error estimates serves as a validation technique by assessing the statistical robustness and uncertainty of results derived from limited data, such as simulation outputs. By repeatedly resampling the data and recalculating the metric of interest, bootstrapping helps determine if the observed result is stable or highly dependent on specific data points. Narrow confidence intervals or small standard errors from bootstrapping increase confidence in the result's reliability. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000134 "BSE"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000134 "bootstrapped error estimates"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000134 "bootstrapped error estimates analysis"@en)
 SubClassOf(obo:MOLSIM_000134 obo:MOLSIM_000353)
 
-# Class: obo:MOLSIM_000135 (convergence and uncertainty quantification)
+# Class: obo:MOLSIM_000135 (convergence and uncertainty quantification analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000135 "Methods used to determine whether a simulation has been run long enough to adequately sample the relevant state space (convergence) and to estimate the statistical uncertainty or error bounds associated with the calculated results. Proper convergence assessment and uncertainty quantification are crucial for establishing the reliability of simulation predictions. Techniques often involve analyzing time series data or using statistical resampling. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000135 "convergence and uncertainty quantification"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000135 "convergence and uncertainty quantification analysis"@en)
 SubClassOf(obo:MOLSIM_000135 obo:MOLSIM_000400)
 
-# Class: obo:MOLSIM_000136 (block averaging)
+# Class: obo:MOLSIM_000136 (block averaging analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000136 "Block averaging is a statistical technique used to estimate the standard error (uncertainty) of the mean for data obtained from a simulation time series, where successive data points are often correlated. The time series is divided into blocks, block averages are calculated, and the standard error is estimated from the variance of these block averages. This method accounts for correlations within the data, providing a more reliable uncertainty estimate than naive calculations assuming independence. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000136 "block averaging"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000136 "block averaging analysis"@en)
 SubClassOf(obo:MOLSIM_000136 obo:MOLSIM_000135)
 
-# Class: obo:MOLSIM_000137 (hysteresis)
+# Class: obo:MOLSIM_000137 (hysteresis analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000137 "Hysteresis, in the context of free energy calculations or sampling along a coordinate, refers to the phenomenon where the results obtained depend on the direction in which a simulation parameter or collective variable is changed (e.g., forward vs. backward transformation). Observing significant hysteresis often indicates insufficient sampling or that the system is not remaining close to equilibrium during the process. Minimizing hysteresis is a key goal in demonstrating convergence for certain free energy methods. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000137 "hysteresis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000137 "hysteresis analysis"@en)
 SubClassOf(obo:MOLSIM_000137 obo:MOLSIM_000135)
 
-# Class: obo:MOLSIM_000138 (convergence metrics)
+# Class: obo:MOLSIM_000138 (convergence metrics analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000138 "Convergence metrics are quantitative measures used to assess whether a simulation has reached a stable state or adequately sampled the relevant phase space, such that calculated properties are no longer systematically changing with further simulation time. Examples might include monitoring the stability of running averages, the fluctuation of key properties, or checking for sufficient transitions between states. Different metrics are appropriate for different types of simulations and analyses. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000138 "convergence metrics"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000138 "convergence metrics analysis"@en)
 SubClassOf(obo:MOLSIM_000138 obo:MOLSIM_000135)
 
-# Class: obo:MOLSIM_000139 (overlap metrics)
+# Class: obo:MOLSIM_000139 (overlap metrics analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000139 "Overlap metrics, when used as a validation technique (e.g., in umbrella sampling or replica exchange), assess whether sufficient sampling overlap exists between adjacent simulation windows or thermodynamic states. Adequate overlap is a prerequisite for reliably combining data across windows using methods like WHAM or MBAR to calculate free energy profiles or differences. Poor overlap indicates insufficient sampling and potentially unreliable results, invalidating the analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000139 "overlap metrics"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000139 "overlap metrics analysis"@en)
 SubClassOf(obo:MOLSIM_000139 obo:MOLSIM_000135)
 
 # Class: obo:MOLSIM_000140 (computational method)
@@ -3318,10 +3303,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000141 "A theoretical approach is
 AnnotationAssertion(rdfs:label obo:MOLSIM_000141 "theoretical approach"@en)
 SubClassOf(obo:MOLSIM_000141 obo:MOLSIM_000109)
 
-# Class: obo:MOLSIM_000142 (predictive index)
+# Class: obo:MOLSIM_000142 (predictive index analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000142 "A Predictive Index (PI) generally refers to a metric designed to assess the predictive power of a computational model, quantifying how well it predicts new, unseen data rather than just fitting the data it was trained on. The specific formula can vary, but it often relates the model's error (like RMSE) to the variance of the data, aiming for a value indicating predictive utility (e.g., related to Q^2 in QSAR). The exact definition can be context-dependent within specific research fields. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000142 "predictive index"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000142 "predictive index analysis"@en)
 SubClassOf(obo:MOLSIM_000142 obo:MOLSIM_000127)
 
 # Class: obo:MOLSIM_000143 (ligand pairs selection criteria)
@@ -3899,24 +3884,24 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000235 "The potential energy asso
 AnnotationAssertion(rdfs:label obo:MOLSIM_000235 "nuclear interaction energy"@en)
 SubClassOf(obo:MOLSIM_000235 obo:MOLSIM_000231)
 
-# Class: obo:MOLSIM_000236 (weighted histogram analysis method)
+# Class: obo:MOLSIM_000236 (weighted histogram analysis method analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000236 "The Weighted Histogram Analysis Method (WHAM) is a statistical technique primarily used to combine data from multiple biased simulations (like umbrella sampling) to compute an unbiased free energy profile or potential of mean force (PMF). While mainly an analysis method, the ability to obtain a smooth, well-converged PMF using WHAM implicitly validates that the underlying biased simulations adequately sampled the relevant conformational space and had sufficient overlap between windows. It is closely related to MBAR. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000236 "WHAM"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000236 "weighted histogram analysis method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000236 "weighted histogram analysis method analysis"@en)
 SubClassOf(obo:MOLSIM_000236 obo:MOLSIM_000353)
 
-# Class: obo:MOLSIM_000237 (potential mean force calculation)
+# Class: obo:MOLSIM_000237 (potential mean force analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000237 "The Potential of Mean Force (PMF) method calculates the free energy profile of a system as a function of one or more specific coordinates, often called reaction coordinates or order parameters (e.g., the distance between two molecules). It essentially describes the effective potential energy governing the system's behavior along those chosen coordinates, including entropic effects averaged over all other degrees of freedom. PMFs are crucial for understanding reaction mechanisms, binding processes, and conformational changes. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000237 "PMF"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000237 "potential mean force calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000237 "potential mean force analysis"@en)
 SubClassOf(obo:MOLSIM_000237 obo:MOLSIM_000615)
 
-# Class: obo:MOLSIM_000238 (trajectory approach)
+# Class: obo:MOLSIM_000238 (trajectory approach analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000238 "This term categorizes different strategies for generating and utilizing molecular dynamics trajectories when calculating binding free energies using endpoint methods like MM/PBSA or MM/GBSA. These approaches primarily differ in whether separate simulations are run for the complex, free protein, and free ligand, or if data for all components are derived from a single simulation. The choice affects computational cost and potentially accuracy due to sampling differences. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000238 "trajectory approach"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000238 "trajectory approach analysis"@en)
 SubClassOf(obo:MOLSIM_000238 obo:MOLSIM_000262)
 
 # Class: obo:MOLSIM_000239 (single trajectory)
@@ -4015,10 +4000,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000254 "A specific type of cluste
 AnnotationAssertion(rdfs:label obo:MOLSIM_000254 "hierarchical agglomerative bottom-up algorithm"@en)
 SubClassOf(obo:MOLSIM_000254 obo:MOLSIM_000253)
 
-# Class: obo:MOLSIM_000255 (static molecular interaction prediction)
+# Class: obo:MOLSIM_000255 (static molecular interaction prediction analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000255 "Static molecular interaction prediction refers to computational methods that aim to predict how molecules will interact (e.g., bind to each other) based primarily on their static structures, without explicitly simulating their dynamic behavior over time. These methods often involve optimizing the relative orientation of molecules and evaluating interaction energies using scoring functions or simplified energy calculations. Molecular docking is a primary example in this category. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000255 "static molecular interaction prediction"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000255 "static molecular interaction prediction analysis"@en)
 SubClassOf(obo:MOLSIM_000255 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000256 (protein-ligand docking)
@@ -4052,65 +4037,65 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000260 "LEaP"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000260 "tleap"@en)
 SubClassOf(obo:MOLSIM_000260 obo:MOLSIM_000259)
 
-# Class: obo:MOLSIM_000261 (binding free energy calculation method)
+# Class: obo:MOLSIM_000261 (binding free energy calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000261 "Binding free energy encompasses computational techniques specifically designed to estimate the Gibbs free energy change (ΔG bind) associated with the non-covalent binding of two molecules, typically a protein and a ligand. Calculating binding free energy is crucial for predicting molecular interactions, understanding binding affinity in drug design, and validating docking poses. These methods range from approximate endpoint methods to more rigorous alchemical transformations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000261 "binding free energy calculation method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000261 "binding free energy calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000261 obo:MOLSIM_000615)
 
-# Class: obo:MOLSIM_000262 (molecular mechanics Poisson Boltzmann surface area)
+# Class: obo:MOLSIM_000262 (molecular mechanics Poisson Boltzmann surface area analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000262 "MM/PBSA is an endpoint method used to estimate binding free energies by combining molecular mechanics (MM) energy calculations with continuum solvation models. It calculates the free energy change by summing the change in MM energy in vacuum, the change in polar solvation free energy (calculated using Poisson-Boltzmann electrostatics), and the change in nonpolar solvation free energy (estimated from solvent-accessible surface area). This approach analyzes snapshots from molecular dynamics simulations of the bound and unbound states. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000262 "MMPBSA"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000262 "molecular mechanics Poisson Boltzmann surface area"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000262 "molecular mechanics Poisson Boltzmann surface area analysis"@en)
 SubClassOf(obo:MOLSIM_000262 obo:MOLSIM_000326)
 
-# Class: obo:MOLSIM_000263 (molecular mechanics generalized Born surface area)
+# Class: obo:MOLSIM_000263 (molecular mechanics generalized Born surface area analysi)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000263 "MM/GBSA is an endpoint binding free energy estimation method closely related to MM/PBSA, differing primarily in how the polar solvation free energy is calculated. Instead of the computationally more intensive Poisson-Boltzmann equation, MM/GBSA uses the faster Generalized Born (GB) implicit solvent model to estimate the electrostatic contribution to solvation. Like MM/PBSA, it combines MM energies, GB polar solvation energy, and surface-area based nonpolar energy using simulation snapshots. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000263 "MMGBSA"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000263 "molecular mechanics generalized Born surface area"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000263 "molecular mechanics generalized Born surface area analysi"@en)
 SubClassOf(obo:MOLSIM_000263 obo:MOLSIM_000326)
 
-# Class: obo:MOLSIM_000264 (linear interaction energy)
+# Class: obo:MOLSIM_000264 (linear interaction energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000264 "The Linear Interaction Energy (LIE) method estimates binding free energies based on the difference in the ensemble-averaged electrostatic and van der Waals interaction energies of the ligand with its surroundings between the bound and unbound ( solvated) states. It uses empirically determined scaling coefficients (α and β) to relate these energy changes to the binding free energy (ΔG bind = αΔ⟨E vdw ⟩+βΔ⟨E elec ⟩). This requires simulations of the ligand in the bound state and free in solution. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000264 "LIE"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000264 "linear interaction energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000264 "linear interaction energy analysis"@en)
 SubClassOf(obo:MOLSIM_000264 obo:MOLSIM_000326)
 
-# Class: obo:MOLSIM_000265 (alchemical free energy methods)
+# Class: obo:MOLSIM_000265 (alchemical free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000265 "Alchemical free energy methods are a class of rigorous computational techniques used to calculate free energy differences by simulating a non-physical, reversible transformation pathway between two states (e.g., bound and unbound ligand, or two different ligands). These methods rely on statistical mechanics principles and involve gradually changing the Hamiltonian (the energy function) of the system along the pathway. Techniques like Free Energy Perturbation (FEP) and Thermodynamic Integration (TI) fall under this category. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000265 "alchemical free energy methods"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000265 "alchemical free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000265 obo:MOLSIM_000261)
 
-# Class: obo:MOLSIM_000266 (free energy perturbation)
+# Class: obo:MOLSIM_000266 (free energy perturbation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000266 "Free Energy Perturbation (FEP) is an alchemical method for calculating free energy differences between two states (A and B) by simulating a series of intermediate states that gradually transform A into B. The free energy change between adjacent intermediate states (λ and λ+Δλ) is calculated using the Zwanzig equation, which involves ensemble averaging the energy difference exponentiated. Summing the free energy changes over all intermediate steps yields the total free energy difference between A and B. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000266 "FEP"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000266 "free energy perturbation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000266 "free energy perturbation analysis"@en)
 SubClassOf(obo:MOLSIM_000266 obo:MOLSIM_000265)
 
-# Class: obo:MOLSIM_000267 (thermodynamic integration)
+# Class: obo:MOLSIM_000267 (thermodynamic integration analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000267 "Thermodynamic Integration (TI) is another rigorous alchemical method for calculating free energy differences between two states, A and B, connected by a coupling parameter λ (where λ=0 is state A and λ=1 is state B). It involves calculating the ensemble average of the derivative of the Hamiltonian with respect to λ (⟨∂H/∂λ⟩ λ) at several discrete values of λ along the transformation pathway. The total free energy difference is then obtained by numerically integrating this average derivative from λ=0 to λ=1. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000267 "TI"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000267 "thermodynamic integration"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000267 "thermodynamic integration analysis"@en)
 SubClassOf(obo:MOLSIM_000267 obo:MOLSIM_000261)
 
-# Class: obo:MOLSIM_000268 (binding free energy estimator 2)
+# Class: obo:MOLSIM_000268 (binding free energy estimator 2 analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000268 "Binding Free Energy Estimator 2 (BFEE2) is a comprehensive computational workflow designed to calculate protein-ligand binding free energies with high accuracy. It automates a rigorous multi-step process that includes enhanced sampling of the ligand's binding pose and the use of alchemical free energy methods to compute the final affinity. This tool aims to provide a standardized and reproducible protocol for obtaining reliable binding energy predictions that can guide drug discovery projects. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000268 "BFEE2"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000268 "binding free energy estimator 2"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000268 "binding free energy estimator 2 analysis"@en)
 SubClassOf(obo:MOLSIM_000268 obo:MOLSIM_000261)
 
-# Class: obo:MOLSIM_000269 (non-equilibrium free energy calculations)
+# Class: obo:MOLSIM_000269 (non-equilibrium free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000269 "Non-equilibrium free energy calculations determine equilibrium free energy differences by analyzing simulations where the system is deliberately driven out of equilibrium, often using methods like Steered Molecular Dynamics (SMD). These techniques typically involve performing many fast, non-reversible transformations between the initial and final states and then applying fluctuation theorems (like Jarzynski's equality or Crooks' theorem) to relate the work done during these non-equilibrium processes to the equilibrium free energy difference. This can sometimes be more efficient than equilibrium alchemical methods. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000269 "NEQ"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000269 "non-equilibrium free energy calculations"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000269 "non-equilibrium free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000269 obo:MOLSIM_000261)
 
 # Class: obo:MOLSIM_000270 (Poisson-Boltzmann surface area)
@@ -4151,25 +4136,25 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000275 "A specific version ('vers
 AnnotationAssertion(rdfs:label obo:MOLSIM_000275 "mbondi2"@en)
 SubClassOf(obo:MOLSIM_000275 obo:MOLSIM_000272)
 
-# Class: obo:MOLSIM_000276 (enthropic contributions mode)
+# Class: obo:MOLSIM_000276 (enthropic contributions mode analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000276 "This term refers to methods used to estimate the entropic contribution (−TS) to the free energy, often by analyzing the vibrational modes of the system. Entropy quantifies the disorder or number of accessible states, and these methods typically approximate it by considering the system's vibrations around an average structure. Common approaches include normal mode analysis and quasiharmonic analysis based on simulation fluctuations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000276 "enthropic contributions mode"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000276 "enthropic contributions mode analysis"@en)
 SubClassOf(obo:MOLSIM_000276 obo:MOLSIM_000309)
 
-# Class: obo:MOLSIM_000277 (quasiharmonic mode)
+# Class: obo:MOLSIM_000277 (quasiharmonic mode analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000277 "Quasiharmonic analysis is a method used to estimate vibrational entropy from molecular dynamics simulation data by assuming atoms undergo harmonic oscillations around their average positions. It involves calculating the mass-weighted covariance matrix of atomic fluctuations from the trajectory and diagonalizing it to obtain effective vibrational frequencies (quasiharmonic modes). These frequencies are then used in standard statistical mechanics formulas for harmonic oscillators to estimate the entropy. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000277 "QH"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000277 "quasiharmonic mode"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000277 "quasiharmonic mode analysis"@en)
 SubClassOf(obo:MOLSIM_000277 obo:MOLSIM_000276)
 DisjointClasses(obo:MOLSIM_000277 obo:MOLSIM_000278)
 
-# Class: obo:MOLSIM_000278 (normal mode)
+# Class: obo:MOLSIM_000278 (normal mode analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000278 "Normal Mode Analysis (NMA) calculates the fundamental vibrational modes and frequencies of a molecule based on harmonic oscillations around a single energy minimum structure. It involves calculating the Hessian matrix (second derivatives of potential energy with respect to coordinates) at the minimum and diagonalizing it. The resulting eigenvectors represent the collective vibrational modes (normal modes), and the eigenvalues are related to their frequencies, which can be used to estimate vibrational entropy. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000278 "NM"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000278 "normal mode"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000278 "normal mode analysis"@en)
 SubClassOf(obo:MOLSIM_000278 obo:MOLSIM_000276)
 
 # Class: obo:MOLSIM_000279 (1 trajectory approach)
@@ -4296,31 +4281,31 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000299 "thermodynamic integration with
 SubClassOf(obo:MOLSIM_000299 obo:MOLSIM_000298)
 DisjointClasses(obo:MOLSIM_000299 obo:MOLSIM_000356)
 
-# Class: obo:MOLSIM_000300 (free energy and molecular dynamics specific method)
+# Class: obo:MOLSIM_000300 (free energy and molecular dynamics analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000300 "Analysis techniques and calculated properties that are particularly characteristic of or frequently applied to data generated from molecular dynamics (MD) simulations, especially those aimed at calculating free energies or characterizing structural dynamics. These methods help interpret the complex time-series data produced by MD. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000300 "free energy and molecular dynamics specific method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000300 "free energy and molecular dynamics analysis"@en)
 SubClassOf(obo:MOLSIM_000300 obo:MOLSIM_000400)
 
-# Class: obo:MOLSIM_000301 (Bennett acceptance ratio)
+# Class: obo:MOLSIM_000301 (Bennett acceptance ratio analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000301 "The Bennett Acceptance Ratio (BAR) method is a statistically optimal technique for calculating the equilibrium free energy difference between two thermodynamic states (A and B) using simulation data generated in both states. It provides the lowest variance estimate of the free energy difference for a given amount of simulation data by optimally combining forward (A->B) and reverse (B->A) transition information. It is closely related to MBAR but specifically for two states. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000301 "BAR"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000301 "Bennett acceptance ratio"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000301 "Bennett acceptance ratio analysis"@en)
 SubClassOf(obo:MOLSIM_000301 obo:MOLSIM_000300)
 DisjointClasses(obo:MOLSIM_000301 obo:MOLSIM_000302)
 
-# Class: obo:MOLSIM_000302 (multi-state Bennett acceptance ratio)
+# Class: obo:MOLSIM_000302 (multi-state Bennett acceptance ratio analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000302 "The Multistate Bennett Acceptance Ratio (MBAR) is a statistically optimal method for analyzing data from multiple simulations performed at different thermodynamic states (e.g., different temperatures, or with different biasing potentials like in umbrella sampling). It efficiently combines all the collected data to calculate free energy differences between any pair of the simulated states and to compute equilibrium expectation values. MBAR generalizes the two-state BAR method. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000302 "MBAR"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000302 "multi-state Bennett acceptance ratio"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000302 "multi-state Bennett acceptance ratio analysis"@en)
 SubClassOf(obo:MOLSIM_000302 obo:MOLSIM_000300)
 
-# Class: obo:MOLSIM_000303 (linear dependence evaluation method)
+# Class: obo:MOLSIM_000303 (linear dependence evaluation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000303 "A mathematical technique used to determine if a set of variables or vectors (e.g., descriptive coordinates or components from data analysis) are linearly related, meaning one can be expressed as a combination of the others. In simulation analysis, this is often used to check for redundancy in sets of collective variables or principal components derived from trajectory data. Identifying such dependencies can help simplify models or analysis (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000303 "linear dependence evaluation method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000303 "linear dependence evaluation analysis"@en)
 SubClassOf(obo:MOLSIM_000303 obo:MOLSIM_000383)
 
 # Class: obo:MOLSIM_000304 (experimental method)
@@ -4329,10 +4314,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000304 "An experimental method is
 AnnotationAssertion(rdfs:label obo:MOLSIM_000304 "experimental method"@en)
 SubClassOf(obo:MOLSIM_000304 obo:MOLSIM_000109)
 
-# Class: obo:MOLSIM_000305 (modeling method)
+# Class: obo:MOLSIM_000305 (modeling analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000305 "A modeling method is a computational technique used to build a simplified representation or predict the structure of a molecule. As a type of computational method, it typically involves predicting a static structure or interaction pose without simulating its dynamic behavior over time, such as in protein-ligand docking. These methods often employ search algorithms and scoring functions to evaluate and rank potential conformations based on criteria like shape complementarity and interaction energy. Common terms found in software and publications include \"molecular docking,\" \"homology modeling,\" \"scoring function,\" and \"binding pose prediction.\" (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000305 "modeling method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000305 "modeling analysis"@en)
 SubClassOf(obo:MOLSIM_000305 obo:MOLSIM_000140)
 
 # Class: obo:MOLSIM_000306 (statistical package)
@@ -4354,10 +4339,10 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000308 "simulation method"@en)
 SubClassOf(obo:MOLSIM_000308 obo:MOLSIM_000140)
 SubClassOf(obo:MOLSIM_000308 obo:MOLSIM_000841)
 
-# Class: obo:MOLSIM_000309 (entropy analysis method)
+# Class: obo:MOLSIM_000309 (entropy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000309 "An entropy analysis method is a calculation used to measure the amount of disorder or randomness in a molecular system. As a type of thermodynamics analysis, this method estimates the entropic contribution to the free energy, often by analyzing the system's vibrational modes or conformational fluctuations from a simulation trajectory. Techniques like quasiharmonic mode analysis or normal mode analysis are used to calculate the vibrational entropy from the covariance matrix of atomic positions or the Hessian matrix, respectively. Outputs from these methods often contain terms like \"Entropy,\" \"T*S,\" \"Quasi-Harmonic,\" \"Normal Mode Analysis,\" or \"vibrational entropy.\" (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000309 "entropy analysis method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000309 "entropy analysis"@en)
 SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_000310 (plan specification)
@@ -4402,22 +4387,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000316 "A potential of mean force
 AnnotationAssertion(rdfs:label obo:MOLSIM_000316 "potential of mean force"@en)
 SubClassOf(obo:MOLSIM_000316 obo:MOLSIM_001314)
 
-# Class: obo:MOLSIM_000326 (endpoint free energy method)
+# Class: obo:MOLSIM_000326 (endpoint free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000326 "An endpoint free energy method is a computational approach that estimates the free energy difference between two states by analyzing simulations performed only at the beginning and end points of a process. Unlike more rigorous alchemical methods, it does not simulate the intermediate transformation pathway. Methods like MM/PBSA and MM/GBSA are popular endpoint methods that combine molecular mechanics energies with continuum solvent models to estimate binding free energies from trajectories of the bound and unbound states. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000326 "endpoint free energy method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000326 "endpoint free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000326 obo:MOLSIM_000265)
 
-# Class: obo:MOLSIM_000327 (active site focusing)
+# Class: obo:MOLSIM_000327 (active site focusing analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000327 "Active site focusing is a strategy used in some endpoint free energy methods to improve the calculation by concentrating on the most important region of the system. This might involve performing the energy analysis only for residues within a certain distance of the binding site, or using a more detailed model for that region. For experts, this approach aims to reduce computational noise and focus the calculation on the energetic contributions that are most relevant to the binding event. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000327 "active site focusing"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000327 "active site focusing analysis"@en)
 SubClassOf(obo:MOLSIM_000327 obo:MOLSIM_000262)
 
-# Class: obo:MOLSIM_000328 (system setup method)
+# Class: obo:MOLSIM_000328 (system setup analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000328 "A system setup method is a procedure used to prepare a molecular system for a simulation. This involves all the steps required to build a complete and chemically correct model, such as adding solvent molecules, placing ions, and ensuring the correct atom ordering. For experts, these methods are critical for creating a valid starting point that accurately reflects the intended experimental conditions of the simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000328 "system setup method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000328 "system setup analysis"@en)
 SubClassOf(obo:MOLSIM_000328 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000329 (ion placement method)
@@ -4486,10 +4471,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000339 "Refers specifically to in
 AnnotationAssertion(rdfs:label obo:MOLSIM_000339 "numerical integration"@en)
 SubClassOf(obo:MOLSIM_000339 obo:MOLSIM_000340)
 
-# Class: obo:MOLSIM_000340 (integration method)
+# Class: obo:MOLSIM_000340 (integration analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000340 "A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000340 "integration method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000340 "integration analysis"@en)
 SubClassOf(obo:MOLSIM_000340 obo:MOLSIM_000383)
 
 # Class: obo:MOLSIM_000341 (auto-correlation analysis)
@@ -4511,22 +4496,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000343 "An anisotropic position s
 AnnotationAssertion(rdfs:label obo:MOLSIM_000343 "anisotropic position scaling barostat"@en)
 SubClassOf(obo:MOLSIM_000343 obo:MOLSIM_000039)
 
-# Class: obo:MOLSIM_000344 (Welch's T-test)
+# Class: obo:MOLSIM_000344 (Welch's T-test analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000344 "Welch's t-test is a statistical test used to determine if two populations have equal means, and it is an adaptation of the Student's t-test. It is specifically designed for the situation where the two samples are assumed to have unequal variances. For simulation analysts, Welch's t-test is a robust method for comparing the average value of a property calculated from two independent simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000344 "Welch's T-test"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000344 "Welch's T-test analysis"@en)
 SubClassOf(obo:MOLSIM_000344 obo:MOLSIM_000124)
 
-# Class: obo:MOLSIM_000345 (auto-correlation coefficients)
+# Class: obo:MOLSIM_000345 (auto-correlation coefficients analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000345 "Auto-correlation coefficients are the numerical values that make up the Auto-Correlation Function (ACF) at different time lags (τ). Each coefficient measures the linear correlation between the time series and the same series shifted by τ time steps. Plotting these coefficients against the lag reveals the temporal structure and memory effects within the data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000345 "auto-correlation coefficients"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000345 "auto-correlation coefficients analysis"@en)
 SubClassOf(obo:MOLSIM_000345 obo:MOLSIM_000341)
 
-# Class: obo:MOLSIM_000346 (partial auto-correlation coefficients)
+# Class: obo:MOLSIM_000346 (partial auto-correlation coefficients analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000346 "Partial auto-correlation coefficients measure the correlation between a time series and a lagged version of itself (at lag τ) after removing the linear dependence associated with all the shorter, intermediate lags (1 to τ−1). The Partial Auto-Correlation Function (PACF) helps identify the direct relationship between an observation and its value at a specific earlier time point, distinct from indirect correlations mediated by intermediate points. It is useful in time series modeling (e.g., ARIMA). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000346 "partial auto-correlation coefficients"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000346 "partial auto-correlation coefficients analysis"@en)
 SubClassOf(obo:MOLSIM_000346 obo:MOLSIM_000345)
 
 # Class: obo:MOLSIM_000347 (regression analysis)
@@ -4535,10 +4520,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000347 "Regression analysis encom
 AnnotationAssertion(rdfs:label obo:MOLSIM_000347 "regression analysis"@en)
 SubClassOf(obo:MOLSIM_000347 obo:MOLSIM_000400)
 
-# Class: obo:MOLSIM_000348 (hypothesis testing)
+# Class: obo:MOLSIM_000348 (hypothesis testing analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000348 "Hypothesis testing provides a formal statistical framework for making decisions about population parameters or relationships based on sample data. It involves formulating a null hypothesis (typically stating no effect or no difference) and an alternative hypothesis, then using a statistical test on the data to determine whether there is enough evidence to reject the null hypothesis in favor of the alternative. This process helps draw objective conclusions from data analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000348 "hypothesis testing"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000348 "hypothesis testing analysis"@en)
 SubClassOf(obo:MOLSIM_000348 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_000349 (resampling method)
@@ -4553,10 +4538,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000350 "Small-angle X-ray scatter
 AnnotationAssertion(rdfs:label obo:MOLSIM_000350 "small angle x-ray scattering"@en)
 SubClassOf(obo:MOLSIM_000350 obo:MOLSIM_000990)
 
-# Class: obo:MOLSIM_000351 (similarity and divergence measures)
+# Class: obo:MOLSIM_000351 (similarity and divergence analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000351 "Similarity and divergence measures are mathematical quantities used to compare two probability distributions, datasets, or sequences, quantifying how similar or different they are. Similarity measures indicate closeness (higher values mean more similar), while divergence measures quantify the difference or 'distance' between them (higher values mean more different). These are used in various fields including information theory, statistics, and bioinformatics (e.g., comparing conformational ensembles). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000351 "similarity and divergence measures"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000351 "similarity and divergence analysis"@en)
 SubClassOf(obo:MOLSIM_000351 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_000352 (Scripps binpos format)
@@ -4566,10 +4551,10 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000352 ".binpos")
 AnnotationAssertion(rdfs:label obo:MOLSIM_000352 "Scripps binpos format"@en)
 SubClassOf(obo:MOLSIM_000352 obo:MOLSIM_001090)
 
-# Class: obo:MOLSIM_000353 (validation technique)
+# Class: obo:MOLSIM_000353 (validation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000353 "A method used to check whether the results or models generated by biomolecular simulations are accurate, physically realistic, and reliable. These techniques assess the quality of simulation outputs by comparing them against known experimental data or established theoretical principles. Their goal is to ensure the simulation provides a meaningful representation of the molecular system being studied (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000353 "validation technique"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000353 "validation analysis"@en)
 SubClassOf(obo:MOLSIM_000353 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_000354 (p-value)
@@ -4578,10 +4563,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000354 "A type of statistical pro
 AnnotationAssertion(rdfs:label obo:MOLSIM_000354 "p-value"@en)
 SubClassOf(obo:MOLSIM_000354 obo:MOLSIM_001403)
 
-# Class: obo:MOLSIM_000355 (thermodynamic integration method)
+# Class: obo:MOLSIM_000355 (thermodynamic integration analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000355 "Thermodynamic Integration (TI) is a rigorous statistical mechanics method used to calculate free energy differences between two defined states (e.g., A and B) by simulating a reversible, non-physical transformation pathway connecting them. It involves calculating the ensemble average of the derivative of the system's energy with respect to a coupling parameter (λ) at several points along the path and integrating this derivative over the path (ΔG=∫01 ⟨∂H/∂λ⟩ λdλ). This framework encompasses various specific approaches and implementation details. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000355 "thermodynamic integration method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000355 "thermodynamic integration analysis"@en)
 SubClassOf(obo:MOLSIM_000355 obo:MOLSIM_000265)
 
 # Class: obo:MOLSIM_000356 (thermodynamic integration without linear extrapolation)
@@ -4590,22 +4575,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000356 "This term describes any t
 AnnotationAssertion(rdfs:label obo:MOLSIM_000356 "thermodynamic integration without linear extrapolation"@en)
 SubClassOf(obo:MOLSIM_000356 obo:MOLSIM_000298)
 
-# Class: obo:MOLSIM_000357 (visualization method)
+# Class: obo:MOLSIM_000357 (visualization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000357 "A visualization method is a technique used to create a graphical representation of molecular data, allowing scientists to see and interact with their results. This includes generating 3D images of molecules, animating simulation trajectories, or plotting data in the form of 2D graphs. For researchers, visualization is an indispensable method for understanding complex structural information and communicating findings. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000357 "visualization method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000357 "visualization analysis"@en)
 SubClassOf(obo:MOLSIM_000357 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000358 (worm plot visualization)
+# Class: obo:MOLSIM_000358 (worm plot visualization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000358 "A worm plot is a visualization method that displays a collection of superimposed molecular structures from a simulation or an NMR ensemble. Each structure is typically represented as a smooth tube or \"worm\" tracing the path of the protein backbone. This method provides a clear visual impression of the conformational variability and dynamic fluctuations within the molecular ensemble. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000358 "worm plot visualization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000358 "worm plot visualization analysis"@en)
 SubClassOf(obo:MOLSIM_000358 obo:MOLSIM_000357)
 
-# Class: obo:MOLSIM_000359 (helical density map visualization)
+# Class: obo:MOLSIM_000359 (helical density map visualization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000359 "A helical density map is a visualization method used to represent the three-dimensional distribution of atoms within a helical structure, averaged over time from a simulation. It creates a 3D grid where the value at each point represents the probability of finding an atom, which can then be displayed as a contoured surface. This method is particularly useful for analyzing the average structure and packing of molecules like DNA or alpha-helical proteins. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000359 "helical density map visualization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000359 "helical density map visualization analysis"@en)
 SubClassOf(obo:MOLSIM_000359 obo:MOLSIM_000357)
 
 # Class: obo:MOLSIM_000360 (Laplacian mapping ion placement)
@@ -4645,10 +4630,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000365 "An electron microscopy ma
 AnnotationAssertion(rdfs:label obo:MOLSIM_000365 "electron microscopy map restraint method"@en)
 SubClassOf(obo:MOLSIM_000365 obo:MOLSIM_000364)
 
-# Class: obo:MOLSIM_000366 (finite-difference method)
+# Class: obo:MOLSIM_000366 (finite-difference analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000366 "The finite-difference method is a numerical analysis technique for solving differential equations by approximating the derivatives with finite differences. It discretizes the problem onto a grid and replaces the continuous derivatives with algebraic expressions involving the function values at neighboring grid points. For experts, this method is the basis for many numerical solvers, including those used to solve the Poisson-Boltzmann equation in continuum electrostatics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000366 "finite-difference method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000366 "finite-difference analysis"@en)
 SubClassOf(obo:MOLSIM_000366 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000367 (numerical analysis)
@@ -4657,10 +4642,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000367 "Numerical analysis is a f
 AnnotationAssertion(rdfs:label obo:MOLSIM_000367 "numerical analysis"@en)
 SubClassOf(obo:MOLSIM_000367 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000368 (immersed interface method)
+# Class: obo:MOLSIM_000368 (immersed interface analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000368 "The immersed interface method is an advanced numerical analysis technique for solving differential equations in problems where there are interfaces or discontinuities, such as the boundary between a protein and the solvent. It uses a modified finite-difference scheme that explicitly incorporates the known jump conditions at the interface to achieve high accuracy. For experts, this method is a powerful tool for obtaining accurate solutions to the Poisson-Boltzmann equation in continuum solvent models. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000368 "immersed interface method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000368 "immersed interface analysis"@en)
 SubClassOf(obo:MOLSIM_000368 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000369 (low-mode conformational search)
@@ -4681,10 +4666,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000371 "NMR analysis in a simulat
 AnnotationAssertion(rdfs:label obo:MOLSIM_000371 "NMR analysis"@en)
 SubClassOf(obo:MOLSIM_000371 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000372 (r-6 weighted distance averaging)
+# Class: obo:MOLSIM_000372 (r-6 weighted distance averaging analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000372 "The r-6 weighted distance averaging is a specific calculation method used in NMR analysis to compute an effective distance from a simulation trajectory that can be directly compared to an experimental nuclear Overhauser effect (NOE). Because the NOE intensity is proportional to the inverse sixth power of the distance between two protons, a simple average of the distance is incorrect. For experts, performing this <r⁻⁶>⁻¹/⁶ averaging is the physically correct way to back-calculate NOE-derived distances from a dynamic ensemble of structures. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000372 "r-6 weighted distance averaging"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000372 "r-6 weighted distance averaging analysis"@en)
 SubClassOf(obo:MOLSIM_000372 obo:MOLSIM_000371)
 
 # Class: obo:MOLSIM_000373 (replica-exchange self-guided Langevin dynamics)
@@ -4693,10 +4678,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000373 "This is an enhanced sampl
 AnnotationAssertion(rdfs:label obo:MOLSIM_000373 "replica-exchange self-guided Langevin dynamics"@en)
 SubClassOf(obo:MOLSIM_000373 obo:MOLSIM_000858)
 
-# Class: obo:MOLSIM_000374 (force field parameterization method)
+# Class: obo:MOLSIM_000374 (force field parameterization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000374 "A force field parameterization method is the systematic procedure used to derive the numerical values, or parameters, for a force field. This process involves fitting the parameters of the force field's energy functions to reproduce high-quality data, which can come from quantum mechanical calculations or experimental measurements. For experts, the parameterization method is the core of force field development and determines the accuracy and domain of applicability of the resulting model. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000374 "force field parameterization method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000374 "force field parameterization analysis"@en)
 SubClassOf(obo:MOLSIM_000374 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000375 (Seminario method)
@@ -4729,10 +4714,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000379 "ZLM density fitting is a 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000379 "ZLM density fitting"@en)
 SubClassOf(obo:MOLSIM_000379 obo:MOLSIM_000367)
 
-# Class: obo:MOLSIM_000380 (force interpolation method)
+# Class: obo:MOLSIM_000380 (force interpolation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000380 "A force interpolation method is a numerical technique used in some simulation algorithms to estimate the forces on atoms without calculating them directly at every step. This is often done by calculating the forces on a coarser grid and then interpolating these forces to the actual atomic positions. For experts, this method can be used in some multiple-time-stepping algorithms to reduce the computational cost of the force calculation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000380 "force interpolation method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000380 "force interpolation analysis"@en)
 SubClassOf(obo:MOLSIM_000380 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000381 (adaptive thermostat)
@@ -4765,10 +4750,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000385 "Mulliken Ewald summation 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000385 "Mulliken Ewald summation"@en)
 SubClassOf(obo:MOLSIM_000385 obo:MOLSIM_000428)
 
-# Class: obo:MOLSIM_000386 (QM-QM derivative calculation method)
+# Class: obo:MOLSIM_000386 (QM-QM derivative calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000386 "A QM-QM derivative calculation method is the numerical procedure used to compute the derivatives of the energy in a multi-layer quantum mechanics simulation, such as an ONIOM calculation. This is necessary for performing geometry optimization or molecular dynamics, where the forces on the atoms are required. For experts, the accurate and efficient calculation of these derivatives is a key technical challenge in implementing multi-layer QM methods. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000386 "QM-QM derivative calculation method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000386 "QM-QM derivative calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000386 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000387 (QM Ewald treatment)
@@ -4909,10 +4894,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000409 "XMIN is a family of energ
 AnnotationAssertion(rdfs:label obo:MOLSIM_000409 "XMIN minimization algorithm"@en)
 SubClassOf(obo:MOLSIM_000409 obo:MOLSIM_000408)
 
-# Class: obo:MOLSIM_000410 (lambda-scheduling free energy method)
+# Class: obo:MOLSIM_000410 (lambda-scheduling free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000410 "A lambda-scheduling free energy method is a technique where the alchemical transformation between two states is performed in a single, continuous simulation run. This is achieved by slowly and continuously changing the coupling parameter, lambda, according to a predefined schedule over the course of the simulation. For experts, this non-equilibrium approach can be computationally efficient, and the free energy can be estimated from the work performed during the transformation using fluctuation theorems. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000410 "lambda-scheduling free energy method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000410 "lambda-scheduling free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000410 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000411 (hybrid solvent replica-exchange molecular dynamics)
@@ -4939,10 +4924,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000414 "Replica-exchange with an 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000414 "replica-exchange with arbitrary degree of freedom"@en)
 SubClassOf(obo:MOLSIM_000414 obo:MOLSIM_000845)
 
-# Class: obo:MOLSIM_000415 (EMIL free energy method)
+# Class: obo:MOLSIM_000415 (EMIL free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000415 "The EMIL (Energy and Motion from an Implicit Liquid) free energy method is a computational technique for calculating the free energy profile along a specific coordinate. It works by determining the average force exerted by the solvent on the solute at different points along a pathway and then integrating this force to obtain the potential of mean force. This provides an efficient way to map out the energetic landscape of a conformational change or binding process. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000415 "EMIL free energy method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000415 "EMIL free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000415 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000416 (constant pH molecular dynamics)
@@ -4957,10 +4942,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000417 "Continuous constant pH mo
 AnnotationAssertion(rdfs:label obo:MOLSIM_000417 "continuous constant pH molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000417 obo:MOLSIM_000416)
 
-# Class: obo:MOLSIM_000418 (lambda-dynamics free energy method)
+# Class: obo:MOLSIM_000418 (lambda-dynamics free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000418 "Lambda-dynamics is a free energy calculation method where the coupling parameter, lambda, is treated as a dynamic variable that evolves in time, just like an atomic coordinate. A fictitious mass is assigned to lambda, and its \"motion\" along the transformation pathway is simulated, allowing it to sample different intermediate states. For experts, this method can enhance the sampling of the alchemical pathway and provide an estimate of the free energy profile from the distribution of the lambda coordinate. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000418 "lambda-dynamics free energy method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000418 "lambda-dynamics free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000418 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000419 (PME continuous constant pH molecular dynamics)
@@ -4969,16 +4954,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000419 "This term refers to an im
 AnnotationAssertion(rdfs:label obo:MOLSIM_000419 "PME continuous constant pH molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000419 obo:MOLSIM_000417)
 
-# Class: obo:MOLSIM_000420 (variational free energy profile method)
+# Class: obo:MOLSIM_000420 (variational free energy profile analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000420 "A variational free energy profile method is a class of techniques for finding the minimum free energy path between two states. These methods work by optimizing a trial pathway to minimize a functional that represents the free energy, based on a variational principle. For experts, methods like the string method are a type of variational approach for identifying the most probable transition pathway and the associated free energy barrier. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000420 "variational free energy profile method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000420 "variational free energy profile analysis"@en)
 SubClassOf(obo:MOLSIM_000420 obo:MOLSIM_000615)
 
-# Class: obo:MOLSIM_000421 (weighted thermodynamic perturbation theory)
+# Class: obo:MOLSIM_000421 (weighted thermodynamic perturbation theory analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000421 "Weighted thermodynamic perturbation theory is a free energy calculation method that aims to improve the efficiency of standard free energy perturbation (FEP). It uses a weighting function to optimize the sampling and improve the convergence of the free energy calculation, especially when there is poor overlap between the states. For experts, this represents an advanced technique to make FEP calculations more robust and efficient. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000421 "weighted thermodynamic perturbation theory"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000421 "weighted thermodynamic perturbation theory analysis"@en)
 SubClassOf(obo:MOLSIM_000421 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000422 (generalized weighted thermodynamic perturbation theory)
@@ -5005,16 +4990,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000425 "The dimer method is a spe
 AnnotationAssertion(rdfs:label obo:MOLSIM_000425 "dimer method algorithm"@en)
 SubClassOf(obo:MOLSIM_000425 obo:MOLSIM_000424)
 
-# Class: obo:MOLSIM_000426 (grid inhomogeneous solvation theory)
+# Class: obo:MOLSIM_000426 (grid inhomogeneous solvation theory analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000426 "Grid Inhomogeneous Solvation Theory (GIST) is an analysis method that provides a detailed, three-dimensional picture of the thermodynamic properties of water molecules surrounding a solute. It calculates quantities like the local water density, energy, and entropy on a 3D grid by analyzing a simulation trajectory with explicit solvent. This method allows researchers to identify specific hydration sites and quantify their individual contributions to the overall free energy of solvation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000426 "grid inhomogeneous solvation theory"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000426 "grid inhomogeneous solvation theory analysis"@en)
 SubClassOf(obo:MOLSIM_000426 obo:MOLSIM_000974)
 
-# Class: obo:MOLSIM_000427 (spatial properties of activity by mapping)
+# Class: obo:MOLSIM_000427 (3D-mapping analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000427 "This is a computational method that creates a 3D map showing which regions around a molecule are important for its biological function. Spatial properties by activity mapping refers to a class of techniques, such as 3D-QSAR, that correlate the measured biological activity of a set of compounds with their 3D structural and physicochemical properties, like shape or electrostatic fields. The resulting 3D map highlights the specific spatial regions where bulky groups, positive charges, or hydrogen bond donors, for example, increase or decrease activity, providing a powerful visual guide for designing more potent molecules. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000427 "spatial properties of activity by mapping"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000427 "3D-mapping analysis"@en)
 SubClassOf(obo:MOLSIM_000427 obo:MOLSIM_000974)
 
 # Class: obo:MOLSIM_000428 (Ewald summation)
@@ -5162,10 +5147,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000451 "Analysis method used to c
 AnnotationAssertion(rdfs:label obo:MOLSIM_000451 "isotropically distributed ensemble analysis"@en)
 SubClassOf(obo:MOLSIM_000451 obo:MOLSIM_000939)
 
-# Class: obo:MOLSIM_000452 (isotropic reorientational eigenmode dynamics)
+# Class: obo:MOLSIM_000452 (isotropic reorientational eigenmode dynamics analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000452 "Isotropic reorientational eigenmode dynamics is an advanced dynamics analysis method used to study the overall rotational motion of a molecule. It decomposes the complex tumbling of a molecule in solution into a set of simpler, independent rotational modes, or eigenmodes. For experts, this method provides a detailed picture of the molecule's rotational diffusion, which can be compared to experimental data from techniques like NMR relaxation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000452 "isotropic reorientational eigenmode dynamics"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000452 "isotropic reorientational eigenmode dynamics analysis"@en)
 SubClassOf(obo:MOLSIM_000452 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000453 (nucleic acid structure analysis)
@@ -5329,16 +5314,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000478 "Molecular surface analysi
 AnnotationAssertion(rdfs:label obo:MOLSIM_000478 "molecular surface analysis"@en)
 SubClassOf(obo:MOLSIM_000478 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000479 (Connolly surface calculation)
+# Class: obo:MOLSIM_000479 (Connolly surface analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000479 "A Connolly surface calculation is a specific algorithm used to compute the solvent-accessible surface of a molecule, which is the surface traced out by the center of a probe sphere as it rolls over the molecule. It is a widely used method for defining the boundary between a molecule and the surrounding solvent. For experts, the Connolly algorithm provides a smooth and mathematically well-defined surface that is essential for visualization and for continuum solvent models. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000479 "Connolly surface calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000479 "Connolly surface analysis"@en)
 SubClassOf(obo:MOLSIM_000479 obo:MOLSIM_000478)
 
-# Class: obo:MOLSIM_000480 (covariance matrix calculation)
+# Class: obo:MOLSIM_000480 (covariance matrix analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000480 "A covariance matrix calculation is an analysis method that quantifies the correlated motions of atoms in a simulation. The resulting matrix describes how the displacement of each atom is correlated with the displacement of every other atom. For experts, calculating and diagonalizing the covariance matrix is the central step in Principal Component Analysis (PCA), which is used to identify the dominant, large-scale collective motions of a protein or other macromolecule. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000480 "covariance matrix calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000480 "covariance matrix analysis"@en)
 SubClassOf(obo:MOLSIM_000480 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000481 (2D RMSD analysis)
@@ -5347,16 +5332,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000481 "A 2D RMSD analysis is a m
 AnnotationAssertion(rdfs:label obo:MOLSIM_000481 "2D RMSD analysis"@en)
 SubClassOf(obo:MOLSIM_000481 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000482 (lipid SCD order parameter calculation)
+# Class: obo:MOLSIM_000482 (lipid SCD order parameter calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000482 "A lipid SCD order parameter calculation is a specific analysis method used to quantify the orientational order of the carbon-hydrogen bonds in the acyl tails of lipid molecules in a membrane simulation. The SCD parameter measures the motional restriction of these bonds relative to the membrane normal. For experts, calculating these order parameters and comparing them to experimental values from NMR is a primary method for validating the accuracy of a membrane simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000482 "lipid SCD order parameter calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000482 "lipid SCD order parameter calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000482 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000483 (3D reference interaction site model)
+# Class: obo:MOLSIM_000483 (3D reference interaction site analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000483 "The 3D Reference Interaction Site Model (3D-RISM) is a sophisticated analysis method based on statistical mechanics that calculates the three-dimensional distribution of solvent molecules around a solute. It is an implicit solvent model that provides a detailed, atomistic picture of the solvation structure without the computational cost of simulating explicit solvent molecules. For experts, 3D-RISM is a powerful method for calculating solvation free energies and for predicting the location of tightly bound water molecules. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000483 "3D reference interaction site model"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000483 "3D reference interaction site analysis"@en)
 SubClassOf(obo:MOLSIM_000483 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000484 (adaptive solvent QM/MM)
@@ -5438,22 +5423,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000496 "pyMBAR refers to a specif
 AnnotationAssertion(rdfs:label obo:MOLSIM_000496 "pyMBAR"@en)
 SubClassOf(obo:MOLSIM_000496 obo:MOLSIM_001566)
 
-# Class: obo:MOLSIM_000497 (computational method statistical measure)
+# Class: obo:MOLSIM_000497 (computational method statistical measure analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000497 "This term refers to statistical metrics specifically employed to evaluate the performance, accuracy, or predictive capability of computational methods, such as those used in biomolecular simulation or quantitative structure-activity relationship (QSAR) modeling. These measures go beyond simple error metrics to assess aspects like robustness, predictive power on unseen data, or statistical significance of model improvements. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000497 "computational method statistical measure"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000497 "computational method statistical measure analysis"@en)
 SubClassOf(obo:MOLSIM_000497 obo:MOLSIM_000348)
 
-# Class: obo:MOLSIM_000498 (predictive index of Pearman)
+# Class: obo:MOLSIM_000498 (predictive index of Pearman analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000498 "The predictive index of Pearman is a statistical metric used to evaluate how well a computational model, such as one for calculating binding free energies, can predict new experimental data. It assesses the model's predictive power by comparing the magnitude of the prediction errors to the overall range of the experimental data. This index provides a quantitative measure of a model's practical utility for making useful predictions on new molecules. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000498 "predictive index of Pearman"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000498 "predictive index of Pearman analysis"@en)
 SubClassOf(obo:MOLSIM_000498 obo:MOLSIM_000497)
 
-# Class: obo:MOLSIM_000499 (accuracy of ddG prediction metrics measurements)
+# Class: obo:MOLSIM_000499 (accuracy of ddG prediction metrics measurements analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000499 "This refers to specific metrics used to quantify how accurately computational methods predict relative binding free energies (ΔΔG bind) between pairs of ligands binding to a target, compared to experimental measurements. Common metrics include the Root Mean Square Error (RMSE), Mean Absolute Error (MAE), Pearson's correlation coefficient (r) between predicted and experimental values, and Kendall's tau (τ) rank correlation coefficient. These metrics assess the practical predictive performance of free energy calculation methods. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000499 "accuracy of ddG prediction metrics measurements"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000499 "accuracy of ddG prediction metrics measurements analysis"@en)
 SubClassOf(obo:MOLSIM_000499 obo:MOLSIM_000348)
 
 # Class: obo:MOLSIM_000500 (mechanical embedding QM/MM)
@@ -5468,16 +5453,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000501 "The 4-31G basis set is an
 AnnotationAssertion(rdfs:label obo:MOLSIM_000501 "4-31G"@en)
 SubClassOf(obo:MOLSIM_000501 obo:MOLSIM_000485)
 
-# Class: obo:MOLSIM_000502 (linear correlation significance determination)
+# Class: obo:MOLSIM_000502 (linear correlation significance determination analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000502 "A statistical mathematical technique used to assess whether an observed linear relationship (correlation) between two variables, calculated from simulation data, is statistically meaningful. It evaluates the probability that such a correlation could have occurred simply by random chance if no true underlying relationship existed. This helps researchers confidently interpret potential connections found in simulation results (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000502 "linear correlation significance determination"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000502 "linear correlation significance determination analysis"@en)
 SubClassOf(obo:MOLSIM_000502 obo:MOLSIM_000400)
 
-# Class: obo:MOLSIM_000503 (determination by p-value)
+# Class: obo:MOLSIM_000503 (determination by p-value analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000503 "A common specific method for linear correlation significance determination (and statistical testing in general) that involves calculating a probability value, the p-value. The p-value represents the probability of observing the calculated correlation, or a stronger one, assuming that there is actually no real correlation (the null hypothesis). A small p-value (typically below a threshold like 0.05) leads to the conclusion that the observed correlation is statistically significant and unlikely due to chance (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000503 "determination by p-value"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000503 "determination by p-value analysis"@en)
 SubClassOf(obo:MOLSIM_000503 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_000505 (6-21G)
@@ -5930,16 +5915,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000581 "Refers to methods that re
 AnnotationAssertion(rdfs:label obo:MOLSIM_000581 "real-space"@en)
 SubClassOf(obo:MOLSIM_000581 obo:MOLSIM_000432)
 
-# Class: obo:MOLSIM_000582 (intrinsic reaction coordinate)
+# Class: obo:MOLSIM_000582 (intrinsic reaction coordinate analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000582 "A coordinate analysis technique that defines the reaction path as the minimum energy path connecting reactants and products through the transition state on the potential energy surface. This path follows the steepest descent direction (in terms of energy) down from the transition state towards both the reactant and product basins. It is considered a more rigorous definition of the reaction pathway at zero Kelvin. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000582 "intrinsic reaction coordinate"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000582 "intrinsic reaction coordinate analysis"@en)
 SubClassOf(obo:MOLSIM_000582 obo:MOLSIM_000028)
 
-# Class: obo:MOLSIM_000583 (intrinsic reaction coordinate maximum)
+# Class: obo:MOLSIM_000583 (intrinsic reaction coordinate maximum analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000583 "The intrinsic reaction coordinate maximum refers to the highest energy point found along the minimum energy path that connects a reactant and a product, which corresponds to the transition state. This path is a theoretical construct that follows the steepest descent from the transition state saddle point down to the stable energy minima. Identifying this maximum is the primary goal of transition state searches, as its energy determines the activation energy barrier for the chemical reaction. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000583 "intrinsic reaction coordinate maximum"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000583 "intrinsic reaction coordinate maximum analysis"@en)
 SubClassOf(obo:MOLSIM_000583 obo:MOLSIM_000582)
 
 # Class: obo:MOLSIM_000584 (surface analysis)
@@ -5948,22 +5933,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000584 "A form of reaction analys
 AnnotationAssertion(rdfs:label obo:MOLSIM_000584 "surface analysis"@en)
 SubClassOf(obo:MOLSIM_000584 obo:MOLSIM_000027)
 
-# Class: obo:MOLSIM_000585 (conical intersection point)
+# Class: obo:MOLSIM_000585 (conical intersection point analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000585 "A critical feature identified through surface analysis representing a point in molecular geometry where two electronic potential energy surfaces of the same spin-symmetry become degenerate (have the same energy). These points act as funnels facilitating rapid, non-adiabatic transitions between electronic states, crucial for understanding photochemical reactions and relaxation processes. Their location and properties dictate the efficiency and outcome of such electronic transitions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000585 "conical intersection point"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000585 "conical intersection point analysis"@en)
 SubClassOf(obo:MOLSIM_000585 obo:MOLSIM_000584)
 
-# Class: obo:MOLSIM_000586 (saddle)
+# Class: obo:MOLSIM_000586 (saddle analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000586 "A saddle point on a potential energy surface is a stationary point (where forces are zero) that corresponds to an energy maximum along one direction (the reaction pathway) and an energy minimum along all other directions. It represents the highest energy barrier that must be overcome during a chemical transformation. Locating saddle points is key to identifying transition states and calculating activation energies for reactions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000586 "saddle"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000586 "saddle analysis"@en)
 SubClassOf(obo:MOLSIM_000586 obo:MOLSIM_000584)
 
-# Class: obo:MOLSIM_000587 (minimum crossing)
+# Class: obo:MOLSIM_000587 (minimum crossing analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000587 "A minimum crossing point, often Minimum Energy Crossing Point (MECP), is the molecular geometry where two potential energy surfaces corresponding to different electronic spin states (e.g., singlet and triplet) intersect at the lowest possible energy. These points are crucial for understanding pathways of spin-forbidden reactions or intersystem crossing events. Locating MECPs helps analyze transitions between different spin manifolds. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000587 "minimum crossing"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000587 "minimum crossing analysis"@en)
 SubClassOf(obo:MOLSIM_000587 obo:MOLSIM_000584)
 
 # Class: obo:MOLSIM_000588 (pathway analysis)
@@ -5972,10 +5957,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000588 "A form of reaction analys
 AnnotationAssertion(rdfs:label obo:MOLSIM_000588 "pathway analysis"@en)
 SubClassOf(obo:MOLSIM_000588 obo:MOLSIM_000027)
 
-# Class: obo:MOLSIM_000589 (trace gradient extremal)
+# Class: obo:MOLSIM_000589 (trace gradient extremal analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000589 "A specific computational technique sometimes used in pathway analysis to find reaction paths or other significant paths on a potential energy surface by following trajectories associated with gradient extremals. This approach can potentially identify pathways connecting different energy minima without necessarily locating the transition states first. It serves as an alternative method for exploring the connections within a complex energy landscape. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000589 "trace gradient extremal"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000589 "trace gradient extremal analysis"@en)
 SubClassOf(obo:MOLSIM_000589 obo:MOLSIM_000588)
 
 # Class: obo:MOLSIM_000590 (plotting format)
@@ -6058,28 +6043,28 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000601 ".cpout")
 AnnotationAssertion(rdfs:label obo:MOLSIM_000601 "AMBER cpout format"@en)
 SubClassOf(obo:MOLSIM_000601 obo:MOLSIM_000439)
 
-# Class: obo:MOLSIM_000602 (geometry optimization)
+# Class: obo:MOLSIM_000602 (geometry optimization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000602 "A computational procedure within structural analysis used to find the atomic coordinates corresponding to a stationary point, typically a local minimum, on the potential energy surface, representing a stable or equilibrium structure. Starting from an initial guess geometry, algorithms iteratively adjust atomic positions to minimize the energy and reduce the forces acting on the atoms until convergence criteria are met. This predicts the most stable three-dimensional structure for a given molecular composition and electronic state. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000602 "geometry optimization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000602 "geometry optimization analysis"@en)
 SubClassOf(obo:MOLSIM_000602 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000603 (FMO geometry optimization)
+# Class: obo:MOLSIM_000603 (FMO geometry optimization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000603 "A specific geometry optimization technique designed for large molecular systems that employs the Fragment Molecular Orbital (FMO) method. The FMO method divides the large system (like a protein or DNA segment) into smaller, manageable fragments, performs quantum mechanical calculations on fragments and fragment pairs, and combines the results to approximate the properties (energy, gradient) of the entire system. This fragmentation allows for efficient geometry optimization of very large biomolecules at a quantum mechanical level. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000603 "FMO geometry optimization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000603 "FMO geometry optimization analysis"@en)
 SubClassOf(obo:MOLSIM_000603 obo:MOLSIM_000602)
 
-# Class: obo:MOLSIM_000604 (single point energy)
+# Class: obo:MOLSIM_000604 (single point energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000604 "An energy analysis calculation that determines the potential energy of a molecular system for a single, fixed geometric arrangement of its atoms (a specific 'snapshot' or structure), without performing geometry optimization or simulating dynamics. This provides the energy value for that particular conformation according to the chosen theoretical method (e.g., force field or quantum mechanical level). It's often used to compare the relative energies of different pre-defined structures. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000604 "single point energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000604 "single point energy analysis"@en)
 SubClassOf(obo:MOLSIM_000604 obo:MOLSIM_000950)
 
-# Class: obo:MOLSIM_000605 (high accuracy energies)
+# Class: obo:MOLSIM_000605 (high accuracy energies analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000605 "Energy analysis calculations performed using computationally intensive, high-level theoretical methods (e.g., advanced quantum mechanical methods like coupled cluster, high-level DFT with large basis sets) to obtain very precise and reliable potential energy values. These accurate energies are often calculated for specific critical structures (like optimized minima, transition states, or representative conformations) to provide benchmark energetics for reaction barriers, binding affinities, or conformational stability. Due to their cost, they are typically limited to single point calculations or small systems. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000605 "high accuracy energies"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000605 "high accuracy energies analysis"@en)
 SubClassOf(obo:MOLSIM_000605 obo:MOLSIM_000950)
 
 # Class: obo:MOLSIM_000606 (energy decomposition analysis)
@@ -6143,35 +6128,35 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_000614 "AMBER lib format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000614 "AMBER off format"@en)
 SubClassOf(obo:MOLSIM_000614 obo:MOLSIM_000437)
 
-# Class: obo:MOLSIM_000615 (free energy calculation method)
+# Class: obo:MOLSIM_000615 (free energy calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000615 "A central focus within thermodynamics analysis aiming to compute the free energy (typically Gibbs or Helmholtz free energy) of a system or, more commonly, the free energy difference (ΔG or ΔA) between different states (e.g., bound vs. unbound, folded vs. unfolded). Free energy combines energy (enthalpy) and disorder (entropy) to determine the thermodynamic favorability and equilibrium position of molecular processes under constant temperature and pressure/volume. Calculating free energies often requires enhanced sampling MD techniques or other specialized computational methods complementary to basic MD. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000615 "free energy calculation method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000615 "free energy calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000615 obo:MOLSIM_000610)
 
-# Class: obo:MOLSIM_000616 (free state FMO calculation)
+# Class: obo:MOLSIM_000616 (free state FMO analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000616 "A specific computational task within a free energy calculation framework that uses the Fragment Molecular Orbital (FMO) method to determine the energy and properties of a molecule in its unbound ('free') state. This is often required when calculating binding free energies, where the energy of the isolated components serves as a reference point (G free). Employing FMO makes such quantum mechanical calculations feasible for the large molecules often involved in biomolecular binding events. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000616 "free state FMO calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000616 "free state FMO analysis"@en)
 SubClassOf(obo:MOLSIM_000616 obo:MOLSIM_000615)
 
-# Class: obo:MOLSIM_000617 (Gaussian fluctuation free energy method)
+# Class: obo:MOLSIM_000617 (Gaussian fluctuation free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000617 "The Gaussian fluctuation free energy method is a technique for estimating the free energy of a system based on the fluctuations observed in a molecular dynamics simulation. It assumes that the system's behavior can be approximated by a multi-dimensional Gaussian distribution around its average state. This method provides a computationally efficient way to estimate free energy differences, particularly for conformational changes, although its accuracy depends on how well the system's dynamics fit the underlying Gaussian assumption. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000617 "Gaussian fluctuation free energy method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000617 "Gaussian fluctuation free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000617 obo:MOLSIM_000615)
 
-# Class: obo:MOLSIM_000618 (PC+ correction method)
+# Class: obo:MOLSIM_000618 (PC+ correction analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000618 "The PC+ correction method is a computational technique used to improve the accuracy of binding free energy calculations, particularly those using the MM/PBSA method. It applies an empirical correction based on the number and type of charged atoms at the protein-ligand interface to better account for the desolvation penalties of charged groups. This post-processing correction aims to fix systematic errors in the underlying continuum solvent model, leading to better agreement with experimental binding affinities. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000618 "PC+ correction method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000618 "PC+ correction analysis"@en)
 SubClassOf(obo:MOLSIM_000618 obo:MOLSIM_000615)
 
-# Class: obo:MOLSIM_000619 (universal correction method)
+# Class: obo:MOLSIM_000619 (universal correction analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000619 "The universal correction method is an empirical adjustment applied to binding free energy calculations to account for the loss of translational and rotational freedom when a ligand binds to a protein. It adds a pre-calculated entropic penalty term to the final energy value, which is intended to approximate the cost of restricting the ligand's movement upon forming the complex. This simple correction is a way to estimate a crucial component of the binding entropy that is often neglected in simpler endpoint free energy methods. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000619 "UC Correction"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000619 "universal correction method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000619 "universal correction analysis"@en)
 SubClassOf(obo:MOLSIM_000619 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000620 (density-functional based tight-binding)
@@ -6264,10 +6249,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000633 "Surface potential analysi
 AnnotationAssertion(rdfs:label obo:MOLSIM_000633 "surface potential analysis"@en)
 SubClassOf(obo:MOLSIM_000633 obo:MOLSIM_000584)
 
-# Class: obo:MOLSIM_000634 (electrostatic potential calculation)
+# Class: obo:MOLSIM_000634 (electrostatic potential calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000634 "The computational procedure within surface potential analysis used to determine the electrostatic potential generated by the molecule's charge distribution (nuclei and electrons) at specific points in space. This potential is typically calculated using the molecule's wavefunction or electron density and visualized on a surface to reveal its electrostatic character. The results are valuable for predicting intermolecular interactions and reaction sites. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000634 "electrostatic potential calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000634 "electrostatic potential calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000634 obo:MOLSIM_000633)
 
 # Class: obo:MOLSIM_000635 (frequency analysis)
@@ -6276,10 +6261,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000635 "An analysis method, typic
 AnnotationAssertion(rdfs:label obo:MOLSIM_000635 "frequency analysis"@en)
 SubClassOf(obo:MOLSIM_000635 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000636 (anharmonic vibrational corrections)
+# Class: obo:MOLSIM_000636 (anharmonic vibrational corrections analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000636 "A refinement within frequency analysis that goes beyond the standard harmonic approximation (which assumes vibrations occur in a perfectly parabolic potential well) to account for the true, anharmonic shape of the potential energy surface. Calculating these corrections yields more accurate vibrational frequencies that better match experimental observations, particularly for large-amplitude motions or systems with significant vibrational coupling. This improves the quantitative interpretation of vibrational spectra and thermodynamic properties derived from frequencies. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000636 "anharmonic vibrational corrections"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000636 "anharmonic vibrational corrections analysis"@en)
 SubClassOf(obo:MOLSIM_000636 obo:MOLSIM_000635)
 
 # Class: obo:MOLSIM_000637 (semi-empirical Born-Oppenheimer molecular dynamics)
@@ -6346,16 +6331,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000646 "An empirical metal center
 AnnotationAssertion(rdfs:label obo:MOLSIM_000646 "empirical metal center parameterization"@en)
 SubClassOf(obo:MOLSIM_000646 obo:MOLSIM_000374)
 
-# Class: obo:MOLSIM_000647 (hybrid solvent MM-PBSA)
+# Class: obo:MOLSIM_000647 (hybrid solvent MM-PBSA analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000647 "The hybrid solvent MM/PBSA method is a technique for estimating binding free energy that combines a detailed, explicit solvent model for the region close to the molecule with a faster, continuum model for the bulk solvent. This approach aims to capture the specific, crucial interactions of nearby water molecules while maintaining the computational efficiency of an implicit solvent model for the overall calculation. The final free energy is calculated using the standard MM/PBSA framework but is derived from a simulation that uses this more complex, multi-layered solvent representation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000647 "hybrid solvent MM-PBSA"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000647 "hybrid solvent MM-PBSA analysis"@en)
 SubClassOf(obo:MOLSIM_000647 obo:MOLSIM_000262)
 
-# Class: obo:MOLSIM_000648 (BAR/PBSA method)
+# Class: obo:MOLSIM_000648 (BAR/PBSA analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000648 "The BAR/PBSA method is a hybrid free energy calculation technique that combines the Bennett Acceptance Ratio (BAR) method with MM/PBSA endpoint calculations. It likely uses BAR to calculate the free energy change for a short-range, explicit part of the system, and then adds a correction for the long-range solvation effects using the faster MM/PBSA method. For experts, this represents a multi-step approach to balance the rigor of alchemical methods with the efficiency of continuum solvent models. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000648 "BAR/PBSA method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000648 "BAR/PBSA analysis"@en)
 SubClassOf(obo:MOLSIM_000648 obo:MOLSIM_000615)
 
 # Class: obo:MOLSIM_000649 (kinetic map analysis)
@@ -6376,10 +6361,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000651 "Entropic decomposition an
 AnnotationAssertion(rdfs:label obo:MOLSIM_000651 "entropic decomposition analysis"@en)
 SubClassOf(obo:MOLSIM_000651 obo:MOLSIM_000309)
 
-# Class: obo:MOLSIM_000652 (molecular reconstruction from distribution functions)
+# Class: obo:MOLSIM_000652 (molecular reconstruction from distribution functions analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000652 "An advanced analysis method that attempts to generate a three-dimensional model of a molecule or a molecular complex using statistical information about its structure. It takes one or more distribution functions, such as the pairwise distances between atoms obtained from a simulation or experiment, and uses an optimization algorithm to find a 3D structure that is consistent with those distributions. This technique can be used to build structural models from sparse or low-resolution data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000652 "molecular reconstruction from distribution functions"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000652 "molecular reconstruction from distribution functions analysis"@en)
 SubClassOf(obo:MOLSIM_000652 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000653 (polar decomposition analysis)
@@ -6418,22 +6403,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000658 "Grid binning analysis is 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000658 "grid binning analysis"@en)
 SubClassOf(obo:MOLSIM_000658 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000659 (periodic boundary imaging)
+# Class: obo:MOLSIM_000659 (periodic boundary imaging analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000659 "Periodic boundary imaging is a fundamental post-processing step in structural analysis that is used to make simulation trajectories easier to visualize. It corrects for the fact that molecules can become \"broken\" or jump across the box when they cross a periodic boundary. The imaging algorithm translates the coordinates of the atoms to ensure that molecules remain whole and centered in the box, providing a continuous and visually coherent movie of the dynamics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000659 "periodic boundary imaging"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000659 "periodic boundary imaging analysis"@en)
 SubClassOf(obo:MOLSIM_000659 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000660 (LES trajectory splitting)
+# Class: obo:MOLSIM_000660 (LES trajectory splitting analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000660 "LES trajectory splitting is a post-processing step for simulations that use the Locally Enhanced Sampling (LES) method. In an LES simulation, multiple copies of a specific region of the molecule are simulated simultaneously, and this procedure separates the combined trajectory back into individual trajectories for each copy. This allows for the separate analysis of each copy's behavior, which is necessary to calculate the final, averaged properties from the enhanced sampling run. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000660 "LES trajectory splitting"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000660 "LES trajectory splitting analysis"@en)
 SubClassOf(obo:MOLSIM_000660 obo:MOLSIM_000939)
 
-# Class: obo:MOLSIM_000661 (structure modification method)
+# Class: obo:MOLSIM_000661 (structure modification method analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000661 "A structure modification method is a computational procedure that alters the atomic coordinates or composition of a molecular structure file. This includes a wide range of operations such as adding or deleting atoms, rotating or translating molecules, or building new polymeric chains. For researchers, these methods are the fundamental tools used to build, edit, and prepare molecular models for simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000661 "structure modification method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000661 "structure modification method analysis"@en)
 SubClassOf(obo:MOLSIM_000661 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000662 (ion randomization method)
@@ -6448,10 +6433,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000663 "A cell replication method
 AnnotationAssertion(rdfs:label obo:MOLSIM_000663 "cell replication method"@en)
 SubClassOf(obo:MOLSIM_000663 obo:MOLSIM_000328)
 
-# Class: obo:MOLSIM_000664 (coordinate scaling method)
+# Class: obo:MOLSIM_000664 (coordinate scaling analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000664 "A coordinate scaling method is a structure modification method that multiplies all the atomic coordinates in a system by a specific scaling factor. This is used to uniformly expand or contract the entire system. For experts, this can be a step in adjusting the density of a system or in some barostat algorithms that control pressure by scaling the box and the coordinates within it. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000664 "coordinate scaling method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000664 "coordinate scaling analysis"@en)
 SubClassOf(obo:MOLSIM_000664 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000665 (velocity assignment method)
@@ -6460,10 +6445,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000665 "A velocity assignment met
 AnnotationAssertion(rdfs:label obo:MOLSIM_000665 "velocity assignment method"@en)
 SubClassOf(obo:MOLSIM_000665 obo:MOLSIM_000328)
 
-# Class: obo:MOLSIM_000666 (volumetric map generation)
+# Class: obo:MOLSIM_000666 (volumetric map generation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000666 "Volumetric map generation is an analysis method that creates a three-dimensional grid of data representing a specific property in space. This can be used to visualize the average density of solvent molecules around a solute or the electrostatic potential surrounding a protein. For experts, this method transforms the discrete atomic information from a trajectory into a continuous field that can be visualized as a contoured surface or volume. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000666 "volumetric map generation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000666 "volumetric map generation analysis"@en)
 SubClassOf(obo:MOLSIM_000666 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000667 (topology stripping method)
@@ -6478,16 +6463,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000668 "A force field parameter u
 AnnotationAssertion(rdfs:label obo:MOLSIM_000668 "force field parameter update method"@en)
 SubClassOf(obo:MOLSIM_000668 obo:MOLSIM_000374)
 
-# Class: obo:MOLSIM_000669 (average structure calculation)
+# Class: obo:MOLSIM_000669 (average structure calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000669 "An average structure calculation is a structural analysis method that computes the average coordinates of all atoms over a simulation trajectory. This provides a single, representative structure that reflects the central conformation of the system during the simulation. For experts, it is important to note that this average structure may not be a physically realistic conformation itself, especially if the molecule is highly flexible. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000669 "average structure calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000669 "average structure calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000669 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000670 (coordinate centering)
+# Class: obo:MOLSIM_000670 (coordinate centering analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000670 "Coordinate centering is a structural analysis method, often performed as a pre-processing step, that translates the coordinates of a molecular system so that its center of mass is at the origin of the coordinate system. This is a standard procedure to ensure that the molecule remains in the center of the simulation box for easier analysis and visualization. For experts, this is a routine part of trajectory post-processing to remove the overall translational motion of the system. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000670 "coordinate centering"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000670 "coordinate centering analysis"@en)
 SubClassOf(obo:MOLSIM_000670 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000671 (closest solvent analysis)
@@ -6538,10 +6523,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000678 "An atom order fixing meth
 AnnotationAssertion(rdfs:label obo:MOLSIM_000678 "atom order fixing"@en)
 SubClassOf(obo:MOLSIM_000678 obo:MOLSIM_000328)
 
-# Class: obo:MOLSIM_000679 (image bond fixing)
+# Class: obo:MOLSIM_000679 (image bond fixing analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000679 "Image bond fixing is a post-processing step applied to simulation trajectories to correct the visual representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear \"broken\" in the raw output, with parts of it on opposite sides of the simulation box. This procedure identifies such cases and translates the atomic coordinates to make the molecule appear whole, which is essential for correct visualization and many types of analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "image bond fixing"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "image bond fixing analysis"@en)
 SubClassOf(obo:MOLSIM_000679 obo:MOLSIM_000659)
 
 # Class: obo:MOLSIM_000680 (atom selection method)
@@ -7906,10 +7891,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000917 "A category of analysis me
 AnnotationAssertion(rdfs:label obo:MOLSIM_000917 "structural analysis"@en)
 SubClassOf(obo:MOLSIM_000917 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000918 (global structure)
+# Class: obo:MOLSIM_000918 (global structure analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000918 "A structural analysis focusing on the overall architecture, shape, fold, and packing of a macromolecule or molecular complex, rather than fine details. This is often characterized by metrics like the radius of gyration, principal moments of inertia, overall dimensions, secondary structure content (for proteins), or tertiary arrangement of domains. It provides a macroscopic view of the molecule's conformation and large-scale structural changes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000918 "global structure"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000918 "global structure analysis"@en)
 SubClassOf(obo:MOLSIM_000918 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000921 (crd format)
@@ -7918,28 +7903,28 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000921 "A generic name for a text
 AnnotationAssertion(rdfs:label obo:MOLSIM_000921 "crd format"@en)
 SubClassOf(obo:MOLSIM_000921 obo:MOLSIM_001089)
 
-# Class: obo:MOLSIM_000923 (local structure)
+# Class: obo:MOLSIM_000923 (local structure analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000923 "A structural analysis focusing on the detailed geometric arrangement of small groups of atoms within a molecule. This includes analyzing specific bond lengths, bond angles, dihedral angles, ring conformations (like sugar pucker), hydrogen bonding patterns, or the conformation of amino acid side chains. It provides fine-grained insights into specific interactions, conformational preferences, and flexibility at the atomic or residue level. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000923 "local structure"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000923 "local structure analysis"@en)
 SubClassOf(obo:MOLSIM_000923 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000924 (atom triplet angle calculation)
+# Class: obo:MOLSIM_000924 (atom triplet angle calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000924 "A fundamental local structure analysis that calculates the angle formed by three specified atoms (A-B-C), centered on atom B. These bond angles are essential parameters defining the geometry and shape of molecules. Monitoring their values and distributions during simulations reveals information about molecular flexibility and conformational preferences around specific centers. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000924 "atom triplet angle calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000924 "atom triplet angle calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000924 obo:MOLSIM_000923)
 
-# Class: obo:MOLSIM_000925 (dihedral calculation)
+# Class: obo:MOLSIM_000925 (dihedral calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000925 "A local structure analysis technique that calculates the torsion angle defined by four sequentially bonded atoms (A-B-C-D), representing the rotation around the central bond (B-C). Dihedral angles are critical for determining the three-dimensional conformation of flexible molecules, including protein backbones, side chains, and polymer chains. Analyzing their values and distributions reveals accessible rotational states and conformational dynamics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000925 "dihedral calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000925 "dihedral calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000925 obo:MOLSIM_000923)
 
-# Class: obo:MOLSIM_000926 (distance calculation)
+# Class: obo:MOLSIM_000926 (distance calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000926 "A basic local structure analysis technique that measures the distance between any two specified atoms (bonded or non-bonded) in a molecular system. Monitoring distances is essential for tracking bond lengths, identifying close contacts, analyzing non-covalent interactions (like hydrogen bonds, salt bridges, van der Waals contacts), and assessing overall conformational changes or molecular dimensions. It provides fundamental information about proximity and separation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000926 "distance calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000926 "distance calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000926 obo:MOLSIM_000923)
 
 # Class: obo:MOLSIM_000927 (pucker analysis)
@@ -7948,10 +7933,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000927 "A specialized local struc
 AnnotationAssertion(rdfs:label obo:MOLSIM_000927 "pucker analysis"@en)
 SubClassOf(obo:MOLSIM_000927 obo:MOLSIM_000923)
 
-# Class: obo:MOLSIM_000928 (atomic properties)
+# Class: obo:MOLSIM_000928 (atomic properties analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000928 "A type of structural analysis focusing on quantifying properties associated with individual atoms within the molecular structure, often reflecting their local environment or dynamics. Examples include atomic fluctuations (Root Mean Square Fluctuation, RMSF, or B-factors) indicating mobility, solvent accessibility surface area (SASA) quantifying exposure to solvent, or coordination numbers describing the local packing density. Analyzing these properties provides atom-specific insights into dynamics, interactions, and structural roles. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000928 "atomic properties"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000928 "atomic properties analysis"@en)
 SubClassOf(obo:MOLSIM_000928 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000936 (amber OL24)
@@ -7960,10 +7945,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000936 "A refined set of force fi
 AnnotationAssertion(rdfs:label obo:MOLSIM_000936 "amber OL24"@en)
 SubClassOf(obo:MOLSIM_000936 obo:MOLSIM_000010)
 
-# Class: obo:MOLSIM_000937 (structure clustering)
+# Class: obo:MOLSIM_000937 (structure clustering analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000937 "The most common form of clustering analysis where molecular structures are grouped based on their overall geometric similarity, typically quantified by the root-mean-square deviation (RMSD) of atomic coordinates after optimal superposition. Structures with low pairwise RMSD values are grouped into the same cluster. This method effectively identifies the dominant overall conformations visited during a simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000937 "structure clustering"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000937 "structure clustering analysis"@en)
 SubClassOf(obo:MOLSIM_000937 obo:MOLSIM_000123)
 
 # Class: obo:MOLSIM_000938 (structure clustering with dihedral binning)
@@ -7985,10 +7970,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000940 "The dat format, in the co
 AnnotationAssertion(rdfs:label obo:MOLSIM_000940 "dat format"@en)
 SubClassOf(obo:MOLSIM_000940 obo:MOLSIM_001091)
 
-# Class: obo:MOLSIM_000941 (coordinate rotation method)
+# Class: obo:MOLSIM_000941 (coordinate rotation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000941 "A coordinate rotation method is a structure modification method that applies a mathematical rotation to the coordinates of a molecule or a group of atoms. This procedure changes the orientation of the selected atoms in three-dimensional space without altering their internal structure. For experts, this is a fundamental operation used in structural alignment, docking algorithms, and for setting up systems in a specific orientation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000941 "coordinate rotation method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000941 "coordinate rotation analysis"@en)
 SubClassOf(obo:MOLSIM_000941 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000942 (time cross correlation analysis)
@@ -8010,16 +7995,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000944 "Motion analysis encompass
 AnnotationAssertion(rdfs:label obo:MOLSIM_000944 "motion analysis"@en)
 SubClassOf(obo:MOLSIM_000944 obo:MOLSIM_000939)
 
-# Class: obo:MOLSIM_000945 (principal axis alignment)
+# Class: obo:MOLSIM_000945 (principal axis alignment analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000945 "Principal axis alignment is a method for superimposing molecular structures by aligning their principal axes of inertia, which represent the main axes of mass distribution or shape. Instead of minimizing RMSD between atom positions, this technique focuses on matching the overall orientation based on the molecule's moments of inertia. It can be useful for analyzing rotational motion or comparing shapes where standard RMSD alignment might be less informative. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000945 "principal axis alignment"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000945 "principal axis alignment analysis"@en)
 SubClassOf(obo:MOLSIM_000945 obo:MOLSIM_000944)
 
-# Class: obo:MOLSIM_000946 (coordinate projection)
+# Class: obo:MOLSIM_000946 (coordinate projection analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000946 "Coordinate projection involves mathematically projecting the complex, multi-dimensional motion observed in a simulation trajectory onto one or more chosen directions or coordinates of interest. These target coordinates could be simple geometric measures (like a distance or angle), or more complex vectors derived from methods like Principal Component Analysis (PCA). This projection simplifies the analysis by focusing on movement along specific, often functionally relevant, pathways. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000946 "coordinate projection"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000946 "coordinate projection analysis"@en)
 SubClassOf(obo:MOLSIM_000946 obo:MOLSIM_000944)
 
 # Class: obo:MOLSIM_000947 (eigenmode analysis)
@@ -8034,10 +8019,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000948 "A type of dynamics analys
 AnnotationAssertion(rdfs:label obo:MOLSIM_000948 "diffusion analysis"@en)
 SubClassOf(obo:MOLSIM_000948 obo:MOLSIM_000939)
 
-# Class: obo:MOLSIM_000949 (diffusion calculation)
+# Class: obo:MOLSIM_000949 (diffusion calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000949 "Diffusion calculation refers to the specific computational procedure used to determine a diffusion coefficient from molecular dynamics simulation data. The most common method involves calculating the mean squared displacement (MSD) of the particles as a function of time and determining the diffusion coefficient from the slope of the MSD curve in the long-time limit using the Einstein relation. Alternatively, the Green-Kubo relations can be used by integrating the velocity autocorrelation function. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000949 "diffusion calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000949 "diffusion calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000949 obo:MOLSIM_000948)
 
 # Class: obo:MOLSIM_000950 (energy analysis)
@@ -8046,23 +8031,23 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000950 "A type of structural anal
 AnnotationAssertion(rdfs:label obo:MOLSIM_000950 "energy analysis"@en)
 SubClassOf(obo:MOLSIM_000950 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000951 (binding energy)
+# Class: obo:MOLSIM_000951 (binding energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000951 "An energy analysis quantity representing the net energy change associated with the formation of a molecular complex from its individual, separated components in a specific reference state (e.g., gas phase or solution). It typically refers to the difference in potential energy or free energy between the bound complex and the unbound molecules, indicating the strength of the association (a more negative value implies stronger binding). Various computational methods (QM, MM-PBSA/GBSA) can estimate binding energies, sometimes including entropic and solvation effects (binding free energy). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000951 "binding energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000951 "binding energy analysis"@en)
 SubClassOf(obo:MOLSIM_000951 obo:MOLSIM_000950)
 
-# Class: obo:MOLSIM_000952 (MM-PBSA)
+# Class: obo:MOLSIM_000952 (MM-PBSA analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000952 "A widely used computational method for estimating the binding free energy of a molecular complex, particularly for large biomolecules like protein-ligand systems. It combines molecular mechanics (MM) energies calculated from simulation snapshots with continuum solvation models, specifically using the Poisson-Boltzmann (PB) equation to calculate electrostatic solvation energy and a surface area (SA) term for nonpolar solvation energy. It averages results over multiple simulation snapshots to implicitly include entropic effects related to conformation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000952 "MM-PBSA"@en)
-SubClassOf(obo:MOLSIM_000952 obo:MOLSIM_000951)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000952 "MM-PBSA analysis"@en)
+SubClassOf(obo:MOLSIM_000952 obo:MOLSIM_010025)
 
-# Class: obo:MOLSIM_000953 (MM-GBSA)
+# Class: obo:MOLSIM_000953 (MM-GBSA analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000953 "A computational method for estimating binding free energies, similar to MM-PBSA, that also combines molecular mechanics (MM) energies with continuum solvation and surface area (SA) terms. However, it uses the Generalized Born (GB) model, an approximation to the Poisson-Boltzmann equation, to calculate the electrostatic solvation energy. The GB model is generally computationally faster than PB, making MM-GBSA efficient for large-scale calculations like virtual screening, though potentially less accurate in some cases. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000953 "MM-GBSA"@en)
-SubClassOf(obo:MOLSIM_000953 obo:MOLSIM_000951)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000953 "MM-GBSA analysis"@en)
+SubClassOf(obo:MOLSIM_000953 obo:MOLSIM_010025)
 
 # Class: obo:MOLSIM_000954 (interaction energy analysis)
 
@@ -8070,16 +8055,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000954 "An energy analysis term u
 AnnotationAssertion(rdfs:label obo:MOLSIM_000954 "interaction energy analysis"@en)
 SubClassOf(obo:MOLSIM_000954 obo:MOLSIM_000951)
 
-# Class: obo:MOLSIM_000955 (hydrogen bond interaction energies)
+# Class: obo:MOLSIM_000955 (hydrogen bond interaction energies analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000955 "A specific type of interaction energy analysis focused on quantifying the energetic contribution of individual or collective hydrogen bonds within or between molecules. This can be estimated using specialized energy decomposition schemes, analysis of electrostatic and van der Waals terms between donor-hydrogen-acceptor atoms from a force field, or derived from quantum mechanical calculations. Quantifying H-bond energies helps understand their role in stabilizing structures and mediating molecular recognition. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000955 "hydrogen bond interaction energies"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000955 "hydrogen bond interaction energies analysis"@en)
 SubClassOf(obo:MOLSIM_000955 obo:MOLSIM_000954)
 
-# Class: obo:MOLSIM_000956 (base pair stacking energies)
+# Class: obo:MOLSIM_000956 (base pair stacking energies analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000956 "A specific interaction energy analysis quantifying the stabilizing energetic contribution from the non-covalent interactions (primarily van der Waals/dispersion and electrostatic) between adjacent, parallel base pairs in nucleic acid structures (DNA, RNA). These stacking interactions occur between the faces of the aromatic rings and are crucial for the overall stability of the double helix structure. Calculations often employ quantum mechanics or specially parameterized force fields to capture these subtle effects accurately. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000956 "base pair stacking energies"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000956 "base pair stacking energies analysis"@en)
 SubClassOf(obo:MOLSIM_000956 obo:MOLSIM_000954)
 
 # Class: obo:MOLSIM_000963 (AMBER crd format)
@@ -8105,22 +8090,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000974 "A category of analysis me
 AnnotationAssertion(rdfs:label obo:MOLSIM_000974 "solvent analysis"@en)
 SubClassOf(obo:MOLSIM_000974 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000975 (water shell)
+# Class: obo:MOLSIM_000975 (water shell analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000975 "A concept within hydration analysis referring to concentric layers of water molecules surrounding a solute, typically defined based on distance thresholds from the solute atoms or surface. Analysis focuses on characterizing the properties of water within specific shells (e.g., first, second hydration shell), including the number of water molecules (coordination number), their average density, preferred orientations, hydrogen bonding patterns, and residence times compared to bulk water. This provides a structured way to describe the local solvent environment. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000975 "water shell"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000975 "water shell analysis"@en)
 SubClassOf(obo:MOLSIM_000975 obo:MOLSIM_000983)
 
-# Class: obo:MOLSIM_000976 (radial distribution)
+# Class: obo:MOLSIM_000976 (radial distribution analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000976 "A fundamental distribution analysis method that calculates the probability of finding a particle (e.g., a solvent atom like oxygen) at a given distance 'r' from a central reference point (e.g., a solute atom or the solute's center of mass), relative to the probability expected for a uniform distribution at that distance. The resulting function, the radial distribution function or RDF, often denoted g(r), typically shows peaks corresponding to ordered solvation shells and decays to 1 at large distances (bulk solvent). Integration of the first peak gives the average coordination number in the first solvation shell. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000976 "radial distribution"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000976 "radial distribution analysis"@en)
 SubClassOf(obo:MOLSIM_000976 obo:MOLSIM_000984)
 
-# Class: obo:MOLSIM_000978 (conformation validation)
+# Class: obo:MOLSIM_000978 (conformation validation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000978 "A specific type of validation technique focused on assessing the quality of the three-dimensional arrangement of atoms (the conformation) in simulated biomolecules. It evaluates whether the molecular geometry, including bond lengths, angles, and steric arrangements, is plausible according to known chemical and physical rules. This ensures the structural models generated or sampled during a simulation are stereochemically sound (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000978 "conformation validation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000978 "conformation validation analysis"@en)
 SubClassOf(obo:MOLSIM_000978 obo:MOLSIM_000353)
 DisjointClasses(obo:MOLSIM_000978 obo:MOLSIM_000981)
 
@@ -8131,22 +8116,22 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000979 "ramachandran analysis"@en)
 SubClassOf(obo:MOLSIM_000979 obo:MOLSIM_000917)
 DisjointClasses(obo:MOLSIM_000979 obo:MOLSIM_000980)
 
-# Class: obo:MOLSIM_000980 (structural check)
+# Class: obo:MOLSIM_000980 (structural check analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000980 "A form of conformation validation that involves examining various geometric features of a biomolecular structure beyond just backbone torsion angles. This may include verifying appropriate bond lengths, bond angles, checking for unrealistic close contacts between atoms (clashes), or assessing other stereochemical parameters against standard values. It serves as a general quality control measure for the overall molecular model (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000980 "structural check"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000980 "structural check analysis"@en)
 SubClassOf(obo:MOLSIM_000980 obo:MOLSIM_000978)
 
-# Class: obo:MOLSIM_000981 (secondary structure assignment)
+# Class: obo:MOLSIM_000981 (secondary structure assignment analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000981 "Refers to the regular, local folding patterns occurring within the backbone of polymers like proteins or nucleic acids, such as alpha-helices and beta-sheets in proteins. These structures are defined by specific patterns of hydrogen bonds between backbone atoms and represent key building blocks of the molecule's overall three-dimensional architecture. While not a technique itself, analyzing secondary structure content and stability is often part of simulation validation and analysis (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000981 "secondary structure assignment"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000981 "secondary structure assignment analysis"@en)
 SubClassOf(obo:MOLSIM_000981 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000982 (secondary structure changes)
+# Class: obo:MOLSIM_000982 (secondary structure changes analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000982 "Refers to the dynamic transformations or fluctuations observed in the secondary structure elements of a biomolecule during a simulation or over time. Monitoring these changes, such as the formation or dissolution of helices or sheets, provides insights into molecular flexibility, folding pathways, or responses to interactions. Analyzing these dynamics helps understand how molecular function relates to structural transitions (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000982 "secondary structure changes"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000982 "secondary structure changes analysis"@en)
 SubClassOf(obo:MOLSIM_000982 obo:MOLSIM_000981)
 
 # Class: obo:MOLSIM_000983 (hydration analysis)
@@ -8161,10 +8146,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000984 "A solvent analysis techni
 AnnotationAssertion(rdfs:label obo:MOLSIM_000984 "distribution analysis"@en)
 SubClassOf(obo:MOLSIM_000984 obo:MOLSIM_000974)
 
-# Class: obo:MOLSIM_000985 (matrix diagonalization)
+# Class: obo:MOLSIM_000985 (matrix diagonalization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000985 "A core mathematical technique from linear algebra used to simplify a square matrix by finding its characteristic values (eigenvalues) and directions (eigenvectors), effectively transforming it into a diagonal matrix. In biomolecular simulations, this is heavily used in methods like Principal Component Analysis (PCA) to identify dominant modes of collective atomic motion from covariance matrices, or in Normal Mode Analysis (NMA) to find vibrational frequencies from Hessian matrices. Diagonalization reveals the fundamental components or modes underlying complex data or system dynamics (UNVERIFIED)."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000985 "matrix diagonalization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000985 "matrix diagonalization analysis"@en)
 SubClassOf(obo:MOLSIM_000985 obo:MOLSIM_000383)
 
 # Class: obo:MOLSIM_000986 (coarse-grained elastic mesoscopic model*)
@@ -8300,10 +8285,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001024 "Optical rotation is the p
 AnnotationAssertion(rdfs:label obo:MOLSIM_001024 "optical rotations"@en)
 SubClassOf(obo:MOLSIM_001024 obo:MOLSIM_001022)
 
-# Class: obo:MOLSIM_001032 (running average calculation)
+# Class: obo:MOLSIM_001032 (running average calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001032 "A running average calculation is a statistical analysis technique used to smooth out short-term fluctuations in time-series data and highlight longer-term trends. It is calculated by averaging a property over a sliding time window as the simulation progresses. For simulation experts, monitoring the running average of properties like the total energy or temperature is a standard method for assessing whether a simulation has reached a stable equilibrium. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001032 "running average calculation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001032 "running average calculation analysis"@en)
 SubClassOf(obo:MOLSIM_001032 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_001037 (GROMOS crd format)
@@ -12505,10 +12490,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001770 "Rotational diffusion is t
 AnnotationAssertion(rdfs:label obo:MOLSIM_001770 "rotational diffusion"@en)
 SubClassOf(obo:MOLSIM_001770 obo:MOLSIM_001391)
 
-# Class: obo:MOLSIM_001771 (backmapping)
+# Class: obo:MOLSIM_001771 (backmapping analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001771 "Backmapping is a modeling method used to convert a low-resolution, coarse-grained molecular model back into a high-resolution, all-atom representation. The procedure involves re-introducing the atoms that were grouped together in the coarse-grained model and then refining their positions to create a chemically realistic structure. For experts, backmapping is a crucial step for analyzing a specific conformation obtained from a long coarse-grained simulation with full atomistic detail. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001771 "backmapping"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001771 "backmapping analysis"@en)
 SubClassOf(obo:MOLSIM_001771 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_001772 (NMR refinement)
@@ -12991,10 +12976,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001851 "A simulation engine is th
 AnnotationAssertion(rdfs:label obo:MOLSIM_001851 "simulation engine"@en)
 SubClassOf(obo:MOLSIM_001851 obo:MOLSIM_000158)
 
-# Class: obo:MOLSIM_001852 (essential dynamics)
+# Class: obo:MOLSIM_001852 (essential dynamics analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001852 "Essential dynamics is an analysis technique that simplifies the complex motions of a molecule down to a few key, large-scale movements that describe most of its overall fluctuation. It uses a mathematical method called Principal Component Analysis (PCA) to identify the dominant collective motions from a simulation trajectory. This allows researchers to focus on the most functionally important dynamic events, such as the hinge-bending of a protein domain, while filtering out small, random thermal noise. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001852 "essential dynamics"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001852 "essential dynamics analysis"@en)
 SubClassOf(obo:MOLSIM_001852 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_001853 (correlation matrix)
@@ -13057,10 +13042,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001862 "A computing system is the
 AnnotationAssertion(rdfs:label obo:MOLSIM_001862 "computing system"@en)
 SubClassOf(obo:MOLSIM_001862 obo:MOLSIM_001845)
 
-# Class: obo:MOLSIM_001863 (ligand cavity characterization)
+# Class: obo:MOLSIM_001863 (ligand cavity analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001863 "Ligand cavity characterization is a specific type of pocket analysis that focuses on the binding site occupied by a ligand. It involves analyzing the size, shape, and properties of the cavity when the ligand is present or absent. For experts, this analysis is used to understand the determinants of binding specificity and to assess how the binding pocket adapts to different ligands. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001863 "ligand cavity characterization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001863 "ligand cavity analysis"@en)
 SubClassOf(obo:MOLSIM_001863 obo:MOLSIM_000984)
 SubClassOf(obo:MOLSIM_001863 obo:MOLSIM_001860)
 
@@ -13106,10 +13091,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001870 "Lipid density is a measur
 AnnotationAssertion(rdfs:label obo:MOLSIM_001870 "lipid density"@en)
 SubClassOf(obo:MOLSIM_001870 obo:MOLSIM_001333)
 
-# Class: obo:MOLSIM_001871 (lipid distribution)
+# Class: obo:MOLSIM_001871 (lipid distribution analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001871 "Lipid distribution refers to the spatial arrangement and composition of different types of lipid molecules within a simulated membrane. In a mixed bilayer, lipids are often not randomly distributed but can form distinct domains or clusters, and some lipids may preferentially accumulate around an embedded protein. Analyzing this distribution is crucial for understanding membrane organization and the specific lipid environment required for a membrane protein's function. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001871 "lipid distribution"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001871 "lipid distribution analysis"@en)
 SubClassOf(obo:MOLSIM_001871 obo:MOLSIM_000984)
 
 # Class: obo:MOLSIM_001872 (lipid order parameters)
@@ -13160,10 +13145,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001879 "A helical parameter is on
 AnnotationAssertion(rdfs:label obo:MOLSIM_001879 "helical parameter"@en)
 SubClassOf(obo:MOLSIM_001879 obo:MOLSIM_001358)
 
-# Class: obo:MOLSIM_001880 (inter-BP correlation)
+# Class: obo:MOLSIM_001880 (inter-BP correlation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001880 "Inter-BP correlation refers to the analysis of how the structural parameters of one DNA base pair are statistically coupled to the parameters of its neighbors. For example, a change in the 'roll' angle at one step might influence the 'slide' or 'twist' at the adjacent step. Analyzing these correlations reveals the sequence-dependent rules that govern the flexibility and dynamics of the DNA double helix, which is crucial for understanding how proteins recognize and bind to specific DNA sequences. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001880 "inter-BP correlation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001880 "inter-BP correlation analysis"@en)
 SubClassOf(obo:MOLSIM_001880 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_001881 (nucleic acid backbone flexibility)
@@ -13184,10 +13169,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001883 "Stiffness is a property t
 AnnotationAssertion(rdfs:label obo:MOLSIM_001883 "stiffness"@en)
 SubClassOf(obo:MOLSIM_001883 obo:MOLSIM_001800)
 
-# Class: obo:MOLSIM_001884 (concerted motions)
+# Class: obo:MOLSIM_001884 (concerted motions analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001884 "Concerted motions describe the collective movement of groups of atoms that are correlated, meaning they tend to move together in the same or opposite directions at the same time. These movements can involve entire domains of a protein shifting or twisting as a single unit, rather than as independent, random wiggles. Identifying these large-scale concerted motions is key to understanding the functionally important dynamics of a molecule, such as the opening and closing of an enzyme's active site. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001884 "concerted motions"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001884 "concerted motions analysis"@en)
 SubClassOf(obo:MOLSIM_001884 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_001885 (trajectory meta analysis)
@@ -13649,6 +13634,11 @@ SubClassOf(obo:MOLSIM_010023 obo:MOLSIM_000719)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_010024 "local computing cluster system"@en)
 SubClassOf(obo:MOLSIM_010024 obo:MOLSIM_001862)
+
+# Class: obo:MOLSIM_010025 (effective energy analysis)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010025 "effective energy analysis"@en)
+SubClassOf(obo:MOLSIM_010025 obo:MOLSIM_000951)
 
 
 ############################
