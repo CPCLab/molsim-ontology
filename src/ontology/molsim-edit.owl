@@ -718,7 +718,6 @@ Declaration(Class(obo:MOLSIM_000710))
 Declaration(Class(obo:MOLSIM_000711))
 Declaration(Class(obo:MOLSIM_000712))
 Declaration(Class(obo:MOLSIM_000713))
-Declaration(Class(obo:MOLSIM_000714))
 Declaration(Class(obo:MOLSIM_000715))
 Declaration(Class(obo:MOLSIM_000716))
 Declaration(Class(obo:MOLSIM_000717))
@@ -1853,6 +1852,7 @@ Declaration(Class(obo:MOLSIM_010019))
 Declaration(Class(obo:MOLSIM_010020))
 Declaration(Class(obo:MOLSIM_010021))
 Declaration(Class(obo:MOLSIM_010022))
+Declaration(Class(obo:MOLSIM_010023))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -6598,10 +6598,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000688 "Represents any origin fro
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000688 "TODO:may be be replacable with IAO's information content entity (http://purl.obolibrary.org/obo/IAO_0000030 ) as an import. discussion needed: the definition there is however rather abstract. #ontologyengineer #import"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000688 "data source"@en)
 
-# Class: obo:MOLSIM_000689 (database)
+# Class: obo:MOLSIM_000689 (database source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000689 "An organized, typically electronic, collection of structured information or data that can be easily accessed, managed, and updated. In biomolecular sciences, databases store vast amounts of information like molecular structures, sequences, experimental results, and simulation trajectories. They serve as central repositories for the research community. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000689 "database"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000689 "database source"@en)
 SubClassOf(obo:MOLSIM_000689 obo:MOLSIM_000688)
 
 # Class: obo:MOLSIM_000690 (primary database)
@@ -6714,16 +6714,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000707 "A secondary (or sometimes
 AnnotationAssertion(rdfs:label obo:MOLSIM_000707 "bioactivity database"@en)
 SubClassOf(obo:MOLSIM_000707 obo:MOLSIM_000703)
 
-# Class: obo:MOLSIM_000708 (knowledge base)
+# Class: obo:MOLSIM_000708 (knowledge-based database)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000708 "A specialized type of database designed to store complex, structured, and unstructured information, often integrating data from multiple sources and using ontologies or controlled vocabularies to represent knowledge explicitly. Knowledge bases aim to provide a comprehensive understanding of specific biological entities or systems, facilitating inference and discovery. UniProtKB is a prime example in the protein domain. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000708 "knowledge base"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000708 "knowledge-based database"@en)
 SubClassOf(obo:MOLSIM_000708 obo:MOLSIM_000689)
 
-# Class: obo:MOLSIM_000709 (repository)
+# Class: obo:MOLSIM_000709 (repository database)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000709 "A type of database primarily focused on the storage, preservation, and dissemination of datasets, often associated with specific types of studies, computational outputs, or large-scale projects. Repositories ensure data accessibility and reusability for the scientific community. Examples include those for simulation trajectories or predicted protein structures. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000709 "repository"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000709 "repository database"@en)
 SubClassOf(obo:MOLSIM_000709 obo:MOLSIM_000689)
 
 # Class: obo:MOLSIM_000710 (simulation data repository)
@@ -6750,12 +6750,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000713 "A database that indexes a
 AnnotationAssertion(rdfs:label obo:MOLSIM_000713 "literature database"@en)
 SubClassOf(obo:MOLSIM_000713 obo:MOLSIM_000689)
 
-# Class: obo:MOLSIM_000714 (computational source)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000714 "Represents data that originates directly from the output of a computational method, algorithm, or software tool, rather than being retrieved from an established, curated database. This includes, for example, a protein structure predicted by a specific program run locally or the raw trajectory file from a simulation. This distinction is important for tracking the provenance of non-archived computational results. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000714 "computational source"@en)
-SubClassOf(obo:MOLSIM_000714 obo:MOLSIM_000688)
-
 # Class: obo:MOLSIM_000715 (prediction software output)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000715 "Data generated as the direct result of executing a specific piece of prediction software, such as a tool for predicting protein structure, ligand binding sites, or functional annotations. This refers to the output before it might be curated or deposited into a public repository. An example would be the coordinate file of a homology model generated by a local SWISS-MODEL run. (UNVERIFIED)"@en)
@@ -6775,23 +6769,23 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000717 "Refers to data obtained d
 AnnotationAssertion(rdfs:label obo:MOLSIM_000717 "experimental data source"@en)
 SubClassOf(obo:MOLSIM_000717 obo:MOLSIM_000688)
 
-# Class: obo:MOLSIM_000718 (scientific publication)
+# Class: obo:MOLSIM_000718 (scientific publication source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000718 "A published research article, review, book chapter, or conference proceeding that serves as the source of specific data, findings, or methodologies. When data is cited directly from a publication without an associated database entry, the publication itself is considered the data source. This is common for specific measurements or observations not typically archived elsewhere. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000718 "scientific publication"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000718 "scientific publication source"@en)
 SubClassOf(obo:MOLSIM_000718 obo:MOLSIM_000717)
 DisjointClasses(obo:MOLSIM_000718 obo:MOLSIM_000719)
 
-# Class: obo:MOLSIM_000719 (unpublished experimental result)
+# Class: obo:MOLSIM_000719 (unpublished experimental result source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000719 "Data or findings originating from a laboratory experiment that have not yet been published or formally disseminated to the public or scientific community. This category covers preliminary results, ongoing research data, or information shared through informal channels before formal publication or deposition. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000719 "unpublished experimental result"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000719 "unpublished experimental result source"@en)
 SubClassOf(obo:MOLSIM_000719 obo:MOLSIM_000717)
 
-# Class: obo:MOLSIM_000720 (local or proprietary source)
+# Class: obo:MOLSIM_000720 (private source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000720 "A data source that is not publicly accessible, such as an internal database maintained by a private company or research institution, or data held privately by an individual researcher. This category is important for acknowledging data origins that cannot be independently verified or accessed by the wider community. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000720 "local or proprietary source"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000720 "private source"@en)
 SubClassOf(obo:MOLSIM_000720 obo:MOLSIM_000688)
 
 # Class: obo:MOLSIM_000721 (in house database)
@@ -6801,10 +6795,10 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000721 "in house database"@en)
 SubClassOf(obo:MOLSIM_000721 obo:MOLSIM_000720)
 DisjointClasses(obo:MOLSIM_000721 obo:MOLSIM_000722)
 
-# Class: obo:MOLSIM_000722 (personal communication)
+# Class: obo:MOLSIM_000722 (private communication source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000722 "Information or data obtained directly from an individual researcher or expert through informal means such as email, conversation, or unpublished notes, rather than through a formal publication or public database. While sometimes necessary, such sources are typically less verifiable and are often used for supplementary or preliminary information. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000722 "personal communication"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000722 "private communication source"@en)
 SubClassOf(obo:MOLSIM_000722 obo:MOLSIM_000720)
 
 # Class: obo:MOLSIM_000735 (resolution-based force field)
@@ -13645,6 +13639,11 @@ SubClassOf(obo:MOLSIM_010021 obo:MOLSIM_001085)
 AnnotationAssertion(rdfs:label obo:MOLSIM_010022 "quantum chemistry format"@en)
 SubClassOf(obo:MOLSIM_010022 obo:MOLSIM_001085)
 
+# Class: obo:MOLSIM_010023 (electronic lab journal source)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010023 "electronic lab journal source"@en)
+SubClassOf(obo:MOLSIM_010023 obo:MOLSIM_000719)
+
 
 ############################
 #   Named Individuals
@@ -14081,7 +14080,6 @@ DisjointClasses(obo:MOLSIM_000472 obo:MOLSIM_000898 obo:MOLSIM_000899 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000486 obo:MOLSIM_000487 obo:MOLSIM_000501 obo:MOLSIM_000505 obo:MOLSIM_000506 obo:MOLSIM_000511 obo:MOLSIM_000512 obo:MOLSIM_000513 obo:MOLSIM_000514 obo:MOLSIM_000515 obo:MOLSIM_000516 obo:MOLSIM_000517 obo:MOLSIM_000518 obo:MOLSIM_000519 obo:MOLSIM_000520 obo:MOLSIM_000521 obo:MOLSIM_000522 obo:MOLSIM_000523 obo:MOLSIM_000524 obo:MOLSIM_000525 obo:MOLSIM_000526 obo:MOLSIM_000527 obo:MOLSIM_000528 obo:MOLSIM_000529 obo:MOLSIM_000530 obo:MOLSIM_000531 obo:MOLSIM_000532 obo:MOLSIM_000533 obo:MOLSIM_000534 obo:MOLSIM_000535 obo:MOLSIM_000536 obo:MOLSIM_000537 obo:MOLSIM_000538 obo:MOLSIM_000539 obo:MOLSIM_000540 obo:MOLSIM_000541 obo:MOLSIM_000542 obo:MOLSIM_000543 obo:MOLSIM_000544 obo:MOLSIM_000545 obo:MOLSIM_000546 obo:MOLSIM_000547 obo:MOLSIM_000548 obo:MOLSIM_000549 obo:MOLSIM_000550 obo:MOLSIM_000551 obo:MOLSIM_000552 obo:MOLSIM_000553 obo:MOLSIM_000554 obo:MOLSIM_000555 obo:MOLSIM_000556 obo:MOLSIM_000557 obo:MOLSIM_000558 obo:MOLSIM_000559 obo:MOLSIM_000560 obo:MOLSIM_000561 obo:MOLSIM_000562 obo:MOLSIM_000563 obo:MOLSIM_000564 obo:MOLSIM_000565 obo:MOLSIM_000566 obo:MOLSIM_000567 obo:MOLSIM_000568 obo:MOLSIM_000569 obo:MOLSIM_000570 obo:MOLSIM_000571 obo:MOLSIM_000572 obo:MOLSIM_000573 obo:MOLSIM_000574 obo:MOLSIM_000575 obo:MOLSIM_000576 obo:MOLSIM_000577 obo:MOLSIM_000578 obo:MOLSIM_000579)
 DisjointClasses(obo:MOLSIM_000591 obo:MOLSIM_000594 obo:MOLSIM_000595 obo:MOLSIM_000596 obo:MOLSIM_000597)
 DisjointClasses(obo:MOLSIM_000674 obo:MOLSIM_000675 obo:MOLSIM_000676 obo:MOLSIM_000677)
-DisjointClasses(obo:MOLSIM_000689 obo:MOLSIM_000714 obo:MOLSIM_000717 obo:MOLSIM_000720)
 DisjointClasses(obo:MOLSIM_000690 obo:MOLSIM_000703 obo:MOLSIM_000708 obo:MOLSIM_000709 obo:MOLSIM_000713)
 DisjointClasses(obo:MOLSIM_000691 obo:MOLSIM_000695 obo:MOLSIM_000698 obo:MOLSIM_000701)
 DisjointClasses(obo:MOLSIM_000692 obo:MOLSIM_000693 obo:MOLSIM_000694)
