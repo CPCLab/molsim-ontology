@@ -1853,6 +1853,9 @@ Declaration(Class(obo:MOLSIM_010022))
 Declaration(Class(obo:MOLSIM_010023))
 Declaration(Class(obo:MOLSIM_010024))
 Declaration(Class(obo:MOLSIM_010025))
+Declaration(Class(obo:MOLSIM_010026))
+Declaration(Class(obo:MOLSIM_010027))
+Declaration(Class(obo:MOLSIM_010028))
 Declaration(ObjectProperty(obo:MOLSIM_000110))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000317))
@@ -3853,16 +3856,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000230 "All-atom molecular dynami
 AnnotationAssertion(rdfs:label obo:MOLSIM_000230 "all-atom molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000230 obo:MOLSIM_000229)
 
-# Class: obo:MOLSIM_000231 (energy type)
+# Class: obo:MOLSIM_000231 (interaction energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000231 "Categorizes the different components or functional forms contributing to the total potential energy of the system as calculated by a specific molecular mechanics force field, or relates to fundamental forms of energy in physics relevant at the molecular scale. Within a typical force field, the total potential energy is partitioned into terms like bond stretching energy, angle bending energy, dihedral torsion energy, Van der Waals energy, and electrostatic energy. Analyzing these energy types helps understand molecular conformation, strain, stability, and interaction patterns during a simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000231 "energy type"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000231 "interaction energy"@en)
 SubClassOf(obo:MOLSIM_000231 obo:MOLSIM_000006)
 
-# Class: obo:MOLSIM_000232 (bond energy)
+# Class: obo:MOLSIM_000232 (bond interaction energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000232 "A component of the system's energy representing the potential energy stored in the stretching or compression of covalent bonds away from their equilibrium lengths. It is typically modeled as a harmonic potential, penalizing deviations from the ideal bond length defined in the force field. The bond energy term is a primary indicator of high strain in a molecular structure during minimization. Simulation log files report this value as Bond, E_bond, or BOND. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000232 "bond energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000232 "bond interaction energy"@en)
 SubClassOf(obo:MOLSIM_000232 obo:MOLSIM_000231)
 SubClassOf(obo:MOLSIM_000232 obo:MOLSIM_001294)
 
@@ -4000,16 +4003,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000254 "A specific type of cluste
 AnnotationAssertion(rdfs:label obo:MOLSIM_000254 "hierarchical agglomerative bottom-up algorithm"@en)
 SubClassOf(obo:MOLSIM_000254 obo:MOLSIM_000253)
 
-# Class: obo:MOLSIM_000255 (static molecular interaction prediction analysis)
+# Class: obo:MOLSIM_000255 (static molecular interaction prediction modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000255 "Static molecular interaction prediction refers to computational methods that aim to predict how molecules will interact (e.g., bind to each other) based primarily on their static structures, without explicitly simulating their dynamic behavior over time. These methods often involve optimizing the relative orientation of molecules and evaluating interaction energies using scoring functions or simplified energy calculations. Molecular docking is a primary example in this category. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000255 "static molecular interaction prediction analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000255 "static molecular interaction prediction modeling"@en)
 SubClassOf(obo:MOLSIM_000255 obo:MOLSIM_000305)
 
-# Class: obo:MOLSIM_000256 (protein-ligand docking)
+# Class: obo:MOLSIM_000256 (protein-protein docking analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000256 "Protein-protein docking is a computational method focused on predicting the three-dimensional structure of a complex formed when two or more proteins bind to each other. Given the structures of the individual proteins, docking algorithms search for energetically favorable relative orientations and conformations that form a stable complex, typically evaluated using scoring functions that consider shape complementarity, electrostatics, and other interfacial properties. Predicting protein complex structures is crucial for understanding biological pathways and designing therapeutics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000256 "protein-ligand docking"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000256 "protein-protein docking analysis"@en)
 SubClassOf(obo:MOLSIM_000256 obo:MOLSIM_000255)
 
 # Class: obo:MOLSIM_000257 (system building tool)
@@ -4314,10 +4317,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000304 "An experimental method is
 AnnotationAssertion(rdfs:label obo:MOLSIM_000304 "experimental method"@en)
 SubClassOf(obo:MOLSIM_000304 obo:MOLSIM_000109)
 
-# Class: obo:MOLSIM_000305 (modeling analysis)
+# Class: obo:MOLSIM_000305 (modeling method)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000305 "A modeling method is a computational technique used to build a simplified representation or predict the structure of a molecule. As a type of computational method, it typically involves predicting a static structure or interaction pose without simulating its dynamic behavior over time, such as in protein-ligand docking. These methods often employ search algorithms and scoring functions to evaluate and rank potential conformations based on criteria like shape complementarity and interaction energy. Common terms found in software and publications include \"molecular docking,\" \"homology modeling,\" \"scoring function,\" and \"binding pose prediction.\" (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000305 "modeling analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000305 "modeling method"@en)
 SubClassOf(obo:MOLSIM_000305 obo:MOLSIM_000140)
 
 # Class: obo:MOLSIM_000306 (statistical package)
@@ -4399,22 +4402,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000327 "Active site focusing is a
 AnnotationAssertion(rdfs:label obo:MOLSIM_000327 "active site focusing analysis"@en)
 SubClassOf(obo:MOLSIM_000327 obo:MOLSIM_000262)
 
-# Class: obo:MOLSIM_000328 (system setup analysis)
+# Class: obo:MOLSIM_000328 (system setup modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000328 "A system setup method is a procedure used to prepare a molecular system for a simulation. This involves all the steps required to build a complete and chemically correct model, such as adding solvent molecules, placing ions, and ensuring the correct atom ordering. For experts, these methods are critical for creating a valid starting point that accurately reflects the intended experimental conditions of the simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000328 "system setup analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000328 "system setup modeling"@en)
 SubClassOf(obo:MOLSIM_000328 obo:MOLSIM_000305)
 
-# Class: obo:MOLSIM_000329 (ion placement method)
+# Class: obo:MOLSIM_000329 (ion placement analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000329 "An ion placement method is a specific procedure used during system setup to add ions, such as sodium or chloride, to the simulation box. The primary purpose is usually to neutralize the total charge of the system and to mimic a specific salt concentration. For experts, the choice of method can be important, as placing ions in physically reasonable locations based on electrostatics is preferred over random placement. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000329 "ion placement method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000329 "ion placement analysis"@en)
 SubClassOf(obo:MOLSIM_000329 obo:MOLSIM_000328)
 
-# Class: obo:MOLSIM_000330 (ion concentration calculation method)
+# Class: obo:MOLSIM_000330 (ion concentration calculation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000330 "An ion concentration calculation method is the procedure used to determine the exact number of positive and negative ions that need to be added to a simulation box to achieve a target salt concentration. This calculation must account for the volume of the box and the number of counter-ions already added to neutralize the solute molecule. For experts, accurately performing this calculation is a mandatory step for preparing a system that correctly models the desired ionic strength. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000330 "ion concentration calculation method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000330 "ion concentration calculation analysis"@en)
 SubClassOf(obo:MOLSIM_000330 obo:MOLSIM_000329)
 
 # Class: obo:MOLSIM_000331 (force field component)
@@ -4593,10 +4596,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000359 "A helical density map is 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000359 "helical density map visualization analysis"@en)
 SubClassOf(obo:MOLSIM_000359 obo:MOLSIM_000357)
 
-# Class: obo:MOLSIM_000360 (Laplacian mapping ion placement)
+# Class: obo:MOLSIM_000360 (Laplacian mapping ion placement analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000360 "A computational method for placing ions, like sodium or chloride, into a simulation box containing a charged molecule like a protein. It works by calculating the electrostatic potential around the molecule and then using a mathematical operator, the Laplacian, to identify the most electrostatically favorable positions for the ions to be placed. This approach is more physically realistic than simply placing ions randomly, as it positions them in regions where they are most likely to be found, such as near oppositely charged amino acid residues. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000360 "Laplacian mapping ion placement"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000360 "Laplacian mapping ion placement analysis"@en)
 SubClassOf(obo:MOLSIM_000360 obo:MOLSIM_000329)
 
 # Class: obo:MOLSIM_000361 (adaptively biased molecular dynamics)
@@ -4678,16 +4681,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000373 "This is an enhanced sampl
 AnnotationAssertion(rdfs:label obo:MOLSIM_000373 "replica-exchange self-guided Langevin dynamics"@en)
 SubClassOf(obo:MOLSIM_000373 obo:MOLSIM_000858)
 
-# Class: obo:MOLSIM_000374 (force field parameterization analysis)
+# Class: obo:MOLSIM_000374 (force field parameterization modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000374 "A force field parameterization method is the systematic procedure used to derive the numerical values, or parameters, for a force field. This process involves fitting the parameters of the force field's energy functions to reproduce high-quality data, which can come from quantum mechanical calculations or experimental measurements. For experts, the parameterization method is the core of force field development and determines the accuracy and domain of applicability of the resulting model. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000374 "force field parameterization analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000374 "force field parameterization modeling"@en)
 SubClassOf(obo:MOLSIM_000374 obo:MOLSIM_000305)
 
-# Class: obo:MOLSIM_000375 (Seminario method)
+# Class: obo:MOLSIM_000375 (Seminario method modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000375 "The Seminario method is a specific force field parameterization method used to derive harmonic force constants for bond stretching and angle bending terms. It works by calculating the matrix of second derivatives of the energy (the Hessian matrix) from a quantum mechanical calculation and then using its eigenvalues and eigenvectors to determine the corresponding force constants. For experts, this method provides a systematic and automated way to obtain bonded parameters for new or non-standard molecules. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000375 "Seminario method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000375 "Seminario method modeling"@en)
 SubClassOf(obo:MOLSIM_000375 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000376 (temperature replica-exchange molecular dynamics)
@@ -4702,10 +4705,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000377 "Well-tempered adaptively 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000377 "well-tempered adaptively biased molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000377 obo:MOLSIM_000361)
 
-# Class: obo:MOLSIM_000378 (Z-matrix parameterization method)
+# Class: obo:MOLSIM_000378 (Z-matrix parameterization modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000378 "A Z-matrix parameterization method is a procedure for developing force field parameters where the molecule's geometry is defined using internal coordinates (a Z-matrix). This representation makes it easier to systematically scan and fit parameters for specific degrees of freedom, such as bond lengths or dihedral angles. For force field developers, this method is useful for systematically exploring the potential energy surface and deriving parameters that accurately reproduce it. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000378 "Z-matrix parameterization method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000378 "Z-matrix parameterization modeling"@en)
 SubClassOf(obo:MOLSIM_000378 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000379 (ZLM density fitting)
@@ -4934,7 +4937,7 @@ SubClassOf(obo:MOLSIM_000415 obo:MOLSIM_000615)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000416 "Constant pH molecular dynamics (CpHMD) is a specialized simulation method that allows the protonation states of acidic and basic residues in a molecule to change during the simulation. This is achieved by performing Monte Carlo moves that attempt to add or remove protons, with the acceptance of these moves being determined by the target pH of the simulation. For experts, CpHMD is an essential technique for studying proteins and processes whose structure and function are sensitive to pH. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000416 "constant pH molecular dynamics"@en)
-SubClassOf(obo:MOLSIM_000416 obo:MOLSIM_000308)
+SubClassOf(obo:MOLSIM_000416 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000417 (continuous constant pH molecular dynamics)
 
@@ -5284,10 +5287,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000473 "A file format generated b
 AnnotationAssertion(rdfs:label obo:MOLSIM_000473 "ac format"@en)
 SubClassOf(obo:MOLSIM_000473 obo:MOLSIM_000905)
 
-# Class: obo:MOLSIM_000474 (protein-protein docking)
+# Class: obo:MOLSIM_000474 (protein-ligand docking analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000474 "Protein-ligand docking is a computational method used to predict the preferred binding orientation (pose) and often estimate the binding affinity of a small molecule (ligand) within the active site or binding pocket of a protein (receptor). Docking algorithms typically explore many possible poses by translating and rotating the ligand relative to the receptor and use scoring functions to rank these poses based on predicted interaction energies. It is a widely used tool in structure-based drug design. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000474 "protein-protein docking"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000474 "protein-ligand docking analysis"@en)
 SubClassOf(obo:MOLSIM_000474 obo:MOLSIM_000255)
 
 # Class: obo:MOLSIM_000475 (coarse-grained molecular dynamics)
@@ -6285,7 +6288,7 @@ SubClassOf(obo:MOLSIM_000638 obo:MOLSIM_000843)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000639 "A polarizable force field is an advanced type of force field that explicitly models the phenomenon of electronic polarization. Unlike standard fixed-charge force fields, it allows the charge distribution of a molecule to change in response to the local electric field of its environment. For experts, polarizable force fields provide a more physically accurate description of electrostatic interactions, which can be critical for systems involving ions or highly charged interfaces. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000639 "fluctuating charge model"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000639 "polarizable force field"@en)
-SubClassOf(obo:MOLSIM_000639 obo:MOLSIM_000735)
+SubClassOf(obo:MOLSIM_000639 obo:MOLSIM_000007)
 
 # Class: obo:MOLSIM_000640 (polarizable Gaussian multipole force field)
 
@@ -6307,10 +6310,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000642 "A Gaussian-shaped constra
 AnnotationAssertion(rdfs:label obo:MOLSIM_000642 "Gaussian-shaped constraint simulation"@en)
 SubClassOf(obo:MOLSIM_000642 obo:MOLSIM_000364)
 
-# Class: obo:MOLSIM_000643 (Lorentz-Berthelot mixing rules)
+# Class: obo:MOLSIM_000643 (Lorentz-Berthelot mixing modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000643 "The Lorentz-Berthelot mixing rules are a standard method used in force fields to determine the non-bonded interaction parameters between two different types of atoms. The rule calculates the Lennard-Jones collision diameter (sigma) using an arithmetic mean and the energy well depth (epsilon) using a geometric mean of the parameters for the individual atom types. For experts, these combining rules are the default method used to generate the full matrix of pairwise non-bonded parameters from the limited set defined for each atom type. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000643 "Lorentz-Berthelot mixing rules"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000643 "Lorentz-Berthelot mixing modeling"@en)
 SubClassOf(obo:MOLSIM_000643 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000644 (HF/6-31G RESP)
@@ -6325,10 +6328,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000645 "The SIRAH force field is 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000645 "SIRAH force field"@en)
 SubClassOf(obo:MOLSIM_000645 obo:MOLSIM_000736)
 
-# Class: obo:MOLSIM_000646 (empirical metal center parameterization)
+# Class: obo:MOLSIM_000646 (empirical metal center parameterization modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000646 "An empirical metal center parameterization is a method for deriving force field parameters for a metal ion and its coordination site by fitting them to reproduce experimental data. This can include data such as crystal structures, vibrational frequencies, or binding energies for a set of known metal complexes. For experts, this approach is often necessary for metal ions because standard, general-purpose parameterization methods can fail to capture their complex electronic and bonding behavior. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000646 "empirical metal center parameterization"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000646 "empirical metal center parameterization modeling"@en)
 SubClassOf(obo:MOLSIM_000646 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000647 (hybrid solvent MM-PBSA analysis)
@@ -6389,7 +6392,7 @@ SubClassOf(obo:MOLSIM_000655 obo:MOLSIM_000845)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000656 "Constant redox potential molecular dynamics is an advanced simulation method that allows molecules in the system to change their electronic redox state during the simulation. This is done by coupling the simulation to a virtual \"electron bath\" at a fixed electrochemical potential. For experts, this method is essential for studying the behavior of electron transfer proteins and other redox-active systems in a specific electrochemical environment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000656 "constant redox potential molecular dynamics"@en)
-SubClassOf(obo:MOLSIM_000656 obo:MOLSIM_000308)
+SubClassOf(obo:MOLSIM_000656 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000657 (X-ray refinement)
 
@@ -6415,34 +6418,34 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000660 "LES trajectory splitting 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000660 "LES trajectory splitting analysis"@en)
 SubClassOf(obo:MOLSIM_000660 obo:MOLSIM_000939)
 
-# Class: obo:MOLSIM_000661 (structure modification method analysis)
+# Class: obo:MOLSIM_000661 (structure modification modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000661 "A structure modification method is a computational procedure that alters the atomic coordinates or composition of a molecular structure file. This includes a wide range of operations such as adding or deleting atoms, rotating or translating molecules, or building new polymeric chains. For researchers, these methods are the fundamental tools used to build, edit, and prepare molecular models for simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000661 "structure modification method analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000661 "structure modification modeling"@en)
 SubClassOf(obo:MOLSIM_000661 obo:MOLSIM_000305)
 
-# Class: obo:MOLSIM_000662 (ion randomization method)
+# Class: obo:MOLSIM_000662 (ion randomization analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000662 "An ion randomization method is a procedure for placing ions in a simulation box by randomly swapping their positions with existing solvent molecules. This is often done after an initial, simpler placement to ensure the ions are well-distributed throughout the solvent. For experts, this method helps to create a more disordered and realistic initial distribution of ions, avoiding potential artifacts from placing them in a regular grid. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000662 "ion randomization method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000662 "ion randomization analysis"@en)
 SubClassOf(obo:MOLSIM_000662 obo:MOLSIM_000329)
 
-# Class: obo:MOLSIM_000663 (cell replication method)
+# Class: obo:MOLSIM_000663 (cell replication analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000663 "A cell replication method is a procedure used in system setup to create a larger system, known as a supercell, by duplicating the original simulation unit cell in one or more dimensions. This is commonly used in materials science simulations to model bulk crystals or surfaces from a smaller repeating unit. For experts, this method is the standard way to construct a periodic system that is large enough to minimize finite-size artifacts. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000663 "cell replication method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000663 "cell replication analysis"@en)
 SubClassOf(obo:MOLSIM_000663 obo:MOLSIM_000328)
 
-# Class: obo:MOLSIM_000664 (coordinate scaling analysis)
+# Class: obo:MOLSIM_000664 (coordinate scaling modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000664 "A coordinate scaling method is a structure modification method that multiplies all the atomic coordinates in a system by a specific scaling factor. This is used to uniformly expand or contract the entire system. For experts, this can be a step in adjusting the density of a system or in some barostat algorithms that control pressure by scaling the box and the coordinates within it. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000664 "coordinate scaling analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000664 "coordinate scaling modeling"@en)
 SubClassOf(obo:MOLSIM_000664 obo:MOLSIM_000305)
 
-# Class: obo:MOLSIM_000665 (velocity assignment method)
+# Class: obo:MOLSIM_000665 (velocity assignment analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000665 "A velocity assignment method is the procedure used to give atoms their initial speeds and directions at the beginning of a molecular dynamics simulation. These velocities are typically chosen from a random distribution, such as the Maxwell-Boltzmann distribution, that corresponds to the desired starting temperature of the system. For experts, this step is crucial for initiating the thermal motion of the system before the equilibration phase. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000665 "velocity assignment method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000665 "velocity assignment analysis"@en)
 SubClassOf(obo:MOLSIM_000665 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000666 (volumetric map generation analysis)
@@ -6451,16 +6454,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000666 "Volumetric map generation
 AnnotationAssertion(rdfs:label obo:MOLSIM_000666 "volumetric map generation analysis"@en)
 SubClassOf(obo:MOLSIM_000666 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000667 (topology stripping method)
+# Class: obo:MOLSIM_000667 (topology stripping analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000667 "A topology stripping method is a procedure used to remove a subset of atoms, typically solvent and ions, from a molecular topology file. This is most often done during post-processing to create smaller topology files for the receptor and ligand alone, which are needed for MM/PBSA or MM/GBSA free energy calculations. For experts, this method is an essential step in the workflow for preparing files for endpoint free energy analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000667 "topology stripping method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000667 "topology stripping analysis"@en)
 SubClassOf(obo:MOLSIM_000667 obo:MOLSIM_000328)
 
-# Class: obo:MOLSIM_000668 (force field parameter update method)
+# Class: obo:MOLSIM_000668 (force field parameter update modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000668 "A force field parameter update method is a procedure for modifying or adding to an existing set of force field parameters. This is often done by reading a small file containing new or revised parameters that override the default values loaded from the main force field library. For experts, this method is the standard way to use parameters for a non-standard ligand or to apply a specific correction to the force field without having to edit the core parameter files. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000668 "force field parameter update method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000668 "force field parameter update modeling"@en)
 SubClassOf(obo:MOLSIM_000668 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000669 (average structure calculation analysis)
@@ -6517,10 +6520,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000677 "An electronic structure a
 AnnotationAssertion(rdfs:label obo:MOLSIM_000677 "polarization analysis"@en)
 SubClassOf(obo:MOLSIM_000677 obo:MOLSIM_000673)
 
-# Class: obo:MOLSIM_000678 (atom order fixing)
+# Class: obo:MOLSIM_000678 (atom order fixing analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000678 "An atom order fixing method is a procedure used to reorder the atoms in a structure file to ensure they match the order expected by a corresponding topology file. Inconsistencies in atom ordering are a common source of errors when preparing systems for simulation. For experts, this is a critical sanity check and correction step to ensure that the coordinates and parameters are correctly matched for every atom. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000678 "atom order fixing"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000678 "atom order fixing analysis"@en)
 SubClassOf(obo:MOLSIM_000678 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000679 (image bond fixing analysis)
@@ -6529,10 +6532,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000679 "Image bond fixing is a po
 AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "image bond fixing analysis"@en)
 SubClassOf(obo:MOLSIM_000679 obo:MOLSIM_000659)
 
-# Class: obo:MOLSIM_000680 (atom selection method)
+# Class: obo:MOLSIM_000680 (atom selection analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000680 "An atom selection method is the procedure or syntax used to specify a particular group of atoms within a molecular system for an analysis or modification. This is typically done using a text-based selection language that allows users to choose atoms based on properties like name, residue, or position. For experts, mastering the atom selection syntax of their analysis tools is fundamental for performing any targeted calculation, such as measuring a specific distance or calculating the RMSD of the protein backbone. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000680 "atom selection method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000680 "atom selection analysis"@en)
 SubClassOf(obo:MOLSIM_000680 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000681 (Gaussian electrostatic model force field)
@@ -6554,10 +6557,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000683 "Vector analysis in this c
 AnnotationAssertion(rdfs:label obo:MOLSIM_000683 "vector analysis"@en)
 SubClassOf(obo:MOLSIM_000683 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000684 (atom remapping method)
+# Class: obo:MOLSIM_000684 (atom remapping analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000684 "An atom remapping method is a procedure used to systematically change the properties of atoms in a topology file, such as their atom types or charges. This is often required when converting a system from one force field to another or when applying specific corrections. For experts, this is an advanced manipulation used in force field development or for setting up non-standard simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000684 "atom remapping method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000684 "atom remapping analysis"@en)
 SubClassOf(obo:MOLSIM_000684 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000685 (ab-initio method)
@@ -7450,7 +7453,7 @@ SubClassOf(obo:MOLSIM_000844 obo:MOLSIM_001090)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000845 "Enhanced sampling encompasses a diverse set of computational techniques used in molecular simulations to accelerate the exploration of a system's possible configurations or states. These methods aim to overcome the timescale limitations of standard simulations, particularly when high energy barriers separate important states or when rare events need to be sampled efficiently. They often involve modifying the potential energy surface, using multiple simulation copies, or applying biasing forces. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000845 "enhanced sampling"@en)
-SubClassOf(obo:MOLSIM_000845 obo:MOLSIM_000308)
+SubClassOf(obo:MOLSIM_000845 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_000846 (adaptive force bias)
 
@@ -7970,10 +7973,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000940 "The dat format, in the co
 AnnotationAssertion(rdfs:label obo:MOLSIM_000940 "dat format"@en)
 SubClassOf(obo:MOLSIM_000940 obo:MOLSIM_001091)
 
-# Class: obo:MOLSIM_000941 (coordinate rotation analysis)
+# Class: obo:MOLSIM_000941 (coordinate rotation modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000941 "A coordinate rotation method is a structure modification method that applies a mathematical rotation to the coordinates of a molecule or a group of atoms. This procedure changes the orientation of the selected atoms in three-dimensional space without altering their internal structure. For experts, this is a fundamental operation used in structural alignment, docking algorithms, and for setting up systems in a specific orientation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000941 "coordinate rotation analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000941 "coordinate rotation modeling"@en)
 SubClassOf(obo:MOLSIM_000941 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000942 (time cross correlation analysis)
@@ -9885,10 +9888,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001336 "A type of structural prop
 AnnotationAssertion(rdfs:label obo:MOLSIM_001336 "distance RMSD (dRMSD)"@en)
 SubClassOf(obo:MOLSIM_001336 obo:MOLSIM_001333)
 
-# Class: obo:MOLSIM_001337 (hydrogen mass repartitioning)
+# Class: obo:MOLSIM_001337 (hydrogen mass repartitioning analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001337 "Hydrogen mass repartitioning is a system setup method where a portion of the mass of a heavy atom is transferred to its bonded hydrogen atoms. This makes the hydrogens heavier, which slows down their bond vibrations and allows a larger time step to be used in a molecular dynamics simulation. For experts, this technique, often abbreviated HMR, is a common strategy to increase computational efficiency without significantly altering the system's dynamics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001337 "hydrogen mass repartitioning"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001337 "hydrogen mass repartitioning analysis"@en)
 SubClassOf(obo:MOLSIM_001337 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_001338 (ion-oxygen distance)
@@ -10773,7 +10776,7 @@ SubClassOf(obo:MOLSIM_001483 obo:MOLSIM_000007)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001484 "A statistical model is a mathematical representation of a system that is based on the principles of statistical mechanics, describing the system in terms of probabilities and distributions. In the context of simulation, this refers to the underlying theoretical framework that connects the microscopic movements of atoms to the macroscopic thermodynamic properties we observe. For experts, the simulation itself is a method to generate a series of snapshots that sample from the probability distribution defined by the chosen statistical model, such as the canonical ensemble. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001484 "statistical model"@en)
-SubClassOf(obo:MOLSIM_001484 obo:MOLSIM_000007)
+SubClassOf(obo:MOLSIM_001484 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_001485 (Maxwell-Boltzmann distribution)
 
@@ -11873,10 +11876,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001667 "ptraj was the original co
 AnnotationAssertion(rdfs:label obo:MOLSIM_001667 "ptraj"@en)
 SubClassOf(obo:MOLSIM_001667 obo:MOLSIM_000164)
 
-# Class: obo:MOLSIM_001668 (Placevent)
+# Class: obo:MOLSIM_001668 (placevent analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001668 "Placevent is a computational tool used to identify and analyze the positions of solvent molecules, particularly water, in the hydration shell around a solute from a simulation trajectory. It can determine the locations of high water occupancy, which correspond to favorable hydration sites on the molecule's surface. This information is valuable for understanding the role of specific water molecules in molecular recognition and for placing water molecules in a binding site during drug design. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001668 "Placevent"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001668 "placevent analysis"@en)
 SubClassOf(obo:MOLSIM_001668 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_001669 (PMEMD)
@@ -12490,10 +12493,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001770 "Rotational diffusion is t
 AnnotationAssertion(rdfs:label obo:MOLSIM_001770 "rotational diffusion"@en)
 SubClassOf(obo:MOLSIM_001770 obo:MOLSIM_001391)
 
-# Class: obo:MOLSIM_001771 (backmapping analysis)
+# Class: obo:MOLSIM_001771 (backmapping modeling)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001771 "Backmapping is a modeling method used to convert a low-resolution, coarse-grained molecular model back into a high-resolution, all-atom representation. The procedure involves re-introducing the atoms that were grouped together in the coarse-grained model and then refining their positions to create a chemically realistic structure. For experts, backmapping is a crucial step for analyzing a specific conformation obtained from a long coarse-grained simulation with full atomistic detail. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001771 "backmapping analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001771 "backmapping modeling"@en)
 SubClassOf(obo:MOLSIM_001771 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_001772 (NMR refinement)
@@ -13639,6 +13642,21 @@ SubClassOf(obo:MOLSIM_010024 obo:MOLSIM_001862)
 
 AnnotationAssertion(rdfs:label obo:MOLSIM_010025 "effective energy analysis"@en)
 SubClassOf(obo:MOLSIM_010025 obo:MOLSIM_000951)
+
+# Class: obo:MOLSIM_010026 (protein-peptide docking analysis)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010026 "protein-peptide docking analysis"@en)
+SubClassOf(obo:MOLSIM_010026 obo:MOLSIM_000255)
+
+# Class: obo:MOLSIM_010027 (membrane placement analysis)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010027 "membrane placement analysis"@en)
+SubClassOf(obo:MOLSIM_010027 obo:MOLSIM_000328)
+
+# Class: obo:MOLSIM_010028 (leap analysis)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_010028 "leap analysis"@en)
+SubClassOf(obo:MOLSIM_010028 obo:MOLSIM_000328)
 
 
 ############################
