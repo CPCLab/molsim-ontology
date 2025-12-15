@@ -5,8 +5,8 @@ import os
 import csv
 import hashlib
 import pubchempy as pcp
-from rdkit import Chem
-
+from rdkit import 
+Chem
 # --- CONFIGURATION ---
 OUTPUT_CSV = "residue_detailed_analysis_mol2.csv"
 INPUT_FORMAT = "_sybyl.mol2" # Pattern to match your sybyl files
