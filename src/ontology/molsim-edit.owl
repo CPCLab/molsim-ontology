@@ -1847,6 +1847,8 @@ Declaration(Class(obo:MOLSIM_001951))
 Declaration(Class(obo:MOLSIM_001952))
 Declaration(Class(obo:MOLSIM_001953))
 Declaration(Class(obo:MOLSIM_001954))
+Declaration(Class(obo:MOLSIM_001955))
+Declaration(Class(obo:MOLSIM_001956))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -3845,7 +3847,7 @@ SubClassOf(obo:MOLSIM_000224 obo:MOLSIM_000222)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000225 "A computational tool specifically designed to generate realistic initial configurations of lipid bilayers, often including embedded proteins, for use in membrane simulations. These tools arrange lipid molecules (and potentially cholesterol, solvent) according to specified lipid types, compositions, and area per lipid, ensuring proper packing density and avoiding steric clashes, which is challenging to do manually. Examples include PACKMOL-Memgen, CHARMM-GUI's Membrane Builder, and InflateGRO. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000225 "membrane packing tool"@en)
-SubClassOf(obo:MOLSIM_000225 obo:MOLSIM_000257)
+SubClassOf(obo:MOLSIM_000225 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_000226 (PACKMOL-Memgen)
 
@@ -11237,7 +11239,7 @@ SubClassOf(obo:MOLSIM_001556 obo:MOLSIM_001850)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001557 "AddToBox is a utility used to add a specified number of molecules, such as solvent or ions, into a pre-existing simulation box containing other molecules. It is a common tool used in the final stages of system preparation to fill the simulation volume with the correct components at a desired density. Experts use this tool to carefully control the composition and concentration of the molecular environment surrounding the main molecule of interest. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001557 "AddToBox"@en)
-SubClassOf(obo:MOLSIM_001557 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001557 obo:MOLSIM_001956)
 
 # Class: obo:MOLSIM_001558 (electrostatics analysis tool)
 
@@ -11339,14 +11341,14 @@ SubClassOf(obo:MOLSIM_001573 obo:MOLSIM_001566)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001574 "The pdb4amber tool is a program specifically designed to clean and prepare protein data bank (PDB) structure files for use with the AMBER simulation software. It performs essential tasks such as renumbering residues, fixing atom naming inconsistencies, and identifying potential structural problems. For AMBER users, running pdb4amber is a critical first step to ensure that the molecular structure is correctly interpreted by the AMBER system-building tools. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001574 "pdb4amber"@en)
-SubClassOf(obo:MOLSIM_001574 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001574 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_001575 (PropPDB)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001575 "The PropPDB tool is a system setup program used to build a larger simulation box by replicating a small, initial crystal unit cell in specified directions. This process is necessary when the original crystallographic unit cell is too small to satisfy the minimum size requirements imposed by the simulation's non-bonded interaction cutoff distance. For experts, this method creates a larger \"supercell\" that is large enough to avoid artifacts from periodic symmetry and to meet the stringent size requirements of modern simulation engines, particularly those running on GPUs. (UNVERIFIED)"@en)
 AnnotationAssertion(dcterms:source obo:MOLSIM_001575 <https://ambermd.org/doc12/Amber25.pdf>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001575 "PropPDB"@en)
-SubClassOf(obo:MOLSIM_001575 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001575 obo:MOLSIM_001955)
 
 # Class: obo:MOLSIM_001576 (ProScrs.py)
 
@@ -11394,13 +11396,13 @@ SubClassOf(obo:MOLSIM_001582 obo:MOLSIM_001566)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001583 "UnitCell tool is a software function for building crystallographic structures by applying symmetry information contained within an input coordinate file. It reads the symmetry operators from a PDB or mmCIF file to reconstruct the complete repeating unit of a crystal from just the asymmetric part. Users can employ this tool to generate the full unit cell, expand it into multiple adjacent cells to visualize crystal packing, or build specific assemblies defined by either crystallographic or non-crystallographic symmetry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001583 "UnitCell"@en)
-SubClassOf(obo:MOLSIM_001583 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001583 obo:MOLSIM_001955)
 
 # Class: obo:MOLSIM_001584 (xleap)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001584 "Xleap is the graphical interface for the LEaP program in the AmberTools software suite, used to interactively build molecular systems for simulation. It allows users to load structures, apply force fields, add solvent and ions, and save the final topology and coordinate files required by the AMBER simulation engine. For users, xleap provides a visual environment to perform the essential system preparation steps in a guided, command-line driven manner. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001584 "xleap"@en)
-SubClassOf(obo:MOLSIM_001584 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001584 obo:MOLSIM_000259)
 
 # Class: obo:MOLSIM_001585 (build system tool)
 
@@ -11496,7 +11498,7 @@ SubClassOf(obo:MOLSIM_001599 obo:MOLSIM_000160)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001600 "Reduce is a computational tool used to add and optimize the positions of hydrogen atoms in a macromolecular structure file, such as a PDB file. Since experimental structures often lack explicit hydrogens, this program builds a complete, all-atom model by considering the local chemical environment and hydrogen bonding network. For experts, using Reduce is a standard procedure to generate a chemically correct starting structure with proper ionization and tautomeric states for subsequent simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001600 "reduce"@en)
-SubClassOf(obo:MOLSIM_001600 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001600 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_001601 (gwh)
 
@@ -11504,19 +11506,19 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001601 "The gwh (guess water hydr
 AnnotationAssertion(dcterms:source obo:MOLSIM_001601 <https://ambermd.org/doc12/Amber25.pdf>)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001601 "guess water hydrogens"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001601 "gwh"@en)
-SubClassOf(obo:MOLSIM_001601 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001601 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_001602 (pdbremix)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001602 "Pdbremix is a utility designed for advanced manipulation and modification of Protein Data Bank (PDB) files. It allows users to perform a wide range of tasks such as renumbering residues, changing atom or residue names, and translating or rotating parts of a molecule. Experts use this tool for complex system-building tasks that require precise, custom modifications to a standard PDB file before simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001602 "pdbremix"@en)
-SubClassOf(obo:MOLSIM_001602 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001602 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_001603 (Packmol)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001603 "Packmol is a software package used to create an initial arrangement of molecules in a defined three-dimensional space, such as a simulation box. It works by packing different types of molecules together according to user-specified numbers and spatial constraints, avoiding unrealistic overlaps between atoms. For simulation experts, Packmol is an indispensable tool for building starting configurations for complex systems like liquid mixtures, solvated proteins, or lipid membranes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001603 "Packmol"@en)
-SubClassOf(obo:MOLSIM_001603 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001603 obo:MOLSIM_001956)
 
 # Class: obo:MOLSIM_001604 (AMBAT)
 
@@ -11524,7 +11526,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001604 "AMBAT is a software tool 
 AnnotationAssertion(dcterms:source obo:MOLSIM_001604 <https://ambermd.org/doc12/Amber25.pdf>)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001604 "Amber Membrane Builder and Analysis Tool"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001604 "AMBAT"@en)
-SubClassOf(obo:MOLSIM_001604 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001604 obo:MOLSIM_000225)
 
 # Class: obo:MOLSIM_001605 (parameter fitting tool)
 
@@ -11848,7 +11850,7 @@ SubClassOf(obo:MOLSIM_001657 obo:MOLSIM_000164)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001658 "The addles tool is a utility used to prepare a molecular system for a Locally Enhanced Sampling (LES) simulation. It modifies the system's topology file to create multiple, non-interacting copies of a specified region of the molecule. Experts use this program to set up the complex topology required by the LES method, which enhances the conformational sampling of a targeted molecular region. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001658 "addles"@en)
-SubClassOf(obo:MOLSIM_001658 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001658 obo:MOLSIM_000259)
 
 # Class: obo:MOLSIM_001659 (programming language)
 
@@ -13455,7 +13457,7 @@ SubClassOf(obo:MOLSIM_001924 obo:MOLSIM_000166)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001925 "The editconf tool is a command-line utility within the GROMACS simulation package used for manipulating molecular structure files. Its primary functions include converting between different structure formats and defining the size and shape of the simulation box around a molecule. For GROMACS users, editconf is an essential step in system preparation for centering the molecule and establishing the periodic boundary conditions for the simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001925 "editconf"@en)
-SubClassOf(obo:MOLSIM_001925 obo:MOLSIM_001556)
+SubClassOf(obo:MOLSIM_001925 obo:MOLSIM_001956)
 
 # Class: obo:MOLSIM_001926 (gmx)
 
@@ -13628,6 +13630,18 @@ SubClassOf(obo:MOLSIM_001953 obo:MOLSIM_000225)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001954 "MemProtMD is a database that provides a collection of coarse-grained molecular dynamics simulations for membrane proteins found in the Protein Data Bank. It uses an automated pipeline to insert protein structures into lipid bilayers and simulate their equilibrium dynamics. This resource offers insights into the membrane orientation, lipid interactions, and stability of a vast number of membrane proteins. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001954 "MemProtMD"@en)
 SubClassOf(obo:MOLSIM_001954 obo:MOLSIM_000225)
+
+# Class: obo:MOLSIM_001955 (crystallographic build tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001955 "A crystallographic build tool is a software utility used to reconstruct a full crystal lattice or supercell from the asymmetric unit provided in a structure file. It applies the specific symmetry operations defined by the space group to generate the complete crystallographic packing environment. For experts, this is a necessary step when preparing crystal simulations to ensure the simulation box dimensions and contents match the physical lattice. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001955 "crystallographic build tool"@en)
+SubClassOf(obo:MOLSIM_001955 obo:MOLSIM_001556)
+
+# Class: obo:MOLSIM_001956 (system packing and solvation tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001956 "A system packing and solvation tool is a software utility used to define the simulation box geometry and fill it with solvent molecules and ions. It arranges molecular components within a defined volume to achieve a target density and concentration while preventing atomic overlaps. For experts, these tools are the primary means of generating disordered starting configurations for liquid-phase simulations and defining periodic boundary vectors. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001956 "system packing and solvation tool"@en)
+SubClassOf(obo:MOLSIM_001956 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
