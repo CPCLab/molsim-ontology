@@ -274,7 +274,6 @@ Declaration(Class(obo:MOLSIM_000253))
 Declaration(Class(obo:MOLSIM_000254))
 Declaration(Class(obo:MOLSIM_000255))
 Declaration(Class(obo:MOLSIM_000256))
-Declaration(Class(obo:MOLSIM_000257))
 Declaration(Class(obo:MOLSIM_000258))
 Declaration(Class(obo:MOLSIM_000259))
 Declaration(Class(obo:MOLSIM_000260))
@@ -1849,6 +1848,13 @@ Declaration(Class(obo:MOLSIM_001953))
 Declaration(Class(obo:MOLSIM_001954))
 Declaration(Class(obo:MOLSIM_001955))
 Declaration(Class(obo:MOLSIM_001956))
+Declaration(Class(obo:MOLSIM_001957))
+Declaration(Class(obo:MOLSIM_001958))
+Declaration(Class(obo:MOLSIM_001959))
+Declaration(Class(obo:MOLSIM_001960))
+Declaration(Class(obo:MOLSIM_001961))
+Declaration(Class(obo:MOLSIM_001962))
+Declaration(Class(obo:MOLSIM_001963))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -3817,7 +3823,7 @@ SubClassOf(obo:MOLSIM_000219 obo:MOLSIM_001569)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000220 "A computational tool specifically designed to predict and assign the appropriate protonation states (ionization states) of titratable residues (Asp, Glu, His, Lys, Arg, Cys, Tyr) and ligands within a biomolecular structure at a given pH value. These tools typically use methods based on solving the Poisson-Boltzmann equation or empirical pKa prediction algorithms to determine whether each site is likely to be protonated or deprotonated. Accurate protonation is critical for realistic electrostatic modeling in simulations; examples include PDB2PQR, H++, PROPKA, and modules within larger modeling suites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000220 "protonation tool"@en)
-SubClassOf(obo:MOLSIM_000220 obo:MOLSIM_000172)
+SubClassOf(obo:MOLSIM_000220 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_000221 (PDB2PQR)
 
@@ -3940,7 +3946,7 @@ SubClassOf(obo:MOLSIM_000239 obo:MOLSIM_000238)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000240 "A computational tool specifically designed to predict the pKa values of ionizable groups (acidic or basic sites) within a molecule, typically amino acid residues in a protein or functional groups in a ligand. The pKa value indicates the pH at which a group is 50% protonated/deprotonated. These tools use various methods, ranging from simple empirical rules to sophisticated calculations involving continuum electrostatics (solving Poisson-Boltzmann equation) or QM methods, to estimate how the molecular environment shifts the intrinsic pKa of a group. PROPKA is a well-known example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000240 "pKa tool"@en)
-SubClassOf(obo:MOLSIM_000240 obo:MOLSIM_000172)
+SubClassOf(obo:MOLSIM_000240 obo:MOLSIM_000490)
 
 # Class: obo:MOLSIM_000241 (PROPKA)
 
@@ -4006,13 +4012,12 @@ SubClassOf(obo:MOLSIM_000250 obo:MOLSIM_000249)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000251 "An analysis tool specifically focused on reading, processing, manipulating, and analyzing molecular dynamics trajectory files. These tools provide functionalities to read various trajectory formats, select specific atoms or frames, perform calculations over time (like RMSD, distances, angles), calculate average structures, remove solvent, re-image periodic boundaries, and write out modified trajectories or extracted data. CPPTRAJ (AmberTools) and GROMACS analysis utilities are key examples. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000251 "trajectory processing tool"@en)
-SubClassOf(obo:MOLSIM_000251 obo:MOLSIM_000001)
+SubClassOf(obo:MOLSIM_000251 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_000252 (CPPTRAJ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000252 "A powerful command-line trajectory analysis program, distributed with AmberTools, capable of processing trajectories from many simulation packages (AMBER, GROMACS, NAMD, CHARMM, etc.) and performing a wide variety of analyses. Its capabilities include calculating structural metrics (RMSD, radius of gyration, distances, angles, dihedrals), analyzing hydrogen bonds, performing principal component analysis (PCA), clustering, calculating interaction energies, grid analysis, and extensive data manipulation and output options. It is a central tool for analyzing simulation data in the AMBER ecosystem and beyond. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000252 "CPPTRAJ"@en)
-SubClassOf(obo:MOLSIM_000252 obo:MOLSIM_000164)
 SubClassOf(obo:MOLSIM_000252 obo:MOLSIM_000251)
 
 # Class: obo:MOLSIM_000253 (clustering algorithm)
@@ -4039,12 +4044,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000256 "Protein-protein docking i
 AnnotationAssertion(rdfs:label obo:MOLSIM_000256 "protein-protein docking analysis"@en)
 SubClassOf(obo:MOLSIM_000256 obo:MOLSIM_000255)
 
-# Class: obo:MOLSIM_000257 (system building tool)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000257 "A system building tool is a computer program that automates the process of assembling a complete molecular model for a simulation. This typically involves taking a central molecule, placing it in a simulation box, adding a specific number of solvent molecules, and introducing ions to neutralize the system's charge. These tools are essential for creating a valid and reproducible starting point that accurately represents the intended experimental conditions of the simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000257 "system building tool"@en)
-SubClassOf(obo:MOLSIM_000257 obo:MOLSIM_001850)
-
 # Class: obo:MOLSIM_000258 (Antechamber)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000258 "A specific program, typically distributed as part of the AmberTools suite, designed to automatically assign atom types and calculate partial atomic charges for organic molecules, preparing them for use with molecular mechanics force fields like GAFF (General AMBER Force Field). Antechamber reads common molecular file formats and generates topology and parameter files needed for subsequent energy minimization or molecular dynamics simulations using programs like SANDER or PMEMD from the AMBER package. It is a crucial tool for preparing non-standard residues or ligands for simulation. (UNVERIFIED)"@en)
@@ -4055,7 +4054,7 @@ SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_000160)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000259 "A tool used in the preparation stage of a simulation to generate the molecular topology file (defining atom types, bonds, angles, dihedrals, charges, non-bonded parameters according to a force field) and initial coordinate file for the system to be simulated. These tools typically take structural information (like a PDB file) and force field definitions as input and assemble the complete system description required by the simulation engine. tleap in AmberTools is a classic example. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000259 "topology and coordinate generation tool"@en)
-SubClassOf(obo:MOLSIM_000259 obo:MOLSIM_000172)
+SubClassOf(obo:MOLSIM_000259 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_000260 (tleap)
 
@@ -5417,20 +5416,20 @@ SubClassOf(obo:MOLSIM_000490 obo:MOLSIM_001850)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000491 "A comprehensive commercial molecular modeling software suite developed by Certara, widely used in drug discovery and computational chemistry. SYBYL offers extensive tools for structure building and manipulation, conformational analysis, pharmacophore modeling, QSAR, docking, scoring, and visualization, along with molecular mechanics and dynamics capabilities. It provides an integrated environment for many structure preparation and modeling tasks relevant to biomolecular simulation setup, particularly in pharmaceutical research. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000491 "SYBYL"@en)
-SubClassOf(obo:MOLSIM_000491 obo:MOLSIM_000490)
+SubClassOf(obo:MOLSIM_000491 obo:MOLSIM_001664)
 
 # Class: obo:MOLSIM_000492 (Swiss PDB viewer)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000492 "Now known as DeepView, Swiss-PdbViewer is a free, popular molecular visualization and analysis software application. It excels at viewing and analyzing protein structures from the PDB, allowing users to measure distances/angles, superimpose structures, evaluate structural quality, build loops, mutate residues, and perform basic energy minimization using the GROMOS force field. It is often used for initial structure inspection and preparation before more extensive simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000492 "DeepView"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000492 "Swiss PDB viewer"@en)
-SubClassOf(obo:MOLSIM_000492 obo:MOLSIM_000490)
+SubClassOf(obo:MOLSIM_000492 obo:MOLSIM_000163)
 
 # Class: obo:MOLSIM_000493 (Pymol)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000493 "A very popular, powerful, and widely used open-source (with some subscription features) molecular visualization system, known for producing high-quality 3D images of molecules and biological macromolecules. PyMOL allows detailed structure inspection, analysis (measurements, surfaces, electrostatics), creating publication-quality figures and animations, and includes scripting capabilities for automation. It is an indispensable tool for visualizing simulation setups and trajectories, although its structure manipulation capabilities are less extensive than dedicated modeling suites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000493 "Pymol"@en)
-SubClassOf(obo:MOLSIM_000493 obo:MOLSIM_000490)
+SubClassOf(obo:MOLSIM_000493 obo:MOLSIM_000163)
 
 # Class: obo:MOLSIM_000494 (minimization)
 
@@ -7911,10 +7910,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000915 "CML (Chemical Markup Lang
 AnnotationAssertion(rdfs:label obo:MOLSIM_000915 "cml format"@en)
 SubClassOf(obo:MOLSIM_000915 obo:MOLSIM_000914)
 
-# Class: obo:MOLSIM_000916 (Ptraj script)
+# Class: obo:MOLSIM_000916 (Ptraj script format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000916 "A Ptraj script is an input file containing commands for the ptraj or its successor cpptraj programs, which are part of the AmberTools suite used for analyzing molecular dynamics trajectories. The script specifies input trajectory files (trajin), reference structures, and a series of analysis commands (e.g., rms, distance, hbond, radgyr, cluster) to calculate specific properties or perform structural analyses. It defines the post-processing workflow for Amber or other compatible trajectory formats. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000916 "Ptraj script"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000916 "Ptraj script format"@en)
 SubClassOf(obo:MOLSIM_000916 obo:MOLSIM_000438)
 
 # Class: obo:MOLSIM_000917 (structural analysis)
@@ -11263,7 +11262,7 @@ SubClassOf(obo:MOLSIM_001560 obo:MOLSIM_000272)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001561 "The cphstats tool is an analysis program used to process the output from constant pH molecular dynamics (CpHMD) simulations. It reads the log files that track the protonation state changes during the simulation and calculates key results, such as the predicted pKa values and titration curves for the titratable residues. This is the primary tool for extracting the final thermodynamic information from a constant pH simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001561 "cphstats"@en)
-SubClassOf(obo:MOLSIM_001561 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001561 obo:MOLSIM_001962)
 
 # Class: obo:MOLSIM_001562 (application programming interface)
 
@@ -11341,7 +11340,7 @@ SubClassOf(obo:MOLSIM_001573 obo:MOLSIM_001566)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001574 "The pdb4amber tool is a program specifically designed to clean and prepare protein data bank (PDB) structure files for use with the AMBER simulation software. It performs essential tasks such as renumbering residues, fixing atom naming inconsistencies, and identifying potential structural problems. For AMBER users, running pdb4amber is a critical first step to ensure that the molecular structure is correctly interpreted by the AMBER system-building tools. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001574 "pdb4amber"@en)
-SubClassOf(obo:MOLSIM_001574 obo:MOLSIM_000490)
+SubClassOf(obo:MOLSIM_001574 obo:MOLSIM_001957)
 
 # Class: obo:MOLSIM_001575 (PropPDB)
 
@@ -11444,7 +11443,7 @@ SubClassOf(obo:MOLSIM_001590 obo:MOLSIM_001569)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001591 "The rism1d tool is a program used to perform a one-dimensional Reference Interaction Site Model (1D-RISM) calculation. This calculation determines the structural and thermodynamic properties of a pure liquid solvent, which are needed as input for a more complex 3D-RISM calculation. Running rism1d is the necessary first step to characterize the bulk solvent before analyzing its specific arrangement around a solute molecule. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001591 "rism1d"@en)
-SubClassOf(obo:MOLSIM_001591 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001591 obo:MOLSIM_001963)
 
 # Class: obo:MOLSIM_001592 (QUICK)
 
@@ -11498,7 +11497,7 @@ SubClassOf(obo:MOLSIM_001599 obo:MOLSIM_000160)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001600 "Reduce is a computational tool used to add and optimize the positions of hydrogen atoms in a macromolecular structure file, such as a PDB file. Since experimental structures often lack explicit hydrogens, this program builds a complete, all-atom model by considering the local chemical environment and hydrogen bonding network. For experts, using Reduce is a standard procedure to generate a chemically correct starting structure with proper ionization and tautomeric states for subsequent simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001600 "reduce"@en)
-SubClassOf(obo:MOLSIM_001600 obo:MOLSIM_000490)
+SubClassOf(obo:MOLSIM_001600 obo:MOLSIM_000223)
 
 # Class: obo:MOLSIM_001601 (gwh)
 
@@ -11506,13 +11505,13 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001601 "The gwh (guess water hydr
 AnnotationAssertion(dcterms:source obo:MOLSIM_001601 <https://ambermd.org/doc12/Amber25.pdf>)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001601 "guess water hydrogens"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001601 "gwh"@en)
-SubClassOf(obo:MOLSIM_001601 obo:MOLSIM_000490)
+SubClassOf(obo:MOLSIM_001601 obo:MOLSIM_001957)
 
 # Class: obo:MOLSIM_001602 (pdbremix)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001602 "Pdbremix is a utility designed for advanced manipulation and modification of Protein Data Bank (PDB) files. It allows users to perform a wide range of tasks such as renumbering residues, changing atom or residue names, and translating or rotating parts of a molecule. Experts use this tool for complex system-building tasks that require precise, custom modifications to a standard PDB file before simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001602 "pdbremix"@en)
-SubClassOf(obo:MOLSIM_001602 obo:MOLSIM_000490)
+SubClassOf(obo:MOLSIM_001602 obo:MOLSIM_001957)
 
 # Class: obo:MOLSIM_001603 (Packmol)
 
@@ -11844,7 +11843,7 @@ SubClassOf(obo:MOLSIM_001656 obo:MOLSIM_001566)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001657 "A computational tool used to predict the acidity constant, or pKa, of ionizable groups in a protein or other molecule. It takes a 3D structure as input and uses a model, often based on continuum electrostatics, to calculate how the local chemical environment shifts the pKa of each titratable residue. This is a critical preparation step for any simulation, as it allows for the assignment of the correct protonation states for all residues at a given experimental pH. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001657 "calcpka"@en)
-SubClassOf(obo:MOLSIM_001657 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001657 obo:MOLSIM_001962)
 
 # Class: obo:MOLSIM_001658 (addles)
 
@@ -11874,13 +11873,13 @@ SubClassOf(obo:MOLSIM_001661 obo:MOLSIM_001566)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001662 "The saxs_rism tool is a program that calculates a theoretical small-angle X-ray scattering (SAXS) profile for a molecule by combining its structure with a solvent description from the 3D-RISM theory. This approach accounts for the scattering contribution of the structured solvent layer around the molecule, which can be crucial for an accurate prediction of the final SAXS curve. It provides a computationally efficient alternative to calculating SAXS profiles from long, explicit solvent simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001662 "saxs_rism"@en)
-SubClassOf(obo:MOLSIM_001662 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001662 obo:MOLSIM_001961)
 
 # Class: obo:MOLSIM_001663 (saxs_md)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001663 "The saxs_md tool is a program used to calculate a theoretical small-angle X-ray scattering (SAXS) profile directly from a molecular dynamics simulation trajectory. It works by averaging the scattering patterns from many different conformations sampled during the simulation to produce an ensemble-averaged profile. This allows for a direct and powerful comparison between the structural ensemble generated by a simulation and experimental SAXS data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001663 "saxs_md"@en)
-SubClassOf(obo:MOLSIM_001663 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001663 obo:MOLSIM_001961)
 
 # Class: obo:MOLSIM_001664 (software suite)
 
@@ -11898,13 +11897,13 @@ SubClassOf(obo:MOLSIM_001665 obo:MOLSIM_001664)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001666 "Metatwist is an analysis tool for studying the twisting motions of helical molecules, such as DNA, using data from a metadynamics simulation. It is probably designed to analyze a free energy surface calculated as a function of a helical twist collective variable. This would allow a researcher to quantify the energetic cost and identify the pathways associated with the twisting and untwisting of a molecular helix. (VERY-) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001666 "metatwist"@en)
-SubClassOf(obo:MOLSIM_001666 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001666 obo:MOLSIM_001960)
 
 # Class: obo:MOLSIM_001667 (ptraj)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001667 "ptraj was the original command-line program used in the AMBER software suite for analyzing simulation trajectories. It allowed users to process coordinate files to calculate a wide range of properties, such as RMSD, distances, and angles, by reading a script of analysis commands. Although it has now been superseded by its more powerful and flexible successor, cpptraj, ptraj established the fundamental workflow for trajectory analysis in the AMBER community. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001667 "ptraj"@en)
-SubClassOf(obo:MOLSIM_001667 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001667 obo:MOLSIM_000251)
 
 # Class: obo:MOLSIM_001668 (placevent analysis)
 
@@ -11994,7 +11993,7 @@ SubClassOf(obo:MOLSIM_001681 obo:MOLSIM_001566)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001682 "3DNA is a comprehensive software package for the analysis, rebuilding, and visualization of three-dimensional nucleic acid structures. It takes a DNA or RNA structure file as input and calculates a wide range of standard helical and base pair parameters that are used to describe the detailed geometry of the helix. It is a cornerstone tool in the field of nucleic acid structural biology for characterizing and comparing experimental or simulated structures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001682 "3DNA"@en)
-SubClassOf(obo:MOLSIM_001682 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001682 obo:MOLSIM_001960)
 
 # Class: obo:MOLSIM_001683 (MBX)
 
@@ -13463,7 +13462,7 @@ SubClassOf(obo:MOLSIM_001925 obo:MOLSIM_001956)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001926 "The gmx command is the primary user interface for the GROMACS molecular dynamics software suite. It is not a single program but a command-line wrapper that provides access to all of GROMACS's individual tools for simulation setup, execution, and analysis. By typing 'gmx' followed by a specific subcommand, such as 'gmx rms' or 'gmx solvate', users can perform nearly every task in a standard simulation workflow. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001926 "gmx"@en)
-SubClassOf(obo:MOLSIM_001926 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001926 obo:MOLSIM_000251)
 
 # Class: obo:MOLSIM_001927 (CHARMM-GUI)
 
@@ -13476,7 +13475,7 @@ SubClassOf(obo:MOLSIM_001927 obo:MOLSIM_000714)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001928 "Modeller is a widely used computer program for generating three-dimensional models of proteins through homology or comparative modeling. It predicts a protein's structure by using the known structure of a related protein as a template and satisfying spatial restraints. For researchers, Modeller is a powerful tool to create high-quality structural hypotheses for proteins whose experimental structures have not yet been determined, providing a starting point for further simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001928 "Modeller"@en)
-SubClassOf(obo:MOLSIM_001928 obo:MOLSIM_001850)
+SubClassOf(obo:MOLSIM_001928 obo:MOLSIM_001958)
 
 # Class: obo:MOLSIM_001929 (ACEMD)
 
@@ -13512,7 +13511,7 @@ SubClassOf(obo:MOLSIM_001933 obo:MOLSIM_000163)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001934 "UCSF Chimera is a powerful and highly extensible desktop program for the interactive visualization and analysis of molecular structures and related data. It is known for its high-quality graphics, comprehensive feature set, and its ability to handle a wide range of data types beyond simple structures, such as density maps and sequence alignments. For many researchers, Chimera (and its successor, ChimeraX) is an indispensable day-to-day tool for analyzing simulation results and preparing publication-quality figures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001934 "UCSF Chimera"@en)
-SubClassOf(obo:MOLSIM_001934 obo:MOLSIM_000164)
+SubClassOf(obo:MOLSIM_001934 obo:MOLSIM_000163)
 
 # Class: obo:MOLSIM_001935 (YASARA)
 
@@ -13642,6 +13641,47 @@ SubClassOf(obo:MOLSIM_001955 obo:MOLSIM_001556)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001956 "A system packing and solvation tool is a software utility used to define the simulation box geometry and fill it with solvent molecules and ions. It arranges molecular components within a defined volume to achieve a target density and concentration while preventing atomic overlaps. For experts, these tools are the primary means of generating disordered starting configurations for liquid-phase simulations and defining periodic boundary vectors. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001956 "system packing and solvation tool"@en)
 SubClassOf(obo:MOLSIM_001956 obo:MOLSIM_001556)
+
+# Class: obo:MOLSIM_001957 (structure cleaning and manipulation tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001957 "A structure cleaning and manipulation tool is a software utility designed to standardize and correct formatting errors in molecular structure files. These tools perform logistical tasks such as renumbering residues, standardizing atom names to match force field conventions, and handling missing chain identifiers. For experts, using these tools is a mandatory data-curation step to ensure that experimental structures are technically compatible with simulation engines. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001957 "structure cleaning and manipulation tool"@en)
+SubClassOf(obo:MOLSIM_001957 obo:MOLSIM_000490)
+
+# Class: obo:MOLSIM_001958 (homology modeling tool)
+
+AnnotationAssertion(rdfs:label obo:MOLSIM_001958 "homology modeling tool"@en)
+SubClassOf(obo:MOLSIM_001958 obo:MOLSIM_001850)
+
+# Class: obo:MOLSIM_001959 (AutoDock Vina)
+
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001959 "AutoDock Vina is an open-source software tool for molecular docking that predicts the preferred orientation and binding affinity of a small molecule to a protein receptor. It utilizes a sophisticated iterated local search global optimizer combined with an empirical scoring function to efficiently explore the conformational space of the ligand. For experts, Vina provides a substantial improvement in speed and accuracy over previous generations, making it a standard engine for high-throughput virtual screening in drug discovery. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001959 "AutoDock Vina"@en)
+SubClassOf(obo:MOLSIM_001959 obo:MOLSIM_000162)
+
+# Class: obo:MOLSIM_001960 (nucleic acid analysis tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001960 "A nucleic acid analysis tool is a specialized software program designed to characterize the geometry and topology of DNA and RNA structures. It calculates parameters such as base-pair step geometry (roll, tilt, twist), groove dimensions, and sugar pucker to describe the helical conformation. For experts, these tools are essential for quantifying the structural deformations of nucleic acids observed in simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001960 "nucleic acid analysis tool"@en)
+SubClassOf(obo:MOLSIM_001960 obo:MOLSIM_000164)
+
+# Class: obo:MOLSIM_001961 (scattering analysis tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001961 "A scattering analysis tool is a software utility that calculates theoretical scattering profiles, such as Small-Angle X-ray Scattering (SAXS), from atomic structures or simulation trajectories. It predicts the scattering intensity pattern that would be produced by the molecules in solution, allowing for direct comparison with experimental data. These tools are used to validate structural ensembles against low-resolution experimental measurements. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001961 "scattering analysis tool"@en)
+SubClassOf(obo:MOLSIM_001961 obo:MOLSIM_000164)
+
+# Class: obo:MOLSIM_001962 (titration analysis tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001962 "A titration analysis tool is a software program used to investigate the ionization states of acidic and basic groups within a molecule. This includes calculating pKa values based on structural environment or analyzing the populations of protonation states from constant pH molecular dynamics simulations. These tools are critical for understanding pH-dependent protein stability and function. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001962 "titration analysis tool"@en)
+SubClassOf(obo:MOLSIM_001962 obo:MOLSIM_000164)
+
+# Class: obo:MOLSIM_001963 (solvation analysis tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001963 "A solvation analysis tool is a software program designed to characterize the structure and thermodynamics of the solvent surrounding a solute. This includes calculating radial distribution functions, solvent density maps, or integral equation theories like RISM to determine solvation free energies. These tools provide insights into the hydration shell and the energetics of solute-solvent interactions. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001963 "solvation analysis tool"@en)
+SubClassOf(obo:MOLSIM_001963 obo:MOLSIM_000164)
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
