@@ -274,6 +274,7 @@ Declaration(Class(obo:MOLSIM_000253))
 Declaration(Class(obo:MOLSIM_000254))
 Declaration(Class(obo:MOLSIM_000255))
 Declaration(Class(obo:MOLSIM_000256))
+Declaration(Class(obo:MOLSIM_000257))
 Declaration(Class(obo:MOLSIM_000258))
 Declaration(Class(obo:MOLSIM_000259))
 Declaration(Class(obo:MOLSIM_000260))
@@ -1859,6 +1860,11 @@ Declaration(Class(obo:MOLSIM_001964))
 Declaration(Class(obo:MOLSIM_001965))
 Declaration(Class(obo:MOLSIM_001966))
 Declaration(Class(obo:MOLSIM_001967))
+Declaration(Class(obo:MOLSIM_001968))
+Declaration(Class(obo:MOLSIM_001969))
+Declaration(Class(obo:MOLSIM_001970))
+Declaration(Class(obo:MOLSIM_001971))
+Declaration(Class(obo:MOLSIM_001972))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -4044,11 +4050,17 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000256 "Protein-protein docking i
 AnnotationAssertion(rdfs:label obo:MOLSIM_000256 "protein-protein docking analysis"@en)
 SubClassOf(obo:MOLSIM_000256 obo:MOLSIM_000255)
 
+# Class: obo:MOLSIM_000257 (endpoint free energy tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000257 "An endpoint free energy tool is a software program that estimates binding or solvation free energies using data from only the initial and final states of a process, such as a bound complex and unbound ligands. These tools typically employ molecular mechanics energies combined with continuum solvation models (like PB or GB) and surface area terms to approximate the free energy change. For experts, this category encompasses implementations of the MM/PBSA and MM/GBSA methods, offering a computationally efficient but approximate alternative to alchemical methods. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000257 "endpoint free energy tool"@en)
+SubClassOf(obo:MOLSIM_000257 obo:MOLSIM_001564)
+
 # Class: obo:MOLSIM_000258 (Antechamber)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000258 "A specific program, typically distributed as part of the AmberTools suite, designed to automatically assign atom types and calculate partial atomic charges for organic molecules, preparing them for use with molecular mechanics force fields like GAFF (General AMBER Force Field). Antechamber reads common molecular file formats and generates topology and parameter files needed for subsequent energy minimization or molecular dynamics simulations using programs like SANDER or PMEMD from the AMBER package. It is a crucial tool for preparing non-standard residues or ligands for simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000258 "Antechamber"@en)
-SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_000172)
+SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_001664)
 
 # Class: obo:MOLSIM_000259 (topology and coordinate generation tool)
 
@@ -4198,7 +4210,7 @@ SubClassOf(obo:MOLSIM_000280 obo:MOLSIM_000238)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000281 "A type of utility program used to help set up a thermodynamic integration (TI) free energy calculation. It assesses the similarity between the starting and ending molecules of a planned alchemical transformation, often by calculating the overlap of their potential energies. The results from this tool are used to design an optimal pathway with an appropriate number of intermediate steps, which is crucial for ensuring the TI calculation will be accurate and reliable. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000281 "thermodynamic integration similarity calculation tool"@en)
-SubClassOf(obo:MOLSIM_000281 obo:MOLSIM_001564)
+SubClassOf(obo:MOLSIM_000281 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_000282 (rapid overlay of chemical structures)
 
@@ -4291,7 +4303,7 @@ SubClassOf(obo:MOLSIM_000295 obo:MOLSIM_000286)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000296 "Often abbreviated as FEW, this refers to an automated or semi-automated procedure or set of scripts designed to streamline the process of setting up, executing, and analyzing free energy calculations (like FEP or TI). Such workflows aim to manage the complexity of running multiple simulations across different states (lambda windows), handle job submission, check for convergence, and perform the final free energy estimation, improving reproducibility and efficiency. Examples exist for various MD packages (e.g., Amber-FEW, or general workflow tools). (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000296 "FEW"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000296 "free energy workflow"@en)
-SubClassOf(obo:MOLSIM_000296 obo:MOLSIM_001564)
+SubClassOf(obo:MOLSIM_000296 obo:MOLSIM_000167)
 
 # Class: obo:MOLSIM_000298 (thermodynamic integration extrapolation approach)
 
@@ -5226,7 +5238,7 @@ SubClassOf(obo:MOLSIM_000459 obo:MOLSIM_001091)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000460 "A computational tool or script that implements the MM/PBSA (Molecular Mechanics / Poisson-Boltzmann Surface Area) method for estimating free energy changes, typically ligand binding affinities or solvation free energies. This approach involves calculating molecular mechanics energies (MM), electrostatic solvation free energies using the Poisson-Boltzmann (PB) equation, and non-polar solvation free energies using a term proportional to the Solvent Accessible Surface Area (SASA), usually averaged over snapshots from an MD trajectory. It's an endpoint free energy method, computationally cheaper than FEP or TI but generally considered less rigorous. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000460 "MMPBSA tool"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000460 "molecular mechanics Poisson-Boltzmann surface area tool"@en)
-SubClassOf(obo:MOLSIM_000460 obo:MOLSIM_001564)
+SubClassOf(obo:MOLSIM_000460 obo:MOLSIM_000257)
 
 # Class: obo:MOLSIM_000461 (molecular mechanics Poisson-Boltzmann surface area module)
 
@@ -5240,7 +5252,7 @@ SubClassOf(obo:MOLSIM_000461 obo:MOLSIM_000460)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000462 "A computational tool or script that implements the MM/GBSA (Molecular Mechanics / Generalized Born Surface Area) method for estimating free energy changes, analogous to MM/PBSA. The key difference is that MM/GBSA uses a Generalized Born (GB) model instead of the more computationally expensive Poisson-Boltzmann (PB) equation to calculate the electrostatic contribution to the solvation free energy. Like MM/PBSA, it combines MM energies, GB electrostatic solvation energy, and a SASA-based nonpolar term, averaged over simulation snapshots, providing a faster but often less accurate estimation of binding or solvation free energies compared to rigorous methods. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000462 "MMGBSA tool"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000462 "molecular mechanics generalized Born surface area tool"@en)
-SubClassOf(obo:MOLSIM_000462 obo:MOLSIM_001564)
+SubClassOf(obo:MOLSIM_000462 obo:MOLSIM_000257)
 
 # Class: obo:MOLSIM_000463 (ref Tversky combo)
 
@@ -11286,7 +11298,7 @@ SubClassOf(obo:MOLSIM_001564 obo:MOLSIM_000164)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001565 "Edgembar is a specialized software tool for performing free energy calculations from simulation data, particularly focused on analyzing the edges of alchemical networks. It utilizes the Multistate Bennett Acceptance Ratio (MBAR) method to optimally combine data from multiple simulation states. This tool is valuable for large-scale relative binding free energy campaigns where efficient handling of complex transformation networks is required. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001565 "edgembar"@en)
-SubClassOf(obo:MOLSIM_001565 obo:MOLSIM_001564)
+SubClassOf(obo:MOLSIM_001565 obo:MOLSIM_001968)
 
 # Class: obo:MOLSIM_001566 (library)
 
@@ -11328,7 +11340,7 @@ SubClassOf(obo:MOLSIM_001571 obo:MOLSIM_000272)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001572 "ndfes is a software package designed for the calculation and analysis of N-dimensional free energy surfaces from molecular simulation data. It includes a collection of scripts for analyzing enhanced sampling simulations, such as those using umbrella sampling or metadynamics. This toolkit allows researchers to reconstruct and visualize complex free energy landscapes defined by multiple collective variables. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001572 "ndfes"@en)
-SubClassOf(obo:MOLSIM_001572 obo:MOLSIM_001564)
+SubClassOf(obo:MOLSIM_001572 obo:MOLSIM_001969)
 
 # Class: obo:MOLSIM_001573 (ParmEd)
 
@@ -11544,13 +11556,13 @@ SubClassOf(obo:MOLSIM_001606 obo:MOLSIM_001605)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001607 "The parmchk2 program is a utility in the AmberTools suite that checks a molecule file to see if all the necessary force field parameters are available. If it finds any missing bond, angle, or dihedral parameters, it will attempt to estimate them based on analogy to similar, known parameters. This tool is an essential step in preparing a new molecule for simulation, as it identifies missing parameters and provides reasonable guesses to complete the force field description. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001607 "parmchk2"@en)
-SubClassOf(obo:MOLSIM_001607 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001607 obo:MOLSIM_001970)
 
 # Class: obo:MOLSIM_001608 (parmcal)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001608 "an interactive utility included in the AmberTools software package for deriving force field parameters. It assists users in calculating new parameters for bond lengths and angles based on a set of built-in empirical rules. This tool is particularly useful when parameterizing a new molecule for which no existing force field parameters are available. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001608 "parmcal"@en)
-SubClassOf(obo:MOLSIM_001608 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001608 obo:MOLSIM_001970)
 
 # Class: obo:MOLSIM_001609 (paramfit)
 
@@ -11574,37 +11586,37 @@ SubClassOf(obo:MOLSIM_001611 obo:MOLSIM_001605)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001612 "The atomtype program is a utility in the AmberTools suite that automatically assigns force field atom types to the atoms in a molecule. It analyzes the chemical environment of each atom, including its element, hybridization, and bonding pattern, to determine the appropriate atom type from a force field like GAFF. This is a critical first step in the parameterization process, as the atom type dictates which parameters will be used for all subsequent energy calculations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001612 "atomtype"@en)
-SubClassOf(obo:MOLSIM_001612 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001612 obo:MOLSIM_001970)
 
 # Class: obo:MOLSIM_001613 (am1bcc)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001613 "The am1bcc program is a utility in the AmberTools suite that calculates atomic partial charges for organic molecules using the AM1-BCC method. It first performs a fast, approximate quantum mechanical calculation (AM1) and then applies a set of empirical \"bond charge corrections\" (BCC) to improve the charges. This two-step procedure provides a rapid and automated way to generate good-quality charges for drug-like molecules that are compatible with the GAFF force field. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001613 "am1bcc"@en)
-SubClassOf(obo:MOLSIM_001613 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001613 obo:MOLSIM_001971)
 
 # Class: obo:MOLSIM_001614 (bondtype)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001614 "The bondtype program is a utility in the AmberTools suite that assigns force field bond types based on the atom types of the two connected atoms. After atom types have been assigned, this tool determines the specific parameters that should be used for the bond stretching term between them. This is an internal step in the automated parameterization workflow for new molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001614 "bondtype"@en)
-SubClassOf(obo:MOLSIM_001614 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001614 obo:MOLSIM_001970)
 
 # Class: obo:MOLSIM_001615 (respgen)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001615 "The respgen program is a utility in the AmberTools suite that automatically generates the input files needed to perform a Restrained Electrostatic Potential (RESP) charge calculation. It takes a molecular structure and creates the input for a quantum chemistry program to calculate the electrostatic potential, as well as the input for the subsequent charge-fitting step. This tool automates the setup for what is a standard and crucial procedure for deriving high-quality atomic charges for new molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001615 "respgen"@en)
-SubClassOf(obo:MOLSIM_001615 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001615 obo:MOLSIM_001971)
 
 # Class: obo:MOLSIM_001616 (prepgen)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001616 "The prepgen program is a utility in the AmberTools suite that helps to create residue library files, known as \"prep\" files, for new molecules. It takes a molecular structure file as input and generates a file that defines the molecule's atoms, charges, and internal connectivity in a format that the LEaP system-building program can understand. This tool is a key part of the workflow for adding a new, non-standard residue or molecule to the AMBER environment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001616 "prepgen"@en)
-SubClassOf(obo:MOLSIM_001616 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001616 obo:MOLSIM_001972)
 
 # Class: obo:MOLSIM_001617 (residuegen)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001617 "The residuegen program is a utility in the AmberTools suite that helps to create a complete residue template for a new molecule. It takes a file defining the molecule's atoms and bonds and generates a residue library file that can be used by the LEaP program to build larger systems. This tool is part of the automated workflow for incorporating a novel molecule into the AMBER force field ecosystem. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001617 "residuegen"@en)
-SubClassOf(obo:MOLSIM_001617 obo:MOLSIM_001605)
+SubClassOf(obo:MOLSIM_001617 obo:MOLSIM_001972)
 
 # Class: obo:MOLSIM_001618 (divcon)
 
@@ -13707,6 +13719,36 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001967 "ROCS (Rapid Overlay of Ch
 AnnotationAssertion(rdfs:label obo:MOLSIM_001967 "ROCS"@en)
 SubClassOf(obo:MOLSIM_001967 obo:MOLSIM_001684)
 
+# Class: obo:MOLSIM_001968 (alchemical analysis tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001968 "An alchemical analysis tool is a software program designed to process data from simulations that physically transform a system from one chemical state to another via non-physical intermediate steps. It implements statistical mechanics estimators, such as the Multistate Bennett Acceptance Ratio (MBAR) or Thermodynamic Integration (TI), to rigorously calculate the free energy difference between states. These tools are the essential post-processing engines for relative and absolute binding free energy calculations in drug discovery. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001968 "alchemical analysis tool"@en)
+SubClassOf(obo:MOLSIM_001968 obo:MOLSIM_001564)
+
+# Class: obo:MOLSIM_001969 (free energy surface analysis tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001969 "A free energy surface analysis tool is a software utility used to reconstruct the multidimensional free energy landscape of a system from enhanced sampling simulation data. It processes the history of visited states or applied biases, such as those from metadynamics or umbrella sampling, to generate a potential of mean force (PMF) map. For experts, these tools enable the visualization of low-energy basins and transition barriers along specific collective variables or reaction coordinates. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001969 "free energy surface analysis tool"@en)
+SubClassOf(obo:MOLSIM_001969 obo:MOLSIM_001564)
+
+# Class: obo:MOLSIM_001970 (parameter assignment tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001970 "A parameter assignment tool is a software utility that analyzes a molecular structure to identify its chemical components and apply standard force field rules. It determines the specific atom types, bond types, and corresponding interaction parameters from a force field library based on the local chemical environment. For experts, these tools automate the mapping of general force field rules (like GAFF) to specific molecules, ensuring consistent parameter usage. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001970 "parameter assignment tool"@en)
+SubClassOf(obo:MOLSIM_001970 obo:MOLSIM_000172)
+
+# Class: obo:MOLSIM_001971 (charge derivation tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001971 "A charge derivation tool is a software program designed to calculate and assign partial atomic charges to a molecule for use in a force field. These tools implement specific charge models, such as AM1-BCC or RESP, often by performing or processing semi-empirical or ab initio quantum mechanical calculations. They are essential for defining the electrostatic properties of a molecule, which govern its interactions with the environment. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001971 "charge derivation tool"@en)
+SubClassOf(obo:MOLSIM_001971 obo:MOLSIM_000172)
+
+# Class: obo:MOLSIM_001972 (residue template tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001972 "A residue template tool is a utility that generates the library files defining a molecule's internal topology, connectivity, and atom names. It converts structural data into the specific format (such as an AMBER 'prep' or 'lib' file) required by system building programs to recognize the molecule as a discrete unit. These tools are necessary for incorporating new or non-standard residues into a larger simulation topology. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001972 "residue template tool"@en)
+SubClassOf(obo:MOLSIM_001972 obo:MOLSIM_000172)
+
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010011 "The Kabsch algorithm, is a method for calculating the optimal rotation matrix that minimizes the RMSD between two paired sets of points. The algorithm only computes the rotation matrix, but it also requires the computation of a translation vector.")
@@ -14251,5 +14293,6 @@ DisjointClasses(obo:MOLSIM_000924 obo:MOLSIM_000925 obo:MOLSIM_000926 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000945 obo:MOLSIM_000946 obo:MOLSIM_000947)
 DisjointClasses(obo:MOLSIM_001073 obo:MOLSIM_001074 obo:MOLSIM_001075)
 DisjointClasses(obo:MOLSIM_001081 obo:MOLSIM_001082 obo:MOLSIM_001083 obo:MOLSIM_001084)
+DisjointClasses(obo:MOLSIM_001605 obo:MOLSIM_001970 obo:MOLSIM_001971 obo:MOLSIM_001972)
 DisjointClasses(obo:MOLSIM_001964 obo:MOLSIM_001965 obo:MOLSIM_001966 obo:MOLSIM_001967)
 )
