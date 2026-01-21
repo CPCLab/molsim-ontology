@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2025-12-15/molsim-full.owl
+data-version: molsim/releases/2026-01-21/molsim-full.owl
 idspace: chemrof https://w3id.org/chemrof/ 
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -9,7 +9,7 @@ ontology: molsim/molsim-full
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2025-12-15" xsd:string
+property_value: owl:versionInfo "2026-01-21" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -4324,6 +4324,19 @@ def: "A specific type of `orientation` descriptor that represents the cosine of 
 is_a: MOLSIM:001352 ! orientation
 
 [Term]
+id: MOLSIM:000114
+name: HOLE
+def: "HOLE is a computer program used to analyze the dimensions and shape of internal pathways or tunnels within a biomolecular structure. It operates by computationally squeezing a flexible sphere along a channel axis to determine the maximum pore radius at every point without overlapping the surrounding atoms. This analysis allows researchers to visualize the pore profile and identify constriction zones that control the passage of ions or molecules through the structure. (UNVERIFIED)" []
+is_a: MOLSIM:000245 ! tunnel predictor tool
+property_value: dcterms:BibliographicResource "https://doi.org/10.1016/S0263-7855(97)00009-X" xsd:string
+
+[Term]
+id: MOLSIM:000115
+name: MOLE
+def: "MOLE is a software algorithm designed to automatically locate and characterize channels, tunnels, and pores within protein structures. It utilizes a Voronoi diagram approach to efficiently map the void space inside a molecule and identify paths connecting internal cavities to the surface. This tool enables researchers to calculate the geometric and physicochemical properties of these pathways, which is essential for understanding ligand transport and enzymatic activity. (UNVERIFIED)" []
+is_a: MOLSIM:000245 ! tunnel predictor tool
+
+[Term]
 id: MOLSIM:000116
 name: bootstrap analysis
 def: "Bootstrapping is a specific resampling technique used to estimate the sampling distribution of a statistic by repeatedly drawing samples with replacement from the original observed dataset, where each drawn sample has the same size as the original dataset. The statistic of interest (e.g., mean, standard deviation, correlation coefficient) is calculated for each bootstrap sample. The distribution of these calculated statistics is then used to estimate properties like standard errors or confidence intervals for the original statistic. (UNVERIFIED)" []
@@ -4589,7 +4602,6 @@ property_value: dcterms:source https://doi.org/10.1002/jcc
 id: MOLSIM:000158
 name: simulation and modeling software
 def: "Simulation and modeling software comprises specialized computer programs designed to create, run, and analyze computational models of real-world systems. These tools are the workhorses of the biomolecular simulation field, enabling scientists to study everything from how a drug binds to a protein to how a cell membrane behaves. For practitioners, this category includes the specific simulation engines, structure preparation tools, and analysis packages that form the core of their computational workflows. (UNVERIFIED)" []
-comment: Simulation and modeling software comprises specialized computer programs designed to create, run, and analyze computational models of real-world systems. These tools are the workhorses of the biomolecular simulation field, enabling scientists to study everything from how a drug binds to a protein to how a cell membrane behaves. For practitioners, this category includes the specific simulation engines, structure preparation tools, and analysis packages that form the core of their computational workflows. (UNVERIFIED)
 is_a: MOLSIM:000001 ! software
 
 [Term]
@@ -4620,19 +4632,19 @@ is_a: MOLSIM:001850 ! modeling and setup tool
 id: MOLSIM:000163
 name: visualization tool
 def: "Software specifically designed for creating interactive 3D graphical representations of molecular structures, densities, surfaces, and dynamic trajectories generated from simulations or experiments. These tools allow researchers to visually inspect molecular details, understand complex spatial relationships, analyze interactions, monitor simulations, and create figures and animations for communication. Common examples include VMD, PyMOL, Chimera/ChimeraX, and DeepView (Swiss-PdbViewer). (UNVERIFIED)" []
-is_a: MOLSIM:000158 ! simulation and modeling software
+is_a: MOLSIM:000001 ! software
 
 [Term]
 id: MOLSIM:000164
 name: analysis tool
 def: "Software designed to process raw data generated from biomolecular simulations (like trajectories, energy files) to calculate specific quantitative properties and extract meaningful insights. Analysis tools implement algorithms for calculating metrics like RMSD, RMSF, radius of gyration, hydrogen bonds, interaction energies, principal components (PCA), free energy estimations (MM/PBSA), clustering, etc. Examples include cpptraj (AmberTools), GROMACS analysis utilities, MDAnalysis (Python library), and specialized scripts or programs. (UNVERIFIED)" []
-is_a: MOLSIM:000158 ! simulation and modeling software
+is_a: MOLSIM:000001 ! software
 
 [Term]
 id: MOLSIM:000165
 name: data processing tool
 def: "A tool focused on manipulating, converting, filtering, or extracting information from data files generated during a simulation workflow. This can involve tasks like converting file formats, extracting specific columns or frames, merging datasets, calculating simple statistics, or preparing data for input into other analysis or visualization tools. These tools handle the logistical aspects of managing simulation data. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:000001 ! software
 
 [Term]
 id: MOLSIM:000166
@@ -4694,7 +4706,6 @@ disjoint_from: MOLSIM:000214 ! STO-3G
 id: MOLSIM:000175
 name: Gaussian
 def: "A comprehensive and widely used quantum chemistry software package, primarily focused on electronic structure calculations using ab initio methods, Density Functional Theory (DFT), and semi-empirical methods. While its core strength is QM, Gaussian can perform ONIOM (QM/MM) calculations and some limited molecular mechanics (MM) computations, making it potentially usable in biomolecular contexts, especially for parameterization or high-accuracy active site studies, but it's not typically used as a primary classical MD engine like AMBER or GROMACS. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
 is_a: MOLSIM:000161 ! quantum chemistry engine
 disjoint_from: MOLSIM:000176 ! GAMESS
 disjoint_from: MOLSIM:000179 ! Q-Chem
@@ -4721,21 +4732,18 @@ is_a: MOLSIM:000161 ! quantum chemistry engine
 id: MOLSIM:000179
 name: Q-Chem
 def: "A comprehensive quantum chemistry software package offering a wide range of methods, including Hartree-Fock, DFT, coupled-cluster, and QM/MM capabilities. Like Gaussian, its primary focus is quantum mechanical electronic structure calculations. While it can be used for QM/MM simulations relevant to biomolecular systems, it's not typically used for large-scale classical MD simulations in the way dedicated MD packages are. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
 is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000180
 name: Quantum ESPRESSO
 def: "An integrated suite of open-source software for quantum mechanical electronic structure calculations and materials modeling, primarily based on Density Functional Theory (DFT), plane waves, and pseudopotentials. While extremely powerful for condensed matter physics and materials science, and capable of ab initio MD (Born-Oppenheimer MD), its typical application domain and methods (plane waves) differ from those commonly used for classical MD or QM/MM studies of large solvated biomolecules in packages like AMBER or GROMACS. It is more suited for periodic systems. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
 is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000181
 name: NWChem
 def: "A versatile open-source computational chemistry software package developed by Pacific Northwest National Laboratory (PNNL), designed for high-performance computing. It offers a broad range of capabilities, including classical MD simulation, various quantum mechanical methods (DFT, Hartree-Fock, coupled cluster), and hybrid QM/MM methods. Its ability to handle both MD and QM makes it suitable for complex biomolecular simulations requiring multi-scale approaches on large parallel computers. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
 is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
@@ -4966,7 +4974,7 @@ id: MOLSIM:000217
 name: AMBER
 def: "A widely used package of biomolecular simulation software, encompassing both a suite of programs (AmberTools) for simulation preparation, analysis, and modeling, and a high-performance simulation engine (pmemd) for running MD and free energy calculations. AMBER is associated with a popular family of force fields (e.g., ff14SB, GAFF) and is extensively used for simulating proteins, nucleic acids, lipids, and organic molecules. It includes capabilities for classical MD, QM/MM, and various advanced simulation techniques. (UNVERIFIED)" []
 synonym: "AmberMD" EXACT []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000218
@@ -4984,7 +4992,7 @@ is_a: MOLSIM:001569 ! utility script
 id: MOLSIM:000220
 name: protonation tool
 def: "A computational tool specifically designed to predict and assign the appropriate protonation states (ionization states) of titratable residues (Asp, Glu, His, Lys, Arg, Cys, Tyr) and ligands within a biomolecular structure at a given pH value. These tools typically use methods based on solving the Poisson-Boltzmann equation or empirical pKa prediction algorithms to determine whether each site is likely to be protonated or deprotonated. Accurate protonation is critical for realistic electrostatic modeling in simulations; examples include PDB2PQR, H++, PROPKA, and modules within larger modeling suites. (UNVERIFIED)" []
-is_a: MOLSIM:000172 ! topology and parameterization tool
+is_a: MOLSIM:000490 ! structure preparation tool
 
 [Term]
 id: MOLSIM:000221
@@ -5014,13 +5022,14 @@ is_a: MOLSIM:000222 ! ligand protonation tool
 id: MOLSIM:000225
 name: membrane packing tool
 def: "A computational tool specifically designed to generate realistic initial configurations of lipid bilayers, often including embedded proteins, for use in membrane simulations. These tools arrange lipid molecules (and potentially cholesterol, solvent) according to specified lipid types, compositions, and area per lipid, ensuring proper packing density and avoiding steric clashes, which is challenging to do manually. Examples include PACKMOL-Memgen, CHARMM-GUI's Membrane Builder, and InflateGRO. (UNVERIFIED)" []
-is_a: MOLSIM:000257 ! system building tool
+is_a: MOLSIM:001556 ! system setup tool
 
 [Term]
 id: MOLSIM:000226
 name: PACKMOL-Memgen
 def: "A specific tool or script that likely utilizes the general packing capabilities of PACKMOL (a program for creating initial configurations of molecules in defined regions) specifically for generating lipid bilayer structures for membrane simulations. Memgen might refer to a set of routines or scripts that work with PACKMOL to arrange lipids correctly around a pre-positioned membrane protein or to build pure bilayers with specific properties, automating the membrane generation process. (UNVERIFIED)" []
 is_a: MOLSIM:000225 ! membrane packing tool
+disjoint_from: MOLSIM:001927 ! CHARMM-GUI
 
 [Term]
 id: MOLSIM:000227
@@ -5108,7 +5117,7 @@ is_a: MOLSIM:000238 ! trajectory approach analysis
 id: MOLSIM:000240
 name: pKa tool
 def: "A computational tool specifically designed to predict the pKa values of ionizable groups (acidic or basic sites) within a molecule, typically amino acid residues in a protein or functional groups in a ligand. The pKa value indicates the pH at which a group is 50% protonated/deprotonated. These tools use various methods, ranging from simple empirical rules to sophisticated calculations involving continuum electrostatics (solving Poisson-Boltzmann equation) or QM methods, to estimate how the molecular environment shifts the intrinsic pKa of a group. PROPKA is a well-known example. (UNVERIFIED)" []
-is_a: MOLSIM:000172 ! topology and parameterization tool
+is_a: MOLSIM:000490 ! structure preparation tool
 
 [Term]
 id: MOLSIM:000241
@@ -5150,13 +5159,13 @@ is_a: MOLSIM:000245 ! tunnel predictor tool
 id: MOLSIM:000247
 name: GROMACS
 def: "A highly popular, versatile, and extremely fast open-source software package primarily designed for classical molecular dynamics simulations of biomolecules like proteins, lipids, and nucleic acids. Known for its computational efficiency, particularly on parallel architectures (CPUs and GPUs), GROMACS supports various force fields (including AMBER, CHARMM, OPLS, GROMOS families via ports), simulation protocols, enhanced sampling methods, and includes extensive tools for trajectory analysis. It is widely used in the academic and industrial research community. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000248
 name: CHARMM
 def: "A versatile and long-established software package for molecular simulation, encompassing molecular mechanics (MM) and dynamics (MD), as well as capabilities for QM/MM and complex modeling tasks (stands for Chemistry at HARvard Macromolecular Mechanics). CHARMM is associated with its own widely used force field family (e.g., CHARMM36) and provides extensive functionalities for preparing, running, and analyzing simulations, particularly for proteins, lipids, nucleic acids, and carbohydrates. Both a free academic version and a licensed version (CHARMM/GUI, CHARMM) exist. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000249
@@ -5208,21 +5217,21 @@ is_a: MOLSIM:000255 ! static molecular interaction prediction modeling
 
 [Term]
 id: MOLSIM:000257
-name: system building tool
-def: "A system building tool is a computer program that automates the process of assembling a complete molecular model for a simulation. This typically involves taking a central molecule, placing it in a simulation box, adding a specific number of solvent molecules, and introducing ions to neutralize the system's charge. These tools are essential for creating a valid and reproducible starting point that accurately represents the intended experimental conditions of the simulation. (UNVERIFIED)" []
-is_a: MOLSIM:001850 ! modeling and setup tool
+name: endpoint free energy tool
+def: "An endpoint free energy tool is a software program that estimates binding or solvation free energies using data from only the initial and final states of a process, such as a bound complex and unbound ligands. These tools typically employ molecular mechanics energies combined with continuum solvation models (like PB or GB) and surface area terms to approximate the free energy change. For experts, this category encompasses implementations of the MM/PBSA and MM/GBSA methods, offering a computationally efficient but approximate alternative to alchemical methods. (UNVERIFIED)" []
+is_a: MOLSIM:001564 ! free energy analysis tool
 
 [Term]
 id: MOLSIM:000258
 name: Antechamber
 def: "A specific program, typically distributed as part of the AmberTools suite, designed to automatically assign atom types and calculate partial atomic charges for organic molecules, preparing them for use with molecular mechanics force fields like GAFF (General AMBER Force Field). Antechamber reads common molecular file formats and generates topology and parameter files needed for subsequent energy minimization or molecular dynamics simulations using programs like SANDER or PMEMD from the AMBER package. It is a crucial tool for preparing non-standard residues or ligands for simulation. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000259
 name: topology and coordinate generation tool
 def: "A tool used in the preparation stage of a simulation to generate the molecular topology file (defining atom types, bonds, angles, dihedrals, charges, non-bonded parameters according to a force field) and initial coordinate file for the system to be simulated. These tools typically take structural information (like a PDB file) and force field definitions as input and assemble the complete system description required by the simulation engine. tleap in AmberTools is a classic example. (UNVERIFIED)" []
-is_a: MOLSIM:000172 ! topology and parameterization tool
+is_a: MOLSIM:001556 ! system setup tool
 
 [Term]
 id: MOLSIM:000260
@@ -5270,6 +5279,12 @@ name: free energy perturbation analysis
 def: "Free Energy Perturbation (FEP) is an alchemical method for calculating free energy differences between two states (A and B) by simulating a series of intermediate states that gradually transform A into B. The free energy change between adjacent intermediate states (λ and λ+Δλ) is calculated using the Zwanzig equation, which involves ensemble averaging the energy difference exponentiated. Summing the free energy changes over all intermediate steps yields the total free energy difference between A and B. (UNVERIFIED)" []
 synonym: "FEP" EXACT []
 is_a: MOLSIM:000265 ! alchemical free energy analysis
+
+[Term]
+id: MOLSIM:000267
+name: CHAP
+def: "The Channel Annotation Package (CHAP) is a specialized software tool used to analyze the functional properties of pores and channels in membrane proteins. It calculates a detailed pore radius profile combined with a hydrophobicity profile to estimate the free energy barriers for water and ion permeation. This analysis allows researchers to visualize solvent behavior inside the pore and determine the conductive state of ion channels. (UNVERIFIED)" []
+is_a: MOLSIM:000245 ! tunnel predictor tool
 
 [Term]
 id: MOLSIM:000268
@@ -5361,7 +5376,7 @@ is_a: MOLSIM:000238 ! trajectory approach analysis
 id: MOLSIM:000281
 name: thermodynamic integration similarity calculation tool
 def: "A type of utility program used to help set up a thermodynamic integration (TI) free energy calculation. It assesses the similarity between the starting and ending molecules of a planned alchemical transformation, often by calculating the overlap of their potential energies. The results from this tool are used to design an optimal pathway with an appropriate number of intermediate steps, which is crucial for ensuring the TI calculation will be accurate and reliable. (UNVERIFIED)" []
-is_a: MOLSIM:001564 ! free energy analysis tool
+is_a: MOLSIM:001556 ! system setup tool
 
 [Term]
 id: MOLSIM:000282
@@ -5456,7 +5471,7 @@ id: MOLSIM:000296
 name: free energy workflow
 def: "Often abbreviated as FEW, this refers to an automated or semi-automated procedure or set of scripts designed to streamline the process of setting up, executing, and analyzing free energy calculations (like FEP or TI). Such workflows aim to manage the complexity of running multiple simulations across different states (lambda windows), handle job submission, check for convergence, and perform the final free energy estimation, improving reproducibility and efficiency. Examples exist for various MD packages (e.g., Amber-FEW, or general workflow tools). (UNVERIFIED)" []
 synonym: "FEW" EXACT []
-is_a: MOLSIM:001564 ! free energy analysis tool
+is_a: MOLSIM:000167 ! automation script
 
 [Term]
 id: MOLSIM:000298
@@ -5521,6 +5536,7 @@ id: MOLSIM:000307
 name: R
 def: "A widely used free software environment and programming language specifically designed for statistical computing and graphics. R provides a vast collection of packages contributed by users worldwide, covering nearly every area of statistical analysis, data visualization, and data science. In biomolecular simulation analysis, R is frequently used for plotting results (energy profiles, RMSD timeseries), performing statistical analysis on sampled properties, clustering conformations, and developing custom analysis workflows. (UNVERIFIED)" []
 is_a: MOLSIM:000306 ! statistical package
+is_a: MOLSIM:001659 ! programming language
 
 [Term]
 id: MOLSIM:000308
@@ -5737,7 +5753,7 @@ is_a: MOLSIM:000400 ! statistical analysis
 [Term]
 id: MOLSIM:000352
 name: Scripps binpos format
-def: ".binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD." []
+def: "A .binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD." []
 synonym: ".binpos" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
@@ -6280,7 +6296,7 @@ is_a: MOLSIM:001085 ! molecular data format
 id: MOLSIM:000442
 name: Molden format
 def: "The Molden format is a text-based file used to store detailed results from quantum chemistry calculations for visualization. It contains not only the 3D atomic coordinates but also the mathematical functions (basis sets) and coefficients that describe the molecule's electronic orbitals. This comprehensive structure makes it a versatile format for visualizing molecular orbitals, electron density, and vibrational modes in specialized analysis programs. (UNVERIFIED)" []
-is_a: MOLSIM:001085 ! molecular data format
+is_a: MOLSIM:010022 ! quantum chemistry format
 
 [Term]
 id: MOLSIM:000443
@@ -6393,7 +6409,7 @@ id: MOLSIM:000460
 name: molecular mechanics Poisson-Boltzmann surface area tool
 def: "A computational tool or script that implements the MM/PBSA (Molecular Mechanics / Poisson-Boltzmann Surface Area) method for estimating free energy changes, typically ligand binding affinities or solvation free energies. This approach involves calculating molecular mechanics energies (MM), electrostatic solvation free energies using the Poisson-Boltzmann (PB) equation, and non-polar solvation free energies using a term proportional to the Solvent Accessible Surface Area (SASA), usually averaged over snapshots from an MD trajectory. It's an endpoint free energy method, computationally cheaper than FEP or TI but generally considered less rigorous. (UNVERIFIED)" []
 synonym: "MMPBSA tool" EXACT []
-is_a: MOLSIM:001564 ! free energy analysis tool
+is_a: MOLSIM:000257 ! endpoint free energy tool
 
 [Term]
 id: MOLSIM:000461
@@ -6407,7 +6423,7 @@ id: MOLSIM:000462
 name: molecular mechanics generalized Born surface area tool
 def: "A computational tool or script that implements the MM/GBSA (Molecular Mechanics / Generalized Born Surface Area) method for estimating free energy changes, analogous to MM/PBSA. The key difference is that MM/GBSA uses a Generalized Born (GB) model instead of the more computationally expensive Poisson-Boltzmann (PB) equation to calculate the electrostatic contribution to the solvation free energy. Like MM/PBSA, it combines MM energies, GB electrostatic solvation energy, and a SASA-based nonpolar term, averaged over simulation snapshots, providing a faster but often less accurate estimation of binding or solvation free energies compared to rigorous methods. (UNVERIFIED)" []
 synonym: "MMGBSA tool" EXACT []
-is_a: MOLSIM:001564 ! free energy analysis tool
+is_a: MOLSIM:000257 ! endpoint free energy tool
 
 [Term]
 id: MOLSIM:000463
@@ -6433,6 +6449,7 @@ name: orientations of proteins in membranes
 def: "OPM database (Orientations of Proteins in Membranes) is both a database and a web server/tool providing pre-calculated transmembrane orientations and positions for experimentally determined membrane protein structures found in the PDB. OPM uses a computational approach based on minimizing the calculated transfer free energy from water to the lipid bilayer to determine the most likely membrane boundaries and protein position relative to the bilayer center. It's a valuable resource for obtaining initial membrane protein placements for simulations. (UNVERIFIED)" []
 synonym: "OPM" EXACT []
 is_a: MOLSIM:000227 ! membrane protein orientation tool
+is_a: MOLSIM:001119 ! database web server
 
 [Term]
 id: MOLSIM:000467
@@ -6588,20 +6605,20 @@ is_a: MOLSIM:001850 ! modeling and setup tool
 id: MOLSIM:000491
 name: SYBYL
 def: "A comprehensive commercial molecular modeling software suite developed by Certara, widely used in drug discovery and computational chemistry. SYBYL offers extensive tools for structure building and manipulation, conformational analysis, pharmacophore modeling, QSAR, docking, scoring, and visualization, along with molecular mechanics and dynamics capabilities. It provides an integrated environment for many structure preparation and modeling tasks relevant to biomolecular simulation setup, particularly in pharmaceutical research. (UNVERIFIED)" []
-is_a: MOLSIM:000490 ! structure preparation tool
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000492
 name: Swiss PDB viewer
 def: "Now known as DeepView, Swiss-PdbViewer is a free, popular molecular visualization and analysis software application. It excels at viewing and analyzing protein structures from the PDB, allowing users to measure distances/angles, superimpose structures, evaluate structural quality, build loops, mutate residues, and perform basic energy minimization using the GROMOS force field. It is often used for initial structure inspection and preparation before more extensive simulations. (UNVERIFIED)" []
 synonym: "DeepView" EXACT []
-is_a: MOLSIM:000490 ! structure preparation tool
+is_a: MOLSIM:000163 ! visualization tool
 
 [Term]
 id: MOLSIM:000493
 name: Pymol
 def: "A very popular, powerful, and widely used open-source (with some subscription features) molecular visualization system, known for producing high-quality 3D images of molecules and biological macromolecules. PyMOL allows detailed structure inspection, analysis (measurements, surfaces, electrostatics), creating publication-quality figures and animations, and includes scripting capabilities for automation. It is an indispensable tool for visualizing simulation setups and trajectories, although its structure manipulation capabilities are less extensive than dedicated modeling suites. (UNVERIFIED)" []
-is_a: MOLSIM:000490 ! structure preparation tool
+is_a: MOLSIM:000163 ! visualization tool
 
 [Term]
 id: MOLSIM:000494
@@ -7942,6 +7959,12 @@ def: "A database that indexes and provides access to bibliographic information f
 is_a: MOLSIM:000689 ! database source
 
 [Term]
+id: MOLSIM:000714
+name: tool web server
+def: "A tool web server is an online platform that provides access to specific computational software or algorithms through a user-friendly browser interface. Unlike a database server that retrieves stored data, a tool server accepts user input data, processes it using remote computing resources, and returns the calculation results. These servers are vital for making complex simulation and modeling tasks, such as docking or property prediction, accessible to researchers without local high-performance hardware. (UNVERIFIED)" []
+is_a: MOLSIM:001671 ! web server
+
+[Term]
 id: MOLSIM:000715
 name: prediction software output
 def: "Data generated as the direct result of executing a specific piece of prediction software, such as a tool for predicting protein structure, ligand binding sites, or functional annotations. This refers to the output before it might be curated or deposited into a public repository. An example would be the coordinate file of a homology model generated by a local SWISS-MODEL run. (UNVERIFIED)" []
@@ -8226,25 +8249,25 @@ is_a: MOLSIM:000007 ! force field
 id: MOLSIM:000773
 name: ADF
 def: "The Amsterdam Density Functional (ADF) software package, a quantum chemistry program specializing in Density Functional Theory (DFT) calculations, particularly for molecules and periodic systems. It is known for its use of Slater-type orbitals (STOs) and robust relativistic methods. While primarily a QM package, it includes modules for QM/MM and can interface with other software, but it's not typically used as a primary classical MD engine for large biomolecules. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000774
 name: Abalone
-def: "A molecular modeling and simulation software package offering tools for molecular graphics, modeling (building/modifying structures), and simulations, including energy minimization, molecular dynamics (using its own engine or interfacing others), and Monte Carlo methods. It supports various force fields and provides an integrated graphical user interface (GUI) environment for setting up, running, and visualizing simulations, particularly aimed at drug design and biomolecular studies. It is a commercial product. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+def: "A molecular dynamics engine is the specific executable program responsible for numerically integrating the equations of motion to simulate atomic movements over time. It performs the computationally intensive task of calculating forces and updating atomic positions at every time step to generate a trajectory. For experts, this term distinguishes the core computational solver, such as pmemd or namd2, from the overarching software suite that includes tools for setup and analysis. (UNVERIFIED)" []
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000775
 name: CP2K
 def: "An open-source quantum chemistry and solid-state physics software package designed for performing atomistic simulations  of solid state, liquid, molecular, periodic, material, crystal, and biological systems. CP2K is particularly known for its efficient DFT calculations using a hybrid Gaussian and Plane Waves (GPW) method and its Quickstep module, enabling QM and QM/MM simulations of large systems, including ab initio MD. It's highly parallelized and versatile for demanding simulations. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000776
 name: CPMD
 def: "The Car-Parrinello Molecular Dynamics (CPMD) software package, an open-source program primarily designed for performing ab initio molecular dynamics simulations based on Density Functional Theory (DFT) using the Car-Parrinello method. This method evolves the electronic wave functions concurrently with the atomic positions, contrasting with Born-Oppenheimer MD. CPMD typically uses plane wave basis sets and is well-suited for periodic systems, materials science, and simulations where electronic effects are crucial during dynamics. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000777
@@ -8256,37 +8279,37 @@ is_a: MOLSIM:000160 ! molecular dynamics engine
 id: MOLSIM:000778
 name: Firefly
 def: "Previously known as PC GAMESS, Firefly is a freely available quantum chemistry software package offering a wide range of ab initio and DFT methods. It is optimized for Intel-compatible x86 and x86-64 architectures and is known for its computational efficiency for certain types of calculations. Like GAMESS-US, it provides QM and limited QM/MM capabilities relevant to biomolecular studies, but is not a classical MD engine. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000779
 name: GAMESS-UK
 def: "A quantum chemistry software package developed in the UK, distinct from GAMESS-US, though sharing common historical roots. It offers a broad range of ab initio QM methods (HF, MP2, CCSD(T), MCSCF, DFT) and includes capabilities for QM/MM calculations. Like other QM packages, it is primarily used for electronic structure calculations and parameterization rather than large-scale classical MD. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000780
 name: GAMESS-US
 def: "A widely used, freely available quantum chemistry software package (General Atomic and Molecular Electronic Structure System). It provides a broad range of quantum mechanical methods, from semi-empirical to high-level ab initio (HF, DFT, MP2, CCSD, MCSCF), and includes features for geometry optimization, vibrational analysis, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000781
 name: GROMOS
 def: "A software package for classical molecular dynamics simulation, primarily developed at ETH Zürich, and associated with the GROMOS family of force fields (e.g., GROMOS 54A7). The package includes programs for simulation setup, execution (MD, stochastic dynamics, energy minimization), and trajectory analysis. While historically influential and still used, its user base may be smaller compared to GROMACS or AMBER today, but the GROMOS force fields remain widely used (often ported to other packages). (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000782
 name: HyperChem
 def: "A commercial molecular modeling software package providing a graphical interface for building, visualizing, and simulating molecular systems. It offers capabilities for molecular mechanics (MM) using various force fields, quantum mechanics (QM) using semi-empirical and ab initio methods, and molecular dynamics (MD) simulations. HyperChem aims to provide an integrated environment for a range of computational chemistry tasks on desktop computers. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000783
 name: Jaguar
 def: "A high-performance quantum chemistry software package, part of the Schrödinger Materials Science Suite, known for its speed and accuracy, particularly for DFT calculations. It also offers ab initio methods (like LMP2) and QM/MM capabilities. Jaguar is often used in drug discovery contexts for tasks requiring high-quality QM calculations, such as reaction modeling, property prediction, and parameterization. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000784
@@ -8298,7 +8321,7 @@ is_a: MOLSIM:000160 ! molecular dynamics engine
 id: MOLSIM:000785
 name: MOPAC
 def: "A widely used semi-empirical quantum chemistry software package (Molecular Orbital PACkage). It implements methods like AM1, PM3, PM6, PM7, which are much faster than ab initio or DFT methods, allowing calculations on larger systems or longer timescales, albeit typically with lower accuracy. MOPAC is often used for rapid geometry optimization, property estimation, or as the QM component in QM/MM calculations where speed is critical. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000786
@@ -8310,19 +8333,19 @@ is_a: MOLSIM:000160 ! molecular dynamics engine
 id: MOLSIM:000787
 name: SIESTA
 def: "An open-source software package for performing electronic structure calculations and ab initio molecular dynamics simulations based on Density Functional Theory (DFT). SIESTA uses localized numerical atomic orbitals as basis sets and efficient pseudopotentials, making it suitable for large systems and parallel computation. While applicable to biomolecules, its strengths are often utilized in materials science and condensed matter physics contexts, similar to Quantum ESPRESSO or VASP. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000788
 name: Spartan
 def: "A commercial molecular modeling and computational chemistry software package featuring an integrated graphical user interface. It provides tools for structure building and visualization, and implements a range of computational methods, including molecular mechanics (MM), semi-empirical methods (like AM1, PM3), Hartree-Fock (HF), Density Functional Theory (DFT), and Møller-Plesset (MPn) calculations. Spartan is widely used in education and research for structure-property relationship studies. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000789
 name: TINKER
 def: "A freely available software package for molecular mechanics and dynamics simulations. TINKER provides implementations of various standard force fields (AMBER, CHARMM, OPLS, MMFF) and includes tools for energy minimization, MD simulation, free energy calculations, and structural analysis. It is particularly notable for its implementation of polarizable force fields (e.g., AMOEBA) and its modular design. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000790
@@ -8334,19 +8357,19 @@ is_a: MOLSIM:000160 ! molecular dynamics engine
 id: MOLSIM:000791
 name: TURBOMOLE
 def: "A highly efficient quantum chemistry software package focusing on ab initio methods, particularly Density Functional Theory (DFT) and correlated wavefunction methods (like MP2, CC2, CCSD(T)), optimized for speed and parallel performance. It is widely used for calculations on molecules and clusters, especially for applications requiring high accuracy or large basis sets, such as reaction mechanism studies, spectroscopy, and parameterization tasks relevant to biomolecular simulation. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000792
 name: VASP
 def: "The Vienna Ab initio Simulation Package, a sophisticated software package for performing quantum mechanical calculations based on Density Functional Theory (DFT) or Hartree-Fock, using pseudopotentials and a plane wave basis set. VASP is extremely widely used in materials science and condensed matter physics for simulations of solids, surfaces, and interfaces, including ab initio molecular dynamics. While it can simulate any collection of atoms, its typical use cases and methodology (plane waves, periodic boundaries) differ from mainstream solvated biomolecule simulation approaches. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000161 ! quantum chemistry engine
 
 [Term]
 id: MOLSIM:000793
 name: X-PLOR
 def: "A software package primarily used for macromolecular structure determination based on experimental data, particularly X-ray crystallography and NMR spectroscopy data. It incorporates molecular mechanics (energy terms from force fields), molecular dynamics (often used for refinement or simulated annealing protocols), and terms representing the experimental restraints to refine structures consistent with both physics and experimental observations. While it uses MD concepts, its primary goal is structure determination rather than simulating equilibrium dynamics. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:000794
@@ -9089,7 +9112,7 @@ is_a: MOLSIM:000914 ! xml format
 
 [Term]
 id: MOLSIM:000916
-name: Ptraj script
+name: Ptraj script format
 def: "A Ptraj script is an input file containing commands for the ptraj or its successor cpptraj programs, which are part of the AmberTools suite used for analyzing molecular dynamics trajectories. The script specifies input trajectory files (trajin), reference structures, and a series of analysis commands (e.g., rms, distance, hbond, radgyr, cluster) to calculate specific properties or perform structural analyses. It defines the post-processing workflow for Amber or other compatible trajectory formats. (UNVERIFIED)" []
 is_a: MOLSIM:000438 ! script format
 
@@ -10021,6 +10044,12 @@ id: MOLSIM:001118
 name: AMBER mdinfo format
 def: "The mdinfo format is a text file generated by the Amber simulation software that provides a concise, real-time summary of a running simulation. It contains the most recently calculated energy terms and thermodynamic properties, such as temperature and pressure, formatted for easy monitoring. This file is continuously updated during a run, making it useful for checking the immediate status and stability of a simulation without having to parse the much larger main output file. (UNVERIFIED)" []
 is_a: MOLSIM:000437 ! simulation parameter format
+
+[Term]
+id: MOLSIM:001119
+name: database web server
+def: "A database web server is an online application that provides a graphical interface for searching, visualizing, and retrieving data from a structured biological or chemical repository. It acts as an accessible gateway, allowing researchers to query complex datasets and download specific entries without needing direct interaction with the underlying database management system. In the context of biomolecular simulation, these servers are the primary means of accessing essential resources such as experimental protein structures, force field libraries, or archived simulation trajectories. (UNVERIFIED)" []
+is_a: MOLSIM:001671 ! web server
 
 [Term]
 id: MOLSIM:001120
@@ -11735,7 +11764,7 @@ is_a: MOLSIM:001445 ! nucleic acid force field
 [Term]
 id: MOLSIM:001447
 name: tumuc1 DNA force field
-def: "A completely new set of parameters for simulating DNA, developed from scratch using high-level quantum mechanical calculations. Unlike incremental refinements of older force fields, it provides an internally consistent model for both bonded and non-bonded interactions. Its development from first-principles aims to deliver higher accuracy for describing the intricate structural and dynamic properties of DNA. (UNVERIFIED)" []
+def: "Tumuc1 is a modern force field parameter set for DNA simulations that was derived directly from high-level quantum mechanical calculations. Unlike older models that rely heavily on empirical fitting, it uses a consistent set of bonded parameters and charges obtained from first-principles theory. This approach aims to provide a more rigorous and accurate physical description of DNA structure and dynamics. (UNVERIFIED)" []
 is_a: MOLSIM:000010 ! DNA force field
 
 [Term]
@@ -12394,7 +12423,7 @@ is_a: MOLSIM:001850 ! modeling and setup tool
 id: MOLSIM:001557
 name: AddToBox
 def: "AddToBox is a utility used to add a specified number of molecules, such as solvent or ions, into a pre-existing simulation box containing other molecules. It is a common tool used in the final stages of system preparation to fill the simulation volume with the correct components at a desired density. Experts use this tool to carefully control the composition and concentration of the molecular environment surrounding the main molecule of interest. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001956 ! system packing and solvation tool
 
 [Term]
 id: MOLSIM:001558
@@ -12418,7 +12447,7 @@ is_a: MOLSIM:000272 ! radii set
 id: MOLSIM:001561
 name: cphstats
 def: "The cphstats tool is an analysis program used to process the output from constant pH molecular dynamics (CpHMD) simulations. It reads the log files that track the protonation state changes during the simulation and calculates key results, such as the predicted pKa values and titration curves for the titratable residues. This is the primary tool for extracting the final thermodynamic information from a constant pH simulation. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:001962 ! titration analysis tool
 
 [Term]
 id: MOLSIM:001562
@@ -12441,13 +12470,13 @@ is_a: MOLSIM:000164 ! analysis tool
 [Term]
 id: MOLSIM:001565
 name: edgembar
-def: "Edgembar is a specialized software tool for performing free energy calculations from simulation data, likely based on the Multistate Bennett Acceptance Ratio (MBAR) method. The name suggests it may have a particular focus on analyzing the \"edges\" or pairwise free energy differences in a large network of alchemical transformations. This is a key task in large-scale relative binding free energy studies used in drug discovery. (UNVERIFIED)" []
-is_a: MOLSIM:001564 ! free energy analysis tool
+def: "Edgembar is a specialized software tool for performing free energy calculations from simulation data, particularly focused on analyzing the edges of alchemical networks. It utilizes the Multistate Bennett Acceptance Ratio (MBAR) method to optimally combine data from multiple simulation states. This tool is valuable for large-scale relative binding free energy campaigns where efficient handling of complex transformation networks is required. (UNVERIFIED)" []
+is_a: MOLSIM:001968 ! alchemical analysis tool
 
 [Term]
 id: MOLSIM:001566
 name: library
-def: "A software library is a collection of pre-compiled routines, functions, and resources that a program can use to perform specific tasks without having to rewrite the code for them. These libraries provide reusable building blocks for common operations, such as mathematical calculations, file input/output, or data analysis. For developers of simulation software, using libraries for tasks like Fourier transforms or linear algebra greatly simplifies development and improves performance. (UNVERIFIED)" []
+def: "A software library is a collection of pre-written code and subroutines that provide specific functionalities to be used by other programs. Libraries are not executed directly by end-users but are imported or linked by developers to perform specialized tasks, such as mathematical computations or file parsing. (UNVERIFIED)" []
 is_a: MOLSIM:000170 ! software component
 
 [Term]
@@ -12483,8 +12512,8 @@ is_a: MOLSIM:000272 ! radii set
 [Term]
 id: MOLSIM:001572
 name: ndfes
-def: "ndfes is a software package or toolkit designed for the calculation and analysis of N-dimensional free energy surfaces from molecular simulation data. It likely includes a collection of programs and scripts for performing enhanced sampling simulations, such as metadynamics, and for post-processing the results to reconstruct and visualize the final free energy landscape. It is a specialized tool for studying complex molecular processes that need to be described by more than one collective variable. (UNVERIFIED)" []
-is_a: MOLSIM:001564 ! free energy analysis tool
+def: "ndfes is a software package designed for the calculation and analysis of N-dimensional free energy surfaces from molecular simulation data. It includes a collection of scripts for analyzing enhanced sampling simulations, such as those using umbrella sampling or metadynamics. This toolkit allows researchers to reconstruct and visualize complex free energy landscapes defined by multiple collective variables. (UNVERIFIED)" []
+is_a: MOLSIM:001969 ! free energy surface analysis tool
 
 [Term]
 id: MOLSIM:001573
@@ -12496,18 +12525,19 @@ is_a: MOLSIM:001566 ! library
 id: MOLSIM:001574
 name: pdb4amber
 def: "The pdb4amber tool is a program specifically designed to clean and prepare protein data bank (PDB) structure files for use with the AMBER simulation software. It performs essential tasks such as renumbering residues, fixing atom naming inconsistencies, and identifying potential structural problems. For AMBER users, running pdb4amber is a critical first step to ensure that the molecular structure is correctly interpreted by the AMBER system-building tools. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001957 ! structure cleaning and manipulation tool
 
 [Term]
 id: MOLSIM:001575
 name: PropPDB
 def: "The PropPDB tool is a system setup program used to build a larger simulation box by replicating a small, initial crystal unit cell in specified directions. This process is necessary when the original crystallographic unit cell is too small to satisfy the minimum size requirements imposed by the simulation's non-bonded interaction cutoff distance. For experts, this method creates a larger \"supercell\" that is large enough to avoid artifacts from periodic symmetry and to meet the stringent size requirements of modern simulation engines, particularly those running on GPUs. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001955 ! crystallographic build tool
 property_value: dcterms:source https://ambermd.org/doc12/Amber25.pdf
 
 [Term]
 id: MOLSIM:001576
 name: ProScrs.py
+def: "ProScrs.py is a utility script included in the AmberTools suite that provides protein scoring functionalities. It is designed to evaluate protein structures or docking poses using various scoring functions. For researchers, this tool assists in assessing the quality or binding affinity of protein models. (UNVERIFIED)" []
 is_a: MOLSIM:001569 ! utility script
 
 [Term]
@@ -12550,13 +12580,13 @@ is_a: MOLSIM:001566 ! library
 id: MOLSIM:001583
 name: UnitCell
 def: "UnitCell tool is a software function for building crystallographic structures by applying symmetry information contained within an input coordinate file. It reads the symmetry operators from a PDB or mmCIF file to reconstruct the complete repeating unit of a crystal from just the asymmetric part. Users can employ this tool to generate the full unit cell, expand it into multiple adjacent cells to visualize crystal packing, or build specific assemblies defined by either crystallographic or non-crystallographic symmetry. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001955 ! crystallographic build tool
 
 [Term]
 id: MOLSIM:001584
 name: xleap
 def: "Xleap is the graphical interface for the LEaP program in the AmberTools software suite, used to interactively build molecular systems for simulation. It allows users to load structures, apply force fields, add solvent and ions, and save the final topology and coordinate files required by the AMBER simulation engine. For users, xleap provides a visual environment to perform the essential system preparation steps in a guided, command-line driven manner. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:000259 ! topology and coordinate generation tool
 
 [Term]
 id: MOLSIM:001585
@@ -12598,7 +12628,7 @@ is_a: MOLSIM:001569 ! utility script
 id: MOLSIM:001591
 name: rism1d
 def: "The rism1d tool is a program used to perform a one-dimensional Reference Interaction Site Model (1D-RISM) calculation. This calculation determines the structural and thermodynamic properties of a pure liquid solvent, which are needed as input for a more complex 3D-RISM calculation. Running rism1d is the necessary first step to characterize the bulk solvent before analyzing its specific arrangement around a solute molecule. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:001963 ! solvation analysis tool
 
 [Term]
 id: MOLSIM:001592
@@ -12652,34 +12682,34 @@ is_a: MOLSIM:000160 ! molecular dynamics engine
 id: MOLSIM:001600
 name: reduce
 def: "Reduce is a computational tool used to add and optimize the positions of hydrogen atoms in a macromolecular structure file, such as a PDB file. Since experimental structures often lack explicit hydrogens, this program builds a complete, all-atom model by considering the local chemical environment and hydrogen bonding network. For experts, using Reduce is a standard procedure to generate a chemically correct starting structure with proper ionization and tautomeric states for subsequent simulations. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:000223 ! generic protonation tool
 
 [Term]
 id: MOLSIM:001601
 name: gwh
 def: "The gwh (guess water hydrogens) tool is a system setup utility used to add or optimize the positions of hydrogen atoms for water molecules in a structural model. The program iteratively rotates the water molecules to find an optimal orientation for their hydrogens, aiming to satisfy the most favorable hydrogen bonding network and electrostatic interactions with the surrounding environment. For experts, gwh serves as a specialized complement to the reduce program (which handles protein hydrogens), providing a method to generate a more physically realistic and lower-energy initial solvent configuration than the arbitrary placement offered by standard system-building tools like tleap. (UNVERIFIED)" []
 synonym: "guess water hydrogens" EXACT []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001957 ! structure cleaning and manipulation tool
 property_value: dcterms:source https://ambermd.org/doc12/Amber25.pdf
 
 [Term]
 id: MOLSIM:001602
 name: pdbremix
 def: "Pdbremix is a utility designed for advanced manipulation and modification of Protein Data Bank (PDB) files. It allows users to perform a wide range of tasks such as renumbering residues, changing atom or residue names, and translating or rotating parts of a molecule. Experts use this tool for complex system-building tasks that require precise, custom modifications to a standard PDB file before simulation. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001957 ! structure cleaning and manipulation tool
 
 [Term]
 id: MOLSIM:001603
 name: Packmol
 def: "Packmol is a software package used to create an initial arrangement of molecules in a defined three-dimensional space, such as a simulation box. It works by packing different types of molecules together according to user-specified numbers and spatial constraints, avoiding unrealistic overlaps between atoms. For simulation experts, Packmol is an indispensable tool for building starting configurations for complex systems like liquid mixtures, solvated proteins, or lipid membranes. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001956 ! system packing and solvation tool
 
 [Term]
 id: MOLSIM:001604
 name: AMBAT
 def: "AMBAT is a software tool used to construct three-dimensional models of cell membranes for use in molecular simulations. Consisting of a set of scripts, it automates the complex process of arranging lipid molecules to form a proper bilayer and can then embed a protein structure within that prepared membrane. As part of the AmberTools suite, AMBAT (Amber Membrane Builder and Analysis Tool) provides a script-based workflow for both the initial construction of lipid bilayer systems and for subsequent analysis of membrane properties, serving as a specialized tool for preparing membrane protein simulations. (UNVERIFIED)" []
 synonym: "Amber Membrane Builder and Analysis Tool" EXACT []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:000225 ! membrane packing tool
 property_value: dcterms:source https://ambermd.org/doc12/Amber25.pdf
 
 [Term]
@@ -12687,6 +12717,7 @@ id: MOLSIM:001605
 name: parameter fitting tool
 def: "A parameter fitting tool is a specialized program used to derive the numerical values, or parameters, for a molecular mechanics force field. It works by systematically adjusting the parameters of the force field's energy functions to reproduce a set of high-quality target data, which can come from quantum mechanical calculations or experimental measurements. These tools are the essential engines of force field development, used to create accurate models for new or non-standard molecules. (UNVERIFIED)" []
 is_a: MOLSIM:000172 ! topology and parameterization tool
+disjoint_from: MOLSIM:001970 ! parameter assignment tool
 
 [Term]
 id: MOLSIM:001606
@@ -12699,13 +12730,13 @@ is_a: MOLSIM:001605 ! parameter fitting tool
 id: MOLSIM:001607
 name: parmchk2
 def: "The parmchk2 program is a utility in the AmberTools suite that checks a molecule file to see if all the necessary force field parameters are available. If it finds any missing bond, angle, or dihedral parameters, it will attempt to estimate them based on analogy to similar, known parameters. This tool is an essential step in preparing a new molecule for simulation, as it identifies missing parameters and provides reasonable guesses to complete the force field description. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001970 ! parameter assignment tool
 
 [Term]
 id: MOLSIM:001608
 name: parmcal
 def: "an interactive utility included in the AmberTools software package for deriving force field parameters. It assists users in calculating new parameters for bond lengths and angles based on a set of built-in empirical rules. This tool is particularly useful when parameterizing a new molecule for which no existing force field parameters are available. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001970 ! parameter assignment tool
 
 [Term]
 id: MOLSIM:001609
@@ -12729,37 +12760,37 @@ is_a: MOLSIM:001605 ! parameter fitting tool
 id: MOLSIM:001612
 name: atomtype
 def: "The atomtype program is a utility in the AmberTools suite that automatically assigns force field atom types to the atoms in a molecule. It analyzes the chemical environment of each atom, including its element, hybridization, and bonding pattern, to determine the appropriate atom type from a force field like GAFF. This is a critical first step in the parameterization process, as the atom type dictates which parameters will be used for all subsequent energy calculations. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001970 ! parameter assignment tool
 
 [Term]
 id: MOLSIM:001613
 name: am1bcc
 def: "The am1bcc program is a utility in the AmberTools suite that calculates atomic partial charges for organic molecules using the AM1-BCC method. It first performs a fast, approximate quantum mechanical calculation (AM1) and then applies a set of empirical \"bond charge corrections\" (BCC) to improve the charges. This two-step procedure provides a rapid and automated way to generate good-quality charges for drug-like molecules that are compatible with the GAFF force field. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001971 ! charge derivation tool
 
 [Term]
 id: MOLSIM:001614
 name: bondtype
 def: "The bondtype program is a utility in the AmberTools suite that assigns force field bond types based on the atom types of the two connected atoms. After atom types have been assigned, this tool determines the specific parameters that should be used for the bond stretching term between them. This is an internal step in the automated parameterization workflow for new molecules. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001970 ! parameter assignment tool
 
 [Term]
 id: MOLSIM:001615
 name: respgen
 def: "The respgen program is a utility in the AmberTools suite that automatically generates the input files needed to perform a Restrained Electrostatic Potential (RESP) charge calculation. It takes a molecular structure and creates the input for a quantum chemistry program to calculate the electrostatic potential, as well as the input for the subsequent charge-fitting step. This tool automates the setup for what is a standard and crucial procedure for deriving high-quality atomic charges for new molecules. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001971 ! charge derivation tool
 
 [Term]
 id: MOLSIM:001616
 name: prepgen
 def: "The prepgen program is a utility in the AmberTools suite that helps to create residue library files, known as \"prep\" files, for new molecules. It takes a molecular structure file as input and generates a file that defines the molecule's atoms, charges, and internal connectivity in a format that the LEaP system-building program can understand. This tool is a key part of the workflow for adding a new, non-standard residue or molecule to the AMBER environment. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001972 ! residue template tool
 
 [Term]
 id: MOLSIM:001617
 name: residuegen
 def: "The residuegen program is a utility in the AmberTools suite that helps to create a complete residue template for a new molecule. It takes a file defining the molecule's atoms and bonds and generates a residue library file that can be used by the LEaP program to build larger systems. This tool is part of the automated workflow for incorporating a novel molecule into the AMBER force field ecosystem. (UNVERIFIED)" []
-is_a: MOLSIM:001605 ! parameter fitting tool
+is_a: MOLSIM:001972 ! residue template tool
 
 [Term]
 id: MOLSIM:001618
@@ -12776,6 +12807,7 @@ is_a: MOLSIM:001569 ! utility script
 [Term]
 id: MOLSIM:001620
 name: IPMach.py
+def: "IPMach.py is a utility script within the AmberTools suite designed to facilitate the parameterization of ion models for molecular simulations. It specifically assists in deriving the parameters for 12-6 Lennard-Jones and 12-6-4 potential models for monoatomic ions. This tool streamlines the process of creating accurate non-bonded parameters that are consistent with specific water models. (UNVERIFIED)" []
 is_a: MOLSIM:001569 ! utility script
 
 [Term]
@@ -12829,6 +12861,7 @@ is_a: MOLSIM:001569 ! utility script
 [Term]
 id: MOLSIM:001629
 name: placeAV.py
+def: "placeAV.py is a utility script used to convert the predicted solvent binding sites from a Placevent analysis into explicit atomic coordinates. It reads the centers of high-density solvent regions determined by the analysis and places dummy atoms or water molecules at those specific locations within a structure file. This tool allows researchers to visualize potential hydration sites or use them as defined starting positions for explicit solvent molecules in subsequent simulations. (UNVERIFIED)" []
 is_a: MOLSIM:001569 ! utility script
 
 [Term]
@@ -12997,13 +13030,13 @@ is_a: MOLSIM:001566 ! library
 id: MOLSIM:001657
 name: calcpka
 def: "A computational tool used to predict the acidity constant, or pKa, of ionizable groups in a protein or other molecule. It takes a 3D structure as input and uses a model, often based on continuum electrostatics, to calculate how the local chemical environment shifts the pKa of each titratable residue. This is a critical preparation step for any simulation, as it allows for the assignment of the correct protonation states for all residues at a given experimental pH. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:001962 ! titration analysis tool
 
 [Term]
 id: MOLSIM:001658
 name: addles
 def: "The addles tool is a utility used to prepare a molecular system for a Locally Enhanced Sampling (LES) simulation. It modifies the system's topology file to create multiple, non-interacting copies of a specified region of the molecule. Experts use this program to set up the complex topology required by the LES method, which enhances the conformational sampling of a targeted molecular region. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:000259 ! topology and coordinate generation tool
 
 [Term]
 id: MOLSIM:001659
@@ -13027,18 +13060,18 @@ is_a: MOLSIM:001566 ! library
 id: MOLSIM:001662
 name: saxs_rism
 def: "The saxs_rism tool is a program that calculates a theoretical small-angle X-ray scattering (SAXS) profile for a molecule by combining its structure with a solvent description from the 3D-RISM theory. This approach accounts for the scattering contribution of the structured solvent layer around the molecule, which can be crucial for an accurate prediction of the final SAXS curve. It provides a computationally efficient alternative to calculating SAXS profiles from long, explicit solvent simulations. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:001961 ! scattering analysis tool
 
 [Term]
 id: MOLSIM:001663
 name: saxs_md
 def: "The saxs_md tool is a program used to calculate a theoretical small-angle X-ray scattering (SAXS) profile directly from a molecular dynamics simulation trajectory. It works by averaging the scattering patterns from many different conformations sampled during the simulation to produce an ensemble-averaged profile. This allows for a direct and powerful comparison between the structural ensemble generated by a simulation and experimental SAXS data. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:001961 ! scattering analysis tool
 
 [Term]
 id: MOLSIM:001664
 name: software suite
-def: "A software suite is a collection of related computer programs, often with a consistent user interface, that are bundled and sold or distributed together. These suites provide a comprehensive set of tools for a particular domain, such as office productivity or, in this context, molecular modeling. For scientists, a software suite like AMBER or CHARMM offers an integrated environment for performing a wide range of tasks from system setup to simulation and analysis. (UNVERIFIED)" []
+def: "A software suite is a collection of distinct computer programs that are packaged and distributed together to provide a comprehensive set of functionalities. These suites typically share a common installation process and often use compatible file formats to allow data to flow between the different tools in the package. (UNVERIFIED)" []
 is_a: MOLSIM:000001 ! software
 
 [Term]
@@ -13051,13 +13084,13 @@ is_a: MOLSIM:001664 ! software suite
 id: MOLSIM:001666
 name: metatwist
 def: "Metatwist is an analysis tool for studying the twisting motions of helical molecules, such as DNA, using data from a metadynamics simulation. It is probably designed to analyze a free energy surface calculated as a function of a helical twist collective variable. This would allow a researcher to quantify the energetic cost and identify the pathways associated with the twisting and untwisting of a molecular helix. (VERY-) (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:001960 ! nucleic acid analysis tool
 
 [Term]
 id: MOLSIM:001667
 name: ptraj
 def: "ptraj was the original command-line program used in the AMBER software suite for analyzing simulation trajectories. It allowed users to process coordinate files to calculate a wide range of properties, such as RMSD, distances, and angles, by reading a script of analysis commands. Although it has now been superseded by its more powerful and flexible successor, cpptraj, ptraj established the fundamental workflow for trajectory analysis in the AMBER community. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:000251 ! trajectory processing tool
 
 [Term]
 id: MOLSIM:001668
@@ -13087,13 +13120,13 @@ is_a: MOLSIM:000001 ! software
 id: MOLSIM:001672
 name: GLYCAM-Web
 def: "GLYCAM-Web is a collection of online tools and web servers that assist researchers in building three-dimensional models of carbohydrates and glycoproteins. It uses the GLYCAM force field to generate realistic structures and provides tools for tasks like predicting the conformation of glycosidic linkages. For scientists studying glycobiology, GLYCAM-Web provides an essential resource for preparing complex carbohydrate structures for molecular simulation. (UNVERIFIED)" []
-is_a: MOLSIM:001671 ! web server
+is_a: MOLSIM:000714 ! tool web server
 
 [Term]
 id: MOLSIM:001673
 name: Glycoprotein Builder
 def: "The Glycoprotein Builder is a web-based tool that automates the process of constructing three-dimensional models of glycoproteins. It allows users to start with a protein structure and graphically attach various glycan (sugar chain) structures to specific amino acid residues. For researchers, this tool greatly simplifies the otherwise complex and tedious task of building a complete, simulation-ready model of a glycosylated protein. (UNVERIFIED)" []
-is_a: MOLSIM:001671 ! web server
+is_a: MOLSIM:001119 ! database web server
 
 [Term]
 id: MOLSIM:001674
@@ -13147,7 +13180,7 @@ is_a: MOLSIM:001566 ! library
 id: MOLSIM:001682
 name: 3DNA
 def: "3DNA is a comprehensive software package for the analysis, rebuilding, and visualization of three-dimensional nucleic acid structures. It takes a DNA or RNA structure file as input and calculates a wide range of standard helical and base pair parameters that are used to describe the detailed geometry of the helix. It is a cornerstone tool in the field of nucleic acid structural biology for characterizing and comparing experimental or simulated structures. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:001960 ! nucleic acid analysis tool
 
 [Term]
 id: MOLSIM:001683
@@ -13179,7 +13212,7 @@ is_a: MOLSIM:000157 ! framework
 [Term]
 id: MOLSIM:001687
 name: TIW
-synonym: "The Thermodynamic Integration Workflow (TIW) is a software framework that automates the complex process of calculating relative binding free energies using the thermodynamic integration (TI) method. It streamlines the entire procedure by automatically preparing the molecular system, running the required series of simulations across different intermediate states, and analyzing the final results. For experts, TIW is a collection of modular scripts that handles the creation of hybrid topologies, the generation of input files for each lambda window, and the final integration of the dV/dλ data, thereby ensuring reproducibility and minimizing manual errors in alchemical free energy calculations. (UNVERIFIED)" EXACT []
+def: "The Thermodynamic Integration Workflow (TIW) is a software framework that automates the complex process of calculating relative binding free energies using the thermodynamic integration (TI) method. It streamlines the entire procedure by automatically preparing the molecular system, running the required series of simulations across different intermediate states, and analyzing the final results. For experts, TIW is a collection of modular scripts that handles the creation of hybrid topologies, the generation of input files for each lambda window, and the final integration of the dV/dλ data, thereby ensuring reproducibility and minimizing manual errors in alchemical free energy calculations. (UNVERIFIED)" []
 synonym: "Thermodynamic Integration Workflow" EXACT []
 is_a: MOLSIM:000157 ! framework
 property_value: dcterms:source https://doi.org/10.1002/jcc.23218
@@ -13285,6 +13318,12 @@ id: MOLSIM:001704
 name: Xoshiro128++ random number generator algorithm
 def: "Xoshiro128++ is a state-of-the-art pseudo-random number generator algorithm known for its excellent speed and strong statistical properties. It is part of a family of generators based on shift-register operations, making it very fast on modern computer architectures. For demanding simulation applications, Xoshiro128++ is a top-tier choice for generating high-quality random numbers with minimal performance impact. (UNVERIFIED)" []
 is_a: MOLSIM:001700 ! random number generator algorithm
+
+[Term]
+id: MOLSIM:001705
+name: MDposit
+def: "MDposit is a web-based platform and portal designed for the sharing, visualization, and analysis of molecular dynamics simulation data. It serves as a distributed database interface that allows users to browse, access, and interactively view trajectories from different research groups. This tool aims to facilitate the dissemination and reuse of large-scale simulation datasets within the scientific community. (UNVERIFIED)" []
+is_a: MOLSIM:001119 ! database web server
 
 [Term]
 id: MOLSIM:001706
@@ -14589,6 +14628,7 @@ is_a: MOLSIM:001566 ! library
 id: MOLSIM:001923
 name: NGL
 def: "NGL Viewer is a WebGL-based JavaScript library for the fast and high-quality visualization of large molecular complexes and trajectories in the web browser. It is designed for high-performance rendering, enabling smooth, interactive exploration of even very large structures like ribosomes or viral capsids. For developers of web-based bioinformatics tools, NGL provides a powerful and scalable component for molecular graphics and data visualization. (UNVERIFIED)" []
+is_a: MOLSIM:000163 ! visualization tool
 is_a: MOLSIM:001566 ! library
 
 [Term]
@@ -14601,25 +14641,26 @@ is_a: MOLSIM:000166 ! file conversion tool
 id: MOLSIM:001925
 name: editconf
 def: "The editconf tool is a command-line utility within the GROMACS simulation package used for manipulating molecular structure files. Its primary functions include converting between different structure formats and defining the size and shape of the simulation box around a molecule. For GROMACS users, editconf is an essential step in system preparation for centering the molecule and establishing the periodic boundary conditions for the simulation. (UNVERIFIED)" []
-is_a: MOLSIM:001556 ! system setup tool
+is_a: MOLSIM:001956 ! system packing and solvation tool
 
 [Term]
 id: MOLSIM:001926
 name: gmx
 def: "The gmx command is the primary user interface for the GROMACS molecular dynamics software suite. It is not a single program but a command-line wrapper that provides access to all of GROMACS's individual tools for simulation setup, execution, and analysis. By typing 'gmx' followed by a specific subcommand, such as 'gmx rms' or 'gmx solvate', users can perform nearly every task in a standard simulation workflow. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:000251 ! trajectory processing tool
 
 [Term]
 id: MOLSIM:001927
 name: CHARMM-GUI
 def: "CHARMM-GUI is a powerful and widely used web server that provides a graphical interface for generating input files for a wide variety of complex biomolecular simulations. It automates many difficult and error-prone setup tasks, such as building lipid membranes, solvating proteins, and preparing systems for free energy calculations. For simulation experts and novices alike, CHARMM-GUI is an invaluable resource that greatly simplifies the preparation of systems for use with simulation packages like CHARMM, NAMD, GROMACS, and AMBER. (UNVERIFIED)" []
-is_a: MOLSIM:001671 ! web server
+is_a: MOLSIM:000225 ! membrane packing tool
+is_a: MOLSIM:000714 ! tool web server
 
 [Term]
 id: MOLSIM:001928
 name: Modeller
 def: "Modeller is a widely used computer program for generating three-dimensional models of proteins through homology or comparative modeling. It predicts a protein's structure by using the known structure of a related protein as a template and satisfying spatial restraints. For researchers, Modeller is a powerful tool to create high-quality structural hypotheses for proteins whose experimental structures have not yet been determined, providing a starting point for further simulation. (UNVERIFIED)" []
-is_a: MOLSIM:001850 ! modeling and setup tool
+is_a: MOLSIM:001958 ! homology modeling tool
 
 [Term]
 id: MOLSIM:001929
@@ -14655,7 +14696,7 @@ is_a: MOLSIM:000163 ! visualization tool
 id: MOLSIM:001934
 name: UCSF Chimera
 def: "UCSF Chimera is a powerful and highly extensible desktop program for the interactive visualization and analysis of molecular structures and related data. It is known for its high-quality graphics, comprehensive feature set, and its ability to handle a wide range of data types beyond simple structures, such as density maps and sequence alignments. For many researchers, Chimera (and its successor, ChimeraX) is an indispensable day-to-day tool for analyzing simulation results and preparing publication-quality figures. (UNVERIFIED)" []
-is_a: MOLSIM:000164 ! analysis tool
+is_a: MOLSIM:000163 ! visualization tool
 
 [Term]
 id: MOLSIM:001935
@@ -14745,6 +14786,145 @@ def: "Omni-Path is a high-speed networking technology that was designed specific
 is_a: MOLSIM:001943 ! network interconnect
 
 [Term]
+id: MOLSIM:001950
+name: MDrepo
+def: "MDRepo is a public repository dedicated to the archival and sharing of molecular dynamics simulation data generated by the research community. It provides a standardized infrastructure for scientists to upload, store, and retrieve simulation trajectories and associated metadata. By centralizing access to these datasets, MDRepo promotes the reproducibility and secondary analysis of biomolecular simulations. (UNVERIFIED)" []
+is_a: MOLSIM:001119 ! database web server
+
+[Term]
+id: MOLSIM:001951
+name: ATLAS
+def: "ATLAS is a specialized database that stores a comprehensive collection of standardized all-atom molecular dynamics simulations of proteins. It combines simulation trajectories with analyses of protein flexibility and dynamics, linked to experimental structural data. This resource allows researchers to explore the dynamic properties of a wide range of protein families in a consistent and comparative manner. (UNVERIFIED)" []
+is_a: MOLSIM:001119 ! database web server
+
+[Term]
+id: MOLSIM:001952
+name: GPCRmd
+def: "GPCRmd is a community-driven database and web platform specifically focused on molecular dynamics simulations of G-protein-coupled receptors (GPCRs). It provides a repository for storing simulation trajectories of this important protein family, along with tools for interactive visualization and analysis. This resource aids researchers in understanding the complex signaling mechanisms and conformational landscapes of GPCRs." []
+is_a: MOLSIM:001119 ! database web server
+
+[Term]
+id: MOLSIM:001953
+name: InflateGro
+def: "InflateGRO is a utility script used to construct lipid membrane systems by packing lipids around a membrane protein. It works by initially expanding the distance between lipid molecules and then iteratively shrinking the system back to a realistic density while removing lipids that overlap with the protein. This method automates the challenging process of embedding a protein structure into a tight, pre-equilibrated lipid bilayer. (UNVERIFIED)" []
+is_a: MOLSIM:000225 ! membrane packing tool
+
+[Term]
+id: MOLSIM:001954
+name: MemProtMD
+def: "MemProtMD is a database that provides a collection of coarse-grained molecular dynamics simulations for membrane proteins found in the Protein Data Bank. It uses an automated pipeline to insert protein structures into lipid bilayers and simulate their equilibrium dynamics. This resource offers insights into the membrane orientation, lipid interactions, and stability of a vast number of membrane proteins. (UNVERIFIED)" []
+is_a: MOLSIM:000225 ! membrane packing tool
+
+[Term]
+id: MOLSIM:001955
+name: crystallographic build tool
+def: "A crystallographic build tool is a software utility used to reconstruct a full crystal lattice or supercell from the asymmetric unit provided in a structure file. It applies the specific symmetry operations defined by the space group to generate the complete crystallographic packing environment. For experts, this is a necessary step when preparing crystal simulations to ensure the simulation box dimensions and contents match the physical lattice. (UNVERIFIED)" []
+is_a: MOLSIM:001556 ! system setup tool
+
+[Term]
+id: MOLSIM:001956
+name: system packing and solvation tool
+def: "A system packing and solvation tool is a software utility used to define the simulation box geometry and fill it with solvent molecules and ions. It arranges molecular components within a defined volume to achieve a target density and concentration while preventing atomic overlaps. For experts, these tools are the primary means of generating disordered starting configurations for liquid-phase simulations and defining periodic boundary vectors. (UNVERIFIED)" []
+is_a: MOLSIM:001556 ! system setup tool
+
+[Term]
+id: MOLSIM:001957
+name: structure cleaning and manipulation tool
+def: "A structure cleaning and manipulation tool is a software utility designed to standardize and correct formatting errors in molecular structure files. These tools perform logistical tasks such as renumbering residues, standardizing atom names to match force field conventions, and handling missing chain identifiers. For experts, using these tools is a mandatory data-curation step to ensure that experimental structures are technically compatible with simulation engines. (UNVERIFIED)" []
+is_a: MOLSIM:000490 ! structure preparation tool
+
+[Term]
+id: MOLSIM:001958
+name: homology modeling tool
+def: "A homology modeling tool is a software program designed to predict the three-dimensional structure of a protein based on its amino acid sequence and experimentally determined template structures. It constructs a model by mapping the target sequence onto the backbone of a homologous protein and computationally refining the loops and side chains to resolve steric conflicts. For experts, these tools are the standard solution for generating starting structural models when high-resolution crystallography or NMR data for the specific target is unavailable. (UNVERIFIED)" []
+is_a: MOLSIM:001850 ! modeling and setup tool
+
+[Term]
+id: MOLSIM:001959
+name: AutoDock Vina
+def: "AutoDock Vina is an open-source software tool for molecular docking that predicts the preferred orientation and binding affinity of a small molecule to a protein receptor. It utilizes a sophisticated iterated local search global optimizer combined with an empirical scoring function to efficiently explore the conformational space of the ligand. For experts, Vina provides a substantial improvement in speed and accuracy over previous generations, making it a standard engine for high-throughput virtual screening in drug discovery. (UNVERIFIED)" []
+is_a: MOLSIM:000162 ! docking tool
+
+[Term]
+id: MOLSIM:001960
+name: nucleic acid analysis tool
+def: "A nucleic acid analysis tool is a specialized software program designed to characterize the geometry and topology of DNA and RNA structures. It calculates parameters such as base-pair step geometry (roll, tilt, twist), groove dimensions, and sugar pucker to describe the helical conformation. For experts, these tools are essential for quantifying the structural deformations of nucleic acids observed in simulations. (UNVERIFIED)" []
+is_a: MOLSIM:000164 ! analysis tool
+
+[Term]
+id: MOLSIM:001961
+name: scattering analysis tool
+def: "A scattering analysis tool is a software utility that calculates theoretical scattering profiles, such as Small-Angle X-ray Scattering (SAXS), from atomic structures or simulation trajectories. It predicts the scattering intensity pattern that would be produced by the molecules in solution, allowing for direct comparison with experimental data. These tools are used to validate structural ensembles against low-resolution experimental measurements. (UNVERIFIED)" []
+is_a: MOLSIM:000164 ! analysis tool
+
+[Term]
+id: MOLSIM:001962
+name: titration analysis tool
+def: "A titration analysis tool is a software program used to investigate the ionization states of acidic and basic groups within a molecule. This includes calculating pKa values based on structural environment or analyzing the populations of protonation states from constant pH molecular dynamics simulations. These tools are critical for understanding pH-dependent protein stability and function. (UNVERIFIED)" []
+is_a: MOLSIM:000164 ! analysis tool
+
+[Term]
+id: MOLSIM:001963
+name: solvation analysis tool
+def: "A solvation analysis tool is a software program designed to characterize the structure and thermodynamics of the solvent surrounding a solute. This includes calculating radial distribution functions, solvent density maps, or integral equation theories like RISM to determine solvation free energies. These tools provide insights into the hydration shell and the energetics of solute-solvent interactions. (UNVERIFIED)" []
+is_a: MOLSIM:000164 ! analysis tool
+
+[Term]
+id: MOLSIM:001964
+name: TM-align
+def: "TM-align is an algorithm and software tool used to identify the best structural alignment between pairs of protein structures. It utilizes a heuristic search to maximize the Template Modeling score (TM-score), a metric that is more sensitive to global topology than local variations. For researchers, this tool provides a rapid and robust way to quantify structural similarity and classify protein folds independent of sequence identity. (UNVERIFIED)" []
+is_a: MOLSIM:001684 ! match analysis tool
+disjoint_from: MOLSIM:001965 ! DALI
+
+[Term]
+id: MOLSIM:001965
+name: DALI
+def: "DALI (Distance Alignment) is a software method that compares protein structures by analyzing their internal distance matrices rather than their rigid-body superposition. It breaks the structures into hexapeptide fragments and reassembles alignments to find similarities in the pattern of residue-residue contacts. This approach allows experts to detect distant evolutionary relationships and structural similarities even when the proteins have undergone significant conformational changes or distortions. (UNVERIFIED)" []
+is_a: MOLSIM:001684 ! match analysis tool
+
+[Term]
+id: MOLSIM:001966
+name: LS-align
+def: "LS-align is a computational tool designed for the flexible structural alignment of small molecule ligands. It employs a heuristic iterative search algorithm to optimize the superposition of atoms based on both their spatial proximity and chemical mass. For cheminformatics, this tool is valuable for virtual screening and pharmacophore discovery by identifying molecules that share a similar 3D shape and chemical features despite having different bonding topologies. (UNVERIFIED)" []
+is_a: MOLSIM:001684 ! match analysis tool
+
+[Term]
+id: MOLSIM:001967
+name: ROCS
+def: "ROCS (Rapid Overlay of Chemical Structures) is a software tool that performs fast 3D alignment of small molecules based strictly on their molecular shape and chemical features. It represents molecules as a collection of Gaussian functions to rapidly calculate the maximal volume overlap between a query and a database compound. In drug discovery, this tool is a standard for shape-based virtual screening, allowing the identification of novel compounds that fit a specific binding pocket geometry. (UNVERIFIED)" []
+is_a: MOLSIM:001684 ! match analysis tool
+
+[Term]
+id: MOLSIM:001968
+name: alchemical analysis tool
+def: "An alchemical analysis tool is a software program designed to process data from simulations that physically transform a system from one chemical state to another via non-physical intermediate steps. It implements statistical mechanics estimators, such as the Multistate Bennett Acceptance Ratio (MBAR) or Thermodynamic Integration (TI), to rigorously calculate the free energy difference between states. These tools are the essential post-processing engines for relative and absolute binding free energy calculations in drug discovery. (UNVERIFIED)" []
+is_a: MOLSIM:001564 ! free energy analysis tool
+
+[Term]
+id: MOLSIM:001969
+name: free energy surface analysis tool
+def: "A free energy surface analysis tool is a software utility used to reconstruct the multidimensional free energy landscape of a system from enhanced sampling simulation data. It processes the history of visited states or applied biases, such as those from metadynamics or umbrella sampling, to generate a potential of mean force (PMF) map. For experts, these tools enable the visualization of low-energy basins and transition barriers along specific collective variables or reaction coordinates. (UNVERIFIED)" []
+is_a: MOLSIM:001564 ! free energy analysis tool
+
+[Term]
+id: MOLSIM:001970
+name: parameter assignment tool
+def: "A parameter assignment tool is a software utility that analyzes a molecular structure to identify its chemical components and apply standard force field rules. It determines the specific atom types, bond types, and corresponding interaction parameters from a force field library based on the local chemical environment. For experts, these tools automate the mapping of general force field rules (like GAFF) to specific molecules, ensuring consistent parameter usage. (UNVERIFIED)" []
+is_a: MOLSIM:000172 ! topology and parameterization tool
+
+[Term]
+id: MOLSIM:001971
+name: charge derivation tool
+def: "A charge derivation tool is a software program designed to calculate and assign partial atomic charges to a molecule for use in a force field. These tools implement specific charge models, such as AM1-BCC or RESP, often by performing or processing semi-empirical or ab initio quantum mechanical calculations. They are essential for defining the electrostatic properties of a molecule, which govern its interactions with the environment. (UNVERIFIED)" []
+is_a: MOLSIM:000172 ! topology and parameterization tool
+
+[Term]
+id: MOLSIM:001972
+name: residue template tool
+def: "A residue template tool is a utility that generates the library files defining a molecule's internal topology, connectivity, and atom names. It converts structural data into the specific format (such as an AMBER 'prep' or 'lib' file) required by system building programs to recognize the molecule as a discrete unit. These tools are necessary for incorporating new or non-standard residues into a larger simulation topology. (UNVERIFIED)" []
+is_a: MOLSIM:000172 ! topology and parameterization tool
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second." []
@@ -14827,6 +15007,7 @@ is_a: MOLSIM:001745 ! secondary structure assignment algorithm
 [Term]
 id: MOLSIM:010013
 name: gaussian mixture model algorithm
+def: "The Gaussian mixture model (GMM) algorithm is a probabilistic statistical method that represents a complex data distribution as a weighted sum of multiple simple Gaussian components. It assumes that the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters, which are optimized to fit the data. In biomolecular simulation, this algorithm is frequently used for clustering conformational states or analyzing free energy landscapes by decomposing complex probability densities into distinct populations. (UNVERIFIED)" []
 is_a: MOLSIM:001751 ! statistical algorithm
 
 [Term]
@@ -14850,143 +15031,155 @@ is_a: MOLSIM:001715 ! surface area calculation algorithm
 [Term]
 id: MOLSIM:010017
 name: color Tanimoto score
+def: "The color Tanimoto score is a quantitative metric used in cheminformatics to measure the similarity between two molecules based on their pharmacophoric features or chemical properties. Unlike shape-based scoring, it specifically compares the spatial overlap of chemical feature types, such as hydrogen bond donors, acceptors, and hydrophobic regions. This score provides a value between 0 and 1, allowing researchers to identify molecules that share similar chemical functionality and binding potential despite differences in their underlying shape. (UNVERIFIED)" []
 is_a: MOLSIM:000075 ! Tanimoto similarity algorithm
 
 [Term]
 id: MOLSIM:010018
 name: shape Tanimoto score
+def: "The shape Tanimoto score is a quantitative metric used to calculate the three-dimensional geometric similarity between the volumes of two aligned molecules. It is defined as the volume of the intersection of the two molecular shapes divided by the volume of their union, resulting in a value between 0 and 1. For computational chemists, this score is a fundamental tool in virtual screening for identifying non-identical molecular scaffolds that can fit into the same protein binding pocket. (UNVERIFIED)" []
 is_a: MOLSIM:000075 ! Tanimoto similarity algorithm
 
 [Term]
 id: MOLSIM:010019
 name: Tanimoto combo score
+def: "The Tanimoto combo score is a composite similarity metric that sums the shape Tanimoto score and the color Tanimoto score to provide a holistic measure of molecular similarity. By integrating both geometric volume overlap and chemical feature matching into a single value, typically ranging from 0 to 2, it offers a more robust ranking of potential drug candidates. This combined score allows researchers to prioritize compounds that not only fit the binding pocket but also possess the correct chemical properties for interaction. (UNVERIFIED)" []
 is_a: MOLSIM:000075 ! Tanimoto similarity algorithm
 
 [Term]
 id: MOLSIM:010020
 name: molecular trajectory analysis format
+def: "A molecular trajectory analysis format is a specialized file structure designed to store processed data derived from the analysis of a molecular dynamics simulation. These formats typically contain derived quantities, such as secondary structure timelines, pairwise distance matrices, or principal component vectors, rather than raw atomic coordinates. They allow for the efficient storage and rapid retrieval of complex analysis results without the need to re-process the massive original trajectory files. (UNVERIFIED)" []
 is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:010021
 name: solvent analysis format
+def: "A solvent analysis format is a file type used to store spatial or statistical data describing the distribution and properties of solvent molecules around a solute. These formats usually contain three-dimensional grid data representing quantities like local solvent density, charge distribution, or interaction potentials derived from simulations or integral equation theories. They are essential for visualizing hydration shells and for calculating thermodynamic properties related to solvation. (UNVERIFIED)" []
 is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:010022
 name: quantum chemistry format
+def: "A quantum chemistry format is a standardized data structure used to store the detailed results of electronic structure calculations performed by quantum mechanics software. These files typically contain mathematical descriptions of molecular orbitals, electron densities, basis sets, and electrostatic potentials. They serve as the primary means of transferring complex quantum mechanical data to visualization software or other computational tools for further analysis. (UNVERIFIED)" []
 is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:010023
 name: electronic lab journal source
+def: "An electronic lab journal source refers to data, observations, or protocols obtained directly from a digital laboratory notebook system used by a research group. Unlike public databases or formal publications, these sources contain raw, internal research records that document the day-to-day progress and specific conditions of an experiment. Citing this source acknowledges the provenance of data that exists within a private institutional framework and has not yet been publicly deposited or peer-reviewed. (UNVERIFIED)" []
 is_a: MOLSIM:000719 ! unpublished experimental result source
 
 [Term]
 id: MOLSIM:010024
 name: local computing cluster system
+def: "A local computing cluster system consists of a set of networked computers, or nodes, that are physically located and managed within a specific research laboratory or institution. These systems are typically smaller than national supercomputers but provide dedicated, high-performance resources for running parallel molecular dynamics simulations. They offer researchers direct control over the hardware environment, software configuration, and job scheduling for their computational experiments. (UNVERIFIED)" []
 is_a: MOLSIM:001862 ! computing system
 
 [Term]
 id: MOLSIM:010025
 name: effective energy analysis
+def: "Effective energy analysis is a computational method that estimates the free energy of a molecular conformation by summing its internal potential energy and its solvation free energy. This approach approximates the true free energy of a state by assuming that the solute's internal entropy can be treated separately or is negligible for relative comparisons. It forms the theoretical basis for widely used endpoint free energy methods, such as MM/PBSA and MM/GBSA, used to predict binding affinities. (UNVERIFIED)" []
 is_a: MOLSIM:000951 ! binding energy analysis
 
 [Term]
 id: MOLSIM:010026
 name: protein-peptide docking analysis
+def: "Protein-peptide docking analysis is a computational method specifically designed to predict the three-dimensional structure of a complex formed between a protein receptor and a short peptide ligand. Unlike small molecule docking, these algorithms must explicitly account for the high flexibility and numerous degrees of freedom found in the peptide's backbone and side chains. This analysis is essential for understanding cell signaling pathways mediated by peptide interactions and for designing peptide-based therapeutic agents. (UNVERIFIED)" []
 is_a: MOLSIM:000255 ! static molecular interaction prediction modeling
 
 [Term]
 id: MOLSIM:010027
 name: membrane placement analysis
+def: "Membrane placement analysis is a computational method used to determine the optimal position and orientation of a protein structure within a lipid bilayer. It calculates the most energetically favorable alignment by assessing the hydrophobicity of the protein surface and matching it to the hydrophobic core and polar interfaces of the membrane. This analysis is a critical prerequisite for setting up stable membrane protein simulations and for understanding how proteins anchor themselves in the cell membrane. (UNVERIFIED)" []
 is_a: MOLSIM:000328 ! system setup modeling
 
 [Term]
 id: MOLSIM:010028
 name: leap analysis
+def: "LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)" []
 is_a: MOLSIM:000328 ! system setup modeling
 
 [Term]
 id: UO:0000000
 name: unit
-comment: "A unit of measurement is a standardized quantity of a physical quality." [Wikipedia:Wikipedia]
+def: "A unit of measurement is a standardized quantity of a physical quality." [Wikipedia:Wikipedia]
 
 [Term]
 id: UO:0000001
 name: length unit
-comment: "A unit which is a standard measure of the distance between two points." [Wikipedia:Wikipedia]
+def: "A unit which is a standard measure of the distance between two points." [Wikipedia:Wikipedia]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000002
 name: mass unit
-comment: "A unit which is a standard measure of the amount of matter/energy of a physical object." [Wikipedia:Wikipedia]
+def: "A unit which is a standard measure of the amount of matter/energy of a physical object." [Wikipedia:Wikipedia]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000003
 name: time unit
-comment: "A unit which is a standard measure of the dimension in which events occur in sequence." [Wikipedia:Wikipedia]
+def: "A unit which is a standard measure of the dimension in which events occur in sequence." [Wikipedia:Wikipedia]
 synonym: "time derived unit" EXACT []
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000019
 name: angstrom
-comment: "A length unit which is equal to 10 [-10] m." [NIST:NIST]
+def: "A length unit which is equal to 10 [-10] m." [NIST:NIST]
 synonym: "Å" EXACT []
 is_a: UO:1000019 ! angstrom based unit
 
 [Term]
 id: UO:0000030
 name: picosecond
-comment: "A time unit which is equal to 10^[-12] s." [NIST:NIST]
+def: "A time unit which is equal to 10^[-12] s." [NIST:NIST]
 synonym: "ps" EXACT []
 is_a: UO:1000010 ! second based unit
 
 [Term]
 id: UO:0000047
 name: area unit
-comment: "A unit which is a standard measure of the amount of a 2-dimensional flat surface." [UOC:GVG]
+def: "A unit which is a standard measure of the amount of a 2-dimensional flat surface." [UOC:GVG]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000051
 name: concentration unit
-comment: "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance." [UOC:GVG]
+def: "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance." [UOC:GVG]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000060
 name: speed/velocity unit
-comment: "A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity." [Wikipedia:Wikipedia]
+def: "A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity." [Wikipedia:Wikipedia]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000061
 name: unit of molarity
-comment: "A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution." [UOC:GVG]
+def: "A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution." [UOC:GVG]
 is_a: UO:0000051 ! concentration unit
 
 [Term]
 id: UO:0000062
 name: molar
-comment: "A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L)." [UOC:GVG]
+def: "A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L)." [UOC:GVG]
 synonym: "M" EXACT []
 is_a: UO:1000062 ! molar based unit
 
 [Term]
 id: UO:0000063
 name: millimolar
-comment: "A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M." [UOC:GVG]
+def: "A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M." [UOC:GVG]
 synonym: "mM" EXACT []
 is_a: UO:1000062 ! molar based unit
 
 [Term]
 id: UO:0000094
 name: meter per second
-comment: "A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second." [NIST:NIST]
+def: "A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second." [NIST:NIST]
 synonym: "m/s" EXACT []
 synonym: "metre per second" EXACT []
 is_a: UO:1000094 ! meter per second based unit
@@ -14994,38 +15187,38 @@ is_a: UO:1000094 ! meter per second based unit
 [Term]
 id: UO:0000105
 name: frequency unit
-comment: "A unit which is a standard measure of the number of repetitive actions in a particular time." [NIST:NIST]
+def: "A unit which is a standard measure of the number of repetitive actions in a particular time." [NIST:NIST]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000109
 name: pressure unit
-comment: "A unit which is a standard measure of the force applied to a given area." [NIST:NIST]
+def: "A unit which is a standard measure of the force applied to a given area." [NIST:NIST]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000111
 name: energy unit
-comment: "A unit which is a standard measure of the work done by a certain force (gravitational, electric, magnetic, force of inertia, etc)." [NIST:NIST]
+def: "A unit which is a standard measure of the work done by a certain force (gravitational, electric, magnetic, force of inertia, etc)." [NIST:NIST]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000150
 name: nanosecond
-comment: "A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s." [NIST:NIST]
+def: "A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s." [NIST:NIST]
 synonym: "ns" EXACT []
 is_a: UO:1000010 ! second based unit
 
 [Term]
 id: UO:0000219
 name: electric charge
-comment: "A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons." [WordNet:WordNet]
+def: "A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons." [WordNet:WordNet]
 is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000221
 name: dalton
-comment: "An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state." [Wikipedia:Wikipedia]
+def: "An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state." [Wikipedia:Wikipedia]
 synonym: "amu" EXACT []
 synonym: "Da" EXACT []
 synonym: "u" EXACT []
@@ -15035,14 +15228,14 @@ is_a: UO:1000221 ! dalton based unit
 [Term]
 id: UO:0000324
 name: square angstrom
-comment: "An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long." [UOC:GVG]
+def: "An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long." [UOC:GVG]
 synonym: "A^[2]" RELATED []
 is_a: UO:0000047 ! area unit
 
 [Term]
 id: UO:0000325
 name: megaHertz
-comment: "A frequency unit which is equal to one million hertz or 10^[6] V." [UOC:GVG]
+def: "A frequency unit which is equal to one million hertz or 10^[6] V." [UOC:GVG]
 synonym: "megahertz" RELATED []
 synonym: "mH" RELATED []
 is_a: UO:0000105 ! frequency unit

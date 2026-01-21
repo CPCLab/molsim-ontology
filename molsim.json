@@ -18,9 +18,9 @@
         "pred" : "http://www.w3.org/2000/01/rdf-schema#comment"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2025-12-15"
+        "val" : "2026-01-21"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2025-12-15/molsim.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-01-21/molsim.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/CHEBI_131619",
@@ -10350,6 +10350,28 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_000114",
+      "lbl" : "HOLE",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "HOLE is a computer program used to analyze the dimensions and shape of internal pathways or tunnels within a biomolecular structure. It operates by computationally squeezing a flexible sphere along a channel axis to determine the maximum pore radius at every point without overlapping the surrounding atoms. This analysis allows researchers to visualize the pore profile and identify constriction zones that control the passage of ions or molecules through the structure. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/BibliographicResource",
+          "val" : "https://doi.org/10.1016/S0263-7855(97)00009-X"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_000115",
+      "lbl" : "MOLE",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "MOLE is a software algorithm designed to automatically locate and characterize channels, tunnels, and pores within protein structures. It utilizes a Voronoi diagram approach to efficiently map the void space inside a molecule and identify paths connecting internal cavities to the surface. This tool enables researchers to calculate the geometric and physicochemical properties of these pathways, which is essential for understanding ligand transport and enzymatic activity. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000116",
       "lbl" : "bootstrap analysis",
       "type" : "CLASS",
@@ -10766,8 +10788,7 @@
       "meta" : {
         "definition" : {
           "val" : "Simulation and modeling software comprises specialized computer programs designed to create, run, and analyze computational models of real-world systems. These tools are the workhorses of the biomolecular simulation field, enabling scientists to study everything from how a drug binds to a protein to how a cell membrane behaves. For practitioners, this category includes the specific simulation engines, structure preparation tools, and analysis packages that form the core of their computational workflows. (UNVERIFIED)"
-        },
-        "comments" : [ "Simulation and modeling software comprises specialized computer programs designed to create, run, and analyze computational models of real-world systems. These tools are the workhorses of the biomolecular simulation field, enabling scientists to study everything from how a drug binds to a protein to how a cell membrane behaves. For practitioners, this category includes the specific simulation engines, structure preparation tools, and analysis packages that form the core of their computational workflows. (UNVERIFIED)" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000159",
@@ -11689,11 +11710,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000257",
-      "lbl" : "system building tool",
+      "lbl" : "endpoint free energy tool",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A system building tool is a computer program that automates the process of assembling a complete molecular model for a simulation. This typically involves taking a central molecule, placing it in a simulation box, adding a specific number of solvent molecules, and introducing ions to neutralize the system's charge. These tools are essential for creating a valid and reproducible starting point that accurately represents the intended experimental conditions of the simulation. (UNVERIFIED)"
+          "val" : "An endpoint free energy tool is a software program that estimates binding or solvation free energies using data from only the initial and final states of a process, such as a bound complex and unbound ligands. These tools typically employ molecular mechanics energies combined with continuum solvation models (like PB or GB) and surface area terms to approximate the free energy change. For experts, this category encompasses implementations of the MM/PBSA and MM/GBSA methods, offering a computationally efficient but approximate alternative to alchemical methods. (UNVERIFIED)"
         }
       }
     }, {
@@ -11796,6 +11817,15 @@
           "pred" : "hasExactSynonym",
           "val" : "FEP"
         } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_000267",
+      "lbl" : "CHAP",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The Channel Annotation Package (CHAP) is a specialized software tool used to analyze the functional properties of pores and channels in membrane proteins. It calculates a detailed pore radius profile combined with a hydrophobicity profile to estimate the free energy barriers for water and ion permeation. This analysis allows researchers to visualize solvent behavior inside the pore and determine the conductive state of ion channels. (UNVERIFIED)"
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000268",
@@ -12514,7 +12544,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : ".binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD."
+          "val" : "A .binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD."
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -15874,6 +15904,15 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_000714",
+      "lbl" : "tool web server",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A tool web server is an online platform that provides access to specific computational software or algorithms through a user-friendly browser interface. Unlike a database server that retrieves stored data, a tool server accepts user input data, processes it using remote computing resources, and returns the calculation results. These servers are vital for making complex simulation and modeling tasks, such as docking or property prediction, accessible to researchers without local high-performance hardware. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000715",
       "lbl" : "prediction software output",
       "type" : "CLASS",
@@ -16302,7 +16341,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A molecular modeling and simulation software package offering tools for molecular graphics, modeling (building/modifying structures), and simulations, including energy minimization, molecular dynamics (using its own engine or interfacing others), and Monte Carlo methods. It supports various force fields and provides an integrated graphical user interface (GUI) environment for setting up, running, and visualizing simulations, particularly aimed at drug design and biomolecular studies. It is a commercial product. (UNVERIFIED)"
+          "val" : "A molecular dynamics engine is the specific executable program responsible for numerically integrating the equations of motion to simulate atomic movements over time. It performs the computationally intensive task of calculating forces and updating atomic positions at every time step to generate a trajectory. For experts, this term distinguishes the core computational solver, such as pmemd or namd2, from the overarching software suite that includes tools for setup and analysis. (UNVERIFIED)"
         }
       }
     }, {
@@ -17594,7 +17633,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000916",
-      "lbl" : "Ptraj script",
+      "lbl" : "Ptraj script format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -19023,6 +19062,15 @@
       "meta" : {
         "definition" : {
           "val" : "The mdinfo format is a text file generated by the Amber simulation software that provides a concise, real-time summary of a running simulation. It contains the most recently calculated energy terms and thermodynamic properties, such as temperature and pressure, formatted for easy monitoring. This file is continuously updated during a run, making it useful for checking the immediate status and stability of a simulation without having to parse the much larger main output file. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001119",
+      "lbl" : "database web server",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A database web server is an online application that provides a graphical interface for searching, visualizing, and retrieving data from a structured biological or chemical repository. It acts as an accessible gateway, allowing researchers to query complex datasets and download specific entries without needing direct interaction with the underlying database management system. In the context of biomolecular simulation, these servers are the primary means of accessing essential resources such as experimental protein structures, force field libraries, or archived simulation trajectories. (UNVERIFIED)"
         }
       }
     }, {
@@ -21604,7 +21652,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A completely new set of parameters for simulating DNA, developed from scratch using high-level quantum mechanical calculations. Unlike incremental refinements of older force fields, it provides an internally consistent model for both bonded and non-bonded interactions. Its development from first-principles aims to deliver higher accuracy for describing the intricate structural and dynamic properties of DNA. (UNVERIFIED)"
+          "val" : "Tumuc1 is a modern force field parameter set for DNA simulations that was derived directly from high-level quantum mechanical calculations. Unlike older models that rely heavily on empirical fitting, it uses a consistent set of bonded parameters and charges obtained from first-principles theory. This approach aims to provide a more rigorous and accurate physical description of DNA structure and dynamics. (UNVERIFIED)"
         }
       }
     }, {
@@ -22673,7 +22721,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Edgembar is a specialized software tool for performing free energy calculations from simulation data, likely based on the Multistate Bennett Acceptance Ratio (MBAR) method. The name suggests it may have a particular focus on analyzing the \"edges\" or pairwise free energy differences in a large network of alchemical transformations. This is a key task in large-scale relative binding free energy studies used in drug discovery. (UNVERIFIED)"
+          "val" : "Edgembar is a specialized software tool for performing free energy calculations from simulation data, particularly focused on analyzing the edges of alchemical networks. It utilizes the Multistate Bennett Acceptance Ratio (MBAR) method to optimally combine data from multiple simulation states. This tool is valuable for large-scale relative binding free energy campaigns where efficient handling of complex transformation networks is required. (UNVERIFIED)"
         }
       }
     }, {
@@ -22682,7 +22730,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A software library is a collection of pre-compiled routines, functions, and resources that a program can use to perform specific tasks without having to rewrite the code for them. These libraries provide reusable building blocks for common operations, such as mathematical calculations, file input/output, or data analysis. For developers of simulation software, using libraries for tasks like Fourier transforms or linear algebra greatly simplifies development and improves performance. (UNVERIFIED)"
+          "val" : "A software library is a collection of pre-written code and subroutines that provide specific functionalities to be used by other programs. Libraries are not executed directly by end-users but are imported or linked by developers to perform specialized tasks, such as mathematical computations or file parsing. (UNVERIFIED)"
         }
       }
     }, {
@@ -22736,7 +22784,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "ndfes is a software package or toolkit designed for the calculation and analysis of N-dimensional free energy surfaces from molecular simulation data. It likely includes a collection of programs and scripts for performing enhanced sampling simulations, such as metadynamics, and for post-processing the results to reconstruct and visualize the final free energy landscape. It is a specialized tool for studying complex molecular processes that need to be described by more than one collective variable. (UNVERIFIED)"
+          "val" : "ndfes is a software package designed for the calculation and analysis of N-dimensional free energy surfaces from molecular simulation data. It includes a collection of scripts for analyzing enhanced sampling simulations, such as those using umbrella sampling or metadynamics. This toolkit allows researchers to reconstruct and visualize complex free energy landscapes defined by multiple collective variables. (UNVERIFIED)"
         }
       }
     }, {
@@ -22773,7 +22821,12 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001576",
       "lbl" : "ProScrs.py",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "ProScrs.py is a utility script included in the AmberTools suite that provides protein scoring functionalities. It is designed to evaluate protein structures or docking poses using various scoring functions. For researchers, this tool assists in assessing the quality or binding affinity of protein models. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001577",
       "lbl" : "py_resp.py",
@@ -23181,7 +23234,12 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001620",
       "lbl" : "IPMach.py",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "IPMach.py is a utility script within the AmberTools suite designed to facilitate the parameterization of ion models for molecular simulations. It specifically assists in deriving the parameters for 12-6 Lennard-Jones and 12-6-4 potential models for monoatomic ions. This tool streamlines the process of creating accurate non-bonded parameters that are consistent with specific water models. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001621",
       "lbl" : "PdbSearcher.py",
@@ -23257,7 +23315,12 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001629",
       "lbl" : "placeAV.py",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "placeAV.py is a utility script used to convert the predicted solvent binding sites from a Placevent analysis into explicit atomic coordinates. It reads the centers of high-density solvent regions determined by the analysis and places dummy atoms or water molecules at those specific locations within a structure file. This tool allows researchers to visualize potential hydration sites or use them as defined starting positions for explicit solvent molecules in subsequent simulations. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001630",
       "lbl" : "FRETrest.py",
@@ -23570,7 +23633,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A software suite is a collection of related computer programs, often with a consistent user interface, that are bundled and sold or distributed together. These suites provide a comprehensive set of tools for a particular domain, such as office productivity or, in this context, molecular modeling. For scientists, a software suite like AMBER or CHARMM offers an integrated environment for performing a wide range of tasks from system setup to simulation and analysis. (UNVERIFIED)"
+          "val" : "A software suite is a collection of distinct computer programs that are packaged and distributed together to provide a comprehensive set of functionalities. These suites typically share a common installation process and often use compatible file formats to allow data to flow between the different tools in the package. (UNVERIFIED)"
         }
       }
     }, {
@@ -23788,10 +23851,10 @@
       "lbl" : "TIW",
       "type" : "CLASS",
       "meta" : {
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
+        "definition" : {
           "val" : "The Thermodynamic Integration Workflow (TIW) is a software framework that automates the complex process of calculating relative binding free energies using the thermodynamic integration (TI) method. It streamlines the entire procedure by automatically preparing the molecular system, running the required series of simulations across different intermediate states, and analyzing the final results. For experts, TIW is a collection of modular scripts that handles the creation of hybrid topologies, the generation of input files for each lambda window, and the final integration of the dV/dλ data, thereby ensuring reproducibility and minimizing manual errors in alchemical free energy calculations. (UNVERIFIED)"
-        }, {
+        },
+        "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Thermodynamic Integration Workflow"
         } ],
@@ -23951,6 +24014,15 @@
       "meta" : {
         "definition" : {
           "val" : "Xoshiro128++ is a state-of-the-art pseudo-random number generator algorithm known for its excellent speed and strong statistical properties. It is part of a family of generators based on shift-register operations, making it very fast on modern computer architectures. For demanding simulation applications, Xoshiro128++ is a top-tier choice for generating high-quality random numbers with minimal performance impact. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001705",
+      "lbl" : "MDposit",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "MDposit is a web-based platform and portal designed for the sharing, visualization, and analysis of molecular dynamics simulation data. It serves as a distributed database interface that allows users to browse, access, and interactively view trajectories from different research groups. This tool aims to facilitate the dissemination and reuse of large-scale simulation datasets within the scientific community. (UNVERIFIED)"
         }
       }
     }, {
@@ -26151,6 +26223,213 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001950",
+      "lbl" : "MDrepo",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "MDRepo is a public repository dedicated to the archival and sharing of molecular dynamics simulation data generated by the research community. It provides a standardized infrastructure for scientists to upload, store, and retrieve simulation trajectories and associated metadata. By centralizing access to these datasets, MDRepo promotes the reproducibility and secondary analysis of biomolecular simulations. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001951",
+      "lbl" : "ATLAS",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "ATLAS is a specialized database that stores a comprehensive collection of standardized all-atom molecular dynamics simulations of proteins. It combines simulation trajectories with analyses of protein flexibility and dynamics, linked to experimental structural data. This resource allows researchers to explore the dynamic properties of a wide range of protein families in a consistent and comparative manner. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001952",
+      "lbl" : "GPCRmd",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "GPCRmd is a community-driven database and web platform specifically focused on molecular dynamics simulations of G-protein-coupled receptors (GPCRs). It provides a repository for storing simulation trajectories of this important protein family, along with tools for interactive visualization and analysis. This resource aids researchers in understanding the complex signaling mechanisms and conformational landscapes of GPCRs."
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001953",
+      "lbl" : "InflateGro",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "InflateGRO is a utility script used to construct lipid membrane systems by packing lipids around a membrane protein. It works by initially expanding the distance between lipid molecules and then iteratively shrinking the system back to a realistic density while removing lipids that overlap with the protein. This method automates the challenging process of embedding a protein structure into a tight, pre-equilibrated lipid bilayer. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001954",
+      "lbl" : "MemProtMD",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "MemProtMD is a database that provides a collection of coarse-grained molecular dynamics simulations for membrane proteins found in the Protein Data Bank. It uses an automated pipeline to insert protein structures into lipid bilayers and simulate their equilibrium dynamics. This resource offers insights into the membrane orientation, lipid interactions, and stability of a vast number of membrane proteins. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001955",
+      "lbl" : "crystallographic build tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A crystallographic build tool is a software utility used to reconstruct a full crystal lattice or supercell from the asymmetric unit provided in a structure file. It applies the specific symmetry operations defined by the space group to generate the complete crystallographic packing environment. For experts, this is a necessary step when preparing crystal simulations to ensure the simulation box dimensions and contents match the physical lattice. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001956",
+      "lbl" : "system packing and solvation tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A system packing and solvation tool is a software utility used to define the simulation box geometry and fill it with solvent molecules and ions. It arranges molecular components within a defined volume to achieve a target density and concentration while preventing atomic overlaps. For experts, these tools are the primary means of generating disordered starting configurations for liquid-phase simulations and defining periodic boundary vectors. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001957",
+      "lbl" : "structure cleaning and manipulation tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A structure cleaning and manipulation tool is a software utility designed to standardize and correct formatting errors in molecular structure files. These tools perform logistical tasks such as renumbering residues, standardizing atom names to match force field conventions, and handling missing chain identifiers. For experts, using these tools is a mandatory data-curation step to ensure that experimental structures are technically compatible with simulation engines. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001958",
+      "lbl" : "homology modeling tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A homology modeling tool is a software program designed to predict the three-dimensional structure of a protein based on its amino acid sequence and experimentally determined template structures. It constructs a model by mapping the target sequence onto the backbone of a homologous protein and computationally refining the loops and side chains to resolve steric conflicts. For experts, these tools are the standard solution for generating starting structural models when high-resolution crystallography or NMR data for the specific target is unavailable. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001959",
+      "lbl" : "AutoDock Vina",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "AutoDock Vina is an open-source software tool for molecular docking that predicts the preferred orientation and binding affinity of a small molecule to a protein receptor. It utilizes a sophisticated iterated local search global optimizer combined with an empirical scoring function to efficiently explore the conformational space of the ligand. For experts, Vina provides a substantial improvement in speed and accuracy over previous generations, making it a standard engine for high-throughput virtual screening in drug discovery. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001960",
+      "lbl" : "nucleic acid analysis tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A nucleic acid analysis tool is a specialized software program designed to characterize the geometry and topology of DNA and RNA structures. It calculates parameters such as base-pair step geometry (roll, tilt, twist), groove dimensions, and sugar pucker to describe the helical conformation. For experts, these tools are essential for quantifying the structural deformations of nucleic acids observed in simulations. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001961",
+      "lbl" : "scattering analysis tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A scattering analysis tool is a software utility that calculates theoretical scattering profiles, such as Small-Angle X-ray Scattering (SAXS), from atomic structures or simulation trajectories. It predicts the scattering intensity pattern that would be produced by the molecules in solution, allowing for direct comparison with experimental data. These tools are used to validate structural ensembles against low-resolution experimental measurements. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001962",
+      "lbl" : "titration analysis tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A titration analysis tool is a software program used to investigate the ionization states of acidic and basic groups within a molecule. This includes calculating pKa values based on structural environment or analyzing the populations of protonation states from constant pH molecular dynamics simulations. These tools are critical for understanding pH-dependent protein stability and function. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001963",
+      "lbl" : "solvation analysis tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A solvation analysis tool is a software program designed to characterize the structure and thermodynamics of the solvent surrounding a solute. This includes calculating radial distribution functions, solvent density maps, or integral equation theories like RISM to determine solvation free energies. These tools provide insights into the hydration shell and the energetics of solute-solvent interactions. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001964",
+      "lbl" : "TM-align",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "TM-align is an algorithm and software tool used to identify the best structural alignment between pairs of protein structures. It utilizes a heuristic search to maximize the Template Modeling score (TM-score), a metric that is more sensitive to global topology than local variations. For researchers, this tool provides a rapid and robust way to quantify structural similarity and classify protein folds independent of sequence identity. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001965",
+      "lbl" : "DALI",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "DALI (Distance Alignment) is a software method that compares protein structures by analyzing their internal distance matrices rather than their rigid-body superposition. It breaks the structures into hexapeptide fragments and reassembles alignments to find similarities in the pattern of residue-residue contacts. This approach allows experts to detect distant evolutionary relationships and structural similarities even when the proteins have undergone significant conformational changes or distortions. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001966",
+      "lbl" : "LS-align",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "LS-align is a computational tool designed for the flexible structural alignment of small molecule ligands. It employs a heuristic iterative search algorithm to optimize the superposition of atoms based on both their spatial proximity and chemical mass. For cheminformatics, this tool is valuable for virtual screening and pharmacophore discovery by identifying molecules that share a similar 3D shape and chemical features despite having different bonding topologies. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001967",
+      "lbl" : "ROCS",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "ROCS (Rapid Overlay of Chemical Structures) is a software tool that performs fast 3D alignment of small molecules based strictly on their molecular shape and chemical features. It represents molecules as a collection of Gaussian functions to rapidly calculate the maximal volume overlap between a query and a database compound. In drug discovery, this tool is a standard for shape-based virtual screening, allowing the identification of novel compounds that fit a specific binding pocket geometry. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001968",
+      "lbl" : "alchemical analysis tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An alchemical analysis tool is a software program designed to process data from simulations that physically transform a system from one chemical state to another via non-physical intermediate steps. It implements statistical mechanics estimators, such as the Multistate Bennett Acceptance Ratio (MBAR) or Thermodynamic Integration (TI), to rigorously calculate the free energy difference between states. These tools are the essential post-processing engines for relative and absolute binding free energy calculations in drug discovery. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001969",
+      "lbl" : "free energy surface analysis tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A free energy surface analysis tool is a software utility used to reconstruct the multidimensional free energy landscape of a system from enhanced sampling simulation data. It processes the history of visited states or applied biases, such as those from metadynamics or umbrella sampling, to generate a potential of mean force (PMF) map. For experts, these tools enable the visualization of low-energy basins and transition barriers along specific collective variables or reaction coordinates. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001970",
+      "lbl" : "parameter assignment tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A parameter assignment tool is a software utility that analyzes a molecular structure to identify its chemical components and apply standard force field rules. It determines the specific atom types, bond types, and corresponding interaction parameters from a force field library based on the local chemical environment. For experts, these tools automate the mapping of general force field rules (like GAFF) to specific molecules, ensuring consistent parameter usage. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001971",
+      "lbl" : "charge derivation tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A charge derivation tool is a software program designed to calculate and assign partial atomic charges to a molecule for use in a force field. These tools implement specific charge models, such as AM1-BCC or RESP, often by performing or processing semi-empirical or ab initio quantum mechanical calculations. They are essential for defining the electrostatic properties of a molecule, which govern its interactions with the environment. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001972",
+      "lbl" : "residue template tool",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A residue template tool is a utility that generates the library files defining a molecule's internal topology, connectivity, and atom names. It converts structural data into the specific format (such as an AMBER 'prep' or 'lib' file) required by system building programs to recognize the molecule as a discrete unit. These tools are necessary for incorporating new or non-standard residues into a larger simulation topology. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -26293,7 +26572,12 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010013",
       "lbl" : "gaussian mixture model algorithm",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The Gaussian mixture model (GMM) algorithm is a probabilistic statistical method that represents a complex data distribution as a weighted sum of multiple simple Gaussian components. It assumes that the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters, which are optimized to fit the data. In biomolecular simulation, this algorithm is frequently used for clustering conformational states or analyzing free energy landscapes by decomposing complex probability densities into distinct populations. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010014",
       "lbl" : "parametric distribution fitting algorithm",
@@ -26324,78 +26608,150 @@
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010017",
       "lbl" : "color Tanimoto score",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The color Tanimoto score is a quantitative metric used in cheminformatics to measure the similarity between two molecules based on their pharmacophoric features or chemical properties. Unlike shape-based scoring, it specifically compares the spatial overlap of chemical feature types, such as hydrogen bond donors, acceptors, and hydrophobic regions. This score provides a value between 0 and 1, allowing researchers to identify molecules that share similar chemical functionality and binding potential despite differences in their underlying shape. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010018",
       "lbl" : "shape Tanimoto score",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The shape Tanimoto score is a quantitative metric used to calculate the three-dimensional geometric similarity between the volumes of two aligned molecules. It is defined as the volume of the intersection of the two molecular shapes divided by the volume of their union, resulting in a value between 0 and 1. For computational chemists, this score is a fundamental tool in virtual screening for identifying non-identical molecular scaffolds that can fit into the same protein binding pocket. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010019",
       "lbl" : "Tanimoto combo score",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The Tanimoto combo score is a composite similarity metric that sums the shape Tanimoto score and the color Tanimoto score to provide a holistic measure of molecular similarity. By integrating both geometric volume overlap and chemical feature matching into a single value, typically ranging from 0 to 2, it offers a more robust ranking of potential drug candidates. This combined score allows researchers to prioritize compounds that not only fit the binding pocket but also possess the correct chemical properties for interaction. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010020",
       "lbl" : "molecular trajectory analysis format",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecular trajectory analysis format is a specialized file structure designed to store processed data derived from the analysis of a molecular dynamics simulation. These formats typically contain derived quantities, such as secondary structure timelines, pairwise distance matrices, or principal component vectors, rather than raw atomic coordinates. They allow for the efficient storage and rapid retrieval of complex analysis results without the need to re-process the massive original trajectory files. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010021",
       "lbl" : "solvent analysis format",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A solvent analysis format is a file type used to store spatial or statistical data describing the distribution and properties of solvent molecules around a solute. These formats usually contain three-dimensional grid data representing quantities like local solvent density, charge distribution, or interaction potentials derived from simulations or integral equation theories. They are essential for visualizing hydration shells and for calculating thermodynamic properties related to solvation. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010022",
       "lbl" : "quantum chemistry format",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A quantum chemistry format is a standardized data structure used to store the detailed results of electronic structure calculations performed by quantum mechanics software. These files typically contain mathematical descriptions of molecular orbitals, electron densities, basis sets, and electrostatic potentials. They serve as the primary means of transferring complex quantum mechanical data to visualization software or other computational tools for further analysis. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010023",
       "lbl" : "electronic lab journal source",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An electronic lab journal source refers to data, observations, or protocols obtained directly from a digital laboratory notebook system used by a research group. Unlike public databases or formal publications, these sources contain raw, internal research records that document the day-to-day progress and specific conditions of an experiment. Citing this source acknowledges the provenance of data that exists within a private institutional framework and has not yet been publicly deposited or peer-reviewed. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010024",
       "lbl" : "local computing cluster system",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A local computing cluster system consists of a set of networked computers, or nodes, that are physically located and managed within a specific research laboratory or institution. These systems are typically smaller than national supercomputers but provide dedicated, high-performance resources for running parallel molecular dynamics simulations. They offer researchers direct control over the hardware environment, software configuration, and job scheduling for their computational experiments. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010025",
       "lbl" : "effective energy analysis",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Effective energy analysis is a computational method that estimates the free energy of a molecular conformation by summing its internal potential energy and its solvation free energy. This approach approximates the true free energy of a state by assuming that the solute's internal entropy can be treated separately or is negligible for relative comparisons. It forms the theoretical basis for widely used endpoint free energy methods, such as MM/PBSA and MM/GBSA, used to predict binding affinities. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010026",
       "lbl" : "protein-peptide docking analysis",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Protein-peptide docking analysis is a computational method specifically designed to predict the three-dimensional structure of a complex formed between a protein receptor and a short peptide ligand. Unlike small molecule docking, these algorithms must explicitly account for the high flexibility and numerous degrees of freedom found in the peptide's backbone and side chains. This analysis is essential for understanding cell signaling pathways mediated by peptide interactions and for designing peptide-based therapeutic agents. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010027",
       "lbl" : "membrane placement analysis",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Membrane placement analysis is a computational method used to determine the optimal position and orientation of a protein structure within a lipid bilayer. It calculates the most energetically favorable alignment by assessing the hydrophobicity of the protein surface and matching it to the hydrophobic core and polar interfaces of the membrane. This analysis is a critical prerequisite for setting up stable membrane protein simulations and for understanding how proteins anchor themselves in the cell membrane. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010028",
       "lbl" : "leap analysis",
-      "type" : "CLASS"
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000000",
       "lbl" : "unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit of measurement is a standardized quantity of a physical quality.\" [Wikipedia:Wikipedia]" ]
+        "definition" : {
+          "val" : "A unit of measurement is a standardized quantity of a physical quality.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000001",
       "lbl" : "length unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the distance between two points.\" [Wikipedia:Wikipedia]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the distance between two points.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000002",
       "lbl" : "mass unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the amount of matter/energy of a physical object.\" [Wikipedia:Wikipedia]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the amount of matter/energy of a physical object.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000003",
       "lbl" : "time unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the dimension in which events occur in sequence.\" [Wikipedia:Wikipedia]" ],
+        "definition" : {
+          "val" : "A unit which is a standard measure of the dimension in which events occur in sequence.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "time derived unit"
@@ -26406,7 +26762,10 @@
       "lbl" : "angstrom",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A length unit which is equal to 10 [-10] m.\" [NIST:NIST]" ],
+        "definition" : {
+          "val" : "A length unit which is equal to 10 [-10] m.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Å"
@@ -26417,7 +26776,10 @@
       "lbl" : "picosecond",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A time unit which is equal to 10^[-12] s.\" [NIST:NIST]" ],
+        "definition" : {
+          "val" : "A time unit which is equal to 10^[-12] s.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "ps"
@@ -26428,35 +26790,50 @@
       "lbl" : "area unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the amount of a 2-dimensional flat surface.\" [UOC:GVG]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the amount of a 2-dimensional flat surface.",
+          "xrefs" : [ "UOC:GVG" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000051",
       "lbl" : "concentration unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which represents a standard measurement of how much of a given substance there is mixed with another substance.\" [UOC:GVG]" ]
+        "definition" : {
+          "val" : "A unit which represents a standard measurement of how much of a given substance there is mixed with another substance.",
+          "xrefs" : [ "UOC:GVG" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000060",
       "lbl" : "speed/velocity unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity.\" [Wikipedia:Wikipedia]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000061",
       "lbl" : "unit of molarity",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution.\" [UOC:GVG]" ]
+        "definition" : {
+          "val" : "A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution.",
+          "xrefs" : [ "UOC:GVG" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000062",
       "lbl" : "molar",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L).\" [UOC:GVG]" ],
+        "definition" : {
+          "val" : "A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L).",
+          "xrefs" : [ "UOC:GVG" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "M"
@@ -26467,7 +26844,10 @@
       "lbl" : "millimolar",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M.\" [UOC:GVG]" ],
+        "definition" : {
+          "val" : "A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M.",
+          "xrefs" : [ "UOC:GVG" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "mM"
@@ -26478,7 +26858,10 @@
       "lbl" : "meter per second",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second.\" [NIST:NIST]" ],
+        "definition" : {
+          "val" : "A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "m/s"
@@ -26492,28 +26875,40 @@
       "lbl" : "frequency unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the number of repetitive actions in a particular time.\" [NIST:NIST]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the number of repetitive actions in a particular time.",
+          "xrefs" : [ "NIST:NIST" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000109",
       "lbl" : "pressure unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the force applied to a given area.\" [NIST:NIST]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the force applied to a given area.",
+          "xrefs" : [ "NIST:NIST" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000111",
       "lbl" : "energy unit",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the work done by a certain force (gravitational, electric, magnetic, force of inertia, etc).\" [NIST:NIST]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the work done by a certain force (gravitational, electric, magnetic, force of inertia, etc).",
+          "xrefs" : [ "NIST:NIST" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000150",
       "lbl" : "nanosecond",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s.\" [NIST:NIST]" ],
+        "definition" : {
+          "val" : "A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "ns"
@@ -26524,14 +26919,20 @@
       "lbl" : "electric charge",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons.\" [WordNet:WordNet]" ]
+        "definition" : {
+          "val" : "A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons.",
+          "xrefs" : [ "WordNet:WordNet" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000221",
       "lbl" : "dalton",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state.\" [Wikipedia:Wikipedia]" ],
+        "definition" : {
+          "val" : "An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Da"
@@ -26551,7 +26952,10 @@
       "lbl" : "square angstrom",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long.\" [UOC:GVG]" ],
+        "definition" : {
+          "val" : "An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long.",
+          "xrefs" : [ "UOC:GVG" ]
+        },
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
           "val" : "A^[2]"
@@ -26562,7 +26966,10 @@
       "lbl" : "megaHertz",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "\"A frequency unit which is equal to one million hertz or 10^[6] V.\" [UOC:GVG]" ],
+        "definition" : {
+          "val" : "A frequency unit which is equal to one million hertz or 10^[6] V.",
+          "xrefs" : [ "UOC:GVG" ]
+        },
         "synonyms" : [ {
           "pred" : "hasRelatedSynonym",
           "val" : "mH"
@@ -27833,7 +28240,6 @@
       "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
-      "lbl" : "database_cross_reference",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
@@ -27866,10 +28272,6 @@
       "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#source",
-      "type" : "PROPERTY",
-      "propertyType" : "ANNOTATION"
-    }, {
-      "id" : "http://www.w3.org/2000/01/rdf-schema#comment",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
@@ -29518,6 +29920,14 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001352"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000114",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000245"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000115",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000245"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000116",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000349"
@@ -29708,15 +30118,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000163",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000158"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000001"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000164",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000158"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000001"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000165",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000001"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000166",
       "pred" : "is_a",
@@ -29756,10 +30166,6 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000175",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000175",
-      "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000176",
@@ -29776,23 +30182,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000179",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000179",
-      "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000180",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000180",
-      "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000181",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000181",
       "pred" : "is_a",
@@ -29940,7 +30334,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000217",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000218",
       "pred" : "is_a",
@@ -29952,7 +30346,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000220",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000490"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000221",
       "pred" : "is_a",
@@ -29972,7 +30366,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000225",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000257"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000226",
       "pred" : "is_a",
@@ -30036,7 +30430,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000240",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000490"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000241",
       "pred" : "is_a",
@@ -30064,11 +30458,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000247",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000248",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000249",
       "pred" : "is_a",
@@ -30104,15 +30498,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000257",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001850"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000258",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000259",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000260",
       "pred" : "is_a",
@@ -30141,6 +30535,10 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000266",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000265"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000267",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000245"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000268",
       "pred" : "is_a",
@@ -30196,7 +30594,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000281",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000282",
       "pred" : "is_a",
@@ -30256,7 +30654,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000296",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000167"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000298",
       "pred" : "is_a",
@@ -30297,6 +30695,10 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000307",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000306"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000307",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001659"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000308",
       "pred" : "is_a",
@@ -30800,7 +31202,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000442",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001085"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010022"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000443",
       "pred" : "is_a",
@@ -30868,7 +31270,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000460",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000257"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000461",
       "pred" : "is_a",
@@ -30876,7 +31278,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000462",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000257"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000463",
       "pred" : "is_a",
@@ -30893,6 +31295,10 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000466",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000227"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000466",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001119"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000467",
       "pred" : "is_a",
@@ -30992,15 +31398,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000491",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000490"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000492",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000490"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000163"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000493",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000490"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000163"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000494",
       "pred" : "is_a",
@@ -31866,6 +32272,10 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000689"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000714",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001671"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000715",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000910"
@@ -32052,19 +32462,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000773",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000774",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000775",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000776",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000777",
       "pred" : "is_a",
@@ -32072,27 +32482,27 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000778",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000779",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000780",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000781",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000782",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000783",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000784",
       "pred" : "is_a",
@@ -32100,7 +32510,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000785",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000786",
       "pred" : "is_a",
@@ -32108,15 +32518,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000787",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000788",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000789",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000790",
       "pred" : "is_a",
@@ -32124,15 +32534,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000791",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000792",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000793",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000794",
       "pred" : "is_a",
@@ -33209,6 +33619,10 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001118",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000437"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001119",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001671"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001120",
       "pred" : "is_a",
@@ -34780,7 +35194,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001557",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001956"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001558",
       "pred" : "is_a",
@@ -34796,7 +35210,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001561",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001962"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001562",
       "pred" : "is_a",
@@ -34812,7 +35226,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001565",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001968"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001566",
       "pred" : "is_a",
@@ -34840,7 +35254,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001572",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001969"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001573",
       "pred" : "is_a",
@@ -34848,11 +35262,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001574",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001957"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001575",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001955"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001576",
       "pred" : "is_a",
@@ -34884,11 +35298,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001583",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001955"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001584",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000259"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001585",
       "pred" : "is_a",
@@ -34916,7 +35330,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001591",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001963"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001592",
       "pred" : "is_a",
@@ -34952,23 +35366,23 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001600",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000223"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001601",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001957"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001602",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001957"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001603",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001956"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001604",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000225"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001605",
       "pred" : "is_a",
@@ -34980,11 +35394,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001607",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001970"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001608",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001970"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001609",
       "pred" : "is_a",
@@ -35000,27 +35414,27 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001612",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001970"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001613",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001971"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001614",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001970"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001615",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001971"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001616",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001972"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001617",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001605"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001972"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001618",
       "pred" : "is_a",
@@ -35180,11 +35594,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001657",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001962"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001658",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000259"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001659",
       "pred" : "is_a",
@@ -35200,11 +35614,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001662",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001961"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001663",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001961"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001664",
       "pred" : "is_a",
@@ -35216,11 +35630,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001666",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001960"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001667",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000251"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001668",
       "pred" : "is_a",
@@ -35240,11 +35654,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001672",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001671"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000714"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001673",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001671"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001119"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001674",
       "pred" : "is_a",
@@ -35280,7 +35694,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001682",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001960"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001683",
       "pred" : "is_a",
@@ -35369,6 +35783,10 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001704",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001700"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001705",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001119"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001706",
       "pred" : "is_a",
@@ -36232,6 +36650,10 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001923",
       "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000163"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001923",
+      "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001566"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001924",
@@ -36240,19 +36662,23 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001925",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001956"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001926",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000251"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001927",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001671"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000225"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001927",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000714"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001928",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001850"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001958"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001929",
       "pred" : "is_a",
@@ -36276,7 +36702,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001934",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000163"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001935",
       "pred" : "is_a",
@@ -36333,6 +36759,98 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001949",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001943"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001950",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001119"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001951",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001119"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001952",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001119"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001953",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000225"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001954",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000225"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001955",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001956",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001957",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000490"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001958",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001850"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001959",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000162"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001960",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001961",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001962",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001963",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001964",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001684"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001965",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001684"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001966",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001684"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001967",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001684"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001968",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001969",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001564"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001970",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001971",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001972",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",

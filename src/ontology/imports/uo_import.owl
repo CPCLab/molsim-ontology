@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://purl.obolibrary.org/obo/uo.owl#"
      xml:base="http://purl.obolibrary.org/obo/uo.owl"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -8,7 +9,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/uo.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/uo/releases/2023-05-25/uo.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/uo/releases/2026-01-16/uo.owl"/>
     </owl:Ontology>
     
 
@@ -24,21 +25,31 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000115"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
 
-    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym">
+        <rdfs:label>has_exact_synonym</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
     <!-- http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym -->
 
-    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-    
-
-
-    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym">
+        <rdfs:label>has_related_synonym</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -63,9 +74,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000000">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:comment>&quot;A unit of measurement is a standardized quantity of a physical quality.&quot; [Wikipedia:Wikipedia]</rdfs:comment>
+        <obo:IAO_0000115>A unit of measurement is a standardized quantity of a physical quality.</obo:IAO_0000115>
         <rdfs:label>unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit of measurement is a standardized quantity of a physical quality.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>Wikipedia:Wikipedia</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -73,9 +90,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000001">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the distance between two points.&quot; [Wikipedia:Wikipedia]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the distance between two points.</obo:IAO_0000115>
         <rdfs:label>length unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000001"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the distance between two points.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>Wikipedia:Wikipedia</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -83,9 +106,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000002">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the amount of matter/energy of a physical object.&quot; [Wikipedia:Wikipedia]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the amount of matter/energy of a physical object.</obo:IAO_0000115>
         <rdfs:label>mass unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000002"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the amount of matter/energy of a physical object.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>Wikipedia:Wikipedia</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -93,10 +122,16 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000003">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
+        <obo:IAO_0000115>A unit which is a standard measure of the dimension in which events occur in sequence.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>time derived unit</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;A unit which is a standard measure of the dimension in which events occur in sequence.&quot; [Wikipedia:Wikipedia]</rdfs:comment>
         <rdfs:label>time unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the dimension in which events occur in sequence.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>Wikipedia:Wikipedia</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -104,10 +139,16 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000019">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000019"/>
+        <obo:IAO_0000115>A length unit which is equal to 10 [-10] m.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>Å</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;A length unit which is equal to 10 [-10] m.&quot; [NIST:NIST]</rdfs:comment>
         <rdfs:label>angstrom</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000019"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A length unit which is equal to 10 [-10] m.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -115,10 +156,16 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000030">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000010"/>
+        <obo:IAO_0000115>A time unit which is equal to 10^[-12] s.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>ps</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;A time unit which is equal to 10^[-12] s.&quot; [NIST:NIST]</rdfs:comment>
         <rdfs:label>picosecond</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000030"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A time unit which is equal to 10^[-12] s.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -126,9 +173,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000047">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the amount of a 2-dimensional flat surface.&quot; [UOC:GVG]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the amount of a 2-dimensional flat surface.</obo:IAO_0000115>
         <rdfs:label>area unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000047"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the amount of a 2-dimensional flat surface.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -136,9 +189,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000051">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which represents a standard measurement of how much of a given substance there is mixed with another substance.&quot; [UOC:GVG]</rdfs:comment>
+        <obo:IAO_0000115>A unit which represents a standard measurement of how much of a given substance there is mixed with another substance.</obo:IAO_0000115>
         <rdfs:label>concentration unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000051"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which represents a standard measurement of how much of a given substance there is mixed with another substance.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -146,9 +205,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000060">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity.&quot; [Wikipedia:Wikipedia]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity.</obo:IAO_0000115>
         <rdfs:label>speed/velocity unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000060"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the rate of movement. Speed is measured in the same physical units of measurement as velocity, but does not contain the element of direction that velocity has. Speed is thus the magnitude component of velocity.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>Wikipedia:Wikipedia</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -156,9 +221,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000061">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000051"/>
-        <rdfs:comment>&quot;A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution.&quot; [UOC:GVG]</rdfs:comment>
+        <obo:IAO_0000115>A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution.</obo:IAO_0000115>
         <rdfs:label>unit of molarity</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000061"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A concentration unit which is a standard measure of the number of moles of a given substance per liter of solution.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -166,10 +237,16 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000062">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000062"/>
+        <obo:IAO_0000115>A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L).</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>M</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L).&quot; [UOC:GVG]</rdfs:comment>
         <rdfs:label>molar</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000062"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit of concentration which expresses a concentration of 1 mole of solute per liter of solution (mol/L).</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -177,10 +254,16 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000063">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000062"/>
+        <obo:IAO_0000115>A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>mM</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M.&quot; [UOC:GVG]</rdfs:comment>
         <rdfs:label>millimolar</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000063"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit of molarity which is equal to one thousandth of a molar or 10^[-3] M.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -188,11 +271,17 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000094">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000094"/>
+        <obo:IAO_0000115>A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>m/s</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>metre per second</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second.&quot; [NIST:NIST]</rdfs:comment>
         <rdfs:label>meter per second</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000094"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A speed/velocity unit which is equal to the speed of an object traveling 1 meter distance in one second.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -200,9 +289,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000105">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the number of repetitive actions in a particular time.&quot; [NIST:NIST]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the number of repetitive actions in a particular time.</obo:IAO_0000115>
         <rdfs:label>frequency unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000105"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the number of repetitive actions in a particular time.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -210,9 +305,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000109">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the force applied to a given area.&quot; [NIST:NIST]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the force applied to a given area.</obo:IAO_0000115>
         <rdfs:label>pressure unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000109"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the force applied to a given area.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -220,9 +321,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000111">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the work done by a certain force (gravitational, electric, magnetic, force of inertia, etc).&quot; [NIST:NIST]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the work done by a certain force (gravitational, electric, magnetic, force of inertia, etc).</obo:IAO_0000115>
         <rdfs:label>energy unit</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000111"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the work done by a certain force (gravitational, electric, magnetic, force of inertia, etc).</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -230,10 +337,16 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000150">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000010"/>
+        <obo:IAO_0000115>A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>ns</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s.&quot; [NIST:NIST]</rdfs:comment>
         <rdfs:label>nanosecond</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000150"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>NIST:NIST</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -241,9 +354,15 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000219">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000000"/>
-        <rdfs:comment>&quot;A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons.&quot; [WordNet:WordNet]</rdfs:comment>
+        <obo:IAO_0000115>A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons.</obo:IAO_0000115>
         <rdfs:label>electric charge</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000219"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A unit which is a standard measure of the quantity of unbalanced electricity in a body (either positive or negative) and construed as an excess or deficiency of electrons.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>WordNet:WordNet</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -251,13 +370,19 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000221">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_1000221"/>
+        <obo:IAO_0000115>An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>Da</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>amu</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>u</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>unified atomic mass unit</oboInOwl:hasExactSynonym>
-        <rdfs:comment>&quot;An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state.&quot; [Wikipedia:Wikipedia]</rdfs:comment>
         <rdfs:label>dalton</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000221"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>An independently to the base SI units defined mass unit which is equal to one twelfth of the mass of an unbound atom of the carbon-12 nuclide, at rest and in its ground state.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>Wikipedia:Wikipedia</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -265,10 +390,16 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000324">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000047"/>
+        <obo:IAO_0000115>An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long.</obo:IAO_0000115>
         <oboInOwl:hasRelatedSynonym>A^[2]</oboInOwl:hasRelatedSynonym>
-        <rdfs:comment>&quot;An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long.&quot; [UOC:GVG]</rdfs:comment>
         <rdfs:label>square angstrom</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000324"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -276,11 +407,17 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000325">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000105"/>
+        <obo:IAO_0000115>A frequency unit which is equal to one million hertz or 10^[6] V.</obo:IAO_0000115>
         <oboInOwl:hasRelatedSynonym>mH</oboInOwl:hasRelatedSynonym>
         <oboInOwl:hasRelatedSynonym>megahertz</oboInOwl:hasRelatedSynonym>
-        <rdfs:comment>&quot;A frequency unit which is equal to one million hertz or 10^[6] V.&quot; [UOC:GVG]</rdfs:comment>
         <rdfs:label>megaHertz</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/UO_0000325"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A frequency unit which is equal to one million hertz or 10^[6] V.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>UOC:GVG</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
