@@ -1865,6 +1865,14 @@ Declaration(Class(obo:MOLSIM_001969))
 Declaration(Class(obo:MOLSIM_001970))
 Declaration(Class(obo:MOLSIM_001971))
 Declaration(Class(obo:MOLSIM_001972))
+Declaration(Class(obo:MOLSIM_001973))
+Declaration(Class(obo:MOLSIM_001974))
+Declaration(Class(obo:MOLSIM_001975))
+Declaration(Class(obo:MOLSIM_001976))
+Declaration(Class(obo:MOLSIM_001977))
+Declaration(Class(obo:MOLSIM_001978))
+Declaration(Class(obo:MOLSIM_001979))
+Declaration(Class(obo:MOLSIM_001980))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -13753,6 +13761,54 @@ SubClassOf(obo:MOLSIM_001971 obo:MOLSIM_000172)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001972 "A residue template tool is a utility that generates the library files defining a molecule's internal topology, connectivity, and atom names. It converts structural data into the specific format (such as an AMBER 'prep' or 'lib' file) required by system building programs to recognize the molecule as a discrete unit. These tools are necessary for incorporating new or non-standard residues into a larger simulation topology. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001972 "residue template tool"@en)
 SubClassOf(obo:MOLSIM_001972 obo:MOLSIM_000172)
+
+# Class: obo:MOLSIM_001973 (AMBERGS)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001973 "AMBER-GS (Garcia-Sanbonmatsu) is a variant of the AMBER protein force field designed to improve the simulation of protein secondary structure equilibrium. It specifically modifies the backbone torsion potentials of the earlier ff94 parameter set to reduce the artificial over-stabilization of alpha-helices. For experts, this modification typically involves setting the N=3 term of the Fourier series for phi and psi dihedrals to zero to correct the helical propensity bias. (UNVERFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001973 "AMBERGS"@en)
+SubClassOf(obo:MOLSIM_001973 obo:MOLSIM_000009)
+
+# Class: obo:MOLSIM_001974 (GROMOS 53a6)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001974 "GROMOS 53A6 is a specific parameter set within the GROMOS family of united-atom force fields designed for biomolecular simulations. It was optimized to accurately reproduce the hydration free enthalpies of amino acid analogs in water, improving upon previous versions like 45A3. For experts, this set is intended for use with the SPC water model and includes specific parameter tuning for partial charges and Lennard-Jones repulsion to better capture solvation thermodynamics. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001974 "GROMOS 53a6"@en)
+SubClassOf(obo:MOLSIM_001974 obo:MOLSIM_001531)
+
+# Class: obo:MOLSIM_001975 (GROMOS 53a5)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001975 "GROMOS 53A5 is a united-atom force field parameter set specifically tuned for simulating biomolecules in non-polar environments. While sharing geometric parameters with the 53A6 set, it uses modified partial charges optimized to reproduce solvation properties in apolar solvents like cyclohexane. For experts, this parameter set is particularly relevant for simulations involving the hydrophobic core of lipid membranes or proteins in non-aqueous solvents. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001975 "GROMOS 53a5"@en)
+SubClassOf(obo:MOLSIM_001975 obo:MOLSIM_001531)
+
+# Class: obo:MOLSIM_001976 (GROMOS 43a1p)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001976 "GROMOS 43a1p is an extension of the standard GROMOS 43a1 force field designed to model phosphorylated proteins. It incorporates specific force field parameters for the phosphate group and its covalent attachment to amino acids like serine, threonine, and tyrosine. For experts, this patch enables the study of phosphorylation-dependent conformational changes using the stable and well-tested 43a1 united-atom framework. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001976 "GROMOS 43a1p"@en)
+SubClassOf(obo:MOLSIM_001976 obo:MOLSIM_001531)
+
+# Class: obo:MOLSIM_001977 (GROMOS-87)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001977 "GROMOS-87 is one of the earliest iterations of the GROMOS family of united-atom force fields for biomolecular simulation. Developed in the late 1980s, it established the foundational parameters for united-atom modeling of proteins and nucleic acids, treating non-polar hydrogens implicitly to save computational cost. For experts, while historically significant, this parameter set is generally considered obsolete due to inaccuracies in vacuum-to-water transfer energies and has been superseded by the 96 and 53/54 series. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001977 "GROMOS-87"@en)
+SubClassOf(obo:MOLSIM_001977 obo:MOLSIM_001531)
+
+# Class: obo:MOLSIM_001978 (PLUMED)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001978 "PLUMED is an open-source software library designed to analyze molecular dynamics simulations and perform enhanced sampling of free energy landscapes. It functions as middleware that interfaces with various simulation engines to calculate collective variables and apply biasing potentials in real-time. For experts, it allows the implementation of methods like metadynamics or umbrella sampling by patching the host code to modify forces based on complex geometric functions. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001978 "PLUMED"@en)
+SubClassOf(obo:MOLSIM_001978 obo:MOLSIM_001566)
+
+# Class: obo:MOLSIM_001979 (domain decomposition algorithm)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001979 "Domain decomposition is a parallel computing strategy used to distribute the computational workload of a simulation across multiple processors by geometrically dividing the simulation box into smaller sub-regions. In molecular dynamics, each processor is responsible for calculating forces and updating the positions of atoms located within its assigned spatial domain, exchanging coordinate and force data with neighboring domains at every time step. For experts, this spatial parallelization scales more efficiently than atom-decomposition methods for large systems (O(N) vs O(N^2) communication), but requires sophisticated dynamic load balancing to handle density fluctuations and heterogeneous systems. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001979 "domain decomposition algorithm"@en)
+SubClassOf(obo:MOLSIM_001979 obo:MOLSIM_000382)
+
+# Class: obo:MOLSIM_001980 (GROMOS force field)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001980 "The GROMOS force field is a family of molecular mechanics parameter sets widely used for simulating the structure and dynamics of biomolecules like proteins, lipids, and nucleic acids. It predominantly employs a united-atom representation where non-polar hydrogen atoms are implicitly incorporated into the heavy atoms they are bonded to, significantly increasing computational efficiency. For experts, parameter sets such as 53A6 and 54A7 are specifically calibrated against hydration free enthalpies and liquid densities, often requiring distinct reaction-field or cutoff treatments compared to AMBER or CHARMM protocols. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001980 "GROMOS force field"@en)
+SubClassOf(obo:MOLSIM_001980 obo:MOLSIM_001531)
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
