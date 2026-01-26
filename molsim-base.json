@@ -21,9 +21,9 @@
         "pred" : "http://www.w3.org/2000/01/rdf-schema#comment"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-01-21"
+        "val" : "2026-01-26"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-01-21/molsim-base.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-01-26/molsim-base.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000000",
@@ -15057,7 +15057,11 @@
       "meta" : {
         "definition" : {
           "val" : "The limited-memory BFGS (L-BFGS) algorithm is a variant of the BFGS optimization algorithm that is specifically designed for problems with a very large number of variables. It avoids storing the full, dense approximation of the inverse Hessian matrix by instead storing only a few vectors that implicitly represent the approximation. For experts, L-BFGS is the method of choice for energy minimization of extremely large molecular systems where storing the full Hessian is impossible. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "L-BGFS minimizer"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001739",
@@ -17167,6 +17171,599 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001973",
+      "lbl" : "AMBERGS",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "AMBER-GS (Garcia-Sanbonmatsu) is a variant of the AMBER protein force field designed to improve the simulation of protein secondary structure equilibrium. It specifically modifies the backbone torsion potentials of the earlier ff94 parameter set to reduce the artificial over-stabilization of alpha-helices. For experts, this modification typically involves setting the N=3 term of the Fourier series for phi and psi dihedrals to zero to correct the helical propensity bias. (UNVERFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001974",
+      "lbl" : "GROMOS 53a6",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "GROMOS 53A6 is a specific parameter set within the GROMOS family of united-atom force fields designed for biomolecular simulations. It was optimized to accurately reproduce the hydration free enthalpies of amino acid analogs in water, improving upon previous versions like 45A3. For experts, this set is intended for use with the SPC water model and includes specific parameter tuning for partial charges and Lennard-Jones repulsion to better capture solvation thermodynamics. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001975",
+      "lbl" : "GROMOS 53a5",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "GROMOS 53A5 is a united-atom force field parameter set specifically tuned for simulating biomolecules in non-polar environments. While sharing geometric parameters with the 53A6 set, it uses modified partial charges optimized to reproduce solvation properties in apolar solvents like cyclohexane. For experts, this parameter set is particularly relevant for simulations involving the hydrophobic core of lipid membranes or proteins in non-aqueous solvents. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001976",
+      "lbl" : "GROMOS 43a1p",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "GROMOS 43a1p is an extension of the standard GROMOS 43a1 force field designed to model phosphorylated proteins. It incorporates specific force field parameters for the phosphate group and its covalent attachment to amino acids like serine, threonine, and tyrosine. For experts, this patch enables the study of phosphorylation-dependent conformational changes using the stable and well-tested 43a1 united-atom framework. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001977",
+      "lbl" : "GROMOS-87",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "GROMOS-87 is one of the earliest iterations of the GROMOS family of united-atom force fields for biomolecular simulation. Developed in the late 1980s, it established the foundational parameters for united-atom modeling of proteins and nucleic acids, treating non-polar hydrogens implicitly to save computational cost. For experts, while historically significant, this parameter set is generally considered obsolete due to inaccuracies in vacuum-to-water transfer energies and has been superseded by the 96 and 53/54 series. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001978",
+      "lbl" : "PLUMED",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "PLUMED is an open-source software library designed to analyze molecular dynamics simulations and perform enhanced sampling of free energy landscapes. It functions as middleware that interfaces with various simulation engines to calculate collective variables and apply biasing potentials in real-time. For experts, it allows the implementation of methods like metadynamics or umbrella sampling by patching the host code to modify forces based on complex geometric functions. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001979",
+      "lbl" : "domain decomposition algorithm",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Domain decomposition is a parallel computing strategy used to distribute the computational workload of a simulation across multiple processors by geometrically dividing the simulation box into smaller sub-regions. In molecular dynamics, each processor is responsible for calculating forces and updating the positions of atoms located within its assigned spatial domain, exchanging coordinate and force data with neighboring domains at every time step. For experts, this spatial parallelization scales more efficiently than atom-decomposition methods for large systems (O(N) vs O(N^2) communication), but requires sophisticated dynamic load balancing to handle density fluctuations and heterogeneous systems. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001980",
+      "lbl" : "GROMOS force field",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The GROMOS force field is a family of molecular mechanics parameter sets widely used for simulating the structure and dynamics of biomolecules like proteins, lipids, and nucleic acids. It predominantly employs a united-atom representation where non-polar hydrogen atoms are implicitly incorporated into the heavy atoms they are bonded to, significantly increasing computational efficiency. For experts, parameter sets such as 53A6 and 54A7 are specifically calibrated against hydration free enthalpies and liquid densities, often requiring distinct reaction-field or cutoff treatments compared to AMBER or CHARMM protocols. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001981",
+      "lbl" : "GROMOS96",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The GROMOS96 force field is a family of united-atom molecular mechanics parameter sets developed in conjunction with the GROMOS96 simulation software. It treats non-polar hydrogen atoms as part of the heavy atoms they are bonded to (e.g., CH, CH2, CH3) to reduce computational complexity while maintaining accuracy for biomolecular simulations. For experts, this family includes the widely used 43A1, 43A2, 45A3, and 53A6 parameter sets, which differ in their specific tuning for properties like heat of vaporization and solvation free energies. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001982",
+      "lbl" : "MARTINI force field",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The MARTINI force field is a coarse-grained molecular mechanics model designed to simulate the interactions of lipids, proteins, and carbohydrates at a lower resolution than all-atom models. It typically maps four heavy atoms and their associated hydrogens to a single interaction bead, classifying beads based on polarity, hydrophobicity, and charge. For experts, this 4:1 mapping strategy allows for simulations of large-scale membrane remodeling and self-assembly processes on microsecond timescales, though it may lack the detail required for specific hydrogen bonding networks. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001983",
+      "lbl" : "OPLS-AA/M",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "OPLS-AA/M is a specialized modification of the OPLS-AA all-atom force field specifically optimized for protein simulations. It incorporates refined backbone torsional parameters and adjustments to the side-chain energetics to improve the balance between helical and extended secondary structures. For experts, this parameter set addresses known biases in the earlier OPLS-AA/L model, providing a more accurate description of peptide folding equilibria and conformational dynamics in solution. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001984",
+      "lbl" : "OPLS-AA/L",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "OPLS-AA/L is a version of the OPLS-AA all-atom force field that was re-parameterized to improve the accuracy of protein simulations. It focused on refining the torsional parameters to better reproduce experimental data for peptides and organic liquids compared to the original release. For experts, this parameter set (Kaminski et al., 2001) serves as a significant update to the original 1996 OPLS-AA, aiming to correct alpha-helix vs beta-sheet population ratios found in earlier simulations. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001985",
+      "lbl" : "polarizable water",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A computer model of water that allows the electric charge distribution within each molecule to shift in response to its surroundings. Unlike fixed-charge models, it explicitly includes terms for electronic polarization, often via induced dipoles, Drude oscillators, or fluctuating charges. For experts, these models (e.g., TIP4P-FQ, AMOEBA water) capture non-additive many-body effects and are essential for accurately simulating interfaces, ion solvation, and spectroscopic properties. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001986",
+      "lbl" : "minimum image convention",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A rule used in computer simulations to calculate forces in a repeating, infinite system. It states that a particle should interact only with the nearest instance of another particle, whether that instance is in the same simulation box or a neighboring periodic copy. For experts, this approximation is valid when the cutoff radius is less than half the shortest box vector, ensuring particles do not interact with their own periodic images (except in small systems where this artifact is intentional). (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001987",
+      "lbl" : "minimum distance",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A measurement of the closest separation between two distinct groups of atoms in a structure. It is calculated by evaluating the Euclidean distance between all possible atom pairs from the two groups and selecting the smallest value. For experts, this metric is frequently used in trajectory analysis to define contact maps, monitor collision avoidance, or serve as a collective variable for pathway sampling. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001988",
+      "lbl" : "helmholtz free energy",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A measure of the useful energy available to do work in a system held at constant temperature and volume. It is a thermodynamic potential defined as the internal energy minus the product of temperature and entropy (A=U−TS). For experts, this quantity is the natural free energy ensemble for NVT (canonical) simulations and is often calculated using methods like thermodynamic integration or Bennett acceptance ratio. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001989",
+      "lbl" : "gibbs free energy",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A measure of the maximum reversible work a system can perform at constant temperature and pressure. Defined as the enthalpy minus the product of temperature and entropy (G=H−TS), it determines the direction of spontaneous change and chemical equilibrium. For experts, this is the primary thermodynamic potential of interest in NPT simulations and is used to calculate binding affinities, solvation energies, and phase equilibria. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001990",
+      "lbl" : "virial",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A mathematical quantity used to calculate the pressure of a system based on the positions and forces of its atoms. It is derived from the virial theorem and involves summing the dot products of atomic coordinates and the forces acting upon them. For experts, in molecular dynamics, the instantaneous virial is essential for the pressure tensor calculation and the function of barostat algorithms in NPT simulations. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001991",
+      "lbl" : "autocorrelation function",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A statistical tool that measures how much a property's value at one time resembles its value at a later time. It quantifies the \"memory\" of a system by calculating the correlation between a time-series signal and a time-shifted version of itself. For experts, calculated as C(t)=⟨A(0)A(t)⟩, it is fundamental for computing transport coefficients (like diffusion via Green-Kubo relations) and relaxation times. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001992",
+      "lbl" : "cromer's method",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A mathematical approach used to estimate how strongly atoms scatter X-rays. It approximates the atomic scattering factor using a sum of Gaussian functions based on quantum mechanical calculations of electron density. For experts, this parametrization (often the Cromer-Mann coefficients) is standard in crystallography and simulation analysis for calculating theoretical structure factors and comparing simulation trajectories with experimental X-ray scattering data (SAXS/WAXS). (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001993",
+      "lbl" : "accelerated weight histogram",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The Accelerated Weight Histogram (AWH) method is an adaptive sampling technique used to calculate the free energy landscape of a molecular process. It improves sampling by applying a dynamic biasing force that flattens the energy barriers along a reaction coordinate, constantly adjusting this bias based on the history of where the simulation has visited. For experts, AWH solves for the free energy by evolving the bias function towards a target distribution (often uniform) using a recursive update scheme that converges more robustly than standard adaptive biasing force or metadynamics methods. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001994",
+      "lbl" : "reaction coordinate",
+      "type" : "CLASS",
+      "meta" : {
+        "comments" : [ "A simplified variable used to track the progress of a chemical reaction or a complex structural change. It reduces the motion of thousands of atoms into a single parameter that describes the transition from a starting state to a final state. For experts, while theoretically the minimum energy path on the free energy landscape, in practice, it is approximated by collective variables (like distances or RMSD) used in enhanced sampling methods like Umbrella Sampling. (UNVERIFIED)", "Distinct from the object property MOLSIM_001036. Modeled here as a Class (the variable itself)." ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001995",
+      "lbl" : "position restraints",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A computational technique used to anchor atoms to specific locations in 3D space during a simulation. It applies an artificial harmonic energy penalty proportional to the square of the displacement of an atom from a reference coordinate. For experts, these are heavily used during system equilibration (to relax solvent around a fixed solute) or in free energy calculations to prevent ligand drift, typically defined with a force constant k in units of kJ/(mol⋅nm^2). (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001996",
+      "lbl" : "Urey-Bradley potential",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A specific interaction term used in molecular mechanics force fields to refine the vibrational behavior of bond angles. It introduces a harmonic potential acting on the distance between the two atoms at the ends of a bond angle (the 1-3 interaction), effectively placing a spring across the angle. For experts, this term is a hallmark of the CHARMM force field family, used to couple bond stretching and angle bending modes to better reproduce vibrational frequencies obtained from spectroscopy. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001997",
+      "lbl" : "exclusions",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A configuration setting or list within a molecular topology that identifies pairs of atoms whose non-bonded interactions (electrostatic and van der Waals) should be ignored during force calculation. These exclusions typically apply to atoms connected by one or two covalent bonds (1-2 and 1-3 pairs) to prevent conflicts with bonded energy terms. For experts, exclusion rules vary by force field (e.g., AMBER scales 1-4 interactions, while CHARMM or GROMOS may exclude them entirely), making this a critical factor in topology conversion. (UNVERIFIED)"
+        },
+        "comments" : [ "Defines the concept of the exclusion list/rule." ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001998",
+      "lbl" : "holonomic constraint",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A mathematical restriction applied to a molecular system that depends only on the coordinates of the particles and time, reducing the system's degrees of freedom. In molecular dynamics, these typically manifest as fixed bond lengths or rigid water geometries (f(r1,r2,…)=0). For experts, integrating these constraints requires specialized algorithms like SHAKE, RATTLE, or LINCS to solve for the Lagrange multipliers that maintain the geometric requirements. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_001999",
+      "lbl" : "smooth PME algorithm",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An enhanced version of the Particle Mesh Ewald method that uses Euler exponential splines (B-splines) to interpolate charge density onto a grid. Unlike standard PME which uses Lagrangian interpolation, SPME allows the potential to be differentiated analytically to obtain forces, improving energy conservation and accuracy. For experts, this is the standard implementation in packages like AMBER and GROMACS (Essmann et al., 1995), offering N log N scaling. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002000",
+      "lbl" : "dispersion interaction parameter",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A numerical coefficient in a force field that quantifies the strength of the long-range attractive forces between two atoms due to induced dipole fluctuations. In the standard Lennard-Jones potential, this is the C6 term, proportional to the product of the interaction energy well depth and the sixth power of the collision diameter (4ϵσ^6). For experts, this parameter governs the asymptotic decay of the van der Waals potential and is often derived from atomic polarizabilities. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002001",
+      "lbl" : "repulsion interaction parameter",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A numerical coefficient in a force field that defines the stiffness of the short-range repulsive barrier between two atoms. In the Lennard-Jones potential, this is the \nC12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents atomic overlap. For experts, while physically approximating an exponential repulsion, the \n1/r ^12 form is chosen primarily for computational efficiency as the square of the dispersion term. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002002",
+      "lbl" : "atom freezing",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation technique where the positions of a selected group of atoms are kept strictly fixed throughout the integration. This is achieved by zeroing the forces and velocities (or setting masses to infinity) for those atoms, effectively removing them from the equations of motion. For experts, this is distinct from position restraints (where atoms vibrate around a point) and is used to model rigid walls, surface adsorption, or to equilibrate solvent around a static protein structure. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002003",
+      "lbl" : "coarse-graining",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Coarse-graining is a computational modeling method used to simplify a molecular system by grouping multiple atoms into single interaction sites or \"beads\" based on chemical or structural logic. This reduction in the number of degrees of freedom allows researchers to simulate much larger biological assemblies and access longer timescales than are feasible with all-atom models. For experts, the process involves defining a mapping operator to project atomistic coordinates onto coarse-grained sites and deriving effective potentials (via methods like Boltzmann Inversion or Force Matching) to reproduce the structural or thermodynamic properties of the underlying fine-grained system. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002004",
+      "lbl" : "stochastic dynamics",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Stochastic dynamics is a simulation method that mimics the erratic motion of particles suspended in a fluid by applying random pushes and frictional drag. It modifies the standard molecular dynamics equations to include a friction term representing solvent viscosity and a random noise term representing thermal collisions. For experts, mathematically equivalent to integrating the Langevin equation, this method generates the canonical (NVT) ensemble and is often used to simulate implicit solvent effects or to effectively thermostat a system. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002005",
+      "lbl" : "non-equilibrium molecular dynamics",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Non-equilibrium molecular dynamics (NEMD) is a class of simulation techniques where the system is actively driven away from thermodynamic equilibrium by the application of external forces or constraints. Instead of observing natural fluctuations, researchers use this method to study how the system responds to stress, such as mechanical pulling, shearing flow, or thermal gradients. For experts, these simulations are governed by non-Hamiltonian equations of motion or time-dependent biases and are fundamental for calculating transport coefficients or recovering equilibrium free energies using fluctuation theorems. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002006",
+      "lbl" : "flooding potential",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A computational technique used to force a protein out of its stable resting shape so it can explore new structures. It works by adding a localized repulsive energy hill, based on the system's principal components, to the energy minimum the molecule currently occupies. For experts, this \"flooding\" destabilizes the local minimum without affecting high-energy barriers, effectively lowering the transition energy required to access adjacent basins on the free energy landscape. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002007",
+      "lbl" : "simulated tempering",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Simulated tempering is an enhanced sampling technique that helps a system explore different configurations by allowing its temperature to fluctuate dynamically up and down during a single simulation. Unlike replica exchange, which uses parallel copies, this method uses a single trajectory that jumps between discrete temperature levels based on a probabilistic acceptance rule. For experts, it requires the pre-calculation or iterative determination of weighting factors for each temperature to ensuring uniform sampling and efficient barrier crossing. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002008",
+      "lbl" : "bonded type",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A classification code used within a force field topology to assign specific parameters to a covalent bond based on the chemical nature of the connected atoms. It serves as a lookup key, mapping a pair of atom types to specific equilibrium bond lengths and force constants defined in the parameter file. For experts, distinctions in bonded types allow the force field to differentiate bond stiffness and length in different electronic environments (e.g., single vs. double bonds) involving the same elements. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002009",
+      "lbl" : "salt bridge",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A salt bridge is a strong non-covalent interaction formed between a positively charged amino acid side chain and a negatively charged one. It combines two physical forces: an electrostatic attraction between the opposing charges and a hydrogen bond between specific atoms in the residues. For experts, these interactions (typically between Arg/Lys and Asp/Glu) contribute significantly to protein thermostability but have a complex energetic dependence on the local dielectric environment and pH. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002010",
+      "lbl" : "solvation",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Solvation is the computational process of immersing a solute molecule, such as a protein, into a box containing solvent molecules, typically water. This step involves placing the solute coordinates into a pre-equilibrated solvent box, removing solvent molecules that overlap with the solute atoms, and updating the system topology. For experts, this process defines the simulation box dimensions, density, and total number of atoms, which are critical for the efficiency and validity of periodic boundary condition simulations. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002011",
+      "lbl" : "termini",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The molecular termini are the distinct starting and ending points of a biological polymer chain, such as the N-terminus and C-terminus of a protein. These regions are chemically distinct from the rest of the chain and often possess unique electrical charges or chemical modifications. For experts, the correct definition of termini (charged/zwitterionic vs. neutral/capped) in the topology is critical for avoiding artificial electrostatic artifacts, especially in short peptides. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002012",
+      "lbl" : "continuation state",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A configuration setting that instructs a molecular dynamics engine to resume a simulation exactly from where a previous run finished. It requires reading the full state of the system—including atomic positions, velocities, and sometimes forces—from a checkpoint or restart file to ensure a seamless trajectory. For experts, exact binary continuation is essential for preserving the ensemble distribution and avoiding artifacts associated with regenerating velocities (the \"flying ice cube\" effect). (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002013",
+      "lbl" : "test particle insertion",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Test particle insertion (Widom insertion) is a computational technique used to calculate the chemical potential of a specific molecule within a fluid system. It works by periodically placing a \"ghost\" particle at random locations in the simulation box and calculating the interaction energy it would have with the existing atoms, without actually adding it to the system. For experts, this method relates the excess chemical potential to the ensemble average of the Boltzmann factor of the insertion energy, ⟨exp(−βΔU)⟩, though it suffers from convergence issues in dense or charged systems. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002014",
+      "lbl" : "Gibbs sampling replica exchange",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Gibbs sampling replica exchange is an advanced simulation method used to efficiently explore the different shapes and energy states of a molecule. Unlike standard replica exchange which attempts to swap temperatures between neighboring simulations, this method attempts to swap configurations among all running simulations simultaneously based on a global probability criterion. For experts, this approach replaces the Metropolis swap criterion with a Gibbs sampling scheme, potentially increasing the rate of round-trips in temperature space and reducing the bottleneck of diffusion between adjacent replicas. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002015",
+      "lbl" : "shell molecular dynamics",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Shell molecular dynamics is a specialized simulation technique used to model how atoms electrically respond to their surroundings using a polarizable force field. It represents polarizable atoms using a \"core\" particle attached by a harmonic spring to a massless, charged \"shell\" particle, which mimics the displacement of the electron cloud. For experts, the motion of these massless shells is typically integrated using an extended Lagrangian formalism (Drude oscillator) where the shells are assigned a small fictitious mass and kept at a low temperature to ensure they adiabatically follow the nuclei. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002016",
+      "lbl" : "enforced rotation simulation",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation method that forces a specific part of a molecular system, such as a protein subunit, to spin around a defined axis. An external potential is applied to a group of atoms to induce rotation at a constant angular velocity or under a constant torque while the rest of the system responds dynamically. For experts, this non-equilibrium technique is typically implemented using flexible constraints or moving reference potentials and is used to study rotary motors like ATP synthase or to mechanically induce conformational changes. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002017",
+      "lbl" : "MTTK pressure coupling",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A mathematical method used to keep the pressure constant in a computer simulation of a molecular system. The Martyna-Tobias-Klein (MTTK) algorithm controls pressure by dynamically adjusting the size of the simulation box using equations of motion that rigorously sample the correct statistical ensemble. For experts, while theoretically rigorous for generating the NPT ensemble without the artifacts of stochastic collisions, it involves coupling the cell vectors to a thermostat chain and has been largely superseded or modified in some software versions due to implementation complexities or equipartition issues. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002018",
+      "lbl" : "buckingham potential",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A mathematical formula used to calculate the forces between atoms that are not chemically bonded to each other. Unlike the standard Lennard-Jones model, it replaces the steep r ^−12 repulsion term with an exponential function to better describe the softness of atomic electron clouds at short distances. For experts, the potential usually takes the form V(r)=Aexp(−Br)−Cr^−6, and while physically more accurate for repulsion, requires computational safeguards to prevent atomic fusion at very short distances where the exponential term turns over. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002019",
+      "lbl" : "neural network potential",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A computational model that uses machine learning algorithms to predict the potential energy and forces of a molecular system. It approximates the complex quantum mechanical energy landscape by training a neural network on a large dataset of reference atomic configurations and energies. For experts, these potentials (like ANI or DeepMD) offer ab initio accuracy at a computational cost closer to classical force fields, provided the simulation remains within the chemical space represented in the training data. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002020",
+      "lbl" : "hybrid NNP/MM simulations",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A multiscale simulation technique that couples a region described by a Neural Network Potential (NNP) with a larger environment described by a classical molecular mechanics (MM) force field. It allows for the accurate modeling of reactive centers or complex electronic effects using machine learning, while efficiently capturing long-range environmental effects with standard physics-based models. For experts, this method typically employs electrostatic or mechanical embedding schemes similar to QM/MM to handle the boundary interactions between the NNP-active region and the classical surroundings. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002021",
+      "lbl" : "interactive molecular dynamics",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation technique that allows a user to visualize and physically manipulate a running molecular simulation in real-time. Through a specialized interface or haptic device, the user applies external forces to specific atoms while the simulation engine calculates the system's response on the fly. For experts, IMD uses a client-server architecture where the visualization client sends force vectors to the simulation server, which integrates these as time-dependent external potentials, useful for guiding docking or unfolding pathways. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002022",
+      "lbl" : "leap-frog integrator",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A numerical method used to solve the equations of motion in a simulation by updating positions and velocities at offset time intervals. It calculates velocities at half-integer time steps and positions at integer time steps, ensuring that the integration is time-reversible and symplectic (energy-conserving). For experts, while computationally efficient and stable (O(Δt ^2)), it does not provide velocities and positions at the same instant, requiring interpolation for calculating kinetic energy or pressure at step t. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002023",
+      "lbl" : "velocity verlet integrator",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A numerical algorithm for integrating Newton's equations of motion that updates atomic positions and velocities at the same time step. It improves upon the leap-frog method by providing synchronized coordinates and velocities, which is essential for accurate calculation of kinetic energy and instantaneous pressure. For experts, this symplectic, time-reversible integrator is the standard in many MD codes because it facilitates the implementation of velocity-dependent algorithms like thermostats and barostats with high numerical stability. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002024",
+      "lbl" : "brownian dynamics integrator",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A numerical algorithm used to simulate the motion of particles in a fluid where friction dominates over inertia. It integrates the overdamped Langevin equation, assuming that the momenta relax instantaneously, so particle positions are updated based on forces and a random displacement derived from the diffusion coefficient. For experts, this integrator allows for much larger time steps than standard MD by ignoring fast inertial motions, making it ideal for simulating diffusion-controlled processes or coarse-grained systems. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002025",
+      "lbl" : "brownian dynamics",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation method that models the movement of molecules as a random walk driven by thermal collisions and damped by solvent viscosity. Unlike standard molecular dynamics, it ignores the mass and inertia of the particles, assuming that friction brings them to a terminal velocity instantly in response to forces. For experts, this is the limit of Langevin dynamics where the friction coefficient is very large (overdamped regime), often used for simulating large biomolecules or coarse-grained models where solvent is treated implicitly. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002026",
+      "lbl" : "stochastic dynamics integrator",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A numerical algorithm that incorporates random noise and frictional drag directly into the equations of motion to mimic the effect of a solvent. It integrates the Langevin equation (or similar stochastic differential equations) to simultaneously propagate the system and control its temperature. For experts, this integrator (often GROMACS' sd integrator) acts as a local thermostat, ensuring correct canonical ensemble sampling without the synchronization artifacts sometimes seen with global thermostats like Berendsen or Nosé-Hoover. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002027",
+      "lbl" : "triclinic box",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A triclinic box is the most general geometric shape for a periodic simulation cell, defined by three vectors of arbitrary length and mutual angles. This flexibility allows it to represent any crystal lattice system or to optimize the solvent volume around a solute by fitting the box shape more closely than a standard cube. For experts, while offering maximum generality, using a triclinic box can complicate domain decomposition and typically requires the box vectors to satisfy specific skew conditions (e.g., maintaining the box matrix in a triangular form) to be compatible with standard minimum image convention algorithms. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002028",
+      "lbl" : "stochastic cell rescaling barostat",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The stochastic cell rescaling barostat (C-rescale) is an algorithm used to control pressure in molecular simulations by adjusting the simulation box size using a stochastic differential equation. It combines deterministic box scaling with a random noise term to enforce the target pressure while ensuring the system correctly samples the isothermal-isobaric (NPT) ensemble. For experts, this method (Bernetti & Bussi) yields the correct volume distribution without the unphysical oscillations often seen with deterministic barostats like Parrinello-Rahman, effectively treating the volume as a degree of freedom coupled to a Langevin piston. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002029",
+      "lbl" : "integrator type",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A configuration parameter that specifies the numerical algorithm used to propagate the system's coordinates and velocities through time. It determines whether the simulation performs energy minimization (e.g., steepest descent), classical dynamics (e.g., leap-frog, velocity Verlet), or stochastic dynamics (e.g., Langevin). For experts, this setting (e.g., integrator in GROMACS, imin in AMBER) fundamentally defines the physics engine and the ensemble generated by the simulation executable. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002030",
+      "lbl" : "trajectory output internal",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation control parameter that dictates how frequently the system's atomic coordinates are written to the trajectory file during a run. It is defined as an integer representing the number of integration time steps between save events. For experts, variables like nstxout (GROMACS) or ntwx (AMBER) must be chosen to balance the need for high temporal resolution in analysis against data storage limits and I/O performance overhead. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002031",
+      "lbl" : "temperature coupling groups",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation setting that divides the molecular system into distinct subsets, such as \"Protein\" and \"Solvent,\" each regulated by its own independent thermostat. This separation ensures that energy is distributed evenly across components with different heating rates or degrees of freedom, preventing the \"hot solvent, cold solute\" artifact. For experts, correct assignment (e.g., tc-grps in GROMACS) is critical in non-periodic or vacuum simulations to prevent the accumulation of translational kinetic energy, known as the \"flying ice cube\" effect. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002032",
+      "lbl" : "cutoff scheme",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A configuration parameter that selects the algorithmic strategy used to generate neighbor lists and truncate non-bonded interactions. It dictates whether the neighbor search is performed based on individual atoms or charge-neutral groups, and how the buffer zone is managed to permit infrequent list updates. For experts, modern engines favor the \"Verlet\" scheme (buffered neighbor lists) over the legacy \"Group\" scheme, as the former supports efficient parallelization on GPUs and ensures better energy conservation with PME. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002033",
+      "lbl" : "neighbor list cutoff",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A distance parameter that defines the radius of the sphere around an atom within which neighboring atoms are tracked for potential interactions. Atoms found within this distance are stored in a neighbor list, which allows the simulation to avoid calculating distances between distant atom pairs at every time step. For experts, this value (rlist) must be strictly larger than the interaction cutoff (rvdw + rlist_skin) to ensure that atoms diffusing into interaction range are accounted for between list updates. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002034",
+      "lbl" : "velocity generation",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "elocity generation is a configuration parameter used at the start of a molecular dynamics simulation to assign initial kinetic energies to the atoms in the system. It typically involves generating random velocity vectors derived from a Maxwell-Boltzmann distribution that corresponds to a user-specified reference temperature. For experts, enabling this option (e.g., gen-vel = yes) is standard when starting from energy-minimized coordinates, but it must be strictly disabled during restart or continuation runs to preserve the momentum and ensemble trajectory of the previous segment. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002035",
+      "lbl" : "spatial distribution function (SDF)",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A Spatial Distribution Function (SDF) is a three-dimensional map that describes the density of specific atoms or molecules around a central reference molecule relative to the average bulk density. Unlike a radial distribution function which averages over all angles, the SDF preserves angular information to reveal specific 3D features like hydration sites, hydrogen bonding networks, or ligand binding pockets. For experts, it is typically computed by binning atomic coordinates from a trajectory into a voxel grid, normalizing by the bulk number density, and is often visualized as isosurfaces at specific probability levels (e.g., 2x or 5x bulk density). (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002036",
+      "lbl" : "GROMACS portable energy format",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A binary file format used by the GROMACS simulation package to store time-series data of system energies and thermodynamic properties. It records values such as potential energy components, temperature, pressure, and box dimensions at specified intervals in a portable, machine-independent format. For experts, this file (extension .edr) is accessed via the gmx energy tool to extract statistics or plotting data, and its binary nature ensures no loss of precision compared to text logs. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002037",
+      "lbl" : "GROMACS index format",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A text-based file format used by GROMACS to define specific subsets or groups of atoms within a molecular system. It lists atom indices assigned to named groups, allowing users to apply specific actions (like thermostatting, restraining, or analyzing) to just those selected parts. For experts, this file (extension .ndx) is generated by gmx make_ndx and is essential for setting up non-standard simulation protocols where default groups like \"Protein\" or \"Solvent\" are insufficient. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002038",
+      "lbl" : "GROMACS portable input format",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A binary file format used by GROMACS that creates a self-contained description of a simulation ready to be executed. It combines the atomic coordinates, velocities, molecular topology, and all simulation control parameters into a single, portable machine-readable file. For experts, this file (extension .tpr) is generated by the gmx grompp preprocessor and ensures consistency by validating that the structure matches the topology and parameters before the simulation engine is launched. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -17620,7 +18217,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001036",
-      "lbl" : "reaction coordinate",
+      "lbl" : "has reaction coordinate",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -26067,6 +26664,270 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001972",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001973",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001974",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001975",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001976",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001977",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001978",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001566"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001979",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000382"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001980",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001981",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001982",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000736"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001983",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000759"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001984",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000759"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001985",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000014"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001986",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000037"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001987",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001988",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001314"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001989",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001314"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001990",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001293"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001991",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001421"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001992",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001696"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001993",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001994",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001827"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001995",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001552"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001996",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000331"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001997",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001998",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001201"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001999",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000054"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002000",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001515"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002001",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001515"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002002",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001201"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002003",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000305"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002004",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002005",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002006",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001552"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002007",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001555"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002008",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000447"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002009",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000187"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002010",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000002"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002011",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002012",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002013",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000610"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002014",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000858"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002015",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002016",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000859"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002017",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000039"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002018",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000430"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002019",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000007"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002020",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000336"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002021",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002022",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001691"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002023",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001691"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002024",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001691"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002025",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002026",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001691"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002027",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000032"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002028",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000039"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002029",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001165"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002030",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002031",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001173"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002032",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002033",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002034",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001210"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002035",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001421"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002036",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000439"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002037",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000437"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002038",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000441"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
