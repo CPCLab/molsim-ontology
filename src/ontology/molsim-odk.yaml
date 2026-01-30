@@ -19,6 +19,17 @@ export_formats:
   - json
 import_group:
   products: 
+    - id: ro
+      module_type: slme  # Single Layer Module Extraction (STAR method)
+      # We usually exclude individuals for RO to keep the file size down
+      slme_individuals: exclude 
+    - id: iao
+      module_type: slme
+    - id: bfo
+      module_type: slme
+    - id: omo
+      module_type: slme
+      description: "Standard OBO metadata elements (includes dc:creator, license, etc.)"
     - id: uo
       module_type: custom
 #    - id: iao
