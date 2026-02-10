@@ -16,6 +16,10 @@ These are the current imports in MOLSIM
 
 | Import | URL | Type |
 | ------ | --- | ---- |
+| ro | http://purl.obolibrary.org/obo/ro.owl | slme |
+| iao | http://purl.obolibrary.org/obo/iao.owl | slme |
+| bfo | http://purl.obolibrary.org/obo/bfo.owl | slme |
+| omo | http://purl.obolibrary.org/obo/omo.owl | slme |
 | uo | http://purl.obolibrary.org/obo/uo.owl | custom |
 | chebi | http://purl.obolibrary.org/obo/chebi.owl | custom |
 ## Components

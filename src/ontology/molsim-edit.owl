@@ -10,6 +10,7 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 
 Ontology(Import(<http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl>)
+Import(<http://purl.obolibrary.org/obo/molsim/imports/bfo_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/iao_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/omo_import.owl>)
@@ -1971,7 +1972,6 @@ Declaration(ObjectProperty(obo:RO_0000058))
 Declaration(ObjectProperty(obo:RO_0000086))
 Declaration(ObjectProperty(obo:RO_0002233))
 Declaration(ObjectProperty(obo:RO_0002234))
-Declaration(DataProperty(obo:IAO_0000004))
 Declaration(DataProperty(obo:MOLSIM_001121))
 Declaration(DataProperty(obo:MOLSIM_001122))
 Declaration(DataProperty(obo:MOLSIM_001123))
@@ -2014,10 +2014,6 @@ Declaration(DataProperty(obo:MOLSIM_001159))
 Declaration(DataProperty(obo:MOLSIM_001160))
 Declaration(DataProperty(obo:MOLSIM_001161))
 Declaration(DataProperty(obo:MOLSIM_001162))
-Declaration(DataProperty(dcterms:creator))
-Declaration(DataProperty(dcterms:description))
-Declaration(DataProperty(dcterms:license))
-Declaration(DataProperty(dcterms:title))
 Declaration(NamedIndividual(obo:MOLSIM_000723))
 Declaration(NamedIndividual(obo:MOLSIM_000724))
 Declaration(NamedIndividual(obo:MOLSIM_000725))
@@ -2104,14 +2100,6 @@ AnnotationAssertion(rdfs:label obo:IAO_0000115 "definition")
 # Annotation Property: obo:IAO_0000119 (definition source)
 
 AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
-
-# Annotation Property: dcterms:description (description)
-
-AnnotationAssertion(rdfs:label dcterms:description "description"@en)
-
-# Annotation Property: dcterms:title (title)
-
-AnnotationAssertion(rdfs:label dcterms:title "title"@en)
 
 
 ############################
@@ -2228,11 +2216,6 @@ SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
 ############################
 #   Data Properties
 ############################
-
-# Data Property: obo:IAO_0000004 (has measurement value)
-
-AnnotationAssertion(rdfs:label obo:IAO_0000004 "has measurement value"@en)
-SubDataPropertyOf(obo:IAO_0000004 owl:topDataProperty)
 
 # Data Property: obo:MOLSIM_001121 (composition counts)
 
@@ -2548,24 +2531,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001162 "A numerical or string rep
 AnnotationAssertion(rdfs:label obo:MOLSIM_001162 "lipid ratio"@en)
 SubDataPropertyOf(obo:MOLSIM_001162 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_001162 xsd:string)
-
-# Data Property: dcterms:creator (creator)
-
-AnnotationAssertion(rdfs:label dcterms:creator "creator"@en)
-SubDataPropertyOf(dcterms:creator owl:topDataProperty)
-
-# Data Property: dcterms:description (description)
-
-SubDataPropertyOf(dcterms:description owl:topDataProperty)
-
-# Data Property: dcterms:license (license)
-
-AnnotationAssertion(rdfs:label dcterms:license "license"@en)
-SubDataPropertyOf(dcterms:license owl:topDataProperty)
-
-# Data Property: dcterms:title (title)
-
-SubDataPropertyOf(dcterms:title owl:topDataProperty)
 
 
 
