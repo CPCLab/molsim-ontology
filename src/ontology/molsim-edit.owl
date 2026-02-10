@@ -11,14 +11,13 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 Ontology(Import(<http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl>)
-Import(<http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl>)
-Import(<http://purl.obolibrary.org/obo/molsim/imports/ro_import.owl>)
-Import(http://purl.obolibrary.org/obo/molsim/imports/iao_import.owl)
-Import(<http://purl.obolibrary.org/obo/molsim/imports/bfo_import.owl>)
+Import(<http://purl.obolibrary.org/obo/molsim/imports/iao_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/omo_import.owl>)
+Import(<http://purl.obolibrary.org/obo/molsim/imports/ro_import.owl>)
+Import(<http://purl.obolibrary.org/obo/molsim/imports/uo_import.owl>)
 Annotation(<http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "en")
+Annotation(dcterms:description <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools."@en)
-Annotation(dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
 
@@ -1953,17 +1952,14 @@ Declaration(Class(obo:MOLSIM_010025))
 Declaration(Class(obo:MOLSIM_010026))
 Declaration(Class(obo:MOLSIM_010027))
 Declaration(Class(obo:MOLSIM_010028))
-Declaration(ObjectProperty(obo:MOLSIM_000110))
+Declaration(ObjectProperty(obo:BFO_0000050))
+Declaration(ObjectProperty(obo:BFO_0000051))
+Declaration(ObjectProperty(obo:BFO_0000055))
+Declaration(ObjectProperty(obo:IAO_0000004))
+Declaration(ObjectProperty(obo:IAO_0000039))
+Declaration(ObjectProperty(obo:IAO_0000109))
+Declaration(ObjectProperty(obo:IAO_0000136))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
-Declaration(ObjectProperty(obo:MOLSIM_000317))
-Declaration(ObjectProperty(obo:MOLSIM_000318))
-Declaration(ObjectProperty(obo:MOLSIM_000319))
-Declaration(ObjectProperty(obo:MOLSIM_000320))
-Declaration(ObjectProperty(obo:MOLSIM_000321))
-Declaration(ObjectProperty(obo:MOLSIM_000322))
-Declaration(ObjectProperty(obo:MOLSIM_000323))
-Declaration(ObjectProperty(obo:MOLSIM_000324))
-Declaration(ObjectProperty(obo:MOLSIM_000325))
 Declaration(ObjectProperty(obo:MOLSIM_000504))
 Declaration(ObjectProperty(obo:MOLSIM_000507))
 Declaration(ObjectProperty(obo:MOLSIM_000508))
@@ -1971,6 +1967,15 @@ Declaration(ObjectProperty(obo:MOLSIM_001033))
 Declaration(ObjectProperty(obo:MOLSIM_001034))
 Declaration(ObjectProperty(obo:MOLSIM_001035))
 Declaration(ObjectProperty(obo:MOLSIM_001036))
+Declaration(ObjectProperty(obo:RO_0000056))
+Declaration(ObjectProperty(obo:RO_0000058))
+Declaration(ObjectProperty(obo:RO_0000086))
+Declaration(ObjectProperty(obo:RO_0002233))
+Declaration(ObjectProperty(obo:RO_0002234))
+Declaration(ObjectProperty(dcterms:creator))
+Declaration(ObjectProperty(dcterms:description))
+Declaration(ObjectProperty(dcterms:license))
+Declaration(ObjectProperty(dcterms:title))
 Declaration(DataProperty(obo:MOLSIM_001121))
 Declaration(DataProperty(obo:MOLSIM_001122))
 Declaration(DataProperty(obo:MOLSIM_001123))
@@ -2085,7 +2090,6 @@ Declaration(AnnotationProperty(obo:IAO_0000119))
 Declaration(AnnotationProperty(dcterms:BibliographicResource))
 Declaration(AnnotationProperty(dcterms:contributor))
 Declaration(AnnotationProperty(dcterms:description))
-Declaration(AnnotationProperty(dcterms:license))
 Declaration(AnnotationProperty(dcterms:source))
 Declaration(AnnotationProperty(dcterms:title))
 Declaration(AnnotationProperty(oboInOwl:hasExactSynonym))
@@ -2103,86 +2107,57 @@ AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
 
 # Annotation Property: dcterms:description (description)
 
-AnnotationAssertion(rdfs:label dcterms:description "description")
-
-# Annotation Property: dcterms:license (license)
-
-AnnotationAssertion(rdfs:label dcterms:license "license")
+AnnotationAssertion(rdfs:label dcterms:description "description"@en)
 
 # Annotation Property: dcterms:title (title)
 
-AnnotationAssertion(rdfs:label dcterms:title "title")
+AnnotationAssertion(rdfs:label dcterms:title "title"@en)
 
 
 ############################
 #   Object Properties
 ############################
 
-# Object Property: obo:MOLSIM_000110 (has part)
+# Object Property: obo:BFO_0000050 (part of)
 
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000110 "TODO: import from http://purl.obolibrary.org/obo/BFO_0000051")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000110 "has part"@en)
-SubObjectPropertyOf(obo:MOLSIM_000110 owl:topObjectProperty)
+AnnotationAssertion(rdfs:label obo:BFO_0000050 "part of"@en)
+SubObjectPropertyOf(obo:BFO_0000050 owl:topObjectProperty)
+
+# Object Property: obo:BFO_0000051 (has part)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000051 "has part"@en)
+SubObjectPropertyOf(obo:BFO_0000051 owl:topObjectProperty)
+
+# Object Property: obo:BFO_0000055 (realizes)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000055 "realizes"@en)
+SubObjectPropertyOf(obo:BFO_0000055 owl:topObjectProperty)
+
+# Object Property: obo:IAO_0000004 (has measurement value)
+
+AnnotationAssertion(rdfs:label obo:IAO_0000004 "has measurement value"@en)
+SubObjectPropertyOf(obo:IAO_0000004 owl:topObjectProperty)
+
+# Object Property: obo:IAO_0000039 (has measurement unit label)
+
+AnnotationAssertion(rdfs:label obo:IAO_0000039 "has measurement unit label"@en)
+SubObjectPropertyOf(obo:IAO_0000039 owl:topObjectProperty)
+
+# Object Property: obo:IAO_0000109 (measurement datum)
+
+AnnotationAssertion(rdfs:label obo:IAO_0000109 "measurement datum"@en)
+SubObjectPropertyOf(obo:IAO_0000109 owl:topObjectProperty)
+
+# Object Property: obo:IAO_0000136 (is about)
+
+AnnotationAssertion(rdfs:label obo:IAO_0000136 "is about"@en)
+SubObjectPropertyOf(obo:IAO_0000136 owl:topObjectProperty)
 
 # Object Property: obo:MOLSIM_000297 (periodic box type)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000297 "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000297 "periodic box type"@en)
 SubObjectPropertyOf(obo:MOLSIM_000297 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000317 (realizes)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000317 "TODO: import from http://purl.obolibrary.org/obo/BFO_0000055")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000317 "realizes"@en)
-SubObjectPropertyOf(obo:MOLSIM_000317 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000318 (has input)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000318 "TODO: import from")
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000318 "http://purl.obolibrary.org/obo/RO_0002233")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000318 "has input"@en)
-SubObjectPropertyOf(obo:MOLSIM_000318 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000319 (has output)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000319 "TODO: import from http://purl.obolibrary.org/obo/RO_0002234")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000319 "has output"@en)
-SubObjectPropertyOf(obo:MOLSIM_000319 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000320 (is about)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000320 "TODO: import from http://purl.obolibrary.org/obo/IAO_0000136")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000320 "is about"@en)
-SubObjectPropertyOf(obo:MOLSIM_000320 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000321 (creator)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000321 "TODO: import from http://purl.org/dc/elements/1.1/creator")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000321 "creator"@en)
-SubObjectPropertyOf(obo:MOLSIM_000321 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000322 (has quality)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000322 "TODO: import from http://purl.obolibrary.org/obo/RO_0000086")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000322 "has quality"@en)
-SubObjectPropertyOf(obo:MOLSIM_000322 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000323 (has measurement unit label)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000323 "TODO: import from http://purl.obolibrary.org/obo/IAO_0000039")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000323 "has measurement unit label"@en)
-SubObjectPropertyOf(obo:MOLSIM_000323 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000324 (has measurement value)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000324 "TODO: import from http://purl.obolibrary.org/obo/IAO_0000004")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000324 "has measurement value"@en)
-SubObjectPropertyOf(obo:MOLSIM_000324 owl:topObjectProperty)
-
-# Object Property: obo:MOLSIM_000325 (is concretized as)
-
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000325 "TODO: import from http://purl.obolibrary.org/obo/RO_0000058")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000325 "is concretized as"@en)
 
 # Object Property: obo:MOLSIM_000504 (molecular dynamics suite utility)
 
@@ -2228,6 +2203,49 @@ SubObjectPropertyOf(obo:MOLSIM_001035 owl:topObjectProperty)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001036 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001036 "has reaction coordinate"@en)
 SubObjectPropertyOf(obo:MOLSIM_001036 owl:topObjectProperty)
+
+# Object Property: obo:RO_0000056 (participates in)
+
+AnnotationAssertion(rdfs:label obo:RO_0000056 "participates in"@en)
+SubObjectPropertyOf(obo:RO_0000056 owl:topObjectProperty)
+
+# Object Property: obo:RO_0000058 (is concretized as)
+
+AnnotationAssertion(rdfs:label obo:RO_0000058 "is concretized as"@en)
+
+# Object Property: obo:RO_0000086 (has quality)
+
+AnnotationAssertion(rdfs:label obo:RO_0000086 "has quality"@en)
+SubObjectPropertyOf(obo:RO_0000086 owl:topObjectProperty)
+
+# Object Property: obo:RO_0002233 (has input)
+
+AnnotationAssertion(rdfs:comment obo:RO_0002233 "http://purl.obolibrary.org/obo/RO_0002233")
+AnnotationAssertion(rdfs:label obo:RO_0002233 "has input"@en)
+SubObjectPropertyOf(obo:RO_0002233 owl:topObjectProperty)
+
+# Object Property: obo:RO_0002234 (has output)
+
+AnnotationAssertion(rdfs:label obo:RO_0002234 "has output"@en)
+SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
+
+# Object Property: dcterms:creator (creator)
+
+AnnotationAssertion(rdfs:label dcterms:creator "creator"@en)
+SubObjectPropertyOf(dcterms:creator owl:topObjectProperty)
+
+# Object Property: dcterms:description (description)
+
+SubObjectPropertyOf(dcterms:description owl:topObjectProperty)
+
+# Object Property: dcterms:license (license)
+
+AnnotationAssertion(rdfs:label dcterms:license "license"@en)
+SubObjectPropertyOf(dcterms:license owl:topObjectProperty)
+
+# Object Property: dcterms:title (title)
+
+SubObjectPropertyOf(dcterms:title owl:topObjectProperty)
 
 
 ############################
