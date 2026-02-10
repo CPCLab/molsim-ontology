@@ -21,6 +21,8 @@ Annotation(dcterms:description "MOLSIM is an interoperable domain ontology desig
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
 
+Declaration(Class(obo:IAO_0000030))
+Declaration(Class(obo:IAO_0000104))
 Declaration(Class(obo:MOLSIM_000000))
 Declaration(Class(obo:MOLSIM_000001))
 Declaration(Class(obo:MOLSIM_000002))
@@ -329,7 +331,6 @@ Declaration(Class(obo:MOLSIM_000306))
 Declaration(Class(obo:MOLSIM_000307))
 Declaration(Class(obo:MOLSIM_000308))
 Declaration(Class(obo:MOLSIM_000309))
-Declaration(Class(obo:MOLSIM_000310))
 Declaration(Class(obo:MOLSIM_000311))
 Declaration(Class(obo:MOLSIM_000312))
 Declaration(Class(obo:MOLSIM_000313))
@@ -1011,7 +1012,6 @@ Declaration(Class(obo:MOLSIM_001068))
 Declaration(Class(obo:MOLSIM_001069))
 Declaration(Class(obo:MOLSIM_001070))
 Declaration(Class(obo:MOLSIM_001071))
-Declaration(Class(obo:MOLSIM_001072))
 Declaration(Class(obo:MOLSIM_001073))
 Declaration(Class(obo:MOLSIM_001074))
 Declaration(Class(obo:MOLSIM_001075))
@@ -1955,7 +1955,6 @@ Declaration(Class(obo:MOLSIM_010028))
 Declaration(ObjectProperty(obo:BFO_0000050))
 Declaration(ObjectProperty(obo:BFO_0000051))
 Declaration(ObjectProperty(obo:BFO_0000055))
-Declaration(ObjectProperty(obo:IAO_0000004))
 Declaration(ObjectProperty(obo:IAO_0000039))
 Declaration(ObjectProperty(obo:IAO_0000109))
 Declaration(ObjectProperty(obo:IAO_0000136))
@@ -1972,10 +1971,7 @@ Declaration(ObjectProperty(obo:RO_0000058))
 Declaration(ObjectProperty(obo:RO_0000086))
 Declaration(ObjectProperty(obo:RO_0002233))
 Declaration(ObjectProperty(obo:RO_0002234))
-Declaration(ObjectProperty(dcterms:creator))
-Declaration(ObjectProperty(dcterms:description))
-Declaration(ObjectProperty(dcterms:license))
-Declaration(ObjectProperty(dcterms:title))
+Declaration(DataProperty(obo:IAO_0000004))
 Declaration(DataProperty(obo:MOLSIM_001121))
 Declaration(DataProperty(obo:MOLSIM_001122))
 Declaration(DataProperty(obo:MOLSIM_001123))
@@ -2018,6 +2014,10 @@ Declaration(DataProperty(obo:MOLSIM_001159))
 Declaration(DataProperty(obo:MOLSIM_001160))
 Declaration(DataProperty(obo:MOLSIM_001161))
 Declaration(DataProperty(obo:MOLSIM_001162))
+Declaration(DataProperty(dcterms:creator))
+Declaration(DataProperty(dcterms:description))
+Declaration(DataProperty(dcterms:license))
+Declaration(DataProperty(dcterms:title))
 Declaration(NamedIndividual(obo:MOLSIM_000723))
 Declaration(NamedIndividual(obo:MOLSIM_000724))
 Declaration(NamedIndividual(obo:MOLSIM_000725))
@@ -2133,11 +2133,6 @@ SubObjectPropertyOf(obo:BFO_0000051 owl:topObjectProperty)
 AnnotationAssertion(rdfs:label obo:BFO_0000055 "realizes"@en)
 SubObjectPropertyOf(obo:BFO_0000055 owl:topObjectProperty)
 
-# Object Property: obo:IAO_0000004 (has measurement value)
-
-AnnotationAssertion(rdfs:label obo:IAO_0000004 "has measurement value"@en)
-SubObjectPropertyOf(obo:IAO_0000004 owl:topObjectProperty)
-
 # Object Property: obo:IAO_0000039 (has measurement unit label)
 
 AnnotationAssertion(rdfs:label obo:IAO_0000039 "has measurement unit label"@en)
@@ -2229,28 +2224,15 @@ SubObjectPropertyOf(obo:RO_0002233 owl:topObjectProperty)
 AnnotationAssertion(rdfs:label obo:RO_0002234 "has output"@en)
 SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
 
-# Object Property: dcterms:creator (creator)
-
-AnnotationAssertion(rdfs:label dcterms:creator "creator"@en)
-SubObjectPropertyOf(dcterms:creator owl:topObjectProperty)
-
-# Object Property: dcterms:description (description)
-
-SubObjectPropertyOf(dcterms:description owl:topObjectProperty)
-
-# Object Property: dcterms:license (license)
-
-AnnotationAssertion(rdfs:label dcterms:license "license"@en)
-SubObjectPropertyOf(dcterms:license owl:topObjectProperty)
-
-# Object Property: dcterms:title (title)
-
-SubObjectPropertyOf(dcterms:title owl:topObjectProperty)
-
 
 ############################
 #   Data Properties
 ############################
+
+# Data Property: obo:IAO_0000004 (has measurement value)
+
+AnnotationAssertion(rdfs:label obo:IAO_0000004 "has measurement value"@en)
+SubDataPropertyOf(obo:IAO_0000004 owl:topDataProperty)
 
 # Data Property: obo:MOLSIM_001121 (composition counts)
 
@@ -2567,11 +2549,39 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001162 "lipid ratio"@en)
 SubDataPropertyOf(obo:MOLSIM_001162 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_001162 xsd:string)
 
+# Data Property: dcterms:creator (creator)
+
+AnnotationAssertion(rdfs:label dcterms:creator "creator"@en)
+SubDataPropertyOf(dcterms:creator owl:topDataProperty)
+
+# Data Property: dcterms:description (description)
+
+SubDataPropertyOf(dcterms:description owl:topDataProperty)
+
+# Data Property: dcterms:license (license)
+
+AnnotationAssertion(rdfs:label dcterms:license "license"@en)
+SubDataPropertyOf(dcterms:license owl:topDataProperty)
+
+# Data Property: dcterms:title (title)
+
+SubDataPropertyOf(dcterms:title owl:topDataProperty)
+
 
 
 ############################
 #   Classes
 ############################
+
+# Class: obo:IAO_0000030 (information content entity)
+
+AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000030 "")
+AnnotationAssertion(rdfs:label obo:IAO_0000030 "information content entity"@en)
+
+# Class: obo:IAO_0000104 (plan specification)
+
+AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000104 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:IAO_0000104 "plan specification"@en)
 
 # Class: obo:MOLSIM_000000 (molecular dynamics process)
 
@@ -3444,7 +3454,7 @@ SubClassOf(obo:MOLSIM_000142 obo:MOLSIM_000127)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000143 "Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000143 "ligand pairs selection criteria"@en)
-SubClassOf(obo:MOLSIM_000143 obo:MOLSIM_000310)
+SubClassOf(obo:MOLSIM_000143 obo:IAO_0000104)
 
 # Class: obo:MOLSIM_000144 (structural similarity)
 
@@ -4470,12 +4480,6 @@ SubClassOf(obo:MOLSIM_000308 obo:MOLSIM_000841)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000309 "An entropy analysis method is a calculation used to measure the amount of disorder or randomness in a molecular system. As a type of thermodynamics analysis, this method estimates the entropic contribution to the free energy, often by analyzing the system's vibrational modes or conformational fluctuations from a simulation trajectory. Techniques like quasiharmonic mode analysis or normal mode analysis are used to calculate the vibrational entropy from the covariance matrix of atomic positions or the Hessian matrix, respectively. Outputs from these methods often contain terms like \"Entropy,\" \"T*S,\" \"Quasi-Harmonic,\" \"Normal Mode Analysis,\" or \"vibrational entropy.\" (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000309 "entropy analysis"@en)
 SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
-
-# Class: obo:MOLSIM_000310 (plan specification)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000104 (plan specification)")
-AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
 
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
@@ -8677,29 +8681,23 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_001071 "The traj3d \"pseudo-trajecto
 AnnotationAssertion(rdfs:label obo:MOLSIM_001071 "CPPTRAJ traj3d format"@en)
 SubClassOf(obo:MOLSIM_001071 obo:MOLSIM_001090)
 
-# Class: obo:MOLSIM_001072 (information content entity)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001072 "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:comment obo:MOLSIM_001072 "TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000030 (information content entitiy)")
-AnnotationAssertion(rdfs:label obo:MOLSIM_001072 "information content entity"@en)
-
 # Class: obo:MOLSIM_001073 (molecular system specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001073 "A molecular system specification is the complete abstract description of all the molecules and their properties that constitute a simulation. It includes the identity and 3D arrangement of all atoms (the structure) and the rules governing their interactions (the topology and force field). This specification is the complete informational blueprint of the system before any simulation is performed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001073 "molecular system specification"@en)
-SubClassOf(obo:MOLSIM_001073 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001073 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001074 (process specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001074 "A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification is what must be recorded to ensure a computational experiment is fully reproducible. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001074 "process specification"@en)
-SubClassOf(obo:MOLSIM_001074 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001074 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001075 (process output)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001075 "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. Its content varies greatly depending on the program and the type of task performed, but typically includes computed energies, optimized geometries, properties, and diagnostic information. These files are crucial for analyzing the outcome of computational jobs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001075 "process output"@en)
-SubClassOf(obo:MOLSIM_001075 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001075 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001076 (molecular topology)
 
