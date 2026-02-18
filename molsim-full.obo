@@ -6557,7 +6557,7 @@ def: "An identifier is a unique name, code, or label assigned to a specific enti
 [Term]
 id: MOLSIM:000448
 name: protein database ID
-def: "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information. They ensure researchers worldwide can unambiguously refer to the same molecular data. (UNVERIFIED)" []
+def: "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information." []
 is_a: MOLSIM:000447 ! identifier
 
 [Term]
@@ -13828,7 +13828,7 @@ is_a: MOLSIM:001751 ! statistical algorithm
 [Term]
 id: MOLSIM:001753
 name: residue name
-def: "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide. These names are essential for simulation software to recognize each residue and apply the correct set of force field parameters for its atoms and bonds. (UNVERIFIED)" []
+def: "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide." []
 is_a: MOLSIM:000447 ! identifier
 
 [Term]
@@ -13840,7 +13840,7 @@ is_a: MOLSIM:001753 ! residue name
 [Term]
 id: MOLSIM:001755
 name: atom name
-def: "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon. This standardized naming convention, defined in residue templates, is essential for correctly identifying atoms during simulation setup and for selecting specific atoms for analysis. (UNVERIFIED)" []
+def: "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon." []
 is_a: MOLSIM:000447 ! identifier
 
 [Term]
@@ -13863,8 +13863,9 @@ is_a: MOLSIM:001711 ! residue library
 
 [Term]
 id: MOLSIM:001759
-name: Miller indices
+name: Miller indices (deprecated)
 def: "Miller indices are a set of three integers (h, k, l) that uniquely describe the orientation of a plane of atoms within a crystal lattice. These indices are determined from the positions of the spots in an X-ray diffraction pattern and are fundamental to crystallography. They are used to define the specific crystal faces and to calculate the theoretical diffraction pattern from a structural model. (UNVERIFIED)" []
+comment: Marked for removal. See: https://github.com/CPCLab/molsim-ontology/issues/26
 is_a: MOLSIM:000447 ! identifier
 
 [Term]
@@ -13888,7 +13889,7 @@ is_a: MOLSIM:001761 ! volumetric data component
 [Term]
 id: MOLSIM:001763
 name: atom type
-def: "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon. All atoms assigned the same atom type will use the identical set of parameters for their bonds, angles, and non-bonded interactions, ensuring consistency across the simulation. (UNVERIFIED)" []
+def: "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon." []
 is_a: MOLSIM:000447 ! identifier
 
 [Term]
@@ -15541,6 +15542,12 @@ def: "A binary file format used by GROMACS that creates a self-contained descrip
 is_a: MOLSIM:000441 ! simulation state format
 
 [Term]
+id: MOLSIM:002039
+name: atom ID
+def: "An atom ID is usually a number, that uniquely defines a given atom in structure." []
+is_a: MOLSIM:000447 ! identifier
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second." []
@@ -15747,6 +15754,22 @@ synonym: "time derived unit" EXACT []
 is_a: UO:0000000 ! unit
 
 [Term]
+id: UO:0000010
+name: second
+def: "A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom." [BIPM:BIPM, NIST:NIST]
+synonym: "s" EXACT []
+is_a: UO:0000045 ! base unit
+is_a: UO:1000010 ! second based unit
+
+[Term]
+id: UO:0000018
+name: nanometer
+def: "A length unit which is equal to one thousandth of one millionth of a meter or 10^[-9] m." [NIST:NIST]
+synonym: "nanometre" EXACT []
+synonym: "nm" EXACT []
+is_a: UO:1000008 ! meter based unit
+
+[Term]
 id: UO:0000019
 name: angstrom
 def: "A length unit which is equal to 10 [-10] m." [NIST:NIST]
@@ -15754,11 +15777,31 @@ synonym: "Å" EXACT []
 is_a: UO:1000019 ! angstrom based unit
 
 [Term]
+id: UO:0000028
+name: millisecond
+def: "A time unit which is equal to one thousandth of a second or 10^[-3] s." [NIST:NIST]
+synonym: "ms" EXACT []
+is_a: UO:1000010 ! second based unit
+
+[Term]
+id: UO:0000029
+name: microsecond
+def: "A time unit which is equal to one millionth of a second or 10^[-6] s." [NIST:NIST]
+synonym: "us" EXACT []
+is_a: UO:1000010 ! second based unit
+
+[Term]
 id: UO:0000030
 name: picosecond
 def: "A time unit which is equal to 10^[-12] s." [NIST:NIST]
 synonym: "ps" EXACT []
 is_a: UO:1000010 ! second based unit
+
+[Term]
+id: UO:0000045
+name: base unit
+def: "A unit which is one of a particular measure to which all measures of that type can be related." [NIST:NIST]
+is_a: UO:0000000 ! unit
 
 [Term]
 id: UO:0000047
@@ -15813,6 +15856,14 @@ def: "A unit which is a standard measure of the number of repetitive actions in 
 is_a: UO:0000000 ! unit
 
 [Term]
+id: UO:0000106
+name: hertz
+def: "A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second." [NIST:NIST]
+synonym: "Hz" EXACT []
+synonym: "s^1" EXACT []
+is_a: UO:1000106 ! hertz based unit
+
+[Term]
 id: UO:0000109
 name: pressure unit
 def: "A unit which is a standard measure of the force applied to a given area." [NIST:NIST]
@@ -15825,11 +15876,36 @@ def: "A unit which is a standard measure of the work done by a certain force (gr
 is_a: UO:0000000 ! unit
 
 [Term]
+id: UO:0000121
+name: angle unit
+def: "A unit which is a standard measure of the figure or space formed by the junction of two lines or planes." [Wikipedia:Wikipedia]
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000122
+name: plane angle unit
+def: "A unit which is a standard measure of the angle formed by two straight lines in the same plane." [Wikipedia:Wikipedia]
+is_a: UO:0000121 ! angle unit
+
+[Term]
+id: UO:0000123
+name: radian
+def: "A plane angle unit which is equal to the angle subtended at the center of a circle by an arc equal in length to the radius of the circle, approximately 57 degrees 17 minutes and 44.6 seconds." [NIST:NIST]
+synonym: "rad" EXACT []
+is_a: UO:1000123 ! radian based unit
+
+[Term]
 id: UO:0000150
 name: nanosecond
 def: "A time unit which is equal to one thousandth of one millionth of a second or 10^[-9] s." [NIST:NIST]
 synonym: "ns" EXACT []
 is_a: UO:1000010 ! second based unit
+
+[Term]
+id: UO:0000185
+name: degree
+def: "A plane angle unit which is equal to 1/360 of a full rotation or 1.7453310^[-2] rad." [Wikipedia:Wikipedia]
+is_a: UO:1000185 ! degree based unit
 
 [Term]
 id: UO:0000219
@@ -15848,6 +15924,21 @@ synonym: "unified atomic mass unit" EXACT []
 is_a: UO:1000221 ! dalton based unit
 
 [Term]
+id: UO:0000267
+name: electric field strength unit
+def: "The electric field strength is a unit which is a measure of the potential difference between two points some distance apart." [Wikipedia:Electric_field]
+synonym: "E-field strength " EXACT []
+is_a: UO:0000000 ! unit
+
+[Term]
+id: UO:0000268
+name: volt per meter
+def: "The volt per meter is a unit of electric field strength equal to the a potential difference of 1 volt existing between two points that are 1 meter apart." [Wikipedia:Electric_field]
+synonym: "V/m" EXACT []
+synonym: "volt per metre" EXACT []
+is_a: UO:1000268 ! volt per meter based unit
+
+[Term]
 id: UO:0000324
 name: square angstrom
 def: "An area unit which is equal to an area enclosed by a square with sides each 1 angstrom long." [UOC:GVG]
@@ -15861,6 +15952,17 @@ def: "A frequency unit which is equal to one million hertz or 10^[6] V." [UOC:GV
 synonym: "megahertz" RELATED []
 synonym: "mH" RELATED []
 is_a: UO:0000105 ! frequency unit
+
+[Term]
+id: UO:0010069
+name: bar
+def: "A pressure unit which is equal to 100,000 pascal or the pressure or stress on a surface caused by a force of 100,000 newtons spread over a surface of 1 m^[2]." [NIST:NIST]
+is_a: UO:1000110 ! pascal based unit
+
+[Term]
+id: UO:1000008
+name: meter based unit
+is_a: UO:0000001 ! length unit
 
 [Term]
 id: UO:1000010
@@ -15883,9 +15985,34 @@ name: meter per second based unit
 is_a: UO:0000060 ! speed/velocity unit
 
 [Term]
+id: UO:1000106
+name: hertz based unit
+is_a: UO:0000105 ! frequency unit
+
+[Term]
+id: UO:1000110
+name: pascal based unit
+is_a: UO:0000109 ! pressure unit
+
+[Term]
+id: UO:1000123
+name: radian based unit
+is_a: UO:0000122 ! plane angle unit
+
+[Term]
+id: UO:1000185
+name: degree based unit
+is_a: UO:0000122 ! plane angle unit
+
+[Term]
 id: UO:1000221
 name: dalton based unit
 is_a: UO:0000002 ! mass unit
+
+[Term]
+id: UO:1000268
+name: volt per meter based unit
+is_a: UO:0000267 ! electric field strength unit
 
 [Typedef]
 id: BFO:0000050

@@ -13733,7 +13733,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information. They ensure researchers worldwide can unambiguously refer to the same molecular data. (UNVERIFIED)"
+          "val" : "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information."
         }
       }
     }, {
@@ -24760,7 +24760,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide. These names are essential for simulation software to recognize each residue and apply the correct set of force field parameters for its atoms and bonds. (UNVERIFIED)"
+          "val" : "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide."
         }
       }
     }, {
@@ -24778,7 +24778,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon. This standardized naming convention, defined in residue templates, is essential for correctly identifying atoms during simulation setup and for selecting specific atoms for analysis. (UNVERIFIED)"
+          "val" : "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon."
         }
       }
     }, {
@@ -24810,12 +24810,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001759",
-      "lbl" : "Miller indices",
+      "lbl" : "Miller indices (deprecated)",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Miller indices are a set of three integers (h, k, l) that uniquely describe the orientation of a plane of atoms within a crystal lattice. These indices are determined from the positions of the spots in an X-ray diffraction pattern and are fundamental to crystallography. They are used to define the specific crystal faces and to calculate the theoretical diffraction pattern from a structural model. (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "Marked for removal. See: https://github.com/CPCLab/molsim-ontology/issues/26" ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001760",
@@ -24850,7 +24851,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon. All atoms assigned the same atom type will use the identical set of parameters for their bonds, angles, and non-bonded interactions, ensuring consistency across the simulation. (UNVERIFIED)"
+          "val" : "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon."
         }
       }
     }, {
@@ -27331,6 +27332,15 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002039",
+      "lbl" : "atom ID",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An atom ID is usually a number, that uniquely defines a given atom in structure."
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -27668,6 +27678,37 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000010",
+      "lbl" : "second",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A time unit which is equal to the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom.",
+          "xrefs" : [ "BIPM:BIPM", "NIST:NIST" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "s"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000018",
+      "lbl" : "nanometer",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A length unit which is equal to one thousandth of one millionth of a meter or 10^[-9] m.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "nanometre"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "nm"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000019",
       "lbl" : "angstrom",
       "type" : "CLASS",
@@ -27679,6 +27720,34 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Å"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000028",
+      "lbl" : "millisecond",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A time unit which is equal to one thousandth of a second or 10^[-3] s.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "ms"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000029",
+      "lbl" : "microsecond",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A time unit which is equal to one millionth of a second or 10^[-6] s.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "us"
         } ]
       }
     }, {
@@ -27694,6 +27763,16 @@
           "pred" : "hasExactSynonym",
           "val" : "ps"
         } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000045",
+      "lbl" : "base unit",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A unit which is one of a particular measure to which all measures of that type can be related.",
+          "xrefs" : [ "NIST:NIST" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000047",
@@ -27791,6 +27870,23 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000106",
+      "lbl" : "hertz",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A frequency unit which is equal to 1 complete cycle of a recurring phenomenon in 1 second.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "Hz"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "s^1"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000109",
       "lbl" : "pressure unit",
       "type" : "CLASS",
@@ -27811,6 +27907,40 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000121",
+      "lbl" : "angle unit",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A unit which is a standard measure of the figure or space formed by the junction of two lines or planes.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000122",
+      "lbl" : "plane angle unit",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A unit which is a standard measure of the angle formed by two straight lines in the same plane.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000123",
+      "lbl" : "radian",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A plane angle unit which is equal to the angle subtended at the center of a circle by an arc equal in length to the radius of the circle, approximately 57 degrees 17 minutes and 44.6 seconds.",
+          "xrefs" : [ "NIST:NIST" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "rad"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000150",
       "lbl" : "nanosecond",
       "type" : "CLASS",
@@ -27823,6 +27953,16 @@
           "pred" : "hasExactSynonym",
           "val" : "ns"
         } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000185",
+      "lbl" : "degree",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A plane angle unit which is equal to 1/360 of a full rotation or 1.7453310^[-2] rad.",
+          "xrefs" : [ "Wikipedia:Wikipedia" ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000219",
@@ -27858,6 +27998,37 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000267",
+      "lbl" : "electric field strength unit",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The electric field strength is a unit which is a measure of the potential difference between two points some distance apart.",
+          "xrefs" : [ "Wikipedia:Electric_field" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "E-field strength "
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0000268",
+      "lbl" : "volt per meter",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The volt per meter is a unit of electric field strength equal to the a potential difference of 1 volt existing between two points that are 1 meter apart.",
+          "xrefs" : [ "Wikipedia:Electric_field" ]
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "V/m"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "volt per metre"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000324",
       "lbl" : "square angstrom",
       "type" : "CLASS",
@@ -27889,6 +28060,20 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_0010069",
+      "lbl" : "bar",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A pressure unit which is equal to 100,000 pascal or the pressure or stress on a surface caused by a force of 100,000 newtons spread over a surface of 1 m^[2].",
+          "xrefs" : [ "NIST:NIST" ]
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_1000008",
+      "lbl" : "meter based unit",
+      "type" : "CLASS"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UO_1000010",
       "lbl" : "second based unit",
       "type" : "CLASS"
@@ -27905,8 +28090,28 @@
       "lbl" : "meter per second based unit",
       "type" : "CLASS"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_1000106",
+      "lbl" : "hertz based unit",
+      "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_1000110",
+      "lbl" : "pascal based unit",
+      "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_1000123",
+      "lbl" : "radian based unit",
+      "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_1000185",
+      "lbl" : "degree based unit",
+      "type" : "CLASS"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UO_1000221",
       "lbl" : "dalton based unit",
+      "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/UO_1000268",
+      "lbl" : "volt per meter based unit",
       "type" : "CLASS"
     }, {
       "id" : "http://purl.obolibrary.org/obo/BFO_0000050",
@@ -38566,6 +38771,10 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000441"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002039",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000447"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
@@ -38698,13 +38907,37 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000000"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000010",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000045"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000010",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000018",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000008"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000019",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000019"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000028",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000029",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000030",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000045",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000000"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000047",
       "pred" : "is_a",
@@ -38738,6 +38971,10 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000000"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000106",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000106"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000109",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000000"
@@ -38746,9 +38983,25 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000000"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000121",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000000"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000122",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000121"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000123",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000123"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000150",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000185",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000185"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000219",
       "pred" : "is_a",
@@ -38758,6 +39011,14 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000221"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000267",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000000"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0000268",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000268"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000324",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000047"
@@ -38765,6 +39026,14 @@
       "sub" : "http://purl.obolibrary.org/obo/UO_0000325",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000105"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_0010069",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_1000110"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_1000008",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000001"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_1000010",
       "pred" : "is_a",
@@ -38782,9 +39051,29 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000060"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_1000106",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000105"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_1000110",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000109"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_1000123",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000122"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_1000185",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000122"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_1000221",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_0000002"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/UO_1000268",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/UO_0000267"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/IAO_0000002",
       "pred" : "type",

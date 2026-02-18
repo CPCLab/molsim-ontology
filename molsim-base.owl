@@ -5117,7 +5117,7 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000448">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., &apos;1TIM&apos;) or UniProt (accession number, e.g., &apos;P00761&apos;). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information. They ensure researchers worldwide can unambiguously refer to the same molecular data. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., &apos;1TIM&apos;) or UniProt (accession number, e.g., &apos;P00761&apos;). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">protein database ID</rdfs:label>
     </owl:Class>
     
@@ -17149,7 +17149,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001753">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, &apos;ALA&apos; is the residue name for the amino acid alanine, and &apos;DG&apos; can represent a deoxyguanosine nucleotide. These names are essential for simulation software to recognize each residue and apply the correct set of force field parameters for its atoms and bonds. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, &apos;ALA&apos; is the residue name for the amino acid alanine, and &apos;DG&apos; can represent a deoxyguanosine nucleotide.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">residue name</rdfs:label>
     </owl:Class>
     
@@ -17169,7 +17169,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001755">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names &apos;CA&apos; and &apos;CB&apos; are used to differentiate the alpha-carbon from the beta-carbon. This standardized naming convention, defined in residue templates, is essential for correctly identifying atoms during simulation setup and for selecting specific atoms for analysis. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names &apos;CA&apos; and &apos;CB&apos; are used to differentiate the alpha-carbon from the beta-carbon.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">atom name</rdfs:label>
     </owl:Class>
     
@@ -17210,7 +17210,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001759">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
         <obo:IAO_0000115 xml:lang="en">Miller indices are a set of three integers (h, k, l) that uniquely describe the orientation of a plane of atoms within a crystal lattice. These indices are determined from the positions of the spots in an X-ray diffraction pattern and are fundamental to crystallography. They are used to define the specific crystal faces and to calculate the theoretical diffraction pattern from a structural model. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">Miller indices</rdfs:label>
+        <rdfs:comment xml:lang="en">Marked for removal. See: https://github.com/CPCLab/molsim-ontology/issues/26</rdfs:comment>
+        <rdfs:label xml:lang="en">Miller indices (deprecated)</rdfs:label>
     </owl:Class>
     
 
@@ -17249,7 +17250,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001763">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon. All atoms assigned the same atom type will use the identical set of parameters for their bonds, angles, and non-bonded interactions, ensuring consistency across the simulation. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">atom type</rdfs:label>
     </owl:Class>
     
@@ -19999,6 +20000,16 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000441"/>
         <obo:IAO_0000115 xml:lang="en">A binary file format used by GROMACS that creates a self-contained description of a simulation ready to be executed. It combines the atomic coordinates, velocities, molecular topology, and all simulation control parameters into a single, portable machine-readable file. For experts, this file (extension .tpr) is generated by the gmx grompp preprocessor and ensures consistency by validating that the structure matches the topology and parameters before the simulation engine is launched. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">GROMACS portable input format</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002039 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002039">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
+        <obo:IAO_0000115 xml:lang="en">An atom ID is usually a number, that uniquely defines a given atom in structure.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">atom ID</rdfs:label>
     </owl:Class>
     
 
