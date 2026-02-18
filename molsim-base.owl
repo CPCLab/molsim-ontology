@@ -12,14 +12,14 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-02-10/molsim-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-02-18/molsim-base.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
         <dcterms:description xml:lang="en">MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.</dcterms:description>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <rdfs:comment></rdfs:comment>
-        <owl:versionInfo>2026-02-10</owl:versionInfo>
+        <owl:versionInfo>2026-02-18</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -17089,7 +17089,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001747">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000037"/>
         <obo:IAO_0000115 xml:lang="en">A trajectory analysis algorithm is a computational procedure that processes the time-series of atomic coordinates from a simulation to calculate a specific property. These algorithms are the engines of analysis tools, turning raw simulation output into interpretable scientific data. For experts, this includes the specific algorithms for tasks like imaging periodic trajectories, calculating correlation functions, or clustering conformations. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">trajectory analysis algorithm</rdfs:label>
+        <rdfs:comment>candidate for removal per https://github.com/CPCLab/molsim-ontology/issues/21</rdfs:comment>
+        <rdfs:label xml:lang="en">trajectory analysis algorithm (deprecated)</rdfs:label>
     </owl:Class>
     
 
@@ -17097,7 +17098,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001748 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001748">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001747"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001696"/>
         <obo:IAO_0000115 xml:lang="en">A specialized algorithm for visualizing molecules in a periodic simulation box that ensures chemical bonds are always drawn correctly, even when they cross a boundary. It treats the periodic box as a torus (a donut shape), so that when a molecule is viewed, its connectivity is preserved without being artificially &quot;broken&quot; at the box edges. This scheme is important for creating clear and unambiguous visualizations of molecular structures and their interactions within a periodic environment. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">toroidal-view-preserving algorithm</rdfs:label>
     </owl:Class>

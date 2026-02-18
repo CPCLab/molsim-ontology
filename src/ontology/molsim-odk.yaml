@@ -20,9 +20,10 @@ export_formats:
 import_group:
   products: 
     - id: ro
-      module_type: slme  # Single Layer Module Extraction (STAR method)
+      module_type: filter  # Single Layer Module Extraction (STAR method)
       # We usually exclude individuals for RO to keep the file size down
-      slme_individuals: exclude 
+      slme_individuals: exclude
+      exclude_seeds: true
     - id: iao
       module_type: slme
     - id: bfo
@@ -33,7 +34,7 @@ import_group:
     - id: uo
       module_type: custom
 #    - id: iao
-#      module_type: custom      
+#      module_type: custom       
     - id: chebi
       module_type: custom
 #      annotate_defined_by: true

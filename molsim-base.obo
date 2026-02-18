@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-02-10/molsim-base.owl
+data-version: molsim/releases/2026-02-18/molsim-base.owl
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
@@ -9,7 +9,7 @@ property_value: dce:type IAO:8000001
 property_value: dcterms:description https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2026-02-10" xsd:string
+property_value: owl:versionInfo "2026-02-18" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -9947,15 +9947,16 @@ is_a: MOLSIM:001745 ! secondary structure assignment algorithm
 
 [Term]
 id: MOLSIM:001747
-name: trajectory analysis algorithm
+name: trajectory analysis algorithm (deprecated)
 def: "A trajectory analysis algorithm is a computational procedure that processes the time-series of atomic coordinates from a simulation to calculate a specific property. These algorithms are the engines of analysis tools, turning raw simulation output into interpretable scientific data. For experts, this includes the specific algorithms for tasks like imaging periodic trajectories, calculating correlation functions, or clustering conformations. (UNVERIFIED)" []
+comment: candidate for removal per https://github.com/CPCLab/molsim-ontology/issues/21
 is_a: MOLSIM:000037 ! algorithm
 
 [Term]
 id: MOLSIM:001748
 name: toroidal-view-preserving algorithm
 def: "A specialized algorithm for visualizing molecules in a periodic simulation box that ensures chemical bonds are always drawn correctly, even when they cross a boundary. It treats the periodic box as a torus (a donut shape), so that when a molecule is viewed, its connectivity is preserved without being artificially \"broken\" at the box edges. This scheme is important for creating clear and unambiguous visualizations of molecular structures and their interactions within a periodic environment. (UNVERIFIED)" []
-is_a: MOLSIM:001747 ! trajectory analysis algorithm
+is_a: MOLSIM:001696 ! analysis algorithm
 
 [Term]
 id: MOLSIM:001749
