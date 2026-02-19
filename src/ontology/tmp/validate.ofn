@@ -6,8 +6,6 @@ Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
 Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
 Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
 Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
-Prefix(swrl:=<http://www.w3.org/2003/11/swrl#>)
-Prefix(swrlb:=<http://www.w3.org/2003/11/swrlb#>)
 Prefix(chemrof:=<https://w3id.org/chemrof/>)
 Prefix(dcterms:=<http://purl.org/dc/terms/>)
 Prefix(protege:=<http://protege.stanford.edu/plugins/owl/protege#>)
@@ -15,27 +13,14 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
-<http://purl.obolibrary.org/obo/molsim/releases/2026-02-18/molsim.owl>
+<http://purl.obolibrary.org/obo/molsim/releases/2026-02-19/molsim.owl>
 Annotation(protege:defaultLanguage "en")
 Annotation(dcterms:description <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools."@en)
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
-Annotation(owl:versionInfo "2026-02-18")
+Annotation(owl:versionInfo "2026-02-19")
 
-Declaration(Class(obo:APOLLO_SV_00000008))
-Declaration(Class(obo:BFO_0000001))
-Declaration(Class(obo:BFO_0000002))
-Declaration(Class(obo:BFO_0000003))
-Declaration(Class(obo:BFO_0000004))
-Declaration(Class(obo:BFO_0000015))
-Declaration(Class(obo:BFO_0000016))
-Declaration(Class(obo:BFO_0000017))
-Declaration(Class(obo:BFO_0000019))
-Declaration(Class(obo:BFO_0000020))
-Declaration(Class(obo:BFO_0000023))
-Declaration(Class(obo:BFO_0000031))
-Declaration(Class(obo:BFO_0000034))
 Declaration(Class(obo:CHEBI_131619))
 Declaration(Class(obo:CHEBI_134179))
 Declaration(Class(obo:CHEBI_138675))
@@ -225,26 +210,6 @@ Declaration(Class(obo:CHEBI_78616))
 Declaration(Class(obo:CHEBI_83563))
 Declaration(Class(obo:CHEBI_83813))
 Declaration(Class(obo:CHEBI_85422))
-Declaration(Class(obo:IAO_0000003))
-Declaration(Class(obo:IAO_0000005))
-Declaration(Class(obo:IAO_0000007))
-Declaration(Class(obo:IAO_0000009))
-Declaration(Class(obo:IAO_0000010))
-Declaration(Class(obo:IAO_0000015))
-Declaration(Class(obo:IAO_0000027))
-Declaration(Class(obo:IAO_0000030))
-Declaration(Class(obo:IAO_0000032))
-Declaration(Class(obo:IAO_0000033))
-Declaration(Class(obo:IAO_0000064))
-Declaration(Class(obo:IAO_0000078))
-Declaration(Class(obo:IAO_0000096))
-Declaration(Class(obo:IAO_0000102))
-Declaration(Class(obo:IAO_0000104))
-Declaration(Class(obo:IAO_0000109))
-Declaration(Class(obo:IAO_0000225))
-Declaration(Class(obo:IAO_0000409))
-Declaration(Class(obo:IAO_0020000))
-Declaration(Class(obo:IAO_0020010))
 Declaration(Class(obo:MOLSIM_000000))
 Declaration(Class(obo:MOLSIM_000001))
 Declaration(Class(obo:MOLSIM_000002))
@@ -553,6 +518,7 @@ Declaration(Class(obo:MOLSIM_000306))
 Declaration(Class(obo:MOLSIM_000307))
 Declaration(Class(obo:MOLSIM_000308))
 Declaration(Class(obo:MOLSIM_000309))
+Declaration(Class(obo:MOLSIM_000310))
 Declaration(Class(obo:MOLSIM_000311))
 Declaration(Class(obo:MOLSIM_000312))
 Declaration(Class(obo:MOLSIM_000313))
@@ -1234,6 +1200,7 @@ Declaration(Class(obo:MOLSIM_001068))
 Declaration(Class(obo:MOLSIM_001069))
 Declaration(Class(obo:MOLSIM_001070))
 Declaration(Class(obo:MOLSIM_001071))
+Declaration(Class(obo:MOLSIM_001072))
 Declaration(Class(obo:MOLSIM_001073))
 Declaration(Class(obo:MOLSIM_001074))
 Declaration(Class(obo:MOLSIM_001075))
@@ -2185,7 +2152,6 @@ Declaration(Class(obo:MOLSIM_010025))
 Declaration(Class(obo:MOLSIM_010026))
 Declaration(Class(obo:MOLSIM_010027))
 Declaration(Class(obo:MOLSIM_010028))
-Declaration(Class(obo:OBI_0000011))
 Declaration(Class(obo:UO_0000000))
 Declaration(Class(obo:UO_0000001))
 Declaration(Class(obo:UO_0000002))
@@ -2443,6 +2409,10 @@ AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
 
 AnnotationAssertion(rdfs:label oboInOwl:hasAlternativeId "has_alternative_id")
 
+# Annotation Property: oboInOwl:hasDbXref (database_cross_reference)
+
+AnnotationAssertion(rdfs:label oboInOwl:hasDbXref "database_cross_reference")
+
 # Annotation Property: oboInOwl:hasExactSynonym (has exact synonym)
 
 AnnotationAssertion(obo:IAO_0000115 oboInOwl:hasExactSynonym "An alternative label for a class or property which has the exact same meaning than the preferred name/primary label.")
@@ -2485,15 +2455,11 @@ TransitiveObjectProperty(obo:BFO_0000051)
 
 AnnotationAssertion(rdfs:label obo:BFO_0000054 "realized in"@en)
 InverseObjectProperties(obo:BFO_0000054 obo:BFO_0000055)
-ObjectPropertyDomain(obo:BFO_0000054 obo:BFO_0000017)
-ObjectPropertyRange(obo:BFO_0000054 obo:BFO_0000015)
 
 # Object Property: obo:BFO_0000055 (realizes)
 
 AnnotationAssertion(rdfs:label obo:BFO_0000055 "realizes"@en)
 SubObjectPropertyOf(obo:BFO_0000055 owl:topObjectProperty)
-ObjectPropertyDomain(obo:BFO_0000055 obo:BFO_0000015)
-ObjectPropertyRange(obo:BFO_0000055 obo:BFO_0000017)
 
 # Object Property: obo:IAO_0000039 (has measurement unit label)
 
@@ -2501,14 +2467,9 @@ AnnotationAssertion(rdfs:label obo:IAO_0000039 "has measurement unit label"@en)
 SubObjectPropertyOf(obo:IAO_0000039 obo:BFO_0000051)
 SubObjectPropertyOf(obo:IAO_0000039 owl:topObjectProperty)
 FunctionalObjectProperty(obo:IAO_0000039)
-ObjectPropertyRange(obo:IAO_0000039 obo:IAO_0000003)
 
-# Object Property: obo:IAO_0000109 (measurement datum)
+# Object Property: obo:IAO_0000109 (obo:IAO_0000109)
 
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000109 "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000109 "OBI_0000305"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000109 "group:OBI"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000109 "measurement datum"@en)
 SubObjectPropertyOf(obo:IAO_0000109 owl:topObjectProperty)
 
 # Object Property: obo:IAO_0000136 (is about)
@@ -2517,7 +2478,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000136 "A (currently) primitive rel
 AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000136 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000136 "is about"@en)
 SubObjectPropertyOf(obo:IAO_0000136 owl:topObjectProperty)
-ObjectPropertyDomain(obo:IAO_0000136 obo:IAO_0000030)
 
 # Object Property: obo:IAO_0000219 (denotes)
 
@@ -2526,15 +2486,11 @@ AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000219 "Conversations with Barry Sm
 AnnotationAssertion(rdfs:label obo:IAO_0000219 "denotes"@en)
 SubObjectPropertyOf(obo:IAO_0000219 obo:IAO_0000136)
 InverseObjectProperties(obo:IAO_0000219 obo:IAO_0000235)
-ObjectPropertyDomain(obo:IAO_0000219 obo:IAO_0000030)
-ObjectPropertyRange(obo:IAO_0000219 obo:BFO_0000001)
 
 # Object Property: obo:IAO_0000235 (denoted by)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000235 "inverse of the relation 'denotes'"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000235 "denoted by"@en)
-ObjectPropertyDomain(obo:IAO_0000235 obo:BFO_0000001)
-ObjectPropertyRange(obo:IAO_0000235 obo:IAO_0000030)
 
 # Object Property: obo:MOLSIM_000297 (periodic box type)
 
@@ -2593,14 +2549,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:OBI_0000299 "The inverse property of is_
 AnnotationAssertion(rdfs:label obo:OBI_0000299 "has_specified_output"@en)
 EquivalentObjectProperties(obo:OBI_0000299 ObjectInverseOf(obo:OBI_0000312))
 SubObjectPropertyOf(obo:OBI_0000299 obo:RO_0000057)
-ObjectPropertyDomain(obo:OBI_0000299 obo:OBI_0000011)
 
 # Object Property: obo:OBI_0000312 (is_specified_output_of)
 
 AnnotationAssertion(obo:IAO_0000115 obo:OBI_0000312 "A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en)
 AnnotationAssertion(rdfs:label obo:OBI_0000312 "is_specified_output_of"@en)
 SubObjectPropertyOf(obo:OBI_0000312 obo:RO_0000056)
-ObjectPropertyRange(obo:OBI_0000312 obo:OBI_0000011)
 
 # Object Property: obo:RO_0000052 (characteristic of)
 
@@ -2614,7 +2568,6 @@ FunctionalObjectProperty(obo:RO_0000052)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000053 "Inverse of characteristic_of"@en)
 AnnotationAssertion(rdfs:label obo:RO_0000053 "has characteristic"@en)
 InverseFunctionalObjectProperty(obo:RO_0000053)
-ObjectPropertyRange(obo:RO_0000053 obo:BFO_0000020)
 
 # Object Property: obo:RO_0000056 (participates in)
 
@@ -2622,15 +2575,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0000056 "a relation between a continu
 AnnotationAssertion(rdfs:label obo:RO_0000056 "participates in"@en)
 SubObjectPropertyOf(obo:RO_0000056 owl:topObjectProperty)
 InverseObjectProperties(obo:RO_0000056 obo:RO_0000057)
-ObjectPropertyDomain(obo:RO_0000056 obo:BFO_0000002)
-ObjectPropertyRange(obo:RO_0000056 obo:BFO_0000003)
 
 # Object Property: obo:RO_0000057 (has participant)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000057 "a relation between a process and a continuant, in which the continuant is somehow involved in the process"@en)
 AnnotationAssertion(rdfs:label obo:RO_0000057 "has participant"@en)
-ObjectPropertyDomain(obo:RO_0000057 obo:BFO_0000003)
-ObjectPropertyRange(obo:RO_0000057 obo:BFO_0000002)
 
 # Object Property: obo:RO_0000058 (is concretized as)
 
@@ -2638,15 +2587,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0000058 "A relationship between a gen
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000058 "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants."@en)
 AnnotationAssertion(rdfs:label obo:RO_0000058 "is concretized as"@en)
 InverseObjectProperties(obo:RO_0000058 obo:RO_0000059)
-ObjectPropertyDomain(obo:RO_0000058 obo:BFO_0000031)
-ObjectPropertyRange(obo:RO_0000058 obo:BFO_0000020)
 
 # Object Property: obo:RO_0000059 (concretizes)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000059 "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant."@en)
 AnnotationAssertion(rdfs:label obo:RO_0000059 "concretizes"@en)
-ObjectPropertyDomain(obo:RO_0000059 obo:BFO_0000020)
-ObjectPropertyRange(obo:RO_0000059 obo:BFO_0000031)
 
 # Object Property: obo:RO_0000079 (function of)
 
@@ -2654,7 +2599,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0000079 "a relation between a functio
 AnnotationAssertion(rdfs:label obo:RO_0000079 "function of"@en)
 SubObjectPropertyOf(obo:RO_0000079 obo:RO_0000052)
 InverseObjectProperties(obo:RO_0000079 obo:RO_0000085)
-ObjectPropertyDomain(obo:RO_0000079 obo:BFO_0000034)
 
 # Object Property: obo:RO_0000080 (quality of)
 
@@ -2675,8 +2619,6 @@ InverseObjectProperties(obo:RO_0000081 obo:RO_0000087)
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000085 "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence"@en)
 AnnotationAssertion(rdfs:label obo:RO_0000085 "has function"@en)
 SubObjectPropertyOf(obo:RO_0000085 obo:RO_0000053)
-ObjectPropertyDomain(obo:RO_0000085 obo:BFO_0000004)
-ObjectPropertyRange(obo:RO_0000085 obo:BFO_0000034)
 
 # Object Property: obo:RO_0000086 (has quality)
 
@@ -2684,15 +2626,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0000086 "a relation between an indepe
 AnnotationAssertion(rdfs:label obo:RO_0000086 "has quality"@en)
 SubObjectPropertyOf(obo:RO_0000086 obo:RO_0000053)
 SubObjectPropertyOf(obo:RO_0000086 owl:topObjectProperty)
-ObjectPropertyRange(obo:RO_0000086 obo:BFO_0000019)
 
 # Object Property: obo:RO_0000087 (has role)
 
 AnnotationAssertion(obo:IAO_0000115 obo:RO_0000087 "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"@en)
 AnnotationAssertion(rdfs:label obo:RO_0000087 "has role"@en)
 SubObjectPropertyOf(obo:RO_0000087 obo:RO_0000053)
-ObjectPropertyDomain(obo:RO_0000087 obo:BFO_0000004)
-ObjectPropertyRange(obo:RO_0000087 obo:BFO_0000023)
 
 # Object Property: obo:RO_0000091 (has disposition)
 
@@ -2700,8 +2639,6 @@ AnnotationAssertion(obo:IAO_0000115 obo:RO_0000091 "a relation between an indepe
 AnnotationAssertion(rdfs:label obo:RO_0000091 "has disposition"@en)
 SubObjectPropertyOf(obo:RO_0000091 obo:RO_0000053)
 InverseObjectProperties(obo:RO_0000091 obo:RO_0000092)
-ObjectPropertyDomain(obo:RO_0000091 obo:BFO_0000004)
-ObjectPropertyRange(obo:RO_0000091 obo:BFO_0000016)
 
 # Object Property: obo:RO_0000092 (disposition of)
 
@@ -2730,7 +2667,6 @@ SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
 
 AnnotationAssertion(rdfs:label obo:IAO_0000004 "has measurement value"@en)
 FunctionalDataProperty(obo:IAO_0000004)
-DataPropertyDomain(obo:IAO_0000004 obo:IAO_0000032)
 DataPropertyRange(obo:IAO_0000004 xsd:double)
 
 # Data Property: obo:MOLSIM_001121 (composition counts)
@@ -3054,86 +2990,6 @@ DataPropertyRange(obo:MOLSIM_001162 xsd:string)
 #   Classes
 ############################
 
-# Class: obo:APOLLO_SV_00000008 (software development)
-
-AnnotationAssertion(obo:IAO_0000115 obo:APOLLO_SV_00000008 "A planned process that has specified output a software product and that involves the creation of source code."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:APOLLO_SV_00000008 "http://en.wikipedia.org/wiki/Software_development")
-AnnotationAssertion(rdfs:label obo:APOLLO_SV_00000008 "software development"@en)
-EquivalentClasses(obo:APOLLO_SV_00000008 ObjectIntersectionOf(obo:OBI_0000011 ObjectSomeValuesFrom(obo:OBI_0000299 ObjectUnionOf(obo:IAO_0000010 obo:IAO_0000096))))
-SubClassOf(obo:APOLLO_SV_00000008 obo:OBI_0000011)
-SubClassOf(obo:APOLLO_SV_00000008 ObjectSomeValuesFrom(obo:OBI_0000299 ObjectUnionOf(obo:IAO_0000010 obo:IAO_0000096)))
-
-# Class: obo:BFO_0000001 (entity)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000001 "entity"@en)
-
-# Class: obo:BFO_0000002 (continuant)
-
-AnnotationAssertion(obo:IAO_0000115 obo:BFO_0000002 "An entity that exists in full at any time in which it exists at all, persists through time while maintaining its identity and has no temporal parts."@en)
-AnnotationAssertion(rdfs:label obo:BFO_0000002 "continuant"@en)
-SubClassOf(obo:BFO_0000002 obo:BFO_0000001)
-DisjointClasses(obo:BFO_0000002 obo:BFO_0000003)
-DisjointClasses(obo:BFO_0000002 ObjectSomeValuesFrom(obo:BFO_0000050 obo:BFO_0000003))
-
-# Class: obo:BFO_0000003 (occurrent)
-
-AnnotationAssertion(obo:IAO_0000115 obo:BFO_0000003 "An entity that has temporal parts and that happens, unfolds or develops through time."@en)
-AnnotationAssertion(rdfs:label obo:BFO_0000003 "occurrent"@en)
-SubClassOf(obo:BFO_0000003 obo:BFO_0000001)
-DisjointClasses(obo:BFO_0000003 ObjectSomeValuesFrom(obo:BFO_0000050 obo:BFO_0000002))
-
-# Class: obo:BFO_0000004 (independent continuant)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000004 "independent continuant"@en)
-SubClassOf(obo:BFO_0000004 obo:BFO_0000002)
-DisjointClasses(obo:BFO_0000004 obo:BFO_0000020)
-DisjointClasses(obo:BFO_0000004 obo:BFO_0000031)
-
-# Class: obo:BFO_0000015 (process)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000015 "process"@en)
-SubClassOf(obo:BFO_0000015 obo:BFO_0000003)
-
-# Class: obo:BFO_0000016 (disposition)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000016 "disposition"@en)
-SubClassOf(obo:BFO_0000016 obo:BFO_0000017)
-DisjointClasses(obo:BFO_0000016 obo:BFO_0000023)
-
-# Class: obo:BFO_0000017 (realizable entity)
-
-AnnotationAssertion(obo:IAO_0000115 obo:BFO_0000017 "A specifically dependent continuant  that inheres in continuant  entities and are not exhibited in full at every time in which it inheres in an entity or group of entities. The exhibition or actualization of a realizable entity is a particular manifestation, functioning or process that occurs under certain circumstances."@en)
-AnnotationAssertion(rdfs:label obo:BFO_0000017 "realizable entity"@en)
-SubClassOf(obo:BFO_0000017 obo:BFO_0000020)
-DisjointClasses(obo:BFO_0000017 obo:BFO_0000019)
-
-# Class: obo:BFO_0000019 (quality)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000019 "quality"@en)
-SubClassOf(obo:BFO_0000019 obo:BFO_0000020)
-
-# Class: obo:BFO_0000020 (specifically dependent continuant)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000020 "specifically dependent continuant"@en)
-SubClassOf(obo:BFO_0000020 obo:BFO_0000002)
-DisjointClasses(obo:BFO_0000020 obo:BFO_0000031)
-
-# Class: obo:BFO_0000023 (role)
-
-AnnotationAssertion(obo:IAO_0000115 obo:BFO_0000023 "A realizable entity  the manifestation of which brings about some result or end that is not essential to a continuant  in virtue of the kind of thing that it is but that can be served or participated in by that kind of continuant  in some kinds of natural, social or institutional contexts."@en)
-AnnotationAssertion(rdfs:label obo:BFO_0000023 "role"@en)
-SubClassOf(obo:BFO_0000023 obo:BFO_0000017)
-
-# Class: obo:BFO_0000031 (generically dependent continuant)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000031 "generically dependent continuant"@en)
-SubClassOf(obo:BFO_0000031 obo:BFO_0000002)
-
-# Class: obo:BFO_0000034 (function)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000034 "function"@en)
-SubClassOf(obo:BFO_0000034 obo:BFO_0000016)
-
 # Class: obo:CHEBI_131619 (C27-steroid)
 
 AnnotationAssertion(obo:IAO_0000115 obo:CHEBI_131619 "A steroid compound with a structure based on a 27-carbon (cholestane) skeleton.")
@@ -3199,6 +3055,7 @@ AnnotationAssertion(chemrof:mass obo:CHEBI_142361 "235.22"^^xsd:decimal)
 AnnotationAssertion(chemrof:monoisotopic_mass obo:CHEBI_142361 "235.08312"^^xsd:decimal)
 AnnotationAssertion(chemrof:smiles_string obo:CHEBI_142361 "*C1=Nc2c(ncn2[C@H]2C[C@H](O)[C@@H](CO)O2)C(=*)N1")
 SubClassOf(obo:CHEBI_142361 obo:CHEBI_19254)
+SubClassOf(obo:CHEBI_142361 obo:CHEBI_50860)
 
 # Class: obo:CHEBI_143408 (3-aminopropan-1-ol)
 
@@ -3957,6 +3814,7 @@ AnnotationAssertion(chemrof:mass obo:CHEBI_16236 "46.069"^^xsd:decimal)
 AnnotationAssertion(chemrof:monoisotopic_mass obo:CHEBI_16236 "46.04186"^^xsd:decimal)
 AnnotationAssertion(chemrof:smiles_string obo:CHEBI_16236 "CCO")
 SubClassOf(obo:CHEBI_16236 obo:CHEBI_134179)
+SubClassOf(obo:CHEBI_16236 obo:CHEBI_15734)
 SubClassOf(obo:CHEBI_16236 obo:CHEBI_23982)
 SubClassOf(obo:CHEBI_16236 obo:CHEBI_50584)
 
@@ -4304,8 +4162,10 @@ AnnotationAssertion(chemrof:inchi_string obo:CHEBI_16977 "InChI=1S/C3H7NO2/c1-2(
 AnnotationAssertion(chemrof:mass obo:CHEBI_16977 "89.094"^^xsd:decimal)
 AnnotationAssertion(chemrof:monoisotopic_mass obo:CHEBI_16977 "89.04768"^^xsd:decimal)
 AnnotationAssertion(chemrof:smiles_string obo:CHEBI_16977 "C[C@H](N)C(=O)O")
+SubClassOf(obo:CHEBI_16977 obo:CHEBI_15705)
 SubClassOf(obo:CHEBI_16977 obo:CHEBI_16449)
 SubClassOf(obo:CHEBI_16977 obo:CHEBI_26463)
+SubClassOf(obo:CHEBI_16977 obo:CHEBI_83813)
 
 # Class: obo:CHEBI_17062 (primary aliphatic amine)
 
@@ -4368,6 +4228,7 @@ AnnotationAssertion(chemrof:mass obo:CHEBI_17172 "267.245"^^xsd:decimal)
 AnnotationAssertion(chemrof:monoisotopic_mass obo:CHEBI_17172 "267.09675"^^xsd:decimal)
 AnnotationAssertion(chemrof:smiles_string obo:CHEBI_17172 "Nc1nc(=O)c2ncn([C@H]3C[C@H](O)[C@@H](CO)O3)c2n1")
 SubClassOf(obo:CHEBI_17172 obo:CHEBI_142361)
+SubClassOf(obo:CHEBI_17172 obo:CHEBI_19254)
 
 # Class: obo:CHEBI_1722 (3beta-hydroxy-Delta(5)-steroid)
 
@@ -4440,6 +4301,7 @@ AnnotationAssertion(chemrof:mass obo:CHEBI_17256 "251.246"^^xsd:decimal)
 AnnotationAssertion(chemrof:monoisotopic_mass obo:CHEBI_17256 "251.10184"^^xsd:decimal)
 AnnotationAssertion(chemrof:smiles_string obo:CHEBI_17256 "Nc1ncnc2c1ncn2[C@H]1C[C@H](O)[C@@H](CO)O1")
 SubClassOf(obo:CHEBI_17256 obo:CHEBI_142361)
+SubClassOf(obo:CHEBI_17256 obo:CHEBI_19254)
 
 # Class: obo:CHEBI_17562 (cytidine)
 
@@ -4935,6 +4797,7 @@ AnnotationAssertion(oboInOwl:inSubset obo:CHEBI_21731 <http://purl.obolibrary.or
 AnnotationAssertion(rdfs:label obo:CHEBI_21731 "N-glycosyl compound")
 SubClassOf(obo:CHEBI_21731 obo:CHEBI_35352)
 SubClassOf(obo:CHEBI_21731 obo:CHEBI_63161)
+SubClassOf(obo:CHEBI_21731 obo:CHEBI_63299)
 
 # Class: obo:CHEBI_22260 (adenosines)
 
@@ -6592,6 +6455,7 @@ AnnotationAssertion(oboInOwl:id obo:CHEBI_50047 "CHEBI:50047")
 AnnotationAssertion(oboInOwl:inSubset obo:CHEBI_50047 <http://purl.obolibrary.org/obo/chebi/3_STAR>)
 AnnotationAssertion(rdfs:label obo:CHEBI_50047 "organic amino compound")
 SubClassOf(obo:CHEBI_50047 obo:CHEBI_35352)
+SubClassOf(obo:CHEBI_50047 obo:CHEBI_50860)
 
 # Class: obo:CHEBI_50401 (cholestanoid)
 
@@ -6937,159 +6801,7 @@ AnnotationAssertion(chemrof:mass obo:CHEBI_85422 "76.119"^^xsd:decimal)
 AnnotationAssertion(chemrof:monoisotopic_mass obo:CHEBI_85422 "76.07569"^^xsd:decimal)
 AnnotationAssertion(chemrof:smiles_string obo:CHEBI_85422 "C[C@H]([NH3+])CO")
 SubClassOf(obo:CHEBI_85422 obo:CHEBI_195439)
-
-# Class: obo:IAO_0000003 (measurement unit label)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000003 "A measurement unit label is as a label that is part of a scalar measurement datum and denotes a unit of measure."@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000003 "measurement unit label"@en)
-SubClassOf(obo:IAO_0000003 obo:IAO_0000009)
-
-# Class: obo:IAO_0000005 (objective specification)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000005 "A directive information entity that describes an intended process endpoint. When part of a plan specification the concretization is realized in a planned process in which the bearer tries to effect the world so that the process endpoint is achieved."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000005 "OBI Plan and Planned Process/Roles Branch"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000005 "OBI_0000217"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000005 "objective specification"@en)
-SubClassOf(obo:IAO_0000005 obo:IAO_0000033)
-
-# Class: obo:IAO_0000007 (action specification)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000007 "A directive information entity that describes an action the bearer will take."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000007 "OBI Plan and Planned Process branch"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000007 "action specification"@en)
-SubClassOf(obo:IAO_0000007 obo:IAO_0000033)
-
-# Class: obo:IAO_0000009 (datum label)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000009 "A label is a symbol that is part of some other datum and is used to either partially define  the denotation of that datum or to provide a means for identifying the datum as a member of the set of data with the same label"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000009 "datum label"@en)
-SubClassOf(obo:IAO_0000009 obo:IAO_0000030)
-
-# Class: obo:IAO_0000010 (software)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000010 "Software is a plan specification composed of a series of instructions that can be 
-interpreted by or directly executed by a processing unit."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000010 "GROUP: OBI"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000010 "software"@en)
-SubClassOf(obo:IAO_0000010 obo:IAO_0000104)
-
-# Class: obo:IAO_0000015 (information carrier)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000015 "A quality of an information bearer that imparts the information content"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000015 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000015 "information carrier"@en)
-EquivalentClasses(obo:IAO_0000015 ObjectIntersectionOf(obo:BFO_0000019 ObjectSomeValuesFrom(obo:RO_0000059 obo:IAO_0000030)))
-SubClassOf(obo:IAO_0000015 obo:BFO_0000019)
-SubClassOf(obo:IAO_0000015 ObjectSomeValuesFrom(obo:RO_0000059 obo:IAO_0000030))
-
-# Class: obo:IAO_0000027 (data item)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000027 "An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000027 "data item"@en)
-SubClassOf(obo:IAO_0000027 obo:IAO_0000030)
-
-# Class: obo:IAO_0000030 (information content entity)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000030 "")
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000030 "A generically dependent continuant that is about some thing."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000030 "OBI_0000142"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000030 "information content entity"@en)
-SubClassOf(obo:IAO_0000030 obo:BFO_0000031)
-SubClassOf(obo:IAO_0000030 ObjectSomeValuesFrom(obo:IAO_0000136 obo:BFO_0000001))
-
-# Class: obo:IAO_0000032 (scalar measurement datum)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000032 "A scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label."@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000032 "scalar measurement datum"@en)
-SubClassOf(obo:IAO_0000032 obo:IAO_0000109)
-SubClassOf(obo:IAO_0000032 ObjectSomeValuesFrom(obo:IAO_0000039 owl:Thing))
-SubClassOf(obo:IAO_0000032 ObjectMinCardinality(1 obo:IAO_0000039))
-SubClassOf(obo:IAO_0000032 DataMinCardinality(1 obo:IAO_0000004))
-
-# Class: obo:IAO_0000033 (directive information entity)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000033 "An information content entity whose concretizations indicate to their bearer how to realize them in a process."@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000033 "directive information entity"@en)
-SubClassOf(obo:IAO_0000033 obo:IAO_0000030)
-SubClassOf(obo:IAO_0000033 ObjectSomeValuesFrom(obo:IAO_0000136 obo:BFO_0000017))
-
-# Class: obo:IAO_0000064 (algorithm)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000064 "A plan specification which describes the inputs and output of mathematical functions as well as workflow of execution for achieving an predefined objective. Algorithms are realized usually by means of implementation as computer programs for execution by automata."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000064 "OBI_0000270"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000064 "adapted from discussion on OBI list (Matthew Pocock, Christian Cocos, Alan Ruttenberg)"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000064 "algorithm"@en)
-SubClassOf(obo:IAO_0000064 obo:IAO_0000104)
-
-# Class: obo:IAO_0000078 (curation status specification)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000078 "The curation status of the term. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000078 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000078 "OBI_0000266"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000078 "curation status specification"@en)
-EquivalentClasses(obo:IAO_0000078 ObjectOneOf(obo:IAO_0000002 obo:IAO_0000120 obo:IAO_0000121 obo:IAO_0000122 obo:IAO_0000123 obo:IAO_0000124 obo:IAO_0000125 obo:IAO_0000423 obo:IAO_0000428))
-SubClassOf(obo:IAO_0000078 obo:IAO_0000102)
-
-# Class: obo:IAO_0000096 (source code module)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000096 "A source code module is a directive information entity that specifies, using a programming language, some algorithm."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000096 "OBI_0000039"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000096 "group:OBI"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000096 "source code module"@en)
-SubClassOf(obo:IAO_0000096 obo:IAO_0000033)
-
-# Class: obo:IAO_0000102 (data about an ontology part)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000102 "Data about an ontology part is a data item about a part of an ontology, for example a term"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000102 "data about an ontology part"@en)
-SubClassOf(obo:IAO_0000102 obo:IAO_0000027)
-
-# Class: obo:IAO_0000104 (plan specification)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000104 "A directive information entity with action specifications and objective specifications as parts, and that may be concretized as a realizable entity that, if realized, is realized in a process in which the bearer tries to achieve the objectives by taking the actions specified."@en)
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000104 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000104 "OBI Plan and Planned Process branch"@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000104 "OBI_0000344"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000104 "plan specification"@en)
-SubClassOf(obo:IAO_0000104 obo:IAO_0000033)
-SubClassOf(obo:IAO_0000104 ObjectSomeValuesFrom(obo:BFO_0000051 obo:IAO_0000005))
-SubClassOf(obo:IAO_0000104 ObjectSomeValuesFrom(obo:BFO_0000051 obo:IAO_0000007))
-
-# Class: obo:IAO_0000109 (measurement datum)
-
-SubClassOf(obo:IAO_0000109 obo:IAO_0000027)
-
-# Class: obo:IAO_0000225 (obsolescence reason specification)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000225 "The reason for which a term has been deprecated. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value."@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000225 "obsolescence reason specification"@en)
-EquivalentClasses(obo:IAO_0000225 ObjectOneOf(obo:IAO_0000103 obo:IAO_0000226 obo:IAO_0000227 obo:IAO_0000228 obo:IAO_0000229 obo:OMO_0001000))
-SubClassOf(obo:IAO_0000225 obo:IAO_0000102)
-
-# Class: obo:IAO_0000409 (denotator type)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000409 "A denotator type indicates how a term should be interpreted from an ontological perspective."@en)
-AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000409 "Barry Smith, Werner Ceusters"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000409 "denotator type"@en)
-EquivalentClasses(obo:IAO_0000409 ObjectOneOf(obo:IAO_0000410 obo:IAO_0000420 obo:IAO_0000421))
-SubClassOf(obo:IAO_0000409 obo:IAO_0000102)
-
-# Class: obo:IAO_0020000 (identifier)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0020000 "An information content entity that is the outcome of a dubbing process and is used to refer to one instance of entity shared by a group of people to refer to that individual entity."@en)
-AnnotationAssertion(rdfs:label obo:IAO_0020000 "identifier"@en)
-EquivalentClasses(obo:IAO_0020000 ObjectIntersectionOf(obo:IAO_0000030 ObjectSomeValuesFrom(obo:IAO_0000219 obo:BFO_0000001) ObjectSomeValuesFrom(obo:OBI_0000312 obo:IAO_0020010)))
-SubClassOf(obo:IAO_0020000 obo:IAO_0000030)
-SubClassOf(obo:IAO_0020000 ObjectSomeValuesFrom(obo:IAO_0000219 obo:BFO_0000001))
-SubClassOf(obo:IAO_0020000 ObjectSomeValuesFrom(obo:OBI_0000312 obo:IAO_0020010))
-
-# Class: obo:IAO_0020010 (identifier creating process)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0020010 "A planned process that provides a reference to an individual entity shared by a group of subscribers to refer to that individual entity."@en)
-AnnotationAssertion(rdfs:label obo:IAO_0020010 "identifier creating process"@en)
-EquivalentClasses(obo:IAO_0020010 ObjectIntersectionOf(obo:OBI_0000011 ObjectSomeValuesFrom(obo:OBI_0000299 obo:IAO_0020000)))
-SubClassOf(obo:IAO_0020010 obo:OBI_0000011)
-SubClassOf(obo:IAO_0020010 ObjectSomeValuesFrom(obo:OBI_0000299 obo:IAO_0020000))
+SubClassOf(obo:CHEBI_85422 obo:CHEBI_65296)
 
 # Class: obo:MOLSIM_000000 (molecular dynamics process)
 
@@ -7962,7 +7674,7 @@ SubClassOf(obo:MOLSIM_000142 obo:MOLSIM_000127)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000143 "Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000143 "ligand pairs selection criteria"@en)
-SubClassOf(obo:MOLSIM_000143 obo:IAO_0000104)
+SubClassOf(obo:MOLSIM_000143 obo:MOLSIM_000310)
 
 # Class: obo:MOLSIM_000144 (structural similarity)
 
@@ -8989,6 +8701,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000309 "An entropy analysis metho
 AnnotationAssertion(rdfs:label obo:MOLSIM_000309 "entropy analysis"@en)
 SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
 
+# Class: obo:MOLSIM_000310 (plan specification)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000104 (plan specification)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
+
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000311 "RMSD analysis is a calculation that measures how much a molecule's shape has changed over time compared to a starting shape. As a type of structural analysis, this method quantifies the global structural deviation by calculating the root-mean-square deviation of atomic coordinates between trajectory frames and a reference structure after optimal superposition. It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and as a metric for clustering algorithms. Analysis scripts and outputs frequently use the terms \"rmsd,\" \"rms,\" \"RMSD vs. time,\" and \"backbone RMSD.\" (UNVERIFIED)"@en)
@@ -9763,6 +9481,7 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000447 "identifier"@en)
 # Class: obo:MOLSIM_000448 (protein database ID)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000448 "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_000448 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000448 "protein database ID"@en)
 SubClassOf(obo:MOLSIM_000448 obo:MOLSIM_000447)
 
@@ -13189,23 +12908,29 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_001071 "The traj3d \"pseudo-trajecto
 AnnotationAssertion(rdfs:label obo:MOLSIM_001071 "CPPTRAJ traj3d format"@en)
 SubClassOf(obo:MOLSIM_001071 obo:MOLSIM_001090)
 
+# Class: obo:MOLSIM_001072 (information content entity)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001072 "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)")
+AnnotationAssertion(dcterms:BibliographicResource obo:MOLSIM_001072 "")
+AnnotationAssertion(rdfs:label obo:MOLSIM_001072 "information content entity"@en)
+
 # Class: obo:MOLSIM_001073 (molecular system specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001073 "A molecular system specification is the complete abstract description of all the molecules and their properties that constitute a simulation. It includes the identity and 3D arrangement of all atoms (the structure) and the rules governing their interactions (the topology and force field). This specification is the complete informational blueprint of the system before any simulation is performed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001073 "molecular system specification"@en)
-SubClassOf(obo:MOLSIM_001073 obo:IAO_0000030)
+SubClassOf(obo:MOLSIM_001073 obo:MOLSIM_001072)
 
 # Class: obo:MOLSIM_001074 (process specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001074 "A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification is what must be recorded to ensure a computational experiment is fully reproducible. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001074 "process specification"@en)
-SubClassOf(obo:MOLSIM_001074 obo:IAO_0000030)
+SubClassOf(obo:MOLSIM_001074 obo:MOLSIM_001072)
 
 # Class: obo:MOLSIM_001075 (process output)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001075 "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. Its content varies greatly depending on the program and the type of task performed, but typically includes computed energies, optimized geometries, properties, and diagnostic information. These files are crucial for analyzing the outcome of computational jobs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001075 "process output"@en)
-SubClassOf(obo:MOLSIM_001075 obo:IAO_0000030)
+SubClassOf(obo:MOLSIM_001075 obo:MOLSIM_001072)
 
 # Class: obo:MOLSIM_001076 (molecular topology)
 
@@ -17035,6 +16760,7 @@ SubClassOf(obo:MOLSIM_001752 obo:MOLSIM_001751)
 # Class: obo:MOLSIM_001753 (residue name)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001753 "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_001753 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001753 "residue name"@en)
 SubClassOf(obo:MOLSIM_001753 obo:MOLSIM_000447)
 
@@ -17047,6 +16773,7 @@ SubClassOf(obo:MOLSIM_001754 obo:MOLSIM_001753)
 # Class: obo:MOLSIM_001755 (atom name)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001755 "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_001755 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001755 "atom name"@en)
 SubClassOf(obo:MOLSIM_001755 obo:MOLSIM_000447)
 
@@ -17096,6 +16823,7 @@ SubClassOf(obo:MOLSIM_001762 obo:MOLSIM_001761)
 # Class: obo:MOLSIM_001763 (atom type)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001763 "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_001763 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001763 "atom type"@en)
 SubClassOf(obo:MOLSIM_001763 obo:MOLSIM_000447)
 
@@ -18754,6 +18482,7 @@ SubClassOf(obo:MOLSIM_002038 obo:MOLSIM_000441)
 # Class: obo:MOLSIM_002039 (atom ID)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002039 "An atom ID is usually a number, that uniquely defines a given atom in structure."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_002039 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002039 "atom ID"@en)
 SubClassOf(obo:MOLSIM_002039 obo:MOLSIM_000447)
 
@@ -18932,12 +18661,6 @@ SubClassOf(obo:MOLSIM_010027 obo:MOLSIM_000328)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010028 "LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_010028 "leap analysis"@en)
 SubClassOf(obo:MOLSIM_010028 obo:MOLSIM_000328)
-
-# Class: obo:OBI_0000011 (planned process)
-
-AnnotationAssertion(obo:IAO_0000115 obo:OBI_0000011 "A process that realizes a plan which is the concretization of a plan specification."@en)
-AnnotationAssertion(rdfs:label obo:OBI_0000011 "planned process"@en)
-SubClassOf(obo:OBI_0000011 obo:BFO_0000015)
 
 # Class: obo:UO_0000000 (unit)
 
@@ -19233,107 +18956,90 @@ SubClassOf(obo:UO_1000268 obo:UO_0000267)
 # Individual: obo:IAO_0000002 (example to be eventually removed)
 
 AnnotationAssertion(rdfs:label obo:IAO_0000002 "example to be eventually removed"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000002)
 
 # Individual: obo:IAO_0000103 (failed exploratory term)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000103 "The term was initially used in an attempt to structure part of the ontology, but in retrospect failed to do a good job."@en)
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000103 "The term was used in an attempt to structure part of the ontology but in retrospect failed to do a good job"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000103 "failed exploratory term"@en)
-ClassAssertion(obo:IAO_0000225 obo:IAO_0000103)
 
 # Individual: obo:IAO_0000120 (metadata complete)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000120 "Class has all its metadata, but is either not guaranteed to be in its final location in the asserted IS_A hierarchy or refers to another class that is not complete."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000120 "metadata complete"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000120)
 
 # Individual: obo:IAO_0000121 (organizational term)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000121 "Term created to ease viewing/sort terms for development purpose, and will not be included in a release"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000121 "The term was created to ease viewing/sorting terms for development purposes, but will not be included in a release."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000121 "organizational term"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000121)
 
 # Individual: obo:IAO_0000122 (ready for release)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000122 "Class has undergone final review, is ready for use, and will be included in the next release. Any class lacking \"ready_for_release\" should be considered likely to change place in hierarchy, have its definition refined, or be obsoleted in the next release.  Those classes deemed \"ready_for_release\" will also derived from a chain of ancestor classes that are also \"ready_for_release.\""@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000122 "ready for release"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000122)
 
 # Individual: obo:IAO_0000123 (metadata incomplete)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000123 "Class is being worked on; however, the metadata (including definition) are not complete or sufficiently clear to the branch editors."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000123 "metadata incomplete"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000123)
 
 # Individual: obo:IAO_0000124 (uncurated)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000124 "Nothing done yet beyond assigning a unique class ID and proposing a preferred term."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000124 "uncurated"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000124)
 
 # Individual: obo:IAO_0000125 (pending final vetting)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000125 "All definitions, placement in the asserted IS_A hierarchy and required minimal metadata are complete. The class is awaiting a final review by someone other than the term editor."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000125 "pending final vetting"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000125)
 
 # Individual: obo:IAO_0000226 (placeholder removed)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000226 "The term was created to temporarily stand in for a semantic purpose, but is no longer needed, typically due to another permanent term being defined."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000226 "placeholder removed"@en)
-ClassAssertion(obo:IAO_0000225 obo:IAO_0000226)
 
 # Individual: obo:IAO_0000227 (terms merged)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000227 "The term has been combined with one or more other terms to create a more encompassing (merged) term."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000227 "terms merged"@en)
-ClassAssertion(obo:IAO_0000225 obo:IAO_0000227)
 
 # Individual: obo:IAO_0000228 (term imported)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000228 "The term has been replaced by a term imported from another ontology."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000228 "term imported"@en)
-ClassAssertion(obo:IAO_0000225 obo:IAO_0000228)
 
 # Individual: obo:IAO_0000229 (term split)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000229 "The term has been split into two or more new terms."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000229 "term split"@en)
-ClassAssertion(obo:IAO_0000225 obo:IAO_0000229)
 
 # Individual: obo:IAO_0000410 (universal)
 
 AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000410 "A Formal Theory of Substances, Qualities, and Universals, http://ontology.buffalo.edu/bfo/SQU.pdf"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000410 "universal"@en)
-ClassAssertion(obo:IAO_0000409 obo:IAO_0000410)
 
 # Individual: obo:IAO_0000420 (defined class)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000420 "A defined class is a class that is defined by a set of logically necessary and sufficient conditions but is not a universal"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000420 "defined class"@en)
-ClassAssertion(obo:IAO_0000409 obo:IAO_0000420)
 
 # Individual: obo:IAO_0000421 (named class expression)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000421 "A named class expression is a logical expression that is given a name. The name can be used in place of the expression."@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000421 "named class expression"@en)
-ClassAssertion(obo:IAO_0000409 obo:IAO_0000421)
 
 # Individual: obo:IAO_0000423 (to be replaced with external ontology term)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000423 "Terms with this status should eventually replaced with a term from another ontology."@en)
 AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000423 "group:OBI"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000423 "to be replaced with external ontology term"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000423)
 
 # Individual: obo:IAO_0000428 (requires discussion)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000428 "A term that is metadata complete, has been reviewed, and problems have been identified that require discussion before release. Such a term requires editor note(s) to identify the outstanding issues."@en)
 AnnotationAssertion(obo:IAO_0000119 obo:IAO_0000428 "group:OBI"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000428 "requires discussion"@en)
-ClassAssertion(obo:IAO_0000078 obo:IAO_0000428)
 
 # Individual: obo:MOLSIM_000723 (PDB)
 
@@ -19733,13 +19439,11 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001945 "Omni-Path"@en)
 
 AnnotationAssertion(obo:IAO_0000115 obo:OMO_0001000 "The term was added to the ontology on the assumption it was in scope, but it turned out later that it was not."@en)
 AnnotationAssertion(rdfs:label obo:OMO_0001000 "out of scope")
-ClassAssertion(obo:IAO_0000225 obo:OMO_0001000)
 
 # Individual: obo:OMO_0001002 (domain entity does not exist)
 
 AnnotationAssertion(obo:IAO_0000115 obo:OMO_0001002 "The term was added to the ontology on the assumption it was a valid domain entity, but it turns out the entity does not exist in reality."@en)
 AnnotationAssertion(rdfs:label obo:OMO_0001002 "domain entity does not exist")
-ClassAssertion(obo:IAO_0000225 obo:OMO_0001002)
 
 
 DisjointClasses(obo:MOLSIM_000005 obo:MOLSIM_000208 obo:MOLSIM_000209)
@@ -19795,8 +19499,4 @@ DisjointClasses(obo:MOLSIM_001605 obo:MOLSIM_001970 obo:MOLSIM_001971 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_001964 obo:MOLSIM_001965 obo:MOLSIM_001966 obo:MOLSIM_001967)
 DifferentIndividuals(obo:IAO_0000120 obo:IAO_0000121 obo:IAO_0000122 obo:IAO_0000123 obo:IAO_0000124 obo:IAO_0000125 obo:IAO_0000423 obo:IAO_0000428)
 DifferentIndividuals(obo:IAO_0000226 obo:IAO_0000227 obo:IAO_0000228 obo:IAO_0000229)
-DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>)) ClassAtom(obo:BFO_0000016 Variable(<urn:swrl#d>)))Head(ObjectPropertyAtom(obo:RO_0000091 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>))))
-DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>)) ClassAtom(obo:BFO_0000019 Variable(<urn:swrl#d>)))Head(ObjectPropertyAtom(obo:RO_0000086 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>))))
-DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>)) ClassAtom(obo:BFO_0000023 Variable(<urn:swrl#d>)))Head(ObjectPropertyAtom(obo:RO_0000087 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>))))
-DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>)) ClassAtom(obo:BFO_0000034 Variable(<urn:swrl#d>)))Head(ObjectPropertyAtom(obo:RO_0000085 Variable(<urn:swrl#e>) Variable(<urn:swrl#d>))))
 )

@@ -10,7 +10,6 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 
 Ontology(Import(<http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl>)
-Import(<http://purl.obolibrary.org/obo/molsim/imports/bfo_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/iao_import.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/omo_import.owl>)
@@ -22,8 +21,6 @@ Annotation(dcterms:description "MOLSIM is an interoperable domain ontology desig
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
 
-Declaration(Class(obo:IAO_0000030))
-Declaration(Class(obo:IAO_0000104))
 Declaration(Class(obo:MOLSIM_000000))
 Declaration(Class(obo:MOLSIM_000001))
 Declaration(Class(obo:MOLSIM_000002))
@@ -332,6 +329,7 @@ Declaration(Class(obo:MOLSIM_000306))
 Declaration(Class(obo:MOLSIM_000307))
 Declaration(Class(obo:MOLSIM_000308))
 Declaration(Class(obo:MOLSIM_000309))
+Declaration(Class(obo:MOLSIM_000310))
 Declaration(Class(obo:MOLSIM_000311))
 Declaration(Class(obo:MOLSIM_000312))
 Declaration(Class(obo:MOLSIM_000313))
@@ -1013,6 +1011,7 @@ Declaration(Class(obo:MOLSIM_001068))
 Declaration(Class(obo:MOLSIM_001069))
 Declaration(Class(obo:MOLSIM_001070))
 Declaration(Class(obo:MOLSIM_001071))
+Declaration(Class(obo:MOLSIM_001072))
 Declaration(Class(obo:MOLSIM_001073))
 Declaration(Class(obo:MOLSIM_001074))
 Declaration(Class(obo:MOLSIM_001075))
@@ -2539,16 +2538,6 @@ DataPropertyRange(obo:MOLSIM_001162 xsd:string)
 #   Classes
 ############################
 
-# Class: obo:IAO_0000030 (information content entity)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000030 "")
-AnnotationAssertion(rdfs:label obo:IAO_0000030 "information content entity"@en)
-
-# Class: obo:IAO_0000104 (plan specification)
-
-AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000104 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000104 "plan specification"@en)
-
 # Class: obo:MOLSIM_000000 (molecular dynamics process)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000000 "A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation. Different types of processes address distinct phases or goals within the overall workflow. (UNVERIFIED)"@en)
@@ -3420,7 +3409,7 @@ SubClassOf(obo:MOLSIM_000142 obo:MOLSIM_000127)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000143 "Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000143 "ligand pairs selection criteria"@en)
-SubClassOf(obo:MOLSIM_000143 obo:IAO_0000104)
+SubClassOf(obo:MOLSIM_000143 obo:MOLSIM_000310)
 
 # Class: obo:MOLSIM_000144 (structural similarity)
 
@@ -4447,6 +4436,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000309 "An entropy analysis metho
 AnnotationAssertion(rdfs:label obo:MOLSIM_000309 "entropy analysis"@en)
 SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
 
+# Class: obo:MOLSIM_000310 (plan specification)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000104 (plan specification)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
+
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000311 "RMSD analysis is a calculation that measures how much a molecule's shape has changed over time compared to a starting shape. As a type of structural analysis, this method quantifies the global structural deviation by calculating the root-mean-square deviation of atomic coordinates between trajectory frames and a reference structure after optimal superposition. It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and as a metric for clustering algorithms. Analysis scripts and outputs frequently use the terms \"rmsd,\" \"rms,\" \"RMSD vs. time,\" and \"backbone RMSD.\" (UNVERIFIED)"@en)
@@ -5221,6 +5216,7 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000447 "identifier"@en)
 # Class: obo:MOLSIM_000448 (protein database ID)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000448 "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_000448 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000448 "protein database ID"@en)
 SubClassOf(obo:MOLSIM_000448 obo:MOLSIM_000447)
 
@@ -8647,23 +8643,29 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_001071 "The traj3d \"pseudo-trajecto
 AnnotationAssertion(rdfs:label obo:MOLSIM_001071 "CPPTRAJ traj3d format"@en)
 SubClassOf(obo:MOLSIM_001071 obo:MOLSIM_001090)
 
+# Class: obo:MOLSIM_001072 (information content entity)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001072 "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)")
+AnnotationAssertion(dcterms:BibliographicResource obo:MOLSIM_001072 "")
+AnnotationAssertion(rdfs:label obo:MOLSIM_001072 "information content entity"@en)
+
 # Class: obo:MOLSIM_001073 (molecular system specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001073 "A molecular system specification is the complete abstract description of all the molecules and their properties that constitute a simulation. It includes the identity and 3D arrangement of all atoms (the structure) and the rules governing their interactions (the topology and force field). This specification is the complete informational blueprint of the system before any simulation is performed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001073 "molecular system specification"@en)
-SubClassOf(obo:MOLSIM_001073 obo:IAO_0000030)
+SubClassOf(obo:MOLSIM_001073 obo:MOLSIM_001072)
 
 # Class: obo:MOLSIM_001074 (process specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001074 "A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification is what must be recorded to ensure a computational experiment is fully reproducible. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001074 "process specification"@en)
-SubClassOf(obo:MOLSIM_001074 obo:IAO_0000030)
+SubClassOf(obo:MOLSIM_001074 obo:MOLSIM_001072)
 
 # Class: obo:MOLSIM_001075 (process output)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001075 "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. Its content varies greatly depending on the program and the type of task performed, but typically includes computed energies, optimized geometries, properties, and diagnostic information. These files are crucial for analyzing the outcome of computational jobs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001075 "process output"@en)
-SubClassOf(obo:MOLSIM_001075 obo:IAO_0000030)
+SubClassOf(obo:MOLSIM_001075 obo:MOLSIM_001072)
 
 # Class: obo:MOLSIM_001076 (molecular topology)
 
@@ -12493,6 +12495,7 @@ SubClassOf(obo:MOLSIM_001752 obo:MOLSIM_001751)
 # Class: obo:MOLSIM_001753 (residue name)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001753 "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_001753 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001753 "residue name"@en)
 SubClassOf(obo:MOLSIM_001753 obo:MOLSIM_000447)
 
@@ -12505,6 +12508,7 @@ SubClassOf(obo:MOLSIM_001754 obo:MOLSIM_001753)
 # Class: obo:MOLSIM_001755 (atom name)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001755 "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_001755 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001755 "atom name"@en)
 SubClassOf(obo:MOLSIM_001755 obo:MOLSIM_000447)
 
@@ -12554,6 +12558,7 @@ SubClassOf(obo:MOLSIM_001762 obo:MOLSIM_001761)
 # Class: obo:MOLSIM_001763 (atom type)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001763 "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_001763 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001763 "atom type"@en)
 SubClassOf(obo:MOLSIM_001763 obo:MOLSIM_000447)
 
@@ -14212,6 +14217,7 @@ SubClassOf(obo:MOLSIM_002038 obo:MOLSIM_000441)
 # Class: obo:MOLSIM_002039 (atom ID)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002039 "An atom ID is usually a number, that uniquely defines a given atom in structure."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_002039 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002039 "atom ID"@en)
 SubClassOf(obo:MOLSIM_002039 obo:MOLSIM_000447)
 

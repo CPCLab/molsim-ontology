@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-02-18/molsim-base.owl
+data-version: molsim/releases/2026-02-19/molsim-base.owl
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
@@ -9,7 +9,7 @@ property_value: dce:type IAO:8000001
 property_value: dcterms:description https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2026-02-18" xsd:string
+property_value: owl:versionInfo "2026-02-19" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -896,7 +896,7 @@ is_a: MOLSIM:000127 ! error metrics analysis
 id: MOLSIM:000143
 name: ligand pairs selection criteria
 def: "Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)" []
-is_a: IAO:0000104
+is_a: MOLSIM:000310 ! plan specification
 
 [Term]
 id: MOLSIM:000144
@@ -1938,6 +1938,12 @@ def: "An entropy analysis method is a calculation used to measure the amount of 
 is_a: MOLSIM:000610 ! thermodynamics analysis
 
 [Term]
+id: MOLSIM:000310
+name: plan specification
+def: "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)" []
+comment: TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000104 (plan specification)
+
+[Term]
 id: MOLSIM:000311
 name: RMSD analysis
 def: "RMSD analysis is a calculation that measures how much a molecule's shape has changed over time compared to a starting shape. As a type of structural analysis, this method quantifies the global structural deviation by calculating the root-mean-square deviation of atomic coordinates between trajectory frames and a reference structure after optimal superposition. It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and as a metric for clustering algorithms. Analysis scripts and outputs frequently use the terms \"rmsd,\" \"rms,\" \"RMSD vs. time,\" and \"backbone RMSD.\" (UNVERIFIED)" []
@@ -2716,6 +2722,7 @@ id: MOLSIM:000448
 name: protein database ID
 def: "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:000449
@@ -6138,23 +6145,29 @@ comment: The traj3d "pseudo-trajectory" is not a standard, independent file form
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
+id: MOLSIM:001072
+name: information content entity
+def: "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)" []
+property_value: dcterms:BibliographicResource "" xsd:string
+
+[Term]
 id: MOLSIM:001073
 name: molecular system specification
 def: "A molecular system specification is the complete abstract description of all the molecules and their properties that constitute a simulation. It includes the identity and 3D arrangement of all atoms (the structure) and the rules governing their interactions (the topology and force field). This specification is the complete informational blueprint of the system before any simulation is performed. (UNVERIFIED)" []
-is_a: IAO:0000030
+is_a: MOLSIM:001072 ! information content entity
 disjoint_from: MOLSIM:001074 ! process specification
 
 [Term]
 id: MOLSIM:001074
 name: process specification
 def: "A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification is what must be recorded to ensure a computational experiment is fully reproducible. (UNVERIFIED)" []
-is_a: IAO:0000030
+is_a: MOLSIM:001072 ! information content entity
 
 [Term]
 id: MOLSIM:001075
 name: process output
 def: "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. Its content varies greatly depending on the program and the type of task performed, but typically includes computed energies, optimized geometries, properties, and diagnostic information. These files are crucial for analyzing the outcome of computational jobs. (UNVERIFIED)" []
-is_a: IAO:0000030
+is_a: MOLSIM:001072 ! information content entity
 
 [Term]
 id: MOLSIM:001076
@@ -9987,6 +10000,7 @@ id: MOLSIM:001753
 name: residue name
 def: "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:001754
@@ -9999,6 +10013,7 @@ id: MOLSIM:001755
 name: atom name
 def: "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:001756
@@ -10048,6 +10063,7 @@ id: MOLSIM:001763
 name: atom type
 def: "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:001764
@@ -11703,6 +11719,7 @@ id: MOLSIM:002039
 name: atom ID
 def: "An atom ID is usually a number, that uniquely defines a given atom in structure." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:010001

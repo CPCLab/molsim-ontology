@@ -1,94 +1,16 @@
 format-version: 1.2
-data-version: releases/2026-02-18
+data-version: releases/2026-02-19
 idspace: chemrof https://w3id.org/chemrof/ 
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
 idspace: protege http://protege.stanford.edu/plugins/owl/protege# 
-idspace: swrl http://www.w3.org/2003/11/swrl# 
-idspace: swrlb http://www.w3.org/2003/11/swrlb# 
 ontology: molsim
 property_value: dcterms:description https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2026-02-18" xsd:string
+property_value: owl:versionInfo "2026-02-19" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
-
-[Term]
-id: APOLLO_SV:00000008
-name: software development
-def: "A planned process that has specified output a software product and that involves the creation of source code." []
-is_a: OBI:0000011 ! planned process
-property_value: IAO:0000119 "http://en.wikipedia.org/wiki/Software_development" xsd:string
-
-[Term]
-id: BFO:0000001
-name: entity
-
-[Term]
-id: BFO:0000002
-name: continuant
-def: "An entity that exists in full at any time in which it exists at all, persists through time while maintaining its identity and has no temporal parts." []
-is_a: BFO:0000001 ! entity
-disjoint_from: BFO:0000003 ! occurrent
-
-[Term]
-id: BFO:0000003
-name: occurrent
-def: "An entity that has temporal parts and that happens, unfolds or develops through time." []
-is_a: BFO:0000001 ! entity
-
-[Term]
-id: BFO:0000004
-name: independent continuant
-is_a: BFO:0000002 ! continuant
-disjoint_from: BFO:0000020 ! specifically dependent continuant
-disjoint_from: BFO:0000031 ! generically dependent continuant
-
-[Term]
-id: BFO:0000015
-name: process
-is_a: BFO:0000003 ! occurrent
-
-[Term]
-id: BFO:0000016
-name: disposition
-is_a: BFO:0000017 ! realizable entity
-disjoint_from: BFO:0000023 ! role
-
-[Term]
-id: BFO:0000017
-name: realizable entity
-def: "A specifically dependent continuant  that inheres in continuant  entities and are not exhibited in full at every time in which it inheres in an entity or group of entities. The exhibition or actualization of a realizable entity is a particular manifestation, functioning or process that occurs under certain circumstances." []
-is_a: BFO:0000020 ! specifically dependent continuant
-disjoint_from: BFO:0000019 ! quality
-
-[Term]
-id: BFO:0000019
-name: quality
-is_a: BFO:0000020 ! specifically dependent continuant
-
-[Term]
-id: BFO:0000020
-name: specifically dependent continuant
-is_a: BFO:0000002 ! continuant
-disjoint_from: BFO:0000031 ! generically dependent continuant
-
-[Term]
-id: BFO:0000023
-name: role
-def: "A realizable entity  the manifestation of which brings about some result or end that is not essential to a continuant  in virtue of the kind of thing that it is but that can be served or participated in by that kind of continuant  in some kinds of natural, social or institutional contexts." []
-is_a: BFO:0000017 ! realizable entity
-
-[Term]
-id: BFO:0000031
-name: generically dependent continuant
-is_a: BFO:0000002 ! continuant
-
-[Term]
-id: BFO:0000034
-name: function
-is_a: BFO:0000016 ! disposition
 
 [Term]
 id: CHEBI:131619
@@ -145,6 +67,7 @@ def: "A purine derivative attached to a β-<small>D</small>-2'-deoxy-ribofuranos
 subset: 2:STAR
 synonym: "a purine 2'-deoxy-D-ribonucleoside" RELATED [uniprot_ft]
 is_a: CHEBI:19254 ! purine 2'-deoxyribonucleoside
+is_a: CHEBI:50860 ! organic molecular entity
 property_value: chemrof:charge "0" xsd:integer
 property_value: chemrof:generalized_empirical_formula "C10H11N4O3R2" xsd:string
 property_value: chemrof:mass "235.22" xsd:decimal
@@ -887,6 +810,7 @@ xref: reaxys:1718733 {source="reaxys"}
 xref: umbbd.compound:c0038 {source="umbbd.compound"}
 xref: wikipedia.en:Ethanol {source="wikipedia.en"}
 is_a: CHEBI:134179 ! volatile organic compound
+is_a: CHEBI:15734 ! primary alcohol
 is_a: CHEBI:23982 ! ethanols
 is_a: CHEBI:50584 ! alkyl alcohol
 property_value: chemrof:charge "0" xsd:integer
@@ -1227,8 +1151,10 @@ xref: pubmed:3275662 {source="pubmed"}
 xref: reaxys:1720248 {source="reaxys"}
 xref: wikipedia.en:Alanine {source="wikipedia.en"}
 xref: ymdb:YMDB00154 {source="ymdb"}
+is_a: CHEBI:15705 ! L-alpha-amino acid
 is_a: CHEBI:16449 ! alanine
 is_a: CHEBI:26463 ! pyruvate family amino acid
+is_a: CHEBI:83813 ! proteinogenic amino acid
 property_value: chemrof:charge "0" xsd:integer
 property_value: chemrof:generalized_empirical_formula "C3H7NO2" xsd:string
 property_value: chemrof:inchi_key_string "QNAYBMKLOCPYGJ-REOHCLBHSA-N" xsd:string
@@ -1289,6 +1215,7 @@ xref: pdb-ccd:GNG {source="pdb-ccd"}
 xref: reaxys:39814 {source="reaxys"}
 xref: wikipedia.en:Deoxyguanosine {source="wikipedia.en"}
 is_a: CHEBI:142361 ! purines 2'-deoxy-D-ribonucleoside
+is_a: CHEBI:19254 ! purine 2'-deoxyribonucleoside
 property_value: chemrof:charge "0" xsd:integer
 property_value: chemrof:generalized_empirical_formula "C10H13N5O4" xsd:string
 property_value: chemrof:inchi_key_string "YKBGVTZYEHREMT-KVQBGUIXSA-N" xsd:string
@@ -1359,6 +1286,7 @@ xref: pubmed:9869364 {source="pubmed"}
 xref: reaxys:91015 {source="reaxys"}
 xref: wikipedia.en:Deoxyadenosine {source="wikipedia.en"}
 is_a: CHEBI:142361 ! purines 2'-deoxy-D-ribonucleoside
+is_a: CHEBI:19254 ! purine 2'-deoxyribonucleoside
 property_value: chemrof:charge "0" xsd:integer
 property_value: chemrof:generalized_empirical_formula "C10H13N5O3" xsd:string
 property_value: chemrof:inchi_key_string "OLXZPDWKRNYJJZ-RRKCRQDMSA-N" xsd:string
@@ -1842,6 +1770,7 @@ synonym: "N-glycosides" RELATED [chebi]
 synonym: "N-glycosyl compounds" RELATED [chebi]
 is_a: CHEBI:35352 ! organonitrogen compound
 is_a: CHEBI:63161 ! glycosyl compound
+is_a: CHEBI:63299 ! carbohydrate derivative
 
 [Term]
 id: CHEBI:22260
@@ -3382,6 +3311,7 @@ def: "A compound formally derived from ammonia by replacing one, two or three hy
 subset: 3:STAR
 synonym: "organic amino compounds" RELATED [chebi]
 is_a: CHEBI:35352 ! organonitrogen compound
+is_a: CHEBI:50860 ! organic molecular entity
 
 [Term]
 id: CHEBI:50401
@@ -3696,6 +3626,7 @@ synonym: "(2S)-1-hydroxypropan-2-aminium" RELATED IUPAC:NAME [iupac]
 synonym: "L-alaninol" RELATED [uniprot_ft]
 xref: metacyc.compound:CPD-9374 {source="metacyc.compound"}
 is_a: CHEBI:195439 ! 2-aminopropan-1-ol(1+)
+is_a: CHEBI:65296 ! primary ammonium ion
 property_value: chemrof:charge "1" xsd:integer
 property_value: chemrof:generalized_empirical_formula "C3H10NO" xsd:string
 property_value: chemrof:inchi_key_string "BKMMTJMQCTUHRP-VKHMYHEASA-O" xsd:string
@@ -3703,157 +3634,6 @@ property_value: chemrof:inchi_string "InChI=1S/C3H9NO/c1-3(4)2-5/h3,5H,2,4H2,1H3
 property_value: chemrof:mass "76.119" xsd:decimal
 property_value: chemrof:monoisotopic_mass "76.07569" xsd:decimal
 property_value: chemrof:smiles_string "C[C@H]([NH3+])CO" xsd:string
-
-[Term]
-id: IAO:0000003
-name: measurement unit label
-def: "A measurement unit label is as a label that is part of a scalar measurement datum and denotes a unit of measure." []
-is_a: IAO:0000009 ! datum label
-
-[Term]
-id: IAO:0000005
-name: objective specification
-def: "A directive information entity that describes an intended process endpoint. When part of a plan specification the concretization is realized in a planned process in which the bearer tries to effect the world so that the process endpoint is achieved." []
-is_a: IAO:0000033 ! directive information entity
-property_value: IAO:0000119 "OBI Plan and Planned Process/Roles Branch" xsd:string
-property_value: IAO:0000119 "OBI_0000217" xsd:string
-
-[Term]
-id: IAO:0000007
-name: action specification
-def: "A directive information entity that describes an action the bearer will take." []
-is_a: IAO:0000033 ! directive information entity
-property_value: IAO:0000119 "OBI Plan and Planned Process branch" xsd:string
-
-[Term]
-id: IAO:0000009
-name: datum label
-def: "A label is a symbol that is part of some other datum and is used to either partially define  the denotation of that datum or to provide a means for identifying the datum as a member of the set of data with the same label" []
-is_a: IAO:0000030 ! information content entity
-
-[Term]
-id: IAO:0000010
-name: software
-def: "Software is a plan specification composed of a series of instructions that can be \ninterpreted by or directly executed by a processing unit." []
-is_a: IAO:0000104 ! plan specification
-property_value: IAO:0000119 "GROUP: OBI" xsd:string
-
-[Term]
-id: IAO:0000015
-name: information carrier
-def: "A quality of an information bearer that imparts the information content" []
-is_a: BFO:0000019 ! quality
-intersection_of: BFO:0000019 ! quality
-intersection_of: RO:0000059 IAO:0000030 ! concretizes information content entity
-relationship: RO:0000059 IAO:0000030 ! concretizes information content entity
-property_value: IAO:0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy" xsd:string
-
-[Term]
-id: IAO:0000027
-name: data item
-def: "An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements." []
-is_a: IAO:0000030 ! information content entity
-
-[Term]
-id: IAO:0000030
-name: information content entity
-is_a: BFO:0000031 ! generically dependent continuant
-relationship: IAO:0000136 BFO:0000001 ! is about entity
-property_value: IAO:0000119 "OBI_0000142" xsd:string
-
-[Term]
-id: IAO:0000032
-name: scalar measurement datum
-def: "A scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label." []
-is_a: IAO:0000109 ! measurement datum
-
-[Term]
-id: IAO:0000033
-name: directive information entity
-def: "An information content entity whose concretizations indicate to their bearer how to realize them in a process." []
-is_a: IAO:0000030 ! information content entity
-relationship: IAO:0000136 BFO:0000017 ! is about realizable entity
-
-[Term]
-id: IAO:0000064
-name: algorithm
-def: "A plan specification which describes the inputs and output of mathematical functions as well as workflow of execution for achieving an predefined objective. Algorithms are realized usually by means of implementation as computer programs for execution by automata." []
-is_a: IAO:0000104 ! plan specification
-property_value: IAO:0000119 "adapted from discussion on OBI list (Matthew Pocock, Christian Cocos, Alan Ruttenberg)" xsd:string
-property_value: IAO:0000119 "OBI_0000270" xsd:string
-
-[Term]
-id: IAO:0000078
-name: curation status specification
-def: "The curation status of the term. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value." []
-is_a: IAO:0000102 ! data about an ontology part
-property_value: IAO:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>" xsd:string
-property_value: IAO:0000119 "OBI_0000266" xsd:string
-
-[Term]
-id: IAO:0000096
-name: source code module
-def: "A source code module is a directive information entity that specifies, using a programming language, some algorithm." []
-is_a: IAO:0000033 ! directive information entity
-property_value: IAO:0000119 "group:OBI" xsd:string
-property_value: IAO:0000119 "OBI_0000039" xsd:string
-
-[Term]
-id: IAO:0000102
-name: data about an ontology part
-def: "Data about an ontology part is a data item about a part of an ontology, for example a term" []
-is_a: IAO:0000027 ! data item
-
-[Term]
-id: IAO:0000104
-name: plan specification
-def: "A directive information entity with action specifications and objective specifications as parts, and that may be concretized as a realizable entity that, if realized, is realized in a process in which the bearer tries to achieve the objectives by taking the actions specified." []
-is_a: IAO:0000033 ! directive information entity
-relationship: BFO:0000051 IAO:0000005 ! has part objective specification
-relationship: BFO:0000051 IAO:0000007 ! has part action specification
-property_value: IAO:0000119 "OBI Plan and Planned Process branch" xsd:string
-property_value: IAO:0000119 "OBI_0000344" xsd:string
-
-[Term]
-id: IAO:0000109
-name: measurement datum
-def: "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device." []
-is_a: IAO:0000027 ! data item
-property_value: IAO:0000119 "group:OBI" xsd:string
-property_value: IAO:0000119 "OBI_0000305" xsd:string
-
-[Term]
-id: IAO:0000225
-name: obsolescence reason specification
-def: "The reason for which a term has been deprecated. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value." []
-is_a: IAO:0000102 ! data about an ontology part
-
-[Term]
-id: IAO:0000409
-name: denotator type
-def: "A denotator type indicates how a term should be interpreted from an ontological perspective." []
-is_a: IAO:0000102 ! data about an ontology part
-property_value: IAO:0000119 "Barry Smith, Werner Ceusters" xsd:string
-
-[Term]
-id: IAO:0020000
-name: identifier
-def: "An information content entity that is the outcome of a dubbing process and is used to refer to one instance of entity shared by a group of people to refer to that individual entity." []
-is_a: IAO:0000030 ! information content entity
-intersection_of: IAO:0000030 ! information content entity
-intersection_of: IAO:0000219 BFO:0000001 ! denotes entity
-intersection_of: OBI:0000312 IAO:0020010 ! is_specified_output_of identifier creating process
-relationship: IAO:0000219 BFO:0000001 ! denotes entity
-relationship: OBI:0000312 IAO:0020010 ! is_specified_output_of identifier creating process
-
-[Term]
-id: IAO:0020010
-name: identifier creating process
-def: "A planned process that provides a reference to an individual entity shared by a group of subscribers to refer to that individual entity." []
-is_a: OBI:0000011 ! planned process
-intersection_of: OBI:0000011 ! planned process
-intersection_of: OBI:0000299 IAO:0020000 ! has_specified_output identifier
-relationship: OBI:0000299 IAO:0020000 ! has_specified_output identifier
 
 [Term]
 id: MOLSIM:000000
@@ -4739,7 +4519,7 @@ is_a: MOLSIM:000127 ! error metrics analysis
 id: MOLSIM:000143
 name: ligand pairs selection criteria
 def: "Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)" []
-is_a: IAO:0000104 ! plan specification
+is_a: MOLSIM:000310 ! plan specification
 
 [Term]
 id: MOLSIM:000144
@@ -5781,6 +5561,12 @@ def: "An entropy analysis method is a calculation used to measure the amount of 
 is_a: MOLSIM:000610 ! thermodynamics analysis
 
 [Term]
+id: MOLSIM:000310
+name: plan specification
+def: "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)" []
+comment: TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000104 (plan specification)
+
+[Term]
 id: MOLSIM:000311
 name: RMSD analysis
 def: "RMSD analysis is a calculation that measures how much a molecule's shape has changed over time compared to a starting shape. As a type of structural analysis, this method quantifies the global structural deviation by calculating the root-mean-square deviation of atomic coordinates between trajectory frames and a reference structure after optimal superposition. It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and as a metric for clustering algorithms. Analysis scripts and outputs frequently use the terms \"rmsd,\" \"rms,\" \"RMSD vs. time,\" and \"backbone RMSD.\" (UNVERIFIED)" []
@@ -6559,6 +6345,7 @@ id: MOLSIM:000448
 name: protein database ID
 def: "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:000449
@@ -9981,23 +9768,29 @@ comment: The traj3d "pseudo-trajectory" is not a standard, independent file form
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
+id: MOLSIM:001072
+name: information content entity
+def: "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)" []
+property_value: dcterms:BibliographicResource "" xsd:string
+
+[Term]
 id: MOLSIM:001073
 name: molecular system specification
 def: "A molecular system specification is the complete abstract description of all the molecules and their properties that constitute a simulation. It includes the identity and 3D arrangement of all atoms (the structure) and the rules governing their interactions (the topology and force field). This specification is the complete informational blueprint of the system before any simulation is performed. (UNVERIFIED)" []
-is_a: IAO:0000030 ! information content entity
+is_a: MOLSIM:001072 ! information content entity
 disjoint_from: MOLSIM:001074 ! process specification
 
 [Term]
 id: MOLSIM:001074
 name: process specification
 def: "A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification is what must be recorded to ensure a computational experiment is fully reproducible. (UNVERIFIED)" []
-is_a: IAO:0000030 ! information content entity
+is_a: MOLSIM:001072 ! information content entity
 
 [Term]
 id: MOLSIM:001075
 name: process output
 def: "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. Its content varies greatly depending on the program and the type of task performed, but typically includes computed energies, optimized geometries, properties, and diagnostic information. These files are crucial for analyzing the outcome of computational jobs. (UNVERIFIED)" []
-is_a: IAO:0000030 ! information content entity
+is_a: MOLSIM:001072 ! information content entity
 
 [Term]
 id: MOLSIM:001076
@@ -13830,6 +13623,7 @@ id: MOLSIM:001753
 name: residue name
 def: "A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, 'ALA' is the residue name for the amino acid alanine, and 'DG' can represent a deoxyguanosine nucleotide." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:001754
@@ -13842,6 +13636,7 @@ id: MOLSIM:001755
 name: atom name
 def: "An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names 'CA' and 'CB' are used to differentiate the alpha-carbon from the beta-carbon." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:001756
@@ -13891,6 +13686,7 @@ id: MOLSIM:001763
 name: atom type
 def: "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:001764
@@ -15546,6 +15342,7 @@ id: MOLSIM:002039
 name: atom ID
 def: "An atom ID is usually a number, that uniquely defines a given atom in structure." []
 is_a: MOLSIM:000447 ! identifier
+property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
 [Term]
 id: MOLSIM:010001
@@ -15722,12 +15519,6 @@ id: MOLSIM:010028
 name: leap analysis
 def: "LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)" []
 is_a: MOLSIM:000328 ! system setup modeling
-
-[Term]
-id: OBI:0000011
-name: planned process
-def: "A process that realizes a plan which is the concretization of a plan specification." []
-is_a: BFO:0000015 ! process
 
 [Term]
 id: UO:0000000
@@ -16030,44 +15821,29 @@ is_transitive: true
 [Typedef]
 id: BFO:0000054
 name: realized in
-domain: BFO:0000017 ! realizable entity
-range: BFO:0000015 ! process
 inverse_of: BFO:0000055 ! realizes
 
 [Typedef]
 id: BFO:0000055
 name: realizes
-domain: BFO:0000015 ! process
-range: BFO:0000017 ! realizable entity
 
 [Typedef]
 id: IAO:0000039
 name: has measurement unit label
-range: IAO:0000003 ! measurement unit label
 is_functional: true
 is_a: BFO:0000051 ! has part
-
-[Typedef]
-id: IAO:0000109
-name: measurement datum
-def: "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device." []
-property_value: IAO:0000119 "group:OBI" xsd:string
-property_value: IAO:0000119 "OBI_0000305" xsd:string
 
 [Typedef]
 id: IAO:0000136
 name: is about
 def: "A (currently) primitive relation that relates an information artifact to an entity." []
 property_value: IAO:0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy" xsd:string
-domain: IAO:0000030 ! information content entity
 
 [Typedef]
 id: IAO:0000219
 name: denotes
 def: "A primitive, instance-level, relation obtaining between an information content entity and some portion of reality. Denotation is what happens when someone creates an information content entity E in order to specifically refer to something. The only relation between E and the thing is that E can be used to 'pick out' the thing. This relation connects those two together. Freedictionary.com sense 3: To signify directly; refer to specifically" []
 property_value: IAO:0000119 "Conversations with Barry Smith, Werner Ceusters, Bjoern Peters, Michel Dumontier, Melanie Courtot, James Malone, Bill Hogan" xsd:string
-domain: IAO:0000030 ! information content entity
-range: BFO:0000001 ! entity
 is_a: IAO:0000136 ! is about
 inverse_of: IAO:0000235 ! denoted by
 
@@ -16075,8 +15851,6 @@ inverse_of: IAO:0000235 ! denoted by
 id: IAO:0000235
 name: denoted by
 def: "inverse of the relation 'denotes'" []
-domain: BFO:0000001 ! entity
-range: IAO:0000030 ! information content entity
 
 [Typedef]
 id: MOLSIM:000297
@@ -16125,14 +15899,12 @@ def: "Defines the specific geometric variable or collective variable along which
 id: OBI:0000299
 name: has_specified_output
 def: "The inverse property of is_specified_output_of" []
-domain: OBI:0000011 ! planned process
 is_a: RO:0000057 ! has participant
 
 [Typedef]
 id: OBI:0000312
 name: is_specified_output_of
 def: "A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of." []
-range: OBI:0000011 ! planned process
 is_a: RO:0000056 ! participates in
 
 [Typedef]
@@ -16146,44 +15918,34 @@ inverse_of: RO:0000053 ! has characteristic
 id: RO:0000053
 name: has characteristic
 def: "Inverse of characteristic_of" []
-range: BFO:0000020 ! specifically dependent continuant
 is_inverse_functional: true
 
 [Typedef]
 id: RO:0000056
 name: participates in
 def: "a relation between a continuant and a process, in which the continuant is somehow involved in the process" []
-domain: BFO:0000002 ! continuant
-range: BFO:0000003 ! occurrent
 inverse_of: RO:0000057 ! has participant
 
 [Typedef]
 id: RO:0000057
 name: has participant
 def: "a relation between a process and a continuant, in which the continuant is somehow involved in the process" []
-domain: BFO:0000003 ! occurrent
-range: BFO:0000002 ! continuant
 
 [Typedef]
 id: RO:0000058
 name: is concretized as
 def: "A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes." []
-domain: BFO:0000031 ! generically dependent continuant
-range: BFO:0000020 ! specifically dependent continuant
 inverse_of: RO:0000059 ! concretizes
 
 [Typedef]
 id: RO:0000059
 name: concretizes
 def: "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant." []
-domain: BFO:0000020 ! specifically dependent continuant
-range: BFO:0000031 ! generically dependent continuant
 
 [Typedef]
 id: RO:0000079
 name: function of
 def: "a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence" []
-domain: BFO:0000034 ! function
 is_a: RO:0000052 ! characteristic of
 inverse_of: RO:0000085 ! has function
 
@@ -16205,31 +15967,24 @@ inverse_of: RO:0000087 ! has role
 id: RO:0000085
 name: has function
 def: "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence" []
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000034 ! function
 is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000086
 name: has quality
 def: "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence" []
-range: BFO:0000019 ! quality
 is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000087
 name: has role
 def: "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence" []
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000023 ! role
 is_a: RO:0000053 ! has characteristic
 
 [Typedef]
 id: RO:0000091
 name: has disposition
 def: "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence" []
-domain: BFO:0000004 ! independent continuant
-range: BFO:0000016 ! disposition
 is_a: RO:0000053 ! has characteristic
 inverse_of: RO:0000092 ! disposition of
 

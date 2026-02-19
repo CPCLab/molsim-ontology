@@ -12,14 +12,14 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-02-18/molsim-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-02-19/molsim-base.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:description rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
         <dcterms:description xml:lang="en">MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.</dcterms:description>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <rdfs:comment></rdfs:comment>
-        <owl:versionInfo>2026-02-18</owl:versionInfo>
+        <owl:versionInfo>2026-02-19</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -685,18 +685,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/IAO_0000030 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000030"/>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/IAO_0000104 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000104"/>
     
 
 
@@ -2138,7 +2126,7 @@
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000143 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000143">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000310"/>
         <obo:IAO_0000115 xml:lang="en">Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">ligand pairs selection criteria</rdfs:label>
     </owl:Class>
@@ -3830,6 +3818,16 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_000310 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000310">
+        <obo:IAO_0000115 xml:lang="en">A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled &quot;Experimental Design,&quot; &quot;Study Protocol,&quot; &quot;Selection Criteria,&quot; or &quot;Computational Strategy.&quot; (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000104 (plan specification)</rdfs:comment>
+        <rdfs:label xml:lang="en">plan specification</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000311 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000311">
@@ -5118,6 +5116,7 @@
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000448">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
         <obo:IAO_0000115 xml:lang="en">A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., &apos;1TIM&apos;) or UniProt (accession number, e.g., &apos;P00761&apos;). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information.</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4177-3619"/>
         <rdfs:label xml:lang="en">protein database ID</rdfs:label>
     </owl:Class>
     
@@ -10754,10 +10753,20 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_001072 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001072">
+        <obo:IAO_0000115>An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)</obo:IAO_0000115>
+        <dcterms:BibliographicResource></dcterms:BibliographicResource>
+        <rdfs:label xml:lang="en">information content entity</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001073 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001073">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001072"/>
         <obo:IAO_0000115 xml:lang="en">A molecular system specification is the complete abstract description of all the molecules and their properties that constitute a simulation. It includes the identity and 3D arrangement of all atoms (the structure) and the rules governing their interactions (the topology and force field). This specification is the complete informational blueprint of the system before any simulation is performed. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">molecular system specification</rdfs:label>
     </owl:Class>
@@ -10767,7 +10776,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001074 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001074">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001072"/>
         <obo:IAO_0000115 xml:lang="en">A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification is what must be recorded to ensure a computational experiment is fully reproducible. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">process specification</rdfs:label>
     </owl:Class>
@@ -10777,7 +10786,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001075 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001075">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001072"/>
         <obo:IAO_0000115 xml:lang="en">An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. Its content varies greatly depending on the program and the type of task performed, but typically includes computed energies, optimized geometries, properties, and diagnostic information. These files are crucial for analyzing the outcome of computational jobs. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">process output</rdfs:label>
     </owl:Class>
@@ -17150,6 +17159,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001753">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
         <obo:IAO_0000115 xml:lang="en">A residue name is a standardized short code, typically three or four letters, used in structure files to identify a specific type of molecular building block. For example, &apos;ALA&apos; is the residue name for the amino acid alanine, and &apos;DG&apos; can represent a deoxyguanosine nucleotide.</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4177-3619"/>
         <rdfs:label xml:lang="en">residue name</rdfs:label>
     </owl:Class>
     
@@ -17170,6 +17180,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001755">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
         <obo:IAO_0000115 xml:lang="en">An atom name is a unique label given to an atom within a specific residue to distinguish it from other atoms of the same element. For example, in an amino acid, the names &apos;CA&apos; and &apos;CB&apos; are used to differentiate the alpha-carbon from the beta-carbon.</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4177-3619"/>
         <rdfs:label xml:lang="en">atom name</rdfs:label>
     </owl:Class>
     
@@ -17251,6 +17262,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001763">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
         <obo:IAO_0000115 xml:lang="en">An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon.</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4177-3619"/>
         <rdfs:label xml:lang="en">atom type</rdfs:label>
     </owl:Class>
     
@@ -20009,6 +20021,7 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002039">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
         <obo:IAO_0000115 xml:lang="en">An atom ID is usually a number, that uniquely defines a given atom in structure.</obo:IAO_0000115>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0003-4177-3619"/>
         <rdfs:label xml:lang="en">atom ID</rdfs:label>
     </owl:Class>
     
