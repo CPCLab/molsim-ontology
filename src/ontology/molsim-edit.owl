@@ -131,6 +131,7 @@ Declaration(Class(obo:MOLSIM_000106))
 Declaration(Class(obo:MOLSIM_000107))
 Declaration(Class(obo:MOLSIM_000108))
 Declaration(Class(obo:MOLSIM_000109))
+Declaration(Class(obo:MOLSIM_000110))
 Declaration(Class(obo:MOLSIM_000111))
 Declaration(Class(obo:MOLSIM_000112))
 Declaration(Class(obo:MOLSIM_000113))
@@ -336,6 +337,9 @@ Declaration(Class(obo:MOLSIM_000313))
 Declaration(Class(obo:MOLSIM_000314))
 Declaration(Class(obo:MOLSIM_000315))
 Declaration(Class(obo:MOLSIM_000316))
+Declaration(Class(obo:MOLSIM_000317))
+Declaration(Class(obo:MOLSIM_000318))
+Declaration(Class(obo:MOLSIM_000319))
 Declaration(Class(obo:MOLSIM_000326))
 Declaration(Class(obo:MOLSIM_000327))
 Declaration(Class(obo:MOLSIM_000328))
@@ -723,7 +727,6 @@ Declaration(Class(obo:MOLSIM_000712))
 Declaration(Class(obo:MOLSIM_000713))
 Declaration(Class(obo:MOLSIM_000714))
 Declaration(Class(obo:MOLSIM_000715))
-Declaration(Class(obo:MOLSIM_000716))
 Declaration(Class(obo:MOLSIM_000717))
 Declaration(Class(obo:MOLSIM_000718))
 Declaration(Class(obo:MOLSIM_000719))
@@ -2851,11 +2854,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000051 "A constraint algorithm si
 AnnotationAssertion(rdfs:label obo:MOLSIM_000051 "RATTLE algorithm"@en)
 SubClassOf(obo:MOLSIM_000051 obo:MOLSIM_000049)
 
-# Class: obo:MOLSIM_000052 (linear constraint solver algorithm)
+# Class: obo:MOLSIM_000052 (LINCS algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000052 "A general term for algorithms designed to solve systems of linear equations that arise from geometric constraints in molecular simulations, particularly when constraints are applied before integrating equations of motion (e.g., in Lagrangian multiplier methods). While iterative methods like SHAKE/RATTLE solve non-linear equations implicitly, linear solvers might be used in different formulations. It represents the mathematical task underlying some constraint methods (UNVERIFIED)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000052 "LINCS"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000052 "linear constraint solver algorithm"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000052 "linear constraint solver algorithm"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000052 "LINCS algorithm"@en)
 SubClassOf(obo:MOLSIM_000052 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000053 (electrostatic interaction algorithm)
@@ -3204,6 +3208,12 @@ SubClassOf(obo:MOLSIM_000108 obo:MOLSIM_000098)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000109 "A method represents the overall strategy or plan that specifies how a scientific objective is to be achieved. In the context of biomolecular science, this high-level concept encompasses both the physical procedures of an experimental method and the abstract protocols of a computational method. Defining the specific method is crucial for establishing the provenance and reproducibility of a result, as it dictates whether the evidence was generated through physical observation or theoretical calculation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000109 "method"@en)
+
+# Class: obo:MOLSIM_000110 (Euler integrator)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000110 "The Euler integrator is the simplest first-order numerical method for solving the equations of motion in a simulation, calculating future positions and velocities based solely on their current values and forces. While straightforward to implement, it is generally not used for production molecular dynamics simulations due to its lack of time-reversibility and poor energy conservation (stability) compared to symplectic algorithms like the Verlet or Leap-frog integrators. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000110 "Euler integrator"@en)
+SubClassOf(obo:MOLSIM_000110 obo:MOLSIM_001691)
 
 # Class: obo:MOLSIM_000111 (correlation coefficient)
 
@@ -4478,6 +4488,24 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000316 "A potential of mean force
 AnnotationAssertion(rdfs:label obo:MOLSIM_000316 "potential of mean force"@en)
 SubClassOf(obo:MOLSIM_000316 obo:MOLSIM_001314)
 
+# Class: obo:MOLSIM_000317 (json format)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000317 "JSON (JavaScript Object Notation) is a lightweight, text-based data interchange format consisting of attribute-value pairs and array data types. It is widely used in computational workflows for serializing structured data, such as simulation configuration settings, molecular metadata, or API responses from database web servers, offering a simpler and more compact alternative to XML. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000317 "json format"@en)
+SubClassOf(obo:MOLSIM_000317 obo:MOLSIM_000910)
+
+# Class: obo:MOLSIM_000318 (yaml format)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000318 "YAML is a human-readable data serialization format that relies on indentation to define structure, making it exceptionally easy to read and edit. In the context of computational chemistry, it is frequently employed for configuration files, defining software environments (e.g., Conda), and specifying parameters for automated simulation workflows and pipelines. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000318 "yaml format"@en)
+SubClassOf(obo:MOLSIM_000318 obo:MOLSIM_000910)
+
+# Class: obo:MOLSIM_000319 (standard XYZ format)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000319 "The standard basic XYZ format is a generic, human-readable file type widely supported across MD software like GROMACS, AMBER, NAMD, and LAMMPS. It includes: 1) a first line with the number of atoms, 2) A second line for a comment or title (e.g., energy or timestep), 3) Subsequent lines with atom name/symbol followed by x, y, z coordinates in Ångströms (metric units). (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000319 "standard XYZ format"@en)
+SubClassOf(obo:MOLSIM_000319 obo:MOLSIM_001063)
+
 # Class: obo:MOLSIM_000326 (endpoint free energy analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000326 "An endpoint free energy method is a computational approach that estimates the free energy difference between two states by analyzing simulations performed only at the beginning and end points of a process. Unlike more rigorous alchemical methods, it does not simulate the intermediate transformation pathway. Methods like MM/PBSA and MM/GBSA are popular endpoint methods that combine molecular mechanics energies with continuum solvent models to estimate binding free energies from trajectories of the bound and unbound states. (UNVERIFIED)"@en)
@@ -5158,10 +5186,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000438 "A data format for a file 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000438 "script format"@en)
 SubClassOf(obo:MOLSIM_000438 obo:MOLSIM_001085)
 
-# Class: obo:MOLSIM_000439 (output format)
+# Class: obo:MOLSIM_000439 (simulation  log format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000439 "A log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation's stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000439 "output format"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000439 "A simulation log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation's stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000439 "simulation  log format"@en)
 SubClassOf(obo:MOLSIM_000439 obo:MOLSIM_001085)
 
 # Class: obo:MOLSIM_000440 (NMR data format)
@@ -6835,18 +6863,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000714 "A tool web server is an o
 AnnotationAssertion(rdfs:label obo:MOLSIM_000714 "tool web server"@en)
 SubClassOf(obo:MOLSIM_000714 obo:MOLSIM_001671)
 
-# Class: obo:MOLSIM_000715 (prediction software output)
+# Class: obo:MOLSIM_000715 (prediction data format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000715 "Data generated as the direct result of executing a specific piece of prediction software, such as a tool for predicting protein structure, ligand binding sites, or functional annotations. This refers to the output before it might be curated or deposited into a public repository. An example would be the coordinate file of a homology model generated by a local SWISS-MODEL run. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000715 "prediction software output"@en)
-SubClassOf(obo:MOLSIM_000715 obo:MOLSIM_000910)
-DisjointClasses(obo:MOLSIM_000715 obo:MOLSIM_000716)
-
-# Class: obo:MOLSIM_000716 (simulation output file)
-
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000716 "A raw or processed data file generated directly by a biomolecular simulation software package during or after a simulation run. This includes trajectory files (atomic coordinates over time), energy logs, or specific analysis outputs that have not yet been formally archived in a public repository. These files are the primary products of simulation experiments. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000716 "simulation output file"@en)
-SubClassOf(obo:MOLSIM_000716 obo:MOLSIM_000910)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000715 "prediction data format"@en)
+SubClassOf(obo:MOLSIM_000715 obo:MOLSIM_001085)
 
 # Class: obo:MOLSIM_000717 (experimental data source)
 
@@ -7854,7 +7875,7 @@ SubClassOf(obo:MOLSIM_000895 obo:MOLSIM_001089)
 
 # Class: obo:MOLSIM_000896 (TINKER xyz format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000896 "The TINKER XYZ (.xyz) file format stores molecular coordinates and topology information for use with the TINKER software package. It starts with the atom count and a title line, followed by lines for each atom containing the atom index, atom name, coordinates (Angstroms), atom type (force field), and connectivity information. This format combines coordinates and basic topology. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000896 "The TINKER XYZ (.xyz or .txyz) file format stores molecular coordinates and topology information for use with the TINKER software package. It starts with the atom count and a title line, followed by lines for each atom containing the atom index, atom name, coordinates (Angstroms), atom type (force field), and connectivity information. This format combines coordinates and basic topology. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000896 "TINKER xyz format"@en)
 SubClassOf(obo:MOLSIM_000896 obo:MOLSIM_001063)
 
@@ -8392,7 +8413,7 @@ SubClassOf(obo:MOLSIM_001032 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_001037 (GROMOS crd format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001037 "A text-based file format used by the GROMOS simulation package to store the atomic coordinates of a molecular system. The format includes sections for title, atom information, and positional coordinates, often with specific formatting for atom and residue names. It serves as a standard way to represent molecular structures within the GROMOS ecosystem. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001037 "GROMOS coordinate files (often named gromos.crd) are formatted, text-based files used by the GROMOS simulation package to store atomic Cartesian coordinates of molecular systems, typically in a block-structured format with title records, positional data, and an END directive."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001037 "GROMOS crd format"@en)
 SubClassOf(obo:MOLSIM_001037 obo:MOLSIM_000921)
 
@@ -14112,10 +14133,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002021 "A simulation technique th
 AnnotationAssertion(rdfs:label obo:MOLSIM_002021 "interactive molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_002021 obo:MOLSIM_000843)
 
-# Class: obo:MOLSIM_002022 (leap-frog integrator)
+# Class: obo:MOLSIM_002022 (leapfrog integrator)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002022 "A numerical method used to solve the equations of motion in a simulation by updating positions and velocities at offset time intervals. It calculates velocities at half-integer time steps and positions at integer time steps, ensuring that the integration is time-reversible and symplectic (energy-conserving). For experts, while computationally efficient and stable (O(Δt ^2)), it does not provide velocities and positions at the same instant, requiring interpolation for calculating kinetic energy or pressure at step t. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002022 "leap-frog integrator"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002022 "leapfrog integrator"@en)
 SubClassOf(obo:MOLSIM_002022 obo:MOLSIM_001691)
 
 # Class: obo:MOLSIM_002023 (velocity verlet integrator)
