@@ -340,6 +340,12 @@ Declaration(Class(obo:MOLSIM_000316))
 Declaration(Class(obo:MOLSIM_000317))
 Declaration(Class(obo:MOLSIM_000318))
 Declaration(Class(obo:MOLSIM_000319))
+Declaration(Class(obo:MOLSIM_000320))
+Declaration(Class(obo:MOLSIM_000321))
+Declaration(Class(obo:MOLSIM_000322))
+Declaration(Class(obo:MOLSIM_000323))
+Declaration(Class(obo:MOLSIM_000324))
+Declaration(Class(obo:MOLSIM_000325))
 Declaration(Class(obo:MOLSIM_000326))
 Declaration(Class(obo:MOLSIM_000327))
 Declaration(Class(obo:MOLSIM_000328))
@@ -727,6 +733,7 @@ Declaration(Class(obo:MOLSIM_000712))
 Declaration(Class(obo:MOLSIM_000713))
 Declaration(Class(obo:MOLSIM_000714))
 Declaration(Class(obo:MOLSIM_000715))
+Declaration(Class(obo:MOLSIM_000716))
 Declaration(Class(obo:MOLSIM_000717))
 Declaration(Class(obo:MOLSIM_000718))
 Declaration(Class(obo:MOLSIM_000719))
@@ -1938,6 +1945,19 @@ Declaration(Class(obo:MOLSIM_002036))
 Declaration(Class(obo:MOLSIM_002037))
 Declaration(Class(obo:MOLSIM_002038))
 Declaration(Class(obo:MOLSIM_002039))
+Declaration(Class(obo:MOLSIM_002040))
+Declaration(Class(obo:MOLSIM_002041))
+Declaration(Class(obo:MOLSIM_002042))
+Declaration(Class(obo:MOLSIM_002043))
+Declaration(Class(obo:MOLSIM_002044))
+Declaration(Class(obo:MOLSIM_002045))
+Declaration(Class(obo:MOLSIM_002046))
+Declaration(Class(obo:MOLSIM_002047))
+Declaration(Class(obo:MOLSIM_002048))
+Declaration(Class(obo:MOLSIM_002049))
+Declaration(Class(obo:MOLSIM_002050))
+Declaration(Class(obo:MOLSIM_002051))
+Declaration(Class(obo:MOLSIM_002052))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -2694,7 +2714,7 @@ SubClassOf(obo:MOLSIM_000024 obo:MOLSIM_000016)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000025 "A text-based molecular structure format, similar to the mol2 format, but designed to include additional records for atomic connectivity. It is used to represent chemical structures with an expanded description of their bonding topology. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000025 "mol3 format"@en)
-SubClassOf(obo:MOLSIM_000025 obo:MOLSIM_000905)
+SubClassOf(obo:MOLSIM_000025 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000026 (analysis method)
 
@@ -3131,12 +3151,14 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000096 "A class of algorithms des
 AnnotationAssertion(rdfs:label obo:MOLSIM_000096 "network flow algorithm"@en)
 SubClassOf(obo:MOLSIM_000096 obo:MOLSIM_000087)
 
-# Class: obo:MOLSIM_000097 (AMBER nc format)
+# Class: obo:MOLSIM_000097 (AMBER NetCDF trajectory format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000097 "A binary trajectory format based on the NetCDF standard, used by the Amber simulation package. It efficiently stores atomic coordinates, velocities, forces, and periodic box dimensions from a simulation. This is the modern, recommended trajectory format for Amber. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000097 "AMBER nc format"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000097 "In the vast majority of scientific applications, including molecular dynamics, climate science, and oceanography, a .nc file is a NetCDF file. There is no difference in the format itself. The .nc extension is simply the most common file name suffix for a file written using the NetCDF data model. (UNVERFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000097 "AMBER nc format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000097 "AMBER NetCDF trajectory format"@en)
 SubClassOf(obo:MOLSIM_000097 obo:MOLSIM_000844)
+SubClassOf(obo:MOLSIM_000097 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_000098 (ligand state)
 
@@ -4123,7 +4145,7 @@ SubClassOf(obo:MOLSIM_000257 obo:MOLSIM_001564)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000258 "A specific program, typically distributed as part of the AmberTools suite, designed to automatically assign atom types and calculate partial atomic charges for organic molecules, preparing them for use with molecular mechanics force fields like GAFF (General AMBER Force Field). Antechamber reads common molecular file formats and generates topology and parameter files needed for subsequent energy minimization or molecular dynamics simulations using programs like SANDER or PMEMD from the AMBER package. It is a crucial tool for preparing non-standard residues or ligands for simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000258 "Antechamber"@en)
-SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_001664)
+SubClassOf(obo:MOLSIM_000258 obo:MOLSIM_000172)
 
 # Class: obo:MOLSIM_000259 (topology and coordinate generation tool)
 
@@ -4500,11 +4522,51 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000318 "YAML is a human-readable 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000318 "yaml format"@en)
 SubClassOf(obo:MOLSIM_000318 obo:MOLSIM_000910)
 
-# Class: obo:MOLSIM_000319 (standard XYZ format)
+# Class: obo:MOLSIM_000319 (standard xyz format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000319 "The standard basic XYZ format is a generic, human-readable file type widely supported across MD software like GROMACS, AMBER, NAMD, and LAMMPS. It includes: 1) a first line with the number of atoms, 2) A second line for a comment or title (e.g., energy or timestep), 3) Subsequent lines with atom name/symbol followed by x, y, z coordinates in Ångströms (metric units). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000319 "standard XYZ format"@en)
-SubClassOf(obo:MOLSIM_000319 obo:MOLSIM_001063)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000319 "A standardized, minimalistic text-based file format used to store the Cartesian coordinates of atoms. It typically consists of a header line (atom count), a comment line, and one line per atom containing the element symbol and X, Y, Z positions. It generally does not contain connectivity or topology information. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000319 "standard xyz format"@en)
+SubClassOf(obo:MOLSIM_000319 obo:MOLSIM_001088)
+
+# Class: obo:MOLSIM_000320 (toml format)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000320 "TOML (Tom's Obvious, Minimal Language) is a configuration file format that emphasizes human readability using a minimal syntax of key-value pairs and tables. In biomolecular simulation, it is increasingly used for defining simulation input parameters, workflow configurations, and software package metadata in modern Python-based environments. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000320 "toml format"@en)
+SubClassOf(obo:MOLSIM_000320 obo:MOLSIM_000910)
+
+# Class: obo:MOLSIM_000321 (pickle format)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000321 "The pickle format is a Python-specific binary serialization format used to convert Python object hierarchies into a byte stream. In computational chemistry pipelines, it is frequently used to persist complex data structures, such as machine learning models, analysis results, or system states, allowing them to be saved to disk and reloaded later. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000321 "pickle format"@en)
+SubClassOf(obo:MOLSIM_000321 obo:MOLSIM_000910)
+
+# Class: obo:MOLSIM_000322 (xvg format)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000322 "A text-based data file format generated by GROMACS analysis tools, designed for plotting 1D or 2D graphs. It contains tabular numerical data alongside metadata and formatting commands intended to be read directly by the Grace (xmgrace) plotting program. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000322 "xvg format"@en)
+SubClassOf(obo:MOLSIM_000322 obo:MOLSIM_000590)
+
+# Class: obo:MOLSIM_000323 (element type)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000323 "An atom type that classifies an atom based strictly on its atomic number (number of protons in its nucleus), defining its fundamental chemical element. In structure files, it is typically represented by its standard IUPAC one- or two-letter chemical symbol (e.g., C, O, Fe). (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000323 "atomic element"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000323 "element type"@en)
+SubClassOf(obo:MOLSIM_000323 obo:MOLSIM_001763)
+DisjointClasses(obo:MOLSIM_000323 obo:MOLSIM_001764)
+
+# Class: obo:MOLSIM_000324 (force field atom type)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000324 "An atom type assigned by a specific molecular mechanics force field that dictates the atom's non-bonded and bonded interaction parameters. It encodes not only the element, but also the atom's hybridization state, local chemical environment, and connectivity (e.g., distinguishing between an sp3 aliphatic carbon and an sp2 aromatic carbon). (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000324 "mechanics atom type"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000324 "force field atom type"@en)
+SubClassOf(obo:MOLSIM_000324 obo:MOLSIM_001763)
+
+# Class: obo:MOLSIM_000325 (monte carlo simulation)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000325 "A stochastic simulation method that relies on repeated random sampling to explore the configurational space of a molecular system. Unlike molecular dynamics, which integrates equations of motion over time, Monte Carlo generates a sequence of states by proposing random trial moves (such as atom displacements or molecular rotations) and accepting or rejecting them based on a thermodynamic probability criterion, typically the Metropolis algorithm. It is widely used for calculating equilibrium thermodynamic properties and sampling conformational ensembles. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000325 "MC simulation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000325 "monte carlo simulation"@en)
+SubClassOf(obo:MOLSIM_000325 obo:MOLSIM_000308)
 
 # Class: obo:MOLSIM_000326 (endpoint free energy analysis)
 
@@ -5189,6 +5251,7 @@ SubClassOf(obo:MOLSIM_000438 obo:MOLSIM_001085)
 # Class: obo:MOLSIM_000439 (simulation  log format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000439 "A simulation log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation's stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000439 "output log format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000439 "simulation  log format"@en)
 SubClassOf(obo:MOLSIM_000439 obo:MOLSIM_001085)
 
@@ -5227,14 +5290,15 @@ SubClassOf(obo:MOLSIM_000444 obo:MOLSIM_000437)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000445 "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000445 "mmCIF format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000445 "mmcif format"@en)
-SubClassOf(obo:MOLSIM_000445 obo:MOLSIM_001087)
+SubClassOf(obo:MOLSIM_000445 obo:MOLSIM_001088)
 DisjointClasses(obo:MOLSIM_000445 obo:MOLSIM_000446)
 
 # Class: obo:MOLSIM_000446 (pdb format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000446 "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000446 "pdb format"@en)
-SubClassOf(obo:MOLSIM_000446 obo:MOLSIM_001087)
+SubClassOf(obo:MOLSIM_000446 obo:MOLSIM_001088)
+SubClassOf(obo:MOLSIM_000446 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_000447 (identifier)
 
@@ -5403,7 +5467,7 @@ SubClassOf(obo:MOLSIM_000472 obo:MOLSIM_001091)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000473 "A file format generated by the Antechamber program in AmberTools that contains a molecule's structure and atomic properties. It typically stores atom types and partial charges assigned during the parameterization process for a small molecule. This format serves as an intermediate in preparing non-standard molecules for simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000473 "ac format"@en)
-SubClassOf(obo:MOLSIM_000473 obo:MOLSIM_000905)
+SubClassOf(obo:MOLSIM_000473 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000474 (protein-ligand docking analysis)
 
@@ -5518,13 +5582,13 @@ SubClassOf(obo:MOLSIM_000491 obo:MOLSIM_001664)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000492 "Now known as DeepView, Swiss-PdbViewer is a free, popular molecular visualization and analysis software application. It excels at viewing and analyzing protein structures from the PDB, allowing users to measure distances/angles, superimpose structures, evaluate structural quality, build loops, mutate residues, and perform basic energy minimization using the GROMOS force field. It is often used for initial structure inspection and preparation before more extensive simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000492 "DeepView"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000492 "Swiss PDB viewer"@en)
-SubClassOf(obo:MOLSIM_000492 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_000492 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_000493 (Pymol)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000493 "A very popular, powerful, and widely used open-source (with some subscription features) molecular visualization system, known for producing high-quality 3D images of molecules and biological macromolecules. PyMOL allows detailed structure inspection, analysis (measurements, surfaces, electrostatics), creating publication-quality figures and animations, and includes scripting capabilities for automation. It is an indispensable tool for visualizing simulation setups and trajectories, although its structure manipulation capabilities are less extensive than dedicated modeling suites. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000493 "Pymol"@en)
-SubClassOf(obo:MOLSIM_000493 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_000493 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_000494 (minimization)
 
@@ -6084,10 +6148,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000589 "A specific computational 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000589 "trace gradient extremal analysis"@en)
 SubClassOf(obo:MOLSIM_000589 obo:MOLSIM_000588)
 
-# Class: obo:MOLSIM_000590 (plotting format)
+# Class: obo:MOLSIM_000590 (plot data format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000590 "A category for file formats designed to store data in a way that is easily read by graphing or plotting software. These formats typically contain columns of numerical data that can be visualized as 2D or 3D plots. They are used to create visual representations of scientific data, such as graphs of energy over time. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000590 "plotting format"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000590 "A category for file formats designed to store numerical data in a specific structure that is easily parsed and read by graphing or plotting software (e.g., Grace, Gnuplot). These are structured data files (typically containing columns of numbers and plotting directives), not raster or vector image files like PNG, JPEG, or SVG. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000590 "plot data format"@en)
 SubClassOf(obo:MOLSIM_000590 obo:MOLSIM_000436)
 
 # Class: obo:MOLSIM_000591 (agr format)
@@ -6869,6 +6933,14 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000715 "Data generated as the dir
 AnnotationAssertion(rdfs:label obo:MOLSIM_000715 "prediction data format"@en)
 SubClassOf(obo:MOLSIM_000715 obo:MOLSIM_001085)
 
+# Class: obo:MOLSIM_000716 (UCSF ChimeraX)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000716 "UCSF ChimeraX is the next-generation molecular visualization and analysis program developed by the Resource for Biocomputing, Visualization, and Informatics at UCSF. It is designed to handle extremely large datasets, such as cryo-EM maps and massive simulation trajectories, with high-performance rendering. In addition to visualization, it serves as a powerful modeling and setup tool, offering capabilities for structure building, fitting, and interactive manipulation. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000716 "ChimeraX"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000716 "UCSF ChimeraX"@en)
+SubClassOf(obo:MOLSIM_000716 obo:MOLSIM_001850)
+SubClassOf(obo:MOLSIM_000716 obo:MOLSIM_002041)
+
 # Class: obo:MOLSIM_000717 (experimental data source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000717 "Refers to data obtained directly from a specific laboratory experiment, which may not yet be (or ever be) deposited into a public database. This can include data reported in a scientific publication for which no separate database entry exists, or unpublished results from ongoing research. It emphasizes the direct experimental origin of the information. (UNVERIFIED)"@en)
@@ -7564,7 +7636,7 @@ SubClassOf(obo:MOLSIM_000843 obo:MOLSIM_000308)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000844 "The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, including earth sciences, climate modeling, and molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000844 "NetCDF format"@en)
-SubClassOf(obo:MOLSIM_000844 obo:MOLSIM_001090)
+SubClassOf(obo:MOLSIM_000844 obo:MOLSIM_000910)
 
 # Class: obo:MOLSIM_000845 (enhanced sampling)
 
@@ -7871,19 +7943,19 @@ SubClassOf(obo:MOLSIM_000894 obo:MOLSIM_001090)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000895 "The GROMACS .gro file is a simple, formatted text file used to store molecular coordinates, atom/residue names, and optionally velocities. It includes a title line, the total number of atoms, and then one line per atom specifying residue and atom information, coordinates (in nanometers), and optionally velocities. The file concludes with the periodic box vectors. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000895 "GROMACS gro format"@en)
-SubClassOf(obo:MOLSIM_000895 obo:MOLSIM_001089)
+SubClassOf(obo:MOLSIM_000895 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000896 (TINKER xyz format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000896 "The TINKER XYZ (.xyz or .txyz) file format stores molecular coordinates and topology information for use with the TINKER software package. It starts with the atom count and a title line, followed by lines for each atom containing the atom index, atom name, coordinates (Angstroms), atom type (force field), and connectivity information. This format combines coordinates and basic topology. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000896 "A specialized text-based file format used by the TINKER software package. While it shares the '.xyz' extension with the standard Cartesian coordinate format, it is distinct in that it explicitly includes atom indices, force field atom types, and connectivity (bond) lists for every atom, serving as both a coordinate and topology file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000896 "TINKER xyz format"@en)
-SubClassOf(obo:MOLSIM_000896 obo:MOLSIM_001063)
+SubClassOf(obo:MOLSIM_000896 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000897 (TURBOMOLE coordinate format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000897 "In TURBOMOLE, coordinate information is typically provided within a specific data group, usually $coord, inside the main input or control file. This section lists the Cartesian coordinates (in Bohr by default, or Angstroms if specified) followed by an atom symbol (elemental symbol, usually lowercase) for each atom. This data group defines the molecular geometry for the TURBOMOLE calculation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000897 "TURBOMOLE coordinate format"@en)
-SubClassOf(obo:MOLSIM_000897 obo:MOLSIM_001089)
+SubClassOf(obo:MOLSIM_000897 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000898 (GROMACS itp format)
 
@@ -7930,10 +8002,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000904 "A molecular structure is 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000904 "molecular structure"@en)
 SubClassOf(obo:MOLSIM_000904 obo:MOLSIM_001073)
 
-# Class: obo:MOLSIM_000905 (small molecule structure)
+# Class: obo:MOLSIM_000905 (small molecule structure (deprecated))
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000905 "Small molecule structure formats are designed primarily for representing organic and drug-like molecules, often emphasizing chemical details like bond orders, formal charges, and stereochemistry. These formats are widely used in cheminformatics, drug discovery databases, and as input for various modeling tasks. Common examples include SDF, Mol2, and SMILES strings. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000905 "small molecule structure"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000905 "small molecule structure (deprecated)"@en)
 SubClassOf(obo:MOLSIM_000905 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000906 (mol2 format)
@@ -7941,7 +8013,7 @@ SubClassOf(obo:MOLSIM_000905 obo:MOLSIM_001088)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000906 "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000906 "Mol2 format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000906 "mol2 format"@en)
-SubClassOf(obo:MOLSIM_000906 obo:MOLSIM_000905)
+SubClassOf(obo:MOLSIM_000906 obo:MOLSIM_001088)
 DisjointClasses(obo:MOLSIM_000906 obo:MOLSIM_000907)
 
 # Class: obo:MOLSIM_000907 (sdf format)
@@ -7949,7 +8021,7 @@ DisjointClasses(obo:MOLSIM_000906 obo:MOLSIM_000907)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000907 "The Structure-Data File (SDF, .sdf) format is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000907 "SDF format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000907 "sdf format"@en)
-SubClassOf(obo:MOLSIM_000907 obo:MOLSIM_000905)
+SubClassOf(obo:MOLSIM_000907 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000908 (sequence data format)
 
@@ -8021,7 +8093,7 @@ SubClassOf(obo:MOLSIM_000918 obo:MOLSIM_000917)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000921 "A generic name for a text-based file format that stores the Cartesian (x, y, z) coordinates of atoms in a molecular system. The specific layout can vary, as multiple simulation packages like CHARMM and Amber have their own distinct versions of a \".crd\" file. Due to its ambiguity, it is often necessary to specify which software's CRD format is being used. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000921 "crd format"@en)
-SubClassOf(obo:MOLSIM_000921 obo:MOLSIM_001089)
+SubClassOf(obo:MOLSIM_000921 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_000923 (local structure analysis)
 
@@ -8084,11 +8156,12 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000939 "dynamics analysis"@en)
 SubClassOf(obo:MOLSIM_000939 obo:MOLSIM_000004)
 SubClassOf(obo:MOLSIM_000939 obo:MOLSIM_000026)
 
-# Class: obo:MOLSIM_000940 (dat format)
+# Class: obo:MOLSIM_000940 (AMBER force field parameter format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000940 "The dat format, in the context of Amber, is a text file that contains the numerical parameters defining a force field. These files list the atom types and the corresponding equilibrium values and force constants for all the bond, angle, dihedral, and non-bonded interactions. They serve as the primary database of parameters that programs like LEaP read to assign the correct force field terms when building a molecular system. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000940 "dat format"@en)
-SubClassOf(obo:MOLSIM_000940 obo:MOLSIM_001091)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000940 "A text-based file format used by the AMBER software suite to store standard force field parameters. These files (historically using the .dat extension) contain the equilibrium values and force constants for bonds, angles, dihedrals, and non-bonded interactions for specific atom types. They serve as the central parameter database loaded by system-building tools like LEaP. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000940 "AMBER dat format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000940 "AMBER force field parameter format"@en)
+SubClassOf(obo:MOLSIM_000940 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_000941 (coordinate rotation modeling)
 
@@ -8411,11 +8484,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001032 "A running average calcula
 AnnotationAssertion(rdfs:label obo:MOLSIM_001032 "running average calculation analysis"@en)
 SubClassOf(obo:MOLSIM_001032 obo:MOLSIM_000400)
 
-# Class: obo:MOLSIM_001037 (GROMOS crd format)
+# Class: obo:MOLSIM_001037 (GROMOS configuration format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001037 "GROMOS coordinate files (often named gromos.crd) are formatted, text-based files used by the GROMOS simulation package to store atomic Cartesian coordinates of molecular systems, typically in a block-structured format with title records, positional data, and an END directive."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001037 "GROMOS crd format"@en)
-SubClassOf(obo:MOLSIM_001037 obo:MOLSIM_000921)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001037 "A text-based file format used by the GROMOS simulation software to store the complete configuration of a molecular system. It is organized into data blocks (e.g., POSITION, VELOCITY, BOX) and contains atomic coordinates, periodic box dimensions, and optionally velocities. This format typically uses the .cnf file extension and is the primary input for coordinates in GROMOS simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001037 ".cnf"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001037 "GROMOS configuration format"@en)
+SubClassOf(obo:MOLSIM_001037 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_001038 (MPDyn crd format)
 
@@ -8475,14 +8549,14 @@ SubClassOf(obo:MOLSIM_001043 obo:MOLSIM_000472)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001044 "The Crystallographic Information File (cif) format is a standard text-based file format used to store information about molecular structures, especially those determined by experiments. It uses a flexible tag-based structure with key-value pairs, making it more robust and extensible for handling the large, complex structures and extensive metadata common in modern structural biology. As the official format of the Protein Data Bank (PDB), the macromolecular CIF (mmCIF) variant has superseded the older PDB format for archiving and distributing 3D coordinates of proteins and nucleic acids. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001044 "cif format"@en)
-SubClassOf(obo:MOLSIM_001044 obo:MOLSIM_001087)
+SubClassOf(obo:MOLSIM_001044 obo:MOLSIM_001088)
 
-# Class: obo:MOLSIM_001045 (Tinker arc format)
+# Class: obo:MOLSIM_001045 (TINKER arc format)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001045 "A file format used by the TINKER simulation package to store the trajectory of a molecular system. It archives the atomic coordinates from different snapshots of a simulation in a single file for later analysis. This is the standard trajectory output for TINKER simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001045 ".arc")
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001045 "This can also be a coordinate format from Tinker package as well.")
-AnnotationAssertion(rdfs:label obo:MOLSIM_001045 "Tinker arc format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001045 "TINKER arc format"@en)
 SubClassOf(obo:MOLSIM_001045 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_001046 (original residue number)
@@ -8589,12 +8663,11 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_001060 "An HDF5-based trajectory fil
 AnnotationAssertion(rdfs:label obo:MOLSIM_001060 "MDTraj h5 format"@en)
 SubClassOf(obo:MOLSIM_001060 obo:MOLSIM_001090)
 
-# Class: obo:MOLSIM_001061 (MDAnalysis h5md format)
+# Class: obo:MOLSIM_001061 (h5md format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001061 "A file format based on the HDF5 standard, used by the MDAnalysis library to store simulation data. It provides a flexible and efficient way to store large datasets, including atomic coordinates, velocities, and other time-series data from a simulation. This format promotes interoperability by using the widely supported HDF5 data model. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001061 "H5MD (HDF5 for Molecular Dynamics) is an open, community-standard file format based on HDF5, designed for storing molecular simulation data. It is software-agnostic and supports the storage of atomic coordinates, velocities, forces, and thermodynamic data, facilitating data exchange between different simulation and analysis packages. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001061 ".h5md")
-AnnotationAssertion(rdfs:comment obo:MOLSIM_001061 "An HDF5-based trajectory file format used by the MDAnalysis library."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001061 "MDAnalysis h5md format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001061 "h5md format"@en)
 SubClassOf(obo:MOLSIM_001061 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_001062 (pqr format)
@@ -8602,14 +8675,15 @@ SubClassOf(obo:MOLSIM_001061 obo:MOLSIM_001090)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001062 "The PQR format is a modification of the standard Protein Data Bank (PDB) format used in computational biology to store atomic coordinate data along with atomic partial charges (Q) and radii (R). The name itself is a mnemonic, representing PDB + Q (charge) + R (radius). Its primary advantage is that it bundles the necessary structural and electrostatic parameters into a single, PDB-like file that is easily parsed by both analysis software and molecular visualization programs. These files are most commonly generated by the PDB2PQR software, which processes a standard PDB file, adds missing hydrogen atoms, and assigns atomic charges and radii based on a chosen force field. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001062 ".pqr")
 AnnotationAssertion(rdfs:label obo:MOLSIM_001062 "pqr format"@en)
-SubClassOf(obo:MOLSIM_001062 obo:MOLSIM_001087)
+SubClassOf(obo:MOLSIM_001062 obo:MOLSIM_001088)
 
-# Class: obo:MOLSIM_001063 (xyz format)
+# Class: obo:MOLSIM_001063 (MOE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001063 "The xyz format is a very simple text file that lists the 3D coordinates of atoms in a molecule. As a type of software-specific coordinate format, it is a minimalistic, text-based format that specifies the atom count on the first line, a comment on the second, followed by lines containing the element symbol and its X, Y, and Z Cartesian coordinates. While it lacks connectivity or force field information, its simplicity makes it a universal format for quick visualization and sharing of single molecular structures. Files in this format typically have the .xyz extension and are recognized by nearly all molecular visualization and chemistry software. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:comment obo:MOLSIM_001063 "A simple text-based chemical file format for coordinates.")
-AnnotationAssertion(rdfs:label obo:MOLSIM_001063 "xyz format"@en)
-SubClassOf(obo:MOLSIM_001063 obo:MOLSIM_001089)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001063 "The Molecular Operating Environment (MOE) is a comprehensive, commercial software system for drug discovery, molecular modeling, and computational chemistry developed by the Chemical Computing Group. It integrates visualization with a vast array of tools for structure preparation, docking, pharmacophore modeling, and molecular dynamics setup within a single unified interface. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001063 "Molecular Operating Environment"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001063 "MOE"@en)
+SubClassOf(obo:MOLSIM_001063 obo:MOLSIM_001850)
+SubClassOf(obo:MOLSIM_001063 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001064 (TIP3PFW)
 
@@ -8635,27 +8709,27 @@ SubClassOf(obo:MOLSIM_001066 obo:MOLSIM_010020)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001067 "Xmgrace is a computer program used to make scientific graphs and plots from data. As a type of visualization tool, Xmgrace is a 2D plotting program for X Window Systems, widely used in the scientific community for creating publication-quality graphs from simple column-based text data. Many simulation analysis tools, like GROMACS and cpptraj, can directly generate output files in the native .agr format for easy plotting of time-series data like RMSD or energy. This tool is associated with file formats like .agr and commands in analysis scripts such as xmgrace -nxy plot.dat. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001067 "xmgrace"@en)
-SubClassOf(obo:MOLSIM_001067 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001067 obo:MOLSIM_002042)
 
 # Class: obo:MOLSIM_001068 (gnuplot)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001068 "Gnuplot is a command-line program that creates 2D and 3D graphs from data files. As a type of visualization tool, gnuplot is a versatile, scriptable plotting utility that can generate a wide variety of plots from data files, making it a popular choice for automating the generation of figures in analysis workflows. Simulation analysis programs often have options to format their output specifically for gnuplot, containing data columns ready for commands like plot 'data.dat' using 1:2 with lines. This tool is associated with script files having .gpi or .plt extensions and commands like set terminal and plot. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001068 "gnuplot"@en)
-SubClassOf(obo:MOLSIM_001068 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001068 obo:MOLSIM_002042)
 
 # Class: obo:MOLSIM_001069 (visual molecular dynamics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001069 "Visual Molecular Dynamics, or VMD, is a computer program for viewing and animating molecules in 3D. As a type of visualization tool, VMD is a high-performance molecular graphics program designed for the visualization and analysis of large biomolecular systems and simulation trajectories from packages like NAMD and GROMACS. It includes powerful atom selection syntax, rendering capabilities for publication-quality images, and a Tcl/Python scripting interface for automating complex analysis and visualization tasks. This tool is commonly known as \"VMD\" and is associated with file formats like .vmd for saved states and analysis scripts written in Tcl. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001069 "VMD")
 AnnotationAssertion(rdfs:label obo:MOLSIM_001069 "visual molecular dynamics"@en)
-SubClassOf(obo:MOLSIM_001069 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001069 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001070 (NMWiz)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001070 "NMWiz is an add-on for VMD that helps visualize the different ways a molecule can vibrate or wiggle. As a type of visualization tool, Normal Mode Wizard (NMWiz) is a VMD plugin specifically designed for the interactive visualization and analysis of normal modes from calculations like Normal Mode Analysis (NMA) or Principal Component Analysis (PCA). It allows users to animate the collective motions described by eigenvectors and analyze their contributions to overall protein dynamics. This tool is referred to in VMD analysis workflows as \"NMWiz,\" \"Normal Mode Wizard,\" and is used to analyze eigenvector and eigenvalue data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001070 "A VMD plugin for visualizing and analyzing normal modes."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001070 "NMWiz"@en)
-SubClassOf(obo:MOLSIM_001070 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001070 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001071 (CPPTRAJ traj3d format)
 
@@ -8755,10 +8829,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001086 "This is a text file forma
 AnnotationAssertion(rdfs:label obo:MOLSIM_001086 "AMBER prep (internal) format"@en)
 SubClassOf(obo:MOLSIM_001086 obo:MOLSIM_000437)
 
-# Class: obo:MOLSIM_001087 (macromolecular structure format)
+# Class: obo:MOLSIM_001087 (macromolecular structure format (deprecated))
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001087 "A file format specifically designed to describe the complex, three-dimensional structures of large biological molecules like proteins and DNA. These formats accommodate hierarchical descriptions, such as chains and residues, in addition to atomic coordinates. Examples include the widely used PDB and mmCIF formats. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001087 "macromolecular structure format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001087 "macromolecular structure format (deprecated)"@en)
 SubClassOf(obo:MOLSIM_001087 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_001088 (molecular structure format)
@@ -8767,10 +8841,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001088 "A type of file format tha
 AnnotationAssertion(rdfs:label obo:MOLSIM_001088 "molecular structure format"@en)
 SubClassOf(obo:MOLSIM_001088 obo:MOLSIM_001085)
 
-# Class: obo:MOLSIM_001089 (software-specific coordinate format)
+# Class: obo:MOLSIM_001089 (software-specific coordinate format (deprecated))
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001089 "A coordinate file primarily stores the three-dimensional positions (X, Y, Z coordinates) of atoms in a molecular system. It may also contain atom names, residue information, and potentially periodic box dimensions, but typically lacks detailed bonding (topology) or force field parameter information. Common examples include PDB, GRO, and XYZ formats, used for initial structures or snapshots from simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001089 "software-specific coordinate format"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001089 "software-specific coordinate format (deprecated)"@en)
 SubClassOf(obo:MOLSIM_001089 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_001090 (molecular trajectory format)
@@ -8870,7 +8944,7 @@ SubClassOf(obo:MOLSIM_001104 obo:MOLSIM_000437)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001105 "A component CIF is a data file that acts like a dictionary entry, describing a single chemical building block found in larger biological molecules. It uses the standard Crystallographic Information File (CIF) format to define the atom names, chemical bonds, and ideal 3D coordinates for a specific residue or small molecule. The Protein Data Bank's Chemical Component Dictionary is a comprehensive collection of these files, making them essential for correctly interpreting and building complex molecular structures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001105 "component cif"@en)
-SubClassOf(obo:MOLSIM_001105 obo:MOLSIM_001087)
+SubClassOf(obo:MOLSIM_001105 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_001106 (solvent analysis data format)
 
@@ -11461,6 +11535,7 @@ SubClassOf(obo:MOLSIM_001578 obo:MOLSIM_001569)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001579 "Pytraj is a Python library that provides a programmable interface to the powerful trajectory analysis capabilities of the cpptraj engine from the AmberTools suite. It allows users to write Python scripts to perform a wide range of analyses, such as calculating RMSD, distances, and hydrogen bonds, directly on simulation trajectories. For researchers, pytraj enables the creation of complex, automated, and reproducible analysis workflows that integrate seamlessly with other Python data science tools. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001579 "pytraj"@en)
+SubClassOf(obo:MOLSIM_001579 obo:MOLSIM_000251)
 SubClassOf(obo:MOLSIM_001579 obo:MOLSIM_001566)
 
 # Class: obo:MOLSIM_001580 (SQM)
@@ -12042,19 +12117,21 @@ SubClassOf(obo:MOLSIM_001674 obo:MOLSIM_001566)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001675 "OpenMM is a high-performance software library that provides a toolkit for running molecular dynamics simulations, with a strong emphasis on GPU acceleration. It is not a monolithic application but rather a flexible library that allows developers to easily add simulation capabilities to their own programs. For the simulation community, OpenMM provides a powerful, hardware-accelerated, and easily customizable platform for developing new simulation methods and applications. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001675 "OpenMM"@en)
+SubClassOf(obo:MOLSIM_001675 obo:MOLSIM_000160)
 SubClassOf(obo:MOLSIM_001675 obo:MOLSIM_001566)
 
 # Class: obo:MOLSIM_001676 (Message Passing Interface)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001676 "The Message Passing Interface (MPI) is a standardized and portable specification for writing parallel programs that run on distributed memory systems, such as computer clusters. It defines a library of functions for sending and receiving messages between processes, allowing them to coordinate and share data. For biomolecular simulation engines, MPI is the fundamental communication protocol that enables them to scale efficiently across hundreds or thousands of processor cores. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001676 "MPI"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001676 "Message Passing Interface"@en)
-SubClassOf(obo:MOLSIM_001676 obo:MOLSIM_001654)
+SubClassOf(obo:MOLSIM_001676 obo:MOLSIM_001562)
 
 # Class: obo:MOLSIM_001677 (OpenMP)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001677 "OpenMP is an application programming interface (API) that supports multi-platform shared-memory parallel programming in C, C++, and Fortran. It allows a programmer to instruct a program to run parts of its code in parallel across multiple processor cores on a single machine. In biomolecular simulation engines, OpenMP is used to parallelize computationally intensive loops, such as those in force calculations, to make efficient use of modern multi-core CPUs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001677 "OpenMP"@en)
-SubClassOf(obo:MOLSIM_001677 obo:MOLSIM_001566)
+SubClassOf(obo:MOLSIM_001677 obo:MOLSIM_001562)
 
 # Class: obo:MOLSIM_001678 (BLAS)
 
@@ -12578,8 +12655,9 @@ SubClassOf(obo:MOLSIM_001762 obo:MOLSIM_001761)
 
 # Class: obo:MOLSIM_001763 (atom type)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001763 "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001763 "A classification assigned to an atom to describe its fundamental chemical identity or its specific physical and computational properties within a molecular model. (UNVERIFIED)"@en)
 AnnotationAssertion(dcterms:contributor obo:MOLSIM_001763 <https://orcid.org/0000-0003-4177-3619>)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001763 "Previous definition: An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001763 "atom type"@en)
 SubClassOf(obo:MOLSIM_001763 obo:MOLSIM_000447)
 
@@ -13510,12 +13588,14 @@ SubClassOf(obo:MOLSIM_001917 obo:MOLSIM_001913)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001918 "MDAnalysis is an open-source Python library used for the analysis of molecular dynamics simulation trajectories. It provides a flexible and object-oriented framework that allows users to read, write, and manipulate atomic coordinate data from a wide variety of simulation packages. For researchers, MDAnalysis is a powerful tool for writing custom, complex, and reproducible analysis scripts in a familiar Python environment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001918 "MDAnalysis"@en)
+SubClassOf(obo:MOLSIM_001918 obo:MOLSIM_000251)
 SubClassOf(obo:MOLSIM_001918 obo:MOLSIM_001566)
 
 # Class: obo:MOLSIM_001919 (MDTraj)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001919 "MDTraj is a modern, open-source Python library designed for the fast and efficient analysis of molecular dynamics trajectories. It excels at reading and writing a very broad range of trajectory and topology file formats, making it highly interoperable. For scientists, MDTraj provides a fast and powerful toolkit for performing common structural and time-series analyses on simulation data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001919 "MDTraj"@en)
+SubClassOf(obo:MOLSIM_001919 obo:MOLSIM_000251)
 SubClassOf(obo:MOLSIM_001919 obo:MOLSIM_001566)
 
 # Class: obo:MOLSIM_001920 (ProDy)
@@ -13535,13 +13615,14 @@ SubClassOf(obo:MOLSIM_001921 obo:MOLSIM_001566)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001922 "3Dmol.js is a JavaScript library used for creating interactive, 3D visualizations of molecular structures directly within a web browser. It allows web developers to embed high-quality molecular viewers into websites and web applications without requiring any plugins. For creators of online scientific resources, 3Dmol.js provides a lightweight and versatile tool for displaying and interacting with molecular data on the web. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001922 "3DMol.js"@en)
 SubClassOf(obo:MOLSIM_001922 obo:MOLSIM_001566)
+SubClassOf(obo:MOLSIM_001922 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001923 (NGL)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001923 "NGL Viewer is a WebGL-based JavaScript library for the fast and high-quality visualization of large molecular complexes and trajectories in the web browser. It is designed for high-performance rendering, enabling smooth, interactive exploration of even very large structures like ribosomes or viral capsids. For developers of web-based bioinformatics tools, NGL provides a powerful and scalable component for molecular graphics and data visualization. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001923 "NGL"@en)
-SubClassOf(obo:MOLSIM_001923 obo:MOLSIM_000163)
 SubClassOf(obo:MOLSIM_001923 obo:MOLSIM_001566)
+SubClassOf(obo:MOLSIM_001923 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001924 (Open Babel)
 
@@ -13590,43 +13671,45 @@ SubClassOf(obo:MOLSIM_001930 obo:MOLSIM_001664)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001931 "Blender is a free and open-source 3D computer graphics software suite used for creating animated films, visual effects, art, and 3D printed models. While not a dedicated molecular viewer, it is often used by computational biologists to import molecular structures and create high-quality, cinematic renderings and scientific animations. For experts, Blender provides a professional-level tool for producing visually stunning figures and movies for publications and presentations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001931 "Blender"@en)
-SubClassOf(obo:MOLSIM_001931 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001931 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001932 (Jmol)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001932 "Jmol is a free, open-source molecular viewer for 3D chemical structures, written in the Java programming language. Because it is Java-based, it can run on a wide variety of operating systems and is often used as a tool for displaying molecules on websites. For researchers and educators, Jmol provides a versatile and accessible tool for basic molecular visualization and analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001932 "Jmol"@en)
-SubClassOf(obo:MOLSIM_001932 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001932 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001933 (MolStar)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001933 "Mol* is a modern, web-based toolkit for visualizing and analyzing large-scale molecular data. It is designed for high-performance rendering of extremely large structures, such as those from cryo-electron microscopy, directly in a web browser. For the structural biology community, Mol* is the state-of-the-art viewer integrated into databases like the PDB for exploring complex biological assemblies. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001933 "MolStar is a modern, web-based toolkit for visualizing and analyzing large-scale molecular data. It is designed for high-performance rendering of extremely large structures, such as those from cryo-electron microscopy, directly in a web browser. For the structural biology community, Mol* is the state-of-the-art viewer integrated into databases like the PDB for exploring complex biological assemblies. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001933 "Mol*"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001933 "MolStar"@en)
-SubClassOf(obo:MOLSIM_001933 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001933 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001934 (UCSF Chimera)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001934 "UCSF Chimera is a powerful and highly extensible desktop program for the interactive visualization and analysis of molecular structures and related data. It is known for its high-quality graphics, comprehensive feature set, and its ability to handle a wide range of data types beyond simple structures, such as density maps and sequence alignments. For many researchers, Chimera (and its successor, ChimeraX) is an indispensable day-to-day tool for analyzing simulation results and preparing publication-quality figures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001934 "UCSF Chimera"@en)
-SubClassOf(obo:MOLSIM_001934 obo:MOLSIM_000163)
+SubClassOf(obo:MOLSIM_001934 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_001935 (YASARA)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001935 "YASARA is a comprehensive molecular modeling and simulation software suite known for its high degree of automation and user-friendly interface. It integrates a wide range of functionalities, from structure prediction and cleaning to running full molecular dynamics simulations with its own force field. For scientists, YASARA aims to make complex simulation protocols accessible through automated workflows that can be executed with minimal manual setup. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001935 "YASARA"@en)
+SubClassOf(obo:MOLSIM_001935 obo:MOLSIM_000160)
 SubClassOf(obo:MOLSIM_001935 obo:MOLSIM_001664)
 
 # Class: obo:MOLSIM_001936 (high-performance computing cluster system)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001936 "A high-performance computing cluster is a group of individual computers, called nodes, that are linked together by a fast network to function as a single, powerful system. In biomolecular simulation, these clusters are used to run a single simulation in parallel across many processors, which is essential for studying large molecular systems. The overall performance of a parallel simulation on a cluster depends critically on the speed of both the processors and the network connecting them. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001936 "A computing system consisting of a group of individual computers (nodes) linked together by a high-speed network to function as a single, coordinated system for parallel processing. This encompasses a wide range of scales, from small laboratory clusters to massive institutional systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001936 "high-performance computing cluster system"@en)
 SubClassOf(obo:MOLSIM_001936 obo:MOLSIM_001862)
 
 # Class: obo:MOLSIM_001937 (supercomputer system)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001937 "A supercomputer is one of the fastest and most powerful types of computers in the world, designed for extremely complex and large-scale scientific calculations. It is a tightly integrated system, often featuring custom processors and a specialized, ultra-fast network to enable efficient communication between hundreds of thousands of processor cores. These machines are used for the most demanding biomolecular simulations, such as modeling an entire virus or achieving simulation timescales of milliseconds. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001937 "A high-performance computing cluster system that operates at or near the maximum performance rate for computers at the time of its deployment. Supercomputers are typically characterized by massive scale, specialized high-speed interconnects, and act as national or global resources for the most demanding computational tasks (e.g., Summit, Frontier, or specialized MD machines like Anton). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001937 "supercomputer system"@en)
-SubClassOf(obo:MOLSIM_001937 obo:MOLSIM_001862)
+SubClassOf(obo:MOLSIM_001937 obo:MOLSIM_001936)
 
 # Class: obo:MOLSIM_001938 (cloud computing platform system)
 
@@ -14241,6 +14324,88 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002039 "An atom ID is usually a n
 AnnotationAssertion(dcterms:contributor obo:MOLSIM_002039 <https://orcid.org/0000-0003-4177-3619>)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002039 "atom ID"@en)
 SubClassOf(obo:MOLSIM_002039 obo:MOLSIM_000447)
+
+# Class: obo:MOLSIM_002040 (JSmol)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002040 "JSmol is an open-source, HTML5/JavaScript-based molecular viewer that allows for the interactive 3D visualization of chemical structures within web browsers without requiring Java or other plugins. It is the modern, JavaScript implementation of the popular Jmol applet, widely used in chemical education, databases, and web-based cheminformatics tools. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002040 "JSmol"@en)
+SubClassOf(obo:MOLSIM_002040 obo:MOLSIM_002041)
+
+# Class: obo:MOLSIM_002041 (molecular structure visualization tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002041 "A visualization tool designed specifically to render and interactively display three-dimensional models of molecular structures, complexes, and dynamic simulation trajectories. These tools are used to visually inspect atomic coordinates, molecular surfaces, and spatial relationships. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002041 "molecular structure visualization tool"@en)
+SubClassOf(obo:MOLSIM_002041 obo:MOLSIM_000163)
+
+# Class: obo:MOLSIM_002042 (data plotting tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002042 "A visualization tool designed to generate 2D or 3D graphs, charts, and plots from numerical data files. In simulation workflows, these are used to plot time-series data (like RMSD or energy over time), histograms, and statistical analyses. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002042 "data visualization tool"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002042 "data plotting tool"@en)
+SubClassOf(obo:MOLSIM_002042 obo:MOLSIM_000163)
+
+# Class: obo:MOLSIM_002043 (CAMPARI)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002043 "CAMPARI is a simulation software package designed for performing molecular dynamics and Monte Carlo simulations of biological macromolecules. It is particularly renowned for its extensive implementation of advanced Monte Carlo sampling algorithms, implicit solvent models (like ABSINTH), and its utility in studying intrinsically disordered proteins. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002043 "CAMPARI"@en)
+SubClassOf(obo:MOLSIM_002043 obo:MOLSIM_000160)
+
+# Class: obo:MOLSIM_002044 (HIP)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002044 "HIP (Heterogeneous-compute Interface for Portability) is a C++ runtime API and kernel language developed by AMD. It allows developers to write performance-portable code that can be compiled to run on both AMD and NVIDIA GPUs. In biomolecular simulation, HIP is increasingly used to port major molecular dynamics engines to run efficiently on AMD-powered supercomputers. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002044 "HIP"@en)
+SubClassOf(obo:MOLSIM_002044 obo:MOLSIM_001562)
+
+# Class: obo:MOLSIM_002045 (SYCL)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002045 "SYCL is a royalty-free, cross-platform C++ abstraction layer that enables code for heterogeneous processors (CPUs, GPUs, FPGAs) to be written in a standard, single-source style. It is used by simulation developers to write performance-portable molecular simulation software that can run across diverse hardware architectures, including Intel GPUs. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002045 "SYCL"@en)
+SubClassOf(obo:MOLSIM_002045 obo:MOLSIM_001562)
+
+# Class: obo:MOLSIM_002046 (OpenCL)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002046 "OpenCL (Open Computing Language) is an open, royalty-free standard for parallel programming of heterogeneous systems, including CPUs, GPUs, DSPs, and other processors. It provides a low-level API that has been widely used by simulation engines to accelerate computations across diverse and non-proprietary hardware platforms. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002046 "open computing language"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002046 "OpenCL"@en)
+SubClassOf(obo:MOLSIM_002046 obo:MOLSIM_001562)
+
+# Class: obo:MOLSIM_002047 (OpenMPI)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002047 "Open MPI is an open-source, freely available implementation of the Message Passing Interface (MPI) standard. It is widely used in high-performance computing to facilitate communication between distributed processes. In biomolecular simulation, it is a standard library used to compile and run parallel simulation engines, such as GROMACS, LAMMPS, and NAMD, across multiple nodes of a computer cluster to ensure efficient scaling and data exchange. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002047 "OpenMPI"@en)
+SubClassOf(obo:MOLSIM_002047 obo:MOLSIM_001566)
+
+# Class: obo:MOLSIM_002048 (MPICH)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002048 "MPICH is a highly efficient, open-source implementation of the Message Passing Interface (MPI) standard. It serves as both a widely used standalone MPI library for high-performance computing and as the foundational framework for many other vendor-specific or derivative MPI implementations (such as Intel MPI and MVAPICH). For biomolecular simulations on distributed-memory supercomputers, MPICH provides the essential message-passing infrastructure required for large-scale parallelization. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002048 "MPICH"@en)
+SubClassOf(obo:MOLSIM_002048 obo:MOLSIM_001566)
+
+# Class: obo:MOLSIM_002049 (AutoDock)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002049 "AutoDock is a suite of automated docking tools designed to predict how small molecules bind to a receptor of known 3D structure. Older than Vina, classic AutoDock (e.g., AutoDock 4) utilizes a Lamarckian genetic algorithm and a grid-based empirical scoring function. It remains widely used for generating starting poses for molecular dynamics simulations.  (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002049 "AutoDock"@en)
+SubClassOf(obo:MOLSIM_002049 obo:MOLSIM_000162)
+
+# Class: obo:MOLSIM_002050 (GOLD)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002050 "GOLD (Genetic Optimisation for Ligand Docking) is a highly regarded commercial docking program developed by the Cambridge Crystallographic Data Centre (CCDC). It uses a genetic algorithm to explore ligand conformational space and offers multiple scoring functions. It is frequently used in pharmaceutical pipelines to generate highly accurate protein-ligand complex structures for subsequent MD refinement.  (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002050 "Genetic Optimisation for Ligand Docking"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002050 "GOLD"@en)
+SubClassOf(obo:MOLSIM_002050 obo:MOLSIM_000162)
+
+# Class: obo:MOLSIM_002051 (Glide)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002051 "Glide (Grid-based Ligand Docking with Energetics) is a commercial molecular docking program within the Schrödinger software suite. It uses a systematic, hierarchical search of positional, orientational, and conformational space followed by evaluation with an empirical scoring function (e.g., SP, XP). It is heavily utilized in industry for virtual screening and preparing complexes for Desmond MD simulations.  (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002051 "Grid-based Ligand Docking with Energetics"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002051 "Glide"@en)
+SubClassOf(obo:MOLSIM_002051 obo:MOLSIM_000162)
+
+# Class: obo:MOLSIM_002052 (rDock)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002052 "rDock is a fast, open-source molecular docking program that can be used to dock small molecules against proteins and nucleic acids. Originally developed commercially as RiboDock, it utilizes a combination of stochastic and deterministic search algorithms. Its speed and open-source nature make it a popular tool for high-throughput virtual screening workflows preceding MD validation. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002052 "rDock"@en)
+SubClassOf(obo:MOLSIM_002052 obo:MOLSIM_000162)
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
