@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-02-19/molsim-base.owl
+data-version: molsim/releases/2026-02-24/molsim-base.owl
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
@@ -9,7 +9,7 @@ property_value: dce:type IAO:8000001
 property_value: dcterms:description https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2026-02-19" xsd:string
+property_value: owl:versionInfo "2026-02-24" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -169,7 +169,8 @@ is_a: MOLSIM:000016 ! other organic molecules force field
 id: MOLSIM:000025
 name: mol3 format
 def: "A text-based molecular structure format, similar to the mol2 format, but designed to include additional records for atomic connectivity. It is used to represent chemical structures with an expanded description of their bonding topology. (UNVERIFIED)" []
-is_a: MOLSIM:000905 ! small molecule structure
+is_a: MOLSIM:001088 ! molecular structure format
+is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
 id: MOLSIM:000026
@@ -334,9 +335,10 @@ is_a: MOLSIM:000049 ! constraining algorithm
 
 [Term]
 id: MOLSIM:000052
-name: linear constraint solver algorithm
+name: LINCS algorithm
 def: "A general term for algorithms designed to solve systems of linear equations that arise from geometric constraints in molecular simulations, particularly when constraints are applied before integrating equations of motion (e.g., in Lagrangian multiplier methods). While iterative methods like SHAKE/RATTLE solve non-linear equations implicitly, linear solvers might be used in different formulations. It represents the mathematical task underlying some constraint methods (UNVERIFIED)." []
 synonym: "LINCS" EXACT []
+synonym: "linear constraint solver algorithm" EXACT []
 is_a: MOLSIM:000049 ! constraining algorithm
 
 [Term]
@@ -613,10 +615,12 @@ is_a: MOLSIM:000087 ! optimal transformation path algorithm
 
 [Term]
 id: MOLSIM:000097
-name: AMBER nc format
+name: AMBER NetCDF trajectory format
 def: "A binary trajectory format based on the NetCDF standard, used by the Amber simulation package. It efficiently stores atomic coordinates, velocities, forces, and periodic box dimensions from a simulation. This is the modern, recommended trajectory format for Amber. (UNVERIFIED)" []
 comment: In the vast majority of scientific applications, including molecular dynamics, climate science, and oceanography, a .nc file is a NetCDF file. There is no difference in the format itself. The .nc extension is simply the most common file name suffix for a file written using the NetCDF data model. (UNVERFIED)
+synonym: "AMBER nc format" EXACT []
 is_a: MOLSIM:000844 ! NetCDF format
+is_a: MOLSIM:001090 ! molecular trajectory format
 disjoint_from: MOLSIM:000159 ! AMBER mdcrd format
 
 [Term]
@@ -690,6 +694,12 @@ is_a: MOLSIM:000098 ! ligand state
 id: MOLSIM:000109
 name: method
 def: "A method represents the overall strategy or plan that specifies how a scientific objective is to be achieved. In the context of biomolecular science, this high-level concept encompasses both the physical procedures of an experimental method and the abstract protocols of a computational method. Defining the specific method is crucial for establishing the provenance and reproducibility of a result, as it dictates whether the evidence was generated through physical observation or theoretical calculation. (UNVERIFIED)" []
+
+[Term]
+id: MOLSIM:000110
+name: Euler integrator
+def: "The Euler integrator is the simplest first-order numerical method for solving the equations of motion in a simulation, calculating future positions and velocities based solely on their current values and forces. While straightforward to implement, it is generally not used for production molecular dynamics simulations due to its lack of time-reversibility and poor energy conservation (stability) compared to symplectic algorithms like the Verlet or Leap-frog integrators. (UNVERIFIED)" []
+is_a: MOLSIM:001691 ! integration algorithm
 
 [Term]
 id: MOLSIM:000111
@@ -1611,7 +1621,7 @@ is_a: MOLSIM:001564 ! free energy analysis tool
 id: MOLSIM:000258
 name: Antechamber
 def: "A specific program, typically distributed as part of the AmberTools suite, designed to automatically assign atom types and calculate partial atomic charges for organic molecules, preparing them for use with molecular mechanics force fields like GAFF (General AMBER Force Field). Antechamber reads common molecular file formats and generates topology and parameter files needed for subsequent energy minimization or molecular dynamics simulations using programs like SANDER or PMEMD from the AMBER package. It is a crucial tool for preparing non-standard residues or ligands for simulation. (UNVERIFIED)" []
-is_a: MOLSIM:001664 ! software suite
+is_a: MOLSIM:000172 ! topology and parameterization tool
 
 [Term]
 id: MOLSIM:000259
@@ -1766,10 +1776,11 @@ is_a: MOLSIM:001556 ! system setup tool
 
 [Term]
 id: MOLSIM:000282
-name: rapid overlay of chemical structures
+name: ROCS
 def: "ROCS (Rapid Overlay of Chemical Structures), a software tool developed by OpenEye Scientific Software, known for its speed and effectiveness in aligning and comparing molecules based on their 3D shape similarity (shape Tanimoto). ROCS represents molecules as Gaussian functions and optimizes their overlap to quantify shape similarity, often used in virtual screening and lead hopping in drug discovery to find molecules with similar shapes to a known active ligand. It is a similarity calculation tool, not directly a TI tool. (UNVERIFIED)" []
-synonym: "ROCS" EXACT []
+synonym: "rapid overlay of chemical structures" EXACT []
 is_a: MOLSIM:000281 ! thermodynamic integration similarity calculation tool
+is_a: MOLSIM:001684 ! match analysis tool
 disjoint_from: MOLSIM:000283 ! AMBER-FEW
 
 [Term]
@@ -1978,6 +1989,64 @@ id: MOLSIM:000316
 name: potential of mean force
 def: "A potential of mean force is an energy profile that shows how much energy it takes to move a molecule from one place to another. As a type of free energy, the Potential of Mean Force (PMF) is an output_data_descriptor that represents the free energy of a system as a function of one or more specific geometric coordinates, known as reaction coordinates. The PMF describes the energetic landscape along a pathway, with its minima representing stable states and its maxima corresponding to transition state energy barriers. This is commonly referred to in analysis outputs and publications as \"PMF,\" \"free energy profile,\" \"Potential of Mean Force,\" or \"pmf.dat.\" (UNVERIFIED)" []
 is_a: MOLSIM:001314 ! free energy property
+
+[Term]
+id: MOLSIM:000317
+name: json format
+def: "JSON (JavaScript Object Notation) is a lightweight, text-based data interchange format consisting of attribute-value pairs and array data types. It is widely used in computational workflows for serializing structured data, such as simulation configuration settings, molecular metadata, or API responses from database web servers, offering a simpler and more compact alternative to XML. (UNVERIFIED)" []
+is_a: MOLSIM:000910 ! general data format
+
+[Term]
+id: MOLSIM:000318
+name: yaml format
+def: "YAML is a human-readable data serialization format that relies on indentation to define structure, making it exceptionally easy to read and edit. In the context of computational chemistry, it is frequently employed for configuration files, defining software environments (e.g., Conda), and specifying parameters for automated simulation workflows and pipelines. (UNVERIFIED)" []
+is_a: MOLSIM:000910 ! general data format
+
+[Term]
+id: MOLSIM:000319
+name: standard xyz format
+def: "A standardized, minimalistic text-based file format used to store the Cartesian coordinates of atoms. It typically consists of a header line (atom count), a comment line, and one line per atom containing the element symbol and X, Y, Z positions. It generally does not contain connectivity or topology information. (UNVERIFIED)" []
+is_a: MOLSIM:001088 ! molecular structure format
+
+[Term]
+id: MOLSIM:000320
+name: toml format
+def: "TOML (Tom's Obvious, Minimal Language) is a configuration file format that emphasizes human readability using a minimal syntax of key-value pairs and tables. In biomolecular simulation, it is increasingly used for defining simulation input parameters, workflow configurations, and software package metadata in modern Python-based environments. (UNVERIFIED)" []
+is_a: MOLSIM:000910 ! general data format
+
+[Term]
+id: MOLSIM:000321
+name: pickle format
+def: "The pickle format is a Python-specific binary serialization format used to convert Python object hierarchies into a byte stream. In computational chemistry pipelines, it is frequently used to persist complex data structures, such as machine learning models, analysis results, or system states, allowing them to be saved to disk and reloaded later. (UNVERIFIED)" []
+is_a: MOLSIM:000910 ! general data format
+
+[Term]
+id: MOLSIM:000322
+name: xvg format
+def: "A text-based data file format generated by GROMACS analysis tools, designed for plotting 1D or 2D graphs. It contains tabular numerical data alongside metadata and formatting commands intended to be read directly by the Grace (xmgrace) plotting program. (UNVERIFIED)" []
+is_a: MOLSIM:000590 ! plot data format
+
+[Term]
+id: MOLSIM:000323
+name: element type
+def: "An atom type that classifies an atom based strictly on its atomic number (number of protons in its nucleus), defining its fundamental chemical element. In structure files, it is typically represented by its standard IUPAC one- or two-letter chemical symbol (e.g., C, O, Fe). (UNVERIFIED)" []
+synonym: "atomic element" EXACT []
+is_a: MOLSIM:001763 ! atom type
+disjoint_from: MOLSIM:001764 ! neural network atom type
+
+[Term]
+id: MOLSIM:000324
+name: force field atom type
+def: "An atom type assigned by a specific molecular mechanics force field that dictates the atom's non-bonded and bonded interaction parameters. It encodes not only the element, but also the atom's hybridization state, local chemical environment, and connectivity (e.g., distinguishing between an sp3 aliphatic carbon and an sp2 aromatic carbon). (UNVERIFIED)" []
+synonym: "mechanics atom type" EXACT []
+is_a: MOLSIM:001763 ! atom type
+
+[Term]
+id: MOLSIM:000325
+name: monte carlo simulation
+def: "A stochastic simulation method that relies on repeated random sampling to explore the configurational space of a molecular system. Unlike molecular dynamics, which integrates equations of motion over time, Monte Carlo generates a sequence of states by proposing random trial moves (such as atom displacements or molecular rotations) and accepting or rejecting them based on a thermodynamic probability criterion, typically the Metropolis algorithm. It is widely used for calculating equilibrium thermodynamic properties and sampling conformational ensembles. (UNVERIFIED)" []
+synonym: "MC simulation" EXACT []
+is_a: MOLSIM:000308 ! simulation method
 
 [Term]
 id: MOLSIM:000326
@@ -2662,8 +2731,9 @@ is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:000439
-name: output format
-def: "A log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation's stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)" []
+name: simulation  log format
+def: "A simulation log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation's stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)" []
+synonym: "output log format" EXACT []
 is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
@@ -2703,14 +2773,15 @@ id: MOLSIM:000445
 name: mmcif format
 def: "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)" []
 synonym: "mmCIF format" EXACT []
-is_a: MOLSIM:001087 ! macromolecular structure format
+is_a: MOLSIM:001088 ! molecular structure format
 disjoint_from: MOLSIM:000446 ! pdb format
 
 [Term]
 id: MOLSIM:000446
 name: pdb format
 def: "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)" []
-is_a: MOLSIM:001087 ! macromolecular structure format
+is_a: MOLSIM:001088 ! molecular structure format
+is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
 id: MOLSIM:000447
@@ -2861,7 +2932,7 @@ id: MOLSIM:000470
 name: AMBER mdout format
 def: "A text-based log format generated by Amber's simulation engines that provides a detailed record of the simulation's progress. It contains energy components, thermodynamic properties, and performance timings printed at regular intervals. This format is essential for monitoring simulation stability and extracting averaged properties. (UNVERIFIED)" []
 synonym: "AMBER out format" EXACT []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 disjoint_from: MOLSIM:000593 ! CPPTRAJ standard output format
 disjoint_from: MOLSIM:000879 ! ADF output format
 
@@ -2883,7 +2954,7 @@ disjoint_from: MOLSIM:000898 ! GROMACS itp format
 id: MOLSIM:000473
 name: ac format
 def: "A file format generated by the Antechamber program in AmberTools that contains a molecule's structure and atomic properties. It typically stores atom types and partial charges assigned during the parameterization process for a small molecule. This format serves as an intermediate in preparing non-standard molecules for simulation. (UNVERIFIED)" []
-is_a: MOLSIM:000905 ! small molecule structure
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000474
@@ -2999,13 +3070,14 @@ id: MOLSIM:000492
 name: Swiss PDB viewer
 def: "Now known as DeepView, Swiss-PdbViewer is a free, popular molecular visualization and analysis software application. It excels at viewing and analyzing protein structures from the PDB, allowing users to measure distances/angles, superimpose structures, evaluate structural quality, build loops, mutate residues, and perform basic energy minimization using the GROMOS force field. It is often used for initial structure inspection and preparation before more extensive simulations. (UNVERIFIED)" []
 synonym: "DeepView" EXACT []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:000490 ! structure preparation tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:000493
 name: Pymol
 def: "A very popular, powerful, and widely used open-source (with some subscription features) molecular visualization system, known for producing high-quality 3D images of molecules and biological macromolecules. PyMOL allows detailed structure inspection, analysis (measurements, surfaces, electrostatics), creating publication-quality figures and animations, and includes scripting capabilities for automation. It is an indispensable tool for visualizing simulation setups and trajectories, although its structure manipulation capabilities are less extensive than dedicated modeling suites. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:000494
@@ -3567,15 +3639,15 @@ is_a: MOLSIM:000588 ! pathway analysis
 
 [Term]
 id: MOLSIM:000590
-name: plotting format
-def: "A category for file formats designed to store data in a way that is easily read by graphing or plotting software. These formats typically contain columns of numerical data that can be visualized as 2D or 3D plots. They are used to create visual representations of scientific data, such as graphs of energy over time. (UNVERIFIED)" []
+name: plot data format
+def: "A category for file formats designed to store numerical data in a specific structure that is easily parsed and read by graphing or plotting software (e.g., Grace, Gnuplot). These are structured data files (typically containing columns of numbers and plotting directives), not raster or vector image files like PNG, JPEG, or SVG. (UNVERIFIED)" []
 is_a: MOLSIM:000436 ! data format
 
 [Term]
 id: MOLSIM:000591
 name: agr format
 def: "A text-based data file format for the Grace/Xmgrace plotting program. It contains numerical data along with commands that specify the appearance of the graph, such as titles, labels, and colors. This format allows for the creation of complex, publication-quality plots. (UNVERIFIED)" []
-is_a: MOLSIM:000590 ! plotting format
+is_a: MOLSIM:000590 ! plot data format
 disjoint_from: MOLSIM:000594 ! gnu format
 
 [Term]
@@ -3589,33 +3661,33 @@ id: MOLSIM:000593
 name: CPPTRAJ standard output format
 def: "The CPPTRAJ standard output format is the default text-based format used by the cpptraj analysis program to write time-series data. This format typically consists of simple columns of numerical data, where the first column is the frame or time, and subsequent columns contain the calculated values for a given analysis command. While often saved with a .dat extension, this straightforward, space-delimited format is designed for easy parsing by plotting programs like Gnuplot or for import into data analysis software. (UNVERIFIED)" []
 comment: Typically with .dat extension, but could be using other file extension.
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000594
 name: gnu format
 def: "A data file format designed to be used with the Gnuplot plotting program. It typically consists of columns of numerical data in a simple text-based layout that Gnuplot can easily parse and visualize. This format is widely used for generating scientific graphs and plots from raw data. (UNVERIFIED)" []
-is_a: MOLSIM:000590 ! plotting format
+is_a: MOLSIM:000590 ! plot data format
 
 [Term]
 id: MOLSIM:000595
 name: xplor format
 def: "A file format associated with the XPLOR-NIH software, used for representing 3D grid data. It is a text-based format that defines a grid and the data values at each point, often used for electron density maps. This format is a common way to store volumetric data in crystallography and NMR. (UNVERIFIED)" []
-is_a: MOLSIM:000590 ! plotting format
+is_a: MOLSIM:000590 ! plot data format
 
 [Term]
 id: MOLSIM:000596
 name: grid format
 def: "A file format for representing data that is distributed over a three-dimensional grid. Originating from the XPLOR-NIH software, it is used to store volumetric data like electron density or potential maps. This format is used in structural biology to visualize grid-based properties around a molecule. (UNVERIFIED)" []
 synonym: ".grid" EXACT []
-is_a: MOLSIM:000590 ! plotting format
+is_a: MOLSIM:000590 ! plot data format
 
 [Term]
 id: MOLSIM:000597
 name: dx format
 def: "A file format for the OpenDX (Data Explorer) visualization program, used to represent 3D grid-based data. It stores scalar or vector data on a regular grid, making it suitable for visualizing properties like electrostatic potential or molecular density. This format is a common output for scientific programs that generate volumetric data. (UNVERIFIED)" []
 synonym: "OpenDX format" EXACT []
-is_a: MOLSIM:000590 ! plotting format
+is_a: MOLSIM:000590 ! plot data format
 
 [Term]
 id: MOLSIM:000598
@@ -3629,7 +3701,7 @@ name: AMBER REM log format
 def: "Log file from an Amber Replica Exchange MD simulation. The main file extension for Amber REM (Replica Exchange Molecular Dynamics) log files is .log, typically named as rem.log, according to the Amber documentation and tutorial resources. This log file tracks exchanges, replica temperatures, and relevant statistics for the REMD process." []
 synonym: "Amber Replica Exchange Log" EXACT []
 synonym: "rem.log" EXACT []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000600
@@ -3637,14 +3709,14 @@ name: AMBER eigenvector format
 def: "The Amber evecs eigenvector file is a specialized output from Principal Component Analysis (PCA), normal mode analysis, or quasiharmonic analysis in AMBER (using cpptraj or ptraj). This file stores the eigenvectors (or “principal modes”) and eigenvalues resulting from the diagonalization of a covariance or mass-weighted covariance matrix, commonly used in essential dynamics analysis of molecular simulations. The output file is usually called evecs.dat, evecs.out, or follows a similar naming scheme. There is no fixed \"file extension\" required; however, the content and formatting are standardized for compatibility with AMBER utilities (e.g., cpptraj, ptraj)," []
 synonym: "evecs.dat" EXACT []
 synonym: "evecs.out" EXACT []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000601
 name: AMBER cpout format
 def: "A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations." []
 synonym: ".cpout" EXACT []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000602
@@ -4353,16 +4425,17 @@ is_a: MOLSIM:001671 ! web server
 
 [Term]
 id: MOLSIM:000715
-name: prediction software output
+name: prediction data format
 def: "Data generated as the direct result of executing a specific piece of prediction software, such as a tool for predicting protein structure, ligand binding sites, or functional annotations. This refers to the output before it might be curated or deposited into a public repository. An example would be the coordinate file of a homology model generated by a local SWISS-MODEL run. (UNVERIFIED)" []
-is_a: MOLSIM:000910 ! general data format
-disjoint_from: MOLSIM:000716 ! simulation output file
+is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:000716
-name: simulation output file
-def: "A raw or processed data file generated directly by a biomolecular simulation software package during or after a simulation run. This includes trajectory files (atomic coordinates over time), energy logs, or specific analysis outputs that have not yet been formally archived in a public repository. These files are the primary products of simulation experiments. (UNVERIFIED)" []
-is_a: MOLSIM:000910 ! general data format
+name: UCSF ChimeraX
+def: "UCSF ChimeraX is the next-generation molecular visualization and analysis program developed by the Resource for Biocomputing, Visualization, and Informatics at UCSF. It is designed to handle extremely large datasets, such as cryo-EM maps and massive simulation trajectories, with high-performance rendering. In addition to visualization, it serves as a powerful modeling and setup tool, offering capabilities for structure building, fitting, and interactive manipulation. (UNVERIFIED)" []
+synonym: "ChimeraX" EXACT []
+is_a: MOLSIM:000490 ! structure preparation tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:000717
@@ -5061,7 +5134,7 @@ is_a: MOLSIM:000308 ! simulation method
 id: MOLSIM:000844
 name: NetCDF format
 def: "The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, including earth sciences, climate modeling, and molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard. (UNVERIFIED)" []
-is_a: MOLSIM:001090 ! molecular trajectory format
+is_a: MOLSIM:000910 ! general data format
 
 [Term]
 id: MOLSIM:000845
@@ -5272,7 +5345,7 @@ is_a: MOLSIM:000437 ! simulation parameter format
 id: MOLSIM:000879
 name: ADF output format
 def: "The ADF output file is the main text file produced by the Amsterdam Density Functional (ADF) program, containing comprehensive results of the quantum chemical calculation. It includes details on the input parameters used, self-consistent field (SCF) convergence progress, final energies, calculated molecular properties (like dipole moments, charges), atomic coordinates, and timing information. This file is the primary source for analyzing ADF calculation outcomes. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000880
@@ -5285,55 +5358,55 @@ is_a: MOLSIM:000441 ! simulation state format
 id: MOLSIM:000881
 name: CHARMM output format
 def: "The CHARMM output file is the main text log generated during a CHARMM run, typically containing an echo of the input script commands interspersed with the results produced by those commands. This includes detailed energy breakdowns, progress information during dynamics or minimization (like step number, time, temperature, pressure, energies), and outputs from analysis routines. It serves as the primary record of the CHARMM job execution. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000882
 name: GAMESS output format
 def: "The GAMESS output file (.log or .out) is the primary text file generated by the GAMESS (US) quantum chemistry program. It contains a comprehensive record of the calculation, including echoed input parameters, details about the basis set and molecular geometry, step-by-step convergence information (e.g., for SCF or geometry optimization), final energies, molecular orbital information, and various calculated properties. This file is essential for extracting and analyzing results. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000883
 name: GAMESS-UK output format
 def: "This refers to the main text output file produced by the GAMESS-UK quantum chemistry software. While containing similar types of information as other QM outputs (input echo, convergence, energies, properties), its specific structure, keywords, and formatting are distinct from the GAMESS (US) package. Careful parsing is required to extract results like energies, molecular orbitals, and calculated properties. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000884
 name: GAUSSIAN log format
 def: "The Gaussian log file (.log) is the standard text output generated by the Gaussian quantum chemistry software suite. It contains a detailed, often verbose, record of the calculation, including setup information, convergence progress for SCF and geometry optimizations, final energies, molecular orbital details, calculated properties (like dipole moments, charges), and often vibrational frequencies and thermochemical analysis. A compact summary, the \"archive entry\", is usually included near the end. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000885
 name: GROMACS output format
 def: "The GROMACS MD output typically refers to the primary text log file (.log) generated by the mdrun simulation engine. It contains summary information about the simulation setup, detailed performance data (like PME load balancing and timings), step-by-step progress updates (if configured in the .mdp file), and final run statistics including energy averages and runtime. This file is crucial for monitoring performance and verifying run completion. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000886
 name: Jaguar output format
 def: "The Jaguar output file (.out) is the main text file generated by the Jaguar quantum chemistry program. It logs the progress and results of the calculation, including input parameters, convergence information for SCF and geometry optimization cycles, final energies, molecular properties such as charges and dipole moments, and vibrational frequencies if requested. Jaguar often produces associated structure files (e.g., .mae) containing the final geometry. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000887
 name: MOPAC output format
 def: "The MOPAC output file (.out) contains the results from a calculation performed by the MOPAC semi-empirical program. It typically includes an echo of the input keywords, details of geometry optimization steps (if performed), the final optimized geometry, the calculated heat of formation (ΔH f), ionization potential, dipole moment, and atomic charges. A summary section usually highlights the key results and timings. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000888
 name: NWChem output format
 def: "The NWChem output file (.out, .nwout) is the main text log generated by the NWChem computational chemistry package, documenting the execution of the tasks specified in the input file. It contains detailed information about the calculation setup, convergence progress for various steps (like SCF or geometry optimization), calculated energies using the requested methods (QM, MM, or combined), molecular properties, and timing information. Due to NWChem's flexibility, the output structure can vary depending on the complexity of the input directives. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000889
 name: Q-Chem output format
 def: "The Q-Chem output file (.out, .qcout) is the primary text output generated by the Q-Chem quantum chemistry program. It contains the results corresponding to the specifications in the input file, including details on the method and basis set used, convergence information for SCF and geometry optimization, final electronic energies, molecular orbital information, various calculated properties (charges, dipole moments), and potentially vibrational analysis results. A summary section often highlights key computed values. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:000890
@@ -5369,19 +5442,19 @@ is_a: MOLSIM:001090 ! molecular trajectory format
 id: MOLSIM:000895
 name: GROMACS gro format
 def: "The GROMACS .gro file is a simple, formatted text file used to store molecular coordinates, atom/residue names, and optionally velocities. It includes a title line, the total number of atoms, and then one line per atom specifying residue and atom information, coordinates (in nanometers), and optionally velocities. The file concludes with the periodic box vectors. (UNVERIFIED)" []
-is_a: MOLSIM:001089 ! software-specific coordinate format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000896
 name: TINKER xyz format
-def: "The TINKER XYZ (.xyz) file format stores molecular coordinates and topology information for use with the TINKER software package. It starts with the atom count and a title line, followed by lines for each atom containing the atom index, atom name, coordinates (Angstroms), atom type (force field), and connectivity information. This format combines coordinates and basic topology. (UNVERIFIED)" []
-is_a: MOLSIM:001063 ! xyz format
+def: "A specialized text-based file format used by the TINKER software package. While it shares the '.xyz' extension with the standard Cartesian coordinate format, it is distinct in that it explicitly includes atom indices, force field atom types, and connectivity (bond) lists for every atom, serving as both a coordinate and topology file. (UNVERIFIED)" []
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000897
 name: TURBOMOLE coordinate format
 def: "In TURBOMOLE, coordinate information is typically provided within a specific data group, usually $coord, inside the main input or control file. This section lists the Cartesian coordinates (in Bohr by default, or Angstroms if specified) followed by an atom symbol (elemental symbol, usually lowercase) for each atom. This data group defines the molecular geometry for the TURBOMOLE calculation. (UNVERIFIED)" []
-is_a: MOLSIM:001089 ! software-specific coordinate format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000898
@@ -5430,7 +5503,7 @@ is_a: MOLSIM:001073 ! molecular system specification
 
 [Term]
 id: MOLSIM:000905
-name: small molecule structure
+name: small molecule structure (deprecated)
 def: "Small molecule structure formats are designed primarily for representing organic and drug-like molecules, often emphasizing chemical details like bond orders, formal charges, and stereochemistry. These formats are widely used in cheminformatics, drug discovery databases, and as input for various modeling tasks. Common examples include SDF, Mol2, and SMILES strings. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
 
@@ -5439,7 +5512,8 @@ id: MOLSIM:000906
 name: mol2 format
 def: "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)" []
 synonym: "Mol2 format" EXACT []
-is_a: MOLSIM:000905 ! small molecule structure
+is_a: MOLSIM:001088 ! molecular structure format
+is_a: MOLSIM:001090 ! molecular trajectory format
 disjoint_from: MOLSIM:000907 ! sdf format
 
 [Term]
@@ -5447,7 +5521,7 @@ id: MOLSIM:000907
 name: sdf format
 def: "The Structure-Data File (SDF, .sdf) format is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)" []
 synonym: "SDF format" EXACT []
-is_a: MOLSIM:000905 ! small molecule structure
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000908
@@ -5519,7 +5593,7 @@ is_a: MOLSIM:000917 ! structural analysis
 id: MOLSIM:000921
 name: crd format
 def: "A generic name for a text-based file format that stores the Cartesian (x, y, z) coordinates of atoms in a molecular system. The specific layout can vary, as multiple simulation packages like CHARMM and Amber have their own distinct versions of a \".crd\" file. Due to its ambiguity, it is often necessary to specify which software's CRD format is being used. (UNVERIFIED)" []
-is_a: MOLSIM:001089 ! software-specific coordinate format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000923
@@ -5585,9 +5659,10 @@ is_a: MOLSIM:000026 ! analysis method
 
 [Term]
 id: MOLSIM:000940
-name: dat format
-def: "The dat format, in the context of Amber, is a text file that contains the numerical parameters defining a force field. These files list the atom types and the corresponding equilibrium values and force constants for all the bond, angle, dihedral, and non-bonded interactions. They serve as the primary database of parameters that programs like LEaP read to assign the correct force field terms when building a molecular system. (UNVERIFIED)" []
-is_a: MOLSIM:001091 ! molecular topology format
+name: AMBER force field parameter format
+def: "A text-based file format used by the AMBER software suite to store standard force field parameters. These files (historically using the .dat extension) contain the equilibrium values and force constants for bonds, angles, dihedrals, and non-bonded interactions for specific atom types. They serve as the central parameter database loaded by system-building tools like LEaP. (UNVERIFIED)" []
+synonym: "AMBER dat format" EXACT []
+is_a: MOLSIM:000437 ! simulation parameter format
 
 [Term]
 id: MOLSIM:000941
@@ -5905,9 +5980,11 @@ is_a: MOLSIM:000400 ! statistical analysis
 
 [Term]
 id: MOLSIM:001037
-name: GROMOS crd format
-def: "A text-based file format used by the GROMOS simulation package to store the atomic coordinates of a molecular system. The format includes sections for title, atom information, and positional coordinates, often with specific formatting for atom and residue names. It serves as a standard way to represent molecular structures within the GROMOS ecosystem. (UNVERIFIED)" []
-is_a: MOLSIM:000921 ! crd format
+name: GROMOS configuration format
+def: "A text-based file format used by the GROMOS simulation software to store the complete configuration of a molecular system. It is organized into data blocks (e.g., POSITION, VELOCITY, BOX) and contains atomic coordinates, periodic box dimensions, and optionally velocities. This format typically uses the .cnf file extension and is the primary input for coordinates in GROMOS simulations. (UNVERIFIED)" []
+synonym: "cnf format" EXACT []
+synonym: "g96 format" EXACT []
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001038
@@ -5955,11 +6032,11 @@ is_a: MOLSIM:000472 ! AMBER topology format
 id: MOLSIM:001044
 name: cif format
 def: "The Crystallographic Information File (cif) format is a standard text-based file format used to store information about molecular structures, especially those determined by experiments. It uses a flexible tag-based structure with key-value pairs, making it more robust and extensible for handling the large, complex structures and extensive metadata common in modern structural biology. As the official format of the Protein Data Bank (PDB), the macromolecular CIF (mmCIF) variant has superseded the older PDB format for archiving and distributing 3D coordinates of proteins and nucleic acids. (UNVERIFIED)" []
-is_a: MOLSIM:001087 ! macromolecular structure format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001045
-name: Tinker arc format
+name: TINKER arc format
 def: "A file format used by the TINKER simulation package to store the trajectory of a molecular system. It archives the atomic coordinates from different snapshots of a simulation in a single file for later analysis. This is the standard trajectory output for TINKER simulations. (UNVERIFIED)" []
 comment: This can also be a coordinate format from Tinker package as well.
 synonym: ".arc" EXACT []
@@ -6071,9 +6148,8 @@ is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
 id: MOLSIM:001061
-name: MDAnalysis h5md format
-def: "A file format based on the HDF5 standard, used by the MDAnalysis library to store simulation data. It provides a flexible and efficient way to store large datasets, including atomic coordinates, velocities, and other time-series data from a simulation. This format promotes interoperability by using the widely supported HDF5 data model. (UNVERIFIED)" []
-comment: An HDF5-based trajectory file format used by the MDAnalysis library.
+name: h5md format
+def: "H5MD (HDF5 for Molecular Dynamics) is an open, community-standard file format based on HDF5, designed for storing molecular simulation data. It is software-agnostic and supports the storage of atomic coordinates, velocities, forces, and thermodynamic data, facilitating data exchange between different simulation and analysis packages. (UNVERIFIED)" []
 synonym: ".h5md" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
@@ -6082,14 +6158,15 @@ id: MOLSIM:001062
 name: pqr format
 def: "The PQR format is a modification of the standard Protein Data Bank (PDB) format used in computational biology to store atomic coordinate data along with atomic partial charges (Q) and radii (R). The name itself is a mnemonic, representing PDB + Q (charge) + R (radius). Its primary advantage is that it bundles the necessary structural and electrostatic parameters into a single, PDB-like file that is easily parsed by both analysis software and molecular visualization programs. These files are most commonly generated by the PDB2PQR software, which processes a standard PDB file, adds missing hydrogen atoms, and assigns atomic charges and radii based on a chosen force field. (UNVERIFIED)" []
 synonym: ".pqr" EXACT []
-is_a: MOLSIM:001087 ! macromolecular structure format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001063
-name: xyz format
-def: "The xyz format is a very simple text file that lists the 3D coordinates of atoms in a molecule. As a type of software-specific coordinate format, it is a minimalistic, text-based format that specifies the atom count on the first line, a comment on the second, followed by lines containing the element symbol and its X, Y, and Z Cartesian coordinates. While it lacks connectivity or force field information, its simplicity makes it a universal format for quick visualization and sharing of single molecular structures. Files in this format typically have the .xyz extension and are recognized by nearly all molecular visualization and chemistry software. (UNVERIFIED)" []
-comment: A simple text-based chemical file format for coordinates.
-is_a: MOLSIM:001089 ! software-specific coordinate format
+name: MOE
+def: "The Molecular Operating Environment (MOE) is a comprehensive, commercial software system for drug discovery, molecular modeling, and computational chemistry developed by the Chemical Computing Group. It integrates visualization with a vast array of tools for structure preparation, docking, pharmacophore modeling, and molecular dynamics setup within a single unified interface. (UNVERIFIED)" []
+synonym: "Molecular Operating Environment" EXACT []
+is_a: MOLSIM:000490 ! structure preparation tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001064
@@ -6115,27 +6192,27 @@ is_a: MOLSIM:010020 ! molecular trajectory analysis format
 id: MOLSIM:001067
 name: xmgrace
 def: "Xmgrace is a computer program used to make scientific graphs and plots from data. As a type of visualization tool, Xmgrace is a 2D plotting program for X Window Systems, widely used in the scientific community for creating publication-quality graphs from simple column-based text data. Many simulation analysis tools, like GROMACS and cpptraj, can directly generate output files in the native .agr format for easy plotting of time-series data like RMSD or energy. This tool is associated with file formats like .agr and commands in analysis scripts such as xmgrace -nxy plot.dat. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:002042 ! data plotting tool
 
 [Term]
 id: MOLSIM:001068
 name: gnuplot
 def: "Gnuplot is a command-line program that creates 2D and 3D graphs from data files. As a type of visualization tool, gnuplot is a versatile, scriptable plotting utility that can generate a wide variety of plots from data files, making it a popular choice for automating the generation of figures in analysis workflows. Simulation analysis programs often have options to format their output specifically for gnuplot, containing data columns ready for commands like plot 'data.dat' using 1:2 with lines. This tool is associated with script files having .gpi or .plt extensions and commands like set terminal and plot. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:002042 ! data plotting tool
 
 [Term]
 id: MOLSIM:001069
 name: visual molecular dynamics
 def: "Visual Molecular Dynamics, or VMD, is a computer program for viewing and animating molecules in 3D. As a type of visualization tool, VMD is a high-performance molecular graphics program designed for the visualization and analysis of large biomolecular systems and simulation trajectories from packages like NAMD and GROMACS. It includes powerful atom selection syntax, rendering capabilities for publication-quality images, and a Tcl/Python scripting interface for automating complex analysis and visualization tasks. This tool is commonly known as \"VMD\" and is associated with file formats like .vmd for saved states and analysis scripts written in Tcl. (UNVERIFIED)" []
 synonym: "VMD" EXACT []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001070
 name: NMWiz
 def: "NMWiz is an add-on for VMD that helps visualize the different ways a molecule can vibrate or wiggle. As a type of visualization tool, Normal Mode Wizard (NMWiz) is a VMD plugin specifically designed for the interactive visualization and analysis of normal modes from calculations like Normal Mode Analysis (NMA) or Principal Component Analysis (PCA). It allows users to animate the collective motions described by eigenvectors and analyze their contributions to overall protein dynamics. This tool is referred to in VMD analysis workflows as \"NMWiz,\" \"Normal Mode Wizard,\" and is used to analyze eigenvector and eigenvalue data. (UNVERIFIED)" []
 comment: A VMD plugin for visualizing and analyzing normal modes.
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001071
@@ -6239,7 +6316,7 @@ is_a: MOLSIM:000437 ! simulation parameter format
 
 [Term]
 id: MOLSIM:001087
-name: macromolecular structure format
+name: macromolecular structure format (deprecated)
 def: "A file format specifically designed to describe the complex, three-dimensional structures of large biological molecules like proteins and DNA. These formats accommodate hierarchical descriptions, such as chains and residues, in addition to atomic coordinates. Examples include the widely used PDB and mmCIF formats. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
 
@@ -6251,7 +6328,7 @@ is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:001089
-name: software-specific coordinate format
+name: software-specific coordinate format (deprecated)
 def: "A coordinate file primarily stores the three-dimensional positions (X, Y, Z coordinates) of atoms in a molecular system. It may also contain atom names, residue information, and potentially periodic box dimensions, but typically lacks detailed bonding (topology) or force field parameter information. Common examples include PDB, GRO, and XYZ formats, used for initial structures or snapshots from simulations. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
 
@@ -6352,7 +6429,7 @@ is_a: MOLSIM:000437 ! simulation parameter format
 id: MOLSIM:001105
 name: component cif
 def: "A component CIF is a data file that acts like a dictionary entry, describing a single chemical building block found in larger biological molecules. It uses the standard Crystallographic Information File (CIF) format to define the atom names, chemical bonds, and ideal 3D coordinates for a specific residue or small molecule. The Protein Data Bank's Chemical Component Dictionary is a comprehensive collection of these files, making them essential for correctly interpreting and building complex molecular structures. (UNVERIFIED)" []
-is_a: MOLSIM:001087 ! macromolecular structure format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001106
@@ -8943,6 +9020,7 @@ is_a: MOLSIM:001569 ! utility script
 id: MOLSIM:001579
 name: pytraj
 def: "Pytraj is a Python library that provides a programmable interface to the powerful trajectory analysis capabilities of the cpptraj engine from the AmberTools suite. It allows users to write Python scripts to perform a wide range of analyses, such as calculating RMSD, distances, and hydrogen bonds, directly on simulation trajectories. For researchers, pytraj enables the creation of complex, automated, and reproducible analysis workflows that integrate seamlessly with other Python data science tools. (UNVERIFIED)" []
+is_a: MOLSIM:000251 ! trajectory processing tool
 is_a: MOLSIM:001566 ! library
 
 [Term]
@@ -9525,19 +9603,21 @@ is_a: MOLSIM:001566 ! library
 id: MOLSIM:001675
 name: OpenMM
 def: "OpenMM is a high-performance software library that provides a toolkit for running molecular dynamics simulations, with a strong emphasis on GPU acceleration. It is not a monolithic application but rather a flexible library that allows developers to easily add simulation capabilities to their own programs. For the simulation community, OpenMM provides a powerful, hardware-accelerated, and easily customizable platform for developing new simulation methods and applications. (UNVERIFIED)" []
+is_a: MOLSIM:000160 ! molecular dynamics engine
 is_a: MOLSIM:001566 ! library
 
 [Term]
 id: MOLSIM:001676
-name: Message Passing Interface
+name: MPI
 def: "The Message Passing Interface (MPI) is a standardized and portable specification for writing parallel programs that run on distributed memory systems, such as computer clusters. It defines a library of functions for sending and receiving messages between processes, allowing them to coordinate and share data. For biomolecular simulation engines, MPI is the fundamental communication protocol that enables them to scale efficiently across hundreds or thousands of processor cores. (UNVERIFIED)" []
-is_a: MOLSIM:001654 ! MPI library
+synonym: "Message Parsing Interface" EXACT []
+is_a: MOLSIM:001562 ! application programming interface
 
 [Term]
 id: MOLSIM:001677
 name: OpenMP
 def: "OpenMP is an application programming interface (API) that supports multi-platform shared-memory parallel programming in C, C++, and Fortran. It allows a programmer to instruct a program to run parts of its code in parallel across multiple processor cores on a single machine. In biomolecular simulation engines, OpenMP is used to parallelize computationally intensive loops, such as those in force calculations, to make efficient use of modern multi-core CPUs. (UNVERIFIED)" []
-is_a: MOLSIM:001566 ! library
+is_a: MOLSIM:001562 ! application programming interface
 
 [Term]
 id: MOLSIM:001678
@@ -9925,8 +10005,9 @@ is_a: MOLSIM:000037 ! algorithm
 
 [Term]
 id: MOLSIM:001741
-name: multiple-walkers metadynamics
-is_a: MOLSIM:000852 ! metadynamics
+name: multiple-walkers algorithm
+def: "An enhanced sampling algorithm where multiple independent simulation replicas (walkers) simultaneously explore the conformational space and contribute to a single, shared biasing potential. This parallelization significantly accelerates the convergence of methods like metadynamics or adaptive biasing force. (UNVERIFIED)" []
+is_a: MOLSIM:001740 ! enhanced sampling algorithm
 
 [Term]
 id: MOLSIM:001742
@@ -10061,7 +10142,8 @@ is_a: MOLSIM:001761 ! volumetric data component
 [Term]
 id: MOLSIM:001763
 name: atom type
-def: "An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon." []
+def: "A classification assigned to an atom to describe its fundamental chemical identity or its specific physical and computational properties within a molecular model. (UNVERIFIED)" []
+comment: Previous definition: An atom type is a classification assigned to an atom in a force field that defines its interaction parameters based on its chemical environment. It encodes not just the chemical element but also its hybridization state and bonding pattern, so a carbonyl carbon will have a different atom type than an aromatic carbon.
 is_a: MOLSIM:000447 ! identifier
 property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
 
@@ -10991,12 +11073,14 @@ is_a: MOLSIM:001913 ! simulation model resolution
 id: MOLSIM:001918
 name: MDAnalysis
 def: "MDAnalysis is an open-source Python library used for the analysis of molecular dynamics simulation trajectories. It provides a flexible and object-oriented framework that allows users to read, write, and manipulate atomic coordinate data from a wide variety of simulation packages. For researchers, MDAnalysis is a powerful tool for writing custom, complex, and reproducible analysis scripts in a familiar Python environment. (UNVERIFIED)" []
+is_a: MOLSIM:000251 ! trajectory processing tool
 is_a: MOLSIM:001566 ! library
 
 [Term]
 id: MOLSIM:001919
 name: MDTraj
 def: "MDTraj is a modern, open-source Python library designed for the fast and efficient analysis of molecular dynamics trajectories. It excels at reading and writing a very broad range of trajectory and topology file formats, making it highly interoperable. For scientists, MDTraj provides a fast and powerful toolkit for performing common structural and time-series analyses on simulation data. (UNVERIFIED)" []
+is_a: MOLSIM:000251 ! trajectory processing tool
 is_a: MOLSIM:001566 ! library
 
 [Term]
@@ -11016,13 +11100,14 @@ id: MOLSIM:001922
 name: 3DMol.js
 def: "3Dmol.js is a JavaScript library used for creating interactive, 3D visualizations of molecular structures directly within a web browser. It allows web developers to embed high-quality molecular viewers into websites and web applications without requiring any plugins. For creators of online scientific resources, 3Dmol.js provides a lightweight and versatile tool for displaying and interacting with molecular data on the web. (UNVERIFIED)" []
 is_a: MOLSIM:001566 ! library
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001923
 name: NGL
 def: "NGL Viewer is a WebGL-based JavaScript library for the fast and high-quality visualization of large molecular complexes and trajectories in the web browser. It is designed for high-performance rendering, enabling smooth, interactive exploration of even very large structures like ribosomes or viral capsids. For developers of web-based bioinformatics tools, NGL provides a powerful and scalable component for molecular graphics and data visualization. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
 is_a: MOLSIM:001566 ! library
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001924
@@ -11071,43 +11156,47 @@ is_a: MOLSIM:001664 ! software suite
 id: MOLSIM:001931
 name: Blender
 def: "Blender is a free and open-source 3D computer graphics software suite used for creating animated films, visual effects, art, and 3D printed models. While not a dedicated molecular viewer, it is often used by computational biologists to import molecular structures and create high-quality, cinematic renderings and scientific animations. For experts, Blender provides a professional-level tool for producing visually stunning figures and movies for publications and presentations. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001932
 name: Jmol
 def: "Jmol is a free, open-source molecular viewer for 3D chemical structures, written in the Java programming language. Because it is Java-based, it can run on a wide variety of operating systems and is often used as a tool for displaying molecules on websites. For researchers and educators, Jmol provides a versatile and accessible tool for basic molecular visualization and analysis. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001933
 name: MolStar
-def: "Mol* is a modern, web-based toolkit for visualizing and analyzing large-scale molecular data. It is designed for high-performance rendering of extremely large structures, such as those from cryo-electron microscopy, directly in a web browser. For the structural biology community, Mol* is the state-of-the-art viewer integrated into databases like the PDB for exploring complex biological assemblies. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
+def: "MolStar is a modern, web-based toolkit for visualizing and analyzing large-scale molecular data. It is designed for high-performance rendering of extremely large structures, such as those from cryo-electron microscopy, directly in a web browser. For the structural biology community, Mol* is the state-of-the-art viewer integrated into databases like the PDB for exploring complex biological assemblies. (UNVERIFIED)" []
+synonym: "Mol*" EXACT []
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001934
 name: UCSF Chimera
 def: "UCSF Chimera is a powerful and highly extensible desktop program for the interactive visualization and analysis of molecular structures and related data. It is known for its high-quality graphics, comprehensive feature set, and its ability to handle a wide range of data types beyond simple structures, such as density maps and sequence alignments. For many researchers, Chimera (and its successor, ChimeraX) is an indispensable day-to-day tool for analyzing simulation results and preparing publication-quality figures. (UNVERIFIED)" []
-is_a: MOLSIM:000163 ! visualization tool
+is_a: MOLSIM:000490 ! structure preparation tool
+is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001935
 name: YASARA
 def: "YASARA is a comprehensive molecular modeling and simulation software suite known for its high degree of automation and user-friendly interface. It integrates a wide range of functionalities, from structure prediction and cleaning to running full molecular dynamics simulations with its own force field. For scientists, YASARA aims to make complex simulation protocols accessible through automated workflows that can be executed with minimal manual setup. (UNVERIFIED)" []
+is_a: MOLSIM:000160 ! molecular dynamics engine
 is_a: MOLSIM:001664 ! software suite
 
 [Term]
 id: MOLSIM:001936
 name: high-performance computing cluster system
-def: "A high-performance computing cluster is a group of individual computers, called nodes, that are linked together by a fast network to function as a single, powerful system. In biomolecular simulation, these clusters are used to run a single simulation in parallel across many processors, which is essential for studying large molecular systems. The overall performance of a parallel simulation on a cluster depends critically on the speed of both the processors and the network connecting them. (UNVERIFIED)" []
+def: "A computing system consisting of a group of individual computers (nodes) linked together by a high-speed network to function as a single, coordinated system for parallel processing. This encompasses a wide range of scales, from small laboratory clusters to massive institutional systems. (UNVERIFIED)" []
+synonym: "HPC system" EXACT []
 is_a: MOLSIM:001862 ! computing system
 
 [Term]
 id: MOLSIM:001937
 name: supercomputer system
-def: "A supercomputer is one of the fastest and most powerful types of computers in the world, designed for extremely complex and large-scale scientific calculations. It is a tightly integrated system, often featuring custom processors and a specialized, ultra-fast network to enable efficient communication between hundreds of thousands of processor cores. These machines are used for the most demanding biomolecular simulations, such as modeling an entire virus or achieving simulation timescales of milliseconds. (UNVERIFIED)" []
-is_a: MOLSIM:001862 ! computing system
+def: "A high-performance computing cluster system that operates at or near the maximum performance rate for computers at the time of its deployment. Supercomputers are typically characterized by massive scale, specialized high-speed interconnects, and act as national or global resources for the most demanding computational tasks (e.g., Summit, Frontier, or specialized MD machines like Anton). (UNVERIFIED)" []
+is_a: MOLSIM:001936 ! high-performance computing cluster system
 
 [Term]
 id: MOLSIM:001938
@@ -11267,7 +11356,6 @@ id: MOLSIM:001964
 name: TM-align
 def: "TM-align is an algorithm and software tool used to identify the best structural alignment between pairs of protein structures. It utilizes a heuristic search to maximize the Template Modeling score (TM-score), a metric that is more sensitive to global topology than local variations. For researchers, this tool provides a rapid and robust way to quantify structural similarity and classify protein folds independent of sequence identity. (UNVERIFIED)" []
 is_a: MOLSIM:001684 ! match analysis tool
-disjoint_from: MOLSIM:001965 ! DALI
 
 [Term]
 id: MOLSIM:001965
@@ -11283,9 +11371,9 @@ is_a: MOLSIM:001684 ! match analysis tool
 
 [Term]
 id: MOLSIM:001967
-name: ROCS
-def: "ROCS (Rapid Overlay of Chemical Structures) is a software tool that performs fast 3D alignment of small molecules based strictly on their molecular shape and chemical features. It represents molecules as a collection of Gaussian functions to rapidly calculate the maximal volume overlap between a query and a database compound. In drug discovery, this tool is a standard for shape-based virtual screening, allowing the identification of novel compounds that fit a specific binding pocket geometry. (UNVERIFIED)" []
-is_a: MOLSIM:001684 ! match analysis tool
+name: replica exchange algorithm
+def: "An enhanced sampling algorithm that manages multiple parallel simulation replicas running at different thermodynamic states (e.g., temperatures or Hamiltonians). It evaluates and periodically attempts to swap the states of these replicas based on a Metropolis-style acceptance criterion to facilitate barrier crossing and improve conformational sampling. (UNVERIFIED)" []
+is_a: MOLSIM:001740 ! enhanced sampling algorithm
 
 [Term]
 id: MOLSIM:001968
@@ -11446,7 +11534,8 @@ is_a: MOLSIM:000845 ! enhanced sampling
 [Term]
 id: MOLSIM:001994
 name: reaction coordinate
-comment: A simplified variable used to track the progress of a chemical reaction or a complex structural change. It reduces the motion of thousands of atoms into a single parameter that describes the transition from a starting state to a final state. For experts, while theoretically the minimum energy path on the free energy landscape, in practice, it is approximated by collective variables (like distances or RMSD) used in enhanced sampling methods like Umbrella Sampling. (UNVERIFIED)
+def: "A simplified variable used to track the progress of a chemical reaction or a complex structural change. It reduces the motion of thousands of atoms into a single parameter that describes the transition from a starting state to a final state. For experts, while theoretically the minimum energy path on the free energy landscape, in practice, it is approximated by collective variables (like distances or RMSD) used in enhanced sampling methods like Umbrella Sampling. (UNVERIFIED)" []
+comment: Distinct from the object property MOLSIM_001036. Modeled here as a Class (the variable itself).
 is_a: MOLSIM:001827 ! collective variable
 
 [Term]
@@ -11614,7 +11703,7 @@ is_a: MOLSIM:000843 ! molecular dynamics
 
 [Term]
 id: MOLSIM:002022
-name: leap-frog integrator
+name: leapfrog integrator
 def: "A numerical method used to solve the equations of motion in a simulation by updating positions and velocities at offset time intervals. It calculates velocities at half-integer time steps and positions at integer time steps, ensuring that the integration is time-reversible and symplectic (energy-conserving). For experts, while computationally efficient and stable (O(Δt ^2)), it does not provide velocities and positions at the same instant, requiring interpolation for calculating kinetic energy or pressure at step t. (UNVERIFIED)" []
 is_a: MOLSIM:001691 ! integration algorithm
 
@@ -11700,7 +11789,7 @@ is_a: MOLSIM:001421 ! correlation function
 id: MOLSIM:002036
 name: GROMACS portable energy format
 def: "A binary file format used by the GROMACS simulation package to store time-series data of system energies and thermodynamic properties. It records values such as potential energy components, temperature, pressure, and box dimensions at specified intervals in a portable, machine-independent format. For experts, this file (extension .edr) is accessed via the gmx energy tool to extract statistics or plotting data, and its binary nature ensures no loss of precision compared to text logs. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! output format
+is_a: MOLSIM:000439 ! simulation  log format
 
 [Term]
 id: MOLSIM:002037
@@ -11720,6 +11809,157 @@ name: atom ID
 def: "An atom ID is usually a number, that uniquely defines a given atom in structure." []
 is_a: MOLSIM:000447 ! identifier
 property_value: dcterms:contributor https://orcid.org/0000-0003-4177-3619
+
+[Term]
+id: MOLSIM:002040
+name: JSmol
+def: "JSmol is an open-source, HTML5/JavaScript-based molecular viewer that allows for the interactive 3D visualization of chemical structures within web browsers without requiring Java or other plugins. It is the modern, JavaScript implementation of the popular Jmol applet, widely used in chemical education, databases, and web-based cheminformatics tools. (UNVERIFIED)" []
+is_a: MOLSIM:002041 ! molecular structure visualization tool
+
+[Term]
+id: MOLSIM:002041
+name: molecular structure visualization tool
+def: "A visualization tool designed specifically to render and interactively display three-dimensional models of molecular structures, complexes, and dynamic simulation trajectories. These tools are used to visually inspect atomic coordinates, molecular surfaces, and spatial relationships. (UNVERIFIED)" []
+is_a: MOLSIM:000163 ! visualization tool
+
+[Term]
+id: MOLSIM:002042
+name: data plotting tool
+def: "A visualization tool designed to generate 2D or 3D graphs, charts, and plots from numerical data files. In simulation workflows, these are used to plot time-series data (like RMSD or energy over time), histograms, and statistical analyses. (UNVERIFIED)" []
+synonym: "data visualization tool" EXACT []
+is_a: MOLSIM:000163 ! visualization tool
+
+[Term]
+id: MOLSIM:002043
+name: CAMPARI
+def: "CAMPARI is a simulation software package designed for performing molecular dynamics and Monte Carlo simulations of biological macromolecules. It is particularly renowned for its extensive implementation of advanced Monte Carlo sampling algorithms, implicit solvent models (like ABSINTH), and its utility in studying intrinsically disordered proteins. (UNVERIFIED)" []
+is_a: MOLSIM:000160 ! molecular dynamics engine
+
+[Term]
+id: MOLSIM:002044
+name: HIP
+def: "HIP (Heterogeneous-compute Interface for Portability) is a C++ runtime API and kernel language developed by AMD. It allows developers to write performance-portable code that can be compiled to run on both AMD and NVIDIA GPUs. In biomolecular simulation, HIP is increasingly used to port major molecular dynamics engines to run efficiently on AMD-powered supercomputers. (UNVERIFIED)" []
+is_a: MOLSIM:001562 ! application programming interface
+
+[Term]
+id: MOLSIM:002045
+name: SYCL
+def: "SYCL is a royalty-free, cross-platform C++ abstraction layer that enables code for heterogeneous processors (CPUs, GPUs, FPGAs) to be written in a standard, single-source style. It is used by simulation developers to write performance-portable molecular simulation software that can run across diverse hardware architectures, including Intel GPUs. (UNVERIFIED)" []
+is_a: MOLSIM:001562 ! application programming interface
+
+[Term]
+id: MOLSIM:002046
+name: OpenCL
+def: "OpenCL (Open Computing Language) is an open, royalty-free standard for parallel programming of heterogeneous systems, including CPUs, GPUs, DSPs, and other processors. It provides a low-level API that has been widely used by simulation engines to accelerate computations across diverse and non-proprietary hardware platforms. (UNVERIFIED)" []
+synonym: "open computing language" EXACT []
+is_a: MOLSIM:001562 ! application programming interface
+
+[Term]
+id: MOLSIM:002047
+name: OpenMPI
+def: "Open MPI is an open-source, freely available implementation of the Message Passing Interface (MPI) standard. It is widely used in high-performance computing to facilitate communication between distributed processes. In biomolecular simulation, it is a standard library used to compile and run parallel simulation engines, such as GROMACS, LAMMPS, and NAMD, across multiple nodes of a computer cluster to ensure efficient scaling and data exchange. (UNVERIFIED)" []
+is_a: MOLSIM:001566 ! library
+
+[Term]
+id: MOLSIM:002048
+name: MPICH
+def: "MPICH is a highly efficient, open-source implementation of the Message Passing Interface (MPI) standard. It serves as both a widely used standalone MPI library for high-performance computing and as the foundational framework for many other vendor-specific or derivative MPI implementations (such as Intel MPI and MVAPICH). For biomolecular simulations on distributed-memory supercomputers, MPICH provides the essential message-passing infrastructure required for large-scale parallelization. (UNVERIFIED)" []
+is_a: MOLSIM:001566 ! library
+
+[Term]
+id: MOLSIM:002049
+name: AutoDock
+def: "AutoDock is a suite of automated docking tools designed to predict how small molecules bind to a receptor of known 3D structure. Older than Vina, classic AutoDock (e.g., AutoDock 4) utilizes a Lamarckian genetic algorithm and a grid-based empirical scoring function. It remains widely used for generating starting poses for molecular dynamics simulations.  (UNVERIFIED)" []
+is_a: MOLSIM:000162 ! docking tool
+
+[Term]
+id: MOLSIM:002050
+name: GOLD
+def: "GOLD (Genetic Optimisation for Ligand Docking) is a highly regarded commercial docking program developed by the Cambridge Crystallographic Data Centre (CCDC). It uses a genetic algorithm to explore ligand conformational space and offers multiple scoring functions. It is frequently used in pharmaceutical pipelines to generate highly accurate protein-ligand complex structures for subsequent MD refinement.  (UNVERIFIED)" []
+synonym: "Genetic Optimisation for Ligand Docking" EXACT []
+is_a: MOLSIM:000162 ! docking tool
+
+[Term]
+id: MOLSIM:002051
+name: Glide
+def: "Glide (Grid-based Ligand Docking with Energetics) is a commercial molecular docking program within the Schrödinger software suite. It uses a systematic, hierarchical search of positional, orientational, and conformational space followed by evaluation with an empirical scoring function (e.g., SP, XP). It is heavily utilized in industry for virtual screening and preparing complexes for Desmond MD simulations.  (UNVERIFIED)" []
+synonym: "Grid-based Ligand Docking with Energetics" EXACT []
+is_a: MOLSIM:000162 ! docking tool
+
+[Term]
+id: MOLSIM:002052
+name: rDock
+def: "rDock is a fast, open-source molecular docking program that can be used to dock small molecules against proteins and nucleic acids. Originally developed commercially as RiboDock, it utilizes a combination of stochastic and deterministic search algorithms. Its speed and open-source nature make it a popular tool for high-throughput virtual screening workflows preceding MD validation. (UNVERIFIED)" []
+is_a: MOLSIM:000162 ! docking tool
+
+[Term]
+id: MOLSIM:002053
+name: adaptive biasing force algorithm
+def: "An enhanced sampling algorithm that continuously computes the average thermodynamic force acting along a chosen collective variable and dynamically applies an equal and opposite biasing force. This effectively flattens the local free energy landscape, allowing the system to freely diffuse across energy barriers. (UNVERIFIED)" []
+synonym: "ABF algorithm" EXACT []
+is_a: MOLSIM:001740 ! enhanced sampling algorithm
+
+[Term]
+id: MOLSIM:002054
+name: Wang-Landau algorithm
+def: "An enhanced sampling algorithm designed to calculate the density of states of a system by performing a random walk that is penalized by a continuously updated biasing potential. It aims to achieve a flat histogram of visited states, ensuring the system evenly explores all energy levels and overcomes high energy barriers. (UNVERIFIED)" []
+is_a: MOLSIM:001740 ! enhanced sampling algorithm
+
+[Term]
+id: MOLSIM:002055
+name: well-tempered metadynamics algorithm
+def: "A specific algorithmic extension of metadynamics where the height of the added Gaussian biasing potentials is gradually decreased over time based on the amount of bias already accumulated at that location. This ensures that the biasing potential converges smoothly to the true free energy surface, avoiding the over-filling of energy basins. (UNVERIFIED)" []
+is_a: MOLSIM:001740 ! enhanced sampling algorithm
+
+[Term]
+id: MOLSIM:002056
+name: steered molecular dynamics algorithm
+def: "An algorithm that applies a time-dependent, usually harmonic, guiding potential to specific atoms or collective variables. It calculates the necessary biasing forces to force the system to evolve along a predefined reaction coordinate, simulating non-equilibrium processes like ligand unbinding or protein unfolding. (UNVERIFIED)" []
+synonym: "SMD algorithm" EXACT []
+is_a: MOLSIM:001740 ! enhanced sampling algorithm
+
+[Term]
+id: MOLSIM:002057
+name: multiple-walkers metadynamics
+def: "An enhanced sampling simulation method and a specific variant of metadynamics where multiple independent simulations (walkers) are run in parallel. All walkers simultaneously explore the conformational space and deposit Gaussian bias potentials into a single, shared history-dependent bias grid. This approach significantly accelerates the reconstruction of complex free energy surfaces while maintaining the exact theoretical accuracy of standard metadynamics. (UNVERIFIED)" []
+synonym: "MWMD" EXACT []
+is_a: MOLSIM:000852 ! metadynamics
+
+[Term]
+id: MOLSIM:002058
+name: PDBQT format
+def: "The PDBQT format is an extension of the standard PDB format specifically designed for use with the AutoDock and AutoDock Vina molecular docking suites. In addition to atomic coordinates, it stores calculated partial charges ('Q') and AutoDock-specific atom types ('T'), making it a structural format that intrinsically carries the predictive interaction parameters required for, and generated by, docking algorithms.(UNVERIFIED)" []
+is_a: MOLSIM:000715 ! prediction data format
+is_a: MOLSIM:001088 ! molecular structure format
+
+[Term]
+id: MOLSIM:002059
+name: PROPKA output format
+def: "The PROPKA output format (often using a .pka extension) is a text-based file generated by the PROPKA software that records the predicted pKa values for titratable amino acid residues in a protein. It details the specific energetic contributions, such as desolvation penalties and hydrogen bonding effects, that led to the prediction, serving as a primary predictive data record for setting up pH-dependent simulations. (UNVERIFIED)" []
+synonym: "pka format" EXACT []
+is_a: MOLSIM:000715 ! prediction data format
+
+[Term]
+id: MOLSIM:002060
+name: docking log format
+def: "A docking log format is a text-based or tabular file generated by molecular docking software (such as AutoDock Vina, Glide, or GOLD) to record the numerical results of a virtual screening or pose prediction run. It typically contains ranked lists of predicted binding poses, estimated binding affinities or docking scores, and clustering metrics like RMSD, serving as the primary predictive output for analyzing binding without needing to parse the 3D structure files. (UNVERIFIED)" []
+is_a: MOLSIM:000715 ! prediction data format
+
+[Term]
+id: MOLSIM:002061
+name: PAE matrix format
+def: "The PAE (Predicted Aligned Error) matrix format is a structured data file, typically serialized as JSON, that stores the pairwise distance error estimates generated by deep learning protein structure prediction models like AlphaFold. It provides a 2D matrix where each point represents the expected position error at residue X when the predicted and true structures are aligned on residue Y, serving as a critical metric for assessing the confidence of relative domain orientations and predicted protein-protein interactions. (UNVERIFIED)" []
+synonym: "Predicted Aligned Error matrix format" EXACT []
+is_a: MOLSIM:000715 ! prediction data format
+
+[Term]
+id: MOLSIM:002062
+name: Maestro format
+def: "The Maestro format (typically .mae or .maegz) is the native, hierarchical file format of the Schrödinger software suite, used to store molecular structures along with extensive property data. As a prediction data format, it is frequently used to encapsulate the output of predictive modeling workflows like Glide docking, embedding algorithmic metadata such as docking scores, physical descriptors, and predicted interaction energies directly alongside the atomic coordinates. (UNVERIFIED)" []
+synonym: "mae format" EXACT []
+synonym: "maegz format" EXACT []
+is_a: MOLSIM:000715 ! prediction data format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:010001
