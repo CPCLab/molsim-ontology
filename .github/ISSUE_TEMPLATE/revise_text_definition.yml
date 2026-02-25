@@ -1,0 +1,37 @@
+name: "Revise text definition of molsim-ontology term"
+description: "Request textual definition revision"
+title: "[DEFINITION] "
+labels: ["definition", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  - type: input
+    id: term_id
+    attributes:
+      label: "Term ID"
+      description: "MOLSIM:XXXXXXXX"
+      placeholder: "MOLSIM:0000001"
+    validations:
+      required: true
+  - type: textarea
+    id: current_def
+    attributes:
+      label: "Current definition"
+      render: markdown
+  - type: textarea
+    id: proposed_def
+    attributes:
+      label: "Proposed definition"
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: "Reason for change"
+    validations:
+      required: true

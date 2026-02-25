@@ -1,0 +1,33 @@
+name: "Change subclass relationship of molsim-ontology term"
+description: "Propose changing parent/child relationship"
+title: "[SUBCLASS] "
+labels: ["subclass", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  - type: input
+    id: term_id
+    attributes:
+      label: "Child term ID"
+      placeholder: "MOLSIM:0000001"
+    validations:
+      required: true
+  - type: textarea
+    id: current_parents
+    attributes:
+      label: "Current parent(s)"
+  - type: textarea
+    id: proposed_parents
+    attributes:
+      label: "Proposed parent(s)"
+      placeholder: "MOLSIM:0000002\nMOLSIM:0000003"
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: "Rationale for change"

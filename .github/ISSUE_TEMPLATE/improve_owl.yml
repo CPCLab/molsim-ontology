@@ -1,0 +1,34 @@
+name: "Improve OWL statement of molsim-ontology term"
+description: "Enhance OWL annotations/axioms"
+title: "[OWL] "
+labels: ["owl", "annotation", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  - type: textarea
+    id: term_ids
+    attributes:
+      label: "Affected term ID(s)"
+    validations:
+      required: true
+  - type: dropdown
+    id: improvement_type
+    attributes:
+      label: "Type of improvement"
+      options:
+        - "Add missing annotation"
+        - "Fix annotation value"
+        - "Add logical axiom"
+        - "Remove redundant axiom"
+        - "Other"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: "Detailed proposal"
+      render: markdown

@@ -1,0 +1,29 @@
+name: "Obsolete an existing molsim-ontology term"
+description: "Request to mark term as obsolete"
+title: "[OBSOLETE] "
+labels: ["obsolete", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  - type: input
+    id: term_id
+    attributes:
+      label: "Term ID to obsolete"
+      placeholder: "MOLSIM:XXXXXXXX"
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: "Reason for obsoletion"
+      description: "Duplication, wrong modeling, etc."
+    validations:
+      required: true
+  - type: textarea
+    id: replacement
+    attributes:
+      label: "Replacement term(s) (if applicable)"

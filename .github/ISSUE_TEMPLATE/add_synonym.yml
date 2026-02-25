@@ -1,0 +1,31 @@
+name: "Add synonym suggestion for existing molsim-ontology term"
+description: "Suggest adding synonym(s) to existing term"
+title: "[SYNONYM] "
+labels: ["synonym", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  - type: dropdown
+    id: existing_term
+    attributes:
+      label: "Select existing term"
+      description: "Search by ID or label"
+    validations:
+      required: true
+  - type: textarea
+    id: synonym_text
+    attributes:
+      label: "Proposed synonym(s)"
+      description: "One per line with scope: EXACT, NARROW, BROAD"
+      placeholder: "trajectory file|EXACT\ncoord snapshot|NARROW"
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: "Justification"
+      description: "Why this synonym is needed"

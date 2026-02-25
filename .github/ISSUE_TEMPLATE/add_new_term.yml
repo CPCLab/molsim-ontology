@@ -1,0 +1,43 @@
+name: "Add new term for molsim-ontology"
+description: "Suggest a new term for the molsim-ontology"
+title: "[NEW TERM] "
+labels: ["new-term", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  - type: markdown
+    attributes:
+      value: "## Proposed Term Details"
+  - type: textarea
+    id: term_name
+    attributes:
+      label: "Term name (label)"
+      description: "Preferred term label"
+      placeholder: "Ex: 'Molecular dynamics trajectory'"
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: definition
+    attributes:
+      label: "Textual definition"
+      description: "Clear, precise definition (OBO Foundry style)"
+      placeholder: "A sequence of atomic coordinates..."
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: parents
+    attributes:
+      label: "Parent class(es)"
+      description: "ID(s) of parent term(s), one per line"
+      placeholder: "MOLSIM:0000001\nMOLSIM:0000002"
+  - type: textarea
+    id: synonyms
+    attributes:
+      label: "Synonyms (optional)"
+      placeholder: "trajectory file|EXACT\ncoord snapshot|NARROW"

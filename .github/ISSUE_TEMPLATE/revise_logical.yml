@@ -1,0 +1,30 @@
+name: "Revise logical structure for molsim-ontology terms"
+description: "Fix OWL logical axioms, intersections, etc."
+title: "[LOGICAL] "
+labels: ["logical-definition", "owl", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  - type: input
+    id: term_id
+    attributes:
+      label: "Term ID(s)"
+      description: "One per line"
+    validations:
+      required: true
+  - type: textarea
+    id: current_axioms
+    attributes:
+      label: "Current logical definition (Manchester OWL)"
+      render: markdown
+  - type: textarea
+    id: proposed_axioms
+    attributes:
+      label: "Proposed logical definition"
+      render: markdown
+    validations:
+      required: true
