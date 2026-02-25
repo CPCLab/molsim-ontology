@@ -1,0 +1,42 @@
+name: "General feedback"
+description: "Share ideas, suggestions, questions, or other feedback about molsim-ontology"
+title: "[FEEDBACK] "
+labels: ["feedback", "triage"]
+body:
+  - type: input
+    id: orcid
+    attributes:
+      label: "ORCID iD (optional, for dcterms:contributor credit)"
+      description: "Enter your ORCID (e.g., 0000-0001-2345-6789) for automatic contributor attribution"
+      placeholder: "0000-000X-XXXX-XXXX"
+  
+  - type: markdown
+    attributes:
+      value: "**Note:** For general questions or conversations, please use [GitHub Discussions](https://github.com/CPCLab/molsim/discussions)"
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: "Feedback details"
+      description: "Share your feedback, suggestions, or bug reports about molsim-ontology"
+      placeholder: "Describe your feedback here..."
+    validations:
+      required: true
+  
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional context (optional)"
+      description: "Links, screenshots, related terms, or anything else helpful"
+      render: markdown
+  
+  - type: checkboxes
+    id: preferences
+    attributes:
+      label: "Issue type"
+      options:
+        - label: "Suggestion for improvement"
+        - label: "Potential bug"
+        - label: "Documentation feedback"
+        - label: "Other (not a discussion)"
+
