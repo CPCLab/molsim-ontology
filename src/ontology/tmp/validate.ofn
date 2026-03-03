@@ -15,13 +15,13 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
-<http://purl.obolibrary.org/obo/molsim/releases/2026-02-24/molsim.owl>
+<http://purl.obolibrary.org/obo/molsim/releases/2026-03-03/molsim.owl>
 Annotation(protege:defaultLanguage "en")
 Annotation(dcterms:description <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools."@en)
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(rdfs:comment "")
-Annotation(owl:versionInfo "2026-02-24")
+Annotation(owl:versionInfo "2026-03-03")
 
 Declaration(Class(obo:APOLLO_SV_00000008))
 Declaration(Class(obo:BFO_0000001))
@@ -2270,6 +2270,7 @@ Declaration(ObjectProperty(obo:BFO_0000050))
 Declaration(ObjectProperty(obo:BFO_0000051))
 Declaration(ObjectProperty(obo:BFO_0000054))
 Declaration(ObjectProperty(obo:BFO_0000055))
+Declaration(ObjectProperty(obo:BFO_0000063))
 Declaration(ObjectProperty(obo:IAO_0000039))
 Declaration(ObjectProperty(obo:IAO_0000109))
 Declaration(ObjectProperty(obo:IAO_0000136))
@@ -2478,10 +2479,6 @@ AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
 
 AnnotationAssertion(rdfs:label oboInOwl:hasAlternativeId "has_alternative_id")
 
-# Annotation Property: oboInOwl:hasDbXref (database_cross_reference)
-
-AnnotationAssertion(rdfs:label oboInOwl:hasDbXref "database_cross_reference")
-
 # Annotation Property: oboInOwl:hasExactSynonym (has exact synonym)
 
 AnnotationAssertion(obo:IAO_0000115 oboInOwl:hasExactSynonym "An alternative label for a class or property which has the exact same meaning than the preferred name/primary label.")
@@ -2533,6 +2530,11 @@ AnnotationAssertion(rdfs:label obo:BFO_0000055 "realizes"@en)
 SubObjectPropertyOf(obo:BFO_0000055 owl:topObjectProperty)
 ObjectPropertyDomain(obo:BFO_0000055 obo:BFO_0000015)
 ObjectPropertyRange(obo:BFO_0000055 obo:BFO_0000017)
+
+# Object Property: obo:BFO_0000063 (precedes)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000063 "precedes"@en)
+SubObjectPropertyOf(obo:BFO_0000063 owl:topObjectProperty)
 
 # Object Property: obo:IAO_0000039 (has measurement unit label)
 
@@ -13611,12 +13613,12 @@ SubClassOf(obo:MOLSIM_001120 obo:MOLSIM_000440)
 
 # Class: obo:MOLSIM_001163 (parameter)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001163 "A category for any user-specified variable or setting that controls the behavior of a computational process. Parameters are the inputs that define how a simulation or analysis will be performed. They are distinct from output descriptors, which are the results of a process. In input files, these are the keywords and values that direct the software's execution. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001163 "An input variable or algorithmic setting defined prior to execution that governs the behavior, conditions, or numerical rules of a computational process (encompassing both simulation generation and post-run analysis). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001163 "parameter"@en)
 
 # Class: obo:MOLSIM_001164 (simulation parameter)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001164 "A type of parameter that directly controls the physics, algorithms, and conditions of a molecular simulation. These settings define the integration of equations of motion, the thermodynamic ensemble, and the potential energy function used. Correctly specifying each simulation parameter is essential for ensuring the reproducibility and physical validity of the simulation. These are typically set in files like the AMBER mdin file or the GROMACS mdp file. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001164 "An input setting that specifically dictates the physical interactions, boundary conditions, or integration rules used to generate a molecular dynamics trajectory (e.g., target thermostat temperature, integration timestep). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001164 "simulation parameter"@en)
 SubClassOf(obo:MOLSIM_001164 obo:MOLSIM_001163)
 
@@ -14216,7 +14218,7 @@ SubClassOf(obo:MOLSIM_001263 obo:MOLSIM_001262)
 
 # Class: obo:MOLSIM_001264 (analysis parameter)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001264 "A type of parameter that controls the behavior of a post-processing analysis of simulation data. These settings define the algorithms and thresholds used to extract meaningful information from raw trajectories and log files. The analysis parameter settings are crucial for ensuring that the analysis is performed in a reproducible and well-defined manner. These are often set in the input file for an analysis program like cpptraj or gmx analyze. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001264 "An input setting that dictates the mathematical, statistical, or filtering rules used to process and evaluate existing simulation data (e.g., clustering distance cutoff, bin size for volumetric analysis). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001264 "analysis parameter"@en)
 SubClassOf(obo:MOLSIM_001264 obo:MOLSIM_001163)
 
@@ -14382,10 +14384,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001291 "An NMR analysis parameter
 AnnotationAssertion(rdfs:label obo:MOLSIM_001291 "R6 averaged distance"@en)
 SubClassOf(obo:MOLSIM_001291 obo:MOLSIM_001290)
 
-# Class: obo:MOLSIM_001292 (output data descriptor)
+# Class: obo:MOLSIM_001292 (computed observable)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001292 "A category for any piece of information or value that is generated by a simulation and describes the system's state or behavior. These descriptors can range from scalar quantities like temperature to complex data structures like a radial distribution function. They are the primary results extracted from raw simulation trajectories and log files for analysis. Across different analysis tools, these are the fundamental calculated quantities or properties derived from the raw simulation data. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001292 "output data descriptor"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001292 "A quantitative or qualitative output data item generated by a simulation or analysis process. It represents the actual measured state, derived metric, or calculated result of the system (e.g., instantaneous potential energy, calculated RMSD, assigned cluster IDs).  (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001292 "computed observable"@en)
 
 # Class: obo:MOLSIM_001293 (thermodynamic property)
 
@@ -18131,6 +18133,7 @@ SubClassOf(obo:MOLSIM_001912 obo:MOLSIM_001887)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001913 "Simulation model resolution refers to the level of detail used to represent the molecules in a simulation. This is a fundamental choice that determines the balance between the physical accuracy of the model and the computational cost of the simulation. For experts, the resolution can range from all-atom, where every atom is explicit, to coarse-grained, where groups of atoms are represented as single particles. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001913 "simulation model resolution"@en)
+SubClassOf(obo:MOLSIM_001913 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_001914 (all atom)
 
