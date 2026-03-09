@@ -15,13 +15,13 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-03-03/molsim.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-03-09/molsim.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dcterms:description rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
         <dcterms:description xml:lang="en">MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.</dcterms:description>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <rdfs:comment></rdfs:comment>
-        <owl:versionInfo>2026-03-03</owl:versionInfo>
+        <owl:versionInfo>2026-03-09</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -117,7 +117,9 @@
 
     <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->
 
-    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref">
+        <rdfs:label>database_cross_reference</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -294,14 +296,6 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000003"/>
         <rdfs:label xml:lang="en">has measurement unit label</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/IAO_0000109 -->
-
-    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000109">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -14566,6 +14560,10 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000109">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
+        <obo:IAO_0000115 xml:lang="en">A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">OBI_0000305</obo:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">group:OBI</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">measurement datum</rdfs:label>
     </owl:Class>
     
 
@@ -15173,7 +15171,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000049">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000037"/>
         <obo:IAO_0000115 xml:lang="en">An algorithm used in molecular dynamics simulations to fix certain geometric parameters, most commonly bond lengths involving light atoms like hydrogen. By constraining these fast vibrations, longer simulation time steps can be used, significantly speeding up the simulation while having minimal impact on slower, large-scale motions. These algorithms iteratively adjust particle positions or use analytical solutions to satisfy the constraint conditions (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">constraining algorithm</rdfs:label>
+        <rdfs:label xml:lang="en">constraint algorithm</rdfs:label>
     </owl:Class>
     
 
@@ -15661,9 +15659,10 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000844"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">A binary trajectory format based on the NetCDF standard, used by the Amber simulation package. It efficiently stores atomic coordinates, velocities, forces, and periodic box dimensions from a simulation. This is the modern, recommended trajectory format for Amber. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER NetCDF trajectory format</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">AMBER nc format</oboInOwl:hasExactSynonym>
         <rdfs:comment xml:lang="en">In the vast majority of scientific applications, including molecular dynamics, climate science, and oceanography, a .nc file is a NetCDF file. There is no difference in the format itself. The .nc extension is simply the most common file name suffix for a file written using the NetCDF data model. (UNVERFIED)</rdfs:comment>
-        <rdfs:label xml:lang="en">AMBER NetCDF trajectory format</rdfs:label>
+        <rdfs:label xml:lang="en">NetCDF trajectory format</rdfs:label>
     </owl:Class>
     
 
@@ -16258,7 +16257,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000156 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000156">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002065"/>
         <obo:IAO_0000115 xml:lang="en">The GROMACS mdp format is the specific simulation parameter format used by the GROMACS software package. The file, which typically has a &quot;.mdp&quot; extension, contains a series of keyword-value pairs that control every aspect of the simulation run, from the integrator and time step to the thermostat and pressure coupling methods. For GROMACS users, creating and editing the mdp file is the primary way to define the simulation protocol. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">GROMACS mdp format</rdfs:label>
     </owl:Class>
@@ -16291,7 +16290,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000159">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">A text-based file format from the Amber software that stores the movement of atoms over time from a simulation. It contains a series of snapshots, or frames, where each frame lists the x, y, and z coordinates of every atom at a specific time point. This format is widely used for analyzing and visualizing simulation trajectories. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">AMBER mdcrd format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER mdcrd format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">mdcrd format</rdfs:label>
     </owl:Class>
     
 
@@ -18252,7 +18252,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">A .binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for &quot;binary position.&quot; This format is often referred to as the &quot;Scripps &apos;binpos&apos; format&quot; and is recognized by Amber&apos;s analysis tools like cpptraj and other programs such as VMD.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.binpos</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">Scripps binpos format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">Scripps binpos format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">binpos format</rdfs:label>
     </owl:Class>
     
 
@@ -19101,8 +19102,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000437">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001085"/>
-        <obo:IAO_0000115 xml:lang="en">A data format that specifies the settings, algorithms, and control parameters for a computational task. This format provides the instructional input for simulation or analysis software. It is distinct from formats that describe molecular structure or results. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">simulation parameter format</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">A data format that provides the necessary data, settings, or instructions required to initiate a computational task. This format provides the instructional input for simulation or analysis software. It is distinct from formats that describe molecular structure or results. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">simulation input format</rdfs:label>
     </owl:Class>
     
 
@@ -19123,7 +19124,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001085"/>
         <obo:IAO_0000115 xml:lang="en">A simulation log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation&apos;s stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">output log format</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">simulation  log format</rdfs:label>
+        <rdfs:label xml:lang="en">simulation log format</rdfs:label>
     </owl:Class>
     
 
@@ -19171,7 +19172,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000444 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000444">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000438"/>
         <obo:IAO_0000115 xml:lang="en">A script file format for the tleap program in AmberTools, used to build a molecular system for simulation. It contains a sequence of commands to load molecular structures, apply force fields, add solvent, and save the final topology and coordinate files. This format is a fundamental part of the system preparation stage in an Amber workflow. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">tleap input format</rdfs:label>
     </owl:Class>
@@ -19327,7 +19328,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000459">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001091"/>
         <obo:IAO_0000115 xml:lang="en">The GROMACS rtp format is a text file that acts as a database entry for a molecular building block, such as an amino acid. It defines the atoms, their charges, and their bonding within a specific residue, and is used by the GROMACS software to automatically construct the topology for a polymer like a protein. These residue topology files (.rtp) are a core part of a GROMACS force field and work together with other files to define the complete molecular model. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">GROMACS rtp format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS rtp format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">rtp format</rdfs:label>
     </owl:Class>
     
 
@@ -19430,7 +19432,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000469 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000469">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002065"/>
         <obo:IAO_0000115 xml:lang="en">A text-based format containing control parameters for the Amber sander and pmemd programs, organized in Fortran namelists. It specifies simulation conditions like timestep, duration, and temperature/pressure coupling algorithms. This format dictates how the molecular dynamics simulation is performed. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">AMBER mdin format</rdfs:label>
     </owl:Class>
@@ -19442,8 +19444,9 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000470">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000439"/>
         <obo:IAO_0000115 xml:lang="en">A text-based log format generated by Amber&apos;s simulation engines that provides a detailed record of the simulation&apos;s progress. It contains energy components, thermodynamic properties, and performance timings printed at regular intervals. This format is essential for monitoring simulation stability and extracting averaged properties. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER mdout format</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">AMBER out format</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">AMBER mdout format</rdfs:label>
+        <rdfs:label xml:lang="en">mdout format</rdfs:label>
     </owl:Class>
     
 
@@ -20698,7 +20701,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000598">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">An Amber trajectory format that specifically stores the velocities of each atom in the system over time. It is generated during a simulation to capture the dynamic motion of particles. This format is used for advanced analyses that require knowledge of atomic velocities. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">AMBER mdvel format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER mdvel format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">mdvel format</rdfs:label>
     </owl:Class>
     
 
@@ -20733,7 +20737,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000439"/>
         <obo:IAO_0000115 xml:lang="en">A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations.</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.cpout</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">AMBER cpout format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER cpout format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">cpout format</rdfs:label>
     </owl:Class>
     
 
@@ -20815,7 +20820,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_010020"/>
         <obo:IAO_0000115 xml:lang="en">The file for storing pre-calculated pairwise distances does not have a single, mandatory extension, but a common convention exists. The recommended format is a binary file, for which the conventional extension is .cmatrix. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.cmatrix</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">CPPTRAJ pairwise distance cache format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">CPPTRAJ pairwise distance cache format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">cmatrix format</rdfs:label>
     </owl:Class>
     
 
@@ -20853,11 +20859,12 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000613 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000613">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001091"/>
         <obo:IAO_0000115 xml:lang="en">The AMBER prep format is a file that contains all the information needed to define a new molecular building block for use in an Amber simulation. It serves as a template for a non-standard residue, specifying its atoms, charges, chemical bonds, and 3D structure. These files, which can be written using either internal or Cartesian coordinates, are essential for creating the library files needed to simulate systems containing drugs, cofactors, or modified amino acids. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.prep</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym>.prepi</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">AMBER prep format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER prep format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">prep format</rdfs:label>
     </owl:Class>
     
 
@@ -20865,12 +20872,13 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000614 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000614">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001091"/>
         <obo:IAO_0000115 xml:lang="en">An Amber OFF Library file (Object File Format) is a text file that stores a library of molecular units or residues, including their force field parameters, atom types, connectivity, and charges. These files are a fundamental part of the Amber software suite, allowing the LEaP program to build simulation-ready topology files for systems containing non-standard molecules or modified residues (like amino acids with post-translational modifications). The file extension can be interchangeably provided as .lib/.off files UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">.off</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">AMBER Object File Format</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER off format</oboInOwl:hasExactSynonym>
         <rdfs:comment xml:lang="en">AMBER lib format</rdfs:comment>
-        <rdfs:label xml:lang="en">AMBER off format</rdfs:label>
+        <rdfs:label xml:lang="en">off format</rdfs:label>
     </owl:Class>
     
 
@@ -23291,7 +23299,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000867 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000867">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000438"/>
         <obo:IAO_0000115 xml:lang="en">A CHARMM input file is a script containing a sequence of commands written in the CHARMM scripting language, which directs the CHARMM program to perform various tasks. These tasks can range from reading topology and coordinate files, setting up system parameters, running energy minimizations or molecular dynamics simulations, to analyzing results. The script provides flexibility for complex simulation protocols. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">CHARMM input format</rdfs:label>
     </owl:Class>
@@ -23323,7 +23331,9 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000870">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
         <obo:IAO_0000115 xml:lang="en">A Gaussian input file, often with a .com or .gjf extension, instructs the Gaussian quantum chemistry software. It characteristically includes a &apos;route section&apos; (starting with #) containing keywords that define the theoretical method, basis set, and calculation type (e.g., optimization, frequency), followed by a title section, charge and spin multiplicity, and the molecular geometry. The structure is highly standardized within the Gaussian ecosystem. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">GAUSSIAN com format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GAUSSIAN com format</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">GAUSSIAN gjf format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">gjf format</rdfs:label>
     </owl:Class>
     
 
@@ -23331,7 +23341,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000871 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000871">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002065"/>
         <obo:IAO_0000115 xml:lang="en">In GROMACS, the primary molecular dynamics input file usually has an .mdp extension and contains keyword-value pairs defining the simulation parameters. Processed by the grompp tool, it controls aspects like the integration algorithm, timestep, simulation length, temperature and pressure coupling methods, and cutoff schemes. This file dictates how the MD simulation engine (mdrun) will execute the run. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">GROMACS input  format</rdfs:label>
     </owl:Class>
@@ -23341,7 +23351,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000872 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000872">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">The HIN (.hin) file is the native format for the HyperChem molecular modeling software package. It stores information about the molecular system, including atomic coordinates, connectivity, atom types according to specific force fields, and potentially other parameters or calculation settings used within HyperChem. It serves as both an input and a way to save the molecular setup. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">HyperChem hin format</rdfs:label>
     </owl:Class>
@@ -23361,7 +23371,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000874 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000874">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">This refers to an input file format for the MOPAC semi-empirical quantum chemistry program where the molecular structure is defined using Cartesian (X, Y, Z) coordinates for each atom. This format is used following the main keyword line that specifies the semi-empirical method (e.g., PM7), calculation type (e.g., OPT), and other options. It is an alternative to specifying geometry with internal coordinates. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">MOPAC cartesian format</rdfs:label>
     </owl:Class>
@@ -23371,7 +23381,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000875 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000875">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">This MOPAC input file format defines the molecular geometry using internal coordinates, typically in the form of a Z-matrix specifying bond lengths, bond angles, and dihedral angles relative to previously defined atoms. This format follows the main keyword line specifying the method and calculation options. It contrasts with the format using Cartesian coordinates. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">MOPAC internal format</rdfs:label>
     </owl:Class>
@@ -23381,7 +23391,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000876 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000876">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002065"/>
         <obo:IAO_0000115 xml:lang="en">A NAMD configuration file, typically ending in .namd, contains parameters and commands that control a molecular dynamics simulation run using the NAMD software. It uses a keyword-value pair format, often leveraging Tcl scripting capabilities, to specify input files (structure, coordinates, parameters), simulation conditions (temperature, pressure, duration), and algorithms. This file dictates the entire simulation protocol. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">NAMD configuration format</rdfs:label>
     </owl:Class>
@@ -23424,7 +23434,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000441"/>
         <obo:IAO_0000115 xml:lang="en">ADF Tape41 (now more commonly the .rkf or ADF Results File) is a structured binary file generated by the Amsterdam Density Functional package. It stores a comprehensive set of calculation results, including basis set details, molecular orbital coefficients, electron densities, gradients, and potentially Hessians, in a key-value database format. This file is essential for advanced analysis, visualization, and restarting calculations. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">ADF Tape41 format</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">ADF rkf format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">ADF rkf format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">rkf format</rdfs:label>
     </owl:Class>
     
 
@@ -23564,7 +23575,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000894">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">An Amber trajectory format that specifically stores the forces acting on each atom in the system at different points in time. It provides a detailed record of the interatomic forces calculated during a simulation. This format is useful for debugging or detailed force analysis. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">AMBER mdfrc format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER mdfrc format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">mdfrc format</rdfs:label>
     </owl:Class>
     
 
@@ -23574,7 +23586,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000895">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">The GROMACS .gro file is a simple, formatted text file used to store molecular coordinates, atom/residue names, and optionally velocities. It includes a title line, the total number of atoms, and then one line per atom specifying residue and atom information, coordinates (in nanometers), and optionally velocities. The file concludes with the periodic box vectors. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">GROMACS gro format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS gro format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">gro format</rdfs:label>
     </owl:Class>
     
 
@@ -23605,7 +23618,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001091"/>
         <obo:IAO_0000115 xml:lang="en">A GROMACS include topology file (.itp) contains the topology definition for a specific type of molecule (like a protein, lipid, or solvent). It typically includes sections like [ moleculetype ], [ atoms ], [ bonds ], etc., and is designed to be reusable. These .itp files are incorporated into the main system topology (.top) file using the #include directive. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">GROMACS include topology format</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">GROMACS itp format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS itp format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">itp format</rdfs:label>
     </owl:Class>
     
 
@@ -23617,7 +23631,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">The GROMACS system topology file (.top) describes the entire molecular system to be simulated. It typically starts by including force field parameter files and specific molecule topology files (.itp) using #include directives. Crucially, it concludes with a [ molecules ] section listing the names and counts of each type of molecule present in the simulation box. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.top</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">GROMACS system topology format</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">GROMACS top format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS top format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">top format</rdfs:label>
     </owl:Class>
     
 
@@ -23761,7 +23776,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000913">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000909"/>
         <obo:IAO_0000115 xml:lang="en">The Gaussian cube file format (.cube) is a text-based format for storing scalar data (like electron density, electrostatic potential, or molecular orbital values) on a regular three-dimensional grid. It includes header information defining the grid origin, dimensions, axis vectors, and the atomic coordinates, followed by the data values listed for each grid point in sequence. This format is widely used for visualizing volumetric properties derived from Gaussian and other QM calculations. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">GAUSSIAN cube format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GAUSSIAN cube format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">cube format</rdfs:label>
     </owl:Class>
     
 
@@ -23930,7 +23946,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000940 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000940">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002066"/>
         <obo:IAO_0000115 xml:lang="en">A text-based file format used by the AMBER software suite to store standard force field parameters. These files (historically using the .dat extension) contain the equilibrium values and force constants for bonds, angles, dihedrals, and non-bonded interactions for specific atom types. They serve as the central parameter database loaded by system-building tools like LEaP. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">AMBER dat format</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">AMBER force field parameter format</rdfs:label>
@@ -24490,6 +24506,7 @@ Saving: users write the contents of a COORDS data set to a file using the crdout
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001039">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">The .trj format is an ASCII (text-based) trajectory file format used by the Amber molecular dynamics software suite and other analysis programs. Its fundamental purpose is to store a time-series of atomic coordinates, capturing the dynamic motion of a system during a simulation. The file contains sequential &quot;frames,&quot; where each frame is a complete set of X, Y, and Z coordinates for every atom in the system at a specific point in time. It can also store periodic box dimensions, although this capability is sometimes limited. .trj files are used for post-simulation analysis, such as calculating properties over time, analyzing conformational changes, and creating visualizations or movies of molecular motion. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER trj format</oboInOwl:hasExactSynonym>
         <rdfs:comment xml:lang="en">The .trj format belongs to a family of older Amber text-based trajectory formats. Its role is best understood in comparison to its relatives:
 
 vs. .mdcrd: The .trj and .mdcrd formats are functionally identical. Both are safe, relatively unambiguous choices for storing Amber ASCII trajectories. A file with one extension can often be renamed to the other without causing issues in analysis software.
@@ -24497,7 +24514,7 @@ vs. .mdcrd: The .trj and .mdcrd formats are functionally identical. Both are saf
 vs. .crd: The .crd extension is highly ambiguous and problematic. It is the native format for the CHARMM simulation package and is interpreted as such by default in many tools. Using .trj avoids this critical format conflict.
 
 vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended format for Amber trajectories. Compared to .trj, NetCDF (.nc) files are smaller, faster to read/write, and store data with higher precision. The .trj format is considered a legacy option.</rdfs:comment>
-        <rdfs:label xml:lang="en">AMBER trj format</rdfs:label>
+        <rdfs:label xml:lang="en">trj format</rdfs:label>
     </owl:Class>
     
 
@@ -24525,7 +24542,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001040"/>
         <obo:IAO_0000115 xml:lang="en">The GROMACS XPM file is an ASCII text file format used by the GROMACS molecular dynamics suite to store two-dimensional matrix data. It is a specialized application of the general XPixMap (.xpm) format, adapted to represent scientific data such as distance matrices, root-mean-square deviation (RMSD) matrices, or hydrogen bond patterns. The format is human-readable and designed for easy visualization. It encodes numerical data as a color-coded image defined by characters, making it viewable with standard XPM viewers and convertible into graphical formats like PostScript using GROMACS utilities such as gmx xpm2ps. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.xpm</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">GROMACS xpm  format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS xpm  format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">xpm  format</rdfs:label>
     </owl:Class>
     
 
@@ -24535,9 +24553,9 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001042">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000472"/>
         <obo:IAO_0000115 xml:lang="en">The AMBER prmtop format is a text file that acts as a blueprint for a molecule, defining all its chemical properties for a simulation. It contains a complete description of the atoms, their connectivity through bonds, the force field parameters governing their interactions, and their partial charges. This file, used in conjunction with a coordinate file, provides all the static information the AMBER simulation engine needs to calculate the forces on the system. (UNVERIFIED)</obo:IAO_0000115>
-        <oboInOwl:hasExactSynonym xml:lang="en">AMBER PRMTOP format</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">AMBER parmtop format</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">AMBER prmtop format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER prmtop format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">prmtop format</rdfs:label>
     </owl:Class>
     
 
@@ -24548,7 +24566,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000472"/>
         <obo:IAO_0000115 xml:lang="en">A file format from the Amber simulation software that describes the structure and force field parameters of a molecule. This is the traditional, ASCII-based version of the Amber parameter/topology file, containing all information needed to calculate forces on the system. It is often used interchangeably with the prmtop format. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">AMBER PARM7 format</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">AMBER parm7 format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER parm7 format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">parm7 format</rdfs:label>
     </owl:Class>
     
 
@@ -24569,8 +24588,9 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">A file format used by the TINKER simulation package to store the trajectory of a molecular system. It archives the atomic coordinates from different snapshots of a simulation in a single file for later analysis. This is the standard trajectory output for TINKER simulations. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.arc</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">TINKER arc format</oboInOwl:hasExactSynonym>
         <rdfs:comment>This can also be a coordinate format from Tinker package as well.</rdfs:comment>
-        <rdfs:label xml:lang="en">TINKER arc format</rdfs:label>
+        <rdfs:label xml:lang="en">arc format</rdfs:label>
     </owl:Class>
     
 
@@ -24667,7 +24687,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001054">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000903"/>
         <obo:IAO_0000115 xml:lang="en">A binary file format from the GROMACS software that stores the full-precision trajectory of a simulation. It saves the atomic coordinates, velocities, and forces at each time step without any loss of precision. This format is used when high accuracy is needed for analysis, such as for calculating kinetic properties. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">GROMACS trr format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS trr format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">trr trajectory format</rdfs:label>
     </owl:Class>
     
 
@@ -24677,7 +24698,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001055">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000903"/>
         <obo:IAO_0000115 xml:lang="en">A compressed, binary file format from the GROMACS software for storing the trajectory of a molecular simulation. It uses a lossy compression algorithm to store atomic coordinates with reduced precision, resulting in much smaller file sizes. This is the most common trajectory format for GROMACS users when only atomic positions are needed for analysis. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">GROMACS xtc format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS xtc format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">xtc trajectory format</rdfs:label>
     </owl:Class>
     
 
@@ -24687,7 +24709,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001056">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000903"/>
         <obo:IAO_0000115 xml:lang="en">A modern, binary file format from the GROMACS software used to store the results of a molecular simulation. It supports various compression algorithms and can store not only coordinates but also velocities, forces, and other trajectory data. This format is designed for high efficiency and flexibility in storing large simulation datasets. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">GROMACS tng format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">GROMACS tng format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">tng trajectory format</rdfs:label>
     </owl:Class>
     
 
@@ -24710,8 +24733,9 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">A binary file format used by the Desmond simulation software to store the trajectory of a molecular system. It efficiently stores atomic coordinates, velocities, and other data in a block-based structure. This is the native trajectory output format for simulations run with Desmond. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.dtr</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">Desmond dtr format</oboInOwl:hasExactSynonym>
         <rdfs:comment xml:lang="en">A trajectory file format used by the Desmond simulation software.</rdfs:comment>
-        <rdfs:label xml:lang="en">Desmond dtr format</rdfs:label>
+        <rdfs:label xml:lang="en">dtr format</rdfs:label>
     </owl:Class>
     
 
@@ -24719,10 +24743,11 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001059 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001059">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">The LMOD conflib format is a conformational library file used by the Low-Mode (LMOD) conformational search program in AmberTools. This file stores a pre-calculated or user-defined collection of different 3D structures for a single molecule. The LMOD program reads this library as input to guide its search, allowing it to more efficiently sample, cluster, or select representative conformations for further analysis. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym>.conflib</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">LMOD conflib  format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">LMOD conflib  format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">conflib  format</rdfs:label>
     </owl:Class>
     
 
@@ -24800,7 +24825,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001066">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_010020"/>
         <obo:IAO_0000115 xml:lang="en">The term &quot;ptrajformat&quot; does not refer to a distinct file type with its own extension. Instead, it is a keyword or an option used within the secstruct command of Amber&apos;s cpptraj analysis program. When this keyword is used, it directs cpptraj to write secondary structure data in a specific ASCII text format that mimics the output style of the older ptraj software. Since ptrajformat is a formatting option and not a file type, there is no mandatory or standard file extension. The output is saved to the filename provided by the user via the out &lt;filename&gt; directive in the secstruct command. Common practice is to use a generic but descriptive extension, such as .dat, .txt, .sec or .ss. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">CPPTRAJ ptraj format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">CPPTRAJ ptraj format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">ptraj format</rdfs:label>
     </owl:Class>
     
 
@@ -24852,8 +24878,9 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001071">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
         <obo:IAO_0000115 xml:lang="en">The CPPTRAJ traj3d format is a special file type used to visualize 3D data maps as if they were a moving particle. As a type of molecular trajectory format, this is a pseudo-trajectory format generated by the hist command in cpptraj, where the three dimensions of a 3D histogram are written out as the X, Y, and Z coordinates of a single particle over time. This allows volumetric data, such as the spatial distribution of water molecules, to be loaded and visualized as a 3D point cloud in programs like VMD. This format is generated using the traj3d keyword within the hist command in a cpptraj input script. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">CPPTRAJ traj3d format</oboInOwl:hasExactSynonym>
         <rdfs:comment xml:lang="en">The traj3d &quot;pseudo-trajectory&quot; is not a standard, independent file format but rather a specialized output option available within the hist command in Amber&apos;s cpptraj analysis program. It is created by taking the three data dimensions of a 3D histogram and writing them out as the X, Y, and Z coordinates of a single &quot;atom&quot; over time. This reformatting creates a trajectory-like file that can be loaded into molecular visualization software. The purpose is to allow researchers to visually inspect the 3D distribution of data from the histogram in a more intuitive, interactive 3D space, rather than as a static 2D plot. There is no mandatory file extension for the output file itself.</rdfs:comment>
-        <rdfs:label xml:lang="en">CPPTRAJ traj3d format</rdfs:label>
+        <rdfs:label xml:lang="en">traj3d format</rdfs:label>
     </owl:Class>
     
 
@@ -24932,9 +24959,10 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001079 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001079">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002066"/>
         <obo:IAO_0000115 xml:lang="en">An Amber-specific format used to provide or modify force field parameters for a simulation. It allows users to introduce new parameters or override existing ones without altering the main force field files. This format is essential for simulating systems with non-standard molecules or custom parameters. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">AMBER frcmod format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER frcmod format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">frcmod format</rdfs:label>
     </owl:Class>
     
 
@@ -25002,9 +25030,10 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001086 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001086">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001091"/>
         <obo:IAO_0000115 xml:lang="en">This is a text file format used by the Amber software to define a new molecular building block using its internal geometry. Instead of 3D coordinates, it specifies the position of each atom by its bond length, bond angle, and dihedral angle relative to other atoms in the molecule. This Z-matrix representation is a powerful way to define a molecule&apos;s ideal geometry and is often used when building a new residue from scratch without a pre-existing 3D structure. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">AMBER prep (internal) format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER prep (internal) format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">prep (internal) format</rdfs:label>
     </owl:Class>
     
 
@@ -25062,9 +25091,10 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001092 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001092">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001091"/>
         <obo:IAO_0000115 xml:lang="en">This is a text file format used by the Amber software to define a new molecular building block, or residue, using standard 3D coordinates. The file lists the atoms, their chemical properties, and their exact X, Y, and Z positions, along with the internal bonding information. This format is particularly useful for creating a new residue library entry directly from an existing structure file, such as a PDB or mol2 file of a drug molecule. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">AMBER prep (cartesian) format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER prep (cartesian) format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">prep (cartesian) format</rdfs:label>
     </owl:Class>
     
 
@@ -25072,9 +25102,10 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001093 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001093">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002066"/>
         <obo:IAO_0000115 xml:lang="en">A CHARMM-specific format that contains the numerical force field parameters, such as force constants and equilibrium values for bonds and angles. It provides the energy constants that correspond to the atom types defined in a residue topology file (RTF). (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">CHARMM parameter format</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">par format</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">CHARMM par format</rdfs:label>
     </owl:Class>
     
@@ -25083,7 +25114,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001094 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001094">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">This term refers to the section within a Gaussian input file where the three-dimensional arrangement of atoms is defined. This can be done in two primary ways: using the straightforward Cartesian format with X, Y, Z coordinates, or using the Z-matrix format which specifies the geometry internally through bond lengths, angles, and dihedrals. The choice of format depends on the specific requirements of the calculation, such as the need to enforce molecular symmetry. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">GAUSSIAN coordinate format</rdfs:label>
     </owl:Class>
@@ -25093,7 +25124,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001095 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001095">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">A Gaussian input format that defines molecular geometry using internal coordinates. It specifies bond lengths, bond angles, and dihedral angles relative to previously defined atoms. This format is useful for controlling molecular symmetry and performing systematic conformational scans. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">GAUSSIAN z-matrix format</rdfs:label>
     </owl:Class>
@@ -25103,7 +25134,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001096 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001096">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <obo:IAO_0000115 xml:lang="en">The Gaussian Cartesian format is a straightforward way to define a molecule&apos;s structure within an input file for the Gaussian quantum chemistry program. It consists of a simple list where each line specifies an atom&apos;s element symbol followed by its X, Y, and Z coordinates in space. This format is easy to generate and read, making it a common choice for specifying molecular geometries, especially when converting from standard structure files like PDBs. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">GAUSSIAN cartesian format</rdfs:label>
     </owl:Class>
@@ -25123,7 +25154,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001098 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001098">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002066"/>
         <obo:IAO_0000115 xml:lang="en">The ReaxFF force field format is a text file that contains the extensive set of parameters for a simulation using the ReaxFF reactive force field. Unlike standard force fields, it specifies parameters that govern how bond orders, and therefore chemical bonds, can change dynamically during a simulation. This file provides all the information needed for the simulation engine to model the complex energy landscape of bond formation and breakage. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">ReaxFF force field format</rdfs:label>
     </owl:Class>
@@ -25133,7 +25164,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001099 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001099">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002066"/>
         <obo:IAO_0000115 xml:lang="en">The DFTB parameter format is a set of files, known as Slater-Koster files, that contain the parameters for a Density Functional Tight Binding (DFTB) calculation. These files define the pre-calculated electronic and repulsive properties between pairs of atom types, which are derived from more expensive quantum mechanical calculations. This parameterization is what allows the DFTB method to achieve its high computational speed while retaining a quantum mechanical description of the system. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">skf  format</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">DFTB parameter format</rdfs:label>
@@ -25164,7 +25195,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001102 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001102">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002065"/>
         <obo:IAO_0000115 xml:lang="en">The EMIL input format is a specific file that contains the control data and parameters for running a calculation with the EMIL (Energy and Motion from an Implicit Liquid) program. It specifies the settings required by the EMIL method to calculate free energy profiles and analyze molecular motions. This input file is the primary way a user provides instructions to the EMIL software. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">emilParameters.in format</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">EMIL input format</rdfs:label>
@@ -25175,7 +25206,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001103 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001103">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002065"/>
         <obo:IAO_0000115 xml:lang="en">The cein format is a specialized input file used for simulations that model the gain and loss of electrons by molecules. It defines the properties of residues that can exist in different oxidation states, such as a cysteine that can be oxidized or reduced. This file provides the necessary parameters for a constant redox potential simulation, allowing the system to dynamically change its electronic state in response to a defined electrochemical potential. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">cein format</rdfs:label>
     </owl:Class>
@@ -25185,7 +25216,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001104 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001104">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002065"/>
         <obo:IAO_0000115 xml:lang="en">The cpein format is a complex input file for advanced simulations that simultaneously model changes in both protonation and electron-transfer states. It defines the properties of residues that can be affected by both the surrounding pH and the electrochemical potential. This format is required for constant pH and potential (CpH/E) simulations, which are used to study complex bioenergetic processes where proton and electron transfers are coupled. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">cpein format</rdfs:label>
     </owl:Class>
@@ -25325,9 +25356,10 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001118 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001118">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000439"/>
         <obo:IAO_0000115 xml:lang="en">The mdinfo format is a text file generated by the Amber simulation software that provides a concise, real-time summary of a running simulation. It contains the most recently calculated energy terms and thermodynamic properties, such as temperature and pressure, formatted for easy monitoring. This file is continuously updated during a run, making it useful for checking the immediate status and stability of a simulation without having to parse the much larger main output file. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">AMBER mdinfo format</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">AMBER mdinfo format</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">mdinfo format</rdfs:label>
     </owl:Class>
     
 
@@ -34387,6 +34419,46 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002063 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002063">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001740"/>
+        <rdfs:comment xml:lang="en">The Metropolis Monte Carlo algorithm is a foundational stochastic method used to sample the conformational space of a molecular system according to a target thermodynamic distribution. It operates by proposing random trial moves, such as displacing atoms or rotating molecules, and evaluating them based on the resulting change in potential energy. Moves that lower the system&apos;s energy are accepted unconditionally, while moves that increase the energy are accepted with a probability proportional to the Boltzmann factor. For experts, this specific acceptance criterion ensures that the simulation rigorously explores the canonical (NVT) ensemble and correctly calculates equilibrium thermodynamic properties without the need to integrate Newton&apos;s equations of motion. (UNVERIFIED)</rdfs:comment>
+        <rdfs:label xml:lang="en">metropolis Monte Carlo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002064 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002064">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000160"/>
+        <obo:IAO_0000115 xml:lang="en">mdrun is the primary high-performance molecular dynamics simulation engine within the GROMACS software suite. It is the specific executable program responsible for reading the compiled run input file (.tpr), calculating the forces between atoms, and numerically integrating Newton&apos;s equations of motion to generate the simulation trajectory. For experts, mdrun is highly optimized for parallel execution across multiple CPU cores and GPUs using domain decomposition and message passing interface (MPI). (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">mdrun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002065 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002065">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <obo:IAO_0000115 xml:lang="en">A data format that specifies the control variables, algorithmic settings, and thermodynamic conditions required to execute a computational simulation run. It dictates exactly how the simulation engine will propagate the system over time, defining parameters such as the integration algorithm, time step, total duration, non-bonded cutoff distances, and the specific thermostat and barostat algorithms used for temperature and pressure coupling. For experts, files in this format (such as GROMACS .mdp or AMBER mdin) define the physical ensemble and numerical methods of the computational experiment, acting as the primary instruction set for the core molecular dynamics engine. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">simulation parameter format</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002066 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002066">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
+        <obo:IAO_0000115 xml:lang="en">A data format that stores the numerical coefficients and empirical rules defining the potential energy function of a molecular mechanics force field. It contains the specific values needed to calculate interactions between atom types, including equilibrium lengths and force constants for bonded terms (bonds, angles, dihedrals), as well as Lennard-Jones parameters and partial charges for non-bonded terms. For experts, these files (such as AMBER .dat/.frcmod or CHARMM .par) supply the fundamental physical constants required by the simulation engine to compute interatomic forces, and are kept strictly distinct from the molecular coordinates or run control settings. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">force field parameter format</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_010001 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_010001">
@@ -36215,23 +36287,6 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
         <obo:IAO_0000115 xml:lang="en">The term was added to the ontology on the assumption it was a valid domain entity, but it turns out the entity does not exist in reality.</obo:IAO_0000115>
         <rdfs:label>domain entity does not exist</rdfs:label>
     </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotations
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000109">
-        <obo:IAO_0000115 xml:lang="en">A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device.</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">OBI_0000305</obo:IAO_0000119>
-        <obo:IAO_0000119 xml:lang="en">group:OBI</obo:IAO_0000119>
-        <rdfs:label xml:lang="en">measurement datum</rdfs:label>
-    </rdf:Description>
     
 
 

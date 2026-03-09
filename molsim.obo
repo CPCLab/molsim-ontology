@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2026-03-03
+data-version: releases/2026-03-09
 idspace: chemrof https://w3id.org/chemrof/ 
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -11,7 +11,7 @@ ontology: molsim
 property_value: dcterms:description https://creativecommons.org/licenses/by-nc-sa/4.0/
 property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
-property_value: owl:versionInfo "2026-03-03" xsd:string
+property_value: owl:versionInfo "2026-03-09" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -4160,7 +4160,7 @@ is_a: MOLSIM:000038 ! thermostat algorithm
 
 [Term]
 id: MOLSIM:000049
-name: constraining algorithm
+name: constraint algorithm
 def: "An algorithm used in molecular dynamics simulations to fix certain geometric parameters, most commonly bond lengths involving light atoms like hydrogen. By constraining these fast vibrations, longer simulation time steps can be used, significantly speeding up the simulation while having minimal impact on slower, large-scale motions. These algorithms iteratively adjust particle positions or use analytical solutions to satisfy the constraint conditions (UNVERIFIED)." []
 is_a: MOLSIM:000037 ! algorithm
 
@@ -4168,14 +4168,14 @@ is_a: MOLSIM:000037 ! algorithm
 id: MOLSIM:000050
 name: SHAKE algorithm
 def: "An iterative constraint algorithm widely used in molecular dynamics to fix bond lengths. It adjusts the positions of atoms involved in a constraint at the end of a time step until the constraint condition (e.g., fixed bond distance) is satisfied within a defined tolerance. It handles coupled constraints involving multiple atoms connected together (UNVERIFIED)." []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 disjoint_from: MOLSIM:000051 ! RATTLE algorithm
 
 [Term]
 id: MOLSIM:000051
 name: RATTLE algorithm
 def: "A constraint algorithm similar to SHAKE but designed for velocity-Verlet type integrators, ensuring that both positions and velocities satisfy the constraint conditions at the end of each time step. It involves solving constraint equations for positions first, then using those positions to solve for constrained velocities. This maintains consistency between positions and velocities under constraint (UNVERIFIED)." []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000052
@@ -4183,7 +4183,7 @@ name: LINCS algorithm
 def: "A general term for algorithms designed to solve systems of linear equations that arise from geometric constraints in molecular simulations, particularly when constraints are applied before integrating equations of motion (e.g., in Lagrangian multiplier methods). While iterative methods like SHAKE/RATTLE solve non-linear equations implicitly, linear solvers might be used in different formulations. It represents the mathematical task underlying some constraint methods (UNVERIFIED)." []
 synonym: "LINCS" EXACT []
 synonym: "linear constraint solver algorithm" EXACT []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000053
@@ -4459,13 +4459,14 @@ is_a: MOLSIM:000087 ! optimal transformation path algorithm
 
 [Term]
 id: MOLSIM:000097
-name: AMBER NetCDF trajectory format
+name: NetCDF trajectory format
 def: "A binary trajectory format based on the NetCDF standard, used by the Amber simulation package. It efficiently stores atomic coordinates, velocities, forces, and periodic box dimensions from a simulation. This is the modern, recommended trajectory format for Amber. (UNVERIFIED)" []
 comment: In the vast majority of scientific applications, including molecular dynamics, climate science, and oceanography, a .nc file is a NetCDF file. There is no difference in the format itself. The .nc extension is simply the most common file name suffix for a file written using the NetCDF data model. (UNVERFIED)
 synonym: "AMBER nc format" EXACT []
+synonym: "AMBER NetCDF trajectory format" EXACT []
 is_a: MOLSIM:000844 ! NetCDF format
 is_a: MOLSIM:001090 ! molecular trajectory format
-disjoint_from: MOLSIM:000159 ! AMBER mdcrd format
+disjoint_from: MOLSIM:000159 ! mdcrd format
 
 [Term]
 id: MOLSIM:000098
@@ -4829,7 +4830,7 @@ is_a: MOLSIM:000143 ! ligand pairs selection criteria
 id: MOLSIM:000156
 name: GROMACS mdp format
 def: "The GROMACS mdp format is the specific simulation parameter format used by the GROMACS software package. The file, which typically has a \".mdp\" extension, contains a series of keyword-value pairs that control every aspect of the simulation run, from the integrator and time step to the thermostat and pressure coupling methods. For GROMACS users, creating and editing the mdp file is the primary way to define the simulation protocol. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002065 ! simulation parameter format
 
 [Term]
 id: MOLSIM:000157
@@ -4846,8 +4847,9 @@ is_a: MOLSIM:000001 ! software
 
 [Term]
 id: MOLSIM:000159
-name: AMBER mdcrd format
+name: mdcrd format
 def: "A text-based file format from the Amber software that stores the movement of atoms over time from a simulation. It contains a series of snapshots, or frames, where each frame lists the x, y, and z coordinates of every atom at a specific time point. This format is widely used for analyzing and visualizing simulation trajectories. (UNVERIFIED)" []
+synonym: "AMBER mdcrd format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
@@ -6051,9 +6053,10 @@ is_a: MOLSIM:000400 ! statistical analysis
 
 [Term]
 id: MOLSIM:000352
-name: Scripps binpos format
+name: binpos format
 def: "A .binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD." []
 synonym: ".binpos" EXACT []
+synonym: "Scripps binpos format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
@@ -6563,8 +6566,8 @@ def: "A data format defines the specific rules and conventions used to structure
 
 [Term]
 id: MOLSIM:000437
-name: simulation parameter format
-def: "A data format that specifies the settings, algorithms, and control parameters for a computational task. This format provides the instructional input for simulation or analysis software. It is distinct from formats that describe molecular structure or results. (UNVERIFIED)" []
+name: simulation input format
+def: "A data format that provides the necessary data, settings, or instructions required to initiate a computational task. This format provides the instructional input for simulation or analysis software. It is distinct from formats that describe molecular structure or results. (UNVERIFIED)" []
 is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
@@ -6575,7 +6578,7 @@ is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:000439
-name: simulation  log format
+name: simulation log format
 def: "A simulation log format is a text-based file structure that records the progress and key information generated during a computer simulation or calculation. It typically includes a copy of the input settings, step-by-step updates on energy and temperature, performance timings, and any warnings or error messages. This format is the primary source for monitoring a simulation's stability, diagnosing problems, and extracting averaged thermodynamic properties after the run is complete. (UNVERIFIED)" []
 synonym: "output log format" EXACT []
 is_a: MOLSIM:001085 ! molecular data format
@@ -6608,7 +6611,7 @@ is_a: MOLSIM:000909 ! volumetric data format
 id: MOLSIM:000444
 name: tleap input format
 def: "A script file format for the tleap program in AmberTools, used to build a molecular system for simulation. It contains a sequence of commands to load molecular structures, apply force fields, add solvent, and save the final topology and coordinate files. This format is a fundamental part of the system preparation stage in an Amber workflow. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000438 ! script format
 disjoint_from: MOLSIM:000469 ! AMBER mdin format
 disjoint_from: MOLSIM:000469 ! AMBER mdin format
 
@@ -6702,8 +6705,9 @@ is_a: MOLSIM:001008 ! spectroscopy
 
 [Term]
 id: MOLSIM:000459
-name: GROMACS rtp format
+name: rtp format
 def: "The GROMACS rtp format is a text file that acts as a database entry for a molecular building block, such as an amino acid. It defines the atoms, their charges, and their bonding within a specific residue, and is used by the GROMACS software to automatically construct the topology for a polymer like a protein. These residue topology files (.rtp) are a core part of a GROMACS force field and work together with other files to define the complete molecular model. (UNVERIFIED)" []
+synonym: "GROMACS rtp format" EXACT []
 is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
@@ -6769,14 +6773,15 @@ is_a: MOLSIM:000909 ! volumetric data format
 id: MOLSIM:000469
 name: AMBER mdin format
 def: "A text-based format containing control parameters for the Amber sander and pmemd programs, organized in Fortran namelists. It specifies simulation conditions like timestep, duration, and temperature/pressure coupling algorithms. This format dictates how the molecular dynamics simulation is performed. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002065 ! simulation parameter format
 
 [Term]
 id: MOLSIM:000470
-name: AMBER mdout format
+name: mdout format
 def: "A text-based log format generated by Amber's simulation engines that provides a detailed record of the simulation's progress. It contains energy components, thermodynamic properties, and performance timings printed at regular intervals. This format is essential for monitoring simulation stability and extracting averaged properties. (UNVERIFIED)" []
+synonym: "AMBER mdout format" EXACT []
 synonym: "AMBER out format" EXACT []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 disjoint_from: MOLSIM:000593 ! CPPTRAJ standard output format
 disjoint_from: MOLSIM:000879 ! ADF output format
 
@@ -6792,7 +6797,7 @@ id: MOLSIM:000472
 name: AMBER topology format
 def: "The Amber molecular dynamics topology file (.prmtop or .parm7) contains all the static information about the molecular system needed for an Amber simulation, excluding coordinates. This includes atom definitions (names, types, masses, charges), molecular connectivity (bonds, angles, dihedrals), force field parameters for all interaction terms, and non-bonded interaction rules. It is generated by programs like tleap and used together with a coordinate file (.inpcrd, .rst7). (UNVERIFIED)" []
 is_a: MOLSIM:001091 ! molecular topology format
-disjoint_from: MOLSIM:000898 ! GROMACS itp format
+disjoint_from: MOLSIM:000898 ! itp format
 
 [Term]
 id: MOLSIM:000473
@@ -7505,7 +7510,7 @@ id: MOLSIM:000593
 name: CPPTRAJ standard output format
 def: "The CPPTRAJ standard output format is the default text-based format used by the cpptraj analysis program to write time-series data. This format typically consists of simple columns of numerical data, where the first column is the frame or time, and subsequent columns contain the calculated values for a given analysis command. While often saved with a .dat extension, this straightforward, space-delimited format is designed for easy parsing by plotting programs like Gnuplot or for import into data analysis software. (UNVERIFIED)" []
 comment: Typically with .dat extension, but could be using other file extension.
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000594
@@ -7535,8 +7540,9 @@ is_a: MOLSIM:000590 ! plot data format
 
 [Term]
 id: MOLSIM:000598
-name: AMBER mdvel format
+name: mdvel format
 def: "An Amber trajectory format that specifically stores the velocities of each atom in the system over time. It is generated during a simulation to capture the dynamic motion of particles. This format is used for advanced analyses that require knowledge of atomic velocities. (UNVERIFIED)" []
+synonym: "AMBER mdvel format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
@@ -7545,7 +7551,7 @@ name: AMBER REM log format
 def: "Log file from an Amber Replica Exchange MD simulation. The main file extension for Amber REM (Replica Exchange Molecular Dynamics) log files is .log, typically named as rem.log, according to the Amber documentation and tutorial resources. This log file tracks exchanges, replica temperatures, and relevant statistics for the REMD process." []
 synonym: "Amber Replica Exchange Log" EXACT []
 synonym: "rem.log" EXACT []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000600
@@ -7553,14 +7559,15 @@ name: AMBER eigenvector format
 def: "The Amber evecs eigenvector file is a specialized output from Principal Component Analysis (PCA), normal mode analysis, or quasiharmonic analysis in AMBER (using cpptraj or ptraj). This file stores the eigenvectors (or “principal modes”) and eigenvalues resulting from the diagonalization of a covariance or mass-weighted covariance matrix, commonly used in essential dynamics analysis of molecular simulations. The output file is usually called evecs.dat, evecs.out, or follows a similar naming scheme. There is no fixed \"file extension\" required; however, the content and formatting are standardized for compatibility with AMBER utilities (e.g., cpptraj, ptraj)," []
 synonym: "evecs.dat" EXACT []
 synonym: "evecs.out" EXACT []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000601
-name: AMBER cpout format
+name: cpout format
 def: "A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations." []
 synonym: ".cpout" EXACT []
-is_a: MOLSIM:000439 ! simulation  log format
+synonym: "AMBER cpout format" EXACT []
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000602
@@ -7607,9 +7614,10 @@ is_a: MOLSIM:000909 ! volumetric data format
 
 [Term]
 id: MOLSIM:000609
-name: CPPTRAJ pairwise distance cache format
+name: cmatrix format
 def: "The file for storing pre-calculated pairwise distances does not have a single, mandatory extension, but a common convention exists. The recommended format is a binary file, for which the conventional extension is .cmatrix. (UNVERIFIED)" []
 synonym: ".cmatrix" EXACT []
+synonym: "CPPTRAJ pairwise distance cache format" EXACT []
 is_a: MOLSIM:010020 ! molecular trajectory analysis format
 
 [Term]
@@ -7632,20 +7640,22 @@ is_a: MOLSIM:000611 ! thermal property analysis
 
 [Term]
 id: MOLSIM:000613
-name: AMBER prep format
+name: prep format
 def: "The AMBER prep format is a file that contains all the information needed to define a new molecular building block for use in an Amber simulation. It serves as a template for a non-standard residue, specifying its atoms, charges, chemical bonds, and 3D structure. These files, which can be written using either internal or Cartesian coordinates, are essential for creating the library files needed to simulate systems containing drugs, cofactors, or modified amino acids. (UNVERIFIED)" []
 synonym: ".prep" EXACT []
 synonym: ".prepi" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "AMBER prep format" EXACT []
+is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
 id: MOLSIM:000614
-name: AMBER off format
+name: off format
 def: "An Amber OFF Library file (Object File Format) is a text file that stores a library of molecular units or residues, including their force field parameters, atom types, connectivity, and charges. These files are a fundamental part of the Amber software suite, allowing the LEaP program to build simulation-ready topology files for systems containing non-standard molecules or modified residues (like amino acids with post-translational modifications). The file extension can be interchangeably provided as .lib/.off files UNVERIFIED)" []
 comment: AMBER lib format
 synonym: ".off" EXACT []
 synonym: "AMBER Object File Format" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "AMBER off format" EXACT []
+is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
 id: MOLSIM:000615
@@ -8685,31 +8695,31 @@ is_a: MOLSIM:000039 ! barostat algorithm
 id: MOLSIM:000795
 name: M-SHAKE algorithm
 def: "A modification of the SHAKE algorithm designed to handle constraints more efficiently in parallel computing environments. It addresses issues related to communication overhead when constraints span across different processors by optimizing the way constraint information is shared and processed. It aims to improve the scalability of constrained simulations on parallel machines (UNVERIFIED)." []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000796
 name: P-SHAKE algorithm
 def: "Parallel SHAKE, another variation of the SHAKE algorithm optimized for parallel execution. Similar to M-SHAKE, it focuses on efficiently handling the communication and computation required for constraints that involve atoms distributed across multiple processors. The goal is to minimize the performance bottleneck caused by constraints in large-scale parallel simulations (UNVERIFIED)." []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000797
 name: SETTLE algorithm
 def: "An analytical (non-iterative) constraint algorithm specifically designed for rigid water models like TIP3P or SPC/E, where both bond lengths and the bond angle are fixed. Because the geometry is simple and fixed, the constraint equations for a water molecule can be solved analytically, making SETTLE significantly faster than iterative methods like SHAKE for constraining water. It is highly efficient for simulations with explicit water (UNVERIFIED)." []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000798
 name: SHAPE algorithm
 def: "A constraint algorithm related to SHAKE, often used for fixing distances within rigid clusters of atoms larger than simple bonds or angles. It iteratively adjusts the positions of atoms within the defined rigid body to maintain their relative positions. It extends the concept of bond constraints to more complex rigid units (UNVERIFIED)." []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000799
 name: WIGGLE algorithm
 def: "The WIGGLE constraining algorithm is a method used in molecular dynamics simulations to hold atomic bonds at fixed lengths, which allows for larger time steps and more efficient computation. It is an extension of the popular SHAKE and RATTLE algorithms, but improves upon them by using particle velocities to make an intelligent initial guess for the constraint forces required. This more advanced initial estimate allows the algorithm to solve the constraint equations faster, reducing the computational cost at each step of the simulation. (UNVERIFIED)" []
-is_a: MOLSIM:000049 ! constraining algorithm
+is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000800
@@ -9111,90 +9121,93 @@ is_a: MOLSIM:000845 ! enhanced sampling
 id: MOLSIM:000866
 name: ADF input format
 def: "An ADF input file contains keywords and data blocks that instruct the Amsterdam Density Functional (ADF) software package on how to perform a quantum chemical calculation. It specifies details like the desired computational task (e.g., geometry optimization, frequency calculation), the molecular geometry, the choice of density functional and basis set, and other calculation parameters. The format uses specific ADF keywords and block structures (e.g., ATOMS, GEOMETRY). (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:000867
 name: CHARMM input format
 def: "A CHARMM input file is a script containing a sequence of commands written in the CHARMM scripting language, which directs the CHARMM program to perform various tasks. These tasks can range from reading topology and coordinate files, setting up system parameters, running energy minimizations or molecular dynamics simulations, to analyzing results. The script provides flexibility for complex simulation protocols. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000438 ! script format
 
 [Term]
 id: MOLSIM:000868
 name: GAMESS input format
 def: "A GAMESS input file provides instructions to the GAMESS (US) quantum chemistry program, structured into distinct groups identified by keywords starting with '$' (e.g., $CONTRL, $BASIS, $DATA). Within these groups, keywords specify the type of calculation (e.g., RUNTYP=OPTIMIZE), the theoretical method (e.g., SCFTYP=RHF), basis set, molecular geometry, and other computational details. The format follows specific Fortran namelist-like conventions. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:000869
 name: GAMESS-UK input format
 def: "This refers to the input file format for the GAMESS-UK quantum chemistry software package, which is distinct from the US version of GAMESS. It uses specific directives (like TITLE, RUNTYPE, GEOMETRY, BASIS) and data sections to define the molecular system and the parameters for the desired quantum chemical calculation. The structure and keywords differ substantially from GAMESS (US). (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:000870
-name: GAUSSIAN com format
+name: gjf format
 def: "A Gaussian input file, often with a .com or .gjf extension, instructs the Gaussian quantum chemistry software. It characteristically includes a 'route section' (starting with #) containing keywords that define the theoretical method, basis set, and calculation type (e.g., optimization, frequency), followed by a title section, charge and spin multiplicity, and the molecular geometry. The structure is highly standardized within the Gaussian ecosystem. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "GAUSSIAN com format" EXACT []
+synonym: "GAUSSIAN gjf format" EXACT []
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:000871
 name: GROMACS input  format
 def: "In GROMACS, the primary molecular dynamics input file usually has an .mdp extension and contains keyword-value pairs defining the simulation parameters. Processed by the grompp tool, it controls aspects like the integration algorithm, timestep, simulation length, temperature and pressure coupling methods, and cutoff schemes. This file dictates how the MD simulation engine (mdrun) will execute the run. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002065 ! simulation parameter format
 
 [Term]
 id: MOLSIM:000872
 name: HyperChem hin format
 def: "The HIN (.hin) file is the native format for the HyperChem molecular modeling software package. It stores information about the molecular system, including atomic coordinates, connectivity, atom types according to specific force fields, and potentially other parameters or calculation settings used within HyperChem. It serves as both an input and a way to save the molecular setup. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000873
 name: Jaguar input format
 def: "A Jaguar input file provides the instructions for a quantum chemistry calculation using the Jaguar software, often part of the Schrödinger suite. It uses a specific syntax with data sections delimited by &section_name (e.g., &gen, &zmat) and terminated by &, containing keywords and values controlling the calculation type, method, basis set, and molecular geometry. The structure facilitates setting up various QM tasks. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:000874
 name: MOPAC cartesian format
 def: "This refers to an input file format for the MOPAC semi-empirical quantum chemistry program where the molecular structure is defined using Cartesian (X, Y, Z) coordinates for each atom. This format is used following the main keyword line that specifies the semi-empirical method (e.g., PM7), calculation type (e.g., OPT), and other options. It is an alternative to specifying geometry with internal coordinates. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000875
 name: MOPAC internal format
 def: "This MOPAC input file format defines the molecular geometry using internal coordinates, typically in the form of a Z-matrix specifying bond lengths, bond angles, and dihedral angles relative to previously defined atoms. This format follows the main keyword line specifying the method and calculation options. It contrasts with the format using Cartesian coordinates. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000876
 name: NAMD configuration format
 def: "A NAMD configuration file, typically ending in .namd, contains parameters and commands that control a molecular dynamics simulation run using the NAMD software. It uses a keyword-value pair format, often leveraging Tcl scripting capabilities, to specify input files (structure, coordinates, parameters), simulation conditions (temperature, pressure, duration), and algorithms. This file dictates the entire simulation protocol. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002065 ! simulation parameter format
 
 [Term]
 id: MOLSIM:000877
 name: NWChem input format
 def: "An NWChem input file (.nw) uses directives and nested blocks to instruct the NWChem software package on performing computational chemistry tasks. It specifies the molecular geometry, basis sets, theoretical methods (ranging from quantum mechanics like DFT or MP2 to molecular mechanics), and the desired task (e.g., TASK SCF, TASK MD). The flexible block structure allows for setting up complex, multi-step calculations. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:000878
 name: Q-Chem input format
 def: "A Q-Chem input file provides instructions to the Q-Chem quantum chemistry program using distinct data blocks marked by $block_name and $end. Key blocks include $molecule (defining charge, multiplicity, and geometry), $rem (specifying calculation method, basis set, job type via keywords), and potentially others like $basis or $opt. This structure organizes the input required for a wide range of QM calculations. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:000879
 name: ADF output format
 def: "The ADF output file is the main text file produced by the Amsterdam Density Functional (ADF) program, containing comprehensive results of the quantum chemical calculation. It includes details on the input parameters used, self-consistent field (SCF) convergence progress, final energies, calculated molecular properties (like dipole moments, charges), atomic coordinates, and timing information. This file is the primary source for analyzing ADF calculation outcomes. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000880
-name: ADF rkf format
+name: rkf format
 def: "ADF Tape41 (now more commonly the .rkf or ADF Results File) is a structured binary file generated by the Amsterdam Density Functional package. It stores a comprehensive set of calculation results, including basis set details, molecular orbital coefficients, electron densities, gradients, and potentially Hessians, in a key-value database format. This file is essential for advanced analysis, visualization, and restarting calculations. (UNVERIFIED)" []
+synonym: "ADF rkf format" EXACT []
 synonym: "ADF Tape41 format" EXACT []
 is_a: MOLSIM:000441 ! simulation state format
 
@@ -9202,55 +9215,55 @@ is_a: MOLSIM:000441 ! simulation state format
 id: MOLSIM:000881
 name: CHARMM output format
 def: "The CHARMM output file is the main text log generated during a CHARMM run, typically containing an echo of the input script commands interspersed with the results produced by those commands. This includes detailed energy breakdowns, progress information during dynamics or minimization (like step number, time, temperature, pressure, energies), and outputs from analysis routines. It serves as the primary record of the CHARMM job execution. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000882
 name: GAMESS output format
 def: "The GAMESS output file (.log or .out) is the primary text file generated by the GAMESS (US) quantum chemistry program. It contains a comprehensive record of the calculation, including echoed input parameters, details about the basis set and molecular geometry, step-by-step convergence information (e.g., for SCF or geometry optimization), final energies, molecular orbital information, and various calculated properties. This file is essential for extracting and analyzing results. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000883
 name: GAMESS-UK output format
 def: "This refers to the main text output file produced by the GAMESS-UK quantum chemistry software. While containing similar types of information as other QM outputs (input echo, convergence, energies, properties), its specific structure, keywords, and formatting are distinct from the GAMESS (US) package. Careful parsing is required to extract results like energies, molecular orbitals, and calculated properties. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000884
 name: GAUSSIAN log format
 def: "The Gaussian log file (.log) is the standard text output generated by the Gaussian quantum chemistry software suite. It contains a detailed, often verbose, record of the calculation, including setup information, convergence progress for SCF and geometry optimizations, final energies, molecular orbital details, calculated properties (like dipole moments, charges), and often vibrational frequencies and thermochemical analysis. A compact summary, the \"archive entry\", is usually included near the end. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000885
 name: GROMACS output format
 def: "The GROMACS MD output typically refers to the primary text log file (.log) generated by the mdrun simulation engine. It contains summary information about the simulation setup, detailed performance data (like PME load balancing and timings), step-by-step progress updates (if configured in the .mdp file), and final run statistics including energy averages and runtime. This file is crucial for monitoring performance and verifying run completion. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000886
 name: Jaguar output format
 def: "The Jaguar output file (.out) is the main text file generated by the Jaguar quantum chemistry program. It logs the progress and results of the calculation, including input parameters, convergence information for SCF and geometry optimization cycles, final energies, molecular properties such as charges and dipole moments, and vibrational frequencies if requested. Jaguar often produces associated structure files (e.g., .mae) containing the final geometry. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000887
 name: MOPAC output format
 def: "The MOPAC output file (.out) contains the results from a calculation performed by the MOPAC semi-empirical program. It typically includes an echo of the input keywords, details of geometry optimization steps (if performed), the final optimized geometry, the calculated heat of formation (ΔH f), ionization potential, dipole moment, and atomic charges. A summary section usually highlights the key results and timings. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000888
 name: NWChem output format
 def: "The NWChem output file (.out, .nwout) is the main text log generated by the NWChem computational chemistry package, documenting the execution of the tasks specified in the input file. It contains detailed information about the calculation setup, convergence progress for various steps (like SCF or geometry optimization), calculated energies using the requested methods (QM, MM, or combined), molecular properties, and timing information. Due to NWChem's flexibility, the output structure can vary depending on the complexity of the input directives. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000889
 name: Q-Chem output format
 def: "The Q-Chem output file (.out, .qcout) is the primary text output generated by the Q-Chem quantum chemistry program. It contains the results corresponding to the specifications in the input file, including details on the method and basis set used, convergence information for SCF and geometry optimization, final electronic energies, molecular orbital information, various calculated properties (charges, dipole moments), and potentially vibrational analysis results. A summary section often highlights key computed values. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:000890
@@ -9278,14 +9291,16 @@ is_a: MOLSIM:000441 ! simulation state format
 
 [Term]
 id: MOLSIM:000894
-name: AMBER mdfrc format
+name: mdfrc format
 def: "An Amber trajectory format that specifically stores the forces acting on each atom in the system at different points in time. It provides a detailed record of the interatomic forces calculated during a simulation. This format is useful for debugging or detailed force analysis. (UNVERIFIED)" []
+synonym: "AMBER mdfrc format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
 id: MOLSIM:000895
-name: GROMACS gro format
+name: gro format
 def: "The GROMACS .gro file is a simple, formatted text file used to store molecular coordinates, atom/residue names, and optionally velocities. It includes a title line, the total number of atoms, and then one line per atom specifying residue and atom information, coordinates (in nanometers), and optionally velocities. The file concludes with the periodic box vectors. (UNVERIFIED)" []
+synonym: "GROMACS gro format" EXACT []
 is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
@@ -9302,17 +9317,19 @@ is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:000898
-name: GROMACS itp format
+name: itp format
 def: "A GROMACS include topology file (.itp) contains the topology definition for a specific type of molecule (like a protein, lipid, or solvent). It typically includes sections like [ moleculetype ], [ atoms ], [ bonds ], etc., and is designed to be reusable. These .itp files are incorporated into the main system topology (.top) file using the #include directive. (UNVERIFIED)" []
 synonym: "GROMACS include topology format" EXACT []
+synonym: "GROMACS itp format" EXACT []
 is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
 id: MOLSIM:000899
-name: GROMACS top format
+name: top format
 def: "The GROMACS system topology file (.top) describes the entire molecular system to be simulated. It typically starts by including force field parameter files and specific molecule topology files (.itp) using #include directives. Crucially, it concludes with a [ molecules ] section listing the names and counts of each type of molecule present in the simulation box. (UNVERIFIED)" []
 synonym: ".top" EXACT []
 synonym: "GROMACS system topology format" EXACT []
+synonym: "GROMACS top format" EXACT []
 is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
@@ -9399,8 +9416,9 @@ is_a: MOLSIM:000908 ! sequence data format
 
 [Term]
 id: MOLSIM:000913
-name: GAUSSIAN cube format
+name: cube format
 def: "The Gaussian cube file format (.cube) is a text-based format for storing scalar data (like electron density, electrostatic potential, or molecular orbital values) on a regular three-dimensional grid. It includes header information defining the grid origin, dimensions, axis vectors, and the atomic coordinates, followed by the data values listed for each grid point in sequence. This format is widely used for visualizing volumetric properties derived from Gaussian and other QM calculations. (UNVERIFIED)" []
+synonym: "GAUSSIAN cube format" EXACT []
 is_a: MOLSIM:000909 ! volumetric data format
 
 [Term]
@@ -9506,7 +9524,7 @@ id: MOLSIM:000940
 name: AMBER force field parameter format
 def: "A text-based file format used by the AMBER software suite to store standard force field parameters. These files (historically using the .dat extension) contain the equilibrium values and force constants for bonds, angles, dihedrals, and non-bonded interactions for specific atom types. They serve as the central parameter database loaded by system-building tools like LEaP. (UNVERIFIED)" []
 synonym: "AMBER dat format" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002066 ! force field parameter format
 
 [Term]
 id: MOLSIM:000941
@@ -9838,9 +9856,10 @@ is_a: MOLSIM:000921 ! crd format
 
 [Term]
 id: MOLSIM:001039
-name: AMBER trj format
+name: trj format
 def: "The .trj format is an ASCII (text-based) trajectory file format used by the Amber molecular dynamics software suite and other analysis programs. Its fundamental purpose is to store a time-series of atomic coordinates, capturing the dynamic motion of a system during a simulation. The file contains sequential \"frames,\" where each frame is a complete set of X, Y, and Z coordinates for every atom in the system at a specific point in time. It can also store periodic box dimensions, although this capability is sometimes limited. .trj files are used for post-simulation analysis, such as calculating properties over time, analyzing conformational changes, and creating visualizations or movies of molecular motion. (UNVERIFIED)" []
 comment: The .trj format belongs to a family of older Amber text-based trajectory formats. Its role is best understood in comparison to its relatives:\n\nvs. .mdcrd: The .trj and .mdcrd formats are functionally identical. Both are safe, relatively unambiguous choices for storing Amber ASCII trajectories. A file with one extension can often be renamed to the other without causing issues in analysis software.\n\nvs. .crd: The .crd extension is highly ambiguous and problematic. It is the native format for the CHARMM simulation package and is interpreted as such by default in many tools. Using .trj avoids this critical format conflict.\n\nvs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended format for Amber trajectories. Compared to .trj, NetCDF (.nc) files are smaller, faster to read/write, and store data with higher precision. The .trj format is considered a legacy option.
+synonym: "AMBER trj format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
@@ -9852,24 +9871,26 @@ is_a: MOLSIM:010020 ! molecular trajectory analysis format
 
 [Term]
 id: MOLSIM:001041
-name: GROMACS xpm  format
+name: xpm  format
 def: "The GROMACS XPM file is an ASCII text file format used by the GROMACS molecular dynamics suite to store two-dimensional matrix data. It is a specialized application of the general XPixMap (.xpm) format, adapted to represent scientific data such as distance matrices, root-mean-square deviation (RMSD) matrices, or hydrogen bond patterns. The format is human-readable and designed for easy visualization. It encodes numerical data as a color-coded image defined by characters, making it viewable with standard XPM viewers and convertible into graphical formats like PostScript using GROMACS utilities such as gmx xpm2ps. (UNVERIFIED)" []
 synonym: ".xpm" EXACT []
+synonym: "GROMACS xpm  format" EXACT []
 is_a: MOLSIM:001040 ! distance matrix format
 
 [Term]
 id: MOLSIM:001042
-name: AMBER prmtop format
+name: prmtop format
 def: "The AMBER prmtop format is a text file that acts as a blueprint for a molecule, defining all its chemical properties for a simulation. It contains a complete description of the atoms, their connectivity through bonds, the force field parameters governing their interactions, and their partial charges. This file, used in conjunction with a coordinate file, provides all the static information the AMBER simulation engine needs to calculate the forces on the system. (UNVERIFIED)" []
 synonym: "AMBER parmtop format" EXACT []
-synonym: "AMBER PRMTOP format" EXACT []
+synonym: "AMBER prmtop format" EXACT []
 is_a: MOLSIM:000472 ! AMBER topology format
 
 [Term]
 id: MOLSIM:001043
-name: AMBER parm7 format
+name: parm7 format
 def: "A file format from the Amber simulation software that describes the structure and force field parameters of a molecule. This is the traditional, ASCII-based version of the Amber parameter/topology file, containing all information needed to calculate forces on the system. It is often used interchangeably with the prmtop format. (UNVERIFIED)" []
 synonym: "AMBER PARM7 format" EXACT []
+synonym: "AMBER parm7 format" EXACT []
 is_a: MOLSIM:000472 ! AMBER topology format
 
 [Term]
@@ -9880,10 +9901,11 @@ is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001045
-name: TINKER arc format
+name: arc format
 def: "A file format used by the TINKER simulation package to store the trajectory of a molecular system. It archives the atomic coordinates from different snapshots of a simulation in a single file for later analysis. This is the standard trajectory output for TINKER simulations. (UNVERIFIED)" []
 comment: This can also be a coordinate format from Tinker package as well.
 synonym: ".arc" EXACT []
+synonym: "TINKER arc format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
@@ -9943,20 +9965,23 @@ is_a: MOLSIM:000921 ! crd format
 
 [Term]
 id: MOLSIM:001054
-name: GROMACS trr format
+name: trr trajectory format
 def: "A binary file format from the GROMACS software that stores the full-precision trajectory of a simulation. It saves the atomic coordinates, velocities, and forces at each time step without any loss of precision. This format is used when high accuracy is needed for analysis, such as for calculating kinetic properties. (UNVERIFIED)" []
+synonym: "GROMACS trr format" EXACT []
 is_a: MOLSIM:000903 ! GROMACS trajectory format
 
 [Term]
 id: MOLSIM:001055
-name: GROMACS xtc format
+name: xtc trajectory format
 def: "A compressed, binary file format from the GROMACS software for storing the trajectory of a molecular simulation. It uses a lossy compression algorithm to store atomic coordinates with reduced precision, resulting in much smaller file sizes. This is the most common trajectory format for GROMACS users when only atomic positions are needed for analysis. (UNVERIFIED)" []
+synonym: "GROMACS xtc format" EXACT []
 is_a: MOLSIM:000903 ! GROMACS trajectory format
 
 [Term]
 id: MOLSIM:001056
-name: GROMACS tng format
+name: tng trajectory format
 def: "A modern, binary file format from the GROMACS software used to store the results of a molecular simulation. It supports various compression algorithms and can store not only coordinates but also velocities, forces, and other trajectory data. This format is designed for high efficiency and flexibility in storing large simulation datasets. (UNVERIFIED)" []
+synonym: "GROMACS tng format" EXACT []
 is_a: MOLSIM:000903 ! GROMACS trajectory format
 
 [Term]
@@ -9965,22 +9990,24 @@ name: SQM input format
 def: "An input file format for the SQM program, which performs a type of quantum mechanical calculation. It contains keywords and molecular geometry specifications that control the semi-empirical quantum mechanics calculation within the AmberTools suite. This format is typically used for generating atomic charges for new molecules. (UNVERIFIED)" []
 comment: An input file format for the semi-empirical QM program SQM.
 synonym: ".sqm" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:001058
-name: Desmond dtr format
+name: dtr format
 def: "A binary file format used by the Desmond simulation software to store the trajectory of a molecular system. It efficiently stores atomic coordinates, velocities, and other data in a block-based structure. This is the native trajectory output format for simulations run with Desmond. (UNVERIFIED)" []
 comment: A trajectory file format used by the Desmond simulation software.
 synonym: ".dtr" EXACT []
+synonym: "Desmond dtr format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
 id: MOLSIM:001059
-name: LMOD conflib  format
+name: conflib  format
 def: "The LMOD conflib format is a conformational library file used by the Low-Mode (LMOD) conformational search program in AmberTools. This file stores a pre-calculated or user-defined collection of different 3D structures for a single molecule. The LMOD program reads this library as input to guide its search, allowing it to more efficiently sample, cluster, or select representative conformations for further analysis. (UNVERIFIED)" []
 synonym: ".conflib" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "LMOD conflib  format" EXACT []
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001060
@@ -10028,8 +10055,9 @@ is_a: MOLSIM:000014 ! water model force field
 
 [Term]
 id: MOLSIM:001066
-name: CPPTRAJ ptraj format
+name: ptraj format
 def: "The term \"ptrajformat\" does not refer to a distinct file type with its own extension. Instead, it is a keyword or an option used within the secstruct command of Amber's cpptraj analysis program. When this keyword is used, it directs cpptraj to write secondary structure data in a specific ASCII text format that mimics the output style of the older ptraj software. Since ptrajformat is a formatting option and not a file type, there is no mandatory or standard file extension. The output is saved to the filename provided by the user via the out <filename> directive in the secstruct command. Common practice is to use a generic but descriptive extension, such as .dat, .txt, .sec or .ss. (UNVERIFIED)" []
+synonym: "CPPTRAJ ptraj format" EXACT []
 is_a: MOLSIM:010020 ! molecular trajectory analysis format
 
 [Term]
@@ -10060,9 +10088,10 @@ is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:001071
-name: CPPTRAJ traj3d format
+name: traj3d format
 def: "The CPPTRAJ traj3d format is a special file type used to visualize 3D data maps as if they were a moving particle. As a type of molecular trajectory format, this is a pseudo-trajectory format generated by the hist command in cpptraj, where the three dimensions of a 3D histogram are written out as the X, Y, and Z coordinates of a single particle over time. This allows volumetric data, such as the spatial distribution of water molecules, to be loaded and visualized as a 3D point cloud in programs like VMD. This format is generated using the traj3d keyword within the hist command in a cpptraj input script. (UNVERIFIED)" []
 comment: The traj3d "pseudo-trajectory" is not a standard, independent file format but rather a specialized output option available within the hist command in Amber's cpptraj analysis program. It is created by taking the three data dimensions of a 3D histogram and writing them out as the X, Y, and Z coordinates of a single "atom" over time. This reformatting creates a trajectory-like file that can be loaded into molecular visualization software. The purpose is to allow researchers to visually inspect the 3D distribution of data from the histogram in a more intuitive, interactive 3D space, rather than as a static 2D plot. There is no mandatory file extension for the output file itself.
+synonym: "CPPTRAJ traj3d format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
@@ -10111,9 +10140,10 @@ is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
 id: MOLSIM:001079
-name: AMBER frcmod format
+name: frcmod format
 def: "An Amber-specific format used to provide or modify force field parameters for a simulation. It allows users to introduce new parameters or override existing ones without altering the main force field files. This format is essential for simulating systems with non-standard molecules or custom parameters. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "AMBER frcmod format" EXACT []
+is_a: MOLSIM:002066 ! force field parameter format
 
 [Term]
 id: MOLSIM:001080
@@ -10154,9 +10184,10 @@ is_a: MOLSIM:000436 ! data format
 
 [Term]
 id: MOLSIM:001086
-name: AMBER prep (internal) format
+name: prep (internal) format
 def: "This is a text file format used by the Amber software to define a new molecular building block using its internal geometry. Instead of 3D coordinates, it specifies the position of each atom by its bond length, bond angle, and dihedral angle relative to other atoms in the molecule. This Z-matrix representation is a powerful way to define a molecule's ideal geometry and is often used when building a new residue from scratch without a pre-existing 3D structure. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "AMBER prep (internal) format" EXACT []
+is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
 id: MOLSIM:001087
@@ -10190,84 +10221,86 @@ is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:001092
-name: AMBER prep (cartesian) format
+name: prep (cartesian) format
 def: "This is a text file format used by the Amber software to define a new molecular building block, or residue, using standard 3D coordinates. The file lists the atoms, their chemical properties, and their exact X, Y, and Z positions, along with the internal bonding information. This format is particularly useful for creating a new residue library entry directly from an existing structure file, such as a PDB or mol2 file of a drug molecule. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "AMBER prep (cartesian) format" EXACT []
+is_a: MOLSIM:001091 ! molecular topology format
 
 [Term]
 id: MOLSIM:001093
 name: CHARMM par format
 def: "A CHARMM-specific format that contains the numerical force field parameters, such as force constants and equilibrium values for bonds and angles. It provides the energy constants that correspond to the atom types defined in a residue topology file (RTF). (UNVERIFIED)" []
 synonym: "CHARMM parameter format" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "par format" EXACT []
+is_a: MOLSIM:002066 ! force field parameter format
 
 [Term]
 id: MOLSIM:001094
 name: GAUSSIAN coordinate format
 def: "This term refers to the section within a Gaussian input file where the three-dimensional arrangement of atoms is defined. This can be done in two primary ways: using the straightforward Cartesian format with X, Y, Z coordinates, or using the Z-matrix format which specifies the geometry internally through bond lengths, angles, and dihedrals. The choice of format depends on the specific requirements of the calculation, such as the need to enforce molecular symmetry. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001095
 name: GAUSSIAN z-matrix format
 def: "A Gaussian input format that defines molecular geometry using internal coordinates. It specifies bond lengths, bond angles, and dihedral angles relative to previously defined atoms. This format is useful for controlling molecular symmetry and performing systematic conformational scans. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001096
 name: GAUSSIAN cartesian format
 def: "The Gaussian Cartesian format is a straightforward way to define a molecule's structure within an input file for the Gaussian quantum chemistry program. It consists of a simple list where each line specifies an atom's element symbol followed by its X, Y, and Z coordinates in space. This format is easy to generate and read, making it a common choice for specifying molecular geometries, especially when converting from standard structure files like PDBs. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:001088 ! molecular structure format
 
 [Term]
 id: MOLSIM:001097
 name: job control format
 def: "The job control format is the main input file for the paramfit program in AmberTools, which is used to derive new force field parameters. This file contains keywords and settings that direct the entire parameter fitting procedure, specifying the target data and the parameters to be optimized. It acts as the master control script for the complex process of fitting parameters to quantum mechanical or experimental data. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:001098
 name: ReaxFF force field format
 def: "The ReaxFF force field format is a text file that contains the extensive set of parameters for a simulation using the ReaxFF reactive force field. Unlike standard force fields, it specifies parameters that govern how bond orders, and therefore chemical bonds, can change dynamically during a simulation. This file provides all the information needed for the simulation engine to model the complex energy landscape of bond formation and breakage. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002066 ! force field parameter format
 
 [Term]
 id: MOLSIM:001099
 name: DFTB parameter format
 def: "The DFTB parameter format is a set of files, known as Slater-Koster files, that contain the parameters for a Density Functional Tight Binding (DFTB) calculation. These files define the pre-calculated electronic and repulsive properties between pairs of atom types, which are derived from more expensive quantum mechanical calculations. This parameterization is what allows the DFTB method to achieve its high computational speed while retaining a quantum mechanical description of the system. (UNVERIFIED)" []
 synonym: "skf  format" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002066 ! force field parameter format
 
 [Term]
 id: MOLSIM:001100
 name: cuttable bond list format
 def: "This is a simple text file format that lists specific chemical bonds within a molecule that are allowed to be broken by a setup program. It is used as input for certain quantum mechanical fragmentation methods, where a large molecule is broken down into smaller pieces for easier calculation. By specifying which bonds are \"cuttable,\" the user can guide the fragmentation process to ensure that it occurs at chemically sensible locations, such as between different functional groups. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:001101
 name: reservoir cluster info file format
 def: "A file format that provides settings for a specialized type of simulation designed to enhance the sampling of molecular motions. It specifies dihedral angle definitions that are used for applying a non-Boltzmann reservoir weighting in enhanced sampling simulations. This format is used as input for advanced simulation techniques that target specific conformational changes. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:001102
 name: EMIL input format
 def: "The EMIL input format is a specific file that contains the control data and parameters for running a calculation with the EMIL (Energy and Motion from an Implicit Liquid) program. It specifies the settings required by the EMIL method to calculate free energy profiles and analyze molecular motions. This input file is the primary way a user provides instructions to the EMIL software. (UNVERIFIED)" []
 synonym: "emilParameters.in format" EXACT []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002065 ! simulation parameter format
 
 [Term]
 id: MOLSIM:001103
 name: cein format
 def: "The cein format is a specialized input file used for simulations that model the gain and loss of electrons by molecules. It defines the properties of residues that can exist in different oxidation states, such as a cysteine that can be oxidized or reduced. This file provides the necessary parameters for a constant redox potential simulation, allowing the system to dynamically change its electronic state in response to a defined electrochemical potential. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002065 ! simulation parameter format
 
 [Term]
 id: MOLSIM:001104
 name: cpein format
 def: "The cpein format is a complex input file for advanced simulations that simultaneously model changes in both protonation and electron-transfer states. It defines the properties of residues that can be affected by both the surrounding pH and the electrochemical potential. This format is required for constant pH and potential (CpH/E) simulations, which are used to study complex bioenergetic processes where proton and electron transfers are coupled. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:002065 ! simulation parameter format
 
 [Term]
 id: MOLSIM:001105
@@ -10349,9 +10382,10 @@ is_a: MOLSIM:010022 ! quantum chemistry format
 
 [Term]
 id: MOLSIM:001118
-name: AMBER mdinfo format
+name: mdinfo format
 def: "The mdinfo format is a text file generated by the Amber simulation software that provides a concise, real-time summary of a running simulation. It contains the most recently calculated energy terms and thermodynamic properties, such as temperature and pressure, formatted for easy monitoring. This file is continuously updated during a run, making it useful for checking the immediate status and stability of a simulation without having to parse the much larger main output file. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+synonym: "AMBER mdinfo format" EXACT []
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:001119
@@ -15634,13 +15668,13 @@ is_a: MOLSIM:001421 ! correlation function
 id: MOLSIM:002036
 name: GROMACS portable energy format
 def: "A binary file format used by the GROMACS simulation package to store time-series data of system energies and thermodynamic properties. It records values such as potential energy components, temperature, pressure, and box dimensions at specified intervals in a portable, machine-independent format. For experts, this file (extension .edr) is accessed via the gmx energy tool to extract statistics or plotting data, and its binary nature ensures no loss of precision compared to text logs. (UNVERIFIED)" []
-is_a: MOLSIM:000439 ! simulation  log format
+is_a: MOLSIM:000439 ! simulation log format
 
 [Term]
 id: MOLSIM:002037
 name: GROMACS index format
 def: "A text-based file format used by GROMACS to define specific subsets or groups of atoms within a molecular system. It lists atom indices assigned to named groups, allowing users to apply specific actions (like thermostatting, restraining, or analyzing) to just those selected parts. For experts, this file (extension .ndx) is generated by gmx make_ndx and is essential for setting up non-standard simulation protocols where default groups like \"Protein\" or \"Solvent\" are insufficient. (UNVERIFIED)" []
-is_a: MOLSIM:000437 ! simulation parameter format
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:002038
@@ -15805,6 +15839,30 @@ synonym: "mae format" EXACT []
 synonym: "maegz format" EXACT []
 is_a: MOLSIM:000715 ! prediction data format
 is_a: MOLSIM:001088 ! molecular structure format
+
+[Term]
+id: MOLSIM:002063
+name: metropolis Monte Carlo
+comment: The Metropolis Monte Carlo algorithm is a foundational stochastic method used to sample the conformational space of a molecular system according to a target thermodynamic distribution. It operates by proposing random trial moves, such as displacing atoms or rotating molecules, and evaluating them based on the resulting change in potential energy. Moves that lower the system's energy are accepted unconditionally, while moves that increase the energy are accepted with a probability proportional to the Boltzmann factor. For experts, this specific acceptance criterion ensures that the simulation rigorously explores the canonical (NVT) ensemble and correctly calculates equilibrium thermodynamic properties without the need to integrate Newton's equations of motion. (UNVERIFIED)
+is_a: MOLSIM:001740 ! enhanced sampling algorithm
+
+[Term]
+id: MOLSIM:002064
+name: mdrun
+def: "mdrun is the primary high-performance molecular dynamics simulation engine within the GROMACS software suite. It is the specific executable program responsible for reading the compiled run input file (.tpr), calculating the forces between atoms, and numerically integrating Newton's equations of motion to generate the simulation trajectory. For experts, mdrun is highly optimized for parallel execution across multiple CPU cores and GPUs using domain decomposition and message passing interface (MPI). (UNVERIFIED)" []
+is_a: MOLSIM:000160 ! molecular dynamics engine
+
+[Term]
+id: MOLSIM:002065
+name: simulation parameter format
+def: "A data format that specifies the control variables, algorithmic settings, and thermodynamic conditions required to execute a computational simulation run. It dictates exactly how the simulation engine will propagate the system over time, defining parameters such as the integration algorithm, time step, total duration, non-bonded cutoff distances, and the specific thermostat and barostat algorithms used for temperature and pressure coupling. For experts, files in this format (such as GROMACS .mdp or AMBER mdin) define the physical ensemble and numerical methods of the computational experiment, acting as the primary instruction set for the core molecular dynamics engine. (UNVERIFIED)" []
+is_a: MOLSIM:000437 ! simulation input format
+
+[Term]
+id: MOLSIM:002066
+name: force field parameter format
+def: "A data format that stores the numerical coefficients and empirical rules defining the potential energy function of a molecular mechanics force field. It contains the specific values needed to calculate interactions between atom types, including equilibrium lengths and force constants for bonded terms (bonds, angles, dihedrals), as well as Lennard-Jones parameters and partial charges for non-bonded terms. For experts, these files (such as AMBER .dat/.frcmod or CHARMM .par) supply the fundamental physical constants required by the simulation engine to compute interatomic forces, and are kept strictly distinct from the molecular coordinates or run control settings. (UNVERIFIED)" []
+is_a: MOLSIM:000437 ! simulation input format
 
 [Term]
 id: MOLSIM:010001
@@ -16309,13 +16367,6 @@ name: has measurement unit label
 range: IAO:0000003 ! measurement unit label
 is_functional: true
 is_a: BFO:0000051 ! has part
-
-[Typedef]
-id: IAO:0000109
-name: measurement datum
-def: "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device." []
-property_value: IAO:0000119 "group:OBI" xsd:string
-property_value: IAO:0000119 "OBI_0000305" xsd:string
 
 [Typedef]
 id: IAO:0000136
