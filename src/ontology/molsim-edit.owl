@@ -1974,6 +1974,14 @@ Declaration(Class(obo:MOLSIM_002063))
 Declaration(Class(obo:MOLSIM_002064))
 Declaration(Class(obo:MOLSIM_002065))
 Declaration(Class(obo:MOLSIM_002066))
+Declaration(Class(obo:MOLSIM_002067))
+Declaration(Class(obo:MOLSIM_002068))
+Declaration(Class(obo:MOLSIM_002069))
+Declaration(Class(obo:MOLSIM_002070))
+Declaration(Class(obo:MOLSIM_002071))
+Declaration(Class(obo:MOLSIM_002072))
+Declaration(Class(obo:MOLSIM_002073))
+Declaration(Class(obo:MOLSIM_002074))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -2180,6 +2188,8 @@ SubObjectPropertyOf(obo:IAO_0000136 owl:topObjectProperty)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000297 "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000297 "periodic box type"@en)
 SubObjectPropertyOf(obo:MOLSIM_000297 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_000297 obo:MOLSIM_001887)
+ObjectPropertyRange(obo:MOLSIM_000297 obo:MOLSIM_000032)
 
 # Object Property: obo:MOLSIM_000504 (molecular dynamics suite utility)
 
@@ -2194,12 +2204,15 @@ ObjectPropertyRange(obo:MOLSIM_000504 obo:MOLSIM_000001)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000507 "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000507 "alignment tool"@en)
 SubObjectPropertyOf(obo:MOLSIM_000507 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_000507 obo:MOLSIM_000004)
+ObjectPropertyRange(obo:MOLSIM_000507 obo:MOLSIM_000001)
 
 # Object Property: obo:MOLSIM_000508 (protein structure source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000508 "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000508 "protein structure source"@en)
 SubObjectPropertyOf(obo:MOLSIM_000508 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_000508 obo:MOLSIM_000904)
 ObjectPropertyRange(obo:MOLSIM_000508 obo:MOLSIM_000688)
 
 # Object Property: obo:MOLSIM_001033 (simulation environment)
@@ -2207,24 +2220,32 @@ ObjectPropertyRange(obo:MOLSIM_000508 obo:MOLSIM_000688)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001033 "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001033 "simulation environment"@en)
 SubObjectPropertyOf(obo:MOLSIM_001033 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_001033 obo:MOLSIM_001887)
+ObjectPropertyRange(obo:MOLSIM_001033 obo:MOLSIM_000231)
 
 # Object Property: obo:MOLSIM_001034 (template complex structure)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001034 "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001034 "template complex structure"@en)
 SubObjectPropertyOf(obo:MOLSIM_001034 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_001034 obo:MOLSIM_001887)
+ObjectPropertyRange(obo:MOLSIM_001034 obo:MOLSIM_000904)
 
 # Object Property: obo:MOLSIM_001035 (validated ligand selection criteria)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001035 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001035 "validated ligand selection criteria"@en)
 SubObjectPropertyOf(obo:MOLSIM_001035 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_001035 obo:MOLSIM_000310)
+ObjectPropertyRange(obo:MOLSIM_001035 obo:MOLSIM_000143)
 
 # Object Property: obo:MOLSIM_001036 (has reaction coordinate)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001036 "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001036 "has reaction coordinate"@en)
 SubObjectPropertyOf(obo:MOLSIM_001036 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_001036 obo:MOLSIM_000845)
+ObjectPropertyRange(obo:MOLSIM_001036 obo:MOLSIM_001994)
 
 # Object Property: obo:RO_0000056 (participates in)
 
@@ -2261,6 +2282,8 @@ SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001121 "A category for properties that quantify the chemical composition of the molecular system. This includes the total number of atoms, residues, and specific molecule types. These counts define the stoichiometry and overall size of the system being simulated. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001121 "composition counts"@en)
 SubDataPropertyOf(obo:MOLSIM_001121 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_001121 obo:MOLSIM_001887)
+DataPropertyRange(obo:MOLSIM_001121 xsd:integer)
 
 # Data Property: obo:MOLSIM_001122 (number of total atoms)
 
@@ -2336,6 +2359,8 @@ DataPropertyRange(obo:MOLSIM_001130 xsd:integer)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001131 "A category for properties that quantify the covalent structure and connectivity of the molecular system. This includes the number of bonds, angles, and dihedral angles. These descriptors define the system's topology, which is the graph of how atoms are connected. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001131 "topological counts"@en)
 SubDataPropertyOf(obo:MOLSIM_001131 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_001131 obo:MOLSIM_001076)
+DataPropertyRange(obo:MOLSIM_001131 xsd:integer)
 
 # Data Property: obo:MOLSIM_001132 (number of total bonds with hydrogens)
 
@@ -2398,6 +2423,8 @@ DataPropertyRange(obo:MOLSIM_001138 xsd:integer)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001139 "A category for properties that describe which degrees of freedom in the system are fixed or constrained during a simulation. This includes counts of bonds or angles that are held rigid by algorithms like SHAKE. These descriptors specify how the system's natural dynamics have been modified. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001139 "constraint descriptors"@en)
 SubDataPropertyOf(obo:MOLSIM_001139 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_001139 obo:MOLSIM_001076)
+DataPropertyRange(obo:MOLSIM_001139 xsd:integer)
 
 # Data Property: obo:MOLSIM_001140 (number of total bonds with constraints)
 
@@ -2428,6 +2455,8 @@ DataPropertyRange(obo:MOLSIM_001142 xsd:integer)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001143 "A category for properties that quantify the diversity of the force field parameters applied to the molecular system. This includes the number of unique types of bonds, angles, and atoms. These descriptors reflect the complexity of the energy function used to model the system's physics. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001143 "force field parameterization descriptors"@en)
 SubDataPropertyOf(obo:MOLSIM_001143 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_001143 obo:MOLSIM_001076)
+DataPropertyRange(obo:MOLSIM_001143 xsd:integer)
 
 # Data Property: obo:MOLSIM_001144 (number of total unique bond types)
 
@@ -2474,6 +2503,8 @@ DataPropertyRange(obo:MOLSIM_001148 xsd:integer)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001149 "A category for properties that describe the scope of a chemical transformation in a free energy calculation. This includes counts of the atoms, bonds, and angles that are being \"perturbed\" or changed during the simulation. These descriptors define the specifics of the alchemical modification being performed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001149 "alchemical system descriptors"@en)
 SubDataPropertyOf(obo:MOLSIM_001149 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_001149 obo:MOLSIM_001887)
+DataPropertyRange(obo:MOLSIM_001149 xsd:integer)
 
 # Data Property: obo:MOLSIM_001150 (number of total perturbed bonds)
 
@@ -2528,32 +2559,33 @@ DataPropertyRange(obo:MOLSIM_001155 xsd:integer)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001156 "A category for properties that describe the overall state or key qualitative features of the molecular system. This includes boolean flags or textual descriptions of the system's composition and setup conditions. These descriptors provide high-level context about the nature of the simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001156 "flags and state descriptors"@en)
 SubDataPropertyOf(obo:MOLSIM_001156 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_001156 obo:MOLSIM_001887)
 
-# Data Property: obo:MOLSIM_001157 (is using ligand flag)
+# Data Property: obo:MOLSIM_001157 (has ligand)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001157 "A boolean descriptor indicating whether one or more ligand molecules are present in the molecular system. This helps to quickly identify simulations that are focused on ligand binding or interaction. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001157 "is using ligand flag"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001157 "has ligand"@en)
 SubDataPropertyOf(obo:MOLSIM_001157 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_001157 xsd:boolean)
 
-# Data Property: obo:MOLSIM_001158 (is salt used flag)
+# Data Property: obo:MOLSIM_001158 (has added salt)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001158 "A boolean descriptor indicating whether salt ions (beyond simple counterions for neutralization) were added to the system. This specifies if the simulation was intended to model a specific ionic strength or buffer condition. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001158 "is salt used flag"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001158 "has added salt"@en)
 SubDataPropertyOf(obo:MOLSIM_001158 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_001158 xsd:boolean)
 
-# Data Property: obo:MOLSIM_001159 (is trans-membrane simulation flag)
+# Data Property: obo:MOLSIM_001159 (is transmembrane system)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001159 "A boolean descriptor indicating whether the molecular system includes a lipid membrane. This is a key descriptor for identifying simulations of membrane proteins or lipid bilayers. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001159 "is trans-membrane simulation flag"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001159 "is transmembrane system"@en)
 SubDataPropertyOf(obo:MOLSIM_001159 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_001159 xsd:boolean)
 
-# Data Property: obo:MOLSIM_001160 (is multiple conformations flag)
+# Data Property: obo:MOLSIM_001160 (has multiple starting conformations)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001160 "A boolean descriptor indicating whether the input structure for the simulation contained multiple distinct conformations for some parts of the molecule. This is relevant for studies starting from an ensemble of structures. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001160 "is multiple conformations flag"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001160 "has multiple starting conformations"@en)
 SubDataPropertyOf(obo:MOLSIM_001160 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_001160 xsd:boolean)
 
@@ -2570,6 +2602,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001162 "A numerical or string rep
 AnnotationAssertion(rdfs:label obo:MOLSIM_001162 "lipid ratio"@en)
 SubDataPropertyOf(obo:MOLSIM_001162 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_001162 xsd:string)
+
+# Data Property: owl:topDataProperty (owl:topDataProperty)
+
+DataPropertyDomain(owl:topDataProperty obo:MOLSIM_001887)
 
 
 
@@ -14557,6 +14593,54 @@ SubClassOf(obo:MOLSIM_002065 obo:MOLSIM_000437)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002066 "A data format that stores the numerical coefficients and empirical rules defining the potential energy function of a molecular mechanics force field. It contains the specific values needed to calculate interactions between atom types, including equilibrium lengths and force constants for bonded terms (bonds, angles, dihedrals), as well as Lennard-Jones parameters and partial charges for non-bonded terms. For experts, these files (such as AMBER .dat/.frcmod or CHARMM .par) supply the fundamental physical constants required by the simulation engine to compute interatomic forces, and are kept strictly distinct from the molecular coordinates or run control settings. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002066 "force field parameter format"@en)
 SubClassOf(obo:MOLSIM_002066 obo:MOLSIM_000437)
+
+# Class: obo:MOLSIM_002067 (simulation environment model)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002067 "A simulation environment represents the overall physical medium or surrounding context in which the primary molecular system is embedded during a computational study. It defines the macroscopic nature of the system's surroundings, such as whether the molecule is in a vacuum, dissolved in a liquid, or embedded in a lipid bilayer. For experts, distinguishing the physical environment from the mathematical solvation model used to compute it is crucial for accurately documenting the simulated biological or chemical conditions. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002067 "simulation environment model"@en)
+SubClassOf(obo:MOLSIM_002067 obo:MOLSIM_000006)
+
+# Class: obo:MOLSIM_002068 (vacuum environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002068 "A vacuum environment, or gas phase environment, is a simulation context where the molecule of interest is completely isolated in empty space without any surrounding solvent or medium. This represents a system with a dielectric constant of exactly 1.0. For experts, this environment is typically used for rapid energy minimizations, testing basic force field parameters, or simulating specific experimental conditions like those found in mass spectrometry. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002068 "vacuum environment"@en)
+SubClassOf(obo:MOLSIM_002068 obo:MOLSIM_002067)
+
+# Class: obo:MOLSIM_002069 (solvated environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002069 "A solvated environment is a simulation context in which the primary solute molecule is completely surrounded by a liquid medium composed of solvent molecules. This environment is characterized by bulk liquid properties such as density, viscosity, and a specific dielectric constant. For experts, simulating molecules in a solvated environment is essential for capturing the thermodynamic and structural effects of solvent interactions, which heavily dictate biomolecular folding and binding. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002069 "solvated environment"@en)
+SubClassOf(obo:MOLSIM_002069 obo:MOLSIM_002067)
+
+# Class: obo:MOLSIM_002070 (aqueous environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002070 "An aqueous environment is a specific type of solvated environment where the primary or exclusive liquid medium is water. This mimics the natural biological context for the vast majority of soluble proteins, nucleic acids, and cellular metabolites. For biomolecular simulation experts, setting up an accurate aqueous environment—often including specific concentrations of neutralizing or buffer ions—is the standard starting point for realistically modeling physiological conditions. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002070 "aqueous environment"@en)
+SubClassOf(obo:MOLSIM_002070 obo:MOLSIM_002069)
+
+# Class: obo:MOLSIM_002071 (non-aqueous environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002071 "A non-aqueous environment is a solvated environment composed of liquid solvents other than water, such as organic solvents like methanol, chloroform, or octanol. These environments possess different dielectric constants and hydrogen-bonding capabilities compared to water. For experts, simulating molecules in non-aqueous environments is often used to study the solubility of lipophilic drugs, the folding of peptides in hydrophobic conditions, or processes occurring within organic chemistry contexts. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002071 "non-aqueous environment"@en)
+SubClassOf(obo:MOLSIM_002071 obo:MOLSIM_002069)
+
+# Class: obo:MOLSIM_002072 (membrane environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002072 "A membrane environment is a highly anisotropic, heterogeneous simulation context representing a cellular membrane, typically composed of a self-assembled lipid bilayer separating two aqueous compartments. It features a hydrophobic core and polar interfacial regions. For experts, modeling a membrane environment is essential for simulating the structure, dynamics, and transport mechanisms of transmembrane proteins, ion channels, and membrane-active peptides or drugs. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002072 "membrane environment"@en)
+SubClassOf(obo:MOLSIM_002072 obo:MOLSIM_002067)
+
+# Class: obo:MOLSIM_002073 (crystal lattice environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002073 "A crystal lattice environment is a highly ordered, solid-state simulation context where molecules are packed into a rigid, repeating three-dimensional array governed by a specific crystallographic space group. This represents the macroscopic state of a molecular crystal. For structural biologists and simulation experts, this environment is used to simulate X-ray crystallography conditions, study crystal packing forces, or investigate solid-state material properties. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002073 "crystal lattice environment"@en)
+SubClassOf(obo:MOLSIM_002073 obo:MOLSIM_002067)
+
+# Class: obo:MOLSIM_002074 (interfacial environment)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002074 "An interfacial environment is a simulation context characterized by the boundary or interface between two distinct physical phases, such as a liquid-vapor (water-air) interface or a liquid-solid interface. The physical properties of the system change drastically across this boundary. For experts, simulating interfacial environments is critical for studying phenomena like surface tension, the behavior of surfactants, molecular adsorption, and the unique conformational changes that occur at phase boundaries. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002074 "interfacial environment"@en)
+SubClassOf(obo:MOLSIM_002074 obo:MOLSIM_002067)
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
