@@ -22,6 +22,22 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v4
 
+      # 1. Set up Python for pyLODE
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 2. Install the pyLODE package
+      - name: Install pyLODE
+        run: pip install pylode
+
+      # 3. Generate the ontology documentation
+      # This reads molsim-full.owl from root directory and saves the HTML to docs/
+      - name: Generate pyLODE Docs
+        run: pylode molsim-full.owl -o docs/pylode.html
+
+      # 4. Deploy MkDocs (which will now include docs/pylode.html)
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
