@@ -35,8 +35,9 @@ MOLSIM provides a semantic framework for the following aspects of molecular simu
 ## Documentation
 
 - The technical documentation for the ontology development is available [here](https://cpclab.github.io/molsim-ontology/).
-- The ontology terms overview is available [here](https://cpclab.github.io/molsim-ontology/pylode.html). 
-  **Note:** In this generated overview, `iao:definition` is temporarily rendered as `dcterms:description`. The ontology itself, however, consistently uses `iao:definition` for all concept definitions.
+- The ontology terms overview is available [here](https://cpclab.github.io/molsim-ontology/pylode.html).
+  
+  **Note:** In this generated overview, `iao:definition` is temporarily rendered as `dcterms:description`. The ontology itself, however, consistently uses `iao:definition` for all concept definitions. `CHEBI` classes are also removed in the generated reference for simplification.
 
 
 
