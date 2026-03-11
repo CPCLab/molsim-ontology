@@ -1,15 +1,14 @@
-# Basic ODK workflow
 name: Docs
 
-# Controls when the action will run. 
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   push:
     branches:
       - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Deploy docs
@@ -18,10 +17,64 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pylode==3.0.5 rdflib
+
+      - name: Prepare Ontology for pyLODE
+        run: |
+          python -c '
+          import rdflib
+          from rdflib.namespace import SKOS
+          
+          print("Loading ontology...")
+          g = rdflib.Graph()
+          g.parse("molsim-full.owl", format="xml")
+          
+          # --- PART 1: Translate IAO Definitions to SKOS ---
+          IAO_DEF = rdflib.URIRef("http://purl.obolibrary.org/obo/IAO_0000115")
+          def_count = 0
+          for s, p, o in list(g.triples((None, IAO_DEF, None))):
+              g.add((s, SKOS.definition, o))
+              def_count += 1
+          print(f"Copied {def_count} IAO definitions to SKOS")
+          
+          # --- PART 2: Prune CHEBI_24431 and its subclasses ---
+          print("Identifying CHEBI_24431 and its subclasses...")
+          chebi_root = rdflib.URIRef("http://purl.obolibrary.org/obo/CHEBI_24431")
+          
+          qres = g.query(
+              """
+              PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+              SELECT ?cls WHERE {
+                  ?cls rdfs:subClassOf* ?root .
+              }
+              """,
+              initBindings={"root": chebi_root}
+          )
+          
+          classes_to_remove = [row.cls for row in qres]
+          print(f"Found {len(classes_to_remove)} classes in the ChEBI branch to remove.")
+          
+          for cls in classes_to_remove:
+              for s, p, o in list(g.triples((cls, None, None))):
+                  g.remove((s, p, o))
+              for s, p, o in list(g.triples((None, None, cls))):
+                  g.remove((s, p, o))
+
+          print("Saving optimized ontology for pyLODE...")
+          g.serialize("molsim-pylode.owl", format="xml")
+          '
+
+      - name: Generate pyLODE Docs
+        run: pylode molsim-pylode.owl -o docs/pylode.html
+
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: mkdocs.yaml
-
