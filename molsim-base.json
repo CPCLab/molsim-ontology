@@ -9,21 +9,40 @@
         "pred" : "http://purl.org/dc/elements/1.1/type",
         "val" : "http://purl.obolibrary.org/obo/IAO_8000001"
       }, {
-        "pred" : "http://purl.org/dc/terms/description",
-        "val" : "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        "pred" : "http://purl.org/dc/terms/contributor",
+        "val" : "https://orcid.org/0000-0002-0476-9699"
+      }, {
+        "pred" : "http://purl.org/dc/terms/contributor",
+        "val" : "https://orcid.org/0009-0007-1391-4986"
+      }, {
+        "pred" : "http://purl.org/dc/terms/creator",
+        "val" : "https://orcid.org/0000-0001-8613-1447"
+      }, {
+        "pred" : "http://purl.org/dc/terms/creator",
+        "val" : "https://orcid.org/0000-0003-4846-8051"
       }, {
         "pred" : "http://purl.org/dc/terms/description",
         "val" : "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools."
       }, {
+        "pred" : "http://purl.org/dc/terms/license",
+        "val" : "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      }, {
+        "pred" : "http://purl.org/dc/terms/subject",
+        "val" : "biomolecular simulation"
+      }, {
         "pred" : "http://purl.org/dc/terms/title",
         "val" : "Molecular Simulation Ontology"
       }, {
-        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment"
+        "pred" : "http://www.geneontology.org/formats/oboInOwl#default-namespace",
+        "val" : "molsim"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-03-09"
+        "val" : "2026-03-11"
+      }, {
+        "pred" : "http://xmlns.com/foaf/0.1/homepage",
+        "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-03-09/molsim-base.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-03-11/molsim-base.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000000",
@@ -18318,7 +18337,9 @@
       "lbl" : "metropolis Monte Carlo",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "The Metropolis Monte Carlo algorithm is a foundational stochastic method used to sample the conformational space of a molecular system according to a target thermodynamic distribution. It operates by proposing random trial moves, such as displacing atoms or rotating molecules, and evaluating them based on the resulting change in potential energy. Moves that lower the system's energy are accepted unconditionally, while moves that increase the energy are accepted with a probability proportional to the Boltzmann factor. For experts, this specific acceptance criterion ensures that the simulation rigorously explores the canonical (NVT) ensemble and correctly calculates equilibrium thermodynamic properties without the need to integrate Newton's equations of motion. (UNVERIFIED)" ]
+        "definition" : {
+          "val" : "The Metropolis Monte Carlo algorithm is a foundational stochastic method used to sample the conformational space of a molecular system according to a target thermodynamic distribution. It operates by proposing random trial moves, such as displacing atoms or rotating molecules, and evaluating them based on the resulting change in potential energy. Moves that lower the system's energy are accepted unconditionally, while moves that increase the energy are accepted with a probability proportional to the Boltzmann factor. For experts, this specific acceptance criterion ensures that the simulation rigorously explores the canonical (NVT) ensemble and correctly calculates equilibrium thermodynamic properties without the need to integrate Newton's equations of motion. (UNVERIFIED)"
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002064",
@@ -18345,6 +18366,78 @@
       "meta" : {
         "definition" : {
           "val" : "A data format that stores the numerical coefficients and empirical rules defining the potential energy function of a molecular mechanics force field. It contains the specific values needed to calculate interactions between atom types, including equilibrium lengths and force constants for bonded terms (bonds, angles, dihedrals), as well as Lennard-Jones parameters and partial charges for non-bonded terms. For experts, these files (such as AMBER .dat/.frcmod or CHARMM .par) supply the fundamental physical constants required by the simulation engine to compute interatomic forces, and are kept strictly distinct from the molecular coordinates or run control settings. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002067",
+      "lbl" : "simulation environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation environment represents the overall physical medium or surrounding context in which the primary molecular system is embedded during a computational study. It defines the macroscopic nature of the system's surroundings, such as whether the molecule is in a vacuum, dissolved in a liquid, or embedded in a lipid bilayer. For experts, distinguishing the physical environment from the mathematical solvation model used to compute it is crucial for accurately documenting the simulated biological or chemical conditions. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002068",
+      "lbl" : "vacuum environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A vacuum environment, or gas phase environment, is a simulation context where the molecule of interest is completely isolated in empty space without any surrounding solvent or medium. This represents a system with a dielectric constant of exactly 1.0. For experts, this environment is typically used for rapid energy minimizations, testing basic force field parameters, or simulating specific experimental conditions like those found in mass spectrometry. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002069",
+      "lbl" : "solvated environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A solvated environment is a simulation context in which the primary solute molecule is completely surrounded by a liquid medium composed of solvent molecules. This environment is characterized by bulk liquid properties such as density, viscosity, and a specific dielectric constant. For experts, simulating molecules in a solvated environment is essential for capturing the thermodynamic and structural effects of solvent interactions, which heavily dictate biomolecular folding and binding. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002070",
+      "lbl" : "aqueous environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An aqueous environment is a specific type of solvated environment where the primary or exclusive liquid medium is water. This mimics the natural biological context for the vast majority of soluble proteins, nucleic acids, and cellular metabolites. For biomolecular simulation experts, setting up an accurate aqueous environment—often including specific concentrations of neutralizing or buffer ions—is the standard starting point for realistically modeling physiological conditions. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002071",
+      "lbl" : "non-aqueous environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A non-aqueous environment is a solvated environment composed of liquid solvents other than water, such as organic solvents like methanol, chloroform, or octanol. These environments possess different dielectric constants and hydrogen-bonding capabilities compared to water. For experts, simulating molecules in non-aqueous environments is often used to study the solubility of lipophilic drugs, the folding of peptides in hydrophobic conditions, or processes occurring within organic chemistry contexts. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002072",
+      "lbl" : "membrane environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A membrane environment is a highly anisotropic, heterogeneous simulation context representing a cellular membrane, typically composed of a self-assembled lipid bilayer separating two aqueous compartments. It features a hydrophobic core and polar interfacial regions. For experts, modeling a membrane environment is essential for simulating the structure, dynamics, and transport mechanisms of transmembrane proteins, ion channels, and membrane-active peptides or drugs. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002073",
+      "lbl" : "crystal lattice environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A crystal lattice environment is a highly ordered, solid-state simulation context where molecules are packed into a rigid, repeating three-dimensional array governed by a specific crystallographic space group. This represents the macroscopic state of a molecular crystal. For structural biologists and simulation experts, this environment is used to simulate X-ray crystallography conditions, study crystal packing forces, or investigate solid-state material properties. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002074",
+      "lbl" : "interfacial environment",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An interfacial environment is a simulation context characterized by the boundary or interface between two distinct physical phases, such as a liquid-vapor (water-air) interface or a liquid-solid interface. The physical properties of the system change drastically across this boundary. For experts, simulating interfacial environments is critical for studying phenomena like surface tension, the behavior of surfactants, molecular adsorption, and the unique conformational changes that occur at phase boundaries. (UNVERIFIED)"
         }
       }
     }, {
@@ -18691,7 +18784,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001033",
-      "lbl" : "simulation environment",
+      "lbl" : "has simulation environment",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
@@ -19118,7 +19211,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001157",
-      "lbl" : "is using ligand flag",
+      "lbl" : "has ligand",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
@@ -19128,7 +19221,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001158",
-      "lbl" : "is salt used flag",
+      "lbl" : "has added salt",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
@@ -19138,7 +19231,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001159",
-      "lbl" : "is trans-membrane simulation flag",
+      "lbl" : "is transmembrane system",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
@@ -19148,7 +19241,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001160",
-      "lbl" : "is multiple conformations flag",
+      "lbl" : "has multiple starting conformations",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
@@ -19784,7 +19877,15 @@
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
+      "id" : "http://purl.org/dc/terms/creator",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://purl.org/dc/terms/description",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://purl.org/dc/terms/license",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
@@ -19792,11 +19893,23 @@
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
+      "id" : "http://purl.org/dc/terms/subject",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://purl.org/dc/terms/title",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#default-namespace",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://xmlns.com/foaf/0.1/homepage",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     } ],
@@ -27653,6 +27766,38 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000437"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002067",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002068",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002067"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002069",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002067"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002070",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002069"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002071",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002069"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002072",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002067"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002073",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002067"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002074",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002067"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
@@ -28058,12 +28203,37 @@
       "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
     } ],
     "domainRangeAxioms" : [ {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_000297",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000032" ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_000504",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000000" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000001" ]
     }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_000507",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000004" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000001" ]
+    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_000508",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000904" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000688" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001033",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000231" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001034",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000904" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001035",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000310" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000143" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001036",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000845" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001994" ]
     } ]
   } ]
 }

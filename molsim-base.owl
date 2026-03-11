@@ -7,19 +7,26 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-03-09/molsim-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-03-11/molsim-base.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
-        <dcterms:description rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-0476-9699"/>
+        <dcterms:contributor rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
+        <dcterms:creator rdf:resource="https://orcid.org/0000-0001-8613-1447"/>
+        <dcterms:creator rdf:resource="https://orcid.org/0000-0003-4846-8051"/>
         <dcterms:description xml:lang="en">MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.</dcterms:description>
+        <dcterms:license rdf:resource="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+        <dcterms:subject xml:lang="en">biomolecular simulation</dcterms:subject>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
-        <rdfs:comment></rdfs:comment>
-        <owl:versionInfo>2026-03-09</owl:versionInfo>
+        <oboInOwl:default-namespace xml:lang="en">molsim</oboInOwl:default-namespace>
+        <owl:versionInfo>2026-03-11</owl:versionInfo>
+        <foaf:homepage xml:lang="en">https://github.com/CPCLab/molsim-ontology</foaf:homepage>
     </owl:Ontology>
     
 
@@ -65,9 +72,21 @@
     
 
 
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
     <!-- http://purl.org/dc/terms/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
     
 
 
@@ -77,15 +96,33 @@
     
 
 
+    <!-- http://purl.org/dc/terms/subject -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/subject"/>
+    
+
+
     <!-- http://purl.org/dc/terms/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
     
 
 
+    <!-- http://www.geneontology.org/formats/oboInOwl#default-namespace -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#default-namespace"/>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/homepage -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/homepage"/>
     
 
 
@@ -104,6 +141,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000297">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001887"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000032"/>
         <obo:IAO_0000115 xml:lang="en">Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">periodic box type</rdfs:label>
     </owl:ObjectProperty>
@@ -126,6 +165,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000507">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000004"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000001"/>
         <obo:IAO_0000115 xml:lang="en">In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">alignment tool</rdfs:label>
     </owl:ObjectProperty>
@@ -136,6 +177,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000508">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000904"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000688"/>
         <obo:IAO_0000115 xml:lang="en">The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein&apos;s 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">protein structure source</rdfs:label>
@@ -147,8 +189,10 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001033">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001887"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000231"/>
         <obo:IAO_0000115 xml:lang="en">Describes the overall physical context or medium represented in the simulation or calculation (e.g., &apos;aqueous solution&apos;, &apos;lipid bilayer&apos;, &apos;vacuum&apos;, &apos;crystal lattice&apos;). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">simulation environment</rdfs:label>
+        <rdfs:label xml:lang="en">has simulation environment</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -157,6 +201,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001034">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001887"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000904"/>
         <obo:IAO_0000115 xml:lang="en">Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">template complex structure</rdfs:label>
     </owl:ObjectProperty>
@@ -167,6 +213,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001035">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000310"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000143"/>
         <obo:IAO_0000115 xml:lang="en">Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">validated ligand selection criteria</rdfs:label>
     </owl:ObjectProperty>
@@ -177,6 +225,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001036">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001994"/>
         <obo:IAO_0000115 xml:lang="en">Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">has reaction coordinate</rdfs:label>
     </owl:ObjectProperty>
@@ -198,6 +248,8 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001121">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001887"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <obo:IAO_0000115 xml:lang="en">A category for properties that quantify the chemical composition of the molecular system. This includes the total number of atoms, residues, and specific molecule types. These counts define the stoichiometry and overall size of the system being simulated. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">composition counts</rdfs:label>
     </owl:DatatypeProperty>
@@ -313,6 +365,8 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001131">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001076"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <obo:IAO_0000115 xml:lang="en">A category for properties that quantify the covalent structure and connectivity of the molecular system. This includes the number of bonds, angles, and dihedral angles. These descriptors define the system&apos;s topology, which is the graph of how atoms are connected. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">topological counts</rdfs:label>
     </owl:DatatypeProperty>
@@ -407,6 +461,8 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001139">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001076"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <obo:IAO_0000115 xml:lang="en">A category for properties that describe which degrees of freedom in the system are fixed or constrained during a simulation. This includes counts of bonds or angles that are held rigid by algorithms like SHAKE. These descriptors specify how the system&apos;s natural dynamics have been modified. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">constraint descriptors</rdfs:label>
     </owl:DatatypeProperty>
@@ -453,6 +509,8 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001143">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001076"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <obo:IAO_0000115 xml:lang="en">A category for properties that quantify the diversity of the force field parameters applied to the molecular system. This includes the number of unique types of bonds, angles, and atoms. These descriptors reflect the complexity of the energy function used to model the system&apos;s physics. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">force field parameterization descriptors</rdfs:label>
     </owl:DatatypeProperty>
@@ -523,6 +581,8 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001149">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001887"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <obo:IAO_0000115 xml:lang="en">A category for properties that describe the scope of a chemical transformation in a free energy calculation. This includes counts of the atoms, bonds, and angles that are being &quot;perturbed&quot; or changed during the simulation. These descriptors define the specifics of the alchemical modification being performed. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">alchemical system descriptors</rdfs:label>
     </owl:DatatypeProperty>
@@ -605,6 +665,7 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001156">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001887"/>
         <obo:IAO_0000115 xml:lang="en">A category for properties that describe the overall state or key qualitative features of the molecular system. This includes boolean flags or textual descriptions of the system&apos;s composition and setup conditions. These descriptors provide high-level context about the nature of the simulation. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">flags and state descriptors</rdfs:label>
     </owl:DatatypeProperty>
@@ -617,7 +678,7 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <obo:IAO_0000115 xml:lang="en">A boolean descriptor indicating whether one or more ligand molecules are present in the molecular system. This helps to quickly identify simulations that are focused on ligand binding or interaction. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">is using ligand flag</rdfs:label>
+        <rdfs:label xml:lang="en">has ligand</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -628,7 +689,7 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <obo:IAO_0000115 xml:lang="en">A boolean descriptor indicating whether salt ions (beyond simple counterions for neutralization) were added to the system. This specifies if the simulation was intended to model a specific ionic strength or buffer condition. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">is salt used flag</rdfs:label>
+        <rdfs:label xml:lang="en">has added salt</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -639,7 +700,7 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <obo:IAO_0000115 xml:lang="en">A boolean descriptor indicating whether the molecular system includes a lipid membrane. This is a key descriptor for identifying simulations of membrane proteins or lipid bilayers. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">is trans-membrane simulation flag</rdfs:label>
+        <rdfs:label xml:lang="en">is transmembrane system</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -650,7 +711,7 @@
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <obo:IAO_0000115 xml:lang="en">A boolean descriptor indicating whether the input structure for the simulation contained multiple distinct conformations for some parts of the molecule. This is relevant for studies starting from an ensemble of structures. This is a higher-level descriptor not directly present in the prmtop pointers. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">is multiple conformations flag</rdfs:label>
+        <rdfs:label xml:lang="en">has multiple starting conformations</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -20437,7 +20498,7 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002063">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001740"/>
-        <rdfs:comment xml:lang="en">The Metropolis Monte Carlo algorithm is a foundational stochastic method used to sample the conformational space of a molecular system according to a target thermodynamic distribution. It operates by proposing random trial moves, such as displacing atoms or rotating molecules, and evaluating them based on the resulting change in potential energy. Moves that lower the system&apos;s energy are accepted unconditionally, while moves that increase the energy are accepted with a probability proportional to the Boltzmann factor. For experts, this specific acceptance criterion ensures that the simulation rigorously explores the canonical (NVT) ensemble and correctly calculates equilibrium thermodynamic properties without the need to integrate Newton&apos;s equations of motion. (UNVERIFIED)</rdfs:comment>
+        <obo:IAO_0000115 xml:lang="en">The Metropolis Monte Carlo algorithm is a foundational stochastic method used to sample the conformational space of a molecular system according to a target thermodynamic distribution. It operates by proposing random trial moves, such as displacing atoms or rotating molecules, and evaluating them based on the resulting change in potential energy. Moves that lower the system&apos;s energy are accepted unconditionally, while moves that increase the energy are accepted with a probability proportional to the Boltzmann factor. For experts, this specific acceptance criterion ensures that the simulation rigorously explores the canonical (NVT) ensemble and correctly calculates equilibrium thermodynamic properties without the need to integrate Newton&apos;s equations of motion. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">metropolis Monte Carlo</rdfs:label>
     </owl:Class>
     
@@ -20469,6 +20530,86 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000437"/>
         <obo:IAO_0000115 xml:lang="en">A data format that stores the numerical coefficients and empirical rules defining the potential energy function of a molecular mechanics force field. It contains the specific values needed to calculate interactions between atom types, including equilibrium lengths and force constants for bonded terms (bonds, angles, dihedrals), as well as Lennard-Jones parameters and partial charges for non-bonded terms. For experts, these files (such as AMBER .dat/.frcmod or CHARMM .par) supply the fundamental physical constants required by the simulation engine to compute interatomic forces, and are kept strictly distinct from the molecular coordinates or run control settings. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">force field parameter format</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002067 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002067">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000006"/>
+        <obo:IAO_0000115 xml:lang="en">A simulation environment represents the overall physical medium or surrounding context in which the primary molecular system is embedded during a computational study. It defines the macroscopic nature of the system&apos;s surroundings, such as whether the molecule is in a vacuum, dissolved in a liquid, or embedded in a lipid bilayer. For experts, distinguishing the physical environment from the mathematical solvation model used to compute it is crucial for accurately documenting the simulated biological or chemical conditions. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">simulation environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002068 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002068">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002067"/>
+        <obo:IAO_0000115 xml:lang="en">A vacuum environment, or gas phase environment, is a simulation context where the molecule of interest is completely isolated in empty space without any surrounding solvent or medium. This represents a system with a dielectric constant of exactly 1.0. For experts, this environment is typically used for rapid energy minimizations, testing basic force field parameters, or simulating specific experimental conditions like those found in mass spectrometry. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">vacuum environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002069 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002069">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002067"/>
+        <obo:IAO_0000115 xml:lang="en">A solvated environment is a simulation context in which the primary solute molecule is completely surrounded by a liquid medium composed of solvent molecules. This environment is characterized by bulk liquid properties such as density, viscosity, and a specific dielectric constant. For experts, simulating molecules in a solvated environment is essential for capturing the thermodynamic and structural effects of solvent interactions, which heavily dictate biomolecular folding and binding. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">solvated environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002070 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002070">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002069"/>
+        <obo:IAO_0000115 xml:lang="en">An aqueous environment is a specific type of solvated environment where the primary or exclusive liquid medium is water. This mimics the natural biological context for the vast majority of soluble proteins, nucleic acids, and cellular metabolites. For biomolecular simulation experts, setting up an accurate aqueous environment—often including specific concentrations of neutralizing or buffer ions—is the standard starting point for realistically modeling physiological conditions. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">aqueous environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002071 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002071">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002069"/>
+        <obo:IAO_0000115 xml:lang="en">A non-aqueous environment is a solvated environment composed of liquid solvents other than water, such as organic solvents like methanol, chloroform, or octanol. These environments possess different dielectric constants and hydrogen-bonding capabilities compared to water. For experts, simulating molecules in non-aqueous environments is often used to study the solubility of lipophilic drugs, the folding of peptides in hydrophobic conditions, or processes occurring within organic chemistry contexts. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">non-aqueous environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002072 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002072">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002067"/>
+        <obo:IAO_0000115 xml:lang="en">A membrane environment is a highly anisotropic, heterogeneous simulation context representing a cellular membrane, typically composed of a self-assembled lipid bilayer separating two aqueous compartments. It features a hydrophobic core and polar interfacial regions. For experts, modeling a membrane environment is essential for simulating the structure, dynamics, and transport mechanisms of transmembrane proteins, ion channels, and membrane-active peptides or drugs. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">membrane environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002073 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002073">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002067"/>
+        <obo:IAO_0000115 xml:lang="en">A crystal lattice environment is a highly ordered, solid-state simulation context where molecules are packed into a rigid, repeating three-dimensional array governed by a specific crystallographic space group. This represents the macroscopic state of a molecular crystal. For structural biologists and simulation experts, this environment is used to simulate X-ray crystallography conditions, study crystal packing forces, or investigate solid-state material properties. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">crystal lattice environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002074 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002074">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002067"/>
+        <obo:IAO_0000115 xml:lang="en">An interfacial environment is a simulation context characterized by the boundary or interface between two distinct physical phases, such as a liquid-vapor (water-air) interface or a liquid-solid interface. The physical properties of the system change drastically across this boundary. For experts, simulating interfacial environments is critical for studying phenomena like surface tension, the behavior of surfactants, molecular adsorption, and the unique conformational changes that occur at phase boundaries. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">interfacial environment</rdfs:label>
     </owl:Class>
     
 

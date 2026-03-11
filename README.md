@@ -16,6 +16,7 @@ The primary goal of this ontology is to standardize the representation of molecu
 MOLSIM is currently in an **active development phase (Alpha)**. The hierarchy, class definitions, and relationships are subject to change. It is not yet recommended for production environments.
 
 We are preparing MOLSIM for submission to the [OBO Foundry](http://obofoundry.org/). Once accepted, the persistent URL (PURL) for the latest release will be:
+
 > http://purl.obolibrary.org/obo/molsim.owl
 
 *(Note: This URL will not be active until OBO Foundry acceptance.)*
@@ -24,30 +25,45 @@ We are preparing MOLSIM for submission to the [OBO Foundry](http://obofoundry.or
 
 MOLSIM provides a semantic framework for the following aspects of molecular simulation:
 
-*   **Computational Processes:** Molecular dynamics and energy minimization protocols.
-*   **Algorithms & Methods:** Integration algorithms, thermostats, barostats, and enhanced sampling methods.
-*   **Software & Hardware:** Simulation engines, analysis tools, and computing infrastructure (GPUs/CPUs).
-*   **Data Structures:** File formats, coordinate representations, and topologies.
-*   **System Specifications:** Molecular systems, force fields, and boundary conditions.
-*   **Analysis & Outputs:** Trajectories, thermodynamic properties, and structural descriptors.
+* **Computational Processes:** Molecular dynamics and energy minimization protocols.
+* **Algorithms & Methods:** Integration algorithms, thermostats, barostats, and enhanced sampling methods.
+* **Software & Hardware:** Simulation engines, analysis tools, and computing infrastructure (GPUs/CPUs).
+* **Data Structures:** File formats, coordinate representations, and topologies.
+* **System Specifications:** Molecular systems, force fields, and boundary conditions.
+* **Analysis & Outputs:** Trajectories, thermodynamic properties, and structural descriptors.
+
+## Documentation
+
+- The technical documentation for the ontology development is available at [here]([Molecular Simulation Ontology](https://cpclab.github.io/molsim-ontology/)).
+
+
+
+- The ontology terms overview is available [here]([Molecular Simulation Ontology](https://cpclab.github.io/molsim-ontology/pylode.html)). 
+  **Note:** In this generated overview, `iao:definition` is temporarily rendered as `dcterms:description`. The ontology itself, however, consistently uses `iao:definition` for all concept definitions.
+
+
 
 ## Access and Usage
 
 ### For Editors and Developers
+
 Development is conducted in the `src` directory. Editors should work with the source edit file:
-*   [src/ontology/molsim-edit.owl](src/ontology/molsim-edit.owl)
+
+* [src/ontology/molsim-edit.owl](src/ontology/molsim-edit.owl)
 
 ### For Users (Pre-Release)
+
 Until the official OBO PURL is active, you can access the latest compiled version of the ontology directly from this repository:
-*   [molsim.owl (Latest Snapshot)](molsim.owl)
+
+* [molsim.owl (Latest Snapshot)](molsim.owl)
 
 ## Contributing
 
 The MOLSIM project is open to contributions and collaboration.
 
-*   **Term Requests:** If you need a specific term added to MOLSIM, please open a [New Issue](https://github.com/CPCLab/molsim-ontology/issues) with the label `term request`.
-*   **Bug Reports:** If you find an error in a definition or hierarchy, please report it via the [Issue Tracker](https://github.com/CPCLab/molsim-ontology/issues).
-*   **Discussion:** For broader discussions regarding modeling decisions, please use the issue tracker or contact the maintainers.
+* **Term Requests:** If you need a specific term added to MOLSIM, please open a [New Issue](https://github.com/CPCLab/molsim-ontology/issues) with the label `term request`.
+* **Bug Reports:** If you find an error in a definition or hierarchy, please report it via the [Issue Tracker](https://github.com/CPCLab/molsim-ontology/issues).
+* **Discussion:** For broader discussions regarding modeling decisions, please use the issue tracker or contact the maintainers.
 
 ## License
 
