@@ -8,6 +8,15 @@
   <a href="https://github.com/CPCLab/molsim-ontology/actions/workflows/qc.yml">
     <img src="https://github.com/CPCLab/molsim-ontology/actions/workflows/qc.yml/badge.svg" alt="QC Status">
   </a>
+  <a href="https://github.com/CPCLab/molsim-ontology/actions/workflows/docs.yml">
+    <img src="https://github.com/CPCLab/molsim-ontology/actions/workflows/docs.yml/badge.svg" alt="Docs Build Status">
+  </a>
+  <a href="https://github.com/INCATools/ontology-development-kit">
+    <img src="https://img.shields.io/badge/Powered_by-ODK-blue.svg" alt="Powered by ODK">
+  </a>
+  <a href="http://robot.obolibrary.org/">
+    <img src="https://img.shields.io/badge/Powered_by-ROBOT-blue.svg" alt="Powered by ROBOT">
+  </a>
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
     <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-blue.svg" alt="License: CC BY-NC-SA 4.0">
   </a>
