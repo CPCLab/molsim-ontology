@@ -13,7 +13,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-base.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-03-11/molsim-base.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-04-02/molsim-base.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dce:type rdf:resource="http://purl.obolibrary.org/obo/IAO_8000001"/>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-0476-9699"/>
@@ -25,7 +25,7 @@
         <dcterms:subject xml:lang="en">biomolecular simulation</dcterms:subject>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <oboInOwl:default-namespace xml:lang="en">molsim</oboInOwl:default-namespace>
-        <owl:versionInfo>2026-03-11</owl:versionInfo>
+        <owl:versionInfo>2026-04-02</owl:versionInfo>
         <foaf:homepage xml:lang="en">https://github.com/CPCLab/molsim-ontology</foaf:homepage>
     </owl:Ontology>
     
@@ -137,6 +137,12 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000039 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000039"/>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000297 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000297">
@@ -241,6 +247,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000004 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000004"/>
     
 
 
@@ -11703,6 +11715,18 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001187">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001185"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/UO_0000001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000004"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115 xml:lang="en">A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">non-bonded cutoff distance</rdfs:label>
     </owl:Class>
@@ -20905,6 +20929,12 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     <!-- http://purl.obolibrary.org/obo/UO_0000000 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000000"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000001 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/UO_0000001"/>
     
 
 

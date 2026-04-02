@@ -16,7 +16,7 @@ Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 
 
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
-<http://purl.obolibrary.org/obo/molsim/releases/2026-03-11/molsim.owl>
+<http://purl.obolibrary.org/obo/molsim/releases/2026-04-02/molsim.owl>
 Annotation(protege:defaultLanguage "en")
 Annotation(dcterms:contributor <https://orcid.org/0000-0002-0476-9699>)
 Annotation(dcterms:contributor <https://orcid.org/0009-0007-1391-4986>)
@@ -27,7 +27,7 @@ Annotation(dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>)
 Annotation(dcterms:subject "biomolecular simulation"@en)
 Annotation(dcterms:title "Molecular Simulation Ontology")
 Annotation(oboInOwl:default-namespace "molsim"@en)
-Annotation(owl:versionInfo "2026-03-11")
+Annotation(owl:versionInfo "2026-04-02")
 Annotation(foaf:homepage "https://github.com/CPCLab/molsim-ontology"@en)
 
 Declaration(Class(obo:APOLLO_SV_00000008))
@@ -2500,6 +2500,10 @@ AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
 # Annotation Property: oboInOwl:hasAlternativeId (has_alternative_id)
 
 AnnotationAssertion(rdfs:label oboInOwl:hasAlternativeId "has_alternative_id")
+
+# Annotation Property: oboInOwl:hasDbXref (database_cross_reference)
+
+AnnotationAssertion(rdfs:label oboInOwl:hasDbXref "database_cross_reference")
 
 # Annotation Property: oboInOwl:hasExactSynonym (has exact synonym)
 
@@ -7068,6 +7072,7 @@ SubClassOf(obo:IAO_0000015 ObjectSomeValuesFrom(obo:RO_0000059 obo:IAO_0000030))
 # Class: obo:IAO_0000027 (data item)
 
 AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000027 "An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."@en)
+AnnotationAssertion(rdfs:label obo:IAO_0000027 "data entity"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000027 "data item"@en)
 SubClassOf(obo:IAO_0000027 obo:IAO_0000030)
 
@@ -13839,6 +13844,8 @@ SubClassOf(obo:MOLSIM_001186 obo:MOLSIM_001185)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001187 "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001187 "non-bonded cutoff distance"@en)
 SubClassOf(obo:MOLSIM_001187 obo:MOLSIM_001185)
+SubClassOf(obo:MOLSIM_001187 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001187 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001188 (switching distance)
 
@@ -19397,6 +19404,7 @@ SubClassOf(obo:UO_0000000 owl:Thing)
 
 AnnotationAssertion(Annotation(oboInOwl:hasDbXref "Wikipedia:Wikipedia") obo:IAO_0000115 obo:UO_0000001 "A unit which is a standard measure of the distance between two points.")
 AnnotationAssertion(rdfs:label obo:UO_0000001 "length unit")
+SubClassOf(obo:UO_0000001 obo:IAO_0000003)
 SubClassOf(obo:UO_0000001 obo:UO_0000000)
 
 # Class: obo:UO_0000002 (mass unit)

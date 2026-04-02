@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2026-03-11
+data-version: releases/2026-04-02
 default-namespace: molsim
 idspace: chemrof https://w3id.org/chemrof/ 
 idspace: dce http://purl.org/dc/elements/1.1/ 
@@ -19,7 +19,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-03-11" xsd:string
+property_value: owl:versionInfo "2026-04-02" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -3758,7 +3758,7 @@ property_value: IAO:0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosop
 
 [Term]
 id: IAO:0000027
-name: data item
+name: data entity
 def: "An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements." []
 is_a: IAO:0000030 ! information content entity
 
@@ -3811,7 +3811,7 @@ property_value: IAO:0000119 "OBI_0000039" xsd:string
 id: IAO:0000102
 name: data about an ontology part
 def: "Data about an ontology part is a data item about a part of an ontology, for example a term" []
-is_a: IAO:0000027 ! data item
+is_a: IAO:0000027 ! data entity
 
 [Term]
 id: IAO:0000104
@@ -3827,7 +3827,7 @@ property_value: IAO:0000119 "OBI_0000344" xsd:string
 id: IAO:0000109
 name: measurement datum
 def: "A measurement datum is an information content entity that is a recording of the output of a measurement such as produced by a device." []
-is_a: IAO:0000027 ! data item
+is_a: IAO:0000027 ! data entity
 property_value: IAO:0000119 "group:OBI" xsd:string
 property_value: IAO:0000119 "OBI_0000305" xsd:string
 
@@ -10556,6 +10556,7 @@ id: MOLSIM:001187
 name: non-bonded cutoff distance
 def: "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)" []
 is_a: MOLSIM:001185 ! non-bonded interaction parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"} ! has measurement unit label length unit
 
 [Term]
 id: MOLSIM:001188
@@ -16111,6 +16112,7 @@ def: "A unit of measurement is a standardized quantity of a physical quality." [
 id: UO:0000001
 name: length unit
 def: "A unit which is a standard measure of the distance between two points." [Wikipedia:Wikipedia]
+is_a: IAO:0000003 ! measurement unit label
 is_a: UO:0000000 ! unit
 
 [Term]
