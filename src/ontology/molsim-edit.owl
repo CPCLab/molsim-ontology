@@ -1989,6 +1989,26 @@ Declaration(Class(obo:MOLSIM_002071))
 Declaration(Class(obo:MOLSIM_002072))
 Declaration(Class(obo:MOLSIM_002073))
 Declaration(Class(obo:MOLSIM_002074))
+Declaration(Class(obo:MOLSIM_002075))
+Declaration(Class(obo:MOLSIM_002076))
+Declaration(Class(obo:MOLSIM_002077))
+Declaration(Class(obo:MOLSIM_002078))
+Declaration(Class(obo:MOLSIM_002079))
+Declaration(Class(obo:MOLSIM_002080))
+Declaration(Class(obo:MOLSIM_002081))
+Declaration(Class(obo:MOLSIM_002082))
+Declaration(Class(obo:MOLSIM_002083))
+Declaration(Class(obo:MOLSIM_002084))
+Declaration(Class(obo:MOLSIM_002085))
+Declaration(Class(obo:MOLSIM_002086))
+Declaration(Class(obo:MOLSIM_002087))
+Declaration(Class(obo:MOLSIM_002088))
+Declaration(Class(obo:MOLSIM_002089))
+Declaration(Class(obo:MOLSIM_002090))
+Declaration(Class(obo:MOLSIM_002091))
+Declaration(Class(obo:MOLSIM_002092))
+Declaration(Class(obo:MOLSIM_002093))
+Declaration(Class(obo:MOLSIM_002094))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -3183,6 +3203,7 @@ SubClassOf(obo:MOLSIM_000090 obo:MOLSIM_000087)
 # Class: obo:MOLSIM_000091 (A* search algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000091 "An informed search algorithm used for finding the shortest path between a starting node and a target node in a graph, commonly used in pathfinding and planning problems. It extends Dijkstra's algorithm by using a heuristic function to estimate the cost from the current node to the target, guiding the search towards the goal more efficiently. Its performance depends on the quality of the heuristic used (UNVERIFIED)."@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000091 "A-star search algorithm"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000091 "A* search algorithm"@en)
 SubClassOf(obo:MOLSIM_000091 obo:MOLSIM_000087)
 
@@ -3821,7 +3842,9 @@ SubClassOf(obo:MOLSIM_000194 obo:MOLSIM_000063)
 
 # Class: obo:MOLSIM_000195 (ensemble)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000195 "In statistical mechanics and molecular simulation, an ensemble is a theoretical construct representing an infinite collection of identical systems, each in a different possible microscopic state (defined by positions and momenta of all particles) but all corresponding to the same macroscopic thermodynamic state defined by a set of fixed variables (e.g., N, V, T or N, P, T). Molecular simulations generate trajectories that sample the microscopic states belonging to a specific ensemble, allowing the calculation of macroscopic properties as averages over these states. The choice of ensemble (e.g., NVE, NVT, NPT) determines which macroscopic variables are held constant during the simulation, mimicking specific experimental conditions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000195 "A theoretical statistical mechanics construct representing a probability distribution for the state of a system, defined by a specific set of macroscopic variables held constant (e.g., NVT, NPT). In molecular simulation, it dictates the thermodynamic conditions and integration rules applied to generate a trajectory. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000195 "statistical ensemble"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000195 "thermodynamic ensemble"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000195 "ensemble"@en)
 SubClassOf(obo:MOLSIM_000195 obo:MOLSIM_000006)
 
@@ -4031,10 +4054,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000228 "A specific computational 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000228 "memembed"@en)
 SubClassOf(obo:MOLSIM_000228 obo:MOLSIM_000227)
 
-# Class: obo:MOLSIM_000229 (simulation type)
+# Class: obo:MOLSIM_000229 (resolution-based simulation method)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000229 "Simulation type categorizes the specific methodology and level of detail employed in a computer simulation study, particularly within molecular modeling. This classification distinguishes between approaches like representing every atom versus grouping atoms, or using classical mechanics versus quantum mechanics. The choice of simulation type depends on the scientific question, system size, and desired timescale. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000229 "simulation type"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000229 "A resolution-based simulation method is a category of computational techniques classified by the level of structural detail used to represent the molecules in a system. This classification distinguishes between highly granular approaches that define every individual atom explicitly and reduced-representation models that simplify the system by grouping multiple atoms into interacting beads or pseudo-atoms. For simulation experts, the choice of resolution is a fundamental modeling decision that dictates the critical trade-off between atomistic accuracy and the computational efficiency required to access long timescales or massive macromolecular complexes. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000229 "simulation type"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000229 "resolution-based simulation method"@en)
 SubClassOf(obo:MOLSIM_000229 obo:MOLSIM_000308)
 
 # Class: obo:MOLSIM_000230 (all-atom molecular dynamics)
@@ -6461,10 +6485,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000625 "A relativistic quantum me
 AnnotationAssertion(rdfs:label obo:MOLSIM_000625 "spin-orbit coupling"@en)
 SubClassOf(obo:MOLSIM_000625 obo:MOLSIM_000626)
 
-# Class: obo:MOLSIM_000626 (spin effect*)
+# Class: obo:MOLSIM_000626 (spin effect)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000626 "Quantum mechanical phenomena arising from the intrinsic angular momentum (spin) possessed by fundamental particles like electrons and atomic nuclei. Spin gives rise to magnetic moments, and interactions involving these moments (e.g., electron spin coupling with nuclear spin or orbital angular momentum, or interaction with external magnetic fields) lead to splitting of energy levels and specific spectroscopic signatures (e.g., in NMR, EPR). Spin effects are generally not included in classical force fields but are crucial for understanding magnetism and certain spectroscopic or reactive processes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000626 "spin effect*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000626 "spin effect"@en)
 SubClassOf(obo:MOLSIM_000626 obo:MOLSIM_000623)
 
 # Class: obo:MOLSIM_000627 (density functional theory)
@@ -7706,6 +7730,7 @@ SubClassOf(obo:MOLSIM_000842 obo:MOLSIM_000841)
 # Class: obo:MOLSIM_000843 (molecular dynamics)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000843 "Molecular dynamics (MD) is a computer simulation technique used to study the physical movement of atoms and molecules over time. It calculates the forces between particles using an empirical potential energy function (force field) and then integrates Newton's equations of motion numerically to simulate how the positions and velocities evolve in small time steps. MD simulations provide detailed information about the dynamic behavior, conformational changes, and thermodynamics of molecular systems. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000843 "MD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000843 "molecular dynamics"@en)
 SubClassOf(obo:MOLSIM_000843 obo:MOLSIM_000308)
 
@@ -8431,16 +8456,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000985 "A core mathematical techn
 AnnotationAssertion(rdfs:label obo:MOLSIM_000985 "matrix diagonalization analysis"@en)
 SubClassOf(obo:MOLSIM_000985 obo:MOLSIM_000383)
 
-# Class: obo:MOLSIM_000986 (coarse-grained elastic mesoscopic model*)
+# Class: obo:MOLSIM_000986 (coarse-grained elastic mesoscopic model)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000986 "This refers to a type of coarse-grained model, often applied to very large biomolecular complexes, where groups of atoms or even entire residues are represented as beads connected by simple elastic (harmonic) springs. The parameters are often derived from elastic network model concepts, focusing on capturing the overall shape, flexibility, and large-scale collective motions of the assembly rather than chemical details. These models are computationally efficient for studying mesoscopic dynamics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000986 "coarse-grained elastic mesoscopic model*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000986 "coarse-grained elastic mesoscopic model"@en)
 SubClassOf(obo:MOLSIM_000986 obo:MOLSIM_000475)
 
-# Class: obo:MOLSIM_000987 (coarse-grained worm-like chain*)
+# Class: obo:MOLSIM_000987 (coarse-grained worm-like chain)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000987 "The coarse-grained worm-like chain model represents a polymer (like DNA or a flexible protein segment) as a semi-flexible continuous filament characterized by its contour length and persistence length (a measure of stiffness). In simulations, this is often implemented as a chain of connected beads with potentials chosen to reproduce the statistical properties of the theoretical worm-like chain. This approach efficiently captures the large-scale conformational behavior of long, flexible polymers. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000987 "coarse-grained worm-like chain*"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000987 "coarse-grained worm-like chain"@en)
 SubClassOf(obo:MOLSIM_000987 obo:MOLSIM_000475)
 
 # Class: obo:MOLSIM_000988 (complementary techniques for MD)
@@ -8895,6 +8920,7 @@ SubClassOf(obo:MOLSIM_001080 obo:MOLSIM_001074)
 # Class: obo:MOLSIM_001081 (simulation trajectory)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001081 "A simulation trajectory is the record of a molecule's motion over time, captured during a simulation. It consists of a time-ordered sequence of snapshots, or \"frames,\" where each frame contains the 3D coordinates of all atoms at a specific instant. This trajectory is the primary output of a molecular dynamics simulation and is the raw data used for all subsequent analysis of the system's dynamic behavior. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001081 "trajectory"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001081 "simulation trajectory"@en)
 SubClassOf(obo:MOLSIM_001081 obo:MOLSIM_001075)
 
@@ -14655,6 +14681,134 @@ SubClassOf(obo:MOLSIM_002073 obo:MOLSIM_002067)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002074 "An interfacial environment is a simulation context characterized by the boundary or interface between two distinct physical phases, such as a liquid-vapor (water-air) interface or a liquid-solid interface. The physical properties of the system change drastically across this boundary. For experts, simulating interfacial environments is critical for studying phenomena like surface tension, the behavior of surfactants, molecular adsorption, and the unique conformational changes that occur at phase boundaries. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002074 "interfacial environment"@en)
 SubClassOf(obo:MOLSIM_002074 obo:MOLSIM_002067)
+
+# Class: obo:MOLSIM_002075 (conformational ensemble)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002075 "A dataset consisting of a collection of distinct molecular structures or conformations. Unlike a simulation trajectory, it does not inherently possess a chronological order, but rather represents a sampling of the structurally accessible states of a molecule (e.g., an NMR structural ensemble, or representative frames extracted via clustering). (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002075 "structural ensemble"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002075 "conformational ensemble"@en)
+SubClassOf(obo:MOLSIM_002075 obo:MOLSIM_001072)
+
+# Class: obo:MOLSIM_002076 (molecular mechanics)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002076 "Molecular mechanics is a computational method that uses the principles of classical physics to model the structure and behavior of molecules. It treats atoms as classical particles and bonds as springs, calculating the system's potential energy using empirically derived mathematical functions known as force fields. For computational chemists, this method bypasses the complexity of quantum mechanics, enabling the simulation of extremely large biomolecular systems over long timescales. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002076 "MM"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002076 "molecular mechanics method"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002076 "molecular mechanics"@en)
+SubClassOf(obo:MOLSIM_002076 obo:MOLSIM_000841)
+
+# Class: obo:MOLSIM_002077 (empirical scoring method)
+
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002077 "An empirical scoring method is a computational technique used to estimate how tightly two molecules, like a drug and a protein, will bind to each other. It evaluates the binding affinity by summing up weighted mathematical terms for hydrogen bonding, hydrophobicity, and steric clashes, where the weights are derived from a dataset of known experimental affinities. In structure-based drug design, these computationally fast functions are the core engines of molecular docking software used for high-throughput virtual screening. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002077 "empirical scoring function"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002077 "empirical scoring method"@en)
+SubClassOf(obo:MOLSIM_002077 obo:MOLSIM_000841)
+
+# Class: obo:MOLSIM_002078 (implicit solvent method)
+
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002078 "An implicit solvent method is a modeling approach that approximates the effects of a surrounding liquid environment without simulating individual water molecules. It treats the solvent as a continuous dielectric medium and calculates solvation free energies using empirical parameters, such as atomic radii and surface tension coefficients. For simulation experts, methods like Generalized Born or Poisson-Boltzmann offer a highly efficient way to estimate solvation thermodynamics and binding affinities in MM/PBSA calculations. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002078 "continuum solvation model"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002078 "implicit solvent method"@en)
+SubClassOf(obo:MOLSIM_002078 obo:MOLSIM_000841)
+
+# Class: obo:MOLSIM_002079 (elastic network modeling)
+
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002079 "ENM"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002079 "Elastic network modeling is a highly simplified computational approach used to study the large-scale flexibility and movement of massive biological structures. It represents a macromolecule as a collection of nodes, typically alpha-carbon atoms, connected by uniform or distance-dependent harmonic springs based on an empirical cutoff distance. Researchers use these coarse-grained models to rapidly compute low-frequency normal modes and collective motions, identifying hinge regions and allosteric pathways with minimal computational cost. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002079 "elastic network modeling"@en)
+SubClassOf(obo:MOLSIM_002079 obo:MOLSIM_000841)
+
+# Class: obo:MOLSIM_002080 (quantitative structure-activity relationship modeling)
+
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002080 "QSAR"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002080 "Quantitative structure-activity relationship (QSAR) modeling is a computational method that links the chemical structure of a molecule to its biological effects. It employs statistical and machine learning algorithms to build mathematical models that correlate empirical biological activity data with calculated physicochemical or structural descriptors. In cheminformatics, these empirical models are heavily utilized to predict the toxicity, affinity, or pharmacokinetic properties of novel compounds prior to synthesis and testing. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002080 "quantitative structure-activity relationship modeling"@en)
+SubClassOf(obo:MOLSIM_002080 obo:MOLSIM_000841)
+
+# Class: obo:MOLSIM_002081 (machine-learned potential method)
+
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002081 "A machine-learned potential method is an advanced computational technique that uses artificial intelligence to predict the energy and forces within a molecule. It replaces traditional physical equations with deep neural networks or kernel methods trained on vast datasets of high-level quantum mechanical or empirical data. This approach provides simulation experts with a powerful tool that approaches the accuracy of ab initio quantum chemistry while maintaining the computational efficiency of classical molecular mechanics. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002081 "neural network potential"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002081 "machine-learned potential method"@en)
+SubClassOf(obo:MOLSIM_002081 obo:MOLSIM_000841)
+
+# Class: obo:MOLSIM_002082 (secondary structure change)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002082 "A secondary structure change is a localized structural shift where a protein or nucleic acid chain alters its regular, repeating folding pattern. This transition typically involves the breaking and reforming of local backbone hydrogen bonds, such as a segment converting from an alpha-helix to a random coil or beta-sheet. For simulation experts, monitoring these changes is essential for understanding peptide flexibility, misfolding events, or structural adaptations upon ligand binding. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002082 "secondary structure change"@en)
+SubClassOf(obo:MOLSIM_002082 obo:MOLSIM_001793)
+
+# Class: obo:MOLSIM_002083 (folding)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002083 "Folding is the physical process by which a linear chain of amino acids or nucleotides collapses into its functional, three-dimensional shape. It involves navigating a complex free energy landscape driven by the hydrophobic effect, hydrogen bonding, and electrostatic interactions to reach a stable native state. For computational biologists, simulating this spontaneous self-assembly provides critical insights into the physical forces stabilizing biomolecules and the origins of misfolding diseases. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002083 "folding"@en)
+SubClassOf(obo:MOLSIM_002083 obo:MOLSIM_001793)
+
+# Class: obo:MOLSIM_002084 (unfolding)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002084 "Unfolding is the process where a structured biological molecule loses its functional, three-dimensional shape and becomes a disordered chain. This cooperative transition involves the disruption of the native non-covalent interaction network, often triggered by changes in temperature, pressure, pH, or chemical denaturants. In molecular dynamics, studying unfolding pathways helps researchers map the free energy barriers of the system and identify metastable intermediate states. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002084 "unfolding"@en)
+SubClassOf(obo:MOLSIM_002084 obo:MOLSIM_001793)
+
+# Class: obo:MOLSIM_002085 (domain motion)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002085 "A domain motion is a large-scale movement where an entire folded section of a protein shifts or rotates relative to the rest of the molecule. These collective structural transitions often occur via hinge-bending or twisting mechanisms connecting rigid subdomains, without disrupting the internal secondary structure of the moving parts. For researchers, analyzing these concerted motions is key to understanding large conformational changes necessary for enzyme catalysis, motor protein function, and allosteric regulation. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002085 "domain motion"@en)
+SubClassOf(obo:MOLSIM_002085 obo:MOLSIM_001793)
+
+# Class: obo:MOLSIM_002086 (allosteric transition)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002086 "An allosteric transition is a structural change in a molecule where an event at one site causes a functional shift at a distant site. This long-range communication propagates through the molecule via a network of coupled conformational fluctuations or structural rearrangements connecting the regulatory site to the active site. Simulating these transitions allows experts to map communication pathways within proteins and design allosteric drugs that modulate function without binding directly to the active site. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002086 "allosteric transition"@en)
+SubClassOf(obo:MOLSIM_002086 obo:MOLSIM_001793)
+
+# Class: obo:MOLSIM_002087 (ligand-induced allosteric transition)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002087 "A ligand-induced allosteric transition is a remote structural change in a protein triggered specifically by the binding of a small molecule. The physical attachment of the ligand at the allosteric site alters the local energy landscape, shifting the conformational equilibrium of the entire protein toward a new active or inactive state. For drug discovery researchers, modeling this specific type of transition is crucial for identifying cryptic binding pockets and developing non-competitive inhibitors or activators. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002087 "ligand-induced allosteric transition"@en)
+SubClassOf(obo:MOLSIM_002087 obo:MOLSIM_002086)
+
+# Class: obo:MOLSIM_002088 (entropy-driven allosteric transition)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002088 "An entropy-driven allosteric transition is a remote functional change in a molecule caused primarily by a shift in its internal flexibility rather than a visible change in its average shape. In this process, a perturbation at one site significantly alters the dynamic fluctuations and vibrational entropy of the molecule, transmitting an allosteric signal without requiring a large-scale structural rearrangement. For computational biophysicists, detecting these subtle transitions requires extensive dynamic analysis, such as covariance matrices or NMR relaxation predictions, to capture the changes in the conformational ensemble. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002088 "entropy-driven allosteric transition"@en)
+SubClassOf(obo:MOLSIM_002088 obo:MOLSIM_002086)
+
+# Class: obo:MOLSIM_002089 (sugar ring pucker transition)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002089 "A sugar ring pucker transition is a localized flipping motion where the five-membered sugar ring of a nucleotide shifts between different non-planar shapes. This conformational transition typically involves interconversion between the C2'-endo and C3'-endo envelope states, altering the pseudorotation phase angle and shifting the overall nucleic acid backbone geometry. In molecular simulations, capturing the correct frequency of these puckering events is a critical test of a nucleic acid force field and is essential for distinguishing between A-form and B-form helices. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002089 "sugar ring flip"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002089 "sugar ring pucker transition"@en)
+SubClassOf(obo:MOLSIM_002089 obo:MOLSIM_001793)
+
+# Class: obo:MOLSIM_002090 (molecular entity)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002090 "A molecular entity is a broad term used to describe any distinct physical or chemical building block within a modeled system. It encompasses a wide hierarchy of structural objects, including individual atoms, ions, monomeric residues, polymer chains, and complete molecules, all of which possess specific physical properties and spatial coordinates. For simulation experts and ontology developers, this serves as the foundational, top-level parent class for all structural components, providing a clean architectural root that can be easily mapped to external standards like the Basic Formal Ontology (BFO) or ChEBI. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002090 "molecular entity"@en)
+
+# Class: obo:MOLSIM_002091 (residue)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002091 "A residue is a single monomeric building block within a larger polymeric chain, such as an individual amino acid in a protein or a nucleotide in DNA. In structural biology and modeling, it is defined as a discrete group of covalently bonded atoms that share a common identifier and are treated as a collective structural unit. For simulation experts, the residue level serves as a fundamental hierarchical grouping for assigning force field parameters, constructing topologies, and performing targeted structural analyses. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002091 "residue"@en)
+SubClassOf(obo:MOLSIM_002091 obo:MOLSIM_002090)
+
+# Class: obo:MOLSIM_002092 (atom)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002092 "An atom is the most basic, fundamental building block of matter that makes up all molecular structures. In the context of classical molecular modeling, it is mathematically represented as a point mass in three-dimensional space with specific physical properties, such as a partial charge and van der Waals radius, dictated by a force field. For simulation experts, the explicit representation and tracking of individual atoms are essential for calculating precise interatomic forces and generating high-resolution molecular dynamics trajectories. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002092 "atom"@en)
+SubClassOf(obo:MOLSIM_002092 obo:MOLSIM_002090)
+
+# Class: obo:MOLSIM_002093 (chain)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002093 "A chain is a continuous, linear sequence of linked molecular building blocks, such as a single strand of DNA or a folded polypeptide. Structurally, it consists of a series of covalently bonded residues that are grouped together under a unique alphanumeric identifier (Chain ID) within a coordinate file. In molecular simulations, properly defining separate chains is critical for accurately modeling multi-subunit complexes, preventing artificial cross-linking during topology generation, and analyzing intermolecular interactions. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002093 "chain"@en)
+SubClassOf(obo:MOLSIM_002093 obo:MOLSIM_002090)
+
+# Class: obo:MOLSIM_002094 (molecule)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002094 "A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002094 "molecule"@en)
+SubClassOf(obo:MOLSIM_002094 obo:MOLSIM_002090)
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
