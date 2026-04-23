@@ -16,7 +16,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-04-02/molsim.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-04-23/molsim.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-0476-9699"/>
         <dcterms:contributor rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
@@ -27,7 +27,7 @@
         <dcterms:subject xml:lang="en">biomolecular simulation</dcterms:subject>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <oboInOwl:default-namespace xml:lang="en">molsim</oboInOwl:default-namespace>
-        <owl:versionInfo>2026-04-02</owl:versionInfo>
+        <owl:versionInfo>2026-04-23</owl:versionInfo>
         <foaf:homepage xml:lang="en">https://github.com/CPCLab/molsim-ontology</foaf:homepage>
     </owl:Ontology>
     
@@ -467,15 +467,11 @@
     <!-- http://purl.obolibrary.org/obo/OBI_0000299 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000299">
-        <owl:equivalentProperty>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
-            </rdf:Description>
-        </owl:equivalentProperty>
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000057"/>
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
-        <obo:IAO_0000115 xml:lang="en">The inverse property of is_specified_output_of</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">has_specified_output</rdfs:label>
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/COB_0000035"/>
+        <obo:IAO_0000115>The inverse property of is specified output of</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">has specified output</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -484,9 +480,9 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000312">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000056"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
-        <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">is_specified_output_of</rdfs:label>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/COB_0000035"/>
+        <obo:IAO_0000115 xml:lang="en">A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">is specified output of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -532,6 +528,7 @@
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
         <obo:IAO_0000115 xml:lang="en">a relation between a process and a continuant, in which the continuant is somehow involved in the process</obo:IAO_0000115>
+        <dcterms:source>http://www.obofoundry.org/ro/#OBO_REL:has_participant</dcterms:source>
         <rdfs:label xml:lang="en">has participant</rdfs:label>
     </owl:ObjectProperty>
     
@@ -542,9 +539,15 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000058">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/RO_0000059"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <obo:IAO_0000115 xml:lang="en">A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes.</obo:IAO_0000115>
-        <obo:IAO_0000115 xml:lang="en">A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">is concretized as</rdfs:label>
     </owl:ObjectProperty>
     
@@ -553,9 +556,16 @@
     <!-- http://purl.obolibrary.org/obo/RO_0000059 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0000059">
-        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000015"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">concretizes</rdfs:label>
     </owl:ObjectProperty>
     
@@ -1215,7 +1225,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000011"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/COB_0000035"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
                         <owl:someValuesFrom>
@@ -1230,7 +1240,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000035"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
@@ -2043,6 +2053,38 @@
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+        <owl:annotatedTarget>2&apos;-Deoxycytidine</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>KEGG_COMPOUND</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+        <owl:annotatedTarget>2&apos;-deoxycytidine</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>IUPAC</oboInOwl:hasDbXref>
+        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/chebi/IUPAC_NAME"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>2&apos;-DEOXYCYTIDINE</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>pdb-ccd</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>2&apos;-Deoxycytidine</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>kegg.compound</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>2&apos;-deoxycytidine</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>iupac</oboInOwl:hasDbXref>
+        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/chebi/IUPAC_NAME"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
         <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
         <owl:annotatedTarget>2&apos;-deoxycytidine</owl:annotatedTarget>
         <oboInOwl:hasDbXref>uniprot_ft</oboInOwl:hasDbXref>
@@ -2136,38 +2178,6 @@
         <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
         <owl:annotatedTarget>2&apos;-DEOXYCYTIDINE</owl:annotatedTarget>
         <oboInOwl:hasDbXref>PDBeChem</oboInOwl:hasDbXref>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
-        <owl:annotatedTarget>2&apos;-Deoxycytidine</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>KEGG_COMPOUND</oboInOwl:hasDbXref>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
-        <owl:annotatedTarget>2&apos;-deoxycytidine</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>IUPAC</oboInOwl:hasDbXref>
-        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/chebi/IUPAC_NAME"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-        <owl:annotatedTarget>2&apos;-DEOXYCYTIDINE</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>pdb-ccd</oboInOwl:hasDbXref>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-        <owl:annotatedTarget>2&apos;-Deoxycytidine</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>kegg.compound</oboInOwl:hasDbXref>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_15698"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-        <owl:annotatedTarget>2&apos;-deoxycytidine</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>iupac</oboInOwl:hasDbXref>
-        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/chebi/IUPAC_NAME"/>
     </owl:Axiom>
     
 
@@ -9836,6 +9846,36 @@
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+        <owl:annotatedTarget>wikipedia.en:Pentadecane</owl:annotatedTarget>
+        <oboInOwl:source>wikipedia.en</oboInOwl:source>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>CH3-[CH2]13-CH3</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>iupac</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>PENTADECANE</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>pdb-ccd</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>Pentadecane</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>kegg.compound</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>Pentadekan</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>chebi</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
         <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
         <owl:annotatedTarget>n-Pentadecane</owl:annotatedTarget>
         <oboInOwl:hasDbXref>kegg.compound</oboInOwl:hasDbXref>
@@ -9923,36 +9963,6 @@
         <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
         <owl:annotatedTarget>reaxys:1698194</owl:annotatedTarget>
         <oboInOwl:source>reaxys</oboInOwl:source>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
-        <owl:annotatedTarget>wikipedia.en:Pentadecane</owl:annotatedTarget>
-        <oboInOwl:source>wikipedia.en</oboInOwl:source>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-        <owl:annotatedTarget>CH3-[CH2]13-CH3</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>iupac</oboInOwl:hasDbXref>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-        <owl:annotatedTarget>PENTADECANE</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>pdb-ccd</oboInOwl:hasDbXref>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-        <owl:annotatedTarget>Pentadecane</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>kegg.compound</oboInOwl:hasDbXref>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/CHEBI_28897"/>
-        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
-        <owl:annotatedTarget>Pentadekan</owl:annotatedTarget>
-        <oboInOwl:hasDbXref>chebi</oboInOwl:hasDbXref>
     </owl:Axiom>
     
 
@@ -14380,6 +14390,25 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/COB_0000035 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/COB_0000035">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
+        <rdfs:label xml:lang="en">completely executed planned process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/COB_0000082 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/COB_0000082">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <obo:IAO_0000115 xml:lang="en">A process that is initiated by an agent who intends to carry out a plan to achieve an objective through one or more actions as described in a plan specification.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">planned process</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000003 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000003">
@@ -14467,9 +14496,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000027">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <obo:IAO_0000115 xml:lang="en">An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">An information content entity that is intended to be one or more truthful statement(s) about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">data entity</rdfs:label>
-        <rdfs:label xml:lang="en">data item</rdfs:label>
     </owl:Class>
     
 
@@ -14717,7 +14745,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000011"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/COB_0000035"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0020000"/>
@@ -14725,7 +14753,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000035"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
@@ -14810,6 +14838,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000007">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000006"/>
         <obo:IAO_0000115 xml:lang="en">A force field is a set of mathematical functions and associated parameters used to calculate the potential energy of a system of atoms based on their positions. It defines the forces governing interactions within molecules and between different molecules, enabling the simulation of molecular behavior. Force fields are the heart of classical molecular dynamics and modeling, providing the rules that dictate how atoms move and interact. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">FF</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">force field</rdfs:label>
     </owl:Class>
     
@@ -15662,6 +15691,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000091">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000087"/>
         <obo:IAO_0000115 xml:lang="en">An informed search algorithm used for finding the shortest path between a starting node and a target node in a graph, commonly used in pathfinding and planning problems. It extends Dijkstra&apos;s algorithm by using a heuristic function to estimate the cost from the current node to the target, guiding the search towards the goal more efficiently. Its performance depends on the quality of the heuristic used (UNVERIFIED).</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">A-star search algorithm</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">A* search algorithm</rdfs:label>
     </owl:Class>
     
@@ -15925,9 +15955,9 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000117">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000300"/>
-        <obo:IAO_0000115 xml:lang="en">Markov State Models (MSMs) are statistical models constructed from molecular dynamics simulation data to analyze the long-timescale kinetics and thermodynamics of the system. By discretizing conformational space into states and modeling transitions between them as memoryless (Markovian), MSMs allow estimation of properties like relaxation timescales, equilibrium populations, and dominant transition pathways from trajectory data. They are powerful tools for analyzing complex dynamics. (UNVERIFIED)</obo:IAO_0000115>
-        <oboInOwl:hasExactSynonym xml:lang="en">MSMs</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">Markov state models analysis</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">Markov State Models (MSM) are statistical models constructed from molecular dynamics simulation data to analyze the long-timescale kinetics and thermodynamics of the system. By discretizing conformational space into states and modeling transitions between them as memoryless (Markovian), MSMs allow estimation of properties like relaxation timescales, equilibrium populations, and dominant transition pathways from trajectory data. They are powerful tools for analyzing complex dynamics. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">MSM</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">Markov state model analysis</rdfs:label>
     </owl:Class>
     
 
@@ -16495,6 +16525,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000173">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000141"/>
         <obo:IAO_0000115 xml:lang="en">The fundamental physical theory describing the behavior of nature at the scale of atoms and subatomic particles, forming the theoretical basis for understanding chemical bonding and molecular properties. In computational chemistry, its principles are used to develop mathematical models and simulation methods for predicting molecular structures, energies, and reactivity. It provides the underlying rules for how electrons and nuclei interact within a molecule (UNVERIFIED).</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">QM</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">quantum mechanics</rdfs:label>
     </owl:Class>
     
@@ -16716,7 +16747,9 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000195">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000006"/>
-        <obo:IAO_0000115 xml:lang="en">In statistical mechanics and molecular simulation, an ensemble is a theoretical construct representing an infinite collection of identical systems, each in a different possible microscopic state (defined by positions and momenta of all particles) but all corresponding to the same macroscopic thermodynamic state defined by a set of fixed variables (e.g., N, V, T or N, P, T). Molecular simulations generate trajectories that sample the microscopic states belonging to a specific ensemble, allowing the calculation of macroscopic properties as averages over these states. The choice of ensemble (e.g., NVE, NVT, NPT) determines which macroscopic variables are held constant during the simulation, mimicking specific experimental conditions. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A theoretical statistical mechanics construct representing a probability distribution for the state of a system, defined by a specific set of macroscopic variables held constant (e.g., NVT, NPT). In molecular simulation, it dictates the thermodynamic conditions and integration rules applied to generate a trajectory. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">statistical ensemble</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">thermodynamic ensemble</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">ensemble</rdfs:label>
     </owl:Class>
     
@@ -16781,6 +16814,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000201">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000200"/>
         <obo:IAO_0000115 xml:lang="en">X-ray crystallography is an experimental technique that determines the three-dimensional structure of molecules, particularly proteins, by analyzing the diffraction pattern produced when X-rays are scattered by a crystalline form of the molecule. The diffraction pattern contains information about the arrangement of electrons, allowing calculation of an electron density map into which the atomic structure can be built. It is capable of providing very high-resolution structural information. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">X-ray</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">X-ray crystallography</rdfs:label>
     </owl:Class>
     
@@ -16802,6 +16836,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000203">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000200"/>
         <obo:IAO_0000115 xml:lang="en">Cryogenic electron microscopy (Cryo-EM) is an experimental technique that determines the structure of molecules and complexes by imaging samples rapidly frozen in a thin layer of vitreous (non-crystalline) ice using an electron microscope. Sophisticated image processing techniques are used to average images of thousands or millions of individual particles to reconstruct a high-resolution three-dimensional density map. Cryo-EM is particularly powerful for large, flexible complexes that are difficult to crystallize. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">Cryo-EM</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">cryogenic electron microscopy</rdfs:label>
     </owl:Class>
     
@@ -16834,7 +16869,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000204"/>
         <obo:IAO_0000115 xml:lang="en">A popular method for deriving high-quality partial atomic charges for molecules, frequently used in conjunction with the AMBER force fields. It involves calculating the quantum mechanical electrostatic potential (ESP) on a grid of points around the molecule (typically using Hartree-Fock or DFT methods), and then fitting atom-centered point charges to reproduce this ESP using a least-squares algorithm. Crucially, &apos;restraints&apos; (typically hyperbolic penalties) are applied during the fitting process to prevent unrealistically large charges on buried atoms and ensure transferability, often performed in multiple stages for chemical equivalence. (UNVERIFIED)</obo:IAO_0000115>
         <oboInOwl:hasExactSynonym xml:lang="en">RESP</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">restraint electrostatic potential (RESP)</rdfs:label>
+        <rdfs:label xml:lang="en">restrained electrostatic potential</rdfs:label>
     </owl:Class>
     
 
@@ -16874,6 +16909,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000210">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000003"/>
         <obo:IAO_0000115 xml:lang="en">A specific simulation execution technique used to enhance sampling along a chosen reaction coordinate or order parameter, often for calculating the potential of mean force (PMF) or free energy profile associated with a process like ligand unbinding or a conformational change. It involves running multiple simulations, each confined (&apos;biased&apos;) by a potential (the &apos;umbrella&apos;) to sample a specific window along the coordinate, with subsequent analysis required to unbias the results and reconstruct the overall profile. It falls under the category of enhanced sampling methods. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">US</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">umbrella sampling</rdfs:label>
     </owl:Class>
     
@@ -17064,8 +17100,9 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000229">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000308"/>
-        <obo:IAO_0000115 xml:lang="en">Simulation type categorizes the specific methodology and level of detail employed in a computer simulation study, particularly within molecular modeling. This classification distinguishes between approaches like representing every atom versus grouping atoms, or using classical mechanics versus quantum mechanics. The choice of simulation type depends on the scientific question, system size, and desired timescale. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">simulation type</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">A resolution-based simulation method is a category of computational techniques classified by the level of structural detail used to represent the molecules in a system. This classification distinguishes between highly granular approaches that define every individual atom explicitly and reduced-representation models that simplify the system by grouping multiple atoms into interacting beads or pseudo-atoms. For simulation experts, the choice of resolution is a fundamental modeling decision that dictates the critical trade-off between atomistic accuracy and the computational efficiency required to access long timescales or massive macromolecular complexes. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">simulation type</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">resolution-based simulation method</rdfs:label>
     </owl:Class>
     
 
@@ -17075,6 +17112,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000230">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000229"/>
         <obo:IAO_0000115 xml:lang="en">All-atom molecular dynamics (AA-MD) is a simulation technique where every individual atom in the molecular system, including hydrogen atoms and explicit solvent molecules, is represented. The motion of each atom is simulated over time by numerically integrating Newton&apos;s equations of motion using forces derived from a classical force field. This approach provides high structural detail but is computationally intensive, limiting accessible timescales and system sizes. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">AA-MD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">all-atom molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -17147,7 +17185,6 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000237">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000615"/>
         <obo:IAO_0000115 xml:lang="en">The Potential of Mean Force (PMF) method calculates the free energy profile of a system as a function of one or more specific coordinates, often called reaction coordinates or order parameters (e.g., the distance between two molecules). It essentially describes the effective potential energy governing the system&apos;s behavior along those chosen coordinates, including entropic effects averaged over all other degrees of freedom. PMFs are crucial for understanding reaction mechanisms, binding processes, and conformational changes. (UNVERIFIED)</obo:IAO_0000115>
-        <oboInOwl:hasExactSynonym xml:lang="en">PMF</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">potential mean force analysis</rdfs:label>
     </owl:Class>
     
@@ -17399,6 +17436,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000262">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000326"/>
         <obo:IAO_0000115 xml:lang="en">MM/PBSA is an endpoint method used to estimate binding free energies by combining molecular mechanics (MM) energy calculations with continuum solvation models. It calculates the free energy change by summing the change in MM energy in vacuum, the change in polar solvation free energy (calculated using Poisson-Boltzmann electrostatics), and the change in nonpolar solvation free energy (estimated from solvent-accessible surface area). This approach analyzes snapshots from molecular dynamics simulations of the bound and unbound states. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">MM/PBSA</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">MMPBSA</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">molecular mechanics Poisson Boltzmann surface area analysis</rdfs:label>
     </owl:Class>
@@ -17410,8 +17448,9 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000263">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000326"/>
         <obo:IAO_0000115 xml:lang="en">MM/GBSA is an endpoint binding free energy estimation method closely related to MM/PBSA, differing primarily in how the polar solvation free energy is calculated. Instead of the computationally more intensive Poisson-Boltzmann equation, MM/GBSA uses the faster Generalized Born (GB) implicit solvent model to estimate the electrostatic contribution to solvation. Like MM/PBSA, it combines MM energies, GB polar solvation energy, and surface-area based nonpolar energy using simulation snapshots. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">MM/GBSA</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">MMGBSA</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">molecular mechanics generalized Born surface area analysi</rdfs:label>
+        <rdfs:label xml:lang="en">molecular mechanics generalized Born surface area analysis</rdfs:label>
     </owl:Class>
     
 
@@ -17558,8 +17597,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000276"/>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000278"/>
         <obo:IAO_0000115 xml:lang="en">Quasiharmonic analysis is a method used to estimate vibrational entropy from molecular dynamics simulation data by assuming atoms undergo harmonic oscillations around their average positions. It involves calculating the mass-weighted covariance matrix of atomic fluctuations from the trajectory and diagonalizing it to obtain effective vibrational frequencies (quasiharmonic modes). These frequencies are then used in standard statistical mechanics formulas for harmonic oscillators to estimate the entropy. (UNVERIFIED)</obo:IAO_0000115>
-        <oboInOwl:hasExactSynonym xml:lang="en">QH</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">quasiharmonic mode analysis</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">QHA</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">quasiharmonic analysis</rdfs:label>
     </owl:Class>
     
 
@@ -17569,7 +17608,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000278">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000276"/>
         <obo:IAO_0000115 xml:lang="en">Normal Mode Analysis (NMA) calculates the fundamental vibrational modes and frequencies of a molecule based on harmonic oscillations around a single energy minimum structure. It involves calculating the Hessian matrix (second derivatives of potential energy with respect to coordinates) at the minimum and diagonalizing it. The resulting eigenvectors represent the collective vibrational modes (normal modes), and the eigenvalues are related to their frequencies, which can be used to estimate vibrational entropy. (UNVERIFIED)</obo:IAO_0000115>
-        <oboInOwl:hasExactSynonym xml:lang="en">NM</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">NMA</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">normal mode analysis</rdfs:label>
     </owl:Class>
     
@@ -17940,6 +17979,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000315">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">Ramachandran plot data is a set of numbers representing the angles in a protein&apos;s backbone, which helps determine if its shape is realistic. As a type of structural property, this output_data_descriptor consists of the set of paired phi (φ) and psi (ψ) backbone dihedral angles for each residue in a protein structure. This raw data is the direct output of a Ramachandran analysis and is used to generate the corresponding 2D plot for validating the stereochemical quality of the protein backbone conformation. This data is often found in files with headers like &quot;phi,&quot; &quot;psi,&quot; &quot;Ramachandran,&quot; or &quot;dihedral angles.&quot; (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">Rama plot</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">ramachandran plot data</rdfs:label>
     </owl:Class>
     
@@ -17950,6 +17990,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000316">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001314"/>
         <obo:IAO_0000115 xml:lang="en">A potential of mean force is an energy profile that shows how much energy it takes to move a molecule from one place to another. As a type of free energy, the Potential of Mean Force (PMF) is an output_data_descriptor that represents the free energy of a system as a function of one or more specific geometric coordinates, known as reaction coordinates. The PMF describes the energetic landscape along a pathway, with its minima representing stable states and its maxima corresponding to transition state energy barriers. This is commonly referred to in analysis outputs and publications as &quot;PMF,&quot; &quot;free energy profile,&quot; &quot;Potential of Mean Force,&quot; or &quot;pmf.dat.&quot; (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">PMF</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">potential of mean force</rdfs:label>
     </owl:Class>
     
@@ -18043,6 +18084,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000325">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000308"/>
         <obo:IAO_0000115 xml:lang="en">A stochastic simulation method that relies on repeated random sampling to explore the configurational space of a molecular system. Unlike molecular dynamics, which integrates equations of motion over time, Monte Carlo generates a sequence of states by proposing random trial moves (such as atom displacements or molecular rotations) and accepting or rejecting them based on a thermodynamic probability criterion, typically the Metropolis algorithm. It is widely used for calculating equilibrium thermodynamic properties and sampling conformational ensembles. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">MC</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">MC simulation</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">monte carlo simulation</rdfs:label>
     </owl:Class>
@@ -18295,6 +18337,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000350">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000990"/>
         <obo:IAO_0000115 xml:lang="en">Small-angle X-ray scattering (SAXS) is an experimental technique that provides information about the overall size and shape of molecules as they exist in solution. It works by measuring the pattern of X-rays scattered at very small angles by a sample, which is sensitive to the molecule&apos;s global structure. This low-resolution experimental data is extremely valuable for validating the conformational ensembles generated by molecular dynamics simulations, ensuring they are consistent with the molecule&apos;s average shape in solution. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">SAXS</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">small angle x-ray scattering</rdfs:label>
     </owl:Class>
     
@@ -18347,6 +18390,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000355">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000265"/>
         <obo:IAO_0000115 xml:lang="en">Thermodynamic Integration (TI) is a rigorous statistical mechanics method used to calculate free energy differences between two defined states (e.g., A and B) by simulating a reversible, non-physical transformation pathway connecting them. It involves calculating the ensemble average of the derivative of the system&apos;s energy with respect to a coupling parameter (λ) at several points along the path and integrating this derivative over the path (ΔG=∫01 ⟨∂H/∂λ⟩ λdλ). This framework encompasses various specific approaches and implementation details. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">TI</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">thermodynamic integration analysis</rdfs:label>
     </owl:Class>
     
@@ -18678,6 +18722,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000388">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000308"/>
         <obo:IAO_0000115 xml:lang="en">A QM/MM simulation is a multiscale simulation method that combines a high-accuracy Quantum Mechanics (QM) description for a small, chemically active region with a fast, classical Molecular Mechanics (MM) force field for the large surrounding environment. This hybrid approach allows for the simulation of processes like chemical reactions in the context of a complex biological system, such as an enzyme active site. For experts, QM/MM is the state-of-the-art method for studying bond-breaking and bond-forming events in biomolecules. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">QM/MM</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">QM/MM simulation</rdfs:label>
     </owl:Class>
     
@@ -18748,6 +18793,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000395">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000843"/>
         <obo:IAO_0000115 xml:lang="en">Accelerated molecular dynamics is a special type of simulation that helps molecules explore different shapes much faster than they normally would. It works by adding a &quot;boost&quot; to the system&apos;s energy, effectively lowering the energy barriers that separate different molecular conformations. For experts, aMD is an enhanced sampling method that adds a non-negative, history-independent bias potential when the system&apos;s potential energy is below a certain threshold, allowing for the recovery of canonical averages through energetic reweighting. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">aMD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">accelerated molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -18758,6 +18804,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000396">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">Gaussian accelerated molecular dynamics (GaMD) is an enhanced sampling method that speeds up simulations by adding a boost potential that has a Gaussian distribution. This method smooths the potential energy surface, allowing the system to more easily escape from local energy minima. For experts, GaMD is a robust method that does not require predefined collective variables and allows for the accurate recovery of the original free energy landscape through cumulant expansion. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">GaMD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">Gaussian accelerated molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -18958,6 +19005,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000416">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000843"/>
         <obo:IAO_0000115 xml:lang="en">Constant pH molecular dynamics (CpHMD) is a specialized simulation method that allows the protonation states of acidic and basic residues in a molecule to change during the simulation. This is achieved by performing Monte Carlo moves that attempt to add or remove protons, with the acceptance of these moves being determined by the target pH of the simulation. For experts, CpHMD is an essential technique for studying proteins and processes whose structure and function are sensitive to pH. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">CpHMD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">constant pH molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -19352,6 +19400,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000455">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000120"/>
         <obo:IAO_0000115 xml:lang="en">Time-lagged Independent Component Analysis (tICA) is an advanced analysis method used to identify the slowest, most persistent motions from a molecular dynamics simulation. It is a dimensionality reduction technique that finds the collective coordinates that change most slowly over a specific time lag, which are often the most important for understanding the system&apos;s long-timescale functional dynamics. These slow coordinates are frequently used as the basis for building Markov State Models to describe the system&apos;s kinetics. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">tICA</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">time-lagged independent component analysis</rdfs:label>
     </owl:Class>
     
@@ -19478,6 +19527,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000467">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000458"/>
         <obo:IAO_0000115 xml:lang="en">Förster Resonance Energy Transfer, or FRET, is a specific phenomenon in fluorescence spectroscopy where an excited donor fluorophore non-radiatively transfers its energy to a nearby acceptor fluorophore. The efficiency of this energy transfer is extremely sensitive to the distance between the two molecules, making it a &quot;spectroscopic ruler.&quot; For biophysicists, FRET is a powerful experimental method for measuring distances and distance changes within and between biomolecules, providing data that can be used to validate simulation results. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">FRET</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">Forster resonance energy transfer</rdfs:label>
     </owl:Class>
     
@@ -19560,6 +19610,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000475">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000229"/>
         <obo:IAO_0000115 xml:lang="en">Coarse-grained molecular dynamics (CG-MD) is a simulation method where groups of atoms are represented by single, simplified interaction sites or &quot;beads.&quot; This reduction in the number of particles significantly decreases computational cost, allowing simulations of much larger molecular systems or for much longer timescales compared to all-atom simulations. However, this gain in efficiency comes at the cost of losing fine-grained atomistic detail. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">CG-MD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">coarse-grained molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -21067,7 +21118,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000626">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000623"/>
         <obo:IAO_0000115 xml:lang="en">Quantum mechanical phenomena arising from the intrinsic angular momentum (spin) possessed by fundamental particles like electrons and atomic nuclei. Spin gives rise to magnetic moments, and interactions involving these moments (e.g., electron spin coupling with nuclear spin or orbital angular momentum, or interaction with external magnetic fields) lead to splitting of energy levels and specific spectroscopic signatures (e.g., in NMR, EPR). Spin effects are generally not included in classical force fields but are crucial for understanding magnetism and certain spectroscopic or reactive processes. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">spin effect*</rdfs:label>
+        <rdfs:label xml:lang="en">spin effect</rdfs:label>
     </owl:Class>
     
 
@@ -22814,7 +22865,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000812">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000810"/>
         <obo:IAO_0000115 xml:lang="en">Restricted Open-shell Hartree-Fock, a specific formulation of the Hartree-Fock method designed for molecules with unpaired electrons (open-shell systems) where constraints are applied to keep spatial orbitals doubly occupied where possible. It provides a wavefunction that is an eigenfunction of the spin operator, which is often desirable but can be more computationally challenging than UHF for some systems. It is a type of ab initio calculation (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">ROHF</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">ROHF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">restricted open-shell Hartree-Fock</rdfs:label>
     </owl:Class>
     
 
@@ -22824,7 +22876,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000813">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000810"/>
         <obo:IAO_0000115 xml:lang="en">Self-Consistent Field, the iterative computational procedure used to solve the equations in Hartree-Fock theory (and also in Density Functional Theory and some semi-empirical methods). The calculation starts with an initial guess for the electron distribution (orbitals), calculates the average field, finds new orbitals in that field, and repeats the process until the orbitals and the field they generate are consistent with each other. It is the numerical method for finding the Hartree-Fock solution, not the theory itself (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">SCF</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">SCF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">self-consistent field</rdfs:label>
     </owl:Class>
     
 
@@ -22834,7 +22887,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000814">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000810"/>
         <obo:IAO_0000115 xml:lang="en">Unrestricted Hartree-Fock, a formulation of the Hartree-Fock method primarily used for open-shell systems (molecules with unpaired electrons). It allows alpha-spin electrons and beta-spin electrons to occupy different spatial orbitals, providing more flexibility than ROHF but resulting in a wavefunction that may not be a pure spin state (spin contamination). It is a type of ab initio calculation (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">UHF</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">UHF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">Unrestricted Hartree-Fock</rdfs:label>
     </owl:Class>
     
 
@@ -22964,6 +23018,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000827">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000173"/>
         <obo:IAO_0000115 xml:lang="en">Møller-Plesset perturbation theory (MPn) is a widely used post-Hartree-Fock method for adding electron correlation effects to the Hartree-Fock (HF) solution. It treats the difference between the exact Hamiltonian and the HF Hamiltonian as a perturbation, calculating energy corrections order-by-order (MP2, MP3, MP4, etc.). MP2 is the most common level, offering a computationally efficient way to include dynamic electron correlation. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>MP</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">Moeller-Plesset</rdfs:label>
     </owl:Class>
     
@@ -22974,7 +23029,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000828">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000827"/>
         <obo:IAO_0000115 xml:lang="en">MP2 stands for second-order Møller-Plesset perturbation theory, representing the first and computationally least expensive level beyond Hartree-Fock that incorporates electron correlation effects. It calculates the second-order energy correction based on double excitations from the Hartree-Fock reference determinant. MP2 often provides a significant improvement in accuracy over Hartree-Fock for molecular geometries, interaction energies, and reaction energies, making it a very popular baseline correlation method. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">MP2</rdfs:label>
+        <oboInOwl:hasExactSynonym>MP2</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">Moeller-Plesset 2</rdfs:label>
     </owl:Class>
     
 
@@ -22984,7 +23040,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000829">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000827"/>
         <obo:IAO_0000115 xml:lang="en">MP3 represents third-order Møller-Plesset perturbation theory, calculating the energy correction up to the third order based on the Hartree-Fock reference. While it includes higher-order correlation effects compared to MP2, MP3 does not always offer a systematic improvement in accuracy over MP2 and can sometimes yield worse results. Consequently, it is less commonly used in computational chemistry applications compared to MP2 or MP4. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">MP3</rdfs:label>
+        <rdfs:comment>MP3</rdfs:comment>
+        <rdfs:label xml:lang="en">Moeller-Plesset 3</rdfs:label>
     </owl:Class>
     
 
@@ -22994,7 +23051,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000830">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000827"/>
         <obo:IAO_0000115 xml:lang="en">MP4 stands for fourth-order Møller-Plesset perturbation theory, providing a higher level of electron correlation treatment by including energy contributions from single, double, triple, and quadruple excitations relative to the Hartree-Fock reference (often denoted MP4(SDTQ)). The inclusion of triple excitations, even if approximated, is particularly important for achieving high accuracy for many chemical systems. MP4 offers significantly better accuracy than MP2 but at a substantially higher computational cost. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">MP4</rdfs:label>
+        <rdfs:comment>MP4</rdfs:comment>
+        <rdfs:label xml:lang="en">Moeller-Plesset 4</rdfs:label>
     </owl:Class>
     
 
@@ -23004,7 +23062,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000831">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000827"/>
         <obo:IAO_0000115 xml:lang="en">MP5 represents fifth-order Møller-Plesset perturbation theory, calculating the electron correlation energy correction up to the fifth order. It incorporates even higher-order excitation effects beyond MP4, aiming for further refinement in accuracy. However, the computational cost of MP5 is extremely high, and it is very rarely used in practice, as other methods like coupled cluster often provide similar or better accuracy more efficiently at that level of computational expense. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">MP5</rdfs:label>
+        <rdfs:comment>MP5</rdfs:comment>
+        <rdfs:label xml:lang="en">Moeller-Plesset 5</rdfs:label>
     </owl:Class>
     
 
@@ -23024,7 +23083,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000833">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000832"/>
         <obo:IAO_0000115 xml:lang="en">Complete Active Space Self-Consistent Field, a specific and widely used type of multi-reference method (falling under the MC-SCF umbrella). It involves selecting a subset of electrons and orbitals deemed most important for the problem (the active space) and then performing a full configuration interaction calculation within that space while simultaneously optimizing the orbitals. CASSCF provides a qualitatively correct description of complex electronic structures but often needs further corrections for quantitative accuracy (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">CASSCF</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">CASSCF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">complete active space self-consistent field</rdfs:label>
     </owl:Class>
     
 
@@ -23033,8 +23093,9 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000834">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000832"/>
-        <obo:IAO_0000115 xml:lang="en">Multi-Configurational Self-Consistent Field, a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">MC-SCF</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">Multi-Configurational Self-Consistent Field (MC-SCF), a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED).</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">MC-SCF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">multi-configurational self-consistent field</rdfs:label>
     </owl:Class>
     
 
@@ -23044,7 +23105,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000835">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000832"/>
         <obo:IAO_0000115 xml:lang="en">Multi-Reference Coupled Cluster with Single and Double excitations, a high-accuracy quantum chemistry method that incorporates dynamic electron correlation using the coupled-cluster approach built upon a multi-reference starting wavefunction (obtained from methods like CASSCF). It aims to provide a highly accurate description for systems where both static (multi-reference character) and dynamic correlation effects are significant. These calculations are computationally very expensive (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">MR-CCSD</rdfs:label>
+        <oboInOwl:hasExactSynonym>MR-CCSD</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">multi-reference coupled cluster with single and double excitations</rdfs:label>
     </owl:Class>
     
 
@@ -23054,7 +23116,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000836">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000832"/>
         <obo:IAO_0000115 xml:lang="en">Multi-Reference Configuration Interaction with Single and Double excitations, a quantum chemistry method that accounts for electron correlation by performing a configuration interaction calculation (including configurations generated by single and double electron excitations) starting from a multi-reference wavefunction (e.g., from CASSCF). Like MR-CCSD, it targets high accuracy for electronically complex systems but is computationally demanding and may suffer from size-consistency issues depending on the formulation. It offers an alternative way to add dynamic correlation to a multi-reference description (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">MR-CI(SD)</rdfs:label>
+        <oboInOwl:hasExactSynonym>MR-CI(SD)</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">multi-reference configuration interaction with single and double excitations</rdfs:label>
     </owl:Class>
     
 
@@ -23064,7 +23127,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000837">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000832"/>
         <obo:IAO_0000115 xml:lang="en">Restricted Active Space Self-Consistent Field, a flexible type of multi-reference method (within the MC-SCF family) similar to CASSCF but offering more control over the included electron configurations. The active space is divided into subspaces (RAS1, RAS2, RAS3) with restrictions on the number of electrons or excitations allowed within and between them, making calculations feasible for larger active spaces than typically possible with CASSCF. It allows a tailored balance between computational cost and the desired level of multi-reference treatment (UNVERIFIED).</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">RASSCF</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">RASSCF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">restricted active space self-consistent field</rdfs:label>
     </owl:Class>
     
 
@@ -23125,6 +23189,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000843">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000308"/>
         <obo:IAO_0000115 xml:lang="en">Molecular dynamics (MD) is a computer simulation technique used to study the physical movement of atoms and molecules over time. It calculates the forces between particles using an empirical potential energy function (force field) and then integrates Newton&apos;s equations of motion numerically to simulate how the positions and velocities evolve in small time steps. MD simulations provide detailed information about the dynamic behavior, conformational changes, and thermodynamics of molecular systems. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">MD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -23185,6 +23250,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000849">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">Locally Enhanced Sampling (LES) is a technique used to improve the conformational sampling of a specific, localized part of a larger molecular system (e.g., a flexible loop or a bound ligand). It involves simulating multiple, non-interacting copies of the atoms in this local region simultaneously, while these copies interact with only a single representation of the surrounding environment. This effectively increases the exploration of the local conformational space without replicating the entire system. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">LES</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">locally enhanced sampling</rdfs:label>
     </owl:Class>
     
@@ -23255,6 +23321,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000856">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">The Nudged Elastic Band (NEB) method is primarily used to find the Minimum Energy Path (MEP) connecting two known stable states (e.g., reactant and product) on a potential energy surface. It works by optimizing a discrete chain of intermediate structures (images) linking the start and end points. Forces acting on the images perpendicular to the path are minimized, while spring forces along the path ensure continuity, guiding the chain towards the MEP, including the transition state. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">NEB</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">nudged elastic band</rdfs:label>
     </owl:Class>
     
@@ -23275,6 +23342,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000858">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">Replica-exchange molecular dynamics (REMD), also known as parallel tempering, is an enhanced sampling technique that runs multiple simulations (replicas) of the same system in parallel, typically each at a different temperature. At regular intervals, attempts are made to swap the current configurations between pairs of replicas running at adjacent temperatures, accepted based on a probability criterion. This allows configurations explored at high temperatures (overcoming energy barriers) to diffuse down to lower temperatures, enhancing conformational sampling. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">REMD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">replica-exchange molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -23315,6 +23383,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000862">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">Targeted Molecular Dynamics (TMD) is a simulation technique used to induce a conformational transition between a known initial structure and a known target structure. It achieves this by adding an extra potential energy term that biases the system to reduce its root-mean-square deviation (RMSD) relative to the target structure over the course of the simulation. TMD provides a plausible pathway for the transition, although not necessarily the minimum energy or most probable one. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">TMD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">targeted molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -23325,6 +23394,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000863">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">Transition Path Sampling (TPS) is a powerful simulation technique designed to study rare transition events between stable molecular states by directly sampling the ensemble of reactive pathways connecting them. Starting with one known reactive trajectory, it uses a Monte Carlo procedure in path space (generating new trial paths from old ones) to explore the set of all possible transition mechanisms without needing predefined reaction coordinates. TPS allows for the calculation of rate constants and detailed mechanistic analysis. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">TPS</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">transition path sampling</rdfs:label>
     </owl:Class>
     
@@ -23335,6 +23405,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000864">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">The Transition State Ensemble (TSE) refers to the collection of molecular configurations that lie at the top of the highest free energy barrier separating the reactant and product states of a process, such as protein folding or a chemical reaction. Structures within the TSE are equally likely to proceed forward to the product state or revert back to the reactant state (i.e., they have a committor probability of 0.5). Characterizing the structural features of the TSE is key to understanding the mechanism of the transition. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">TSE</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">transition state ensembles</rdfs:label>
     </owl:Class>
     
@@ -23345,6 +23416,7 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000865">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000845"/>
         <obo:IAO_0000115 xml:lang="en">Transition Interface Sampling (TIS) is a path sampling technique, related to Forward Flux Sampling, used for calculating rate constants of rare events. It involves defining interfaces along an order parameter and then specifically sampling ensembles of trajectories that start in the reactant state and reach a particular interface, or start at one interface and reach the next. By calculating the crossing probabilities between interfaces, TIS reconstructs the overall rate constant. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">TIS</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">transition interface sampling</rdfs:label>
     </owl:Class>
     
@@ -24317,7 +24389,7 @@ Saving: users write the contents of a COORDS data set to a file using the crdout
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000986">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000475"/>
         <obo:IAO_0000115 xml:lang="en">This refers to a type of coarse-grained model, often applied to very large biomolecular complexes, where groups of atoms or even entire residues are represented as beads connected by simple elastic (harmonic) springs. The parameters are often derived from elastic network model concepts, focusing on capturing the overall shape, flexibility, and large-scale collective motions of the assembly rather than chemical details. These models are computationally efficient for studying mesoscopic dynamics. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">coarse-grained elastic mesoscopic model*</rdfs:label>
+        <rdfs:label xml:lang="en">coarse-grained elastic mesoscopic model</rdfs:label>
     </owl:Class>
     
 
@@ -24327,7 +24399,7 @@ Saving: users write the contents of a COORDS data set to a file using the crdout
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000987">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000475"/>
         <obo:IAO_0000115 xml:lang="en">The coarse-grained worm-like chain model represents a polymer (like DNA or a flexible protein segment) as a semi-flexible continuous filament characterized by its contour length and persistence length (a measure of stiffness). In simulations, this is often implemented as a chain of connected beads with potentials chosen to reproduce the statistical properties of the theoretical worm-like chain. This approach efficiently captures the large-scale conformational behavior of long, flexible polymers. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">coarse-grained worm-like chain*</rdfs:label>
+        <rdfs:label xml:lang="en">coarse-grained worm-like chain</rdfs:label>
     </owl:Class>
     
 
@@ -24348,7 +24420,8 @@ Saving: users write the contents of a COORDS data set to a file using the crdout
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000988"/>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000990"/>
         <obo:IAO_0000115 xml:lang="en">An experimental Nuclear Magnetic Resonance (NMR) phenomenon that arises from the through-space dipolar coupling between nearby nuclear spins (commonly protons), used as a complementary technique to MD. Detecting NOEs allows measurement of short inter-proton distances (typically &lt; 6 Å), providing crucial experimental restraints for determining or validating biomolecular structures and conformational ensembles in solution. MD simulations can be used to predict NOEs for comparison with experiments or refined using experimental NOE data. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">nuclear overhauser effect (NOE)</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">NOE</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">nuclear overhauser effect</rdfs:label>
     </owl:Class>
     
 
@@ -24358,7 +24431,8 @@ Saving: users write the contents of a COORDS data set to a file using the crdout
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000990">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000988"/>
         <obo:IAO_0000115 xml:lang="en">An experimental technique, either using X-rays (SAXS) or neutrons (SANS), where radiation is scattered by molecules in solution at low angles, providing information complementary to MD simulations. The resulting scattering profile is sensitive to the overall size, shape, and quaternary structure (oligomerization) of the molecules, averaged over the entire ensemble present in the sample. SAS data provides valuable low-resolution structural information that can be used to validate conformational ensembles generated by MD or to guide modeling of large-scale structures. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">small-angle scattering (SAS)</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">SAS</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">small-angle scattering</rdfs:label>
     </owl:Class>
     
 
@@ -24438,6 +24512,7 @@ Saving: users write the contents of a COORDS data set to a file using the crdout
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001015">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001014"/>
         <obo:IAO_0000115 xml:lang="en">UV/Visible (UV/Vis) spectra measure the absorption of ultraviolet and visible light by a sample as a function of wavelength. Absorption occurs when the light energy promotes electrons to higher energy levels (orbitals). This technique is widely used for quantitative measurements (concentration) and characterizing molecules with relevant electronic structures, like conjugated systems or metal ions. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">UV/Vis</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">UV/visible spectra</rdfs:label>
     </owl:Class>
     
@@ -25046,6 +25121,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001081">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001075"/>
         <obo:IAO_0000115 xml:lang="en">A simulation trajectory is the record of a molecule&apos;s motion over time, captured during a simulation. It consists of a time-ordered sequence of snapshots, or &quot;frames,&quot; where each frame contains the 3D coordinates of all atoms at a specific instant. This trajectory is the primary output of a molecular dynamics simulation and is the raw data used for all subsequent analysis of the system&apos;s dynamic behavior. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">trajectory</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">simulation trajectory</rdfs:label>
     </owl:Class>
     
@@ -27174,7 +27250,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001334">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">A type of structural property that measures the average distance between the atoms of two superimposed molecular structures. It is the most common metric for quantifying the difference between two conformations, often used to track a simulation&apos;s stability relative to a starting structure. Analysis outputs frequently report the RMSD value over time. This value is commonly referred to as rmsd in analysis scripts. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">root mean square deviation (RMSD)</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">RMSD</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">root mean square deviation</rdfs:label>
     </owl:Class>
     
 
@@ -27184,7 +27261,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001335">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">A type of structural property that measures the fluctuation of each individual atom around its average position over the course of a simulation. It is used to identify flexible or mobile regions within a molecule, such as loops or termini in a protein. Analysis outputs often report the per-residue RMSF or atomicfluct to highlight these regions. This value is commonly referred to as rmsf in analysis scripts. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">root mean square fluctuation (RMSF)</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">RMSF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">root mean square fluctuation</rdfs:label>
     </owl:Class>
     
 
@@ -27194,7 +27272,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001336">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">A type of structural property that measures the difference between two structures based on their internal pairwise atomic distances, rather than their Cartesian coordinates. This metric does not require structural alignment and can be more sensitive to changes in internal conformation. It is a useful alternative to standard RMSD for comparing flexible molecules. This value is often referred to as drms or dRMSD in analysis outputs. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">distance RMSD (dRMSD)</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">dRMSD</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">distance RMSD</rdfs:label>
     </owl:Class>
     
 
@@ -27274,6 +27353,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001344">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">A type of structural property that measures the overall compactness of a molecule or a group of atoms. It is calculated as the root-mean-square distance of the atoms from their common center of mass. The radius of gyration is used to monitor large-scale conformational changes like protein folding or unfolding. This value is often abbreviated as Rg or radgyr. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">Rg</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">radius of gyration</rdfs:label>
     </owl:Class>
     
@@ -27313,7 +27393,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001348">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
-        <obo:IAO_0000115 xml:lang="en">A type of structural property that represents the average number of neighboring particles within a certain distance of a central particle. For an ion in water, the Coordination Number typically refers to the number of water molecules in its first solvation shell. It is a fundamental descriptor of local solvent structure and is used to validate force fields. This value is often abbreviated as CN. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A type of structural property that represents the average number of neighboring particles within a certain distance of a central particle. For an ion in water, the Coordination Number typically refers to the number of water molecules in its first solvation shell. It is a fundamental descriptor of local solvent structure and is used to validate force fields. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">CN</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">coordination number</rdfs:label>
     </owl:Class>
     
@@ -28055,6 +28136,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001422">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001421"/>
         <obo:IAO_0000115 xml:lang="en">A specific type of `correlation function` that describes how the velocity of a particle at a given time is correlated with its velocity at a later time. The integral of the `Velocity Autocorrelation Function` is directly related to the diffusion coefficient of the particle. It is a key tool for analyzing the dynamics of liquids. This is often abbreviated as `VACF` or `VAC`. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">VACF</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">velocity autocorrelation function</rdfs:label>
     </owl:Class>
     
@@ -28435,6 +28517,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001460">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000627"/>
         <obo:IAO_0000115 xml:lang="en">The Local Density Approximation (LDA) is the simplest class of approximation used for the exchange-correlation functional in Density Functional Theory. It assumes that the exchange-correlation energy at any point in space depends only on the electron density at that same point. While computationally very fast, the LDA is generally less accurate than more sophisticated approximations like GGA or hybrid functionals. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">LDA</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">local density approximation</rdfs:label>
     </owl:Class>
     
@@ -28445,6 +28528,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001461">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000627"/>
         <obo:IAO_0000115 xml:lang="en">The Generalized Gradient Approximation (GGA) is a widely used class of approximation for the exchange-correlation functional in Density Functional Theory. It improves upon the Local Density Approximation by also considering the gradient, or the rate of change, of the electron density at each point. For experts, GGA functionals like BLYP or PBE generally provide significantly better accuracy for molecular geometries and energies than LDA functionals. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">GGA</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">generalized gradient approximation</rdfs:label>
     </owl:Class>
     
@@ -31033,6 +31117,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001719">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000407"/>
         <obo:IAO_0000115 xml:lang="en">The Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm is a powerful iterative method for solving unconstrained nonlinear optimization problems. It is a &quot;quasi-Newton&quot; method because it approximates the inverse of the Hessian matrix of second derivatives, which would be computationally expensive to calculate directly. For experts, BFGS is a highly efficient and widely used algorithm for geometry optimization in quantum chemistry calculations. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>BFGS</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">BFGS algorithm</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">Broyden-Fletcher-Goldfarb-Shanno algorithm</rdfs:label>
     </owl:Class>
     
@@ -31223,6 +31309,7 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001738">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001719"/>
         <obo:IAO_0000115 xml:lang="en">The limited-memory BFGS (L-BFGS) algorithm is a variant of the BFGS optimization algorithm that is specifically designed for problems with a very large number of variables. It avoids storing the full, dense approximation of the inverse Hessian matrix by instead storing only a few vectors that implicitly represent the approximation. For experts, L-BFGS is the method of choice for energy minimization of extremely large molecular systems where storing the full Hessian is impossible. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">L-BFGS algorithm</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">L-BGFS minimizer</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">limited-memory BFGS algorithm</rdfs:label>
     </owl:Class>
@@ -32940,6 +33027,7 @@ NMR refinement is a computational process used to generate or improve a three-di
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001909">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001908"/>
         <obo:IAO_0000115 xml:lang="en">An intrinsically disordered protein (IDP) system is a specific type of protein system focused on a protein that does not have a stable, folded three-dimensional structure. These proteins exist as a highly dynamic ensemble of different conformations. For experts, simulating IDPs is a major challenge that requires long simulations and advanced analysis techniques to characterize the broad range of structures they can adopt. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">IDP system</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">intrinsically disordered protein system</rdfs:label>
     </owl:Class>
     
@@ -33844,7 +33932,8 @@ NMR refinement is a computational process used to generate or improve a three-di
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001999">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000054"/>
         <obo:IAO_0000115 xml:lang="en">An enhanced version of the Particle Mesh Ewald method that uses Euler exponential splines (B-splines) to interpolate charge density onto a grid. Unlike standard PME which uses Lagrangian interpolation, SPME allows the potential to be differentiated analytically to obtain forces, improving energy conservation and accuracy. For experts, this is the standard implementation in packages like AMBER and GROMACS (Essmann et al., 1995), offering N log N scaling. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">smooth PME algorithm</rdfs:label>
+        <rdfs:comment xml:lang="en">SPME</rdfs:comment>
+        <rdfs:label xml:lang="en">smooth particle mesh Ewald</rdfs:label>
     </owl:Class>
     
 
@@ -33906,6 +33995,7 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002005">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000843"/>
         <obo:IAO_0000115 xml:lang="en">Non-equilibrium molecular dynamics (NEMD) is a class of simulation techniques where the system is actively driven away from thermodynamic equilibrium by the application of external forces or constraints. Instead of observing natural fluctuations, researchers use this method to study how the system responds to stress, such as mechanical pulling, shearing flow, or thermal gradients. For experts, these simulations are governed by non-Hamiltonian equations of motion or time-dependent biases and are fundamental for calculating transport coefficients or recovering equilibrium free energies using fluctuation theorems. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">NEMD</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">non-equilibrium molecular dynamics</rdfs:label>
     </owl:Class>
     
@@ -34206,7 +34296,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002035">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001421"/>
         <obo:IAO_0000115 xml:lang="en">A Spatial Distribution Function (SDF) is a three-dimensional map that describes the density of specific atoms or molecules around a central reference molecule relative to the average bulk density. Unlike a radial distribution function which averages over all angles, the SDF preserves angular information to reveal specific 3D features like hydration sites, hydrogen bonding networks, or ligand binding pockets. For experts, it is typically computed by binning atomic coordinates from a trajectory into a voxel grid, normalizing by the bulk number density, and is often visualized as isosurfaces at specific probability levels (e.g., 2x or 5x bulk density). (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">spatial distribution function (SDF)</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">SDF</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">spatial distribution function</rdfs:label>
     </owl:Class>
     
 
@@ -34615,6 +34706,214 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002075 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002075">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001072"/>
+        <obo:IAO_0000115 xml:lang="en">A dataset consisting of a collection of distinct molecular structures or conformations. Unlike a simulation trajectory, it does not inherently possess a chronological order, but rather represents a sampling of the structurally accessible states of a molecule (e.g., an NMR structural ensemble, or representative frames extracted via clustering). (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">structural ensemble</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">conformational ensemble</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002076 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002076">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000841"/>
+        <obo:IAO_0000115 xml:lang="en">Molecular mechanics is a computational method that uses the principles of classical physics to model the structure and behavior of molecules. It treats atoms as classical particles and bonds as springs, calculating the system&apos;s potential energy using empirically derived mathematical functions known as force fields. For computational chemists, this method bypasses the complexity of quantum mechanics, enabling the simulation of extremely large biomolecular systems over long timescales. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">MM</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym xml:lang="en">molecular mechanics method</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">molecular mechanics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002077 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002077">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000841"/>
+        <obo:IAO_0000115 xml:lang="en">An empirical scoring method is a computational technique used to estimate how tightly two molecules, like a drug and a protein, will bind to each other. It evaluates the binding affinity by summing up weighted mathematical terms for hydrogen bonding, hydrophobicity, and steric clashes, where the weights are derived from a dataset of known experimental affinities. In structure-based drug design, these computationally fast functions are the core engines of molecular docking software used for high-throughput virtual screening. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">empirical scoring function</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">empirical scoring method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002078 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002078">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000841"/>
+        <obo:IAO_0000115 xml:lang="en">An implicit solvent method is a modeling approach that approximates the effects of a surrounding liquid environment without simulating individual water molecules. It treats the solvent as a continuous dielectric medium and calculates solvation free energies using empirical parameters, such as atomic radii and surface tension coefficients. For simulation experts, methods like Generalized Born or Poisson-Boltzmann offer a highly efficient way to estimate solvation thermodynamics and binding affinities in MM/PBSA calculations. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">continuum solvation model</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">implicit solvent method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002079 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002079">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000841"/>
+        <obo:IAO_0000115 xml:lang="en">Elastic network modeling is a highly simplified computational approach used to study the large-scale flexibility and movement of massive biological structures. It represents a macromolecule as a collection of nodes, typically alpha-carbon atoms, connected by uniform or distance-dependent harmonic springs based on an empirical cutoff distance. Researchers use these coarse-grained models to rapidly compute low-frequency normal modes and collective motions, identifying hinge regions and allosteric pathways with minimal computational cost. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">ENM</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">elastic network modeling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002080 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002080">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000841"/>
+        <obo:IAO_0000115 xml:lang="en">Quantitative structure-activity relationship (QSAR) modeling is a computational method that links the chemical structure of a molecule to its biological effects. It employs statistical and machine learning algorithms to build mathematical models that correlate empirical biological activity data with calculated physicochemical or structural descriptors. In cheminformatics, these empirical models are heavily utilized to predict the toxicity, affinity, or pharmacokinetic properties of novel compounds prior to synthesis and testing. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">QSAR</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">quantitative structure-activity relationship modeling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002081 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002081">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000841"/>
+        <obo:IAO_0000115 xml:lang="en">A machine-learned potential method is an advanced computational technique that uses artificial intelligence to predict the energy and forces within a molecule. It replaces traditional physical equations with deep neural networks or kernel methods trained on vast datasets of high-level quantum mechanical or empirical data. This approach provides simulation experts with a powerful tool that approaches the accuracy of ab initio quantum chemistry while maintaining the computational efficiency of classical molecular mechanics. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">neural network potential</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">machine-learned potential method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002082 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002082">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001793"/>
+        <obo:IAO_0000115 xml:lang="en">A secondary structure change is a localized structural shift where a protein or nucleic acid chain alters its regular, repeating folding pattern. This transition typically involves the breaking and reforming of local backbone hydrogen bonds, such as a segment converting from an alpha-helix to a random coil or beta-sheet. For simulation experts, monitoring these changes is essential for understanding peptide flexibility, misfolding events, or structural adaptations upon ligand binding. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">secondary structure change</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002083 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002083">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001793"/>
+        <obo:IAO_0000115 xml:lang="en">Folding is the physical process by which a linear chain of amino acids or nucleotides collapses into its functional, three-dimensional shape. It involves navigating a complex free energy landscape driven by the hydrophobic effect, hydrogen bonding, and electrostatic interactions to reach a stable native state. For computational biologists, simulating this spontaneous self-assembly provides critical insights into the physical forces stabilizing biomolecules and the origins of misfolding diseases. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">folding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002084 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002084">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001793"/>
+        <obo:IAO_0000115 xml:lang="en">Unfolding is the process where a structured biological molecule loses its functional, three-dimensional shape and becomes a disordered chain. This cooperative transition involves the disruption of the native non-covalent interaction network, often triggered by changes in temperature, pressure, pH, or chemical denaturants. In molecular dynamics, studying unfolding pathways helps researchers map the free energy barriers of the system and identify metastable intermediate states. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">unfolding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002085 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002085">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001793"/>
+        <obo:IAO_0000115 xml:lang="en">A domain motion is a large-scale movement where an entire folded section of a protein shifts or rotates relative to the rest of the molecule. These collective structural transitions often occur via hinge-bending or twisting mechanisms connecting rigid subdomains, without disrupting the internal secondary structure of the moving parts. For researchers, analyzing these concerted motions is key to understanding large conformational changes necessary for enzyme catalysis, motor protein function, and allosteric regulation. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">domain motion</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002086 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002086">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001793"/>
+        <obo:IAO_0000115 xml:lang="en">An allosteric transition is a structural change in a molecule where an event at one site causes a functional shift at a distant site. This long-range communication propagates through the molecule via a network of coupled conformational fluctuations or structural rearrangements connecting the regulatory site to the active site. Simulating these transitions allows experts to map communication pathways within proteins and design allosteric drugs that modulate function without binding directly to the active site. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">allosteric transition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002087 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002087">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002086"/>
+        <obo:IAO_0000115 xml:lang="en">A ligand-induced allosteric transition is a remote structural change in a protein triggered specifically by the binding of a small molecule. The physical attachment of the ligand at the allosteric site alters the local energy landscape, shifting the conformational equilibrium of the entire protein toward a new active or inactive state. For drug discovery researchers, modeling this specific type of transition is crucial for identifying cryptic binding pockets and developing non-competitive inhibitors or activators. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">ligand-induced allosteric transition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002088 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002088">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002086"/>
+        <obo:IAO_0000115 xml:lang="en">An entropy-driven allosteric transition is a remote functional change in a molecule caused primarily by a shift in its internal flexibility rather than a visible change in its average shape. In this process, a perturbation at one site significantly alters the dynamic fluctuations and vibrational entropy of the molecule, transmitting an allosteric signal without requiring a large-scale structural rearrangement. For computational biophysicists, detecting these subtle transitions requires extensive dynamic analysis, such as covariance matrices or NMR relaxation predictions, to capture the changes in the conformational ensemble. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">entropy-driven allosteric transition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002089 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002089">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001793"/>
+        <obo:IAO_0000115 xml:lang="en">A sugar ring pucker transition is a localized flipping motion where the five-membered sugar ring of a nucleotide shifts between different non-planar shapes. This conformational transition typically involves interconversion between the C2&apos;-endo and C3&apos;-endo envelope states, altering the pseudorotation phase angle and shifting the overall nucleic acid backbone geometry. In molecular simulations, capturing the correct frequency of these puckering events is a critical test of a nucleic acid force field and is essential for distinguishing between A-form and B-form helices. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">sugar ring flip</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">sugar ring pucker transition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002090 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002090">
+        <obo:IAO_0000115 xml:lang="en">A molecular entity is a broad term used to describe any distinct physical or chemical building block within a modeled system. It encompasses a wide hierarchy of structural objects, including individual atoms, ions, monomeric residues, polymer chains, and complete molecules, all of which possess specific physical properties and spatial coordinates. For simulation experts and ontology developers, this serves as the foundational, top-level parent class for all structural components, providing a clean architectural root that can be easily mapped to external standards like the Basic Formal Ontology (BFO) or ChEBI. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">molecular entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002091 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002091">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002090"/>
+        <obo:IAO_0000115 xml:lang="en">A residue is a single monomeric building block within a larger polymeric chain, such as an individual amino acid in a protein or a nucleotide in DNA. In structural biology and modeling, it is defined as a discrete group of covalently bonded atoms that share a common identifier and are treated as a collective structural unit. For simulation experts, the residue level serves as a fundamental hierarchical grouping for assigning force field parameters, constructing topologies, and performing targeted structural analyses. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">residue</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002092 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002092">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002090"/>
+        <obo:IAO_0000115 xml:lang="en">An atom is the most basic, fundamental building block of matter that makes up all molecular structures. In the context of classical molecular modeling, it is mathematically represented as a point mass in three-dimensional space with specific physical properties, such as a partial charge and van der Waals radius, dictated by a force field. For simulation experts, the explicit representation and tracking of individual atoms are essential for calculating precise interatomic forces and generating high-resolution molecular dynamics trajectories. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">atom</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002093 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002093">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002090"/>
+        <obo:IAO_0000115 xml:lang="en">A chain is a continuous, linear sequence of linked molecular building blocks, such as a single strand of DNA or a folded polypeptide. Structurally, it consists of a series of covalently bonded residues that are grouped together under a unique alphanumeric identifier (Chain ID) within a coordinate file. In molecular simulations, properly defining separate chains is critical for accurately modeling multi-subunit complexes, preventing artificial cross-linking during topology generation, and analyzing intermolecular interactions. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">chain</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002094 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002094">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002090"/>
+        <obo:IAO_0000115 xml:lang="en">A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">molecule</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_010001 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_010001">
@@ -34899,16 +35198,6 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000328"/>
         <obo:IAO_0000115 xml:lang="en">LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">leap analysis</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://purl.obolibrary.org/obo/OBI_0000011 -->
-
-    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0000011">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <obo:IAO_0000115 xml:lang="en">A process that realizes a plan which is the concretization of a plan specification.</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">planned process</rdfs:label>
     </owl:Class>
     
 
@@ -35610,7 +35899,6 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000103">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000225"/>
         <obo:IAO_0000115 xml:lang="en">The term was initially used in an attempt to structure part of the ontology, but in retrospect failed to do a good job.</obo:IAO_0000115>
-        <obo:IAO_0000115 xml:lang="en">The term was used in an attempt to structure part of the ontology but in retrospect failed to do a good job</obo:IAO_0000115>
         <rdfs:label xml:lang="en">failed exploratory term</rdfs:label>
     </owl:NamedIndividual>
     
@@ -35630,7 +35918,6 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000121">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <obo:IAO_0000115 xml:lang="en">Term created to ease viewing/sort terms for development purpose, and will not be included in a release</obo:IAO_0000115>
         <obo:IAO_0000115 xml:lang="en">The term was created to ease viewing/sorting terms for development purposes, but will not be included in a release.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">organizational term</rdfs:label>
     </owl:NamedIndividual>
@@ -37158,10 +37445,10 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="urn:swrl#d">
+    <rdf:Description rdf:about="urn:swrl:var#d">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl#e">
+    <rdf:Description rdf:about="urn:swrl:var#e">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description>
@@ -37173,7 +37460,7 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -37183,8 +37470,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -37199,8 +37486,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000091"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -37216,7 +37503,7 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -37226,8 +37513,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -37242,8 +37529,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000086"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -37259,7 +37546,7 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -37269,8 +37556,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -37285,8 +37572,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000087"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -37302,7 +37589,7 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
                         <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -37312,8 +37599,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                                <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                                <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -37328,8 +37615,8 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
                     <rdf:Description>
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000085"/>
-                        <swrl:argument1 rdf:resource="urn:swrl#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl#d"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>

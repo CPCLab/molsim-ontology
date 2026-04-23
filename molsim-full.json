@@ -34,12 +34,12 @@
         "val" : "molsim"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-04-02"
+        "val" : "2026-04-23"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-04-02/molsim-full.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-04-23/molsim-full.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/APOLLO_SV_00000008",
@@ -12881,6 +12881,19 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/COB_0000035",
+      "lbl" : "completely executed planned process",
+      "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/COB_0000082",
+      "lbl" : "planned process",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A process that is initiated by an agent who intends to carry out a plan to achieve an objective through one or more actions as described in a plan specification."
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000003",
       "lbl" : "measurement unit label",
       "type" : "CLASS",
@@ -12955,11 +12968,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000027",
-      "lbl" : "data item",
+      "lbl" : "data entity",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An information content entity that is intended to be a truthful statement about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."
+          "val" : "An information content entity that is intended to be one or more truthful statement(s) about something (modulo, e.g., measurement precision or other systematic errors) and is constructed/acquired by a method which reliably tends to produce (approximately) truthful statements."
         }
       }
     }, {
@@ -13192,7 +13205,11 @@
       "meta" : {
         "definition" : {
           "val" : "A force field is a set of mathematical functions and associated parameters used to calculate the potential energy of a system of atoms based on their positions. It defines the forces governing interactions within molecules and between different molecules, enabling the simulation of molecular behavior. Force fields are the heart of classical molecular dynamics and modeling, providing the rules that dictate how atoms move and interact. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "FF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000008",
@@ -13994,7 +14011,11 @@
       "meta" : {
         "definition" : {
           "val" : "An informed search algorithm used for finding the shortest path between a starting node and a target node in a graph, commonly used in pathfinding and planning problems. It extends Dijkstra's algorithm by using a heuristic function to estimate the cost from the current node to the target, guiding the search towards the goal more efficiently. Its performance depends on the quality of the heuristic used (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "A-star search algorithm"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000092",
@@ -14235,15 +14256,15 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000117",
-      "lbl" : "Markov state models analysis",
+      "lbl" : "Markov state model analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Markov State Models (MSMs) are statistical models constructed from molecular dynamics simulation data to analyze the long-timescale kinetics and thermodynamics of the system. By discretizing conformational space into states and modeling transitions between them as memoryless (Markovian), MSMs allow estimation of properties like relaxation timescales, equilibrium populations, and dominant transition pathways from trajectory data. They are powerful tools for analyzing complex dynamics. (UNVERIFIED)"
+          "val" : "Markov State Models (MSM) are statistical models constructed from molecular dynamics simulation data to analyze the long-timescale kinetics and thermodynamics of the system. By discretizing conformational space into states and modeling transitions between them as memoryless (Markovian), MSMs allow estimation of properties like relaxation timescales, equilibrium populations, and dominant transition pathways from trajectory data. They are powerful tools for analyzing complex dynamics. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "MSMs"
+          "val" : "MSM"
         } ]
       }
     }, {
@@ -14780,7 +14801,11 @@
       "meta" : {
         "definition" : {
           "val" : "The fundamental physical theory describing the behavior of nature at the scale of atoms and subatomic particles, forming the theoretical basis for understanding chemical bonding and molecular properties. In computational chemistry, its principles are used to develop mathematical models and simulation methods for predicting molecular structures, energies, and reactivity. It provides the underlying rules for how electrons and nuclei interact within a molecule (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "QM"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000174",
@@ -14977,8 +15002,15 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "In statistical mechanics and molecular simulation, an ensemble is a theoretical construct representing an infinite collection of identical systems, each in a different possible microscopic state (defined by positions and momenta of all particles) but all corresponding to the same macroscopic thermodynamic state defined by a set of fixed variables (e.g., N, V, T or N, P, T). Molecular simulations generate trajectories that sample the microscopic states belonging to a specific ensemble, allowing the calculation of macroscopic properties as averages over these states. The choice of ensemble (e.g., NVE, NVT, NPT) determines which macroscopic variables are held constant during the simulation, mimicking specific experimental conditions. (UNVERIFIED)"
-        }
+          "val" : "A theoretical statistical mechanics construct representing a probability distribution for the state of a system, defined by a specific set of macroscopic variables held constant (e.g., NVT, NPT). In molecular simulation, it dictates the thermodynamic conditions and integration rules applied to generate a trajectory. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "statistical ensemble"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "thermodynamic ensemble"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000196",
@@ -15048,7 +15080,11 @@
       "meta" : {
         "definition" : {
           "val" : "X-ray crystallography is an experimental technique that determines the three-dimensional structure of molecules, particularly proteins, by analyzing the diffraction pattern produced when X-rays are scattered by a crystalline form of the molecule. The diffraction pattern contains information about the arrangement of electrons, allowing calculation of an electron density map into which the atomic structure can be built. It is capable of providing very high-resolution structural information. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "X-ray"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000202",
@@ -15070,7 +15106,11 @@
       "meta" : {
         "definition" : {
           "val" : "Cryogenic electron microscopy (Cryo-EM) is an experimental technique that determines the structure of molecules and complexes by imaging samples rapidly frozen in a thin layer of vitreous (non-crystalline) ice using an electron microscope. Sophisticated image processing techniques are used to average images of thousands or millions of individual particles to reconstruct a high-resolution three-dimensional density map. Cryo-EM is particularly powerful for large, flexible complexes that are difficult to crystallize. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "Cryo-EM"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000204",
@@ -15092,7 +15132,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000206",
-      "lbl" : "restraint electrostatic potential (RESP)",
+      "lbl" : "restrained electrostatic potential",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -15137,7 +15177,11 @@
       "meta" : {
         "definition" : {
           "val" : "A specific simulation execution technique used to enhance sampling along a chosen reaction coordinate or order parameter, often for calculating the potential of mean force (PMF) or free energy profile associated with a process like ligand unbinding or a conformational change. It involves running multiple simulations, each confined ('biased') by a potential (the 'umbrella') to sample a specific window along the coordinate, with subsequent analysis required to unbias the results and reconstruct the overall profile. It falls under the category of enhanced sampling methods. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "US"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000211",
@@ -15307,12 +15351,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000229",
-      "lbl" : "simulation type",
+      "lbl" : "resolution-based simulation method",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Simulation type categorizes the specific methodology and level of detail employed in a computer simulation study, particularly within molecular modeling. This classification distinguishes between approaches like representing every atom versus grouping atoms, or using classical mechanics versus quantum mechanics. The choice of simulation type depends on the scientific question, system size, and desired timescale. (UNVERIFIED)"
-        }
+          "val" : "A resolution-based simulation method is a category of computational techniques classified by the level of structural detail used to represent the molecules in a system. This classification distinguishes between highly granular approaches that define every individual atom explicitly and reduced-representation models that simplify the system by grouping multiple atoms into interacting beads or pseudo-atoms. For simulation experts, the choice of resolution is a fundamental modeling decision that dictates the critical trade-off between atomistic accuracy and the computational efficiency required to access long timescales or massive macromolecular complexes. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "simulation type"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000230",
@@ -15321,7 +15369,11 @@
       "meta" : {
         "definition" : {
           "val" : "All-atom molecular dynamics (AA-MD) is a simulation technique where every individual atom in the molecular system, including hydrogen atoms and explicit solvent molecules, is represented. The motion of each atom is simulated over time by numerically integrating Newton's equations of motion using forces derived from a classical force field. This approach provides high structural detail but is computationally intensive, limiting accessible timescales and system sizes. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "AA-MD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000231",
@@ -15388,11 +15440,7 @@
       "meta" : {
         "definition" : {
           "val" : "The Potential of Mean Force (PMF) method calculates the free energy profile of a system as a function of one or more specific coordinates, often called reaction coordinates or order parameters (e.g., the distance between two molecules). It essentially describes the effective potential energy governing the system's behavior along those chosen coordinates, including entropic effects averaged over all other degrees of freedom. PMFs are crucial for understanding reaction mechanisms, binding processes, and conformational changes. (UNVERIFIED)"
-        },
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "PMF"
-        } ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000238",
@@ -15624,18 +15672,24 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
+          "val" : "MM/PBSA"
+        }, {
+          "pred" : "hasExactSynonym",
           "val" : "MMPBSA"
         } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000263",
-      "lbl" : "molecular mechanics generalized Born surface area analysi",
+      "lbl" : "molecular mechanics generalized Born surface area analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "MM/GBSA is an endpoint binding free energy estimation method closely related to MM/PBSA, differing primarily in how the polar solvation free energy is calculated. Instead of the computationally more intensive Poisson-Boltzmann equation, MM/GBSA uses the faster Generalized Born (GB) implicit solvent model to estimate the electrostatic contribution to solvation. Like MM/PBSA, it combines MM energies, GB polar solvation energy, and surface-area based nonpolar energy using simulation snapshots. (UNVERIFIED)"
         },
         "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MM/GBSA"
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "MMGBSA"
         } ]
@@ -15783,7 +15837,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000277",
-      "lbl" : "quasiharmonic mode analysis",
+      "lbl" : "quasiharmonic analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -15791,7 +15845,7 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "QH"
+          "val" : "QHA"
         } ]
       }
     }, {
@@ -15804,7 +15858,7 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "NM"
+          "val" : "NMA"
         } ]
       }
     }, {
@@ -16150,7 +16204,11 @@
       "meta" : {
         "definition" : {
           "val" : "Ramachandran plot data is a set of numbers representing the angles in a protein's backbone, which helps determine if its shape is realistic. As a type of structural property, this output_data_descriptor consists of the set of paired phi (φ) and psi (ψ) backbone dihedral angles for each residue in a protein structure. This raw data is the direct output of a Ramachandran analysis and is used to generate the corresponding 2D plot for validating the stereochemical quality of the protein backbone conformation. This data is often found in files with headers like \"phi,\" \"psi,\" \"Ramachandran,\" or \"dihedral angles.\" (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "Rama plot"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000316",
@@ -16159,7 +16217,11 @@
       "meta" : {
         "definition" : {
           "val" : "A potential of mean force is an energy profile that shows how much energy it takes to move a molecule from one place to another. As a type of free energy, the Potential of Mean Force (PMF) is an output_data_descriptor that represents the free energy of a system as a function of one or more specific geometric coordinates, known as reaction coordinates. The PMF describes the energetic landscape along a pathway, with its minima representing stable states and its maxima corresponding to transition state energy barriers. This is commonly referred to in analysis outputs and publications as \"PMF,\" \"free energy profile,\" \"Potential of Mean Force,\" or \"pmf.dat.\" (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "PMF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000317",
@@ -16250,6 +16312,9 @@
           "val" : "A stochastic simulation method that relies on repeated random sampling to explore the configurational space of a molecular system. Unlike molecular dynamics, which integrates equations of motion over time, Monte Carlo generates a sequence of states by proposing random trial moves (such as atom displacements or molecular rotations) and accepting or rejecting them based on a thermodynamic probability criterion, typically the Metropolis algorithm. It is widely used for calculating equilibrium thermodynamic properties and sampling conformational ensembles. (UNVERIFIED)"
         },
         "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MC"
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "MC simulation"
         } ]
@@ -16477,7 +16542,11 @@
       "meta" : {
         "definition" : {
           "val" : "Small-angle X-ray scattering (SAXS) is an experimental technique that provides information about the overall size and shape of molecules as they exist in solution. It works by measuring the pattern of X-rays scattered at very small angles by a sample, which is sensitive to the molecule's global structure. This low-resolution experimental data is extremely valuable for validating the conformational ensembles generated by molecular dynamics simulations, ensuring they are consistent with the molecule's average shape in solution. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "SAXS"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000351",
@@ -16529,7 +16598,11 @@
       "meta" : {
         "definition" : {
           "val" : "Thermodynamic Integration (TI) is a rigorous statistical mechanics method used to calculate free energy differences between two defined states (e.g., A and B) by simulating a reversible, non-physical transformation pathway connecting them. It involves calculating the ensemble average of the derivative of the system's energy with respect to a coupling parameter (λ) at several points along the path and integrating this derivative over the path (ΔG=∫01 ⟨∂H/∂λ⟩ λdλ). This framework encompasses various specific approaches and implementation details. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "TI"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000356",
@@ -16830,7 +16903,11 @@
       "meta" : {
         "definition" : {
           "val" : "A QM/MM simulation is a multiscale simulation method that combines a high-accuracy Quantum Mechanics (QM) description for a small, chemically active region with a fast, classical Molecular Mechanics (MM) force field for the large surrounding environment. This hybrid approach allows for the simulation of processes like chemical reactions in the context of a complex biological system, such as an enzyme active site. For experts, QM/MM is the state-of-the-art method for studying bond-breaking and bond-forming events in biomolecules. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "QM/MM"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000389",
@@ -16893,7 +16970,11 @@
       "meta" : {
         "definition" : {
           "val" : "Accelerated molecular dynamics is a special type of simulation that helps molecules explore different shapes much faster than they normally would. It works by adding a \"boost\" to the system's energy, effectively lowering the energy barriers that separate different molecular conformations. For experts, aMD is an enhanced sampling method that adds a non-negative, history-independent bias potential when the system's potential energy is below a certain threshold, allowing for the recovery of canonical averages through energetic reweighting. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "aMD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000396",
@@ -16902,7 +16983,11 @@
       "meta" : {
         "definition" : {
           "val" : "Gaussian accelerated molecular dynamics (GaMD) is an enhanced sampling method that speeds up simulations by adding a boost potential that has a Gaussian distribution. This method smooths the potential energy surface, allowing the system to more easily escape from local energy minima. For experts, GaMD is a robust method that does not require predefined collective variables and allows for the accurate recovery of the original free energy landscape through cumulant expansion. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "GaMD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000397",
@@ -17082,7 +17167,11 @@
       "meta" : {
         "definition" : {
           "val" : "Constant pH molecular dynamics (CpHMD) is a specialized simulation method that allows the protonation states of acidic and basic residues in a molecule to change during the simulation. This is achieved by performing Monte Carlo moves that attempt to add or remove protons, with the acceptance of these moves being determined by the target pH of the simulation. For experts, CpHMD is an essential technique for studying proteins and processes whose structure and function are sensitive to pH. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "CpHMD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000417",
@@ -17449,7 +17538,11 @@
       "meta" : {
         "definition" : {
           "val" : "Time-lagged Independent Component Analysis (tICA) is an advanced analysis method used to identify the slowest, most persistent motions from a molecular dynamics simulation. It is a dimensionality reduction technique that finds the collective coordinates that change most slowly over a specific time lag, which are often the most important for understanding the system's long-timescale functional dynamics. These slow coordinates are frequently used as the basis for building Markov State Models to describe the system's kinetics. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "tICA"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000456",
@@ -17577,7 +17670,11 @@
       "meta" : {
         "definition" : {
           "val" : "Förster Resonance Energy Transfer, or FRET, is a specific phenomenon in fluorescence spectroscopy where an excited donor fluorophore non-radiatively transfers its energy to a nearby acceptor fluorophore. The efficiency of this energy transfer is extremely sensitive to the distance between the two molecules, making it a \"spectroscopic ruler.\" For biophysicists, FRET is a powerful experimental method for measuring distances and distance changes within and between biomolecules, providing data that can be used to validate simulation results. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "FRET"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000468",
@@ -17656,7 +17753,11 @@
       "meta" : {
         "definition" : {
           "val" : "Coarse-grained molecular dynamics (CG-MD) is a simulation method where groups of atoms are represented by single, simplified interaction sites or \"beads.\" This reduction in the number of particles significantly decreases computational cost, allowing simulations of much larger molecular systems or for much longer timescales compared to all-atom simulations. However, this gain in efficiency comes at the cost of losing fine-grained atomistic detail. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "CG-MD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000476",
@@ -19069,7 +19170,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000626",
-      "lbl" : "spin effect*",
+      "lbl" : "spin effect",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -20662,30 +20763,42 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000812",
-      "lbl" : "ROHF",
+      "lbl" : "restricted open-shell Hartree-Fock",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Restricted Open-shell Hartree-Fock, a specific formulation of the Hartree-Fock method designed for molecules with unpaired electrons (open-shell systems) where constraints are applied to keep spatial orbitals doubly occupied where possible. It provides a wavefunction that is an eigenfunction of the spin operator, which is often desirable but can be more computationally challenging than UHF for some systems. It is a type of ab initio calculation (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "ROHF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000813",
-      "lbl" : "SCF",
+      "lbl" : "self-consistent field",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Self-Consistent Field, the iterative computational procedure used to solve the equations in Hartree-Fock theory (and also in Density Functional Theory and some semi-empirical methods). The calculation starts with an initial guess for the electron distribution (orbitals), calculates the average field, finds new orbitals in that field, and repeats the process until the orbitals and the field they generate are consistent with each other. It is the numerical method for finding the Hartree-Fock solution, not the theory itself (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "SCF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000814",
-      "lbl" : "UHF",
+      "lbl" : "Unrestricted Hartree-Fock",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Unrestricted Hartree-Fock, a formulation of the Hartree-Fock method primarily used for open-shell systems (molecules with unpaired electrons). It allows alpha-spin electrons and beta-spin electrons to occupy different spatial orbitals, providing more flexibility than ROHF but resulting in a wavefunction that may not be a pure spin state (spin contamination). It is a type of ab initio calculation (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "UHF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000815",
@@ -20802,43 +20915,54 @@
       "meta" : {
         "definition" : {
           "val" : "Møller-Plesset perturbation theory (MPn) is a widely used post-Hartree-Fock method for adding electron correlation effects to the Hartree-Fock (HF) solution. It treats the difference between the exact Hamiltonian and the HF Hamiltonian as a perturbation, calculating energy corrections order-by-order (MP2, MP3, MP4, etc.). MP2 is the most common level, offering a computationally efficient way to include dynamic electron correlation. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MP"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000828",
-      "lbl" : "MP2",
+      "lbl" : "Moeller-Plesset 2",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "MP2 stands for second-order Møller-Plesset perturbation theory, representing the first and computationally least expensive level beyond Hartree-Fock that incorporates electron correlation effects. It calculates the second-order energy correction based on double excitations from the Hartree-Fock reference determinant. MP2 often provides a significant improvement in accuracy over Hartree-Fock for molecular geometries, interaction energies, and reaction energies, making it a very popular baseline correlation method. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MP2"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000829",
-      "lbl" : "MP3",
+      "lbl" : "Moeller-Plesset 3",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "MP3 represents third-order Møller-Plesset perturbation theory, calculating the energy correction up to the third order based on the Hartree-Fock reference. While it includes higher-order correlation effects compared to MP2, MP3 does not always offer a systematic improvement in accuracy over MP2 and can sometimes yield worse results. Consequently, it is less commonly used in computational chemistry applications compared to MP2 or MP4. (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "MP3" ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000830",
-      "lbl" : "MP4",
+      "lbl" : "Moeller-Plesset 4",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "MP4 stands for fourth-order Møller-Plesset perturbation theory, providing a higher level of electron correlation treatment by including energy contributions from single, double, triple, and quadruple excitations relative to the Hartree-Fock reference (often denoted MP4(SDTQ)). The inclusion of triple excitations, even if approximated, is particularly important for achieving high accuracy for many chemical systems. MP4 offers significantly better accuracy than MP2 but at a substantially higher computational cost. (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "MP4" ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000831",
-      "lbl" : "MP5",
+      "lbl" : "Moeller-Plesset 5",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "MP5 represents fifth-order Møller-Plesset perturbation theory, calculating the electron correlation energy correction up to the fifth order. It incorporates even higher-order excitation effects beyond MP4, aiming for further refinement in accuracy. However, the computational cost of MP5 is extremely high, and it is very rarely used in practice, as other methods like coupled cluster often provide similar or better accuracy more efficiently at that level of computational expense. (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "MP5" ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000832",
@@ -20851,48 +20975,68 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000833",
-      "lbl" : "CASSCF",
+      "lbl" : "complete active space self-consistent field",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Complete Active Space Self-Consistent Field, a specific and widely used type of multi-reference method (falling under the MC-SCF umbrella). It involves selecting a subset of electrons and orbitals deemed most important for the problem (the active space) and then performing a full configuration interaction calculation within that space while simultaneously optimizing the orbitals. CASSCF provides a qualitatively correct description of complex electronic structures but often needs further corrections for quantitative accuracy (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "CASSCF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000834",
-      "lbl" : "MC-SCF",
+      "lbl" : "multi-configurational self-consistent field",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Multi-Configurational Self-Consistent Field, a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED)."
-        }
+          "val" : "Multi-Configurational Self-Consistent Field (MC-SCF), a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED)."
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MC-SCF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000835",
-      "lbl" : "MR-CCSD",
+      "lbl" : "multi-reference coupled cluster with single and double excitations",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Multi-Reference Coupled Cluster with Single and Double excitations, a high-accuracy quantum chemistry method that incorporates dynamic electron correlation using the coupled-cluster approach built upon a multi-reference starting wavefunction (obtained from methods like CASSCF). It aims to provide a highly accurate description for systems where both static (multi-reference character) and dynamic correlation effects are significant. These calculations are computationally very expensive (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MR-CCSD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000836",
-      "lbl" : "MR-CI(SD)",
+      "lbl" : "multi-reference configuration interaction with single and double excitations",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Multi-Reference Configuration Interaction with Single and Double excitations, a quantum chemistry method that accounts for electron correlation by performing a configuration interaction calculation (including configurations generated by single and double electron excitations) starting from a multi-reference wavefunction (e.g., from CASSCF). Like MR-CCSD, it targets high accuracy for electronically complex systems but is computationally demanding and may suffer from size-consistency issues depending on the formulation. It offers an alternative way to add dynamic correlation to a multi-reference description (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MR-CI(SD)"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000837",
-      "lbl" : "RASSCF",
+      "lbl" : "restricted active space self-consistent field",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Restricted Active Space Self-Consistent Field, a flexible type of multi-reference method (within the MC-SCF family) similar to CASSCF but offering more control over the included electron configurations. The active space is divided into subspaces (RAS1, RAS2, RAS3) with restrictions on the number of electrons or excitations allowed within and between them, making calculations feasible for larger active spaces than typically possible with CASSCF. It allows a tailored balance between computational cost and the desired level of multi-reference treatment (UNVERIFIED)."
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "RASSCF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000838",
@@ -20946,7 +21090,11 @@
       "meta" : {
         "definition" : {
           "val" : "Molecular dynamics (MD) is a computer simulation technique used to study the physical movement of atoms and molecules over time. It calculates the forces between particles using an empirical potential energy function (force field) and then integrates Newton's equations of motion numerically to simulate how the positions and velocities evolve in small time steps. MD simulations provide detailed information about the dynamic behavior, conformational changes, and thermodynamics of molecular systems. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000844",
@@ -21000,7 +21148,11 @@
       "meta" : {
         "definition" : {
           "val" : "Locally Enhanced Sampling (LES) is a technique used to improve the conformational sampling of a specific, localized part of a larger molecular system (e.g., a flexible loop or a bound ligand). It involves simulating multiple, non-interacting copies of the atoms in this local region simultaneously, while these copies interact with only a single representation of the surrounding environment. This effectively increases the exploration of the local conformational space without replicating the entire system. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "LES"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000850",
@@ -21063,7 +21215,11 @@
       "meta" : {
         "definition" : {
           "val" : "The Nudged Elastic Band (NEB) method is primarily used to find the Minimum Energy Path (MEP) connecting two known stable states (e.g., reactant and product) on a potential energy surface. It works by optimizing a discrete chain of intermediate structures (images) linking the start and end points. Forces acting on the images perpendicular to the path are minimized, while spring forces along the path ensure continuity, guiding the chain towards the MEP, including the transition state. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "NEB"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000857",
@@ -21081,7 +21237,11 @@
       "meta" : {
         "definition" : {
           "val" : "Replica-exchange molecular dynamics (REMD), also known as parallel tempering, is an enhanced sampling technique that runs multiple simulations (replicas) of the same system in parallel, typically each at a different temperature. At regular intervals, attempts are made to swap the current configurations between pairs of replicas running at adjacent temperatures, accepted based on a probability criterion. This allows configurations explored at high temperatures (overcoming energy barriers) to diffuse down to lower temperatures, enhancing conformational sampling. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "REMD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000859",
@@ -21117,7 +21277,11 @@
       "meta" : {
         "definition" : {
           "val" : "Targeted Molecular Dynamics (TMD) is a simulation technique used to induce a conformational transition between a known initial structure and a known target structure. It achieves this by adding an extra potential energy term that biases the system to reduce its root-mean-square deviation (RMSD) relative to the target structure over the course of the simulation. TMD provides a plausible pathway for the transition, although not necessarily the minimum energy or most probable one. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "TMD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000863",
@@ -21126,7 +21290,11 @@
       "meta" : {
         "definition" : {
           "val" : "Transition Path Sampling (TPS) is a powerful simulation technique designed to study rare transition events between stable molecular states by directly sampling the ensemble of reactive pathways connecting them. Starting with one known reactive trajectory, it uses a Monte Carlo procedure in path space (generating new trial paths from old ones) to explore the set of all possible transition mechanisms without needing predefined reaction coordinates. TPS allows for the calculation of rate constants and detailed mechanistic analysis. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "TPS"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000864",
@@ -21135,7 +21303,11 @@
       "meta" : {
         "definition" : {
           "val" : "The Transition State Ensemble (TSE) refers to the collection of molecular configurations that lie at the top of the highest free energy barrier separating the reactant and product states of a process, such as protein folding or a chemical reaction. Structures within the TSE are equally likely to proceed forward to the product state or revert back to the reactant state (i.e., they have a committor probability of 0.5). Characterizing the structural features of the TSE is key to understanding the mechanism of the transition. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "TSE"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000865",
@@ -21144,7 +21316,11 @@
       "meta" : {
         "definition" : {
           "val" : "Transition Interface Sampling (TIS) is a path sampling technique, related to Forward Flux Sampling, used for calculating rate constants of rare events. It involves defining interfaces along an order parameter and then specifically sampling ensembles of trajectories that start in the reactant state and reach a particular interface, or start at one interface and reach the next. By calculating the crossing probabilities between interfaces, TIS reconstructs the overall rate constant. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "TIS"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000866",
@@ -22049,7 +22225,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000986",
-      "lbl" : "coarse-grained elastic mesoscopic model*",
+      "lbl" : "coarse-grained elastic mesoscopic model",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -22058,7 +22234,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000987",
-      "lbl" : "coarse-grained worm-like chain*",
+      "lbl" : "coarse-grained worm-like chain",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -22076,21 +22252,29 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000989",
-      "lbl" : "nuclear overhauser effect (NOE)",
+      "lbl" : "nuclear overhauser effect",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "An experimental Nuclear Magnetic Resonance (NMR) phenomenon that arises from the through-space dipolar coupling between nearby nuclear spins (commonly protons), used as a complementary technique to MD. Detecting NOEs allows measurement of short inter-proton distances (typically < 6 Å), providing crucial experimental restraints for determining or validating biomolecular structures and conformational ensembles in solution. MD simulations can be used to predict NOEs for comparison with experiments or refined using experimental NOE data. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "NOE"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000990",
-      "lbl" : "small-angle scattering (SAS)",
+      "lbl" : "small-angle scattering",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "An experimental technique, either using X-rays (SAXS) or neutrons (SANS), where radiation is scattered by molecules in solution at low angles, providing information complementary to MD simulations. The resulting scattering profile is sensitive to the overall size, shape, and quaternary structure (oligomerization) of the molecules, averaged over the entire ensemble present in the sample. SAS data provides valuable low-resolution structural information that can be used to validate conformational ensembles generated by MD or to guide modeling of large-scale structures. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "SAS"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001008",
@@ -22162,7 +22346,11 @@
       "meta" : {
         "definition" : {
           "val" : "UV/Visible (UV/Vis) spectra measure the absorption of ultraviolet and visible light by a sample as a function of wavelength. Absorption occurs when the light energy promotes electrons to higher energy levels (orbitals). This technique is widely used for quantitative measurements (concentration) and characterizing molecules with relevant electronic structures, like conjugated systems or metal ions. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "UV/Vis"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001016",
@@ -22791,7 +22979,11 @@
       "meta" : {
         "definition" : {
           "val" : "A simulation trajectory is the record of a molecule's motion over time, captured during a simulation. It consists of a time-ordered sequence of snapshots, or \"frames,\" where each frame contains the 3D coordinates of all atoms at a specific instant. This trajectory is the primary output of a molecular dynamics simulation and is the raw data used for all subsequent analysis of the system's dynamic behavior. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "trajectory"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001082",
@@ -24716,30 +24908,42 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001334",
-      "lbl" : "root mean square deviation (RMSD)",
+      "lbl" : "root mean square deviation",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A type of structural property that measures the average distance between the atoms of two superimposed molecular structures. It is the most common metric for quantifying the difference between two conformations, often used to track a simulation's stability relative to a starting structure. Analysis outputs frequently report the RMSD value over time. This value is commonly referred to as rmsd in analysis scripts. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "RMSD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001335",
-      "lbl" : "root mean square fluctuation (RMSF)",
+      "lbl" : "root mean square fluctuation",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A type of structural property that measures the fluctuation of each individual atom around its average position over the course of a simulation. It is used to identify flexible or mobile regions within a molecule, such as loops or termini in a protein. Analysis outputs often report the per-residue RMSF or atomicfluct to highlight these regions. This value is commonly referred to as rmsf in analysis scripts. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "RMSF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001336",
-      "lbl" : "distance RMSD (dRMSD)",
+      "lbl" : "distance RMSD",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A type of structural property that measures the difference between two structures based on their internal pairwise atomic distances, rather than their Cartesian coordinates. This metric does not require structural alignment and can be more sensitive to changes in internal conformation. It is a useful alternative to standard RMSD for comparing flexible molecules. This value is often referred to as drms or dRMSD in analysis outputs. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "dRMSD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001337",
@@ -24811,7 +25015,11 @@
       "meta" : {
         "definition" : {
           "val" : "A type of structural property that measures the overall compactness of a molecule or a group of atoms. It is calculated as the root-mean-square distance of the atoms from their common center of mass. The radius of gyration is used to monitor large-scale conformational changes like protein folding or unfolding. This value is often abbreviated as Rg or radgyr. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "Rg"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001345",
@@ -24846,8 +25054,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of structural property that represents the average number of neighboring particles within a certain distance of a central particle. For an ion in water, the Coordination Number typically refers to the number of water molecules in its first solvation shell. It is a fundamental descriptor of local solvent structure and is used to validate force fields. This value is often abbreviated as CN. (UNVERIFIED)"
-        }
+          "val" : "A type of structural property that represents the average number of neighboring particles within a certain distance of a central particle. For an ion in water, the Coordination Number typically refers to the number of water molecules in its first solvation shell. It is a fundamental descriptor of local solvent structure and is used to validate force fields. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "CN"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001349",
@@ -25517,7 +25729,11 @@
       "meta" : {
         "definition" : {
           "val" : "A specific type of `correlation function` that describes how the velocity of a particle at a given time is correlated with its velocity at a later time. The integral of the `Velocity Autocorrelation Function` is directly related to the diffusion coefficient of the particle. It is a key tool for analyzing the dynamics of liquids. This is often abbreviated as `VACF` or `VAC`. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "VACF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001423",
@@ -25859,7 +26075,11 @@
       "meta" : {
         "definition" : {
           "val" : "The Local Density Approximation (LDA) is the simplest class of approximation used for the exchange-correlation functional in Density Functional Theory. It assumes that the exchange-correlation energy at any point in space depends only on the electron density at that same point. While computationally very fast, the LDA is generally less accurate than more sophisticated approximations like GGA or hybrid functionals. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "LDA"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001461",
@@ -25868,7 +26088,11 @@
       "meta" : {
         "definition" : {
           "val" : "The Generalized Gradient Approximation (GGA) is a widely used class of approximation for the exchange-correlation functional in Density Functional Theory. It improves upon the Local Density Approximation by also considering the gradient, or the rate of change, of the electron density at each point. For experts, GGA functionals like BLYP or PBE generally provide significantly better accuracy for molecular geometries and energies than LDA functionals. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "GGA"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001462",
@@ -28242,7 +28466,14 @@
       "meta" : {
         "definition" : {
           "val" : "The Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm is a powerful iterative method for solving unconstrained nonlinear optimization problems. It is a \"quasi-Newton\" method because it approximates the inverse of the Hessian matrix of second derivatives, which would be computationally expensive to calculate directly. For experts, BFGS is a highly efficient and widely used algorithm for geometry optimization in quantum chemistry calculations. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "BFGS"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "BFGS algorithm"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001720",
@@ -28415,6 +28646,9 @@
           "val" : "The limited-memory BFGS (L-BFGS) algorithm is a variant of the BFGS optimization algorithm that is specifically designed for problems with a very large number of variables. It avoids storing the full, dense approximation of the inverse Hessian matrix by instead storing only a few vectors that implicitly represent the approximation. For experts, L-BFGS is the method of choice for energy minimization of extremely large molecular systems where storing the full Hessian is impossible. (UNVERIFIED)"
         },
         "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "L-BFGS algorithm"
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "L-BGFS minimizer"
         } ]
@@ -29971,7 +30205,11 @@
       "meta" : {
         "definition" : {
           "val" : "An intrinsically disordered protein (IDP) system is a specific type of protein system focused on a protein that does not have a stable, folded three-dimensional structure. These proteins exist as a highly dynamic ensemble of different conformations. For experts, simulating IDPs is a major challenge that requires long simulations and advanced analysis techniques to characterize the broad range of structures they can adopt. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "IDP system"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001910",
@@ -30789,12 +31027,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001999",
-      "lbl" : "smooth PME algorithm",
+      "lbl" : "smooth particle mesh Ewald",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "An enhanced version of the Particle Mesh Ewald method that uses Euler exponential splines (B-splines) to interpolate charge density onto a grid. Unlike standard PME which uses Lagrangian interpolation, SPME allows the potential to be differentiated analytically to obtain forces, improving energy conservation and accuracy. For experts, this is the standard implementation in packages like AMBER and GROMACS (Essmann et al., 1995), offering N log N scaling. (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "SPME" ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002000",
@@ -30848,7 +31087,11 @@
       "meta" : {
         "definition" : {
           "val" : "Non-equilibrium molecular dynamics (NEMD) is a class of simulation techniques where the system is actively driven away from thermodynamic equilibrium by the application of external forces or constraints. Instead of observing natural fluctuations, researchers use this method to study how the system responds to stress, such as mechanical pulling, shearing flow, or thermal gradients. For experts, these simulations are governed by non-Hamiltonian equations of motion or time-dependent biases and are fundamental for calculating transport coefficients or recovering equilibrium free energies using fluctuation theorems. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "NEMD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002006",
@@ -31113,12 +31356,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002035",
-      "lbl" : "spatial distribution function (SDF)",
+      "lbl" : "spatial distribution function",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A Spatial Distribution Function (SDF) is a three-dimensional map that describes the density of specific atoms or molecules around a central reference molecule relative to the average bulk density. Unlike a radial distribution function which averages over all angles, the SDF preserves angular information to reveal specific 3D features like hydration sites, hydrogen bonding networks, or ligand binding pockets. For experts, it is typically computed by binning atomic coordinates from a trajectory into a voxel grid, normalizing by the bulk number density, and is often visualized as isosurfaces at specific probability levels (e.g., 2x or 5x bulk density). (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "SDF"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002036",
@@ -31519,6 +31766,221 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002075",
+      "lbl" : "conformational ensemble",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A dataset consisting of a collection of distinct molecular structures or conformations. Unlike a simulation trajectory, it does not inherently possess a chronological order, but rather represents a sampling of the structurally accessible states of a molecule (e.g., an NMR structural ensemble, or representative frames extracted via clustering). (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "structural ensemble"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002076",
+      "lbl" : "molecular mechanics",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Molecular mechanics is a computational method that uses the principles of classical physics to model the structure and behavior of molecules. It treats atoms as classical particles and bonds as springs, calculating the system's potential energy using empirically derived mathematical functions known as force fields. For computational chemists, this method bypasses the complexity of quantum mechanics, enabling the simulation of extremely large biomolecular systems over long timescales. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MM"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "molecular mechanics method"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002077",
+      "lbl" : "empirical scoring method",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An empirical scoring method is a computational technique used to estimate how tightly two molecules, like a drug and a protein, will bind to each other. It evaluates the binding affinity by summing up weighted mathematical terms for hydrogen bonding, hydrophobicity, and steric clashes, where the weights are derived from a dataset of known experimental affinities. In structure-based drug design, these computationally fast functions are the core engines of molecular docking software used for high-throughput virtual screening. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "empirical scoring function"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002078",
+      "lbl" : "implicit solvent method",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An implicit solvent method is a modeling approach that approximates the effects of a surrounding liquid environment without simulating individual water molecules. It treats the solvent as a continuous dielectric medium and calculates solvation free energies using empirical parameters, such as atomic radii and surface tension coefficients. For simulation experts, methods like Generalized Born or Poisson-Boltzmann offer a highly efficient way to estimate solvation thermodynamics and binding affinities in MM/PBSA calculations. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "continuum solvation model"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002079",
+      "lbl" : "elastic network modeling",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Elastic network modeling is a highly simplified computational approach used to study the large-scale flexibility and movement of massive biological structures. It represents a macromolecule as a collection of nodes, typically alpha-carbon atoms, connected by uniform or distance-dependent harmonic springs based on an empirical cutoff distance. Researchers use these coarse-grained models to rapidly compute low-frequency normal modes and collective motions, identifying hinge regions and allosteric pathways with minimal computational cost. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "ENM"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002080",
+      "lbl" : "quantitative structure-activity relationship modeling",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Quantitative structure-activity relationship (QSAR) modeling is a computational method that links the chemical structure of a molecule to its biological effects. It employs statistical and machine learning algorithms to build mathematical models that correlate empirical biological activity data with calculated physicochemical or structural descriptors. In cheminformatics, these empirical models are heavily utilized to predict the toxicity, affinity, or pharmacokinetic properties of novel compounds prior to synthesis and testing. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "QSAR"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002081",
+      "lbl" : "machine-learned potential method",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A machine-learned potential method is an advanced computational technique that uses artificial intelligence to predict the energy and forces within a molecule. It replaces traditional physical equations with deep neural networks or kernel methods trained on vast datasets of high-level quantum mechanical or empirical data. This approach provides simulation experts with a powerful tool that approaches the accuracy of ab initio quantum chemistry while maintaining the computational efficiency of classical molecular mechanics. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "neural network potential"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002082",
+      "lbl" : "secondary structure change",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A secondary structure change is a localized structural shift where a protein or nucleic acid chain alters its regular, repeating folding pattern. This transition typically involves the breaking and reforming of local backbone hydrogen bonds, such as a segment converting from an alpha-helix to a random coil or beta-sheet. For simulation experts, monitoring these changes is essential for understanding peptide flexibility, misfolding events, or structural adaptations upon ligand binding. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002083",
+      "lbl" : "folding",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Folding is the physical process by which a linear chain of amino acids or nucleotides collapses into its functional, three-dimensional shape. It involves navigating a complex free energy landscape driven by the hydrophobic effect, hydrogen bonding, and electrostatic interactions to reach a stable native state. For computational biologists, simulating this spontaneous self-assembly provides critical insights into the physical forces stabilizing biomolecules and the origins of misfolding diseases. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002084",
+      "lbl" : "unfolding",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "Unfolding is the process where a structured biological molecule loses its functional, three-dimensional shape and becomes a disordered chain. This cooperative transition involves the disruption of the native non-covalent interaction network, often triggered by changes in temperature, pressure, pH, or chemical denaturants. In molecular dynamics, studying unfolding pathways helps researchers map the free energy barriers of the system and identify metastable intermediate states. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002085",
+      "lbl" : "domain motion",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A domain motion is a large-scale movement where an entire folded section of a protein shifts or rotates relative to the rest of the molecule. These collective structural transitions often occur via hinge-bending or twisting mechanisms connecting rigid subdomains, without disrupting the internal secondary structure of the moving parts. For researchers, analyzing these concerted motions is key to understanding large conformational changes necessary for enzyme catalysis, motor protein function, and allosteric regulation. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002086",
+      "lbl" : "allosteric transition",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An allosteric transition is a structural change in a molecule where an event at one site causes a functional shift at a distant site. This long-range communication propagates through the molecule via a network of coupled conformational fluctuations or structural rearrangements connecting the regulatory site to the active site. Simulating these transitions allows experts to map communication pathways within proteins and design allosteric drugs that modulate function without binding directly to the active site. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002087",
+      "lbl" : "ligand-induced allosteric transition",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A ligand-induced allosteric transition is a remote structural change in a protein triggered specifically by the binding of a small molecule. The physical attachment of the ligand at the allosteric site alters the local energy landscape, shifting the conformational equilibrium of the entire protein toward a new active or inactive state. For drug discovery researchers, modeling this specific type of transition is crucial for identifying cryptic binding pockets and developing non-competitive inhibitors or activators. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002088",
+      "lbl" : "entropy-driven allosteric transition",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An entropy-driven allosteric transition is a remote functional change in a molecule caused primarily by a shift in its internal flexibility rather than a visible change in its average shape. In this process, a perturbation at one site significantly alters the dynamic fluctuations and vibrational entropy of the molecule, transmitting an allosteric signal without requiring a large-scale structural rearrangement. For computational biophysicists, detecting these subtle transitions requires extensive dynamic analysis, such as covariance matrices or NMR relaxation predictions, to capture the changes in the conformational ensemble. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002089",
+      "lbl" : "sugar ring pucker transition",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A sugar ring pucker transition is a localized flipping motion where the five-membered sugar ring of a nucleotide shifts between different non-planar shapes. This conformational transition typically involves interconversion between the C2'-endo and C3'-endo envelope states, altering the pseudorotation phase angle and shifting the overall nucleic acid backbone geometry. In molecular simulations, capturing the correct frequency of these puckering events is a critical test of a nucleic acid force field and is essential for distinguishing between A-form and B-form helices. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "sugar ring flip"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002090",
+      "lbl" : "molecular entity",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecular entity is a broad term used to describe any distinct physical or chemical building block within a modeled system. It encompasses a wide hierarchy of structural objects, including individual atoms, ions, monomeric residues, polymer chains, and complete molecules, all of which possess specific physical properties and spatial coordinates. For simulation experts and ontology developers, this serves as the foundational, top-level parent class for all structural components, providing a clean architectural root that can be easily mapped to external standards like the Basic Formal Ontology (BFO) or ChEBI. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002091",
+      "lbl" : "residue",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A residue is a single monomeric building block within a larger polymeric chain, such as an individual amino acid in a protein or a nucleotide in DNA. In structural biology and modeling, it is defined as a discrete group of covalently bonded atoms that share a common identifier and are treated as a collective structural unit. For simulation experts, the residue level serves as a fundamental hierarchical grouping for assigning force field parameters, constructing topologies, and performing targeted structural analyses. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002092",
+      "lbl" : "atom",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An atom is the most basic, fundamental building block of matter that makes up all molecular structures. In the context of classical molecular modeling, it is mathematically represented as a point mass in three-dimensional space with specific physical properties, such as a partial charge and van der Waals radius, dictated by a force field. For simulation experts, the explicit representation and tracking of individual atoms are essential for calculating precise interatomic forces and generating high-resolution molecular dynamics trajectories. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002093",
+      "lbl" : "chain",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A chain is a continuous, linear sequence of linked molecular building blocks, such as a single strand of DNA or a folded polypeptide. Structurally, it consists of a series of covalently bonded residues that are grouped together under a unique alphanumeric identifier (Chain ID) within a coordinate file. In molecular simulations, properly defining separate chains is critical for accurately modeling multi-subunit complexes, preventing artificial cross-linking during topology generation, and analyzing intermolecular interactions. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002094",
+      "lbl" : "molecule",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -31800,15 +32262,6 @@
       "meta" : {
         "definition" : {
           "val" : "LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)"
-        }
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/OBI_0000011",
-      "lbl" : "planned process",
-      "type" : "CLASS",
-      "meta" : {
-        "definition" : {
-          "val" : "A process that realizes a plan which is the concretization of a plan specification."
         }
       }
     }, {
@@ -32451,22 +32904,22 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000299",
-      "lbl" : "has_specified_output",
+      "lbl" : "has specified output",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "The inverse property of is_specified_output_of"
+          "val" : "The inverse property of is specified output of"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000312",
-      "lbl" : "is_specified_output_of",
+      "lbl" : "is specified output of",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."
+          "val" : "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."
         }
       }
     }, {
@@ -32507,7 +32960,11 @@
       "meta" : {
         "definition" : {
           "val" : "a relation between a process and a continuant, in which the continuant is somehow involved in the process"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "http://www.obofoundry.org/ro/#OBO_REL:has_participant"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/RO_0000058",
@@ -32516,7 +32973,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "A relationship between a generically dependent continuant and a specifically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants."
+          "val" : "A relationship between a generically dependent continuant and a specifically dependent continuant or process, in which the generically dependent continuant depends on some independent continuant or process in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. A generically dependent continuant may be concretized as multiple specifically dependent continuants or processes."
         }
       }
     }, {
@@ -32526,7 +32983,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "A relationship between a specifically dependent continuant and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant also depends on that same independent continuant. Multiple specifically dependent continuants can concretize the same generically dependent continuant."
+          "val" : "A relationship between a specifically dependent continuant or process and a generically dependent continuant, in which the generically dependent continuant depends on some independent continuant in virtue of the fact that the specifically dependent continuant or process also depends on that same independent continuant. Multiple specifically dependent continuants or processes can concretize the same generically dependent continuant."
         }
       }
     }, {
@@ -33087,7 +33544,7 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "The term was used in an attempt to structure part of the ontology but in retrospect failed to do a good job"
+          "val" : "The term was initially used in an attempt to structure part of the ontology, but in retrospect failed to do a good job."
         }
       }
     }, {
@@ -34001,7 +34458,7 @@
     "edges" : [ {
       "sub" : "http://purl.obolibrary.org/obo/APOLLO_SV_00000008",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/OBI_0000011"
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000035"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/BFO_0000002",
       "pred" : "is_a",
@@ -35227,6 +35684,14 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/CHEBI_195439"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/COB_0000035",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/COB_0000082",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/IAO_0000003",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000009"
@@ -35337,7 +35802,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/IAO_0020010",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/OBI_0000011"
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000035"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/IAO_0020010",
       "pred" : "http://purl.obolibrary.org/obo/OBI_0000299",
@@ -43227,6 +43692,82 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002067"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002075",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002076",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000841"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002077",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000841"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002078",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000841"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002079",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000841"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002080",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000841"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002081",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000841"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002082",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001793"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002083",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001793"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002084",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001793"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002085",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001793"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002086",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001793"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002087",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002086"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002088",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002086"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002089",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001793"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002091",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002092",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002093",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002094",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
@@ -43338,10 +43879,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010028",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000328"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/OBI_0000011",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000000",
       "pred" : "is_a",
@@ -43999,6 +44536,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000235"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000299",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000312"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/RO_0000052",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0000053"
@@ -44029,7 +44570,7 @@
     } ],
     "logicalDefinitionAxioms" : [ {
       "definedClassId" : "http://purl.obolibrary.org/obo/APOLLO_SV_00000008",
-      "genusIds" : [ "http://purl.obolibrary.org/obo/OBI_0000011" ]
+      "genusIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ]
     }, {
       "definedClassId" : "http://purl.obolibrary.org/obo/IAO_0000015",
       "genusIds" : [ "http://purl.obolibrary.org/obo/BFO_0000019" ],
@@ -44049,7 +44590,7 @@
       } ]
     }, {
       "definedClassId" : "http://purl.obolibrary.org/obo/IAO_0020010",
-      "genusIds" : [ "http://purl.obolibrary.org/obo/OBI_0000011" ],
+      "genusIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ],
       "restrictions" : [ {
         "propertyId" : "http://purl.obolibrary.org/obo/OBI_0000299",
         "fillerId" : "http://purl.obolibrary.org/obo/IAO_0020000"
@@ -44116,7 +44657,7 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001994" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/OBI_0000299",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/OBI_0000011" ]
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000056",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000002" ],
@@ -44127,12 +44668,7 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000002" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000058",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000031" ],
-      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000020" ]
-    }, {
-      "predicateId" : "http://purl.obolibrary.org/obo/RO_0000059",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000020" ],
-      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000031" ]
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000031" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000079",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000034" ]
@@ -44150,10 +44686,13 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000016" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/OBI_0000312",
-      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/OBI_0000011" ]
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000053",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000020" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/RO_0000059",
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000031" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000086",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000019" ]

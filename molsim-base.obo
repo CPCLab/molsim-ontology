@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-04-02/molsim-base.owl
+data-version: molsim/releases/2026-04-23/molsim-base.owl
 default-namespace: molsim
 idspace: dce http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -17,7 +17,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by-nc-sa/4.
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-04-02" xsd:string
+property_value: owl:versionInfo "2026-04-23" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -64,6 +64,7 @@ def: "A simplified representation used to study a real-world system, such as a m
 id: MOLSIM:000007
 name: force field
 def: "A force field is a set of mathematical functions and associated parameters used to calculate the potential energy of a system of atoms based on their positions. It defines the forces governing interactions within molecules and between different molecules, enabling the simulation of molecular behavior. Force fields are the heart of classical molecular dynamics and modeling, providing the rules that dictate how atoms move and interact. (UNVERIFIED)" []
+synonym: "FF" EXACT []
 is_a: MOLSIM:000006 ! model
 
 [Term]
@@ -589,6 +590,7 @@ is_a: MOLSIM:000087 ! optimal transformation path algorithm
 id: MOLSIM:000091
 name: A* search algorithm
 def: "An informed search algorithm used for finding the shortest path between a starting node and a target node in a graph, commonly used in pathfinding and planning problems. It extends Dijkstra's algorithm by using a heuristic function to estimate the cost from the current node to the target, guiding the search towards the goal more efficiently. Its performance depends on the quality of the heuristic used (UNVERIFIED)." []
+synonym: "A-star search algorithm" EXACT []
 is_a: MOLSIM:000087 ! optimal transformation path algorithm
 
 [Term]
@@ -749,9 +751,9 @@ is_a: MOLSIM:000349 ! resampling method
 
 [Term]
 id: MOLSIM:000117
-name: Markov state models analysis
-def: "Markov State Models (MSMs) are statistical models constructed from molecular dynamics simulation data to analyze the long-timescale kinetics and thermodynamics of the system. By discretizing conformational space into states and modeling transitions between them as memoryless (Markovian), MSMs allow estimation of properties like relaxation timescales, equilibrium populations, and dominant transition pathways from trajectory data. They are powerful tools for analyzing complex dynamics. (UNVERIFIED)" []
-synonym: "MSMs" EXACT []
+name: Markov state model analysis
+def: "Markov State Models (MSM) are statistical models constructed from molecular dynamics simulation data to analyze the long-timescale kinetics and thermodynamics of the system. By discretizing conformational space into states and modeling transitions between them as memoryless (Markovian), MSMs allow estimation of properties like relaxation timescales, equilibrium populations, and dominant transition pathways from trajectory data. They are powerful tools for analyzing complex dynamics. (UNVERIFIED)" []
+synonym: "MSM" EXACT []
 is_a: MOLSIM:000300 ! free energy and molecular dynamics analysis
 
 [Term]
@@ -1099,6 +1101,7 @@ is_a: MOLSIM:001850 ! modeling and setup tool
 id: MOLSIM:000173
 name: quantum mechanics
 def: "The fundamental physical theory describing the behavior of nature at the scale of atoms and subatomic particles, forming the theoretical basis for understanding chemical bonding and molecular properties. In computational chemistry, its principles are used to develop mathematical models and simulation methods for predicting molecular structures, energies, and reactivity. It provides the underlying rules for how electrons and nuclei interact within a molecule (UNVERIFIED)." []
+synonym: "QM" EXACT []
 is_a: MOLSIM:000141 ! theoretical approach
 
 [Term]
@@ -1236,7 +1239,9 @@ is_a: MOLSIM:000063 ! covalent interaction
 [Term]
 id: MOLSIM:000195
 name: ensemble
-def: "In statistical mechanics and molecular simulation, an ensemble is a theoretical construct representing an infinite collection of identical systems, each in a different possible microscopic state (defined by positions and momenta of all particles) but all corresponding to the same macroscopic thermodynamic state defined by a set of fixed variables (e.g., N, V, T or N, P, T). Molecular simulations generate trajectories that sample the microscopic states belonging to a specific ensemble, allowing the calculation of macroscopic properties as averages over these states. The choice of ensemble (e.g., NVE, NVT, NPT) determines which macroscopic variables are held constant during the simulation, mimicking specific experimental conditions. (UNVERIFIED)" []
+def: "A theoretical statistical mechanics construct representing a probability distribution for the state of a system, defined by a specific set of macroscopic variables held constant (e.g., NVT, NPT). In molecular simulation, it dictates the thermodynamic conditions and integration rules applied to generate a trajectory. (UNVERIFIED)" []
+synonym: "statistical ensemble" EXACT []
+synonym: "thermodynamic ensemble" EXACT []
 is_a: MOLSIM:000006 ! model
 
 [Term]
@@ -1278,6 +1283,7 @@ is_a: MOLSIM:000304 ! experimental method
 id: MOLSIM:000201
 name: X-ray crystallography
 def: "X-ray crystallography is an experimental technique that determines the three-dimensional structure of molecules, particularly proteins, by analyzing the diffraction pattern produced when X-rays are scattered by a crystalline form of the molecule. The diffraction pattern contains information about the arrangement of electrons, allowing calculation of an electron density map into which the atomic structure can be built. It is capable of providing very high-resolution structural information. (UNVERIFIED)" []
+synonym: "X-ray" EXACT []
 is_a: MOLSIM:000200 ! protein structure determination method
 disjoint_from: MOLSIM:000202 ! nuclear magnetic resonance
 
@@ -1292,6 +1298,7 @@ is_a: MOLSIM:000200 ! protein structure determination method
 id: MOLSIM:000203
 name: cryogenic electron microscopy
 def: "Cryogenic electron microscopy (Cryo-EM) is an experimental technique that determines the structure of molecules and complexes by imaging samples rapidly frozen in a thin layer of vitreous (non-crystalline) ice using an electron microscope. Sophisticated image processing techniques are used to average images of thousands or millions of individual particles to reconstruct a high-resolution three-dimensional density map. Cryo-EM is particularly powerful for large, flexible complexes that are difficult to crystallize. (UNVERIFIED)" []
+synonym: "Cryo-EM" EXACT []
 is_a: MOLSIM:000200 ! protein structure determination method
 
 [Term]
@@ -1305,11 +1312,11 @@ id: MOLSIM:000205
 name: AM1-BCC
 def: "A widely used method for assigning atom-centered partial charges to organic molecules, particularly suitable for general force fields like GAFF (stands for Austin Model 1 - Bond Charge Correction). It involves a two-step process: first, charges are calculated using the computationally inexpensive semi-empirical AM1 quantum mechanical method; second, empirical Bond Charge Corrections (BCCs) are added to these initial charges based on atom and bond types to make them better reproduce the electrostatic potential obtained from higher-level QM calculations (typically HF/6-31G*). AM1-BCC aims to provide a balance between speed and accuracy for charging diverse organic ligands. (UNVERIFIED)" []
 is_a: MOLSIM:000204 ! ligand charge model
-disjoint_from: MOLSIM:000206 ! restraint electrostatic potential (RESP)
+disjoint_from: MOLSIM:000206 ! restrained electrostatic potential
 
 [Term]
 id: MOLSIM:000206
-name: restraint electrostatic potential (RESP)
+name: restrained electrostatic potential
 def: "A popular method for deriving high-quality partial atomic charges for molecules, frequently used in conjunction with the AMBER force fields. It involves calculating the quantum mechanical electrostatic potential (ESP) on a grid of points around the molecule (typically using Hartree-Fock or DFT methods), and then fitting atom-centered point charges to reproduce this ESP using a least-squares algorithm. Crucially, 'restraints' (typically hyperbolic penalties) are applied during the fitting process to prevent unrealistically large charges on buried atoms and ensure transferability, often performed in multiple stages for chemical equivalence. (UNVERIFIED)" []
 synonym: "RESP" EXACT []
 is_a: MOLSIM:000204 ! ligand charge model
@@ -1336,6 +1343,7 @@ is_a: MOLSIM:000002 ! preparation
 id: MOLSIM:000210
 name: umbrella sampling
 def: "A specific simulation execution technique used to enhance sampling along a chosen reaction coordinate or order parameter, often for calculating the potential of mean force (PMF) or free energy profile associated with a process like ligand unbinding or a conformational change. It involves running multiple simulations, each confined ('biased') by a potential (the 'umbrella') to sample a specific window along the coordinate, with subsequent analysis required to unbias the results and reconstruct the overall profile. It falls under the category of enhanced sampling methods. (UNVERIFIED)" []
+synonym: "US" EXACT []
 is_a: MOLSIM:000003 ! execution
 disjoint_from: MOLSIM:000211 ! production
 
@@ -1451,15 +1459,17 @@ is_a: MOLSIM:000227 ! membrane protein orientation tool
 
 [Term]
 id: MOLSIM:000229
-name: simulation type
-def: "Simulation type categorizes the specific methodology and level of detail employed in a computer simulation study, particularly within molecular modeling. This classification distinguishes between approaches like representing every atom versus grouping atoms, or using classical mechanics versus quantum mechanics. The choice of simulation type depends on the scientific question, system size, and desired timescale. (UNVERIFIED)" []
+name: resolution-based simulation method
+def: "A resolution-based simulation method is a category of computational techniques classified by the level of structural detail used to represent the molecules in a system. This classification distinguishes between highly granular approaches that define every individual atom explicitly and reduced-representation models that simplify the system by grouping multiple atoms into interacting beads or pseudo-atoms. For simulation experts, the choice of resolution is a fundamental modeling decision that dictates the critical trade-off between atomistic accuracy and the computational efficiency required to access long timescales or massive macromolecular complexes. (UNVERIFIED)" []
+synonym: "simulation type" EXACT []
 is_a: MOLSIM:000308 ! simulation method
 
 [Term]
 id: MOLSIM:000230
 name: all-atom molecular dynamics
 def: "All-atom molecular dynamics (AA-MD) is a simulation technique where every individual atom in the molecular system, including hydrogen atoms and explicit solvent molecules, is represented. The motion of each atom is simulated over time by numerically integrating Newton's equations of motion using forces derived from a classical force field. This approach provides high structural detail but is computationally intensive, limiting accessible timescales and system sizes. (UNVERIFIED)" []
-is_a: MOLSIM:000229 ! simulation type
+synonym: "AA-MD" EXACT []
+is_a: MOLSIM:000229 ! resolution-based simulation method
 
 [Term]
 id: MOLSIM:000231
@@ -1504,7 +1514,6 @@ is_a: MOLSIM:000353 ! validation analysis
 id: MOLSIM:000237
 name: potential mean force analysis
 def: "The Potential of Mean Force (PMF) method calculates the free energy profile of a system as a function of one or more specific coordinates, often called reaction coordinates or order parameters (e.g., the distance between two molecules). It essentially describes the effective potential energy governing the system's behavior along those chosen coordinates, including entropic effects averaged over all other degrees of freedom. PMFs are crucial for understanding reaction mechanisms, binding processes, and conformational changes. (UNVERIFIED)" []
-synonym: "PMF" EXACT []
 is_a: MOLSIM:000615 ! free energy calculation analysis
 
 [Term]
@@ -1656,13 +1665,15 @@ is_a: MOLSIM:000615 ! free energy calculation analysis
 id: MOLSIM:000262
 name: molecular mechanics Poisson Boltzmann surface area analysis
 def: "MM/PBSA is an endpoint method used to estimate binding free energies by combining molecular mechanics (MM) energy calculations with continuum solvation models. It calculates the free energy change by summing the change in MM energy in vacuum, the change in polar solvation free energy (calculated using Poisson-Boltzmann electrostatics), and the change in nonpolar solvation free energy (estimated from solvent-accessible surface area). This approach analyzes snapshots from molecular dynamics simulations of the bound and unbound states. (UNVERIFIED)" []
+synonym: "MM/PBSA" EXACT []
 synonym: "MMPBSA" EXACT []
 is_a: MOLSIM:000326 ! endpoint free energy analysis
 
 [Term]
 id: MOLSIM:000263
-name: molecular mechanics generalized Born surface area analysi
+name: molecular mechanics generalized Born surface area analysis
 def: "MM/GBSA is an endpoint binding free energy estimation method closely related to MM/PBSA, differing primarily in how the polar solvation free energy is calculated. Instead of the computationally more intensive Poisson-Boltzmann equation, MM/GBSA uses the faster Generalized Born (GB) implicit solvent model to estimate the electrostatic contribution to solvation. Like MM/PBSA, it combines MM energies, GB polar solvation energy, and surface-area based nonpolar energy using simulation snapshots. (UNVERIFIED)" []
+synonym: "MM/GBSA" EXACT []
 synonym: "MMGBSA" EXACT []
 is_a: MOLSIM:000326 ! endpoint free energy analysis
 
@@ -1753,9 +1764,9 @@ is_a: MOLSIM:000309 ! entropy analysis
 
 [Term]
 id: MOLSIM:000277
-name: quasiharmonic mode analysis
+name: quasiharmonic analysis
 def: "Quasiharmonic analysis is a method used to estimate vibrational entropy from molecular dynamics simulation data by assuming atoms undergo harmonic oscillations around their average positions. It involves calculating the mass-weighted covariance matrix of atomic fluctuations from the trajectory and diagonalizing it to obtain effective vibrational frequencies (quasiharmonic modes). These frequencies are then used in standard statistical mechanics formulas for harmonic oscillators to estimate the entropy. (UNVERIFIED)" []
-synonym: "QH" EXACT []
+synonym: "QHA" EXACT []
 is_a: MOLSIM:000276 ! enthropic contributions mode analysis
 disjoint_from: MOLSIM:000278 ! normal mode analysis
 
@@ -1763,7 +1774,7 @@ disjoint_from: MOLSIM:000278 ! normal mode analysis
 id: MOLSIM:000278
 name: normal mode analysis
 def: "Normal Mode Analysis (NMA) calculates the fundamental vibrational modes and frequencies of a molecule based on harmonic oscillations around a single energy minimum structure. It involves calculating the Hessian matrix (second derivatives of potential energy with respect to coordinates) at the minimum and diagonalizing it. The resulting eigenvectors represent the collective vibrational modes (normal modes), and the eigenvalues are related to their frequencies, which can be used to estimate vibrational entropy. (UNVERIFIED)" []
-synonym: "NM" EXACT []
+synonym: "NMA" EXACT []
 is_a: MOLSIM:000276 ! enthropic contributions mode analysis
 
 [Term]
@@ -1992,12 +2003,14 @@ is_a: MOLSIM:000917 ! structural analysis
 id: MOLSIM:000315
 name: ramachandran plot data
 def: "Ramachandran plot data is a set of numbers representing the angles in a protein's backbone, which helps determine if its shape is realistic. As a type of structural property, this output_data_descriptor consists of the set of paired phi (φ) and psi (ψ) backbone dihedral angles for each residue in a protein structure. This raw data is the direct output of a Ramachandran analysis and is used to generate the corresponding 2D plot for validating the stereochemical quality of the protein backbone conformation. This data is often found in files with headers like \"phi,\" \"psi,\" \"Ramachandran,\" or \"dihedral angles.\" (UNVERIFIED)" []
+synonym: "Rama plot" EXACT []
 is_a: MOLSIM:001333 ! structural property
 
 [Term]
 id: MOLSIM:000316
 name: potential of mean force
 def: "A potential of mean force is an energy profile that shows how much energy it takes to move a molecule from one place to another. As a type of free energy, the Potential of Mean Force (PMF) is an output_data_descriptor that represents the free energy of a system as a function of one or more specific geometric coordinates, known as reaction coordinates. The PMF describes the energetic landscape along a pathway, with its minima representing stable states and its maxima corresponding to transition state energy barriers. This is commonly referred to in analysis outputs and publications as \"PMF,\" \"free energy profile,\" \"Potential of Mean Force,\" or \"pmf.dat.\" (UNVERIFIED)" []
+synonym: "PMF" EXACT []
 is_a: MOLSIM:001314 ! free energy property
 
 [Term]
@@ -2055,6 +2068,7 @@ is_a: MOLSIM:001763 ! atom type
 id: MOLSIM:000325
 name: monte carlo simulation
 def: "A stochastic simulation method that relies on repeated random sampling to explore the configurational space of a molecular system. Unlike molecular dynamics, which integrates equations of motion over time, Monte Carlo generates a sequence of states by proposing random trial moves (such as atom displacements or molecular rotations) and accepting or rejecting them based on a thermodynamic probability criterion, typically the Metropolis algorithm. It is widely used for calculating equilibrium thermodynamic properties and sampling conformational ensembles. (UNVERIFIED)" []
+synonym: "MC" EXACT []
 synonym: "MC simulation" EXACT []
 is_a: MOLSIM:000308 ! simulation method
 
@@ -2207,7 +2221,8 @@ is_a: MOLSIM:000400 ! statistical analysis
 id: MOLSIM:000350
 name: small angle x-ray scattering
 def: "Small-angle X-ray scattering (SAXS) is an experimental technique that provides information about the overall size and shape of molecules as they exist in solution. It works by measuring the pattern of X-rays scattered at very small angles by a sample, which is sensitive to the molecule's global structure. This low-resolution experimental data is extremely valuable for validating the conformational ensembles generated by molecular dynamics simulations, ensuring they are consistent with the molecule's average shape in solution. (UNVERIFIED)" []
-is_a: MOLSIM:000990 ! small-angle scattering (SAS)
+synonym: "SAXS" EXACT []
+is_a: MOLSIM:000990 ! small-angle scattering
 
 [Term]
 id: MOLSIM:000351
@@ -2239,6 +2254,7 @@ is_a: MOLSIM:001403 ! statistical property
 id: MOLSIM:000355
 name: thermodynamic integration analysis
 def: "Thermodynamic Integration (TI) is a rigorous statistical mechanics method used to calculate free energy differences between two defined states (e.g., A and B) by simulating a reversible, non-physical transformation pathway connecting them. It involves calculating the ensemble average of the derivative of the system's energy with respect to a coupling parameter (λ) at several points along the path and integrating this derivative over the path (ΔG=∫01 ⟨∂H/∂λ⟩ λdλ). This framework encompasses various specific approaches and implementation details. (UNVERIFIED)" []
+synonym: "TI" EXACT []
 is_a: MOLSIM:000265 ! alchemical free energy analysis
 
 [Term]
@@ -2438,6 +2454,7 @@ is_a: MOLSIM:000428 ! Ewald summation
 id: MOLSIM:000388
 name: QM/MM simulation
 def: "A QM/MM simulation is a multiscale simulation method that combines a high-accuracy Quantum Mechanics (QM) description for a small, chemically active region with a fast, classical Molecular Mechanics (MM) force field for the large surrounding environment. This hybrid approach allows for the simulation of processes like chemical reactions in the context of a complex biological system, such as an enzyme active site. For experts, QM/MM is the state-of-the-art method for studying bond-breaking and bond-forming events in biomolecules. (UNVERIFIED)" []
+synonym: "QM/MM" EXACT []
 is_a: MOLSIM:000308 ! simulation method
 
 [Term]
@@ -2480,12 +2497,14 @@ is_a: MOLSIM:000393 ! self-guided Langevin dynamics
 id: MOLSIM:000395
 name: accelerated molecular dynamics
 def: "Accelerated molecular dynamics is a special type of simulation that helps molecules explore different shapes much faster than they normally would. It works by adding a \"boost\" to the system's energy, effectively lowering the energy barriers that separate different molecular conformations. For experts, aMD is an enhanced sampling method that adds a non-negative, history-independent bias potential when the system's potential energy is below a certain threshold, allowing for the recovery of canonical averages through energetic reweighting. (UNVERIFIED)" []
+synonym: "aMD" EXACT []
 is_a: MOLSIM:000843 ! molecular dynamics
 
 [Term]
 id: MOLSIM:000396
 name: Gaussian accelerated molecular dynamics
 def: "Gaussian accelerated molecular dynamics (GaMD) is an enhanced sampling method that speeds up simulations by adding a boost potential that has a Gaussian distribution. This method smooths the potential energy surface, allowing the system to more easily escape from local energy minima. For experts, GaMD is a robust method that does not require predefined collective variables and allows for the accurate recovery of the original free energy landscape through cumulant expansion. (UNVERIFIED)" []
+synonym: "GaMD" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
@@ -2606,6 +2625,7 @@ is_a: MOLSIM:000615 ! free energy calculation analysis
 id: MOLSIM:000416
 name: constant pH molecular dynamics
 def: "Constant pH molecular dynamics (CpHMD) is a specialized simulation method that allows the protonation states of acidic and basic residues in a molecule to change during the simulation. This is achieved by performing Monte Carlo moves that attempt to add or remove protons, with the acceptance of these moves being determined by the target pH of the simulation. For experts, CpHMD is an essential technique for studying proteins and processes whose structure and function are sensitive to pH. (UNVERIFIED)" []
+synonym: "CpHMD" EXACT []
 is_a: MOLSIM:000843 ! molecular dynamics
 
 [Term]
@@ -2847,6 +2867,7 @@ is_a: MOLSIM:000917 ! structural analysis
 id: MOLSIM:000455
 name: time-lagged independent component analysis
 def: "Time-lagged Independent Component Analysis (tICA) is an advanced analysis method used to identify the slowest, most persistent motions from a molecular dynamics simulation. It is a dimensionality reduction technique that finds the collective coordinates that change most slowly over a specific time lag, which are often the most important for understanding the system's long-timescale functional dynamics. These slow coordinates are frequently used as the basis for building Markov State Models to describe the system's kinetics. (UNVERIFIED)" []
+synonym: "tICA" EXACT []
 is_a: MOLSIM:000120 ! dimensionality reduction technique analysis
 
 [Term]
@@ -2925,6 +2946,7 @@ is_a: MOLSIM:001119 ! database web server
 id: MOLSIM:000467
 name: Forster resonance energy transfer
 def: "Förster Resonance Energy Transfer, or FRET, is a specific phenomenon in fluorescence spectroscopy where an excited donor fluorophore non-radiatively transfers its energy to a nearby acceptor fluorophore. The efficiency of this energy transfer is extremely sensitive to the distance between the two molecules, making it a \"spectroscopic ruler.\" For biophysicists, FRET is a powerful experimental method for measuring distances and distance changes within and between biomolecules, providing data that can be used to validate simulation results. (UNVERIFIED)" []
+synonym: "FRET" EXACT []
 is_a: MOLSIM:000458 ! fluoroscence spectroscopy
 
 [Term]
@@ -2979,7 +3001,8 @@ is_a: MOLSIM:000255 ! static molecular interaction prediction modeling
 id: MOLSIM:000475
 name: coarse-grained molecular dynamics
 def: "Coarse-grained molecular dynamics (CG-MD) is a simulation method where groups of atoms are represented by single, simplified interaction sites or \"beads.\" This reduction in the number of particles significantly decreases computational cost, allowing simulations of much larger molecular systems or for much longer timescales compared to all-atom simulations. However, this gain in efficiency comes at the cost of losing fine-grained atomistic detail. (UNVERIFIED)" []
-is_a: MOLSIM:000229 ! simulation type
+synonym: "CG-MD" EXACT []
+is_a: MOLSIM:000229 ! resolution-based simulation method
 
 [Term]
 id: MOLSIM:000476
@@ -3883,18 +3906,18 @@ is_a: MOLSIM:000057 ! interaction type
 id: MOLSIM:000624
 name: hyperfine coupling
 def: "A quantum mechanical interaction representing the coupling between the magnetic moment associated with the spin of an electron and the magnetic moment of a nearby atomic nucleus. This interaction leads to small shifts and splittings ('hyperfine structure') in atomic and molecular energy levels, which are observable in high-resolution spectroscopy, particularly Electron Paramagnetic Resonance (EPR) for species with unpaired electrons, and also in NMR. It provides valuable information about the electron distribution (spin density) near the nucleus and thus molecular structure. (UNVERIFIED)" []
-is_a: MOLSIM:000626 ! spin effect*
+is_a: MOLSIM:000626 ! spin effect
 disjoint_from: MOLSIM:000625 ! spin-orbit coupling
 
 [Term]
 id: MOLSIM:000625
 name: spin-orbit coupling
 def: "A relativistic quantum mechanical interaction between a particle's intrinsic spin angular momentum and its orbital angular momentum (due to its motion, e.g., an electron orbiting a nucleus). This coupling mixes electronic states and becomes increasingly significant for electrons in atoms with high atomic number (heavy atoms). Spin-orbit coupling influences electronic energy levels, causes splitting of spectral lines (fine structure), and facilitates transitions between states of different spin multiplicity (e.g., intersystem crossing in photochemistry, important for phosphorescence). (UNVERIFIED)" []
-is_a: MOLSIM:000626 ! spin effect*
+is_a: MOLSIM:000626 ! spin effect
 
 [Term]
 id: MOLSIM:000626
-name: spin effect*
+name: spin effect
 def: "Quantum mechanical phenomena arising from the intrinsic angular momentum (spin) possessed by fundamental particles like electrons and atomic nuclei. Spin gives rise to magnetic moments, and interactions involving these moments (e.g., electron spin coupling with nuclear spin or orbital angular momentum, or interaction with external magnetic fields) lead to splitting of energy levels and specific spectroscopic signatures (e.g., in NMR, EPR). Spin effects are generally not included in classical force fields but are crucial for understanding magnetism and certain spectroscopic or reactive processes. (UNVERIFIED)" []
 is_a: MOLSIM:000623 ! quantum interaction
 
@@ -4955,20 +4978,23 @@ is_a: MOLSIM:000685 ! ab-initio method
 
 [Term]
 id: MOLSIM:000812
-name: ROHF
+name: restricted open-shell Hartree-Fock
 def: "Restricted Open-shell Hartree-Fock, a specific formulation of the Hartree-Fock method designed for molecules with unpaired electrons (open-shell systems) where constraints are applied to keep spatial orbitals doubly occupied where possible. It provides a wavefunction that is an eigenfunction of the spin operator, which is often desirable but can be more computationally challenging than UHF for some systems. It is a type of ab initio calculation (UNVERIFIED)." []
+synonym: "ROHF" EXACT []
 is_a: MOLSIM:000810 ! Hartree-Fock
 
 [Term]
 id: MOLSIM:000813
-name: SCF
+name: self-consistent field
 def: "Self-Consistent Field, the iterative computational procedure used to solve the equations in Hartree-Fock theory (and also in Density Functional Theory and some semi-empirical methods). The calculation starts with an initial guess for the electron distribution (orbitals), calculates the average field, finds new orbitals in that field, and repeats the process until the orbitals and the field they generate are consistent with each other. It is the numerical method for finding the Hartree-Fock solution, not the theory itself (UNVERIFIED)." []
+synonym: "SCF" EXACT []
 is_a: MOLSIM:000810 ! Hartree-Fock
 
 [Term]
 id: MOLSIM:000814
-name: UHF
+name: Unrestricted Hartree-Fock
 def: "Unrestricted Hartree-Fock, a formulation of the Hartree-Fock method primarily used for open-shell systems (molecules with unpaired electrons). It allows alpha-spin electrons and beta-spin electrons to occupy different spatial orbitals, providing more flexibility than ROHF but resulting in a wavefunction that may not be a pure spin state (spin contamination). It is a type of ab initio calculation (UNVERIFIED)." []
+synonym: "UHF" EXACT []
 is_a: MOLSIM:000810 ! Hartree-Fock
 
 [Term]
@@ -5047,31 +5073,36 @@ is_a: MOLSIM:000817 ! NDDO
 id: MOLSIM:000827
 name: Moeller-Plesset
 def: "Møller-Plesset perturbation theory (MPn) is a widely used post-Hartree-Fock method for adding electron correlation effects to the Hartree-Fock (HF) solution. It treats the difference between the exact Hamiltonian and the HF Hamiltonian as a perturbation, calculating energy corrections order-by-order (MP2, MP3, MP4, etc.). MP2 is the most common level, offering a computationally efficient way to include dynamic electron correlation. (UNVERIFIED)" []
+synonym: "MP" EXACT []
 is_a: MOLSIM:000173 ! quantum mechanics
 
 [Term]
 id: MOLSIM:000828
-name: MP2
+name: Moeller-Plesset 2
 def: "MP2 stands for second-order Møller-Plesset perturbation theory, representing the first and computationally least expensive level beyond Hartree-Fock that incorporates electron correlation effects. It calculates the second-order energy correction based on double excitations from the Hartree-Fock reference determinant. MP2 often provides a significant improvement in accuracy over Hartree-Fock for molecular geometries, interaction energies, and reaction energies, making it a very popular baseline correlation method. (UNVERIFIED)" []
+synonym: "MP2" EXACT []
 is_a: MOLSIM:000827 ! Moeller-Plesset
-disjoint_from: MOLSIM:000829 ! MP3
+disjoint_from: MOLSIM:000829 ! Moeller-Plesset 3
 
 [Term]
 id: MOLSIM:000829
-name: MP3
+name: Moeller-Plesset 3
 def: "MP3 represents third-order Møller-Plesset perturbation theory, calculating the energy correction up to the third order based on the Hartree-Fock reference. While it includes higher-order correlation effects compared to MP2, MP3 does not always offer a systematic improvement in accuracy over MP2 and can sometimes yield worse results. Consequently, it is less commonly used in computational chemistry applications compared to MP2 or MP4. (UNVERIFIED)" []
+comment: MP3
 is_a: MOLSIM:000827 ! Moeller-Plesset
 
 [Term]
 id: MOLSIM:000830
-name: MP4
+name: Moeller-Plesset 4
 def: "MP4 stands for fourth-order Møller-Plesset perturbation theory, providing a higher level of electron correlation treatment by including energy contributions from single, double, triple, and quadruple excitations relative to the Hartree-Fock reference (often denoted MP4(SDTQ)). The inclusion of triple excitations, even if approximated, is particularly important for achieving high accuracy for many chemical systems. MP4 offers significantly better accuracy than MP2 but at a substantially higher computational cost. (UNVERIFIED)" []
+comment: MP4
 is_a: MOLSIM:000827 ! Moeller-Plesset
 
 [Term]
 id: MOLSIM:000831
-name: MP5
+name: Moeller-Plesset 5
 def: "MP5 represents fifth-order Møller-Plesset perturbation theory, calculating the electron correlation energy correction up to the fifth order. It incorporates even higher-order excitation effects beyond MP4, aiming for further refinement in accuracy. However, the computational cost of MP5 is extremely high, and it is very rarely used in practice, as other methods like coupled cluster often provide similar or better accuracy more efficiently at that level of computational expense. (UNVERIFIED)" []
+comment: MP5
 is_a: MOLSIM:000827 ! Moeller-Plesset
 
 [Term]
@@ -5082,33 +5113,38 @@ is_a: MOLSIM:000173 ! quantum mechanics
 
 [Term]
 id: MOLSIM:000833
-name: CASSCF
+name: complete active space self-consistent field
 def: "Complete Active Space Self-Consistent Field, a specific and widely used type of multi-reference method (falling under the MC-SCF umbrella). It involves selecting a subset of electrons and orbitals deemed most important for the problem (the active space) and then performing a full configuration interaction calculation within that space while simultaneously optimizing the orbitals. CASSCF provides a qualitatively correct description of complex electronic structures but often needs further corrections for quantitative accuracy (UNVERIFIED)." []
+synonym: "CASSCF" EXACT []
 is_a: MOLSIM:000832 ! multi-reference
-disjoint_from: MOLSIM:000834 ! MC-SCF
+disjoint_from: MOLSIM:000834 ! multi-configurational self-consistent field
 
 [Term]
 id: MOLSIM:000834
-name: MC-SCF
-def: "Multi-Configurational Self-Consistent Field, a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED)." []
+name: multi-configurational self-consistent field
+def: "Multi-Configurational Self-Consistent Field (MC-SCF), a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED)." []
+synonym: "MC-SCF" EXACT []
 is_a: MOLSIM:000832 ! multi-reference
 
 [Term]
 id: MOLSIM:000835
-name: MR-CCSD
+name: multi-reference coupled cluster with single and double excitations
 def: "Multi-Reference Coupled Cluster with Single and Double excitations, a high-accuracy quantum chemistry method that incorporates dynamic electron correlation using the coupled-cluster approach built upon a multi-reference starting wavefunction (obtained from methods like CASSCF). It aims to provide a highly accurate description for systems where both static (multi-reference character) and dynamic correlation effects are significant. These calculations are computationally very expensive (UNVERIFIED)." []
+synonym: "MR-CCSD" EXACT []
 is_a: MOLSIM:000832 ! multi-reference
 
 [Term]
 id: MOLSIM:000836
-name: MR-CI(SD)
+name: multi-reference configuration interaction with single and double excitations
 def: "Multi-Reference Configuration Interaction with Single and Double excitations, a quantum chemistry method that accounts for electron correlation by performing a configuration interaction calculation (including configurations generated by single and double electron excitations) starting from a multi-reference wavefunction (e.g., from CASSCF). Like MR-CCSD, it targets high accuracy for electronically complex systems but is computationally demanding and may suffer from size-consistency issues depending on the formulation. It offers an alternative way to add dynamic correlation to a multi-reference description (UNVERIFIED)." []
+synonym: "MR-CI(SD)" EXACT []
 is_a: MOLSIM:000832 ! multi-reference
 
 [Term]
 id: MOLSIM:000837
-name: RASSCF
+name: restricted active space self-consistent field
 def: "Restricted Active Space Self-Consistent Field, a flexible type of multi-reference method (within the MC-SCF family) similar to CASSCF but offering more control over the included electron configurations. The active space is divided into subspaces (RAS1, RAS2, RAS3) with restrictions on the number of electrons or excitations allowed within and between them, making calculations feasible for larger active spaces than typically possible with CASSCF. It allows a tailored balance between computational cost and the desired level of multi-reference treatment (UNVERIFIED)." []
+synonym: "RASSCF" EXACT []
 is_a: MOLSIM:000832 ! multi-reference
 
 [Term]
@@ -5146,6 +5182,7 @@ is_a: MOLSIM:000841 ! empirical method
 id: MOLSIM:000843
 name: molecular dynamics
 def: "Molecular dynamics (MD) is a computer simulation technique used to study the physical movement of atoms and molecules over time. It calculates the forces between particles using an empirical potential energy function (force field) and then integrates Newton's equations of motion numerically to simulate how the positions and velocities evolve in small time steps. MD simulations provide detailed information about the dynamic behavior, conformational changes, and thermodynamics of molecular systems. (UNVERIFIED)" []
+synonym: "MD" EXACT []
 is_a: MOLSIM:000308 ! simulation method
 
 [Term]
@@ -5183,6 +5220,7 @@ is_a: MOLSIM:000845 ! enhanced sampling
 id: MOLSIM:000849
 name: locally enhanced sampling
 def: "Locally Enhanced Sampling (LES) is a technique used to improve the conformational sampling of a specific, localized part of a larger molecular system (e.g., a flexible loop or a bound ligand). It involves simulating multiple, non-interacting copies of the atoms in this local region simultaneously, while these copies interact with only a single representation of the surrounding environment. This effectively increases the exploration of the local conformational space without replicating the entire system. (UNVERIFIED)" []
+synonym: "LES" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
@@ -5225,6 +5263,7 @@ is_a: MOLSIM:000845 ! enhanced sampling
 id: MOLSIM:000856
 name: nudged elastic band
 def: "The Nudged Elastic Band (NEB) method is primarily used to find the Minimum Energy Path (MEP) connecting two known stable states (e.g., reactant and product) on a potential energy surface. It works by optimizing a discrete chain of intermediate structures (images) linking the start and end points. Forces acting on the images perpendicular to the path are minimized, while spring forces along the path ensure continuity, guiding the chain towards the MEP, including the transition state. (UNVERIFIED)" []
+synonym: "NEB" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
@@ -5237,6 +5276,7 @@ is_a: MOLSIM:000845 ! enhanced sampling
 id: MOLSIM:000858
 name: replica-exchange molecular dynamics
 def: "Replica-exchange molecular dynamics (REMD), also known as parallel tempering, is an enhanced sampling technique that runs multiple simulations (replicas) of the same system in parallel, typically each at a different temperature. At regular intervals, attempts are made to swap the current configurations between pairs of replicas running at adjacent temperatures, accepted based on a probability criterion. This allows configurations explored at high temperatures (overcoming energy barriers) to diffuse down to lower temperatures, enhancing conformational sampling. (UNVERIFIED)" []
+synonym: "REMD" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
@@ -5261,24 +5301,28 @@ is_a: MOLSIM:000845 ! enhanced sampling
 id: MOLSIM:000862
 name: targeted molecular dynamics
 def: "Targeted Molecular Dynamics (TMD) is a simulation technique used to induce a conformational transition between a known initial structure and a known target structure. It achieves this by adding an extra potential energy term that biases the system to reduce its root-mean-square deviation (RMSD) relative to the target structure over the course of the simulation. TMD provides a plausible pathway for the transition, although not necessarily the minimum energy or most probable one. (UNVERIFIED)" []
+synonym: "TMD" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
 id: MOLSIM:000863
 name: transition path sampling
 def: "Transition Path Sampling (TPS) is a powerful simulation technique designed to study rare transition events between stable molecular states by directly sampling the ensemble of reactive pathways connecting them. Starting with one known reactive trajectory, it uses a Monte Carlo procedure in path space (generating new trial paths from old ones) to explore the set of all possible transition mechanisms without needing predefined reaction coordinates. TPS allows for the calculation of rate constants and detailed mechanistic analysis. (UNVERIFIED)" []
+synonym: "TPS" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
 id: MOLSIM:000864
 name: transition state ensembles
 def: "The Transition State Ensemble (TSE) refers to the collection of molecular configurations that lie at the top of the highest free energy barrier separating the reactant and product states of a process, such as protein folding or a chemical reaction. Structures within the TSE are equally likely to proceed forward to the product state or revert back to the reactant state (i.e., they have a committor probability of 0.5). Characterizing the structural features of the TSE is key to understanding the mechanism of the transition. (UNVERIFIED)" []
+synonym: "TSE" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
 id: MOLSIM:000865
 name: transition interface sampling
 def: "Transition Interface Sampling (TIS) is a path sampling technique, related to Forward Flux Sampling, used for calculating rate constants of rare events. It involves defining interfaces along an order parameter and then specifically sampling ensembles of trajectories that start in the reactant state and reach a particular interface, or start at one interface and reach the next. By calculating the crossing probabilities between interfaces, TIS reconstructs the overall rate constant. (UNVERIFIED)" []
+synonym: "TIS" EXACT []
 is_a: MOLSIM:000845 ! enhanced sampling
 
 [Term]
@@ -5867,13 +5911,13 @@ is_a: MOLSIM:000383 ! mathematical analysis
 
 [Term]
 id: MOLSIM:000986
-name: coarse-grained elastic mesoscopic model*
+name: coarse-grained elastic mesoscopic model
 def: "This refers to a type of coarse-grained model, often applied to very large biomolecular complexes, where groups of atoms or even entire residues are represented as beads connected by simple elastic (harmonic) springs. The parameters are often derived from elastic network model concepts, focusing on capturing the overall shape, flexibility, and large-scale collective motions of the assembly rather than chemical details. These models are computationally efficient for studying mesoscopic dynamics. (UNVERIFIED)" []
 is_a: MOLSIM:000475 ! coarse-grained molecular dynamics
 
 [Term]
 id: MOLSIM:000987
-name: coarse-grained worm-like chain*
+name: coarse-grained worm-like chain
 def: "The coarse-grained worm-like chain model represents a polymer (like DNA or a flexible protein segment) as a semi-flexible continuous filament characterized by its contour length and persistence length (a measure of stiffness). In simulations, this is often implemented as a chain of connected beads with potentials chosen to reproduce the statistical properties of the theoretical worm-like chain. This approach efficiently captures the large-scale conformational behavior of long, flexible polymers. (UNVERIFIED)" []
 is_a: MOLSIM:000475 ! coarse-grained molecular dynamics
 
@@ -5885,15 +5929,17 @@ is_a: MOLSIM:000304 ! experimental method
 
 [Term]
 id: MOLSIM:000989
-name: nuclear overhauser effect (NOE)
+name: nuclear overhauser effect
 def: "An experimental Nuclear Magnetic Resonance (NMR) phenomenon that arises from the through-space dipolar coupling between nearby nuclear spins (commonly protons), used as a complementary technique to MD. Detecting NOEs allows measurement of short inter-proton distances (typically < 6 Å), providing crucial experimental restraints for determining or validating biomolecular structures and conformational ensembles in solution. MD simulations can be used to predict NOEs for comparison with experiments or refined using experimental NOE data. (UNVERIFIED)" []
+synonym: "NOE" EXACT []
 is_a: MOLSIM:000988 ! complementary techniques for MD
-disjoint_from: MOLSIM:000990 ! small-angle scattering (SAS)
+disjoint_from: MOLSIM:000990 ! small-angle scattering
 
 [Term]
 id: MOLSIM:000990
-name: small-angle scattering (SAS)
+name: small-angle scattering
 def: "An experimental technique, either using X-rays (SAXS) or neutrons (SANS), where radiation is scattered by molecules in solution at low angles, providing information complementary to MD simulations. The resulting scattering profile is sensitive to the overall size, shape, and quaternary structure (oligomerization) of the molecules, averaged over the entire ensemble present in the sample. SAS data provides valuable low-resolution structural information that can be used to validate conformational ensembles generated by MD or to guide modeling of large-scale structures. (UNVERIFIED)" []
+synonym: "SAS" EXACT []
 is_a: MOLSIM:000988 ! complementary techniques for MD
 
 [Term]
@@ -5942,6 +5988,7 @@ is_a: MOLSIM:001008 ! spectroscopy
 id: MOLSIM:001015
 name: UV/visible spectra
 def: "UV/Visible (UV/Vis) spectra measure the absorption of ultraviolet and visible light by a sample as a function of wavelength. Absorption occurs when the light energy promotes electrons to higher energy levels (orbitals). This technique is widely used for quantitative measurements (concentration) and characterizing molecules with relevant electronic structures, like conjugated systems or metal ions. (UNVERIFIED)" []
+synonym: "UV/Vis" EXACT []
 is_a: MOLSIM:001014 ! electronic spectroscopy
 
 [Term]
@@ -6319,6 +6366,7 @@ is_a: MOLSIM:001074 ! process specification
 id: MOLSIM:001081
 name: simulation trajectory
 def: "A simulation trajectory is the record of a molecule's motion over time, captured during a simulation. It consists of a time-ordered sequence of snapshots, or \"frames,\" where each frame contains the 3D coordinates of all atoms at a specific instant. This trajectory is the primary output of a molecular dynamics simulation and is the raw data used for all subsequent analysis of the system's dynamic behavior. (UNVERIFIED)" []
+synonym: "trajectory" EXACT []
 is_a: MOLSIM:001075 ! process output
 disjoint_from: MOLSIM:001082 ! simulation log
 
@@ -7591,20 +7639,23 @@ is_a: MOLSIM:001292 ! computed observable
 
 [Term]
 id: MOLSIM:001334
-name: root mean square deviation (RMSD)
+name: root mean square deviation
 def: "A type of structural property that measures the average distance between the atoms of two superimposed molecular structures. It is the most common metric for quantifying the difference between two conformations, often used to track a simulation's stability relative to a starting structure. Analysis outputs frequently report the RMSD value over time. This value is commonly referred to as rmsd in analysis scripts. (UNVERIFIED)" []
+synonym: "RMSD" EXACT []
 is_a: MOLSIM:001333 ! structural property
 
 [Term]
 id: MOLSIM:001335
-name: root mean square fluctuation (RMSF)
+name: root mean square fluctuation
 def: "A type of structural property that measures the fluctuation of each individual atom around its average position over the course of a simulation. It is used to identify flexible or mobile regions within a molecule, such as loops or termini in a protein. Analysis outputs often report the per-residue RMSF or atomicfluct to highlight these regions. This value is commonly referred to as rmsf in analysis scripts. (UNVERIFIED)" []
+synonym: "RMSF" EXACT []
 is_a: MOLSIM:001333 ! structural property
 
 [Term]
 id: MOLSIM:001336
-name: distance RMSD (dRMSD)
+name: distance RMSD
 def: "A type of structural property that measures the difference between two structures based on their internal pairwise atomic distances, rather than their Cartesian coordinates. This metric does not require structural alignment and can be more sensitive to changes in internal conformation. It is a useful alternative to standard RMSD for comparing flexible molecules. This value is often referred to as drms or dRMSD in analysis outputs. (UNVERIFIED)" []
+synonym: "dRMSD" EXACT []
 is_a: MOLSIM:001333 ! structural property
 
 [Term]
@@ -7653,6 +7704,7 @@ is_a: MOLSIM:001340 ! dihedral angle
 id: MOLSIM:001344
 name: radius of gyration
 def: "A type of structural property that measures the overall compactness of a molecule or a group of atoms. It is calculated as the root-mean-square distance of the atoms from their common center of mass. The radius of gyration is used to monitor large-scale conformational changes like protein folding or unfolding. This value is often abbreviated as Rg or radgyr. (UNVERIFIED)" []
+synonym: "Rg" EXACT []
 is_a: MOLSIM:001333 ! structural property
 
 [Term]
@@ -7676,7 +7728,8 @@ is_a: MOLSIM:001333 ! structural property
 [Term]
 id: MOLSIM:001348
 name: coordination number
-def: "A type of structural property that represents the average number of neighboring particles within a certain distance of a central particle. For an ion in water, the Coordination Number typically refers to the number of water molecules in its first solvation shell. It is a fundamental descriptor of local solvent structure and is used to validate force fields. This value is often abbreviated as CN. (UNVERIFIED)" []
+def: "A type of structural property that represents the average number of neighboring particles within a certain distance of a central particle. For an ion in water, the Coordination Number typically refers to the number of water molecules in its first solvation shell. It is a fundamental descriptor of local solvent structure and is used to validate force fields. (UNVERIFIED)" []
+synonym: "CN" EXACT []
 is_a: MOLSIM:001333 ! structural property
 
 [Term]
@@ -8122,6 +8175,7 @@ is_a: MOLSIM:001403 ! statistical property
 id: MOLSIM:001422
 name: velocity autocorrelation function
 def: "A specific type of `correlation function` that describes how the velocity of a particle at a given time is correlated with its velocity at a later time. The integral of the `Velocity Autocorrelation Function` is directly related to the diffusion coefficient of the particle. It is a key tool for analyzing the dynamics of liquids. This is often abbreviated as `VACF` or `VAC`. (UNVERIFIED)" []
+synonym: "VACF" EXACT []
 is_a: MOLSIM:001421 ! correlation function
 
 [Term]
@@ -8350,12 +8404,14 @@ is_a: MOLSIM:001458 ! external field model
 id: MOLSIM:001460
 name: local density approximation
 def: "The Local Density Approximation (LDA) is the simplest class of approximation used for the exchange-correlation functional in Density Functional Theory. It assumes that the exchange-correlation energy at any point in space depends only on the electron density at that same point. While computationally very fast, the LDA is generally less accurate than more sophisticated approximations like GGA or hybrid functionals. (UNVERIFIED)" []
+synonym: "LDA" EXACT []
 is_a: MOLSIM:000627 ! density functional theory
 
 [Term]
 id: MOLSIM:001461
 name: generalized gradient approximation
 def: "The Generalized Gradient Approximation (GGA) is a widely used class of approximation for the exchange-correlation functional in Density Functional Theory. It improves upon the Local Density Approximation by also considering the gradient, or the rate of change, of the electron density at each point. For experts, GGA functionals like BLYP or PBE generally provide significantly better accuracy for molecular geometries and energies than LDA functionals. (UNVERIFIED)" []
+synonym: "GGA" EXACT []
 is_a: MOLSIM:000627 ! density functional theory
 
 [Term]
@@ -9917,6 +9973,8 @@ is_a: MOLSIM:001717 ! RMSD calculation algorithm
 id: MOLSIM:001719
 name: Broyden-Fletcher-Goldfarb-Shanno algorithm
 def: "The Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm is a powerful iterative method for solving unconstrained nonlinear optimization problems. It is a \"quasi-Newton\" method because it approximates the inverse of the Hessian matrix of second derivatives, which would be computationally expensive to calculate directly. For experts, BFGS is a highly efficient and widely used algorithm for geometry optimization in quantum chemistry calculations. (UNVERIFIED)" []
+synonym: "BFGS" EXACT []
+synonym: "BFGS algorithm" EXACT []
 is_a: MOLSIM:000407 ! optimization algorithm
 
 [Term]
@@ -10031,6 +10089,7 @@ is_a: MOLSIM:001720 ! conjugate gradient algorithm
 id: MOLSIM:001738
 name: limited-memory BFGS algorithm
 def: "The limited-memory BFGS (L-BFGS) algorithm is a variant of the BFGS optimization algorithm that is specifically designed for problems with a very large number of variables. It avoids storing the full, dense approximation of the inverse Hessian matrix by instead storing only a few vectors that implicitly represent the approximation. For experts, L-BFGS is the method of choice for energy minimization of extremely large molecular systems where storing the full Hessian is impossible. (UNVERIFIED)" []
+synonym: "L-BFGS algorithm" EXACT []
 synonym: "L-BGFS minimizer" EXACT []
 is_a: MOLSIM:001719 ! Broyden-Fletcher-Goldfarb-Shanno algorithm
 
@@ -11063,6 +11122,7 @@ is_a: MOLSIM:001887 ! molecular simulation system
 id: MOLSIM:001909
 name: intrinsically disordered protein system
 def: "An intrinsically disordered protein (IDP) system is a specific type of protein system focused on a protein that does not have a stable, folded three-dimensional structure. These proteins exist as a highly dynamic ensemble of different conformations. For experts, simulating IDPs is a major challenge that requires long simulations and advanced analysis techniques to characterize the broad range of structures they can adopt. (UNVERIFIED)" []
+synonym: "IDP system" EXACT []
 is_a: MOLSIM:001908 ! protein system
 
 [Term]
@@ -11609,8 +11669,9 @@ is_a: MOLSIM:001201 ! constraint and restraint parameter
 
 [Term]
 id: MOLSIM:001999
-name: smooth PME algorithm
+name: smooth particle mesh Ewald
 def: "An enhanced version of the Particle Mesh Ewald method that uses Euler exponential splines (B-splines) to interpolate charge density onto a grid. Unlike standard PME which uses Lagrangian interpolation, SPME allows the potential to be differentiated analytically to obtain forces, improving energy conservation and accuracy. For experts, this is the standard implementation in packages like AMBER and GROMACS (Essmann et al., 1995), offering N log N scaling. (UNVERIFIED)" []
+comment: SPME
 is_a: MOLSIM:000054 ! particle mesh Ewald
 
 [Term]
@@ -11647,6 +11708,7 @@ is_a: MOLSIM:000843 ! molecular dynamics
 id: MOLSIM:002005
 name: non-equilibrium molecular dynamics
 def: "Non-equilibrium molecular dynamics (NEMD) is a class of simulation techniques where the system is actively driven away from thermodynamic equilibrium by the application of external forces or constraints. Instead of observing natural fluctuations, researchers use this method to study how the system responds to stress, such as mechanical pulling, shearing flow, or thermal gradients. For experts, these simulations are governed by non-Hamiltonian equations of motion or time-dependent biases and are fundamental for calculating transport coefficients or recovering equilibrium free energies using fluctuation theorems. (UNVERIFIED)" []
+synonym: "NEMD" EXACT []
 is_a: MOLSIM:000843 ! molecular dynamics
 
 [Term]
@@ -11825,8 +11887,9 @@ is_a: MOLSIM:001210 ! system setup parameter
 
 [Term]
 id: MOLSIM:002035
-name: spatial distribution function (SDF)
+name: spatial distribution function
 def: "A Spatial Distribution Function (SDF) is a three-dimensional map that describes the density of specific atoms or molecules around a central reference molecule relative to the average bulk density. Unlike a radial distribution function which averages over all angles, the SDF preserves angular information to reveal specific 3D features like hydration sites, hydrogen bonding networks, or ligand binding pockets. For experts, it is typically computed by binning atomic coordinates from a trajectory into a voxel grid, normalizing by the bulk number density, and is often visualized as isosurfaces at specific probability levels (e.g., 2x or 5x bulk density). (UNVERIFIED)" []
+synonym: "SDF" EXACT []
 is_a: MOLSIM:001421 ! correlation function
 
 [Term]
@@ -12076,6 +12139,134 @@ id: MOLSIM:002074
 name: interfacial environment
 def: "An interfacial environment is a simulation context characterized by the boundary or interface between two distinct physical phases, such as a liquid-vapor (water-air) interface or a liquid-solid interface. The physical properties of the system change drastically across this boundary. For experts, simulating interfacial environments is critical for studying phenomena like surface tension, the behavior of surfactants, molecular adsorption, and the unique conformational changes that occur at phase boundaries. (UNVERIFIED)" []
 is_a: MOLSIM:002067 ! simulation environment
+
+[Term]
+id: MOLSIM:002075
+name: conformational ensemble
+def: "A dataset consisting of a collection of distinct molecular structures or conformations. Unlike a simulation trajectory, it does not inherently possess a chronological order, but rather represents a sampling of the structurally accessible states of a molecule (e.g., an NMR structural ensemble, or representative frames extracted via clustering). (UNVERIFIED)" []
+synonym: "structural ensemble" EXACT []
+is_a: MOLSIM:001072 ! information content entity
+
+[Term]
+id: MOLSIM:002076
+name: molecular mechanics
+def: "Molecular mechanics is a computational method that uses the principles of classical physics to model the structure and behavior of molecules. It treats atoms as classical particles and bonds as springs, calculating the system's potential energy using empirically derived mathematical functions known as force fields. For computational chemists, this method bypasses the complexity of quantum mechanics, enabling the simulation of extremely large biomolecular systems over long timescales. (UNVERIFIED)" []
+synonym: "MM" EXACT []
+synonym: "molecular mechanics method" EXACT []
+is_a: MOLSIM:000841 ! empirical method
+
+[Term]
+id: MOLSIM:002077
+name: empirical scoring method
+def: "An empirical scoring method is a computational technique used to estimate how tightly two molecules, like a drug and a protein, will bind to each other. It evaluates the binding affinity by summing up weighted mathematical terms for hydrogen bonding, hydrophobicity, and steric clashes, where the weights are derived from a dataset of known experimental affinities. In structure-based drug design, these computationally fast functions are the core engines of molecular docking software used for high-throughput virtual screening. (UNVERIFIED)" []
+synonym: "empirical scoring function" EXACT []
+is_a: MOLSIM:000841 ! empirical method
+
+[Term]
+id: MOLSIM:002078
+name: implicit solvent method
+def: "An implicit solvent method is a modeling approach that approximates the effects of a surrounding liquid environment without simulating individual water molecules. It treats the solvent as a continuous dielectric medium and calculates solvation free energies using empirical parameters, such as atomic radii and surface tension coefficients. For simulation experts, methods like Generalized Born or Poisson-Boltzmann offer a highly efficient way to estimate solvation thermodynamics and binding affinities in MM/PBSA calculations. (UNVERIFIED)" []
+synonym: "continuum solvation model" EXACT []
+is_a: MOLSIM:000841 ! empirical method
+
+[Term]
+id: MOLSIM:002079
+name: elastic network modeling
+def: "Elastic network modeling is a highly simplified computational approach used to study the large-scale flexibility and movement of massive biological structures. It represents a macromolecule as a collection of nodes, typically alpha-carbon atoms, connected by uniform or distance-dependent harmonic springs based on an empirical cutoff distance. Researchers use these coarse-grained models to rapidly compute low-frequency normal modes and collective motions, identifying hinge regions and allosteric pathways with minimal computational cost. (UNVERIFIED)" []
+synonym: "ENM" EXACT []
+is_a: MOLSIM:000841 ! empirical method
+
+[Term]
+id: MOLSIM:002080
+name: quantitative structure-activity relationship modeling
+def: "Quantitative structure-activity relationship (QSAR) modeling is a computational method that links the chemical structure of a molecule to its biological effects. It employs statistical and machine learning algorithms to build mathematical models that correlate empirical biological activity data with calculated physicochemical or structural descriptors. In cheminformatics, these empirical models are heavily utilized to predict the toxicity, affinity, or pharmacokinetic properties of novel compounds prior to synthesis and testing. (UNVERIFIED)" []
+synonym: "QSAR" EXACT []
+is_a: MOLSIM:000841 ! empirical method
+
+[Term]
+id: MOLSIM:002081
+name: machine-learned potential method
+def: "A machine-learned potential method is an advanced computational technique that uses artificial intelligence to predict the energy and forces within a molecule. It replaces traditional physical equations with deep neural networks or kernel methods trained on vast datasets of high-level quantum mechanical or empirical data. This approach provides simulation experts with a powerful tool that approaches the accuracy of ab initio quantum chemistry while maintaining the computational efficiency of classical molecular mechanics. (UNVERIFIED)" []
+synonym: "neural network potential" EXACT []
+is_a: MOLSIM:000841 ! empirical method
+
+[Term]
+id: MOLSIM:002082
+name: secondary structure change
+def: "A secondary structure change is a localized structural shift where a protein or nucleic acid chain alters its regular, repeating folding pattern. This transition typically involves the breaking and reforming of local backbone hydrogen bonds, such as a segment converting from an alpha-helix to a random coil or beta-sheet. For simulation experts, monitoring these changes is essential for understanding peptide flexibility, misfolding events, or structural adaptations upon ligand binding. (UNVERIFIED)" []
+is_a: MOLSIM:001793 ! conformational transition
+
+[Term]
+id: MOLSIM:002083
+name: folding
+def: "Folding is the physical process by which a linear chain of amino acids or nucleotides collapses into its functional, three-dimensional shape. It involves navigating a complex free energy landscape driven by the hydrophobic effect, hydrogen bonding, and electrostatic interactions to reach a stable native state. For computational biologists, simulating this spontaneous self-assembly provides critical insights into the physical forces stabilizing biomolecules and the origins of misfolding diseases. (UNVERIFIED)" []
+is_a: MOLSIM:001793 ! conformational transition
+
+[Term]
+id: MOLSIM:002084
+name: unfolding
+def: "Unfolding is the process where a structured biological molecule loses its functional, three-dimensional shape and becomes a disordered chain. This cooperative transition involves the disruption of the native non-covalent interaction network, often triggered by changes in temperature, pressure, pH, or chemical denaturants. In molecular dynamics, studying unfolding pathways helps researchers map the free energy barriers of the system and identify metastable intermediate states. (UNVERIFIED)" []
+is_a: MOLSIM:001793 ! conformational transition
+
+[Term]
+id: MOLSIM:002085
+name: domain motion
+def: "A domain motion is a large-scale movement where an entire folded section of a protein shifts or rotates relative to the rest of the molecule. These collective structural transitions often occur via hinge-bending or twisting mechanisms connecting rigid subdomains, without disrupting the internal secondary structure of the moving parts. For researchers, analyzing these concerted motions is key to understanding large conformational changes necessary for enzyme catalysis, motor protein function, and allosteric regulation. (UNVERIFIED)" []
+is_a: MOLSIM:001793 ! conformational transition
+
+[Term]
+id: MOLSIM:002086
+name: allosteric transition
+def: "An allosteric transition is a structural change in a molecule where an event at one site causes a functional shift at a distant site. This long-range communication propagates through the molecule via a network of coupled conformational fluctuations or structural rearrangements connecting the regulatory site to the active site. Simulating these transitions allows experts to map communication pathways within proteins and design allosteric drugs that modulate function without binding directly to the active site. (UNVERIFIED)" []
+is_a: MOLSIM:001793 ! conformational transition
+
+[Term]
+id: MOLSIM:002087
+name: ligand-induced allosteric transition
+def: "A ligand-induced allosteric transition is a remote structural change in a protein triggered specifically by the binding of a small molecule. The physical attachment of the ligand at the allosteric site alters the local energy landscape, shifting the conformational equilibrium of the entire protein toward a new active or inactive state. For drug discovery researchers, modeling this specific type of transition is crucial for identifying cryptic binding pockets and developing non-competitive inhibitors or activators. (UNVERIFIED)" []
+is_a: MOLSIM:002086 ! allosteric transition
+
+[Term]
+id: MOLSIM:002088
+name: entropy-driven allosteric transition
+def: "An entropy-driven allosteric transition is a remote functional change in a molecule caused primarily by a shift in its internal flexibility rather than a visible change in its average shape. In this process, a perturbation at one site significantly alters the dynamic fluctuations and vibrational entropy of the molecule, transmitting an allosteric signal without requiring a large-scale structural rearrangement. For computational biophysicists, detecting these subtle transitions requires extensive dynamic analysis, such as covariance matrices or NMR relaxation predictions, to capture the changes in the conformational ensemble. (UNVERIFIED)" []
+is_a: MOLSIM:002086 ! allosteric transition
+
+[Term]
+id: MOLSIM:002089
+name: sugar ring pucker transition
+def: "A sugar ring pucker transition is a localized flipping motion where the five-membered sugar ring of a nucleotide shifts between different non-planar shapes. This conformational transition typically involves interconversion between the C2'-endo and C3'-endo envelope states, altering the pseudorotation phase angle and shifting the overall nucleic acid backbone geometry. In molecular simulations, capturing the correct frequency of these puckering events is a critical test of a nucleic acid force field and is essential for distinguishing between A-form and B-form helices. (UNVERIFIED)" []
+synonym: "sugar ring flip" EXACT []
+is_a: MOLSIM:001793 ! conformational transition
+
+[Term]
+id: MOLSIM:002090
+name: molecular entity
+def: "A molecular entity is a broad term used to describe any distinct physical or chemical building block within a modeled system. It encompasses a wide hierarchy of structural objects, including individual atoms, ions, monomeric residues, polymer chains, and complete molecules, all of which possess specific physical properties and spatial coordinates. For simulation experts and ontology developers, this serves as the foundational, top-level parent class for all structural components, providing a clean architectural root that can be easily mapped to external standards like the Basic Formal Ontology (BFO) or ChEBI. (UNVERIFIED)" []
+
+[Term]
+id: MOLSIM:002091
+name: residue
+def: "A residue is a single monomeric building block within a larger polymeric chain, such as an individual amino acid in a protein or a nucleotide in DNA. In structural biology and modeling, it is defined as a discrete group of covalently bonded atoms that share a common identifier and are treated as a collective structural unit. For simulation experts, the residue level serves as a fundamental hierarchical grouping for assigning force field parameters, constructing topologies, and performing targeted structural analyses. (UNVERIFIED)" []
+is_a: MOLSIM:002090 ! molecular entity
+
+[Term]
+id: MOLSIM:002092
+name: atom
+def: "An atom is the most basic, fundamental building block of matter that makes up all molecular structures. In the context of classical molecular modeling, it is mathematically represented as a point mass in three-dimensional space with specific physical properties, such as a partial charge and van der Waals radius, dictated by a force field. For simulation experts, the explicit representation and tracking of individual atoms are essential for calculating precise interatomic forces and generating high-resolution molecular dynamics trajectories. (UNVERIFIED)" []
+is_a: MOLSIM:002090 ! molecular entity
+
+[Term]
+id: MOLSIM:002093
+name: chain
+def: "A chain is a continuous, linear sequence of linked molecular building blocks, such as a single strand of DNA or a folded polypeptide. Structurally, it consists of a series of covalently bonded residues that are grouped together under a unique alphanumeric identifier (Chain ID) within a coordinate file. In molecular simulations, properly defining separate chains is critical for accurately modeling multi-subunit complexes, preventing artificial cross-linking during topology generation, and analyzing intermolecular interactions. (UNVERIFIED)" []
+is_a: MOLSIM:002090 ! molecular entity
+
+[Term]
+id: MOLSIM:002094
+name: molecule
+def: "A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)" []
+is_a: MOLSIM:002090 ! molecular entity
 
 [Term]
 id: MOLSIM:010001
