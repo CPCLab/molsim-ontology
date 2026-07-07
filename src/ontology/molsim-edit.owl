@@ -2009,6 +2009,9 @@ Declaration(Class(obo:MOLSIM_002091))
 Declaration(Class(obo:MOLSIM_002092))
 Declaration(Class(obo:MOLSIM_002093))
 Declaration(Class(obo:MOLSIM_002094))
+Declaration(Class(obo:MOLSIM_002095))
+Declaration(Class(obo:MOLSIM_002096))
+Declaration(Class(obo:MOLSIM_002097))
 Declaration(Class(obo:MOLSIM_010011))
 Declaration(Class(obo:MOLSIM_010012))
 Declaration(Class(obo:MOLSIM_010013))
@@ -4575,7 +4578,7 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
 
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000311 "RMSD analysis is a calculation that measures how much a molecule's shape has changed over time compared to a starting shape. As a type of structural analysis, this method quantifies the global structural deviation by calculating the root-mean-square deviation of atomic coordinates between trajectory frames and a reference structure after optimal superposition. It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and as a metric for clustering algorithms. Analysis scripts and outputs frequently use the terms \"rmsd,\" \"rms,\" \"RMSD vs. time,\" and \"backbone RMSD.\" (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000311 "A calculation that measures how much a molecule's shape has changed compared to a reference structure by quantifying the root-mean-square deviation of atomic coordinates after optimal superposition. This can be performed against a single static starting structure over time (1D trajectory), or calculated for every pair of frames in a simulation to produce a frame-to-frame comparative matrix, often displayed as a 2D heat map (2D RMSD analysis). It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and serving as a metric for clustering algorithms. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000311 "RMSD analysis"@en)
 SubClassOf(obo:MOLSIM_000311 obo:MOLSIM_000917)
 
@@ -5627,7 +5630,7 @@ SubClassOf(obo:MOLSIM_000480 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000481 (2D RMSD analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000481 "A 2D RMSD analysis is a method where the Root-Mean-Square Deviation (RMSD) is calculated for every pair of frames in a simulation trajectory. The results are typically visualized as a two-dimensional plot or heat map, where each point (i, j) represents the RMSD between frame i and frame j. For experts, this analysis provides a powerful way to visualize the conformational landscape, identifying stable states as blocks of low RMSD and transitions as off-diagonal regions of high RMSD. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000481 "A 2D RMSD analysis is a method where the Root-Mean-Square Deviation (RMSD) is calculated for every pair of frames in a simulation trajectory. The results are typically visualized as a two-dimensional plot or heat map, where each point (i, j) represents the RMSD between frame i and frame j. For experts, this analysis provides a powerful way to visualize the conformational landscape, identifying stable states as blocks of low RMSD and transitions as off-diagonal regions of high RMSD. (UNVERIFIED) (DEPRECATED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000481 "2D RMSD analysis"@en)
 SubClassOf(obo:MOLSIM_000481 obo:MOLSIM_000917)
 
@@ -6708,11 +6711,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000658 "Grid binning analysis is 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000658 "grid binning analysis"@en)
 SubClassOf(obo:MOLSIM_000658 obo:MOLSIM_000917)
 
-# Class: obo:MOLSIM_000659 (periodic boundary imaging analysis)
+# Class: obo:MOLSIM_000659 (periodic boundary imaging)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000659 "Periodic boundary imaging is a fundamental post-processing step in structural analysis that is used to make simulation trajectories easier to visualize. It corrects for the fact that molecules can become \"broken\" or jump across the box when they cross a periodic boundary. The imaging algorithm translates the coordinates of the atoms to ensure that molecules remain whole and centered in the box, providing a continuous and visually coherent movie of the dynamics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000659 "periodic boundary imaging analysis"@en)
-SubClassOf(obo:MOLSIM_000659 obo:MOLSIM_000917)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000659 "A fundamental trajectory post-processing step used to correct the visual and coordinate representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear 'broken' or jump across the box in the raw output. This procedure translates the atomic coordinates back into the primary simulation box, implicitly fixing broken 'image bonds' to ensure molecules remain whole and centered. This is a mandatory prerequisite for correct visualization and accurate calculation of structural properties. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000659 "periodic boundary imaging"@en)
+SubClassOf(obo:MOLSIM_000659 obo:MOLSIM_001767)
 
 # Class: obo:MOLSIM_000660 (LES trajectory splitting analysis)
 
@@ -6830,7 +6833,7 @@ SubClassOf(obo:MOLSIM_000678 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000679 (image bond fixing analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000679 "Image bond fixing is a post-processing step applied to simulation trajectories to correct the visual representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear \"broken\" in the raw output, with parts of it on opposite sides of the simulation box. This procedure identifies such cases and translates the atomic coordinates to make the molecule appear whole, which is essential for correct visualization and many types of analysis. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000679 "Image bond fixing is a post-processing step applied to simulation trajectories to correct the visual representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear \"broken\" in the raw output, with parts of it on opposite sides of the simulation box. This procedure identifies such cases and translates the atomic coordinates to make the molecule appear whole, which is essential for correct visualization and many types of analysis. (UNVERIFIED) (DEPRECATED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "image bond fixing analysis"@en)
 SubClassOf(obo:MOLSIM_000679 obo:MOLSIM_000659)
 
@@ -14865,6 +14868,28 @@ SubClassOf(obo:MOLSIM_002093 obo:MOLSIM_002090)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002094 "A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002094 "molecule"@en)
 SubClassOf(obo:MOLSIM_002094 obo:MOLSIM_002090)
+
+# Class: obo:MOLSIM_002095 (pocket detection tool)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002095 "A pocket detection tool a computational algorithm that identifies and characterizes transient or persistent cavities on the surface of a biomolecular structure from a trajectory or static coordinate set, typically by analyzing atomic coordinates, solvent accessibility, or geometric properties, to predict potential ligand-binding sites and assess their dynamic accessibility and druggability."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_002095 <https://orcid.org/0000-0002-2294-5393>)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002095 "cavity detection tool"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002095 "pocket detection tool"@en)
+SubClassOf(obo:MOLSIM_002095 obo:MOLSIM_000164)
+
+# Class: obo:MOLSIM_002096 (fpocket)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002096 "fpocket is a fast, open-source algorithm designed to predict and analyze potential binding pockets (cavities) on proteins and other biomolecules. It is used in structural bioinformatics for applications like drug discovery, protein function annotation, and the analysis of molecular dynamics trajectories."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_002096 <https://orcid.org/0000-0002-2294-5393>)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002096 "fpocket"@en)
+SubClassOf(obo:MOLSIM_002096 obo:MOLSIM_002095)
+
+# Class: obo:MOLSIM_002097 (Curves+)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002097 "Curves+ is a software program for the structural analysis of DNA and RNA three-dimensional structures. It calculates a comprehensive set of geometric parameters describing nucleic acid conformation, including base-pair, base-pair step, backbone, groove, and helical axis parameters, using a reference frame attached to each base. These descriptors provide a detailed characterization of nucleic acid structure and flexibility."@en)
+AnnotationAssertion(dcterms:contributor obo:MOLSIM_002097 <https://orcid.org/0000-0002-2294-5393>)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002097 "Curves+"@en)
+SubClassOf(obo:MOLSIM_002097 obo:MOLSIM_001960)
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
