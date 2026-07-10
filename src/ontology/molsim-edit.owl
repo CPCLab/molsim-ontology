@@ -15984,7 +15984,7 @@ ObjectPropertyRange(obo:MOLSIM_002167 obo:MOLSIM_002156)
 Declaration(ObjectProperty(obo:MOLSIM_002168))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002168 "A relation that links a molecular dynamics process to a schedule defining how one of its parameters varies over simulated time or integration steps. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002168 "has parameter schedule"@en)
-SubObjectPropertyOf(obo:MOLSIM_002168 owl:topObjectProperty)
+SubObjectPropertyOf(obo:MOLSIM_002168 obo:MOLSIM_002202)
 ObjectPropertyDomain(obo:MOLSIM_002168 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002168 obo:MOLSIM_002157)
 
@@ -16171,5 +16171,97 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002191 "A relation that associate
 AnnotationAssertion(rdfs:label obo:MOLSIM_002191 "restart file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002149)
 DataPropertyRange(obo:MOLSIM_002191 xsd:string)
+
+
+# ==== ambermeta Tier B native gap closure ====
+# Class: obo:MOLSIM_002192 (initial density)
+
+Declaration(Class(obo:MOLSIM_002192))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002192 "A thermodynamic property that represents the mass density of the simulated system at the start of a run, computed from the topology mass and the initial periodic box volume. It provides a baseline for comparison against the equilibrated density reached during a constant-pressure run. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002192 "initial density"@en)
+SubClassOf(obo:MOLSIM_002192 obo:MOLSIM_001293)
+
+# Data Property: obo:MOLSIM_002193 (is charge neutral)
+
+Declaration(DataProperty(obo:MOLSIM_002193))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002193 "A relation that indicates whether the total electrostatic charge of a molecular system is effectively zero, that is, whether the system is electrically neutral. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002193 "is charge neutral"@en)
+SubDataPropertyOf(obo:MOLSIM_002193 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002193 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002194 (hydrogen mass summary)
+
+Declaration(DataProperty(obo:MOLSIM_002194))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002194 "A relation that associates a molecular system with a short human-readable summary of the hydrogen masses observed, such as the mass range and the count of hydrogen atoms, used to describe hydrogen mass repartitioning. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002194 "hydrogen mass summary"@en)
+SubDataPropertyOf(obo:MOLSIM_002194 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002194 xsd:string)
+
+# Data Property: obo:MOLSIM_002195 (gpu model name)
+
+Declaration(DataProperty(obo:MOLSIM_002195))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002195 "A relation that associates a graphics processing unit with the model name of the specific device used to run a simulation, such as the name reported by the CUDA runtime. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002195 "gpu model name"@en)
+SubDataPropertyOf(obo:MOLSIM_002195 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_002195 obo:MOLSIM_001941)
+DataPropertyRange(obo:MOLSIM_002195 xsd:string)
+
+
+# ==== ambermeta minor native gap closure ====
+# Class: obo:MOLSIM_002196 (atom count consistency check)
+
+Declaration(Class(obo:MOLSIM_002196))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002196 "A cross-source validation that checks whether the atom count agrees across all files describing a stage, such as topology, coordinate, output, and trajectory files. A mismatch indicates the files do not describe the same system. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002196 "atom count consistency check"@en)
+SubClassOf(obo:MOLSIM_002196 obo:MOLSIM_002159)
+
+# Class: obo:MOLSIM_002197 (box consistency check)
+
+Declaration(Class(obo:MOLSIM_002197))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002197 "A cross-source validation that checks whether periodic box information is consistently present or absent across the files describing a stage. It flags cases where, for example, a topology declares a box but a coordinate file does not. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002197 "box consistency check"@en)
+SubClassOf(obo:MOLSIM_002197 obo:MOLSIM_002159)
+
+# Class: obo:MOLSIM_002198 (timing consistency check)
+
+Declaration(Class(obo:MOLSIM_002198))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002198 "A cross-source validation that checks whether step counts, timesteps, and total durations agree across the input, output, and trajectory files of a stage. It verifies that the recorded trajectory length matches the configured number of steps times the timestep. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002198 "timing consistency check"@en)
+SubClassOf(obo:MOLSIM_002198 obo:MOLSIM_002159)
+
+# Class: obo:MOLSIM_002199 (sampling consistency check)
+
+Declaration(Class(obo:MOLSIM_002199))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002199 "A cross-source validation that checks whether the coordinate write frequency configured in the input matches the frequency reflected in the output and trajectory. It confirms that sampling settings were applied as specified. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002199 "sampling consistency check"@en)
+SubClassOf(obo:MOLSIM_002199 obo:MOLSIM_002159)
+
+# Data Property: obo:MOLSIM_002200 (HMR inferred from timestep flag)
+
+Declaration(DataProperty(obo:MOLSIM_002200))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002200 "A relation that indicates whether hydrogen mass repartitioning was inferred from the integration timestep, specifically a timestep of 3 femtoseconds or larger, rather than detected directly from the hydrogen masses in the topology. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002200 "HMR inferred from timestep flag"@en)
+SubDataPropertyOf(obo:MOLSIM_002200 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002200 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002201 (total simulation steps)
+
+Declaration(DataProperty(obo:MOLSIM_002201))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002201 "A relation that associates a simulation protocol with the total number of integration steps performed across all of its stages. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002201 "total simulation steps"@en)
+SubDataPropertyOf(obo:MOLSIM_002201 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_002201 obo:MOLSIM_002155)
+DataPropertyRange(obo:MOLSIM_002201 xsd:integer)
+
+
+# ==== ambermeta relational connector ====
+# Object Property: obo:MOLSIM_002202 (has simulation parameter)
+
+Declaration(ObjectProperty(obo:MOLSIM_002202))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002202 "A relation that links a molecular dynamics process to a simulation parameter that governs how it is carried out, such as the integration timestep, the non-bonded cutoff, or an output write interval. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002202 "has simulation parameter"@en)
+SubObjectPropertyOf(obo:MOLSIM_002202 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002202 obo:MOLSIM_000000)
+ObjectPropertyRange(obo:MOLSIM_002202 obo:MOLSIM_001164)
 
 )
