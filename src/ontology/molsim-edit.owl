@@ -2706,18 +2706,21 @@ DataPropertyRange(obo:MOLSIM_001162 xsd:string)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002121 "A relation that associates a molecular system with the index of the first solvent molecule in its ordered list of molecules. In the Amber topology convention this pointer marks where solvent begins, separating solute from solvent. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002121 "first solvent molecule index"@en)
 SubDataPropertyOf(obo:MOLSIM_002121 obo:MOLSIM_001121)
+DataPropertyRange(obo:MOLSIM_002121 xsd:integer)
 
 # Data Property: obo:MOLSIM_002122 (number of solvent molecules)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002122 "A relation that associates a molecular system with how many solvent molecules it contains. It quantifies the amount of solvent used to solvate the solute. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002122 "number of solvent molecules"@en)
 SubDataPropertyOf(obo:MOLSIM_002122 obo:MOLSIM_001121)
+DataPropertyRange(obo:MOLSIM_002122 xsd:integer)
 
 # Data Property: obo:MOLSIM_002123 (number of atoms per frame)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002123 "A relation that associates a trajectory with the atom count recorded in each of its frames. It reflects the size of the coordinate set stored at every saved time point. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002123 "number of atoms per frame"@en)
 SubDataPropertyOf(obo:MOLSIM_002123 obo:MOLSIM_001121)
+DataPropertyRange(obo:MOLSIM_002123 xsd:integer)
 
 # Data Property: obo:MOLSIM_002124 (ion counts dict)
 
@@ -2730,72 +2733,84 @@ SubDataPropertyOf(obo:MOLSIM_002124 obo:MOLSIM_001121)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002125 "A relation that associates a molecular system with how many bond-angle terms are defined in its force-field topology. It helps describe the size and complexity of the bonded interaction set. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002125 "number of total angles"@en)
 SubDataPropertyOf(obo:MOLSIM_002125 obo:MOLSIM_001131)
+DataPropertyRange(obo:MOLSIM_002125 xsd:integer)
 
 # Data Property: obo:MOLSIM_002126 (number of total dihedrals)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002126 "A relation that associates a molecular system with how many dihedral, or torsion, terms are defined in its force-field topology. It helps describe the size and complexity of the bonded interaction set. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002126 "number of total dihedrals"@en)
 SubDataPropertyOf(obo:MOLSIM_002126 obo:MOLSIM_001131)
+DataPropertyRange(obo:MOLSIM_002126 xsd:integer)
 
 # Data Property: obo:MOLSIM_002127 (number of constraint failures)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002127 "A relation that associates a simulation with how many times a geometric constraint algorithm, such as SHAKE, failed to converge during the run. A nonzero value can signal instability in the integration. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002127 "number of constraint failures"@en)
 SubDataPropertyOf(obo:MOLSIM_002127 obo:MOLSIM_001139)
+DataPropertyRange(obo:MOLSIM_002127 xsd:integer)
 
 # Data Property: obo:MOLSIM_002128 (has completion status)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002128 "A relation that associates a simulation run with an indication of whether it finished normally or terminated abnormally. It supports quick screening of runs for successful completion. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002128 "has completion status"@en)
 SubDataPropertyOf(obo:MOLSIM_002128 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002128 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002129 (continuation flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002129 "A relation that indicates whether a run was started as a continuation of a previous run rather than from initial conditions. It distinguishes restarted runs from fresh ones. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002129 "continuation flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002129 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002129 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002130 (coordinate wrapping flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002130 "A relation that indicates whether the atomic coordinates in a trajectory have been translated back into the primary periodic unit cell. It records whether periodic-image wrapping was applied to the stored coordinates. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002130 "coordinate wrapping flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002130 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002130 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002131 (QM/MM activation flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002131 "A relation that indicates whether a simulation uses a combined quantum-mechanics and molecular-mechanics treatment for part of the system. It records whether a region is described at the quantum level while the remainder uses a classical force field. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002131 "QM/MM activation flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002131 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002131 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002132 (self-guided Langevin dynamics flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002132 "A relation that indicates whether a run employs self-guided Langevin dynamics, an enhanced sampling scheme that adds a guiding force to accelerate conformational exploration. It records the use of this sampling enhancement. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002132 "self-guided Langevin dynamics flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002132 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002132 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002133 (spherical cap flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002133 "A relation that indicates whether a spherical solvent cap was applied around a region of interest instead of full periodic solvation. It records the use of a localized, non-periodic solvent boundary. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002133 "spherical cap flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002133 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002133 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002134 (has box dimensions flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002134 "A relation that indicates whether periodic box dimension information is present for a molecular system or trajectory. It records whether unit-cell size and shape data are available. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002134 "has box dimensions flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002134 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002134 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002135 (has velocities flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002135 "A relation that indicates whether atomic velocity data are stored alongside coordinates in a file or trajectory. Velocities are needed to seamlessly restart a run. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002135 "has velocities flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002135 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002135 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002136 (box type flag)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002136 "A relation that records the kind of periodic box used for a molecular system, such as rectangular or truncated octahedral. It identifies the geometry of the periodic unit cell. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002136 "box type flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002136 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002136 xsd:string)
 
 # Data Property: obo:MOLSIM_002137 (trajectory metadata descriptors)
 
@@ -2808,102 +2823,119 @@ SubDataPropertyOf(obo:MOLSIM_002137 owl:topDataProperty)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002138 "A relation that associates a trajectory with how many saved frames it contains. It reflects how many time points were recorded over the course of the run. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002138 "number of frames"@en)
 SubDataPropertyOf(obo:MOLSIM_002138 obo:MOLSIM_002137)
+DataPropertyRange(obo:MOLSIM_002138 xsd:integer)
 
 # Data Property: obo:MOLSIM_002139 (coordinate format specifier)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002139 "A relation that associates a trajectory or coordinate file with an identifier of the file format used to store its coordinates. It records how the coordinate data are encoded, for example as NetCDF or formatted text. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002139 "coordinate format specifier"@en)
 SubDataPropertyOf(obo:MOLSIM_002139 obo:MOLSIM_002137)
+DataPropertyRange(obo:MOLSIM_002139 xsd:string)
 
 # Data Property: obo:MOLSIM_002140 (structural and dimensional arrays)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002140 "A relation that groups properties whose values are arrays describing the size and geometry of a molecular system, such as periodic box vectors. It serves as an organizing parent for array-valued structural metadata relations. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002140 "structural and dimensional arrays"@en)
 SubDataPropertyOf(obo:MOLSIM_002140 owl:topDataProperty)
+DataPropertyRange(obo:MOLSIM_002140 xsd:string)
 
 # Data Property: obo:MOLSIM_002141 (box dimensions array)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002141 "A relation that associates a molecular system with an array giving the lengths and angles that define its periodic simulation box. It captures the full geometry of the periodic unit cell. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002141 "box dimensions array"@en)
 SubDataPropertyOf(obo:MOLSIM_002141 obo:MOLSIM_002140)
+DataPropertyRange(obo:MOLSIM_002141 xsd:string)
 
 # Data Property: obo:MOLSIM_002142 (initial box dimensions array)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002142 "A relation that associates a molecular system with an array giving the periodic box lengths and angles at the start of a run. It records the initial unit-cell geometry before any volume changes. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002142 "initial box dimensions array"@en)
 SubDataPropertyOf(obo:MOLSIM_002142 obo:MOLSIM_002140)
+DataPropertyRange(obo:MOLSIM_002142 xsd:string)
 
 # Data Property: obo:MOLSIM_002143 (system nomenclature descriptors)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002143 "A relation that groups properties recording the names and labels assigned to components of a molecular system, such as residue and atom-type names. It serves as an organizing parent for naming-related metadata relations. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002143 "system nomenclature descriptors"@en)
 SubDataPropertyOf(obo:MOLSIM_002143 owl:topDataProperty)
+DataPropertyRange(obo:MOLSIM_002143 xsd:string)
 
 # Data Property: obo:MOLSIM_002144 (solvent residue name)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002144 "A relation that associates a molecular system with the residue name used to identify its solvent in the topology, such as WAT for water. It records the label under which solvent is stored. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002144 "solvent residue name"@en)
 SubDataPropertyOf(obo:MOLSIM_002144 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002144 xsd:string)
 
 # Data Property: obo:MOLSIM_002145 (residue labels)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002145 "A relation that associates a molecular system with the ordered list of residue names for its constituent residues. It records the per-residue naming as given in the system's topology. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002145 "residue labels"@en)
 SubDataPropertyOf(obo:MOLSIM_002145 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002145 xsd:string)
 
 # Data Property: obo:MOLSIM_002146 (unique residue names)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002146 "A relation that associates a molecular system with the set of distinct residue names it contains. It summarizes the kinds of residues present without regard to how many times each occurs. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002146 "unique residue names"@en)
 SubDataPropertyOf(obo:MOLSIM_002146 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002146 xsd:string)
 
 # Data Property: obo:MOLSIM_002147 (unique atom types)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002147 "A relation that associates a molecular system with the set of distinct force-field atom types it uses. It summarizes the range of parameterized atom types present in the topology. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002147 "unique atom types"@en)
 SubDataPropertyOf(obo:MOLSIM_002147 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002147 xsd:string)
 
 # Data Property: obo:MOLSIM_002148 (born radii set name)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002148 "A relation that associates a molecular system with the identifier of the intrinsic radii set used in a generalized Born implicit-solvent calculation. It records which parameterization defines the atomic solvation radii. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002148 "born radii set name"@en)
 SubDataPropertyOf(obo:MOLSIM_002148 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002148 xsd:string)
 
 # Data Property: obo:MOLSIM_002149 (log and validation descriptors)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002149 "A relation that groups properties recording diagnostic messages and validation outcomes produced while running or checking a simulation. It serves as an organizing parent for log- and validation-related metadata relations. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002149 "log and validation descriptors"@en)
 SubDataPropertyOf(obo:MOLSIM_002149 owl:topDataProperty)
+DataPropertyRange(obo:MOLSIM_002149 xsd:string)
 
 # Data Property: obo:MOLSIM_002150 (has error message)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002150 "A relation that associates a simulation or processing step with textual diagnostic output emitted when a fault occurred. It captures the message describing why a run failed. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002150 "has error message"@en)
 SubDataPropertyOf(obo:MOLSIM_002150 obo:MOLSIM_002149)
+DataPropertyRange(obo:MOLSIM_002150 xsd:string)
 
 # Data Property: obo:MOLSIM_002151 (has warning message)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002151 "A relation that associates a simulation or processing step with a textual warning emitted during execution. Such warnings flag potential problems that did not necessarily stop the run. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002151 "has warning message"@en)
 SubDataPropertyOf(obo:MOLSIM_002151 obo:MOLSIM_002149)
+DataPropertyRange(obo:MOLSIM_002151 xsd:string)
 
 # Data Property: obo:MOLSIM_002152 (has validation warning)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002152 "A relation that associates a dataset or run with a non-fatal issue raised during a validation check. It flags a concern found while verifying correctness or consistency. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002152 "has validation warning"@en)
 SubDataPropertyOf(obo:MOLSIM_002152 obo:MOLSIM_002149)
+DataPropertyRange(obo:MOLSIM_002152 xsd:string)
 
 # Data Property: obo:MOLSIM_002153 (has validation error)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002153 "A relation that associates a dataset or run with a fault raised during a validation check that caused the check to fail. It records a validation failure. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002153 "has validation error"@en)
 SubDataPropertyOf(obo:MOLSIM_002153 obo:MOLSIM_002149)
+DataPropertyRange(obo:MOLSIM_002153 xsd:string)
 
 # Data Property: obo:MOLSIM_002154 (consistency check result)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002154 "A relation that associates a dataset or run with the outcome of a check verifying that its data are mutually consistent. It records whether internal consistency tests passed or failed. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002154 "consistency check result"@en)
 SubDataPropertyOf(obo:MOLSIM_002154 obo:MOLSIM_002149)
+DataPropertyRange(obo:MOLSIM_002154 xsd:string)
 
 # Data Property: owl:topDataProperty (owl:topDataProperty)
 
