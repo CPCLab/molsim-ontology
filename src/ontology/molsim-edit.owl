@@ -2060,6 +2060,7 @@ Declaration(ObjectProperty(obo:BFO_0000051))
 Declaration(ObjectProperty(obo:BFO_0000055))
 Declaration(ObjectProperty(obo:BFO_0000063))
 Declaration(ObjectProperty(obo:IAO_0000039))
+Declaration(DataProperty(obo:IAO_0000004))
 Declaration(ObjectProperty(obo:IAO_0000136))
 Declaration(ObjectProperty(obo:MOLSIM_000297))
 Declaration(ObjectProperty(obo:MOLSIM_000504))
@@ -2275,6 +2276,10 @@ SubObjectPropertyOf(obo:BFO_0000063 owl:topObjectProperty)
 
 AnnotationAssertion(rdfs:label obo:IAO_0000039 "has measurement unit label"@en)
 SubObjectPropertyOf(obo:IAO_0000039 owl:topObjectProperty)
+
+# Data Property: obo:IAO_0000004 (has measurement value)
+
+AnnotationAssertion(rdfs:label obo:IAO_0000004 "has measurement value"@en)
 
 # Object Property: obo:IAO_0000136 (is about)
 
@@ -15828,10 +15833,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001532 "The small molecule struct
 AnnotationAssertion(rdfs:label obo:MOLSIM_001532 "Cambridge Structural Database"@en)
 ClassAssertion(obo:MOLSIM_001522 obo:MOLSIM_001532)
 
-# Individual: obo:MOLSIM_001945 (Omni-Path)
+# Individual: obo:MOLSIM_001945 (obsolete Omni-Path)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001945 "A high-performance network interconnect architecture that connects compute nodes in a high-performance computing cluster, providing the low-latency, high-bandwidth communication required for parallel molecular dynamics simulations. (NEWLY_ADDED) (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001945 "Omni-Path"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001945 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001945 "Obsoleted: redundant untyped individual duplicating the class 'omni-path' (MOLSIM_001949), which is the concept to use instead."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001945 "obsolete Omni-Path"@en)
 
 
 DisjointClasses(obo:MOLSIM_000005 obo:MOLSIM_000208 obo:MOLSIM_000209)
