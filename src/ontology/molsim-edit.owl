@@ -14778,7 +14778,7 @@ SubClassOf(obo:MOLSIM_002033 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_002034 (velocity generation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002034 "elocity generation is a configuration parameter used at the start of a molecular dynamics simulation to assign initial kinetic energies to the atoms in the system. It typically involves generating random velocity vectors derived from a Maxwell-Boltzmann distribution that corresponds to a user-specified reference temperature. For experts, enabling this option (e.g., gen-vel = yes) is standard when starting from energy-minimized coordinates, but it must be strictly disabled during restart or continuation runs to preserve the momentum and ensemble trajectory of the previous segment. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002034 "Velocity generation is a configuration parameter used at the start of a molecular dynamics simulation to assign initial kinetic energies to the atoms in the system. It typically involves generating random velocity vectors derived from a Maxwell-Boltzmann distribution that corresponds to a user-specified reference temperature. For experts, enabling this option (e.g., gen-vel = yes) is standard when starting from energy-minimized coordinates, but it must be strictly disabled during restart or continuation runs to preserve the momentum and ensemble trajectory of the previous segment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002034 "velocity generation"@en)
 SubClassOf(obo:MOLSIM_002034 obo:MOLSIM_001210)
 
@@ -15884,4 +15884,292 @@ DisjointClasses(obo:MOLSIM_000945 obo:MOLSIM_000946 obo:MOLSIM_000947)
 DisjointClasses(obo:MOLSIM_001073 obo:MOLSIM_001074 obo:MOLSIM_001075)
 DisjointClasses(obo:MOLSIM_001081 obo:MOLSIM_001082 obo:MOLSIM_001083 obo:MOLSIM_001084)
 DisjointClasses(obo:MOLSIM_001605 obo:MOLSIM_001970 obo:MOLSIM_001971 obo:MOLSIM_001972)
+
+# ==== ambermeta gap closure: Bucket A (structural) + Bucket B (data properties) ====
+# Class: obo:MOLSIM_002155 (simulation protocol)
+
+Declaration(Class(obo:MOLSIM_002155))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002155 "A plan specification that describes a sequential, multi-stage computational workflow, such as minimization, heating, equilibration, and production, applied to a molecular system. It organizes the individual stages and their ordering into a single reproducible procedure. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002155 "simulation protocol"@en)
+SubClassOf(obo:MOLSIM_002155 obo:MOLSIM_000310)
+
+# Class: obo:MOLSIM_002156 (simulation stage)
+
+Declaration(Class(obo:MOLSIM_002156))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002156 "A molecular dynamics process that constitutes one discrete, chronological phase within a larger simulation protocol, characterized by its own role and its own input and output files. Examples include a heating stage or a production stage. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002156 "simulation stage"@en)
+SubClassOf(obo:MOLSIM_002156 obo:MOLSIM_000000)
+
+# Class: obo:MOLSIM_002157 (simulation parameter schedule)
+
+Declaration(Class(obo:MOLSIM_002157))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002157 "A simulation parameter that specifies how another parameter, such as target temperature, restraint force constant, or non-bonded cutoff, changes over the course of a run, whether across simulated time or across integration steps. It captures ramping and stepwise schedules applied during a stage. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002157 "simulation parameter schedule"@en)
+SubClassOf(obo:MOLSIM_002157 obo:MOLSIM_001164)
+
+# Class: obo:MOLSIM_002158 (simulation continuity check)
+
+Declaration(Class(obo:MOLSIM_002158))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002158 "A validation analysis that evaluates whether two consecutive simulation stages join without an unexpected break, by comparing the end time of one stage with the start time of the next. It flags gaps that may indicate missing segments or unit errors. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002158 "simulation continuity check"@en)
+SubClassOf(obo:MOLSIM_002158 obo:MOLSIM_000353)
+
+# Class: obo:MOLSIM_002159 (cross-source validation)
+
+Declaration(Class(obo:MOLSIM_002159))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002159 "A validation analysis that checks whether metadata extracted from several distinct files describing the same stage, such as topology, input, output, and trajectory files, agree with one another. It surfaces inconsistencies such as mismatched atom counts or timesteps. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002159 "cross-source validation"@en)
+SubClassOf(obo:MOLSIM_002159 obo:MOLSIM_000353)
+
+# Class: obo:MOLSIM_002160 (file parsing error)
+
+Declaration(Class(obo:MOLSIM_002160))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002160 "An information content entity that records a failure, exception, or warning encountered while reading or extracting metadata from a simulation data file. It preserves the reason a file could not be fully processed. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002160 "file parsing error"@en)
+SubClassOf(obo:MOLSIM_002160 obo:MOLSIM_001072)
+
+# Class: obo:MOLSIM_002161 (file format convention)
+
+Declaration(Class(obo:MOLSIM_002161))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002161 "A data format that designates a specific standardized schema variant that a file adheres to within a broader container format, such as the AMBER conventions used inside a NetCDF file. It identifies the precise rules for interpreting the file's contents. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002161 "file format convention"@en)
+SubClassOf(obo:MOLSIM_002161 obo:MOLSIM_000436)
+
+# Class: obo:MOLSIM_002162 (system classification label)
+
+Declaration(Class(obo:MOLSIM_002162))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002162 "An information content entity that assigns a high-level descriptive category to a molecular system based on its overall composition, such as a protein-ligand complex in explicit water. It provides a concise, human-readable summary of what is being simulated. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002162 "system classification label"@en)
+SubClassOf(obo:MOLSIM_002162 obo:MOLSIM_001072)
+
+# Class: obo:MOLSIM_002163 (atom selection mask)
+
+Declaration(Class(obo:MOLSIM_002163))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002163 "A plan specification that defines a specific subset of atoms within a molecular system using a formal string or logical expression, for the purpose of applying restraints, constraints, or targeted analysis. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002163 "atom selection mask"@en)
+SubClassOf(obo:MOLSIM_002163 obo:MOLSIM_000310)
+
+# Class: obo:MOLSIM_002164 (trajectory frame interval)
+
+Declaration(Class(obo:MOLSIM_002164))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002164 "A simulation state time that represents the average amount of simulated time elapsed between consecutive saved frames of a trajectory. It reflects how finely the trajectory samples the simulated time coordinate. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002164 "trajectory frame interval"@en)
+SubClassOf(obo:MOLSIM_002164 obo:MOLSIM_002112)
+
+# Class: obo:MOLSIM_002165 (inter-stage time gap)
+
+Declaration(Class(obo:MOLSIM_002165))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002165 "A simulation state time that represents the difference between the end time of one simulation stage and the start time of the next. A nonzero gap indicates a break in the continuous simulated-time coordinate across stages. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002165 "inter-stage time gap"@en)
+SubClassOf(obo:MOLSIM_002165 obo:MOLSIM_002112)
+
+# Class: obo:MOLSIM_002166 (hydrogen detection strategy)
+
+Declaration(Class(obo:MOLSIM_002166))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002166 "An analysis algorithm that identifies which atoms in a molecular system are hydrogens, for the purpose of applying or detecting hydrogen mass repartitioning. Different strategies rely on different atomic attributes, such as atomic number or atom name. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002166 "hydrogen detection strategy"@en)
+SubClassOf(obo:MOLSIM_002166 obo:MOLSIM_001696)
+
+# Object Property: obo:MOLSIM_002167 (has simulation stage)
+
+Declaration(ObjectProperty(obo:MOLSIM_002167))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002167 "A relation that links a simulation protocol to one of the discrete stages that make it up. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002167 "has simulation stage"@en)
+SubObjectPropertyOf(obo:MOLSIM_002167 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002167 obo:MOLSIM_002155)
+ObjectPropertyRange(obo:MOLSIM_002167 obo:MOLSIM_002156)
+
+# Object Property: obo:MOLSIM_002168 (has parameter schedule)
+
+Declaration(ObjectProperty(obo:MOLSIM_002168))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002168 "A relation that links a molecular dynamics process to a schedule defining how one of its parameters varies over simulated time or integration steps. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002168 "has parameter schedule"@en)
+SubObjectPropertyOf(obo:MOLSIM_002168 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002168 obo:MOLSIM_000000)
+ObjectPropertyRange(obo:MOLSIM_002168 obo:MOLSIM_002157)
+
+# Object Property: obo:MOLSIM_002169 (has continuity check)
+
+Declaration(ObjectProperty(obo:MOLSIM_002169))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002169 "A relation that links a simulation stage to a continuity check assessing its temporal join with an adjacent stage. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002169 "has continuity check"@en)
+SubObjectPropertyOf(obo:MOLSIM_002169 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002169 obo:MOLSIM_002156)
+ObjectPropertyRange(obo:MOLSIM_002169 obo:MOLSIM_002158)
+
+# Object Property: obo:MOLSIM_002170 (has parsing error)
+
+Declaration(ObjectProperty(obo:MOLSIM_002170))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002170 "A relation that links a simulation stage to an error encountered while loading or parsing one of its data files. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002170 "has parsing error"@en)
+SubObjectPropertyOf(obo:MOLSIM_002170 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002170 obo:MOLSIM_002156)
+ObjectPropertyRange(obo:MOLSIM_002170 obo:MOLSIM_002160)
+
+# Object Property: obo:MOLSIM_002171 (has system classification)
+
+Declaration(ObjectProperty(obo:MOLSIM_002171))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002171 "A relation that links a molecular simulation system to a high-level classification label describing its composition. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002171 "has system classification"@en)
+SubObjectPropertyOf(obo:MOLSIM_002171 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002171 obo:MOLSIM_001887)
+ObjectPropertyRange(obo:MOLSIM_002171 obo:MOLSIM_002162)
+
+# Object Property: obo:MOLSIM_002172 (has format convention)
+
+Declaration(ObjectProperty(obo:MOLSIM_002172))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002172 "A relation that links a data format to the specific convention or schema variant that a file follows. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002172 "has format convention"@en)
+SubObjectPropertyOf(obo:MOLSIM_002172 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002172 obo:MOLSIM_000436)
+ObjectPropertyRange(obo:MOLSIM_002172 obo:MOLSIM_002161)
+
+# Object Property: obo:MOLSIM_002173 (has restraint mask)
+
+Declaration(ObjectProperty(obo:MOLSIM_002173))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002173 "A relation that links a molecular dynamics process to the atom selection mask defining which atoms are subject to restraints. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002173 "has restraint mask"@en)
+SubObjectPropertyOf(obo:MOLSIM_002173 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002173 obo:MOLSIM_000000)
+ObjectPropertyRange(obo:MOLSIM_002173 obo:MOLSIM_002163)
+
+# Individual: obo:MOLSIM_002174 (AMBERRESTART NetCDF convention)
+
+Declaration(NamedIndividual(obo:MOLSIM_002174))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002174 "The file format convention denoted by the string AMBERRESTART in a NetCDF file's global Conventions attribute, designating the file as an AMBER restart or state file. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002174 "AMBERRESTART NetCDF convention"@en)
+ClassAssertion(obo:MOLSIM_002161 obo:MOLSIM_002174)
+
+# Individual: obo:MOLSIM_002175 (AMBER trajectory NetCDF convention)
+
+Declaration(NamedIndividual(obo:MOLSIM_002175))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002175 "The file format convention denoted by the string AMBER in a NetCDF file's global Conventions attribute, designating the file as an AMBER coordinate trajectory. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002175 "AMBER trajectory NetCDF convention"@en)
+ClassAssertion(obo:MOLSIM_002161 obo:MOLSIM_002175)
+
+# Individual: obo:MOLSIM_002176 (Protein / Ligand in Explicit Water)
+
+Declaration(NamedIndividual(obo:MOLSIM_002176))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002176 "The system classification label assigned to a molecular system composed of a protein receptor, a small-molecule ligand, and explicit water molecules. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002176 "Protein / Ligand in Explicit Water"@en)
+ClassAssertion(obo:MOLSIM_002162 obo:MOLSIM_002176)
+
+# Individual: obo:MOLSIM_002177 (atomic number HMR detection strategy)
+
+Declaration(NamedIndividual(obo:MOLSIM_002177))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002177 "The hydrogen detection strategy that identifies hydrogen atoms by testing whether an atom's atomic number is exactly one, used when applying or detecting hydrogen mass repartitioning. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002177 "atomic number HMR detection strategy"@en)
+ClassAssertion(obo:MOLSIM_002166 obo:MOLSIM_002177)
+
+# Individual: obo:MOLSIM_002178 (atom name HMR detection strategy)
+
+Declaration(NamedIndividual(obo:MOLSIM_002178))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002178 "The hydrogen detection strategy that identifies hydrogen atoms by testing whether an atom's name begins with the letter H, used when applying or detecting hydrogen mass repartitioning. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002178 "atom name HMR detection strategy"@en)
+ClassAssertion(obo:MOLSIM_002166 obo:MOLSIM_002178)
+
+# Data Property: obo:MOLSIM_002179 (has coordinates array)
+
+Declaration(DataProperty(obo:MOLSIM_002179))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002179 "A relation that indicates whether a trajectory or restart file contains atomic coordinate data. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002179 "has coordinates array"@en)
+SubDataPropertyOf(obo:MOLSIM_002179 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002179 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002180 (has forces array)
+
+Declaration(DataProperty(obo:MOLSIM_002180))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002180 "A relation that indicates whether a trajectory or restart file contains per-atom force data. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002180 "has forces array"@en)
+SubDataPropertyOf(obo:MOLSIM_002180 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002180 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002181 (has time array)
+
+Declaration(DataProperty(obo:MOLSIM_002181))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002181 "A relation that indicates whether a trajectory file contains per-frame time-stamp data. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002181 "has time array"@en)
+SubDataPropertyOf(obo:MOLSIM_002181 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002181 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002182 (has NMR restraints active)
+
+Declaration(DataProperty(obo:MOLSIM_002182))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002182 "A relation that indicates whether a simulation applies NMR-derived restraints or dynamically varying conditions. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002182 "has NMR restraints active"@en)
+SubDataPropertyOf(obo:MOLSIM_002182 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002182 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002183 (is degraded extraction mode)
+
+Declaration(DataProperty(obo:MOLSIM_002183))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002183 "A relation that indicates whether metadata extraction ran in a degraded mode because one or more input files were missing or unreadable. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002183 "is degraded extraction mode"@en)
+SubDataPropertyOf(obo:MOLSIM_002183 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002183 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002184 (has temperature schedule)
+
+Declaration(DataProperty(obo:MOLSIM_002184))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002184 "A relation that indicates whether a run applies a time-varying target-temperature schedule. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002184 "has temperature schedule"@en)
+SubDataPropertyOf(obo:MOLSIM_002184 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002184 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002185 (has restraint schedule)
+
+Declaration(DataProperty(obo:MOLSIM_002185))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002185 "A relation that indicates whether a run applies a time-varying positional-restraint weight schedule. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002185 "has restraint schedule"@en)
+SubDataPropertyOf(obo:MOLSIM_002185 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002185 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002186 (has cutoff schedule)
+
+Declaration(DataProperty(obo:MOLSIM_002186))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002186 "A relation that indicates whether a run applies a time-varying non-bonded cutoff schedule. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002186 "has cutoff schedule"@en)
+SubDataPropertyOf(obo:MOLSIM_002186 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002186 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002187 (force field feature)
+
+Declaration(DataProperty(obo:MOLSIM_002187))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002187 "A relation that associates a molecular system with a descriptive feature or heuristic modification of its force field, such as CMAP support or CHAMBER conversion. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002187 "force field feature"@en)
+SubDataPropertyOf(obo:MOLSIM_002187 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002187 xsd:string)
+
+# Data Property: obo:MOLSIM_002188 (residue composition map)
+
+Declaration(DataProperty(obo:MOLSIM_002188))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002188 "A relation that associates a molecular system with a serialized mapping from each residue type to the number of residues of that type present. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002188 "residue composition map"@en)
+SubDataPropertyOf(obo:MOLSIM_002188 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002188 xsd:string)
+
+# Data Property: obo:MOLSIM_002189 (raw control parameters)
+
+Declaration(DataProperty(obo:MOLSIM_002189))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002189 "A relation that associates a simulation with the complete, serialized set of key-value control parameters parsed from its input file. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002189 "raw control parameters"@en)
+SubDataPropertyOf(obo:MOLSIM_002189 obo:MOLSIM_002149)
+DataPropertyRange(obo:MOLSIM_002189 xsd:string)
+
+# Data Property: obo:MOLSIM_002190 (REMD variant type)
+
+Declaration(DataProperty(obo:MOLSIM_002190))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002190 "A relation that associates a replica-exchange trajectory with the exchanged-coordinate variant detected, such as temperature replica exchange or multi-dimensional replica exchange. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002190 "REMD variant type"@en)
+SubDataPropertyOf(obo:MOLSIM_002190 obo:MOLSIM_002143)
+DataPropertyRange(obo:MOLSIM_002190 xsd:string)
+
+# Data Property: obo:MOLSIM_002191 (restart file path)
+
+Declaration(DataProperty(obo:MOLSIM_002191))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002191 "A relation that associates a simulation stage with the file path or identifier of the restart file used to initiate it. (NEWLY_ADDED) (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002191 "restart file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002149)
+DataPropertyRange(obo:MOLSIM_002191 xsd:string)
+
 )
