@@ -35,6 +35,9 @@ We are preparing MOLSIM for submission to the [OBO Foundry](http://obofoundry.or
 `http://purl.obolibrary.org/obo/molsim.owl`
 *(Note: This URL will not be active until official OBO Foundry acceptance.)*
 
+### Ontology Alignment (Planned, Currently Deferred)
+MOLSIM currently uses a domain-oriented class hierarchy chosen for browsability by molecular-simulation domain experts, without alignment to an upper ontology. Alignment with OBO Foundry ontologies — including the Basic Formal Ontology (BFO) — is planned but **deliberately deferred** for now. During the ongoing domain-expert verification phase, we prioritize a hierarchy that domain experts can readily read and validate, and we avoid the additional abstraction that upper-ontology alignment (e.g., BFO) would introduce at this stage. Once the ontology has matured through domain-expert review, MOLSIM will be aligned with the OBO Foundry, BFO, and related ontologies accordingly.
+
 ## Scope
 MOLSIM provides a semantic framework for the following aspects of molecular simulation:
 * **Computational Processes:** Molecular dynamics and energy minimization protocols.
