@@ -34,7 +34,7 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Introduction
-**MOLSIM** is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as **FAIR** (Findable, Accessible, Interoperable, and Reusable) datasets. 
+**MOLSIM** is a domain ontology designed to semantically represent platform-agnostic biomolecular simulations (all-atom and coarse-grained) as **FAIR** (Findable, Accessible, Interoperable, and Reusable) datasets. 
 
 The primary goal of this ontology is to standardize the representation of molecular simulation data, processes, and methodologies across disparate simulation platforms, engines (e.g., GROMACS, AMBER, NAMD), and analysis tools, while ensuring these terms are interoperable with existing life sciences ontologies.
 
@@ -44,9 +44,9 @@ The primary goal of this ontology is to standardize the representation of molecu
 | **Prefix** | `MOLSIM` |
 | **Namespace** | `http://purl.obolibrary.org/obo/MOLSIM_` |
 | **Size** | ~2,040 classes · 16 object properties · 94 data properties |
-| **Hierarchy** | Domain-oriented (no upper ontology yet — see [Ontology Alignment](#ontology-alignment-planned-currently-deferred)) |
+| **Hierarchy** | Domain-oriented (no upper ontology yet; see [Ontology Alignment](#ontology-alignment-planned-currently-deferred)) |
 | **Management** | ODK (Ontology Development Kit) + ROBOT, reasoned with ELK |
-| **Source serialization** | OWL Functional Syntax — [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl) |
+| **Source serialization** | OWL Functional Syntax: [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl) |
 | **License** | CC BY-NC-SA 4.0 |
 
 ## Development Status
@@ -70,7 +70,7 @@ MOLSIM provides a semantic framework spanning the full molecular-simulation life
 * **Software & hardware:** simulation engines (e.g., GROMACS, AMBER, NAMD, LAMMPS, OpenMM), setup and analysis tools, and computing infrastructure (CPUs/GPUs, HPC).
 * **Data structures & formats:** topology, coordinate, and trajectory file formats; coordinate representations; structural identifiers; and physical units.
 * **Analysis & outputs:** trajectories and conformational ensembles; thermodynamic, structural, and kinetic properties (e.g., RMSD, RMSF, radius of gyration, potential of mean force, Markov state models); correlation functions; and unit-bearing quantities.
-* **Provenance & metadata:** simulation parameters and schedules, system-composition counts, system-classification labels, and per-term editorial provenance — supporting FAIR, machine-actionable simulation metadata.
+* **Provenance & metadata:** simulation parameters and schedules, system-composition counts, system-classification labels, and per-term editorial provenance, supporting FAIR, machine-actionable simulation metadata.
 
 ## Competency Questions
 MOLSIM is designed to represent simulations in enough detail to answer questions such as:
@@ -82,7 +82,7 @@ MOLSIM is designed to represent simulations in enough detail to answer questions
 * Which **enhanced-sampling** or **free-energy** method was applied, and with what **collective variables / restraints**?
 * What **analyses** were run (e.g., RMSD, RMSF, PMF, Markov state models), and in what **units** are the results expressed?
 
-> **Modeling example.** The class `non-bonded cutoff distance` is modeled as a length quantity carrying two universal restrictions — a UO length-unit restriction and a decimal value restriction — so that a cutoff such as "1.2 nm" is captured in a unit-aware, machine-readable way rather than as free text.
+> **Modeling example.** The class `non-bonded cutoff distance` is modeled as a length quantity carrying two universal restrictions (a UO length-unit restriction and a decimal value restriction) so that a cutoff such as "1.2 nm" is captured in a unit-aware, machine-readable way rather than as free text.
 
 ## Documentation
 * **Class & Property Hierarchy:** Explore the ontology structure on [BioPortal](https://bioportal.bioontology.org/ontologies/MOLSIM).
