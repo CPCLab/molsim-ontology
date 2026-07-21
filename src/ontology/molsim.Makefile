@@ -3,6 +3,12 @@
 ## If you need to customize your Makefile, make
 ## changes here rather than in the main Makefile
 
+# Custom import modules. Guarded by IMP=true (like the standard rules in the main
+# Makefile) so that when imports are NOT being rebuilt (IMP=false, e.g. in CI/QC),
+# the committed imports/*_import.owl are treated as static files and do not require
+# the mirror/*.owl sources to be present. Only an actual import refresh (IMP=true,
+# MIR=true) needs the mirrors.
+ifeq ($(IMP),true)
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
@@ -14,6 +20,7 @@ $(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/chebi_terms.txt \
 		--output $@
+endif
 
 $(COMPONENTSDIR)/molsim_units_component.owl: $(SRC) templates/molsim_units_component.tsv
 	$(ROBOT) template --template templates/molsim_units_component.tsv \
