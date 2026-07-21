@@ -34,7 +34,7 @@ We welcome contributions to improve and expand molsim. Please feel free to submi
 
 ## License
 
-https://creativecommons.org/licenses/by-nc-sa/4.0/
+https://creativecommons.org/licenses/by/4.0/
 
 ## Contact
 

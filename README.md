@@ -17,8 +17,8 @@
   <a href="http://robot.obolibrary.org/">
     <img src="https://img.shields.io/badge/Powered_by-ROBOT-blue.svg" alt="Powered by ROBOT">
   </a>
-  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-    <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-blue.svg" alt="License: CC BY-NC-SA 4.0">
+  <a href="https://creativecommons.org/licenses/by/4.0/">
+    <img src="https://img.shields.io/badge/License-CC_BY_4.0-blue.svg" alt="License: CC BY 4.0">
   </a>
 </p>
 
@@ -47,7 +47,7 @@ The primary goal of this ontology is to standardize the representation of molecu
 | **Hierarchy** | Domain-oriented (no upper ontology yet; see [Ontology Alignment](#ontology-alignment-planned-currently-deferred)) |
 | **Management** | ODK (Ontology Development Kit) + ROBOT, reasoned with ELK |
 | **Source serialization** | OWL Functional Syntax: [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl) |
-| **License** | CC BY-NC-SA 4.0 |
+| **License** | CC BY 4.0 |
 
 ## Development Status
 > ⚠️ **Active Development (Alpha)**
@@ -108,7 +108,7 @@ The MOLSIM project is open to contributions and collaboration.
 * **Discussion:** For broader discussions regarding modeling decisions, please use the issue tracker or contact the maintainers.
 
 ## License
-MOLSIM is available under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+MOLSIM is available under the [Creative Commons Attribution 4.0 International license (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ## Acknowledgements
 This ontology repository was created using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
