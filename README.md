@@ -100,6 +100,7 @@ Development is conducted in the `src` directory. Editors should work with the so
 ### For Users (Pre-Release)
 Until the official OBO PURL is active, you can access the latest compiled version of the ontology directly from this repository:
 * [`molsim.owl` (Latest Snapshot)](molsim.owl)
+* The .obo release does not include MOLSIM's data properties, because the OBO format cannot represent them. Use the OWL or JSON release if you need them.
 
 ## Contributing
 The MOLSIM project is open to contributions and collaboration.
