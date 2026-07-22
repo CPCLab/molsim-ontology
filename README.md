@@ -34,7 +34,7 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Introduction
-**MOLSIM** is a domain ontology designed to semantically represent platform-agnostic biomolecular simulations (all-atom and coarse-grained) as **FAIR** (Findable, Accessible, Interoperable, and Reusable) datasets. 
+**MOLSIM** is a domain (application) ontology designed to semantically represent platform-agnostic biomolecular simulations (all-atom and coarse-grained) as **FAIR** (Findable, Accessible, Interoperable, and Reusable) datasets. As an application ontology, it reuses terms from established OBO ontologies where they fit and defines its own where they do not.
 
 The primary goal of this ontology is to standardize the representation of molecular simulation data, processes, and methodologies across disparate simulation platforms, engines (e.g., GROMACS, AMBER, NAMD), and analysis tools, while ensuring these terms are interoperable with existing life sciences ontologies.
 
