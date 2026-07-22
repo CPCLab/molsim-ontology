@@ -15,6 +15,12 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 		--lower-terms $(IMPORTDIR)/uo_terms.txt \
 		--output $@
 
+$(IMPORTDIR)/so_import.owl: $(MIRRORDIR)/so.owl
+	$(ROBOT) extract --input $< \
+		--method MIREOT \
+		--lower-terms $(IMPORTDIR)/so_terms.txt \
+		--output $@
+
 $(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
