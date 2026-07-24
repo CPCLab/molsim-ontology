@@ -17,18 +17,18 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-full.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-07-21/molsim-full.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-07-24/molsim-full.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-0476-9699"/>
         <dcterms:contributor rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0001-8613-1447"/>
         <dcterms:creator rdf:resource="https://orcid.org/0000-0003-4846-8051"/>
-        <dcterms:description xml:lang="en">MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools.</dcterms:description>
+        <dcterms:description xml:lang="en">MOLSIM is a domain (application) ontology designed to semantically represent platform-agnostic biomolecular simulations (all-atom and coarse-grained) as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. As an application ontology, it reuses terms from established OBO ontologies where they fit and defines its own where they do not, aiming to standardize the representation of biomolecular simulation data, processes, and methodologies across platforms and tools.</dcterms:description>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <dcterms:subject xml:lang="en">biomolecular simulation</dcterms:subject>
         <dcterms:title>Molecular Simulation Ontology</dcterms:title>
         <oboInOwl:default-namespace xml:lang="en">molsim</oboInOwl:default-namespace>
-        <owl:versionInfo>2026-07-21</owl:versionInfo>
+        <owl:versionInfo>2026-07-24</owl:versionInfo>
         <foaf:homepage xml:lang="en">https://github.com/CPCLab/molsim-ontology</foaf:homepage>
     </owl:Ontology>
     
@@ -140,6 +140,22 @@
     
 
 
+    <!-- http://www.geneontology.org/formats/oboInOwl#created_by -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#created_by">
+        <rdfs:label>created by</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#creation_date -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#creation_date">
+        <rdfs:label>creation date</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#default-namespace -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#default-namespace"/>
@@ -150,6 +166,14 @@
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasAlternativeId">
         <rdfs:label>has_alternative_id</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym">
+        <rdfs:label>has_broad_synonym</rdfs:label>
     </owl:AnnotationProperty>
     
 
@@ -169,6 +193,14 @@
         <obo:IAO_0000117 rdf:resource="http://orcid.org/0000-0001-5208-3432"/>
         <rdfs:label xml:lang="en">has exact synonym</rdfs:label>
         <rdfs:label>has_exact_synonym</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym">
+        <rdfs:label>has_narrow_synonym</rdfs:label>
     </owl:AnnotationProperty>
     
 
@@ -197,7 +229,9 @@
 
     <!-- http://www.geneontology.org/formats/oboInOwl#id -->
 
-    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#id"/>
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#id">
+        <rdfs:label>id</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -212,6 +246,12 @@
     <!-- http://www.geneontology.org/formats/oboInOwl#source -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#source"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
     
 
 
@@ -1888,6 +1928,216 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <obo:IAO_0000115 xml:lang="en">A relation that associates a simulation protocol with the total number of integration steps performed across all of its stages. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">total simulation steps</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002215 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002215">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of atoms belonging to its proteins. Proteins are the large chain-like molecules built from amino acids; this reports how many atoms make up all of them together. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">protein atom count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002216 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002216">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of atoms belonging to its nucleic acids (DNA and RNA); this reports how many atoms make up all of them together. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">nucleic acid atom count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002217 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002217">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of atoms belonging to its lipids. Lipids are the fatty molecules that form cell membranes. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">lipid atom count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002218 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002218">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of atoms that are ions. Ions are individual charged atoms such as sodium or chloride, added to balance charge or set the salt level. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">ion atom count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002219 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002219">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of atoms belonging to the solvent (usually water). It differs from number of solvent molecules (002122), which counts whole molecules rather than atoms. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">solvent atom count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002220 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002220">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of atoms that fall into none of the named categories (protein, nucleic acid, lipid, ion, solvent). It captures leftovers such as small-molecule ligands or cofactors. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">other atom count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002221 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002221">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of residues in its proteins. A residue is one amino-acid building block of a protein chain. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">protein residue count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002222 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002222">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of residues in its nucleic acids. Here a residue is one nucleotide building block of a DNA or RNA chain. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">nucleic acid residue count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002223 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002223">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of lipid residues it contains. Each lipid molecule is counted as one residue, so this effectively reports how many lipid molecules make up the membrane or other lipid assembly. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">lipid residue count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002224 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002224">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with how many nucleosomes it contains. A nucleosome is the basic repeating unit of chromatin, a stretch of DNA wound around a core of histone proteins. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">number of nucleosomes</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002225 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002225">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates the system with the length of a DNA strand, measured as the number of nucleotide bases it contains. Because a system can contain several strands, this may be recorded once per strand. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">number of nucleotides per DNA strand</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002227 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002227">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002140"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that records the box angles as an ordered list of values (e.g. α, β, γ). It stores the raw angle data read from or written to a simulation file. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">box angles array</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002228 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002228">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that states whether a saved trajectory includes the atomic positions (the 3-D coordinates of every atom over time). Positions are the most basic trajectory data and are almost always present. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">has positions flag</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002229 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002229">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that states whether a saved trajectory includes the forces acting on each atom over time. Forces are optional extra data, useful for example when training machine-learning models. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">has forces flag</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002231 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002231">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000001"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that records the version number of a piece of software, such as an MD engine (for example, version 2024.1). Recording the version makes a simulation reproducible, because software behaviour can change between versions. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">software version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002242 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002242">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that records whether a simulated system includes an antibody, a Y-shaped immune protein that recognises and sticks to a specific target such as a virus. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">contains antibody</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002243 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002243">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that records whether a simulated system includes a nanobody, a very small, single-piece version of an antibody (originally from animals such as llamas) used as a compact binding tool. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">contains nanobody</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002244 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002244">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that records whether the system includes a linker histone (such as histone H1), an extra histone that clamps the DNA where it enters and leaves the spool. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">contains linker histone</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002245 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002245">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that records whether the histone proteins still have their flexible tails, floppy ends that stick out from the spool and are often chemically marked to control gene activity. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">histone tails present</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -15103,6 +15353,31 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/GO_0000786 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/GO_0000786">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001894"/>
+        <obo:IAO_0000115>A complex comprised of DNA wound around a multisubunit core and associated proteins, which forms the primary packing unit of DNA into higher order structures.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId>GO:0000787</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId>GO:0000788</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId>GO:0005718</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasDbXref>Wikipedia:Nucleosome</oboInOwl:hasDbXref>
+        <oboInOwl:hasNarrowSynonym>cytoplasmic nucleosome</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>nuclear nucleosome</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasOBONamespace>cellular_component</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>GO:0000786</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/go#goslim_pir"/>
+        <rdfs:label>nucleosome</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/GO_0000786"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A complex comprised of DNA wound around a multisubunit core and associated proteins, which forms the primary packing unit of DNA into higher order structures.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>GOC:elh</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000003 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000003">
@@ -25148,8 +25423,8 @@ interpreted by or directly executed by a processing unit.</obo:IAO_0000115>
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000956">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000954"/>
         <obo:IAO_0000115 xml:lang="en">A specific interaction energy analysis quantifying the stabilizing energetic contribution from the non-covalent interactions (primarily van der Waals/dispersions and electrostatics) between adjacent nucleobases (DNA, RNA). These interactions occur between the aromatic base rings and are essential for the stability, geometry, and mechanical properties of nucleic acid structures. Stacking interaction energies are commonly estimated using quantum mechanical methods or specially parameterized molecular mechanics force fields.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">base pair stacking energies analysis</rdfs:label>
     </owl:Class>
     
@@ -28307,8 +28582,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001342">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001340"/>
         <obo:IAO_0000115 xml:lang="en">A specific type of dihedral angle that describes the conformation of an amino acid&apos;s side chain. These angles determine the spatial arrangement of the side chain&apos;s functional groups. They are critical for understanding molecular interactions and protein packing. These angles are commonly referred to as chi angles, such as chi1 or chi2.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">protein side-chain torsion angle</rdfs:label>
     </owl:Class>
     
@@ -28319,8 +28594,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001343">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001340"/>
         <obo:IAO_0000115 xml:lang="en">A specific nucleic acid backbone dihedral angle is a torsion angle describing rotation about a bond in the sugar-phosphate backbone of DNA or RNA. The six backbone torsion angles (α, β, γ, δ, ε, and ζ), together with the glycosidic torsion angle (χ) and the sugar pucker, define the local conformation, flexibility, and overall geometry of the nucleic acid helix.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">nucleic acid torsion angle</rdfs:label>
     </owl:Class>
     
@@ -28343,8 +28618,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001345">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">A structural property that quantifies the positional fluctuation or displacement of an atom, representing its mobility. It is calculated from the mean-square fluctuations of atomic positions in a simulation and is analogous to the crystallographic B-factor or temperature factor. High B-factor values indicate regions of high flexibility. This value is often referred to as bfactor or B-factor.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">B-factor</rdfs:label>
     </owl:Class>
     
@@ -28398,8 +28673,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001350">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">A type of structural property that describes the specific three-dimensional conformation of a sugar ring, such as the ribose in DNA or RNA. The pucker is a critical determinant of the local and global structure of a nucleic acid helix. It is often described by a pseudorotation angle and can be analyzed to characterize A-form, B-form, or other helical types. This value is a standard output of nucleic acid analysis tools.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <oboInOwl:hasExactSynonym xml:lang="en">puckering</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">sugar pucker</rdfs:label>
     </owl:Class>
@@ -28454,8 +28729,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001355">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001366"/>
         <obo:IAO_0000115 xml:lang="en">A base pair step parameter that describes the rotation of one base pair relative to the next around their short axes. A non-zero tilt causes the helix to bend. It is an important parameter for describing DNA curvature. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">tilt</rdfs:label>
     </owl:Class>
     
@@ -28487,8 +28762,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001358">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">A type of structural property that provides a detailed, quantitative description of the geometry of a nucleic acid helix. These parameters are calculated by specialized analysis programs to characterize the structure of DNA and RNA. They are essential for comparing simulated structures to experimental data and for understanding sequence-dependent structural variations. These are the standard output of programs like do_x3dna or cpptraj.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">nucleic acid parameter</rdfs:label>
     </owl:Class>
     
@@ -28509,8 +28784,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001360">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001359"/>
         <obo:IAO_0000115 xml:lang="en">A base pair parameter that quantifies the translational displacement of one base relative to the other along their short axis, within the plane of the base pair. A non-zero shear indicates a lateral displacement of the two bases from their ideal paired geometry, altering their relative alignment while maintaining the base-pair plane. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">shear</rdfs:label>
     </owl:Class>
     
@@ -28521,8 +28796,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001361">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001359"/>
         <obo:IAO_0000115 xml:lang="en">A base pair parameter that quantifies the translational displacement of one base relative to the other along the axis of the hydrogen bonds. A non-zero stretch measures how much the base pair is pulled apart or compressed. It reflects the strength and dynamics of the hydrogen bonds holding the pair together. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">stretch</rdfs:label>
     </owl:Class>
     
@@ -28533,8 +28808,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001362">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001359"/>
         <obo:IAO_0000115 xml:lang="en">A base pair parameter that quantifies the translational displacement of one base relative to the other along the axis perpendicular to the base pair plane. A non-zero stagger indicates that the two bases are offset in the direction normal to the base-pair plane, resulting in a difference in their relative height and a deviation from an ideal coplanar geometry. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">stagger</rdfs:label>
     </owl:Class>
     
@@ -28545,8 +28820,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001363">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001359"/>
         <obo:IAO_0000115 xml:lang="en">A base pair parameter that describes the rotation of the two bases relative to each other around their long axis, roughly parallel to the hydrogen bonds. A non-zero buckle angle indicates that the bases are tilted relative to each other, producing a bent base-pair geometry. It contributes to the overall shape of the helix. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">buckle</rdfs:label>
     </owl:Class>
     
@@ -28557,8 +28832,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001364">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001359"/>
         <obo:IAO_0000115 xml:lang="en">A base pair parameter that describes the rotation of the two bases relative to each other around an axis connecting their glycosidic bonds. This propeller twist optimizes stacking with adjacent base pairs but can strain hydrogen bonds. It is a key determinant of helix stability and groove dimensions. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">propeller twist</rdfs:label>
     </owl:Class>
     
@@ -28569,8 +28844,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001365">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001359"/>
         <obo:IAO_0000115 xml:lang="en">An intra-base-pair parameter that describes the relative rotation of the two bases around the axis perpendicular to the base-pair plane. A non-zero opening angle indicates that the base pair deviates from its ideal planar geometry, altering the orientation of the hydrogen-bonding and increasing their exposure to the solvent. Large opening values are often associated with transient base-pair opening (&quot;breathing&quot;) or fraying events. Opening is a standard structural parameter reported by nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">opening</rdfs:label>
     </owl:Class>
     
@@ -28591,8 +28866,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001367">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001366"/>
         <obo:IAO_0000115 xml:lang="en">A base pair step parameter that describes the translational displacement of one base pair relative to the next along their short axes. A non-zero shift indicates a lateral sliding motion. It affects the alignment and stacking interactions between adjacent base pairs. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">shift</rdfs:label>
     </owl:Class>
     
@@ -28603,8 +28878,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001368">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001366"/>
         <obo:IAO_0000115 xml:lang="en">A base pair step parameter that describes the translational displacement of one base pair relative to the next along their long axes. A non-zero slide is a major determinant of the width of the major and minor grooves. It is a key parameter for describing B-form DNA. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">slide</rdfs:label>
     </owl:Class>
     
@@ -28615,8 +28890,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001369">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001366"/>
         <obo:IAO_0000115 xml:lang="en">A base pair step parameter that describes the translational distance between two adjacent base pairs along the central helical axis. The rise per step is a primary determinant of the overall length of the DNA or RNA helix. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">rise</rdfs:label>
     </owl:Class>
     
@@ -28627,8 +28902,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001370">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001366"/>
         <obo:IAO_0000115 xml:lang="en">A base pair step parameter that describes the rotation of one base pair relative to the next around their long axes. A non-zero roll angle causes the helix to bend into the major or minor groove. It is a crucial parameter for DNA bendability and protein recognition. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">roll</rdfs:label>
     </owl:Class>
     
@@ -28639,8 +28914,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001371">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001366"/>
         <obo:IAO_0000115 xml:lang="en">A base pair step parameter that describes the rotation of one base pair relative to the next around the central helical axis. The helical twist is the primary determinant of the number of base pairs per turn in a DNA or RNA helix. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">twist</rdfs:label>
     </owl:Class>
     
@@ -28651,8 +28926,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001372">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001358"/>
         <obo:IAO_0000115 xml:lang="en">A nucleic acid parameter that quantifies the position of a base pair&apos;s reference frame relative to the global or local helical axis. Displacement is the distance (in Å) between the center of the base pair and the global helical axis, measured perpendicular to the helix axis. They include x-displacement and y-displacement.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">displacement parameter</rdfs:label>
     </owl:Class>
     
@@ -28663,8 +28938,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001373">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001372"/>
         <obo:IAO_0000115 xml:lang="en">A displacement parameter that measures the translation of a base pair away from the central helical axis towards the major or minor groove. The x-displacement is a key parameter for distinguishing between A-form and B-form DNA. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">x-displacement</rdfs:label>
     </owl:Class>
     
@@ -28675,8 +28950,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001374">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001372"/>
         <obo:IAO_0000115 xml:lang="en">A displacement parameter that measures the translation of a base pair away from the central helical axis along the axis of the base pair&apos;s hydrogen bonds. The y-displacement is typically small in canonical DNA structures. This is a standard output of nucleic acid analysis programs.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">y-displacement</rdfs:label>
     </owl:Class>
     
@@ -31795,8 +32070,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001682">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001960"/>
         <obo:IAO_0000115 xml:lang="en">x3DNA is a comprehensive software package for the analysis, rebuilding, and visualization of three-dimensional nucleic acid structures. It takes a DNA or RNA structure file as input and calculates a wide range of standard helical and base pair parameters that are used to describe the detailed geometry of the helix. It is a cornerstone tool in the field of nucleic acid structural biology for characterizing and comparing experimental or simulated structures.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">3DNA</rdfs:label>
     </owl:Class>
     
@@ -33812,8 +34087,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001877">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001391"/>
         <obo:IAO_0000115 xml:lang="en">DNA bendability is the intrinsic mechanical property that describes how easily a DNA double helix can deviate from its ideal straight conformation by adopting a bent or curved structure. This property depends on the nucleotide sequence, with some sequences being inherently more flexible than others. Sequence-dependent bendability plays a key role in DNA packaging, nucleosome formation, and protein-DNA recognition, as many proteins induce or stabilize DNA bending upon binding.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">DNA-bendability</rdfs:label>
     </owl:Class>
     
@@ -33824,8 +34099,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001878">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001793"/>
         <obo:IAO_0000115 xml:lang="en">Base breathing refers to a specific and transient opening of one or more base pairs in a DNA or RNA double helix due to the temporary disruption of hydrogen bonds. During these events, the bases become transiently exposed to the surrounding solvent and more accessible without necessarily becoming fully unstacked from the helix. When this opening occurs at the ends of the duplex, it is commonly referred to as terminal fraying. These spontaneous opening events are a natural part of the helix&apos;s dynamics and are thought to be important for allowing proteins to access the genetic information encoded in the bases. Analyzing the frequency and duration of these motions provides insight into the local stability and accessibility of the DNA or RNA structure.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">base breathing</rdfs:label>
     </owl:Class>
     
@@ -33847,8 +34122,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001880">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000342"/>
         <obo:IAO_0000115 xml:lang="en">Inter-base pair (Inter-BP) correlation analysis refers to the statistical coupling between the structural parameters of neighboring DNA base pairs or base-pair steps. It quantifies how variations in one helical parameter (e.g., roll, twist, or slide) are associated with changes in the same or different parameters at adjacent base pairs. These correlations reveal sequence-dependent structural coupling and cooperative conformational behavior within the DNA double helix, providing insight into its flexibility, mechanics, and recognition by DNA-bining proteins.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">inter-BP correlation analysis</rdfs:label>
     </owl:Class>
     
@@ -33859,8 +34134,8 @@ vs. .nc (NetCDF): The NetCDF format is the modern, binary, and recommended forma
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001881">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
         <obo:IAO_0000115 xml:lang="en">Nucleic acid backbone flexibility is a measure of the ability of the sugar-phosphate backbone of DNA or RNA to adopt different conformations through rotations about its backbone torsion angles. It is commonly characterized by analyzing the distributions and fluctuations during a simulation of the backbone dihedral angles (α, β, γ, δ, ε, ζ), the glycosidic angle (χ), and the sugar pucker. Backbone flexibility plays a fundamental role in determining the structural dynamics, mechanical properties, and biological functions of nucleic acids, influencing DNA bending and packaging as well as RNA folding and molecular recognition.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-4303-9349"/>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-7544-0938"/>
-        <obo:IAO_0000117>Israel Serrano Chacón</obo:IAO_0000117>
         <rdfs:label xml:lang="en">nucleic acid backbone flexibility</rdfs:label>
     </owl:Class>
     
@@ -36511,6 +36786,279 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002203 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002203">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000417"/>
+        <obo:IAO_0000115 xml:lang="en">A polypeptide domain that occurs in a protein. It is a distinct, self-contained part of a protein that folds up on its own and usually carries out a particular job. Large proteins are often built from several domains. (NEWLY_ADDED)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
+        <rdfs:label xml:lang="en">protein domain</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002204 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002204">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002203"/>
+        <obo:IAO_0000115 xml:lang="en">A protein domain whose function is to attach to a matching partner molecule called a receptor. (NEWLY_ADDED)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
+        <rdfs:label xml:lang="en">receptor-binding domain</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002205 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002205">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002203"/>
+        <obo:IAO_0000115 xml:lang="en">A protein domain that contains the active site, the pocket where an enzyme carries out its chemical reaction. It is the working part of an enzyme. (NEWLY_ADDED)</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
+        <rdfs:label xml:lang="en">catalytic domain</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002206 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002206">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002162"/>
+        <obo:IAO_0000115 xml:lang="en">A system classification label that records the biological job of the main protein in a simulated system. Proteins do most of the work in living cells, and this label groups simulations by the kind of job their protein does. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">protein functional class label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002207 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002207">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is an enzyme, a protein that speeds up a chemical reaction in the cell without being used up itself. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">enzyme classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002208 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002208">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is a transport protein, one that moves ions or molecules from place to place, for example carrying them across a cell membrane. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">transport protein classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002209 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002209">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is a structural protein, one that gives shape, stiffness, or mechanical support to cells and tissues, like a scaffold. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">structural protein classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002210 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002210">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is a regulatory protein, one that switches biological processes on or off, or tunes how fast they run. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">regulatory protein classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002211 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002211">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is a signaling protein, one that passes messages within a cell or between cells so the cell can respond to its surroundings. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">signaling protein classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002212 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002212">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is a motor protein, one that turns chemical energy into movement, walking along tracks inside the cell to carry cargo or generate force. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">motor protein classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002213 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002213">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is an immune protein, one that helps recognise or fight off germs and foreign material; antibodies are a familiar example. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">immune protein classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002214 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002214">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002206"/>
+        <obo:IAO_0000115 xml:lang="en">A protein functional class label for a system whose main protein is a storage protein, one that holds onto useful substances such as iron or amino acids until they are needed. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">storage protein classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002226 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002226">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001210"/>
+        <obo:IAO_0000115 xml:lang="en">A system setup parameter that gives the three angles (commonly α, β, γ) between the edges of the simulation box. These are needed to describe boxes that are not simple rectangular blocks, for example triclinic or truncated-octahedral boxes. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">periodic box angles</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002230 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002230">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
+        <obo:IAO_0000115 xml:lang="en">An identifier that encodes the structure of a molecule as a short line of text, using the SMILES notation (Simplified Molecular-Input Line-Entry System). It lets a small molecule be written, searched, and shared as plain text, and complements the InChI code. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">SMILES code</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002232 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002232">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000171"/>
+        <obo:IAO_0000115 xml:lang="en">A software development and management tool that translates a program&apos;s source code into a runnable program. Which compiler was used can affect a simulation&apos;s speed and, occasionally, its numerical results. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">compiler</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002233 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002233">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000310"/>
+        <obo:IAO_0000115 xml:lang="en">A plan specification that defines a named group of atoms selected from the system, so the group can be referred to by name during setup or analysis. It is the concept behind a Gromacs index (.ndx) file, where groups such as Protein or Water are listed. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">atom index group</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002234 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002234">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000843"/>
+        <obo:IAO_0000115 xml:lang="en">A molecular dynamics method in which the forces between atoms come from a classical (empirical) force field rather than from quantum-mechanical calculations. It is the most common and computationally affordable form of molecular dynamics. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">classical molecular dynamics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002235 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002235">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001072"/>
+        <obo:IAO_0000115 xml:lang="en">An information content entity that records how the atoms or residues in a simulation correspond to an experimental source structure (such as a PDB entry), including any changes made, for example point mutations or modelled-in missing residues. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">source structure residue mapping</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002236 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002236">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001333"/>
+        <obo:IAO_0000115 xml:lang="en">A structural property that describes how many copies of a protein chain join together to form a working unit. Many proteins function only when several copies assemble into one complex. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">oligomeric state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002237 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002237">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002236"/>
+        <obo:IAO_0000115 xml:lang="en">An oligomeric state in which the protein works on its own as a single chain, not joined to copies of itself. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">monomeric state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002238 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002238">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002236"/>
+        <obo:IAO_0000115 xml:lang="en">An oligomeric state in which two copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">dimeric state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002239 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002239">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002236"/>
+        <obo:IAO_0000115 xml:lang="en">An oligomeric state in which three copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">trimeric state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002240 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002240">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002236"/>
+        <obo:IAO_0000115 xml:lang="en">An oligomeric state in which four copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">tetrameric state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002241 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002241">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002236"/>
+        <obo:IAO_0000115 xml:lang="en">An oligomeric state in which five or more copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">higher-order oligomeric state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002246 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002246">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000105"/>
+        <obo:IAO_0000115 xml:lang="en">A conformational state of a coronavirus spike protein describing how many of its receptor-binding domains are raised into the open position, ready to engage a host cell. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">spike opening conformational state</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002247 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002247">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002162"/>
+        <obo:IAO_0000115 xml:lang="en">A system classification label naming the specific strain or sequence variant of the organism or virus that the simulated molecule comes from, for example a particular variant of the COVID-19 virus. It groups simulations by biological origin. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">biological strain classification label</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002248 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002248">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002162"/>
+        <obo:IAO_0000115 xml:lang="en">A system classification label naming a non-standard version of a histone protein present in the structure (for example H2A.Z). Different histone versions can change how DNA is packaged and read. (NEWLY_ADDED) (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">histone variant classification label</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_010001 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_010001">
@@ -36798,6 +37346,590 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
         <obo:IAO_0000115 xml:lang="en">LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">leap analysis</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000001 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000001">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000110"/>
+        <obo:IAO_0000115>A sequence_feature with an extent greater than zero. A nucleotide region is composed of bases and a polypeptide region is composed of amino acids.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>sequence</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0000001</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000001"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A sequence_feature with an extent greater than zero. A nucleotide region is composed of bases and a polypeptide region is composed of amino acids.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000110 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000110">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <obo:IAO_0000115>Any extent of continuous biological sequence.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>INSDC_feature:misc_feature</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>INSDC_note:other</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>INSDC_note:sequence_feature</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>located_sequence_feature</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>sequence feature</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:hasRelatedSynonym>located sequence feature</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id>SO:0000110</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>sequence_feature</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000110"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>Any extent of continuous biological sequence.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>LAMHDI:mb</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000114 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000114">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000306"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001963"/>
+        <obo:IAO_0000115>A methylated deoxy-cytosine.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>methylated C</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated cytosine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated cytosine base</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated cytosine residue</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated_C</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0000114</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>methylated_cytosine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000114"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A methylated deoxy-cytosine.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000161 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000161">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000306"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001962"/>
+        <obo:IAO_0000115>A modified base in which adenine has been methylated.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>methylated A</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated adenine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated adenine base</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated adenine residue</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>methylated_A</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0000161</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>methylated_adenine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000161"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A modified base in which adenine has been methylated.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000305 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000305">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001236"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001720"/>
+        <obo:IAO_0000115>A modified nucleotide, i.e. a nucleotide other than A, T, C. G.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>INSDC_feature:modified_base</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>modified base site</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0000305</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:comment>Modified base:&lt;modified_base&gt;.</rdfs:comment>
+        <rdfs:label>modified_DNA_base</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000305"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A modified nucleotide, i.e. a nucleotide other than A, T, C. G.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>http://www.insdc.org/files/feature_table.html</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000306 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000306">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000305"/>
+        <obo:IAO_0000115>A nucleotide modified by methylation.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>methylated base feature</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0000306</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>methylated_DNA_base_feature</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000306"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A nucleotide modified by methylation.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000417 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000417">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001070"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0100021"/>
+        <obo:IAO_0000115>A structurally or functionally defined protein region. In proteins with multiple domains, the combination of the domains determines the function of the protein. A region which has been shown to recur throughout evolution.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId>BS:00012</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId>BS:00134</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId>SO:0001069</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasBroadSynonym>domain</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasBroadSynonym>structural domain</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasExactSynonym>polypeptide domain</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>polypeptide_structural_domain</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0000417</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#biosapiens"/>
+        <rdfs:comment>Range. Old definition from before biosapiens: A region of a single polypeptide chain that folds into an independent unit and exhibits biological activity. A polypeptide chain may have multiple domains.</rdfs:comment>
+        <rdfs:label>polypeptide_domain</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000417"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A structurally or functionally defined protein region. In proteins with multiple domains, the combination of the domains determines the function of the protein. A region which has been shown to recur throughout evolution.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>EBIBS:GAR</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000417"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
+        <owl:annotatedTarget>domain</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>uniprot:feature_type</oboInOwl:hasDbXref>
+        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/so#BS"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000417"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym"/>
+        <owl:annotatedTarget>structural domain</owl:annotatedTarget>
+        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/so#BS"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000417"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+        <owl:annotatedTarget>polypeptide_structural_domain</owl:annotatedTarget>
+        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/so#BS"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000831 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000831">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001411"/>
+        <obo:IAO_0000115>A region of a gene.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>gene member region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0000831</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:comment>A manufactured term used to allow the parts of a gene to have an is_a path to the root.</rdfs:comment>
+        <rdfs:label>gene_member_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000831"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A region of a gene.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0000839 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0000839">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001411"/>
+        <obo:IAO_0000115>Biological sequence region that can be assigned to a specific subsequence of a polypeptide.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId>BS:00124</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasAlternativeId>BS:00331</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasNarrowSynonym>region</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasNarrowSynonym>site</oboInOwl:hasNarrowSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:hasRelatedSynonym>positional</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>positional polypeptide feature</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>region or site annotation</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id>SO:0000839</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#biosapiens"/>
+        <rdfs:comment>Added to allow the polypeptide regions to have is_a paths back to the root.</rdfs:comment>
+        <rdfs:label>polypeptide_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000839"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>Biological sequence region that can be assigned to a specific subsequence of a polypeptide.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:GAR</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000839"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym"/>
+        <owl:annotatedTarget>region</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>uniprot:feature_type</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0000839"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym"/>
+        <owl:annotatedTarget>site</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>uniprot:feature_type</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001070 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001070">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000839"/>
+        <obo:IAO_0000115>Region of polypeptide with a given structural property.</obo:IAO_0000115>
+        <oboInOwl:hasAlternativeId>BS:00337</oboInOwl:hasAlternativeId>
+        <oboInOwl:hasExactSynonym>polypeptide structural region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:hasRelatedSynonym>structural_region</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id>SO:0001070</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#biosapiens"/>
+        <rdfs:comment>Range.</rdfs:comment>
+        <rdfs:label>polypeptide_structural_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001070"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>Region of polypeptide with a given structural property.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>EBIBS:GAR</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>SO:cb</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001236 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001236">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001411"/>
+        <obo:IAO_0000115>A base is a sequence feature that corresponds to a single unit of a nucleotide polymer.</obo:IAO_0000115>
+        <oboInOwl:hasDbXref>http://en.wikipedia.org/wiki/Nucleobase</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001236</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>base</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001236"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A base is a sequence feature that corresponds to a single unit of a nucleotide polymer.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001236"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+        <owl:annotatedTarget>http://en.wikipedia.org/wiki/Nucleobase</owl:annotatedTarget>
+        <rdfs:label>wiki</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001411 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001411">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000001"/>
+        <obo:IAO_0000115>A region defined by its disposition to be involved in a biological process.</obo:IAO_0000115>
+        <oboInOwl:hasBroadSynonym>INSDC_misc_feature</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasExactSynonym>INSDC_note:biological_region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>biological region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001411</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>biological_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001411"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A region defined by its disposition to be involved in a biological process.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:cb</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001720 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001720">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0005836"/>
+        <obo:IAO_0000115>A biological DNA region implicated in epigenomic changes caused by mechanisms other than changes in the underlying DNA sequence. This includes, nucleosomal histone post-translational modifications, nucleosome depletion to render DNA accessible and post-replicational base modifications such as cytosine modification.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2010-03-27T12:02:29Z</oboInOwl:creation_date>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:hasRelatedSynonym>epigenetically modified region</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id>SO:0001720</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:comment>Moved from is_a biological_region (SO:0001411) to is_a regulatory_region (SO:0005836) on 11 Feb 2021. GREEKC members pointed out that this would be a more appropriate location. See GitHub Issue #530. 11 Feb 2021 updated definition along with addition of epigenomically_modified_region (SO:0002332). Epigenetically modified region is now not inherited while epigenomically modified region is not annotated as inherited. See GitHub Issue #532 and issue #534.</rdfs:comment>
+        <rdfs:label>epigenetically_modified_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001720"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A biological DNA region implicated in epigenomic changes caused by mechanisms other than changes in the underlying DNA sequence. This includes, nucleosomal histone post-translational modifications, nucleosome depletion to render DNA accessible and post-replicational base modifications such as cytosine modification.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>http://en.wikipedia.org/wiki/Epigenetics</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001918 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001918">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000114"/>
+        <obo:IAO_0000115>A cytosine methylated at the 5 carbon.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2012-10-17T12:46:10Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http://www.insdc.org/files/feature_table.html#7.4.2</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref>http:http://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>5 methylcytosine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>5-mC</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>m-5C</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>m5c</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001918</oboInOwl:id>
+        <rdfs:label>5_methylcytosine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001918"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A cytosine methylated at the 5 carbon.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:rtapella</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001920 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001920">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000161"/>
+        <obo:IAO_0000115>An adenine methylated at the 6 nitrogen.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2012-10-17T12:54:23Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http:http://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>6-mA</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>6-methyladenine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>6mA</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>N6-methyladenine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>m-6A</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>m6a</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001920</oboInOwl:id>
+        <rdfs:label>N6_methyladenine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001920"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>An adenine methylated at the 6 nitrogen.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:rtapella</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001960 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001960">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000114"/>
+        <obo:IAO_0000115>A modified DNA cytosine base feature, modified by a hydroxymethyl group at the 5 carbon.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2013-05-17T05:05:31Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http:http://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>5-hmC</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>5-hydroxymethylcytosine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001960</oboInOwl:id>
+        <rdfs:label>5_hydroxymethylcytosine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001960"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A modified DNA cytosine base feature, modified by a hydroxymethyl group at the 5 carbon.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001961 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001961">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001963"/>
+        <obo:IAO_0000115>A modified DNA cytosine base feature, modified by a formyl group at the 5 carbon.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2013-05-17T05:06:13Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http:http://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>5-fC</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>5-formylcytosine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001961</oboInOwl:id>
+        <rdfs:label>5_formylcytosine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001961"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A modified DNA cytosine base feature, modified by a formyl group at the 5 carbon.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001962 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001962">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000305"/>
+        <obo:IAO_0000115>A modified adenine DNA base feature.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2013-05-20T01:22:30Z</oboInOwl:creation_date>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001962</oboInOwl:id>
+        <rdfs:label>modified_adenine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001962"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A modified adenine DNA base feature.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001963 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001963">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000305"/>
+        <obo:IAO_0000115>A modified cytosine DNA base feature.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2013-05-20T01:23:47Z</oboInOwl:creation_date>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001963</oboInOwl:id>
+        <rdfs:label>modified_cytosine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001963"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A modified cytosine DNA base feature.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0001966 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0001966">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001963"/>
+        <obo:IAO_0000115>A modified DNA cytosine base feature, modified by a carboxy group at the 5 carbon.</obo:IAO_0000115>
+        <oboInOwl:created_by>kareneilbeck</oboInOwl:created_by>
+        <oboInOwl:creation_date>2013-05-20T01:30:01Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http:http://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>5-caC</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>5-carboxycytosine</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0001966</oboInOwl:id>
+        <rdfs:label>5_carboxylcytosine</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0001966"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A modified DNA cytosine base feature, modified by a carboxy group at the 5 carbon.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0005836 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0005836">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000831"/>
+        <obo:IAO_0000115>A region of sequence that is involved in the control of a biological process.</obo:IAO_0000115>
+        <oboInOwl:hasBroadSynonym>INSDC_feature:regulatory</oboInOwl:hasBroadSynonym>
+        <oboInOwl:hasDbXref>http://en.wikipedia.org/wiki/Regulatory_region</oboInOwl:hasDbXref>
+        <oboInOwl:hasExactSynonym>INSDC_qualifier:other</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>regulatory region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0005836</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#SOFA"/>
+        <rdfs:label>regulatory_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0005836"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A region of sequence that is involved in the control of a biological process.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>SO:ke</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0005836"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasDbXref"/>
+        <owl:annotatedTarget>http://en.wikipedia.org/wiki/Regulatory_region</owl:annotatedTarget>
+        <rdfs:label>wiki</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0100003 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0100003">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0001070"/>
+        <obo:IAO_0000115>A region of polypeptide chain with high conformational flexibility.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">intrinsically disordered region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasExactSynonym>intrinsically unstructured polypeptide region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:hasRelatedSynonym xml:lang="en">IDR</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym>disordered region</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:id>SO:0100003</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#biosapiens"/>
+        <rdfs:label>intrinsically_unstructured_polypeptide_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0100003"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A region of polypeptide chain with high conformational flexibility.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>EBIBS:GAR</oboInOwl:hasDbXref>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0100003"/>
+        <owl:annotatedProperty rdf:resource="http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym"/>
+        <owl:annotatedTarget>disordered region</owl:annotatedTarget>
+        <oboInOwl:hasSynonymType rdf:resource="http://purl.obolibrary.org/obo/so#BS"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SO_0100021 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/SO_0100021">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SO_0000839"/>
+        <obo:IAO_0000115>A subsection of sequence with biological interest that is conserved in different proteins. They may or may not have functional or structural significance within the proteins in which they are found.</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym>polypeptide conserved region</oboInOwl:hasExactSynonym>
+        <oboInOwl:hasOBONamespace>sequence</oboInOwl:hasOBONamespace>
+        <oboInOwl:id>SO:0100021</oboInOwl:id>
+        <oboInOwl:inSubset rdf:resource="http://purl.obolibrary.org/obo/so#biosapiens"/>
+        <rdfs:label>polypeptide_conserved_region</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/SO_0100021"/>
+        <owl:annotatedProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000115"/>
+        <owl:annotatedTarget>A subsection of sequence with biological interest that is conserved in different proteins. They may or may not have functional or structural significance within the proteins in which they are found.</owl:annotatedTarget>
+        <oboInOwl:hasDbXref>EBIBS:GAR</oboInOwl:hasDbXref>
+    </owl:Axiom>
     
 
 
@@ -39940,6 +41072,16 @@ C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents a
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002197"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002198"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002199"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002237"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002238"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002239"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002240"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002241"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
