@@ -21,6 +21,16 @@ $(IMPORTDIR)/so_import.owl: $(MIRRORDIR)/so.owl
 		--lower-terms $(IMPORTDIR)/so_terms.txt \
 		--output $@
 
+# GO: bounded MIREOT (upper == lower) so only the listed leaf terms are pulled,
+# NOT their ancestors — this deliberately avoids dragging in GO cellular_component,
+# COB, or BFO upper-ontology classes (MOLSIM policy: no new upper-ontology imports).
+$(IMPORTDIR)/go_import.owl: $(MIRRORDIR)/go.owl
+	$(ROBOT) extract --input $< \
+		--method MIREOT \
+		--lower-terms $(IMPORTDIR)/go_terms.txt \
+		--upper-terms $(IMPORTDIR)/go_terms.txt \
+		--output $@
+
 $(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
