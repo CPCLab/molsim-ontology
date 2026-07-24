@@ -17127,4 +17127,88 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002235 "source structure residue mappi
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002235 "An information content entity that records how the atoms or residues in a simulation correspond to an experimental source structure (such as a PDB entry), including any changes made, for example point mutations or modelled-in missing residues. (NEWLY_ADDED) (UNVERIFIED)"@en)
 SubClassOf(obo:MOLSIM_002235 obo:MOLSIM_001072)
 
+# Class: obo:MOLSIM_002236 (oligomeric state)
+
+Declaration(Class(obo:MOLSIM_002236))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002236 "oligomeric state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002236 "A structural property that describes how many copies of a protein chain join together to form a working unit. Many proteins function only when several copies assemble into one complex. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002236 obo:MOLSIM_001333)
+
+# Class: obo:MOLSIM_002237 (monomeric state)
+
+Declaration(Class(obo:MOLSIM_002237))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002237 "monomeric state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002237 "An oligomeric state in which the protein works on its own as a single chain, not joined to copies of itself. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002237 obo:MOLSIM_002236)
+
+# Class: obo:MOLSIM_002238 (dimeric state)
+
+Declaration(Class(obo:MOLSIM_002238))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002238 "dimeric state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002238 "An oligomeric state in which two copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002238 obo:MOLSIM_002236)
+
+# Class: obo:MOLSIM_002239 (trimeric state)
+
+Declaration(Class(obo:MOLSIM_002239))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002239 "trimeric state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002239 "An oligomeric state in which three copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002239 obo:MOLSIM_002236)
+
+# Class: obo:MOLSIM_002240 (tetrameric state)
+
+Declaration(Class(obo:MOLSIM_002240))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002240 "tetrameric state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002240 "An oligomeric state in which four copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002240 obo:MOLSIM_002236)
+
+# Class: obo:MOLSIM_002241 (higher-order oligomeric state)
+
+Declaration(Class(obo:MOLSIM_002241))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002241 "higher-order oligomeric state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002241 "An oligomeric state in which five or more copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002241 obo:MOLSIM_002236)
+
+# oligomeric state (MOLSIM_002236) — mutually exclusive states
+DisjointClasses(obo:MOLSIM_002237 obo:MOLSIM_002238 obo:MOLSIM_002239 obo:MOLSIM_002240 obo:MOLSIM_002241)
+
+# Data Property: obo:MOLSIM_002242 (contains antibody)
+
+Declaration(DataProperty(obo:MOLSIM_002242))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002242 "contains antibody"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002242 "A relation that records whether a simulated system includes an antibody, a Y-shaped immune protein that recognises and sticks to a specific target such as a virus. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubDataPropertyOf(obo:MOLSIM_002242 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002242 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002243 (contains nanobody)
+
+Declaration(DataProperty(obo:MOLSIM_002243))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002243 "contains nanobody"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002243 "A relation that records whether a simulated system includes a nanobody, a very small, single-piece version of an antibody (originally from animals such as llamas) used as a compact binding tool. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubDataPropertyOf(obo:MOLSIM_002243 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002243 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002244 (contains linker histone)
+
+Declaration(DataProperty(obo:MOLSIM_002244))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002244 "contains linker histone"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002244 "A relation that records whether the system includes a linker histone (such as histone H1), an extra histone that clamps the DNA where it enters and leaves the spool. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubDataPropertyOf(obo:MOLSIM_002244 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002244 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002245 (histone tails present)
+
+Declaration(DataProperty(obo:MOLSIM_002245))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002245 "histone tails present"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002245 "A relation that records whether the histone proteins still have their flexible tails, floppy ends that stick out from the spool and are often chemically marked to control gene activity. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubDataPropertyOf(obo:MOLSIM_002245 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002245 xsd:boolean)
+
+# Class: obo:MOLSIM_002246 (spike opening conformational state)
+
+Declaration(Class(obo:MOLSIM_002246))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002246 "spike opening conformational state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002246 "A conformational state of a coronavirus spike protein describing how many of its receptor-binding domains are raised into the open position, ready to engage a host cell. (NEWLY_ADDED) (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002246 obo:MOLSIM_000105)
+
 )
