@@ -1,6 +1,9 @@
 # curie_map:
 #   MOLSIM: http://purl.obolibrary.org/obo/MOLSIM_
 #   EDAM: http://edamontology.org/
+#   GO: http://purl.obolibrary.org/obo/GO_
+#   OBI: http://purl.obolibrary.org/obo/OBI_
+#   PR: http://purl.obolibrary.org/obo/PR_
 #   skos: http://www.w3.org/2004/02/skos/core#
 #   semapv: https://w3id.org/semapv/vocab/
 #   orcid: https://orcid.org/
@@ -10,3 +13,8 @@
 # license: https://creativecommons.org/licenses/by/4.0/
 subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	confidence	creator_id	comment
 MOLSIM:002230	SMILES code	skos:closeMatch	EDAM:format_1196	SMILES	semapv:ManualMappingCuration	0.9	orcid:0000-0003-4846-8051	MOLSIM 'SMILES code' (an identifier that encodes a molecular structure) corresponds to the EDAM 'SMILES' format concept; closeMatch rather than exactMatch because MOLSIM models it as an identifier and EDAM as a data format.
+MOLSIM:002207	enzyme classification label	skos:relatedMatch	OBI:0000427	enzyme	semapv:ManualMappingCuration	0.6	orcid:0000-0003-4846-8051	relatedMatch (not exact): the MOLSIM term is a system-tagging label for "the main protein is an enzyme", whereas OBI:0000427 is the enzyme entity itself.
+MOLSIM:002208	transport protein classification label	skos:relatedMatch	GO:0005215	transporter activity	semapv:ManualMappingCuration	0.6	orcid:0000-0003-4846-8051	relatedMatch: the MOLSIM label tags a system whose main protein is a transporter; GO:0005215 is the molecular function, a related but distinct category.
+MOLSIM:002211	signaling protein classification label	skos:relatedMatch	GO:0038023	signaling receptor activity	semapv:ManualMappingCuration	0.5	orcid:0000-0003-4846-8051	relatedMatch, loose: signaling proteins are broader than signaling receptors, so this is an approximate neighbour, not an equivalence.
+MOLSIM:002242	contains antibody	skos:relatedMatch	GO:0019814	immunoglobulin complex	semapv:ManualMappingCuration	0.6	orcid:0000-0003-4846-8051	relatedMatch: the MOLSIM boolean flag records presence of an antibody; GO:0019814 (immunoglobulin complex) is the entity the flag is about.
+MOLSIM:002244	contains linker histone	skos:relatedMatch	PR:000043453	linker histone	semapv:ManualMappingCuration	0.7	orcid:0000-0003-4846-8051	relatedMatch: the MOLSIM boolean flag records presence of a linker histone; PR:000043453 is that protein.
