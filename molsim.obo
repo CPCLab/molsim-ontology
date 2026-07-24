@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2026-07-21
+data-version: releases/2026-07-24
 default-namespace: molsim
 idspace: chemrof https://w3id.org/chemrof/ 
 idspace: dce http://purl.org/dc/elements/1.1/ 
@@ -15,12 +15,12 @@ property_value: dcterms:contributor orcid:0000-0002-0476-9699
 property_value: dcterms:contributor orcid:0009-0007-1391-4986
 property_value: dcterms:creator orcid:0000-0001-8613-1447
 property_value: dcterms:creator orcid:0000-0003-4846-8051
-property_value: dcterms:description "MOLSIM is an interoperable domain ontology designed to semantically represent platform-agnostic atomistic biomolecular simulations as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. This ontology aims to standardize the representation of atomistic biomolecular simulation data, processes, and methodologies across different platforms and tools." xsd:string
+property_value: dcterms:description "MOLSIM is a domain (application) ontology designed to semantically represent platform-agnostic biomolecular simulations (all-atom and coarse-grained) as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. As an application ontology, it reuses terms from established OBO ontologies where they fit and defines its own where they do not, aiming to standardize the representation of biomolecular simulation data, processes, and methodologies across platforms and tools." xsd:string
 property_value: dcterms:license https://creativecommons.org/licenses/by/4.0/
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-07-21" xsd:string
+property_value: owl:versionInfo "2026-07-24" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -3725,6 +3725,20 @@ id: COB:0000082
 name: planned process
 def: "A process that is initiated by an agent who intends to carry out a plan to achieve an objective through one or more actions as described in a plan specification." []
 is_a: BFO:0000015 ! process
+
+[Term]
+id: GO:0000786
+name: nucleosome
+namespace: cellular_component
+alt_id: GO:0000787
+alt_id: GO:0000788
+alt_id: GO:0005718
+def: "A complex comprised of DNA wound around a multisubunit core and associated proteins, which forms the primary packing unit of DNA into higher order structures." [GOC:elh]
+subset: goslim_pir
+synonym: "cytoplasmic nucleosome" NARROW []
+synonym: "nuclear nucleosome" NARROW []
+xref: Wikipedia:Nucleosome
+is_a: MOLSIM:001894 ! hybrid complex system
 
 [Term]
 id: IAO:0000003
@@ -9939,7 +9953,7 @@ id: MOLSIM:000956
 name: base pair stacking energies analysis
 def: "A specific interaction energy analysis quantifying the stabilizing energetic contribution from the non-covalent interactions (primarily van der Waals/dispersions and electrostatics) between adjacent nucleobases (DNA, RNA). These interactions occur between the aromatic base rings and are essential for the stability, geometry, and mechanical properties of nucleic acid structures. Stacking interaction energies are commonly estimated using quantum mechanical methods or specially parameterized molecular mechanics force fields." []
 is_a: MOLSIM:000954 ! interaction energy analysis
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -11877,7 +11891,7 @@ id: MOLSIM:001342
 name: protein side-chain torsion angle
 def: "A specific type of dihedral angle that describes the conformation of an amino acid's side chain. These angles determine the spatial arrangement of the side chain's functional groups. They are critical for understanding molecular interactions and protein packing. These angles are commonly referred to as chi angles, such as chi1 or chi2." []
 is_a: MOLSIM:001340 ! dihedral angle
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -11885,7 +11899,7 @@ id: MOLSIM:001343
 name: nucleic acid torsion angle
 def: "A specific nucleic acid backbone dihedral angle is a torsion angle describing rotation about a bond in the sugar-phosphate backbone of DNA or RNA. The six backbone torsion angles (α, β, γ, δ, ε, and ζ), together with the glycosidic torsion angle (χ) and the sugar pucker, define the local conformation, flexibility, and overall geometry of the nucleic acid helix." []
 is_a: MOLSIM:001340 ! dihedral angle
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -11901,7 +11915,7 @@ id: MOLSIM:001345
 name: B-factor
 def: "A structural property that quantifies the positional fluctuation or displacement of an atom, representing its mobility. It is calculated from the mean-square fluctuations of atomic positions in a simulation and is analogous to the crystallographic B-factor or temperature factor. High B-factor values indicate regions of high flexibility. This value is often referred to as bfactor or B-factor." []
 is_a: MOLSIM:001333 ! structural property
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -11937,7 +11951,7 @@ name: sugar pucker
 def: "A type of structural property that describes the specific three-dimensional conformation of a sugar ring, such as the ribose in DNA or RNA. The pucker is a critical determinant of the local and global structure of a nucleic acid helix. It is often described by a pseudorotation angle and can be analyzed to characterize A-form, B-form, or other helical types. This value is a standard output of nucleic acid analysis tools." []
 synonym: "puckering" EXACT []
 is_a: MOLSIM:001333 ! structural property
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -11972,7 +11986,7 @@ id: MOLSIM:001355
 name: tilt
 def: "A base pair step parameter that describes the rotation of one base pair relative to the next around their short axes. A non-zero tilt causes the helix to bend. It is an important parameter for describing DNA curvature. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -11993,7 +12007,7 @@ id: MOLSIM:001358
 name: nucleic acid parameter
 def: "A type of structural property that provides a detailed, quantitative description of the geometry of a nucleic acid helix. These parameters are calculated by specialized analysis programs to characterize the structure of DNA and RNA. They are essential for comparing simulated structures to experimental data and for understanding sequence-dependent structural variations. These are the standard output of programs like do_x3dna or cpptraj." []
 is_a: MOLSIM:001333 ! structural property
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12007,7 +12021,7 @@ id: MOLSIM:001360
 name: shear
 def: "A base pair parameter that quantifies the translational displacement of one base relative to the other along their short axis, within the plane of the base pair. A non-zero shear indicates a lateral displacement of the two bases from their ideal paired geometry, altering their relative alignment while maintaining the base-pair plane. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12015,7 +12029,7 @@ id: MOLSIM:001361
 name: stretch
 def: "A base pair parameter that quantifies the translational displacement of one base relative to the other along the axis of the hydrogen bonds. A non-zero stretch measures how much the base pair is pulled apart or compressed. It reflects the strength and dynamics of the hydrogen bonds holding the pair together. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12023,7 +12037,7 @@ id: MOLSIM:001362
 name: stagger
 def: "A base pair parameter that quantifies the translational displacement of one base relative to the other along the axis perpendicular to the base pair plane. A non-zero stagger indicates that the two bases are offset in the direction normal to the base-pair plane, resulting in a difference in their relative height and a deviation from an ideal coplanar geometry. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12031,7 +12045,7 @@ id: MOLSIM:001363
 name: buckle
 def: "A base pair parameter that describes the rotation of the two bases relative to each other around their long axis, roughly parallel to the hydrogen bonds. A non-zero buckle angle indicates that the bases are tilted relative to each other, producing a bent base-pair geometry. It contributes to the overall shape of the helix. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12039,7 +12053,7 @@ id: MOLSIM:001364
 name: propeller twist
 def: "A base pair parameter that describes the rotation of the two bases relative to each other around an axis connecting their glycosidic bonds. This propeller twist optimizes stacking with adjacent base pairs but can strain hydrogen bonds. It is a key determinant of helix stability and groove dimensions. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12047,7 +12061,7 @@ id: MOLSIM:001365
 name: opening
 def: "An intra-base-pair parameter that describes the relative rotation of the two bases around the axis perpendicular to the base-pair plane. A non-zero opening angle indicates that the base pair deviates from its ideal planar geometry, altering the orientation of the hydrogen-bonding and increasing their exposure to the solvent. Large opening values are often associated with transient base-pair opening (\"breathing\") or fraying events. Opening is a standard structural parameter reported by nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12061,7 +12075,7 @@ id: MOLSIM:001367
 name: shift
 def: "A base pair step parameter that describes the translational displacement of one base pair relative to the next along their short axes. A non-zero shift indicates a lateral sliding motion. It affects the alignment and stacking interactions between adjacent base pairs. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12069,7 +12083,7 @@ id: MOLSIM:001368
 name: slide
 def: "A base pair step parameter that describes the translational displacement of one base pair relative to the next along their long axes. A non-zero slide is a major determinant of the width of the major and minor grooves. It is a key parameter for describing B-form DNA. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12077,7 +12091,7 @@ id: MOLSIM:001369
 name: rise
 def: "A base pair step parameter that describes the translational distance between two adjacent base pairs along the central helical axis. The rise per step is a primary determinant of the overall length of the DNA or RNA helix. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12085,7 +12099,7 @@ id: MOLSIM:001370
 name: roll
 def: "A base pair step parameter that describes the rotation of one base pair relative to the next around their long axes. A non-zero roll angle causes the helix to bend into the major or minor groove. It is a crucial parameter for DNA bendability and protein recognition. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12093,7 +12107,7 @@ id: MOLSIM:001371
 name: twist
 def: "A base pair step parameter that describes the rotation of one base pair relative to the next around the central helical axis. The helical twist is the primary determinant of the number of base pairs per turn in a DNA or RNA helix. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12101,7 +12115,7 @@ id: MOLSIM:001372
 name: displacement parameter
 def: "A nucleic acid parameter that quantifies the position of a base pair's reference frame relative to the global or local helical axis. Displacement is the distance (in Å) between the center of the base pair and the global helical axis, measured perpendicular to the helix axis. They include x-displacement and y-displacement." []
 is_a: MOLSIM:001358 ! nucleic acid parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12109,7 +12123,7 @@ id: MOLSIM:001373
 name: x-displacement
 def: "A displacement parameter that measures the translation of a base pair away from the central helical axis towards the major or minor groove. The x-displacement is a key parameter for distinguishing between A-form and B-form DNA. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001372 ! displacement parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -12117,7 +12131,7 @@ id: MOLSIM:001374
 name: y-displacement
 def: "A displacement parameter that measures the translation of a base pair away from the central helical axis along the axis of the base pair's hydrogen bonds. The y-displacement is typically small in canonical DNA structures. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001372 ! displacement parameter
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -14016,7 +14030,7 @@ id: MOLSIM:001682
 name: 3DNA
 def: "x3DNA is a comprehensive software package for the analysis, rebuilding, and visualization of three-dimensional nucleic acid structures. It takes a DNA or RNA structure file as input and calculates a wide range of standard helical and base pair parameters that are used to describe the detailed geometry of the helix. It is a cornerstone tool in the field of nucleic acid structural biology for characterizing and comparing experimental or simulated structures." []
 is_a: MOLSIM:001960 ! nucleic acid analysis tool
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -15263,7 +15277,7 @@ id: MOLSIM:001877
 name: DNA-bendability
 def: "DNA bendability is the intrinsic mechanical property that describes how easily a DNA double helix can deviate from its ideal straight conformation by adopting a bent or curved structure. This property depends on the nucleotide sequence, with some sequences being inherently more flexible than others. Sequence-dependent bendability plays a key role in DNA packaging, nucleosome formation, and protein-DNA recognition, as many proteins induce or stabilize DNA bending upon binding." []
 is_a: MOLSIM:001391 ! kinetic property
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -15271,7 +15285,7 @@ id: MOLSIM:001878
 name: base breathing
 def: "Base breathing refers to a specific and transient opening of one or more base pairs in a DNA or RNA double helix due to the temporary disruption of hydrogen bonds. During these events, the bases become transiently exposed to the surrounding solvent and more accessible without necessarily becoming fully unstacked from the helix. When this opening occurs at the ends of the duplex, it is commonly referred to as terminal fraying. These spontaneous opening events are a natural part of the helix's dynamics and are thought to be important for allowing proteins to access the genetic information encoded in the bases. Analyzing the frequency and duration of these motions provides insight into the local stability and accessibility of the DNA or RNA structure." []
 is_a: MOLSIM:001793 ! conformational transition
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -15286,7 +15300,7 @@ id: MOLSIM:001880
 name: inter-BP correlation analysis
 def: "Inter-base pair (Inter-BP) correlation analysis refers to the statistical coupling between the structural parameters of neighboring DNA base pairs or base-pair steps. It quantifies how variations in one helical parameter (e.g., roll, twist, or slide) are associated with changes in the same or different parameters at adjacent base pairs. These correlations reveal sequence-dependent structural coupling and cooperative conformational behavior within the DNA double helix, providing insight into its flexibility, mechanics, and recognition by DNA-bining proteins." []
 is_a: MOLSIM:000342 ! correlation analysis
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -15294,7 +15308,7 @@ id: MOLSIM:001881
 name: nucleic acid backbone flexibility
 def: "Nucleic acid backbone flexibility is a measure of the ability of the sugar-phosphate backbone of DNA or RNA to adopt different conformations through rotations about its backbone torsion angles. It is commonly characterized by analyzing the distributions and fluctuations during a simulation of the backbone dihedral angles (α, β, γ, δ, ε, ζ), the glycosidic angle (χ), and the sugar pucker. Backbone flexibility plays a fundamental role in determining the structural dynamics, mechanical properties, and biological functions of nucleic acids, influencing DNA bending and packaging as well as RNA folding and molecular recognition." []
 is_a: MOLSIM:001333 ! structural property
-property_value: IAO:0000117 "Israel Serrano Chacón" xsd:string
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
@@ -16930,6 +16944,172 @@ def: "A cross-source validation that checks whether the coordinate write frequen
 is_a: MOLSIM:002159 ! cross-source validation
 
 [Term]
+id: MOLSIM:002203
+name: protein domain
+def: "A polypeptide domain that occurs in a protein. It is a distinct, self-contained part of a protein that folds up on its own and usually carries out a particular job. Large proteins are often built from several domains. (NEWLY_ADDED)" []
+is_a: SO:0000417 ! polypeptide_domain
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
+
+[Term]
+id: MOLSIM:002204
+name: receptor-binding domain
+def: "A protein domain whose function is to attach to a matching partner molecule called a receptor. (NEWLY_ADDED)" []
+is_a: MOLSIM:002203 ! protein domain
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
+
+[Term]
+id: MOLSIM:002205
+name: catalytic domain
+def: "A protein domain that contains the active site, the pocket where an enzyme carries out its chemical reaction. It is the working part of an enzyme. (NEWLY_ADDED)" []
+is_a: MOLSIM:002203 ! protein domain
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
+
+[Term]
+id: MOLSIM:002206
+name: protein functional class label
+def: "A system classification label that records the biological job of the main protein in a simulated system. Proteins do most of the work in living cells, and this label groups simulations by the kind of job their protein does. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002162 ! system classification label
+
+[Term]
+id: MOLSIM:002207
+name: enzyme classification label
+def: "A protein functional class label for a system whose main protein is an enzyme, a protein that speeds up a chemical reaction in the cell without being used up itself. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002208
+name: transport protein classification label
+def: "A protein functional class label for a system whose main protein is a transport protein, one that moves ions or molecules from place to place, for example carrying them across a cell membrane. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002209
+name: structural protein classification label
+def: "A protein functional class label for a system whose main protein is a structural protein, one that gives shape, stiffness, or mechanical support to cells and tissues, like a scaffold. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002210
+name: regulatory protein classification label
+def: "A protein functional class label for a system whose main protein is a regulatory protein, one that switches biological processes on or off, or tunes how fast they run. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002211
+name: signaling protein classification label
+def: "A protein functional class label for a system whose main protein is a signaling protein, one that passes messages within a cell or between cells so the cell can respond to its surroundings. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002212
+name: motor protein classification label
+def: "A protein functional class label for a system whose main protein is a motor protein, one that turns chemical energy into movement, walking along tracks inside the cell to carry cargo or generate force. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002213
+name: immune protein classification label
+def: "A protein functional class label for a system whose main protein is an immune protein, one that helps recognise or fight off germs and foreign material; antibodies are a familiar example. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002214
+name: storage protein classification label
+def: "A protein functional class label for a system whose main protein is a storage protein, one that holds onto useful substances such as iron or amino acids until they are needed. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002206 ! protein functional class label
+
+[Term]
+id: MOLSIM:002226
+name: periodic box angles
+def: "A system setup parameter that gives the three angles (commonly α, β, γ) between the edges of the simulation box. These are needed to describe boxes that are not simple rectangular blocks, for example triclinic or truncated-octahedral boxes. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:001210 ! system setup parameter
+
+[Term]
+id: MOLSIM:002230
+name: SMILES code
+def: "An identifier that encodes the structure of a molecule as a short line of text, using the SMILES notation (Simplified Molecular-Input Line-Entry System). It lets a small molecule be written, searched, and shared as plain text, and complements the InChI code. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:000447 ! identifier
+
+[Term]
+id: MOLSIM:002232
+name: compiler
+def: "A software development and management tool that translates a program's source code into a runnable program. Which compiler was used can affect a simulation's speed and, occasionally, its numerical results. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:000171 ! software development and management tool
+
+[Term]
+id: MOLSIM:002233
+name: atom index group
+def: "A plan specification that defines a named group of atoms selected from the system, so the group can be referred to by name during setup or analysis. It is the concept behind a Gromacs index (.ndx) file, where groups such as Protein or Water are listed. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:000310 ! plan specification
+
+[Term]
+id: MOLSIM:002234
+name: classical molecular dynamics
+def: "A molecular dynamics method in which the forces between atoms come from a classical (empirical) force field rather than from quantum-mechanical calculations. It is the most common and computationally affordable form of molecular dynamics. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:000843 ! molecular dynamics
+
+[Term]
+id: MOLSIM:002235
+name: source structure residue mapping
+def: "An information content entity that records how the atoms or residues in a simulation correspond to an experimental source structure (such as a PDB entry), including any changes made, for example point mutations or modelled-in missing residues. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:001072 ! information content entity
+
+[Term]
+id: MOLSIM:002236
+name: oligomeric state
+def: "A structural property that describes how many copies of a protein chain join together to form a working unit. Many proteins function only when several copies assemble into one complex. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:001333 ! structural property
+
+[Term]
+id: MOLSIM:002237
+name: monomeric state
+def: "An oligomeric state in which the protein works on its own as a single chain, not joined to copies of itself. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002236 ! oligomeric state
+disjoint_from: MOLSIM:002238 ! dimeric state
+
+[Term]
+id: MOLSIM:002238
+name: dimeric state
+def: "An oligomeric state in which two copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002236 ! oligomeric state
+
+[Term]
+id: MOLSIM:002239
+name: trimeric state
+def: "An oligomeric state in which three copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002236 ! oligomeric state
+
+[Term]
+id: MOLSIM:002240
+name: tetrameric state
+def: "An oligomeric state in which four copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002236 ! oligomeric state
+
+[Term]
+id: MOLSIM:002241
+name: higher-order oligomeric state
+def: "An oligomeric state in which five or more copies of a protein chain join together to form the working unit. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002236 ! oligomeric state
+
+[Term]
+id: MOLSIM:002246
+name: spike opening conformational state
+def: "A conformational state of a coronavirus spike protein describing how many of its receptor-binding domains are raised into the open position, ready to engage a host cell. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:000105 ! conformational state
+
+[Term]
+id: MOLSIM:002247
+name: biological strain classification label
+def: "A system classification label naming the specific strain or sequence variant of the organism or virus that the simulated molecule comes from, for example a particular variant of the COVID-19 virus. It groups simulations by biological origin. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002162 ! system classification label
+
+[Term]
+id: MOLSIM:002248
+name: histone variant classification label
+def: "A system classification label naming a non-standard version of a histone protein present in the structure (for example H2A.Z). Different histone versions can change how DNA is packaged and read. (NEWLY_ADDED) (UNVERIFIED)" []
+is_a: MOLSIM:002162 ! system classification label
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second." []
@@ -17107,6 +17287,283 @@ id: MOLSIM:010028
 name: leap analysis
 def: "LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)" []
 is_a: MOLSIM:000328 ! system setup modeling
+
+[Term]
+id: SO:0000001
+name: region
+namespace: sequence
+def: "A sequence_feature with an extent greater than zero. A nucleotide region is composed of bases and a polypeptide region is composed of amino acids." [SO:ke]
+subset: SOFA
+synonym: "sequence" EXACT []
+is_a: SO:0000110 ! sequence_feature
+
+[Term]
+id: SO:0000110
+name: sequence_feature
+namespace: sequence
+def: "Any extent of continuous biological sequence." [LAMHDI:mb, SO:ke]
+subset: SOFA
+synonym: "INSDC_feature:misc_feature" EXACT []
+synonym: "INSDC_note:other" EXACT []
+synonym: "INSDC_note:sequence_feature" EXACT []
+synonym: "located sequence feature" RELATED []
+synonym: "located_sequence_feature" EXACT []
+synonym: "sequence feature" EXACT []
+
+[Term]
+id: SO:0000114
+name: methylated_cytosine
+namespace: sequence
+def: "A methylated deoxy-cytosine." [SO:ke]
+subset: SOFA
+synonym: "methylated C" EXACT []
+synonym: "methylated cytosine" EXACT []
+synonym: "methylated cytosine base" EXACT []
+synonym: "methylated cytosine residue" EXACT []
+synonym: "methylated_C" EXACT []
+is_a: SO:0000306 ! methylated_DNA_base_feature
+is_a: SO:0001963 ! modified_cytosine
+
+[Term]
+id: SO:0000161
+name: methylated_adenine
+namespace: sequence
+def: "A modified base in which adenine has been methylated." [SO:ke]
+subset: SOFA
+synonym: "methylated A" EXACT []
+synonym: "methylated adenine" EXACT []
+synonym: "methylated adenine base" EXACT []
+synonym: "methylated adenine residue" EXACT []
+synonym: "methylated_A" EXACT []
+is_a: SO:0000306 ! methylated_DNA_base_feature
+is_a: SO:0001962 ! modified_adenine
+
+[Term]
+id: SO:0000305
+name: modified_DNA_base
+namespace: sequence
+def: "A modified nucleotide, i.e. a nucleotide other than A, T, C. G." [http://www.insdc.org/files/feature_table.html]
+comment: Modified base:<modified_base>.
+subset: SOFA
+synonym: "INSDC_feature:modified_base" EXACT []
+synonym: "modified base site" EXACT []
+is_a: SO:0001236 ! base
+is_a: SO:0001720 ! epigenetically_modified_region
+
+[Term]
+id: SO:0000306
+name: methylated_DNA_base_feature
+namespace: sequence
+def: "A nucleotide modified by methylation." [SO:ke]
+subset: SOFA
+synonym: "methylated base feature" EXACT []
+is_a: SO:0000305 ! modified_DNA_base
+
+[Term]
+id: SO:0000417
+name: polypeptide_domain
+namespace: sequence
+alt_id: BS:00012
+alt_id: BS:00134
+alt_id: SO:0001069
+def: "A structurally or functionally defined protein region. In proteins with multiple domains, the combination of the domains determines the function of the protein. A region which has been shown to recur throughout evolution." [EBIBS:GAR]
+comment: Range. Old definition from before biosapiens: A region of a single polypeptide chain that folds into an independent unit and exhibits biological activity. A polypeptide chain may have multiple domains.
+subset: biosapiens
+synonym: "domain" BROAD BS [uniprot:feature_type]
+synonym: "polypeptide domain" EXACT []
+synonym: "polypeptide_structural_domain" EXACT BS []
+synonym: "structural domain" BROAD BS []
+is_a: SO:0001070 ! polypeptide_structural_region
+is_a: SO:0100021 ! polypeptide_conserved_region
+
+[Term]
+id: SO:0000831
+name: gene_member_region
+namespace: sequence
+def: "A region of a gene." [SO:ke]
+comment: A manufactured term used to allow the parts of a gene to have an is_a path to the root.
+subset: SOFA
+synonym: "gene member region" EXACT []
+is_a: SO:0001411 ! biological_region
+
+[Term]
+id: SO:0000839
+name: polypeptide_region
+namespace: sequence
+alt_id: BS:00124
+alt_id: BS:00331
+def: "Biological sequence region that can be assigned to a specific subsequence of a polypeptide." [SO:GAR, SO:ke]
+comment: Added to allow the polypeptide regions to have is_a paths back to the root.
+subset: biosapiens
+subset: SOFA
+synonym: "positional" RELATED []
+synonym: "positional polypeptide feature" RELATED []
+synonym: "region" NARROW [uniprot:feature_type]
+synonym: "region or site annotation" RELATED []
+synonym: "site" NARROW [uniprot:feature_type]
+is_a: SO:0001411 ! biological_region
+
+[Term]
+id: SO:0001070
+name: polypeptide_structural_region
+namespace: sequence
+alt_id: BS:00337
+def: "Region of polypeptide with a given structural property." [EBIBS:GAR, SO:cb]
+comment: Range.
+subset: biosapiens
+synonym: "polypeptide structural region" EXACT []
+synonym: "structural_region" RELATED []
+is_a: SO:0000839 ! polypeptide_region
+
+[Term]
+id: SO:0001236
+name: base
+namespace: sequence
+def: "A base is a sequence feature that corresponds to a single unit of a nucleotide polymer." [SO:ke]
+subset: SOFA
+xref: http://en.wikipedia.org/wiki/Nucleobase "wiki"
+is_a: SO:0001411 ! biological_region
+
+[Term]
+id: SO:0001411
+name: biological_region
+namespace: sequence
+def: "A region defined by its disposition to be involved in a biological process." [SO:cb]
+subset: SOFA
+synonym: "biological region" EXACT []
+synonym: "INSDC_misc_feature" BROAD []
+synonym: "INSDC_note:biological_region" EXACT []
+is_a: SO:0000001 ! region
+
+[Term]
+id: SO:0001720
+name: epigenetically_modified_region
+namespace: sequence
+def: "A biological DNA region implicated in epigenomic changes caused by mechanisms other than changes in the underlying DNA sequence. This includes, nucleosomal histone post-translational modifications, nucleosome depletion to render DNA accessible and post-replicational base modifications such as cytosine modification." [http://en.wikipedia.org/wiki/Epigenetics, SO:ke]
+comment: Moved from is_a biological_region (SO:0001411) to is_a regulatory_region (SO:0005836) on 11 Feb 2021. GREEKC members pointed out that this would be a more appropriate location. See GitHub Issue #530. 11 Feb 2021 updated definition along with addition of epigenomically_modified_region (SO:0002332). Epigenetically modified region is now not inherited while epigenomically modified region is not annotated as inherited. See GitHub Issue #532 and issue #534.
+subset: SOFA
+synonym: "epigenetically modified region" RELATED []
+is_a: SO:0005836 ! regulatory_region
+created_by: kareneilbeck
+creation_date: 2010-03-27T12:02:29Z
+
+[Term]
+id: SO:0001918
+name: 5_methylcytosine
+namespace: sequence
+def: "A cytosine methylated at the 5 carbon." [SO:rtapella]
+synonym: "5 methylcytosine" EXACT []
+synonym: "5-mC" EXACT []
+synonym: "m-5C" EXACT []
+synonym: "m5c" EXACT []
+xref: http://www.insdc.org/files/feature_table.html#7.4.2
+xref: http:http\://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf
+is_a: SO:0000114 ! methylated_cytosine
+created_by: kareneilbeck
+creation_date: 2012-10-17T12:46:10Z
+
+[Term]
+id: SO:0001920
+name: N6_methyladenine
+namespace: sequence
+def: "An adenine methylated at the 6 nitrogen." [SO:rtapella]
+synonym: "6-mA" EXACT []
+synonym: "6-methyladenine" EXACT []
+synonym: "6mA" EXACT []
+synonym: "m-6A" EXACT []
+synonym: "m6a" EXACT []
+synonym: "N6-methyladenine" EXACT []
+xref: http:http\://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf
+is_a: SO:0000161 ! methylated_adenine
+created_by: kareneilbeck
+creation_date: 2012-10-17T12:54:23Z
+
+[Term]
+id: SO:0001960
+name: 5_hydroxymethylcytosine
+namespace: sequence
+def: "A modified DNA cytosine base feature, modified by a hydroxymethyl group at the 5 carbon." [SO:ke]
+synonym: "5-hmC" EXACT []
+synonym: "5-hydroxymethylcytosine" EXACT []
+xref: http:http\://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf
+is_a: SO:0000114 ! methylated_cytosine
+created_by: kareneilbeck
+creation_date: 2013-05-17T05:05:31Z
+
+[Term]
+id: SO:0001961
+name: 5_formylcytosine
+namespace: sequence
+def: "A modified DNA cytosine base feature, modified by a formyl group at the 5 carbon." [SO:ke]
+synonym: "5-fC" EXACT []
+synonym: "5-formylcytosine" EXACT []
+xref: http:http\://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf
+is_a: SO:0001963 ! modified_cytosine
+created_by: kareneilbeck
+creation_date: 2013-05-17T05:06:13Z
+
+[Term]
+id: SO:0001962
+name: modified_adenine
+namespace: sequence
+def: "A modified adenine DNA base feature." [SO:ke]
+is_a: SO:0000305 ! modified_DNA_base
+created_by: kareneilbeck
+creation_date: 2013-05-20T01:22:30Z
+
+[Term]
+id: SO:0001963
+name: modified_cytosine
+namespace: sequence
+def: "A modified cytosine DNA base feature." [SO:ke]
+is_a: SO:0000305 ! modified_DNA_base
+created_by: kareneilbeck
+creation_date: 2013-05-20T01:23:47Z
+
+[Term]
+id: SO:0001966
+name: 5_carboxylcytosine
+namespace: sequence
+def: "A modified DNA cytosine base feature, modified by a carboxy group at the 5 carbon." [SO:ke]
+synonym: "5-caC" EXACT []
+synonym: "5-carboxycytosine" EXACT []
+xref: http:http\://www.pacificbiosciences.com/pdf/WP_Detecting_DNA_Base_Modifications_Using_SMRT_Sequencing.pdf
+is_a: SO:0001963 ! modified_cytosine
+created_by: kareneilbeck
+creation_date: 2013-05-20T01:30:01Z
+
+[Term]
+id: SO:0005836
+name: regulatory_region
+namespace: sequence
+def: "A region of sequence that is involved in the control of a biological process." [SO:ke]
+subset: SOFA
+synonym: "INSDC_feature:regulatory" BROAD []
+synonym: "INSDC_qualifier:other" EXACT []
+synonym: "regulatory region" EXACT []
+xref: http://en.wikipedia.org/wiki/Regulatory_region "wiki"
+is_a: SO:0000831 ! gene_member_region
+
+[Term]
+id: SO:0100003
+name: intrinsically_unstructured_polypeptide_region
+namespace: sequence
+def: "A region of polypeptide chain with high conformational flexibility." [EBIBS:GAR]
+subset: biosapiens
+synonym: "disordered region" RELATED BS []
+synonym: "IDR" RELATED []
+synonym: "intrinsically disordered region" EXACT []
+synonym: "intrinsically unstructured polypeptide region" EXACT []
+is_a: SO:0001070 ! polypeptide_structural_region
+
+[Term]
+id: SO:0100021
+name: polypeptide_conserved_region
+namespace: sequence
+def: "A subsection of sequence with biological interest that is conserved in different proteins. They may or may not have functional or structural significance within the proteins in which they are found." [EBIBS:GAR]
+subset: biosapiens
+synonym: "polypeptide conserved region" EXACT []
+is_a: SO:0000839 ! polypeptide_region
 
 [Term]
 id: UO:0000000
