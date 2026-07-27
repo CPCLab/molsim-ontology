@@ -27,6 +27,8 @@ Annotation(dcterms:contributor <https://orcid.org/0009-0007-1391-4986>)
 Annotation(dcterms:creator <https://orcid.org/0000-0001-8613-1447>)
 Annotation(dcterms:creator <https://orcid.org/0000-0003-4846-8051>)
 Annotation(dcterms:description "MOLSIM is a domain (application) ontology designed to semantically represent platform-agnostic biomolecular simulations (all-atom and coarse-grained) as FAIR (Findable, Accessible, Interoperable, and Reusable) datasets. As an application ontology, it reuses terms from established OBO ontologies where they fit and defines its own where they do not, aiming to standardize the representation of biomolecular simulation data, processes, and methodologies across platforms and tools."@en)
+Annotation(rdfs:comment "AI assistance disclosure: initial drafts of the term definitions in this ontology were produced with the assistance of large language models, primarily Google Gemini, with further drafting and curation support from Anthropic Claude; all drafts were then curated and reviewed by humans. Verification status is recorded per term and is machine-readable: a term carrying an IAO:0000117 (term editor) annotation has been checked by the named domain expert, whose ORCID is given; a definition whose text still ends with the marker (UNVERIFIED) has not yet been reviewed by a domain expert and should be treated as a draft. Terms marked owl:deprecated are retired and are exempt from verification."@en)
+Annotation(rdfs:comment "Release-format note: the OWL and JSON products (molsim.owl, molsim.json and their -base/-full variants) are the complete and canonical releases. The OBO-format product (molsim.obo) is a CLASS-ONLY VIEW: OBO 1.2 cannot represent datatype properties, and named individuals are not carried through the conversion, so the data properties (per-species composition counts, boolean flags, serialised arrays) and the named individuals of this ontology are absent from it. The class hierarchy, definitions, synonyms and object properties in molsim.obo are complete and correct. Use the OWL or JSON release if you need the full content."@en)
 Annotation(dcterms:license <https://creativecommons.org/licenses/by/4.0/>)
 Annotation(dcterms:subject "biomolecular simulation"@en)
 Annotation(dcterms:title "Molecular Simulation Ontology")
@@ -2735,6 +2737,8 @@ DataPropertyRange(obo:MOLSIM_002123 xsd:integer)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002124 "A relation that associates a molecular system with a mapping from ion species to the count of ions of each species present. It records the ionic composition used, for example, to neutralize charge or set ionic strength. (NEWLY_ADDED) (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002124 "ion counts dict"@en)
 SubDataPropertyOf(obo:MOLSIM_002124 obo:MOLSIM_001121)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002124 "This property stores its value as text, not as a number. The text lists each kind of ion and how many of them there are, for example {\"Na+\": 12, \"Cl-\": 10}. That is how the simulation files themselves write it. The other count properties next to this one use plain numbers, because each of them counts a single thing. This one has to count several kinds of ion at the same time, and the ontology has no way yet to say which count belongs to which ion. We looked at two other ways of doing it: making a separate property for every kind of ion, or making a small object that holds one ion and its number. Both would add a lot of work for little gain right now, so we kept the text form. The text itself can be checked later with SHACL, a rule language for checking data files."@en)
+DataPropertyRange(obo:MOLSIM_002124 xsd:string)
 
 # Data Property: obo:MOLSIM_002125 (number of total angles)
 
@@ -2992,6 +2996,7 @@ SubClassOf(obo:MOLSIM_000005 obo:MOLSIM_000002)
 # Class: obo:MOLSIM_000006 (model)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000006 "A simplified representation used to study a real-world system, such as a molecule or collection of molecules. In biomolecular simulation, it defines the components (atoms, residues) and their properties needed for computational analysis. This framework allows scientists to simulate and predict the system's behavior. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000006 "Distinct from 'MoDEL' (MOLSIM:001001), a named simulation data repository whose name differs from this term only by capitalisation. This term is the general class of representations used in simulation."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000006 "model"@en)
 
 # Class: obo:MOLSIM_000007 (force field)
@@ -7322,6 +7327,7 @@ SubClassOf(obo:MOLSIM_000687 obo:MOLSIM_000448)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000688 "Represents any origin from which information or data relevant to biomolecular studies and simulations is obtained. This broad category includes everything from experimental databases and scientific literature to computational predictions and raw output files. Understanding the data source is crucial for assessing data reliability, reproducibility, and context in biomolecular research. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000688 "TODO:may be be replacable with IAO's information content entity (http://purl.obolibrary.org/obo/IAO_0000030 ) as an import. discussion needed: the definition there is however rather abstract. #ontologyengineer #import"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000688 "How this branch is built. The classes here are KINDS of data source, for example protein structural database, pathway database, or simulation data repository. Each real, named resource is then added as an individual of one of those classes, not as a class of its own. PDB, UniProt, ChEMBL, Reactome, MoDEL and AlphaFold DB are individuals in this way. This is on purpose: a named database is one single thing in the world, not a kind of thing, so it fits better as an individual. Please keep this pattern, and do not turn these individuals into classes as a tidy-up. Two things to know. First, individuals are not copied into the OBO-format file (see the release-format note in the ontology header). Second, most OBO ontologies use classes for everything, so a reviewer may ask why we did this."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000688 "data source"@en)
 
 # Class: obo:MOLSIM_000689 (database source)
@@ -16181,6 +16187,8 @@ ClassAssertion(obo:MOLSIM_000710 obo:MOLSIM_001000)
 # Individual: obo:MOLSIM_001001 (MoDEL)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001001 "A database and web server that provides a collection of pre-equilibrated molecular dynamics simulations of proteins, particularly focusing on pharmaceutically relevant targets. MoDEL aims to offer ready-to-use starting points for further simulation studies, such as ligand binding or conformational analysis. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001001 "MoDEL database"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001001 "Distinct from the class 'model' (MOLSIM:000006), which it resembles only in spelling: this is a named simulation data repository, that is a general kind of representation. Case-insensitive lexical matching conflates the two, so prefer the synonym 'MoDEL database' when matching."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001001 "MoDEL"@en)
 ClassAssertion(obo:MOLSIM_000710 obo:MOLSIM_001001)
 
