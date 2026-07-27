@@ -14,17 +14,19 @@ bin/
 
 .github/token.txt
 
-/molsim.owl
-/molsim.obo
-/molsim.json
+# NOTE: the release artefacts at the repository root (molsim.owl/.obo/.json and the
+# -base/-full variants) are INTENTIONALLY TRACKED — they are the published release and
+# are refreshed by `make prepare_release`. They are deliberately NOT listed here: an
+# ignore rule has no effect on an already-tracked file, so listing them only created the
+# false impression that they should not be committed. Do not re-add them.
+# (The equivalent build copies under src/ontology/ ARE ignored — see below.)
 /molsim.db
-/molsim-base.*
-/molsim-basic.*
-/molsim-full.*
-/molsim-simple.*
-/molsim-simple-non-classified.*
 /mappings/
 /patterns/
+
+# mkdocs build output — the docs site is published to the gh-pages branch by CI
+# (.github/workflows/docs.yml), so the built copy must not be tracked here.
+/site/
 /reports/
 /subsets/
 
