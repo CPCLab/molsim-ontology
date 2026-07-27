@@ -1,0 +1,45 @@
+# Every MOLSIM term must be in EXACTLY ONE verification state:
+#   (a) verified   -> carries IAO:0000117 (term editor / point of contact)
+#   (b) unverified -> its IAO:0000115 definition carries the (UNVERIFIED) marker
+#   (c) deprecated -> carries owl:deprecated true (exempt from verification)
+#
+# This query returns a row for every term that breaks that rule, so `robot verify`
+# fails the build. Two failure modes are caught:
+#   - "no verification state": the term is silently unmarked, so its review status is
+#     ambiguous. (This also catches a misspelled marker such as "(UNVERFIED)", which
+#     does not match the canonical string.)
+#   - "contradictory": the term is both signed off AND still marked unverified.
+#
+# Only MOLSIM_ IRIs are checked — reused external terms (SO, GO, UO, CHEBI, IAO ...)
+# are governed by their own ontologies and must NOT be flagged here.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX IAO: <http://purl.obolibrary.org/obo/IAO_>
+
+SELECT ?entity ?label ?problem
+WHERE {
+  VALUES ?type { owl:Class owl:DatatypeProperty owl:ObjectProperty owl:NamedIndividual }
+  ?entity a ?type .
+  FILTER( STRSTARTS(STR(?entity), "http://purl.obolibrary.org/obo/MOLSIM_") )
+
+  OPTIONAL { ?entity rdfs:label     ?label }
+  OPTIONAL { ?entity IAO:0000117    ?verifier }
+  OPTIONAL { ?entity IAO:0000115    ?definition }
+  OPTIONAL { ?entity owl:deprecated ?deprecated }
+
+  BIND( BOUND(?verifier)   AS ?isVerified )
+  BIND( BOUND(?deprecated) AS ?isDeprecated )
+  BIND( BOUND(?definition) && CONTAINS(STR(?definition), "(UNVERIFIED)") AS ?isMarked )
+
+  BIND(
+    IF( ?isVerified && ?isMarked,
+        "CONTRADICTORY: has IAO:0000117 but definition still carries (UNVERIFIED)",
+    IF( !?isVerified && !?isMarked && !?isDeprecated,
+        "NO VERIFICATION STATE: add (UNVERIFIED) to the definition, or an IAO:0000117 verifier",
+        "" ))
+    AS ?problem )
+
+  FILTER( ?problem != "" )
+}
+ORDER BY ?entity

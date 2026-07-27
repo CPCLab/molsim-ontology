@@ -1,0 +1,30 @@
+# The (UNVERIFIED) draft marker must be in CANONICAL position: at the very end of the
+# IAO:0000115 definition string, after the prose's own final period, with nothing after it.
+#
+#   correct:   "A protein domain that folds independently. (UNVERIFIED)"
+#   wrong:     "A protein domain that folds independently (UNVERIFIED)."   <- marker before the period
+#   wrong:     "... (UNVERIFIED) (some trailing note)"                     <- marker not last
+#   wrong:     "... files UNVERIFIED)"                                     <- malformed marker
+#
+# Why this is a build-breaking check and not a style nit: the verification pipeline
+# REMOVES this marker by string matching when an expert signs a term off. A marker in a
+# non-canonical position survives that removal, leaving a verified term looking
+# unverified forever — silently. Failing loudly here is the point.
+#
+# Only MOLSIM_ IRIs are checked; external reused terms are out of scope.
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX IAO: <http://purl.obolibrary.org/obo/IAO_>
+
+SELECT ?entity ?label ?definition
+WHERE {
+  ?entity IAO:0000115 ?definition .
+  FILTER( STRSTARTS(STR(?entity), "http://purl.obolibrary.org/obo/MOLSIM_") )
+  OPTIONAL { ?entity rdfs:label ?label }
+
+  # the definition mentions the marker ...
+  FILTER( CONTAINS(STR(?definition), "UNVERIFIED") )
+  # ... but does not end with it in canonical form
+  FILTER( !STRENDS(STR(?definition), "(UNVERIFIED)") )
+}
+ORDER BY ?entity
