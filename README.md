@@ -43,7 +43,7 @@ The primary goal of this ontology is to standardize the representation of molecu
 |---|---|
 | **Prefix** | `MOLSIM` |
 | **Namespace** | `http://purl.obolibrary.org/obo/MOLSIM_` |
-| **Size** | ~2,040 classes · 16 object properties · 94 data properties |
+| **Size** | ~2,060 classes · 113 data properties · 16 object properties · 70 named individuals (~2,260 terms total) |
 | **Hierarchy** | Domain-oriented (no upper ontology yet; see [Ontology Alignment](#ontology-alignment-planned-currently-deferred)) |
 | **Management** | ODK (Ontology Development Kit) + ROBOT, reasoned with ELK |
 | **Source serialization** | OWL Functional Syntax: [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl) |
@@ -100,7 +100,7 @@ Development is conducted in the `src` directory. Editors should work with the so
 ### For Users (Pre-Release)
 Until the official OBO PURL is active, you can access the latest compiled version of the ontology directly from this repository:
 * [`molsim.owl` (Latest Snapshot)](molsim.owl)
-* The .obo release does not include MOLSIM's data properties, because the OBO format cannot represent them. Use the OWL or JSON release if you need them.
+* The .obo release does not include MOLSIM's 113 data properties or its 70 named individuals: the OBO format cannot represent data properties, and named individuals are dropped in conversion. That is about 8% of MOLSIM's terms, so the .obo file is a class-only view. Use the OWL or JSON release if you need the full ontology.
 
 ## Contributing
 The MOLSIM project is open to contributions and collaboration.
