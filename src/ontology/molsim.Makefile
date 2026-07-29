@@ -31,6 +31,17 @@ $(IMPORTDIR)/go_import.owl: $(MIRRORDIR)/go.owl
 		--upper-terms $(IMPORTDIR)/go_terms.txt \
 		--output $@
 
+# STATO: bounded MIREOT (upper == lower). STATO's ancestors run
+# STATO:0000039 statistic -> IAO:0000027 data item -> IAO:0000030 information content
+# entity -> BFO:0000031 -> BFO:0000001, so an unbounded extraction would inject IAO and
+# BFO upper-ontology parentage (MOLSIM policy: no new upper-ontology imports).
+$(IMPORTDIR)/stato_import.owl: $(MIRRORDIR)/stato.owl
+	$(ROBOT) extract --input $< \
+		--method MIREOT \
+		--lower-terms $(IMPORTDIR)/stato_terms.txt \
+		--upper-terms $(IMPORTDIR)/stato_terms.txt \
+		--output $@
+
 $(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
