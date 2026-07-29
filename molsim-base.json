@@ -36,13 +36,19 @@
         "pred" : "http://www.geneontology.org/formats/oboInOwl#default-namespace",
         "val" : "molsim"
       }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "AI assistance disclosure: initial drafts of the term definitions in this ontology were produced with the assistance of large language models, primarily Google Gemini, with further drafting and curation support from Anthropic Claude; all drafts were then curated and reviewed by humans. Verification status is recorded per term and is machine-readable: a term carrying an IAO:0000117 (term editor) annotation has been checked by the named domain expert, whose ORCID is given; a definition whose text still ends with the marker (UNVERIFIED) has not yet been reviewed by a domain expert and should be treated as a draft. Terms marked owl:deprecated are retired and are exempt from verification."
+      }, {
+        "pred" : "http://www.w3.org/2000/01/rdf-schema#comment",
+        "val" : "Release-format note: the OWL and JSON products (molsim.owl, molsim.json and their -base/-full variants) are the complete and canonical releases. The OBO-format product (molsim.obo) is a CLASS-ONLY VIEW: OBO 1.2 cannot represent datatype properties, and named individuals are not carried through the conversion, so the data properties (per-species composition counts, boolean flags, serialised arrays) and the named individuals of this ontology are absent from it. The class hierarchy, definitions, synonyms and object properties in molsim.obo are complete and correct. Use the OWL or JSON release if you need the full content."
+      }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-07-24"
+        "val" : "2026-07-29"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-07-24/molsim-base.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-07-29/molsim-base.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000000",
@@ -105,7 +111,8 @@
       "meta" : {
         "definition" : {
           "val" : "A simplified representation used to study a real-world system, such as a molecule or collection of molecules. In biomolecular simulation, it defines the components (atoms, residues) and their properties needed for computational analysis. This framework allows scientists to simulate and predict the system's behavior. (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "Distinct from 'MoDEL' (MOLSIM:001001), a named simulation data repository whose name differs from this term only by capitalisation. This term is the general class of representations used in simulation." ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000007",
@@ -443,7 +450,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A well-defined sequence of steps or rules designed to perform a specific task or solve a particular problem. In computational science, algorithms provide the precise instructions for a computer to follow to achieve a desired outcome, such as simulating molecular motion or analyzing data. They are the fundamental building blocks of computational methods used in biomolecular simulation and analysis."
+          "val" : "A well-defined sequence of steps or rules designed to perform a specific task or solve a particular problem. In computational science, algorithms provide the precise instructions for a computer to follow to achieve a desired outcome, such as simulating molecular motion or analyzing data. They are the fundamental building blocks of computational methods used in biomolecular simulation and analysis. (UNVERIFIED)"
         }
       }
     }, {
@@ -452,7 +459,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm used in molecular dynamics simulations to control the temperature of the simulated system, ensuring it samples configurations corresponding to a specific target temperature (e.g., for the NVT or NPT ensembles). Thermostats work by adjusting particle velocities or adding/removing kinetic energy in various ways to mimic coupling with an external heat bath. Different thermostat algorithms vary in their theoretical basis, efficiency, and how accurately they reproduce correct statistical mechanics (UNVERIFIED)."
+          "val" : "An algorithm used in molecular dynamics simulations to control the temperature of the simulated system, ensuring it samples configurations corresponding to a specific target temperature (e.g., for the NVT or NPT ensembles). Thermostats work by adjusting particle velocities or adding/removing kinetic energy in various ways to mimic coupling with an external heat bath. Different thermostat algorithms vary in their theoretical basis, efficiency, and how accurately they reproduce correct statistical mechanics. (UNVERIFIED)"
         }
       }
     }, {
@@ -461,7 +468,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm used in molecular dynamics simulations, typically alongside a thermostat, to control the pressure of the simulated system by adjusting the simulation box volume. This allows simulations to be performed under conditions of constant pressure and temperature (NPT ensemble), mimicking typical laboratory conditions. Different barostats vary in how they couple the volume changes to the pressure difference and whether they allow anisotropic box changes (UNVERIFIED)."
+          "val" : "An algorithm used in molecular dynamics simulations, typically alongside a thermostat, to control the pressure of the simulated system by adjusting the simulation box volume. This allows simulations to be performed under conditions of constant pressure and temperature (NPT ensemble), mimicking typical laboratory conditions. Different barostats vary in how they couple the volume changes to the pressure difference and whether they allow anisotropic box changes. (UNVERIFIED)"
         }
       }
     }, {
@@ -470,7 +477,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A barostat algorithm that weakly couples the system to an external pressure bath by rescaling the simulation box volume and particle coordinates based on the difference between the current instantaneous pressure and the target pressure. Similar to the Berendsen thermostat, it is computationally simple and effective for equilibration but does not rigorously sample the correct NPT ensemble. It allows isotropic or anisotropic pressure coupling (UNVERIFIED)."
+          "val" : "A barostat algorithm that weakly couples the system to an external pressure bath by rescaling the simulation box volume and particle coordinates based on the difference between the current instantaneous pressure and the target pressure. Similar to the Berendsen thermostat, it is computationally simple and effective for equilibration but does not rigorously sample the correct NPT ensemble. It allows isotropic or anisotropic pressure coupling. (UNVERIFIED)"
         }
       }
     }, {
@@ -479,7 +486,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A barostat algorithm where trial changes to the simulation box volume are attempted periodically during a molecular dynamics simulation using a Monte Carlo acceptance criterion. Accepted moves rescale the box dimensions and particle coordinates. This method correctly samples the NPT ensemble but can be less efficient than continuous barostats for large volume fluctuations (UNVERIFIED)."
+          "val" : "A barostat algorithm where trial changes to the simulation box volume are attempted periodically during a molecular dynamics simulation using a Monte Carlo acceptance criterion. Accepted moves rescale the box dimensions and particle coordinates. This method correctly samples the NPT ensemble but can be less efficient than continuous barostats for large volume fluctuations. (UNVERIFIED)"
         }
       }
     }, {
@@ -488,7 +495,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A barostat algorithm where the simulation box volume is treated as a dynamic variable coupled to a fictitious \"piston\" mass, interacting with the internal pressure of the system. This extended Lagrangian approach allows the volume to fluctuate dynamically around the value corresponding to the target external pressure, correctly generating the NPT ensemble. It typically assumes isotropic volume changes (UNVERIFIED)."
+          "val" : "A barostat algorithm where the simulation box volume is treated as a dynamic variable coupled to a fictitious \"piston\" mass, interacting with the internal pressure of the system. This extended Lagrangian approach allows the volume to fluctuate dynamically around the value corresponding to the target external pressure, correctly generating the NPT ensemble. It typically assumes isotropic volume changes. (UNVERIFIED)"
         }
       }
     }, {
@@ -497,7 +504,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An extension of the Andersen barostat that allows the simulation box shape and volume to change anisotropically, meaning the lengths of the box edges and the angles between them can fluctuate independently. This is crucial for simulating phase transitions or studying materials under anisotropic stress conditions while correctly sampling the NPT ensemble. It uses a matrix of barostat variables coupled to the pressure tensor (UNVERIFIED)."
+          "val" : "An extension of the Andersen barostat that allows the simulation box shape and volume to change anisotropically, meaning the lengths of the box edges and the angles between them can fluctuate independently. This is crucial for simulating phase transitions or studying materials under anisotropic stress conditions while correctly sampling the NPT ensemble. It uses a matrix of barostat variables coupled to the pressure tensor. (UNVERIFIED)"
         }
       }
     }, {
@@ -506,7 +513,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A barostat algorithm that combines the extended Lagrangian approach (like Andersen or Parrinello-Rahman) with Langevin dynamics applied to the piston/box degrees of freedom. This introduces stochastic and frictional terms to the equation of motion for the box volume, helping to control pressure fluctuations and potentially improving sampling efficiency. It aims to provide robust pressure control while correctly sampling the NPT ensemble (UNVERIFIED)."
+          "val" : "A barostat algorithm that combines the extended Lagrangian approach (like Andersen or Parrinello-Rahman) with Langevin dynamics applied to the piston/box degrees of freedom. This introduces stochastic and frictional terms to the equation of motion for the box volume, helping to control pressure fluctuations and potentially improving sampling efficiency. It aims to provide robust pressure control while correctly sampling the NPT ensemble. (UNVERIFIED)"
         }
       }
     }, {
@@ -528,7 +535,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A thermostat algorithm that weakly couples the system to an external heat bath by rescaling particle velocities at each step based on the difference between the current instantaneous temperature and the target temperature. While computationally simple and effective at bringing the system to the target temperature, it does not rigorously generate configurations from the correct canonical (NVT) ensemble. It is often used for equilibration phases rather than production simulations (UNVERIFIED)."
+          "val" : "A thermostat algorithm that weakly couples the system to an external heat bath by rescaling particle velocities at each step based on the difference between the current instantaneous temperature and the target temperature. While computationally simple and effective at bringing the system to the target temperature, it does not rigorously generate configurations from the correct canonical (NVT) ensemble. It is often used for equilibration phases rather than production simulations. (UNVERIFIED)"
         }
       }
     }, {
@@ -537,7 +544,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A thermostat algorithm that maintains temperature by introducing stochastic collisions between randomly selected particles and fictitious heat bath particles. When a particle \"collides,\" its velocity is reassigned from a Maxwell-Boltzmann distribution corresponding to the target temperature. This method correctly generates configurations from the canonical (NVT) ensemble (UNVERIFIED)."
+          "val" : "A thermostat algorithm that maintains temperature by introducing stochastic collisions between randomly selected particles and fictitious heat bath particles. When a particle \"collides,\" its velocity is reassigned from a Maxwell-Boltzmann distribution corresponding to the target temperature. This method correctly generates configurations from the canonical (NVT) ensemble. (UNVERIFIED)"
         }
       }
     }, {
@@ -546,7 +553,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A deterministic thermostat algorithm that controls temperature by introducing an extended degree of freedom (a thermostat variable) that dynamically couples to the physical system's kinetic energy. This extended variable evolves according to its own equation of motion, causing the physical system's temperature to fluctuate around the target value in a way consistent with the canonical (NVT) ensemble. It avoids the stochastic elements of Langevin or Andersen thermostats (UNVERIFIED)."
+          "val" : "A deterministic thermostat algorithm that controls temperature by introducing an extended degree of freedom (a thermostat variable) that dynamically couples to the physical system's kinetic energy. This extended variable evolves according to its own equation of motion, causing the physical system's temperature to fluctuate around the target value in a way consistent with the canonical (NVT) ensemble. It avoids the stochastic elements of Langevin or Andersen thermostats. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -559,7 +566,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm used in molecular dynamics simulations to fix certain geometric parameters, most commonly bond lengths involving light atoms like hydrogen. By constraining these fast vibrations, longer simulation time steps can be used, significantly speeding up the simulation while having minimal impact on slower, large-scale motions. These algorithms iteratively adjust particle positions or use analytical solutions to satisfy the constraint conditions (UNVERIFIED)."
+          "val" : "An algorithm used in molecular dynamics simulations to fix certain geometric parameters, most commonly bond lengths involving light atoms like hydrogen. By constraining these fast vibrations, longer simulation time steps can be used, significantly speeding up the simulation while having minimal impact on slower, large-scale motions. These algorithms iteratively adjust particle positions or use analytical solutions to satisfy the constraint conditions. (UNVERIFIED)"
         }
       }
     }, {
@@ -568,7 +575,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An iterative constraint algorithm widely used in molecular dynamics to fix bond lengths. It adjusts the positions of atoms involved in a constraint at the end of a time step until the constraint condition (e.g., fixed bond distance) is satisfied within a defined tolerance. It handles coupled constraints involving multiple atoms connected together (UNVERIFIED)."
+          "val" : "An iterative constraint algorithm widely used in molecular dynamics to fix bond lengths. It adjusts the positions of atoms involved in a constraint at the end of a time step until the constraint condition (e.g., fixed bond distance) is satisfied within a defined tolerance. It handles coupled constraints involving multiple atoms connected together. (UNVERIFIED)"
         }
       }
     }, {
@@ -577,7 +584,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A constraint algorithm similar to SHAKE but designed for velocity-Verlet type integrators, ensuring that both positions and velocities satisfy the constraint conditions at the end of each time step. It involves solving constraint equations for positions first, then using those positions to solve for constrained velocities. This maintains consistency between positions and velocities under constraint (UNVERIFIED)."
+          "val" : "A constraint algorithm similar to SHAKE but designed for velocity-Verlet type integrators, ensuring that both positions and velocities satisfy the constraint conditions at the end of each time step. It involves solving constraint equations for positions first, then using those positions to solve for constrained velocities. This maintains consistency between positions and velocities under constraint. (UNVERIFIED)"
         }
       }
     }, {
@@ -586,7 +593,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A general term for algorithms designed to solve systems of linear equations that arise from geometric constraints in molecular simulations, particularly when constraints are applied before integrating equations of motion (e.g., in Lagrangian multiplier methods). While iterative methods like SHAKE/RATTLE solve non-linear equations implicitly, linear solvers might be used in different formulations. It represents the mathematical task underlying some constraint methods (UNVERIFIED)."
+          "val" : "A general term for algorithms designed to solve systems of linear equations that arise from geometric constraints in molecular simulations, particularly when constraints are applied before integrating equations of motion (e.g., in Lagrangian multiplier methods). While iterative methods like SHAKE/RATTLE solve non-linear equations implicitly, linear solvers might be used in different formulations. It represents the mathematical task underlying some constraint methods. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -602,7 +609,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm designed to efficiently calculate the long-range electrostatic forces between charged particles (atoms) in molecular simulations, which is computationally demanding due to the N-squared complexity if all pairs are considered directly. These methods employ various approximations or techniques like grid-based calculations, truncation schemes, or multipole expansions to reduce the computational cost while maintaining acceptable accuracy. They are essential for simulating realistic biomolecular systems (UNVERIFIED)."
+          "val" : "An algorithm designed to efficiently calculate the long-range electrostatic forces between charged particles (atoms) in molecular simulations, which is computationally demanding due to the N-squared complexity if all pairs are considered directly. These methods employ various approximations or techniques like grid-based calculations, truncation schemes, or multipole expansions to reduce the computational cost while maintaining acceptable accuracy. They are essential for simulating realistic biomolecular systems. (UNVERIFIED)"
         }
       }
     }, {
@@ -611,7 +618,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A highly efficient grid-based algorithm for calculating long-range electrostatic interactions in periodic systems, based on the Ewald summation technique. It splits the calculation into a short-range part computed directly in real space and a long-range part computed efficiently in reciprocal space using Fast Fourier Transforms (FFTs) on a grid. PME is a standard method for accurate electrostatics in biomolecular simulations (UNVERIFIED)."
+          "val" : "A highly efficient grid-based algorithm for calculating long-range electrostatic interactions in periodic systems, based on the Ewald summation technique. It splits the calculation into a short-range part computed directly in real space and a long-range part computed efficiently in reciprocal space using Fast Fourier Transforms (FFTs) on a grid. PME is a standard method for accurate electrostatics in biomolecular simulations. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -624,7 +631,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An approximate method for handling long-range electrostatic interactions where direct interactions are calculated only up to a certain cutoff distance. The effect of charges beyond the cutoff is approximated by embedding the cutoff sphere within a continuous dielectric medium representing the solvent. While computationally cheaper than PME, its accuracy depends on the system and parameters chosen (UNVERIFIED)."
+          "val" : "An approximate method for handling long-range electrostatic interactions where direct interactions are calculated only up to a certain cutoff distance. The effect of charges beyond the cutoff is approximated by embedding the cutoff sphere within a continuous dielectric medium representing the solvent. While computationally cheaper than PME, its accuracy depends on the system and parameters chosen. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -637,7 +644,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An efficient algorithm for calculating long-range forces (like electrostatic or gravitational) in particle simulations, conceptually similar to Particle Mesh Ewald (PME). It splits the force calculation into a short-range part computed directly between nearby particles (particle-particle) and a long-range part computed using a grid and Fast Fourier Transforms (particle-mesh). PPPM is widely used in both astrophysics and molecular simulation for its performance and accuracy (UNVERIFIED)."
+          "val" : "An efficient algorithm for calculating long-range forces (like electrostatic or gravitational) in particle simulations, conceptually similar to Particle Mesh Ewald (PME). It splits the force calculation into a short-range part computed directly between nearby particles (particle-particle) and a long-range part computed using a grid and Fast Fourier Transforms (particle-mesh). PPPM is widely used in both astrophysics and molecular simulation for its performance and accuracy. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -814,7 +821,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm used to quantify the degree of resemblance between two objects, often molecules represented by chemical fingerprints or structural features, or between simulation data like conformations or trajectories. These methods employ various mathematical formulas (metrics or coefficients) to compute a numerical score indicating similarity or distance. They are widely used in cheminformatics, drug discovery, and simulation analysis (UNVERIFIED)."
+          "val" : "An algorithm used to quantify the degree of resemblance between two objects, often molecules represented by chemical fingerprints or structural features, or between simulation data like conformations or trajectories. These methods employ various mathematical formulas (metrics or coefficients) to compute a numerical score indicating similarity or distance. They are widely used in cheminformatics, drug discovery, and simulation analysis. (UNVERIFIED)"
         }
       }
     }, {
@@ -823,7 +830,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "This likely refers to a similarity score derived by combining the standard Tanimoto coefficient (often calculated on molecular fingerprints) with other similarity measures or scores. The goal of combining scores is often to leverage the strengths of different metrics to get a more robust or comprehensive assessment of similarity.  (UNVERIFIED)."
+          "val" : "This likely refers to a similarity score derived by combining the standard Tanimoto coefficient (often calculated on molecular fingerprints) with other similarity measures or scores. The goal of combining scores is often to leverage the strengths of different metrics to get a more robust or comprehensive assessment of similarity. (UNVERIFIED)"
         }
       }
     }, {
@@ -832,7 +839,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A molecular similarity measure that compares two molecular structures by calculating their overlap while allowing asymmetric weighting through parameters α and β. The measure ranges from 0 (completely different) to 1 (identical), and can be adjusted to emphasize either the reference or query molecule in the comparison. It is particularly useful in molecular screening as it can identify both substructure and superstructure relationships between molecules."
+          "val" : "A molecular similarity measure that compares two molecular structures by calculating their overlap while allowing asymmetric weighting through parameters α and β. The measure ranges from 0 (completely different) to 1 (identical), and can be adjusted to emphasize either the reference or query molecule in the comparison. It is particularly useful in molecular screening as it can identify both substructure and superstructure relationships between molecules. (UNVERIFIED)"
         }
       }
     }, {
@@ -841,7 +848,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity calculation method used to compare two sets (e.g., features in molecular fingerprints), closely related to the Tanimoto coefficient and Jaccard index. It measures the overlap between the sets, normalized by the average size of the two sets. It is often used in information retrieval and cheminformatics as an alternative similarity metric (UNVERIFIED)."
+          "val" : "A similarity calculation method used to compare two sets (e.g., features in molecular fingerprints), closely related to the Tanimoto coefficient and Jaccard index. It measures the overlap between the sets, normalized by the average size of the two sets. It is often used in information retrieval and cheminformatics as an alternative similarity metric. (UNVERIFIED)"
         }
       }
     }, {
@@ -850,7 +857,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A common method for calculating the distance between two points (e.g., representing molecules in a multi-dimensional property space or conformations by atom coordinates) based on the straight-line distance in that space. It is calculated as the square root of the sum of squared differences between corresponding coordinates or features. Lower Euclidean distance implies higher similarity in the context of the chosen space (UNVERIFIED)."
+          "val" : "A common method for calculating the distance between two points (e.g., representing molecules in a multi-dimensional property space or conformations by atom coordinates) based on the straight-line distance in that space. It is calculated as the square root of the sum of squared differences between corresponding coordinates or features. Lower Euclidean distance implies higher similarity in the context of the chosen space. (UNVERIFIED)"
         }
       }
     }, {
@@ -877,7 +884,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity calculation method specifically used for comparing two strings or bit vectors (like binary molecular fingerprints) of equal length. It counts the number of positions at which the corresponding symbols or bits are different. A lower Hamming distance indicates higher similarity between the binary representations (UNVERIFIED)."
+          "val" : "A similarity calculation method specifically used for comparing two strings or bit vectors (like binary molecular fingerprints) of equal length. It counts the number of positions at which the corresponding symbols or bits are different. A lower Hamming distance indicates higher similarity between the binary representations. (UNVERIFIED)"
         }
       }
     }, {
@@ -886,7 +893,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity calculation method used for comparing two sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets) (UNVERIFIED)."
+          "val" : "A similarity calculation method used for comparing two sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets). (UNVERIFIED)"
         }
       }
     }, {
@@ -895,7 +902,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity calculation method that measures the overlap between two sets, defined as the size of the intersection divided by the size of the smaller of the two sets. Unlike Tanimoto/Jaccard, it reaches 1 if one set is a subset of the other. It is useful for assessing containment or sub-structure relationships (UNVERIFIED)."
+          "val" : "A similarity calculation method that measures the overlap between two sets, defined as the size of the intersection divided by the size of the smaller of the two sets. Unlike Tanimoto/Jaccard, it reaches 1 if one set is a subset of the other. It is useful for assessing containment or sub-structure relationships. (UNVERIFIED)"
         }
       }
     }, {
@@ -904,7 +911,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A comprehensive molecular similarity measure that combines FitTversky shape matching with FitColorTversky chemical feature matching into a single metric. This measure emphasizes the database (fit) molecule's characteristics through its high β parameter value (0.95), making it particularly useful for identifying compounds where the query molecule is a substructure of database molecules. Like RefTverskyCombo, it produces scores typically ranging from 0 to 2, providing a balanced assessment of both geometric shape and chemical functionality similarities."
+          "val" : "A comprehensive molecular similarity measure that combines FitTversky shape matching with FitColorTversky chemical feature matching into a single metric. This measure emphasizes the database (fit) molecule's characteristics through its high β parameter value (0.95), making it particularly useful for identifying compounds where the query molecule is a substructure of database molecules. Like RefTverskyCombo, it produces scores typically ranging from 0 to 2, providing a balanced assessment of both geometric shape and chemical functionality similarities. (UNVERIFIED)"
         }
       }
     }, {
@@ -913,7 +920,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A specialized variant of the Tversky Index that uses fixed parameters with the alpha (α) value of  = 0.95, and beta (β) value of = 0.05 to heavily weight the reference molecule in the comparison. This asymmetric weighting makes it particularly effective at finding molecules that contain the reference structure as a substructure. RefTversky is commonly used in virtual screening to identify compounds that preserve key structural features of a reference molecule."
+          "val" : "A specialized variant of the Tversky Index that uses fixed parameters with the alpha (α) value of 0.95, and beta (β) value of 0.05 to heavily weight the reference molecule in the comparison. This asymmetric weighting makes it particularly effective at finding molecules that contain the reference structure as a substructure. RefTversky is commonly used in virtual screening to identify compounds that preserve key structural features of a reference molecule. (UNVERIFIED)"
         }
       }
     }, {
@@ -922,7 +929,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A general term for a similarity score obtained by combining results from multiple different similarity calculation methods or metrics. The rationale is often to capture different aspects of similarity (e.g., structural, feature-based) into a single, potentially more informative score. The specific combination formula and constituent metrics define the particular combo score (UNVERIFIED)."
+          "val" : "A general term for a similarity score obtained by combining results from multiple different similarity calculation methods or metrics. The rationale is often to capture different aspects of similarity (e.g., structural, feature-based) into a single, potentially more informative score. The specific combination formula and constituent metrics define the particular combo score. (UNVERIFIED)"
         }
       }
     }, {
@@ -931,7 +938,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm designed to find the best path or connection between states or nodes according to some defined criteria, such as minimum cost, shortest distance, or maximum flow. These algorithms are used in various contexts, including finding minimum energy pathways for reactions, constructing minimum spanning trees for clustering, optimizing network routes, or solving complex search problems. They employ different strategies ranging from exact graph traversals to heuristic searches (UNVERIFIED)."
+          "val" : "An algorithm designed to find the best path or connection between states or nodes according to some defined criteria, such as minimum cost, shortest distance, or maximum flow. These algorithms are used in various contexts, including finding minimum energy pathways for reactions, constructing minimum spanning trees for clustering, optimizing network routes, or solving complex search problems. They employ different strategies ranging from exact graph traversals to heuristic searches. (UNVERIFIED)"
         }
       }
     }, {
@@ -940,7 +947,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A greedy algorithm used to find a Minimum Spanning Tree (MST) for a connected, undirected graph with weighted edges. An MST connects all vertices together with the minimum possible total edge weight. Kruskal's algorithm iteratively adds the lowest-weight edge that does not form a cycle until all vertices are connected (UNVERIFIED)."
+          "val" : "A greedy algorithm used to find a Minimum Spanning Tree (MST) for a connected, undirected graph with weighted edges. An MST connects all vertices together with the minimum possible total edge weight. Kruskal's algorithm iteratively adds the lowest-weight edge that does not form a cycle until all vertices are connected. (UNVERIFIED)"
         }
       }
     }, {
@@ -949,7 +956,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Another greedy algorithm for finding a Minimum Spanning Tree (MST) in a connected, undirected graph with weighted edges. It works by starting with an arbitrary vertex and iteratively adding the cheapest edge that connects a vertex in the growing tree to a vertex outside the tree, until all vertices are included. It provides an alternative approach to Kruskal's for constructing an MST (UNVERIFIED)."
+          "val" : "Another greedy algorithm for finding a Minimum Spanning Tree (MST) in a connected, undirected graph with weighted edges. It works by starting with an arbitrary vertex and iteratively adding the cheapest edge that connects a vertex in the growing tree to a vertex outside the tree, until all vertices are included. It provides an alternative approach to Kruskal's for constructing an MST. (UNVERIFIED)"
         }
       }
     }, {
@@ -958,7 +965,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm for finding the shortest path between a starting node and all other nodes in a graph with non-negative edge weights. It works by iteratively exploring the graph, maintaining the shortest distance found so far to each node, and always extending the path from the node with the current shortest distance. It is fundamental in graph theory and network routing (UNVERIFIED)."
+          "val" : "An algorithm for finding the shortest path between a starting node and all other nodes in a graph with non-negative edge weights. It works by iteratively exploring the graph, maintaining the shortest distance found so far to each node, and always extending the path from the node with the current shortest distance. It is fundamental in graph theory and network routing. (UNVERIFIED)"
         }
       }
     }, {
@@ -967,7 +974,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An informed search algorithm used for finding the shortest path between a starting node and a target node in a graph, commonly used in pathfinding and planning problems. It extends Dijkstra's algorithm by using a heuristic function to estimate the cost from the current node to the target, guiding the search towards the goal more efficiently. Its performance depends on the quality of the heuristic used (UNVERIFIED)."
+          "val" : "An informed search algorithm used for finding the shortest path between a starting node and a target node in a graph, commonly used in pathfinding and planning problems. It extends Dijkstra's algorithm by using a heuristic function to estimate the cost from the current node to the target, guiding the search towards the goal more efficiently. Its performance depends on the quality of the heuristic used. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -980,7 +987,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Generally refers to algorithms that operate based on proximity, often used in classification, clustering, or search problems. In pathfinding or optimization, a simple nearest neighbor approach might involve iteratively moving to the closest unvisited node, which is a heuristic that does not guarantee finding the globally optimal path (e.g., in the Traveling Salesperson Problem). It can also refer to K-Nearest Neighbors (KNN) classification/regression (UNVERIFIED)."
+          "val" : "Generally refers to algorithms that operate based on proximity, often used in classification, clustering, or search problems. In pathfinding or optimization, a simple nearest neighbor approach might involve iteratively moving to the closest unvisited node, which is a heuristic that does not guarantee finding the globally optimal path (e.g., in the Traveling Salesperson Problem). It can also refer to K-Nearest Neighbors (KNN) classification/regression. (UNVERIFIED)"
         }
       }
     }, {
@@ -989,7 +996,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A class of heuristic optimization algorithms inspired by the process of natural selection and evolution. They maintain a population of candidate solutions (chromosomes) that evolve over generations through processes like selection, crossover (recombination), and mutation, guided by a fitness function that evaluates solution quality. Genetic algorithms are often used for complex optimization problems where exact methods are infeasible (UNVERIFIED)."
+          "val" : "A class of heuristic optimization algorithms inspired by the process of natural selection and evolution. They maintain a population of candidate solutions (chromosomes) that evolve over generations through processes like selection, crossover (recombination), and mutation, guided by a fitness function that evaluates solution quality. Genetic algorithms are often used for complex optimization problems where exact methods are infeasible. (UNVERIFIED)"
         }
       }
     }, {
@@ -998,7 +1005,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A probabilistic heuristic algorithm used for finding the global optimum of a function in a large search space, inspired by the annealing process in metallurgy. It starts with an initial solution and iteratively explores neighboring solutions, accepting worse solutions with a probability that decreases over time (controlled by a \"temperature\" parameter), allowing it to escape local optima. It is a metaheuristic for global optimization (UNVERIFIED)."
+          "val" : "A probabilistic heuristic algorithm used for finding the global optimum of a function in a large search space, inspired by the annealing process in metallurgy. It starts with an initial solution and iteratively explores neighboring solutions, accepting worse solutions with a probability that decreases over time (controlled by a \"temperature\" parameter), allowing it to escape local optima. It is a metaheuristic for global optimization. (UNVERIFIED)"
         }
       }
     }, {
@@ -1007,7 +1014,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A probabilistic heuristic algorithm for finding good paths through graphs, inspired by the foraging behavior of ants who deposit pheromones. Artificial ants construct candidate solutions (paths) by moving through the graph, probabilistically choosing edges based on distance and accumulated artificial pheromone trails, which are updated based on the quality of solutions found. It is often applied to combinatorial optimization problems like the Traveling Salesperson Problem (UNVERIFIED)."
+          "val" : "A probabilistic heuristic algorithm for finding good paths through graphs, inspired by the foraging behavior of ants who deposit pheromones. Artificial ants construct candidate solutions (paths) by moving through the graph, probabilistically choosing edges based on distance and accumulated artificial pheromone trails, which are updated based on the quality of solutions found. It is often applied to combinatorial optimization problems like the Traveling Salesperson Problem. (UNVERIFIED)"
         }
       }
     }, {
@@ -1016,7 +1023,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A class of algorithms designed to solve problems related to flows in networks (graphs where edges have capacities), such as finding the maximum flow possible between a source and a sink node. Examples include the Ford-Fulkerson algorithm and its variations (e.g., Edmonds-Karp). These algorithms are used in logistics, scheduling, network design, and resource allocation problems (UNVERIFIED)."
+          "val" : "A class of algorithms designed to solve problems related to flows in networks (graphs where edges have capacities), such as finding the maximum flow possible between a source and a sink node. Examples include the Ford-Fulkerson algorithm and its variations (e.g., Edmonds-Karp). These algorithms are used in logistics, scheduling, network design, and resource allocation problems. (UNVERIFIED)"
         }
       }
     }, {
@@ -1191,21 +1198,33 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000111",
-      "lbl" : "correlation coefficient",
+      "lbl" : "obsolete correlation coefficient",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of statistical property that measures the strength and direction of the linear association between two variables. It is a value between -1 and 1, where 1 indicates a perfect positive correlation and -1 indicates a perfect negative correlation. The correlation coefficient is widely used to identify relationships between different properties in a simulation. This is often reported as r or rho. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A type of statistical property that measures the strength and direction of the linear association between two variables. It is a value between -1 and 1, where 1 indicates a perfect positive correlation and -1 indicates a perfect negative correlation. The correlation coefficient is widely used to identify relationships between different properties in a simulation. This is often reported as r or rho."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated STATO:0000142. STATO is the canonical OBO home for statistics; reused in place of this term. Its four children were re-parented under STATO:0000142 in the same edit - retiring a parent necessarily re-points every child that named it." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000142"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000112",
-      "lbl" : "Pearson's correlation coefficient",
+      "lbl" : "obsolete Pearson's correlation coefficient",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Pearson's correlation coefficient (often denoted as 'r') measures the strength and direction of the linear relationship between two continuous variables. It assumes the data are approximately normally distributed and calculates the covariance of the two variables divided by the product of their standard deviations. It is perhaps the most widely used measure of linear correlation. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. Pearson's correlation coefficient (often denoted as 'r') measures the strength and direction of the linear relationship between two continuous variables. It assumes the data are approximately normally distributed and calculates the covariance of the two variables divided by the product of their standard deviations. It is perhaps the most widely used measure of linear correlation."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated STATO:0000280. STATO is the canonical OBO home for statistics; reused in place of this term." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000280"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000113",
@@ -1352,7 +1371,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Kolmogorov-Smirnov (KS) test is a non-parametric statistical test used to determine if two underlying one-dimensional probability distributions differ, or if a sample of data comes from a specific reference probability distribution. It quantifies the maximum distance between the empirical distribution function of the sample(s) and the cumulative distribution function of the reference distribution or the other sample. It is sensitive to differences in location, scale, and shape. (UNVERIFIED)  "
+          "val" : "The Kolmogorov-Smirnov (KS) test is a non-parametric statistical test used to determine if two underlying one-dimensional probability distributions differ, or if a sample of data comes from a specific reference probability distribution. It quantifies the maximum distance between the empirical distribution function of the sample(s) and the cumulative distribution function of the reference distribution or the other sample. It is sensitive to differences in location, scale, and shape. (UNVERIFIED)"
         }
       }
     }, {
@@ -1583,7 +1602,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "This practical criterion emphasizes selecting ligands for which reliable experimental data, particularly binding affinity measurements (like Ki, Kd, or IC50), already exist. Having high-quality experimental data is essential for validating the computational predictions and assessing the accuracy of the methods used. Availability of structural data (e.g., co-crystal structures) is also highly valuable"
+          "val" : "This practical criterion emphasizes selecting ligands for which reliable experimental data, particularly binding affinity measurements (like Ki, Kd, or IC50), already exist. Having high-quality experimental data is essential for validating the computational predictions and assessing the accuracy of the methods used. Availability of structural data (e.g., co-crystal structures) is also highly valuable."
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -1828,7 +1847,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The fundamental physical theory describing the behavior of nature at the scale of atoms and subatomic particles, forming the theoretical basis for understanding chemical bonding and molecular properties. In computational chemistry, its principles are used to develop mathematical models and simulation methods for predicting molecular structures, energies, and reactivity. It provides the underlying rules for how electrons and nuclei interact within a molecule (UNVERIFIED)."
+          "val" : "The fundamental physical theory describing the behavior of nature at the scale of atoms and subatomic particles, forming the theoretical basis for understanding chemical bonding and molecular properties. In computational chemistry, its principles are used to develop mathematical models and simulation methods for predicting molecular structures, energies, and reactivity. It provides the underlying rules for how electrons and nuclei interact within a molecule. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -1859,7 +1878,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "This likely refers to GAMESS-US (General Atomic and Molecular Electronic Structure System), a widely used, freely available quantum chemistry software package. It provides a broad range of quantum mechanical methods (HF, DFT, MP2, CCSD, MCSCF) and features for geometry optimization, vibrational analysis, property calculation, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (UNVERIFIED) (If GAMESS-UK was intended, see previous definition)"
+          "val" : "This likely refers to GAMESS-US (General Atomic and Molecular Electronic Structure System), a widely used, freely available quantum chemistry software package. It provides a broad range of quantum mechanical methods (HF, DFT, MP2, CCSD, MCSCF) and features for geometry optimization, vibrational analysis, property calculation, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (If GAMESS-UK was intended, see previous definition) (UNVERIFIED)"
         }
       }
     }, {
@@ -2687,7 +2706,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An algorithm used in data analysis to group a set of objects (e.g., molecular conformations, data points) such that objects in the same group (cluster) are more similar to each other than to those in other groups. Clustering algorithms use various criteria and methods (e.g., distance-based, density-based, hierarchical) to identify inherent structures or patterns within unlabeled data. They are essential tools for exploring and understanding complex datasets (UNVERIFIED)."
+          "val" : "An algorithm used in data analysis to group a set of objects (e.g., molecular conformations, data points) such that objects in the same group (cluster) are more similar to each other than to those in other groups. Clustering algorithms use various criteria and methods (e.g., distance-based, density-based, hierarchical) to identify inherent structures or patterns within unlabeled data. They are essential tools for exploring and understanding complex datasets. (UNVERIFIED)"
         }
       }
     }, {
@@ -2696,7 +2715,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A specific type of clustering algorithm that builds a hierarchy of clusters starting with each data point as its own cluster and iteratively merging the two closest clusters until only one cluster (containing all points) remains. This process creates a tree-like structure (dendrogram) that can be cut at different levels to obtain different numbers of clusters. It provides a nested partitioning of the data based on similarity (UNVERIFIED)."
+          "val" : "A specific type of clustering algorithm that builds a hierarchy of clusters starting with each data point as its own cluster and iteratively merging the two closest clusters until only one cluster (containing all points) remains. This process creates a tree-like structure (dendrogram) that can be cut at different levels to obtain different numbers of clusters. It provides a nested partitioning of the data based on similarity. (UNVERIFIED)"
         }
       }
     }, {
@@ -3130,7 +3149,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Conveyor Belt Thermodynamic Integration (CBTI) approach is a newer method that uses multiple replicas moving in a coordinated fashion along λ. (...) (UNVERIFIED)"
+          "val" : "Conveyor Belt Thermodynamic Integration (CBTI) approach is a newer method that uses multiple replicas moving in a coordinated fashion along λ. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -3174,7 +3193,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Thermodynamic Integration with linear extrapolation likely refers to an approach where the integrand ⟨∂H/∂λ⟩ λ is calculated only at or very near the endpoints (λ=0 and λ=1). The total free energy difference (ΔG) is then estimated by assuming the integrand varies linearly between these two points and calculating the integral of this linear function (equivalent to the trapezoidal rule with only the endpoints). This is a strong approximation, only accurate if the integrand is indeed nearly linear across the entire path. (UNVERIFIED) (...)"
+          "val" : "Thermodynamic Integration with linear extrapolation likely refers to an approach where the integrand ⟨∂H/∂λ⟩ λ is calculated only at or very near the endpoints (λ=0 and λ=1). The total free energy difference (ΔG) is then estimated by assuming the integrand varies linearly between these two points and calculating the integral of this linear function (equivalent to the trapezoidal rule with only the endpoints). This is a strong approximation, only accurate if the integrand is indeed nearly linear across the entire path. (UNVERIFIED)"
         }
       }
     }, {
@@ -3218,7 +3237,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A mathematical technique used to determine if a set of variables or vectors (e.g., descriptive coordinates or components from data analysis) are linearly related, meaning one can be expressed as a combination of the others. In simulation analysis, this is often used to check for redundancy in sets of collective variables or principal components derived from trajectory data. Identifying such dependencies can help simplify models or analysis (UNVERIFIED)."
+          "val" : "A mathematical technique used to determine if a set of variables or vectors (e.g., descriptive coordinates or components from data analysis) are linearly related, meaning one can be expressed as a combination of the others. In simulation analysis, this is often used to check for redundancy in sets of collective variables or principal components derived from trajectory data. Identifying such dependencies can help simplify models or analysis. (UNVERIFIED)"
         }
       }
     }, {
@@ -3561,7 +3580,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity measure that specifically compares the chemical features and atom types between molecules, focusing on their functional groups and chemical properties rather than their shape. This measure evaluates the similarity of atomic properties and chemical functionalities between molecules, making it valuable for identifying compounds with similar chemical behavior. It complements shape-based similarity measures in molecular comparison workflows."
+          "val" : "A similarity measure that specifically compares the chemical features and atom types between molecules, focusing on their functional groups and chemical properties rather than their shape. This measure evaluates the similarity of atomic properties and chemical functionalities between molecules, making it valuable for identifying compounds with similar chemical behavior. It complements shape-based similarity measures in molecular comparison workflows. (UNVERIFIED)"
         }
       }
     }, {
@@ -3610,7 +3629,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Refers specifically to integration methods that use numerical approximations to solve differential equations, which is necessary for the equations of motion in complex biomolecular systems where exact analytical solutions are impossible. These algorithms iteratively calculate the system's state at successive small time steps, with the choice of method (e.g., Verlet, Leapfrog) affecting simulation accuracy, stability, and computational cost. It emphasizes the approximate, step-by-step nature of solving the motion computationally (UNVERIFIED)."
+          "val" : "Refers specifically to integration methods that use numerical approximations to solve differential equations, which is necessary for the equations of motion in complex biomolecular systems where exact analytical solutions are impossible. These algorithms iteratively calculate the system's state at successive small time steps, with the choice of method (e.g., Verlet, Leapfrog) affecting simulation accuracy, stability, and computational cost. It emphasizes the approximate, step-by-step nature of solving the motion computationally. (UNVERIFIED)"
         }
       }
     }, {
@@ -3619,7 +3638,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time (UNVERIFIED)."
+          "val" : "A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time. (UNVERIFIED)"
         }
       }
     }, {
@@ -3743,7 +3762,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A .binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD."
+          "val" : "A .binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -3759,17 +3778,23 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A method used to check whether the results or models generated by biomolecular simulations are accurate, physically realistic, and reliable. These techniques assess the quality of simulation outputs by comparing them against known experimental data or established theoretical principles. Their goal is to ensure the simulation provides a meaningful representation of the molecular system being studied (UNVERIFIED)."
+          "val" : "A method used to check whether the results or models generated by biomolecular simulations are accurate, physically realistic, and reliable. These techniques assess the quality of simulation outputs by comparing them against known experimental data or established theoretical principles. Their goal is to ensure the simulation provides a meaningful representation of the molecular system being studied. (UNVERIFIED)"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000354",
-      "lbl" : "p-value",
+      "lbl" : "obsolete p-value",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of statistical property that represents the probability of obtaining results at least as extreme as the observed results, assuming that the null hypothesis is true. A small p-value (typically < 0.05) is used to argue that the observed result is statistically significant. It is a fundamental concept in hypothesis testing. This is a standard output of statistical tests. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A type of statistical property that represents the probability of obtaining results at least as extreme as the observed results, assuming that the null hypothesis is true. A small p-value (typically < 0.05) is used to argue that the observed result is statistically significant. It is a fundamental concept in hypothesis testing. This is a standard output of statistical tests."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated STATO:0000700. STATO is the canonical OBO home for statistics; reused in place of this term." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000700"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000355",
@@ -4614,7 +4639,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A set of mathematical functions, often resembling atomic orbitals, used in quantum chemical calculations to represent the spatial distribution of electrons within a molecule (molecular orbitals). The choice and size of the basis set significantly impact the accuracy and computational cost of a simulation; larger, more flexible basis sets generally yield more accurate results but require more computer resources. These functions serve as the building blocks for constructing the calculated electronic wavefunction (UNVERIFIED)."
+          "val" : "A set of mathematical functions, often resembling atomic orbitals, used in quantum chemical calculations to represent the spatial distribution of electrons within a molecule (molecular orbitals). The choice and size of the basis set significantly impact the accuracy and computational cost of a simulation; larger, more flexible basis sets generally yield more accurate results but require more computer resources. These functions serve as the building blocks for constructing the calculated electronic wavefunction. (UNVERIFIED)"
         }
       }
     }, {
@@ -4957,7 +4982,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A comprehensive molecular similarity measure that combines both shape-based RefTversky and chemical feature-based RefColorTversky scores into a single metric. This combined measure provides a more complete assessment of molecular similarity by considering both geometric shape and chemical functionality simultaneously. The resulting score typically ranges from 0 to 2, though it can occasionally exceed this range due to the field-based nature of shape matching."
+          "val" : "A comprehensive molecular similarity measure that combines both shape-based RefTversky and chemical feature-based RefColorTversky scores into a single metric. This combined measure provides a more complete assessment of molecular similarity by considering both geometric shape and chemical functionality simultaneously. The resulting score typically ranges from 0 to 2, though it can occasionally exceed this range due to the field-based nature of shape matching. (UNVERIFIED)"
         }
       }
     }, {
@@ -5351,7 +5376,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A statistical mathematical technique used to assess whether an observed linear relationship (correlation) between two variables, calculated from simulation data, is statistically meaningful. It evaluates the probability that such a correlation could have occurred simply by random chance if no true underlying relationship existed. This helps researchers confidently interpret potential connections found in simulation results (UNVERIFIED)."
+          "val" : "A statistical mathematical technique used to assess whether an observed linear relationship (correlation) between two variables, calculated from simulation data, is statistically meaningful. It evaluates the probability that such a correlation could have occurred simply by random chance if no true underlying relationship existed. This helps researchers confidently interpret potential connections found in simulation results. (UNVERIFIED)"
         }
       }
     }, {
@@ -5360,7 +5385,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A common specific method for linear correlation significance determination (and statistical testing in general) that involves calculating a probability value, the p-value. The p-value represents the probability of observing the calculated correlation, or a stronger one, assuming that there is actually no real correlation (the null hypothesis). A small p-value (typically below a threshold like 0.05) leads to the conclusion that the observed correlation is statistically significant and unlikely due to chance (UNVERIFIED)."
+          "val" : "A common specific method for linear correlation significance determination (and statistical testing in general) that involves calculating a probability value, the p-value. The p-value represents the probability of observing the calculated correlation, or a stronger one, assuming that there is actually no real correlation (the null hypothesis). A small p-value (typically below a threshold like 0.05) leads to the conclusion that the observed correlation is statistically significant and unlikely due to chance. (UNVERIFIED)"
         }
       }
     }, {
@@ -5436,7 +5461,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "This notation likely refers to a specific basis set combination utilizing the Los Alamos LANL2 effective core potential (ECP) for core electrons. The \"[6s4p4d2f]\" part specifies a large, custom valence basis set for the outer electrons, explicitly containing 6 s-type, 4 p-type, 4 d-type, and 2 f-type basis functions. Such explicit notation usually indicates a non-standard or research-specific valence basis designed for high accuracy on heavy elements. (UNVERIFIED) (...)"
+          "val" : "This notation likely refers to a specific basis set combination utilizing the Los Alamos LANL2 effective core potential (ECP) for core electrons. The \"[6s4p4d2f]\" part specifies a large, custom valence basis set for the outer electrons, explicitly containing 6 s-type, 4 p-type, 4 d-type, and 2 f-type basis functions. Such explicit notation usually indicates a non-standard or research-specific valence basis designed for high accuracy on heavy elements. (UNVERIFIED)"
         }
       }
     }, {
@@ -5463,7 +5488,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "This term likely represents the LANL2DZ ECP basis set augmented with a significant number of additional functions: two s-type, two p-type, two d-type, and two f-type. These extra functions could be diffuse or polarization functions, intended to provide much greater flexibility for describing the valence electrons of heavy atoms than standard LANL2DZ. This indicates a larger, potentially custom augmentation for specific research purposes. (UNVERIFIED)(...)"
+          "val" : "This term likely represents the LANL2DZ ECP basis set augmented with a significant number of additional functions: two s-type, two p-type, two d-type, and two f-type. These extra functions could be diffuse or polarization functions, intended to provide much greater flexibility for describing the valence electrons of heavy atoms than standard LANL2DZ. This indicates a larger, potentially custom augmentation for specific research purposes. (UNVERIFIED)"
         }
       }
     }, {
@@ -6003,7 +6028,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Ahlrichs pvDZ likely stands for a polarized valence Double-Zeta basis set from the Ahlrichs group. This typically implies a basis set where core electrons might be treated minimally or with few functions, valence electrons are described by two functions per orbital (DZ), and polarization functions ('p') are included (e.g., d-functions on heavy atoms, p-functions on hydrogen). Examples include the DZP or the more modern def2-SVP basis sets from the Ahlrichs school. (UNVERIFIED) (...)"
+          "val" : "Ahlrichs pvDZ likely stands for a polarized valence Double-Zeta basis set from the Ahlrichs group. This typically implies a basis set where core electrons might be treated minimally or with few functions, valence electrons are described by two functions per orbital (DZ), and polarization functions ('p') are included (e.g., d-functions on heavy atoms, p-functions on hydrogen). Examples include the DZP or the more modern def2-SVP basis sets from the Ahlrichs school. (UNVERIFIED)"
         }
       }
     }, {
@@ -6030,7 +6055,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of quantum mechanics basis set consisting of periodic sine and cosine functions (waves) defined by their direction and wavelength. Plane waves are particularly well-suited for calculations on periodic systems like crystals or surfaces, often used in conjunction with Density Functional Theory and pseudopotentials. Their systematic improvability by increasing the number of waves (controlled by an energy cutoff) is a key advantage in solid-state simulations (UNVERIFIED)."
+          "val" : "A type of quantum mechanics basis set consisting of periodic sine and cosine functions (waves) defined by their direction and wavelength. Plane waves are particularly well-suited for calculations on periodic systems like crystals or surfaces, often used in conjunction with Density Functional Theory and pseudopotentials. Their systematic improvability by increasing the number of waves (controlled by an energy cutoff) is a key advantage in solid-state simulations. (UNVERIFIED)"
         }
       }
     }, {
@@ -6039,7 +6064,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Refers to methods that represent electronic wavefunctions or density directly on a grid of points in three-dimensional coordinate space, rather than expanding them in analytical basis functions like Gaussians or plane waves. This approach avoids basis set superposition errors and can be systematically improved by refining the grid spacing. Real-space grid methods are often employed in Density Functional Theory calculations, particularly for large systems or complex geometries (UNVERIFIED)."
+          "val" : "Refers to methods that represent electronic wavefunctions or density directly on a grid of points in three-dimensional coordinate space, rather than expanding them in analytical basis functions like Gaussians or plane waves. This approach avoids basis set superposition errors and can be systematically improved by refining the grid spacing. Real-space grid methods are often employed in Density Functional Theory calculations, particularly for large systems or complex geometries. (UNVERIFIED)"
         }
       }
     }, {
@@ -6226,7 +6251,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Log file from an Amber Replica Exchange MD simulation. The main file extension for Amber REM (Replica Exchange Molecular Dynamics) log files is .log, typically named as rem.log, according to the Amber documentation and tutorial resources. This log file tracks exchanges, replica temperatures, and relevant statistics for the REMD process."
+          "val" : "Log file from an Amber Replica Exchange MD simulation. The main file extension for Amber REM (Replica Exchange Molecular Dynamics) log files is .log, typically named as rem.log, according to the Amber documentation and tutorial resources. This log file tracks exchanges, replica temperatures, and relevant statistics for the REMD process. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6242,7 +6267,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Amber evecs eigenvector file is a specialized output from Principal Component Analysis (PCA), normal mode analysis, or quasiharmonic analysis in AMBER (using cpptraj or ptraj). This file stores the eigenvectors (or “principal modes”) and eigenvalues resulting from the diagonalization of a covariance or mass-weighted covariance matrix, commonly used in essential dynamics analysis of molecular simulations. The output file is usually called evecs.dat, evecs.out, or follows a similar naming scheme. There is no fixed \"file extension\" required; however, the content and formatting are standardized for compatibility with AMBER utilities (e.g., cpptraj, ptraj),"
+          "val" : "The Amber evecs eigenvector file is a specialized output from Principal Component Analysis (PCA), normal mode analysis, or quasiharmonic analysis in AMBER (using cpptraj or ptraj). This file stores the eigenvectors (or “principal modes”) and eigenvalues resulting from the diagonalization of a covariance or mass-weighted covariance matrix, commonly used in essential dynamics analysis of molecular simulations. The output file is usually called evecs.dat, evecs.out, or follows a similar naming scheme. There is no fixed \"file extension\" required; however, the content and formatting are standardized for compatibility with AMBER utilities (e.g., cpptraj, ptraj) that read and write them. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6258,7 +6283,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations."
+          "val" : "A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6407,7 +6432,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An Amber OFF Library file (Object File Format) is a text file that stores a library of molecular units or residues, including their force field parameters, atom types, connectivity, and charges. These files are a fundamental part of the Amber software suite, allowing the LEaP program to build simulation-ready topology files for systems containing non-standard molecules or modified residues (like amino acids with post-translational modifications). The file extension can be interchangeably provided as .lib/.off files UNVERIFIED)"
+          "val" : "An Amber OFF Library file (Object File Format) is a text file that stores a library of molecular units or residues, including their force field parameters, atom types, connectivity, and charges. These files are a fundamental part of the Amber software suite, allowing the LEaP program to build simulation-ready topology files for systems containing non-standard molecules or modified residues (like amino acids with post-translational modifications). The file extension can be interchangeably provided as .lib/.off files. (UNVERIFIED)"
         },
         "comments" : [ "AMBER lib format" ],
         "synonyms" : [ {
@@ -7070,12 +7095,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000679",
-      "lbl" : "image bond fixing analysis",
+      "lbl" : "obsolete image bond fixing analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Image bond fixing is a post-processing step applied to simulation trajectories to correct the visual representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear \"broken\" in the raw output, with parts of it on opposite sides of the simulation box. This procedure identifies such cases and translates the atomic coordinates to make the molecule appear whole, which is essential for correct visualization and many types of analysis. (UNVERIFIED) (DEPRECATED)"
-        }
+          "val" : "OBSOLETE. Image bond fixing is a post-processing step applied to simulation trajectories to correct the visual representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear \"broken\" in the raw output, with parts of it on opposite sides of the simulation box. This procedure identifies such cases and translates the atomic coordinates to make the molecule appear whole, which is essential for correct visualization and many types of analysis."
+        },
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000680",
@@ -7169,7 +7195,7 @@
         "definition" : {
           "val" : "Represents any origin from which information or data relevant to biomolecular studies and simulations is obtained. This broad category includes everything from experimental databases and scientific literature to computational predictions and raw output files. Understanding the data source is crucial for assessing data reliability, reproducibility, and context in biomolecular research. (UNVERIFIED)"
         },
-        "comments" : [ "TODO:may be be replacable with IAO's information content entity (http://purl.obolibrary.org/obo/IAO_0000030 ) as an import. discussion needed: the definition there is however rather abstract. #ontologyengineer #import" ]
+        "comments" : [ "How this branch is built. The classes here are KINDS of data source, for example protein structural database, pathway database, or simulation data repository. Each real, named resource is then added as an individual of one of those classes, not as a class of its own. PDB, UniProt, ChEMBL, Reactome, MoDEL and AlphaFold DB are individuals in this way. This is on purpose: a named database is one single thing in the world, not a kind of thing, so it fits better as an individual. Please keep this pattern, and do not turn these individuals into classes as a tidy-up. Two things to know. First, individuals are not copied into the OBO-format file (see the release-format note in the ontology header). Second, most OBO ontologies use classes for everything, so a reviewer may ask why we did this.", "TODO:may be be replacable with IAO's information content entity (http://purl.obolibrary.org/obo/IAO_0000030 ) as an import. discussion needed: the definition there is however rather abstract. #ontologyengineer #import" ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000689",
@@ -7919,7 +7945,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An open-source quantum chemistry and solid-state physics software package designed for performing atomistic simulations  of solid state, liquid, molecular, periodic, material, crystal, and biological systems. CP2K is particularly known for its efficient DFT calculations using a hybrid Gaussian and Plane Waves (GPW) method and its Quickstep module, enabling QM and QM/MM simulations of large systems, including ab initio MD. It's highly parallelized and versatile for demanding simulations. (UNVERIFIED)"
+          "val" : "An open-source quantum chemistry and solid-state physics software package designed for performing atomistic simulations of solid state, liquid, molecular, periodic, material, crystal, and biological systems. CP2K is particularly known for its efficient DFT calculations using a hybrid Gaussian and Plane Waves (GPW) method and its Quickstep module, enabling QM and QM/MM simulations of large systems, including ab initio MD. It's highly parallelized and versatile for demanding simulations. (UNVERIFIED)"
         }
       }
     }, {
@@ -8094,7 +8120,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Refers to implementations of constant pressure simulation based on the work of W. G. Hoover, often utilizing Nosé-Hoover style deterministic equations of motion applied to the volume degree of freedom (similar to the Andersen barostat's concept but using the Nosé-Hoover thermostat formalism). It provides a deterministic way to sample the NPT ensemble by extending the system's phase space. It can be formulated for isotropic or anisotropic pressure control (UNVERIFIED)."
+          "val" : "Refers to implementations of constant pressure simulation based on the work of W. G. Hoover, often utilizing Nosé-Hoover style deterministic equations of motion applied to the volume degree of freedom (similar to the Andersen barostat's concept but using the Nosé-Hoover thermostat formalism). It provides a deterministic way to sample the NPT ensemble by extending the system's phase space. It can be formulated for isotropic or anisotropic pressure control. (UNVERIFIED)"
         }
       }
     }, {
@@ -8103,7 +8129,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A modification of the SHAKE algorithm designed to handle constraints more efficiently in parallel computing environments. It addresses issues related to communication overhead when constraints span across different processors by optimizing the way constraint information is shared and processed. It aims to improve the scalability of constrained simulations on parallel machines (UNVERIFIED)."
+          "val" : "A modification of the SHAKE algorithm designed to handle constraints more efficiently in parallel computing environments. It addresses issues related to communication overhead when constraints span across different processors by optimizing the way constraint information is shared and processed. It aims to improve the scalability of constrained simulations on parallel machines. (UNVERIFIED)"
         }
       }
     }, {
@@ -8112,7 +8138,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Parallel SHAKE, another variation of the SHAKE algorithm optimized for parallel execution. Similar to M-SHAKE, it focuses on efficiently handling the communication and computation required for constraints that involve atoms distributed across multiple processors. The goal is to minimize the performance bottleneck caused by constraints in large-scale parallel simulations (UNVERIFIED)."
+          "val" : "Parallel SHAKE, another variation of the SHAKE algorithm optimized for parallel execution. Similar to M-SHAKE, it focuses on efficiently handling the communication and computation required for constraints that involve atoms distributed across multiple processors. The goal is to minimize the performance bottleneck caused by constraints in large-scale parallel simulations. (UNVERIFIED)"
         }
       }
     }, {
@@ -8121,7 +8147,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An analytical (non-iterative) constraint algorithm specifically designed for rigid water models like TIP3P or SPC/E, where both bond lengths and the bond angle are fixed. Because the geometry is simple and fixed, the constraint equations for a water molecule can be solved analytically, making SETTLE significantly faster than iterative methods like SHAKE for constraining water. It is highly efficient for simulations with explicit water (UNVERIFIED)."
+          "val" : "An analytical (non-iterative) constraint algorithm specifically designed for rigid water models like TIP3P or SPC/E, where both bond lengths and the bond angle are fixed. Because the geometry is simple and fixed, the constraint equations for a water molecule can be solved analytically, making SETTLE significantly faster than iterative methods like SHAKE for constraining water. It is highly efficient for simulations with explicit water. (UNVERIFIED)"
         }
       }
     }, {
@@ -8130,7 +8156,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A constraint algorithm related to SHAKE, often used for fixing distances within rigid clusters of atoms larger than simple bonds or angles. It iteratively adjusts the positions of atoms within the defined rigid body to maintain their relative positions. It extends the concept of bond constraints to more complex rigid units (UNVERIFIED)."
+          "val" : "A constraint algorithm related to SHAKE, often used for fixing distances within rigid clusters of atoms larger than simple bonds or angles. It iteratively adjusts the positions of atoms within the defined rigid body to maintain their relative positions. It extends the concept of bond constraints to more complex rigid units. (UNVERIFIED)"
         }
       }
     }, {
@@ -8148,7 +8174,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Refers to the original formulation by Shuichi Nosé of the deterministic thermostat algorithm that introduces an extended degree of freedom and time scaling to generate dynamics consistent with the canonical ensemble. The later Nosé-Hoover formulation modified this approach to simplify the equations of motion in physical time. The core idea is extending the system's phase space to control temperature deterministically (UNVERIFIED)."
+          "val" : "Refers to the original formulation by Shuichi Nosé of the deterministic thermostat algorithm that introduces an extended degree of freedom and time scaling to generate dynamics consistent with the canonical ensemble. The later Nosé-Hoover formulation modified this approach to simplify the equations of motion in physical time. The core idea is extending the system's phase space to control temperature deterministically. (UNVERIFIED)"
         }
       }
     }, {
@@ -8157,7 +8183,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A specific mathematical formulation of the Nosé thermostat dynamics based on Poincaré's canonical transformations. It offers insights into the theoretical foundations and conservation laws of the Nosé thermostatting mechanism. It represents a rigorous theoretical framework for this class of deterministic thermostats (UNVERIFIED)."
+          "val" : "A specific mathematical formulation of the Nosé thermostat dynamics based on Poincaré's canonical transformations. It offers insights into the theoretical foundations and conservation laws of the Nosé thermostatting mechanism. It represents a rigorous theoretical framework for this class of deterministic thermostats. (UNVERIFIED)"
         }
       }
     }, {
@@ -8166,7 +8192,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Velocity Rescaling thermostat, an algorithm that modifies the Berendsen weak coupling approach to correctly generate configurations from the canonical (NVT) ensemble. It rescales velocities based on the kinetic energy difference but includes a stochastic term related to the system's kinetic energy fluctuations, ensuring proper statistical sampling. It combines the simplicity of Berendsen-like scaling with rigorous ensemble generation (UNVERIFIED)."
+          "val" : "Velocity Rescaling thermostat, an algorithm that modifies the Berendsen weak coupling approach to correctly generate configurations from the canonical (NVT) ensemble. It rescales velocities based on the kinetic energy difference but includes a stochastic term related to the system's kinetic energy fluctuations, ensuring proper statistical sampling. It combines the simplicity of Berendsen-like scaling with rigorous ensemble generation. (UNVERIFIED)"
         }
       }
     }, {
@@ -8175,7 +8201,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A category of quantum chemistry calculation methods that bridges the gap between highly accurate but slow ab initio methods and very fast but simple molecular mechanics. It simplifies the complex equations of quantum mechanics (often starting from the Hartree-Fock framework) by neglecting certain terms and using parameters derived from experimental data to approximate others. These methods aim to provide a reasonable balance between computational cost and accuracy for studying molecular properties like geometry and energy (UNVERIFIED)."
+          "val" : "A category of quantum chemistry calculation methods that bridges the gap between highly accurate but slow ab initio methods and very fast but simple molecular mechanics. It simplifies the complex equations of quantum mechanics (often starting from the Hartree-Fock framework) by neglecting certain terms and using parameters derived from experimental data to approximate others. These methods aim to provide a reasonable balance between computational cost and accuracy for studying molecular properties like geometry and energy. (UNVERIFIED)"
         }
       }
     }, {
@@ -8184,7 +8210,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Describes a type of semi-empirical quantum chemistry method that explicitly considers all valence electrons (the outermost electrons involved in bonding) of the atoms in a molecule. These methods make approximations regarding the interactions between these electrons to speed up calculations, differing in the severity of these approximations (like CNDO, INDO, NDDO schemes). They offer a more comprehensive electronic description than pi-electron methods (UNVERIFIED)."
+          "val" : "Describes a type of semi-empirical quantum chemistry method that explicitly considers all valence electrons (the outermost electrons involved in bonding) of the atoms in a molecule. These methods make approximations regarding the interactions between these electrons to speed up calculations, differing in the severity of these approximations (like CNDO, INDO, NDDO schemes). They offer a more comprehensive electronic description than pi-electron methods. (UNVERIFIED)"
         }
       }
     }, {
@@ -8193,7 +8219,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Pariser-Parr-Pople method, a classic semi-empirical technique specifically designed for calculating the electronic structure of conjugated systems (molecules with alternating single and double bonds). It is a pi-electron restricted method, meaning it only explicitly treats the pi electrons, which are crucial for the properties of these specific systems. Note: This is typically classified as a pi-electron method, not an all-valence-electron method (UNVERIFIED)."
+          "val" : "The Pariser-Parr-Pople method, a classic semi-empirical technique specifically designed for calculating the electronic structure of conjugated systems (molecules with alternating single and double bonds). It is a pi-electron restricted method, meaning it only explicitly treats the pi electrons, which are crucial for the properties of these specific systems. Note: This is typically classified as a pi-electron method, not an all-valence-electron method. (UNVERIFIED)"
         }
       }
     }, {
@@ -8202,7 +8228,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Describes a type of semi-empirical quantum chemistry method that simplifies calculations by only explicitly considering the pi electrons in a molecule, treating the sigma electrons as part of a fixed core. These methods are primarily applicable to planar, conjugated organic molecules where pi electron interactions dominate electronic properties like UV-Vis spectra. The PPP method is a prime example (UNVERIFIED)."
+          "val" : "Describes a type of semi-empirical quantum chemistry method that simplifies calculations by only explicitly considering the pi electrons in a molecule, treating the sigma electrons as part of a fixed core. These methods are primarily applicable to planar, conjugated organic molecules where pi electron interactions dominate electronic properties like UV-Vis spectra. The PPP method is a prime example. (UNVERIFIED)"
         }
       }
     }, {
@@ -8211,7 +8237,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Austin Model 1, a popular semi-empirical quantum method based on the NDDO (Neglect of Diatomic Differential Overlap) approximation. It includes parameters adjusted to reproduce experimental molecular properties like heats of formation and geometries for a wide range of organic molecules. AM1 aimed to improve upon the earlier MNDO method, particularly regarding hydrogen bonding (UNVERIFIED)."
+          "val" : "Austin Model 1, a popular semi-empirical quantum method based on the NDDO (Neglect of Diatomic Differential Overlap) approximation. It includes parameters adjusted to reproduce experimental molecular properties like heats of formation and geometries for a wide range of organic molecules. AM1 aimed to improve upon the earlier MNDO method, particularly regarding hydrogen bonding. (UNVERIFIED)"
         }
       }
     }, {
@@ -8220,7 +8246,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Complete Neglect of Differential Overlap, version 2, an early all-valence-electron semi-empirical method. It employs severe approximations, ignoring most interactions between electron distributions on different atoms to achieve high computational speed. While largely superseded by more accurate methods, it was foundational in the development of semi-empirical QM (UNVERIFIED)."
+          "val" : "Complete Neglect of Differential Overlap, version 2, an early all-valence-electron semi-empirical method. It employs severe approximations, ignoring most interactions between electron distributions on different atoms to achieve high computational speed. While largely superseded by more accurate methods, it was foundational in the development of semi-empirical QM. (UNVERIFIED)"
         }
       }
     }, {
@@ -8229,7 +8255,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Intermediate Neglect of Differential Overlap, an all-valence-electron semi-empirical method that is an improvement over CNDO. It retains one-center electron repulsion integrals between orbitals on the same atom, which CNDO neglects, allowing it to better describe electron spin distributions and properties dependent on them. It is computationally slightly more demanding than CNDO but generally more accurate (UNVERIFIED)."
+          "val" : "Intermediate Neglect of Differential Overlap, an all-valence-electron semi-empirical method that is an improvement over CNDO. It retains one-center electron repulsion integrals between orbitals on the same atom, which CNDO neglects, allowing it to better describe electron spin distributions and properties dependent on them. It is computationally slightly more demanding than CNDO but generally more accurate. (UNVERIFIED)"
         }
       }
     }, {
@@ -8238,7 +8264,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A fundamental ab initio quantum chemistry method that approximates the solution to the electronic Schrödinger equation for a multi-electron system. It treats each electron as moving in an average field created by all other electrons, neglecting instantaneous electron correlation but including exact exchange interaction. It serves as a starting point for more sophisticated ab initio methods and is the foundation simplified by semi-empirical approaches (UNVERIFIED)."
+          "val" : "A fundamental ab initio quantum chemistry method that approximates the solution to the electronic Schrödinger equation for a multi-electron system. It treats each electron as moving in an average field created by all other electrons, neglecting instantaneous electron correlation but including exact exchange interaction. It serves as a starting point for more sophisticated ab initio methods and is the foundation simplified by semi-empirical approaches. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8251,7 +8277,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Restricted Open-shell Hartree-Fock, a specific formulation of the Hartree-Fock method designed for molecules with unpaired electrons (open-shell systems) where constraints are applied to keep spatial orbitals doubly occupied where possible. It provides a wavefunction that is an eigenfunction of the spin operator, which is often desirable but can be more computationally challenging than UHF for some systems. It is a type of ab initio calculation (UNVERIFIED)."
+          "val" : "Restricted Open-shell Hartree-Fock, a specific formulation of the Hartree-Fock method designed for molecules with unpaired electrons (open-shell systems) where constraints are applied to keep spatial orbitals doubly occupied where possible. It provides a wavefunction that is an eigenfunction of the spin operator, which is often desirable but can be more computationally challenging than UHF for some systems. It is a type of ab initio calculation. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8264,7 +8290,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Self-Consistent Field, the iterative computational procedure used to solve the equations in Hartree-Fock theory (and also in Density Functional Theory and some semi-empirical methods). The calculation starts with an initial guess for the electron distribution (orbitals), calculates the average field, finds new orbitals in that field, and repeats the process until the orbitals and the field they generate are consistent with each other. It is the numerical method for finding the Hartree-Fock solution, not the theory itself (UNVERIFIED)."
+          "val" : "Self-Consistent Field, the iterative computational procedure used to solve the equations in Hartree-Fock theory (and also in Density Functional Theory and some semi-empirical methods). The calculation starts with an initial guess for the electron distribution (orbitals), calculates the average field, finds new orbitals in that field, and repeats the process until the orbitals and the field they generate are consistent with each other. It is the numerical method for finding the Hartree-Fock solution, not the theory itself. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8277,7 +8303,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Unrestricted Hartree-Fock, a formulation of the Hartree-Fock method primarily used for open-shell systems (molecules with unpaired electrons). It allows alpha-spin electrons and beta-spin electrons to occupy different spatial orbitals, providing more flexibility than ROHF but resulting in a wavefunction that may not be a pure spin state (spin contamination). It is a type of ab initio calculation (UNVERIFIED)."
+          "val" : "Unrestricted Hartree-Fock, a formulation of the Hartree-Fock method primarily used for open-shell systems (molecules with unpaired electrons). It allows alpha-spin electrons and beta-spin electrons to occupy different spatial orbitals, providing more flexibility than ROHF but resulting in a wavefunction that may not be a pure spin state (spin contamination). It is a type of ab initio calculation. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8290,7 +8316,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Modified Intermediate Neglect of Differential Overlap, a family of all-valence-electron semi-empirical methods (e.g., MINDO/3) developed as successors to INDO. They aimed for better accuracy, particularly in predicting heats of formation for organic molecules, through refined approximations and parameterization. Like INDO, they retain some one-center electron interactions neglected in CNDO (UNVERIFIED)."
+          "val" : "Modified Intermediate Neglect of Differential Overlap, a family of all-valence-electron semi-empirical methods (e.g., MINDO/3) developed as successors to INDO. They aimed for better accuracy, particularly in predicting heats of formation for organic molecules, through refined approximations and parameterization. Like INDO, they retain some one-center electron interactions neglected in CNDO. (UNVERIFIED)"
         }
       }
     }, {
@@ -8299,7 +8325,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Modified Neglect of Diatomic Overlap, an all-valence-electron semi-empirical method based on the NDDO approximation scheme, representing an improvement over CNDO and INDO. It was parameterized to reproduce experimental heats of formation, geometries, and dipole moments for a range of molecules. It formed the basis for subsequent developments like AM1 and PM3 (UNVERIFIED)."
+          "val" : "Modified Neglect of Diatomic Overlap, an all-valence-electron semi-empirical method based on the NDDO approximation scheme, representing an improvement over CNDO and INDO. It was parameterized to reproduce experimental heats of formation, geometries, and dipole moments for a range of molecules. It formed the basis for subsequent developments like AM1 and PM3. (UNVERIFIED)"
         }
       }
     }, {
@@ -8308,7 +8334,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Neglect of Diatomic Differential Overlap, an approximation scheme used in many all-valence-electron semi-empirical quantum methods like MNDO, AM1, and PMx. It simplifies calculations by neglecting interactions involving electron distributions arising from orbitals on two different atoms unless both orbitals belong to the same atom pair (i.e., it keeps one- and two-center terms). This approximation is less severe than CNDO or INDO, generally leading to better accuracy (UNVERIFIED)."
+          "val" : "Neglect of Diatomic Differential Overlap, an approximation scheme used in many all-valence-electron semi-empirical quantum methods like MNDO, AM1, and PMx. It simplifies calculations by neglecting interactions involving electron distributions arising from orbitals on two different atoms unless both orbitals belong to the same atom pair (i.e., it keeps one- and two-center terms). This approximation is less severe than CNDO or INDO, generally leading to better accuracy. (UNVERIFIED)"
         }
       }
     }, {
@@ -8317,7 +8343,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Pairwise Distance Directed Gaussian, a modification primarily applied to the MNDO and AM1 methods to improve their performance, particularly for intermolecular interactions. It introduces Gaussian functions dependent on interatomic distances to modify the core-repulsion function used in these semi-empirical models. The goal is to achieve better descriptions of non-covalent interactions compared to the parent methods (UNVERIFIED)."
+          "val" : "Pairwise Distance Directed Gaussian, a modification primarily applied to the MNDO and AM1 methods to improve their performance, particularly for intermolecular interactions. It introduces Gaussian functions dependent on interatomic distances to modify the core-repulsion function used in these semi-empirical models. The goal is to achieve better descriptions of non-covalent interactions compared to the parent methods. (UNVERIFIED)"
         }
       }
     }, {
@@ -8326,7 +8352,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Parameterization Method 3, a popular all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed concurrently with AM1 as an evolution of MNDO. It differs from AM1 mainly in its parameterization strategy, which was more automated and aimed to reproduce a larger set of experimental data, including geometries and heats of formation. PM3 often gives different results from AM1, with varying accuracy depending on the system (UNVERIFIED)."
+          "val" : "Parameterization Method 3, a popular all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed concurrently with AM1 as an evolution of MNDO. It differs from AM1 mainly in its parameterization strategy, which was more automated and aimed to reproduce a larger set of experimental data, including geometries and heats of formation. PM3 often gives different results from AM1, with varying accuracy depending on the system. (UNVERIFIED)"
         }
       }
     }, {
@@ -8335,7 +8361,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A hybrid method that combines the PM3 semi-empirical quantum mechanical treatment for a part of the system (e.g., the active site of an enzyme) with a faster molecular mechanics (MM) force field for the remainder (e.g., the surrounding protein or solvent). This QM/MM approach allows computationally feasible studies of large systems where quantum effects are important locally. It leverages PM3's balance of speed and accuracy for the QM region (UNVERIFIED)."
+          "val" : "A hybrid method that combines the PM3 semi-empirical quantum mechanical treatment for a part of the system (e.g., the active site of an enzyme) with a faster molecular mechanics (MM) force field for the remainder (e.g., the surrounding protein or solvent). This QM/MM approach allows computationally feasible studies of large systems where quantum effects are important locally. It leverages PM3's balance of speed and accuracy for the QM region. (UNVERIFIED)"
         }
       }
     }, {
@@ -8344,7 +8370,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Parameterization Method 6, a relatively recent all-valence-electron semi-empirical quantum method based on the NDDO approximation, intended as an improvement over PM3 and AM1. It was parameterized against a broader range of experimental and high-level theoretical data, including data for more elements, aiming for greater accuracy and applicability across the periodic table. It often includes corrections for dispersion interactions and hydrogen bonds (UNVERIFIED)."
+          "val" : "Parameterization Method 6, a relatively recent all-valence-electron semi-empirical quantum method based on the NDDO approximation, intended as an improvement over PM3 and AM1. It was parameterized against a broader range of experimental and high-level theoretical data, including data for more elements, aiming for greater accuracy and applicability across the periodic table. It often includes corrections for dispersion interactions and hydrogen bonds. (UNVERIFIED)"
         }
       }
     }, {
@@ -8353,7 +8379,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Recife Model 1, an all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed as a re-parameterization of AM1. The goal was to improve upon AM1's accuracy, particularly for geometries and heats of formation of organic molecules containing common heteroatoms like N, O, P, S, and halogens. It uses the same underlying theoretical model as AM1 but employs updated parameters (UNVERIFIED)."
+          "val" : "Recife Model 1, an all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed as a re-parameterization of AM1. The goal was to improve upon AM1's accuracy, particularly for geometries and heats of formation of organic molecules containing common heteroatoms like N, O, P, S, and halogens. It uses the same underlying theoretical model as AM1 but employs updated parameters. (UNVERIFIED)"
         }
       }
     }, {
@@ -8362,7 +8388,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Semi-Ab initio Model 1, an all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed alongside AM1 and PM3. It aimed to incorporate certain theoretical aspects from ab initio methods more rigorously than earlier semi-empirical models, particularly regarding core-electron interactions and repulsion integrals. SAM1 sought improved theoretical foundations while still relying on parameterization for speed and accuracy (UNVERIFIED)."
+          "val" : "Semi-Ab initio Model 1, an all-valence-electron semi-empirical quantum method based on the NDDO approximation, developed alongside AM1 and PM3. It aimed to incorporate certain theoretical aspects from ab initio methods more rigorously than earlier semi-empirical models, particularly regarding core-electron interactions and repulsion integrals. SAM1 sought improved theoretical foundations while still relying on parameterization for speed and accuracy. (UNVERIFIED)"
         }
       }
     }, {
@@ -8371,7 +8397,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Symmetrically orthogonalized INDO, an all-valence-electron semi-empirical method based on the INDO level of approximation but employing a specific orthogonalization procedure for the atomic orbitals. This procedure aimed to improve the theoretical consistency and performance compared to earlier INDO versions like MINDO. It focuses on refining the INDO framework for better property prediction (UNVERIFIED)."
+          "val" : "Symmetrically orthogonalized INDO, an all-valence-electron semi-empirical method based on the INDO level of approximation but employing a specific orthogonalization procedure for the atomic orbitals. This procedure aimed to improve the theoretical consistency and performance compared to earlier INDO versions like MINDO. It focuses on refining the INDO framework for better property prediction. (UNVERIFIED)"
         }
       }
     }, {
@@ -8380,7 +8406,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A modification of the AM1 semi-empirical method specifically parameterized to handle lanthanide elements (rare earth metals). Standard AM1 parameters are not available or reliable for these heavy elements, so Sparkle/AM1 replaces the core description of the lanthanide ion with a point charge dressed by Gaussian functions, adjusted to reproduce structural data. It enables AM1-level calculations on complexes containing lanthanides (UNVERIFIED)."
+          "val" : "A modification of the AM1 semi-empirical method specifically parameterized to handle lanthanide elements (rare earth metals). Standard AM1 parameters are not available or reliable for these heavy elements, so Sparkle/AM1 replaces the core description of the lanthanide ion with a point charge dressed by Gaussian functions, adjusted to reproduce structural data. It enables AM1-level calculations on complexes containing lanthanides. (UNVERIFIED)"
         }
       }
     }, {
@@ -8389,7 +8415,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An all-valence-electron semi-empirical method likely based on the INDO or NDDO approximation schemes, developed by Zhidomirov and coworkers. It represents one of the many variations within the semi-empirical framework, likely with specific parameterizations or modifications to the integral approximations aimed at particular applications or accuracy improvements. Note: This method is less common than MNDO/AM1/PMx variants, and specific details might require consulting specialized literature (UNVERIFIED)."
+          "val" : "An all-valence-electron semi-empirical method likely based on the INDO or NDDO approximation schemes, developed by Zhidomirov and coworkers. It represents one of the many variations within the semi-empirical framework, likely with specific parameterizations or modifications to the integral approximations aimed at particular applications or accuracy improvements. Note: This method is less common than MNDO/AM1/PMx variants, and specific details might require consulting specialized literature. (UNVERIFIED)"
         }
       }
     }, {
@@ -8454,7 +8480,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A class of advanced quantum mechanics methods required for accurately describing molecules or chemical processes where the electronic structure cannot be well represented by a single dominant electron configuration (as assumed in basic Hartree-Fock theory). These situations often involve stretched bonds, excited states, diradicals, or transition metals, necessitating the use of multiple electronic configurations to capture the essential physics. These methods are typically more computationally demanding than single-reference approaches (UNVERIFIED)."
+          "val" : "A class of advanced quantum mechanics methods required for accurately describing molecules or chemical processes where the electronic structure cannot be well represented by a single dominant electron configuration (as assumed in basic Hartree-Fock theory). These situations often involve stretched bonds, excited states, diradicals, or transition metals, necessitating the use of multiple electronic configurations to capture the essential physics. These methods are typically more computationally demanding than single-reference approaches. (UNVERIFIED)"
         }
       }
     }, {
@@ -8463,7 +8489,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Complete Active Space Self-Consistent Field, a specific and widely used type of multi-reference method (falling under the MC-SCF umbrella). It involves selecting a subset of electrons and orbitals deemed most important for the problem (the active space) and then performing a full configuration interaction calculation within that space while simultaneously optimizing the orbitals. CASSCF provides a qualitatively correct description of complex electronic structures but often needs further corrections for quantitative accuracy (UNVERIFIED)."
+          "val" : "Complete Active Space Self-Consistent Field, a specific and widely used type of multi-reference method (falling under the MC-SCF umbrella). It involves selecting a subset of electrons and orbitals deemed most important for the problem (the active space) and then performing a full configuration interaction calculation within that space while simultaneously optimizing the orbitals. CASSCF provides a qualitatively correct description of complex electronic structures but often needs further corrections for quantitative accuracy. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8476,7 +8502,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Multi-Configurational Self-Consistent Field (MC-SCF), a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected (UNVERIFIED)."
+          "val" : "Multi-Configurational Self-Consistent Field (MC-SCF), a general category of multi-reference quantum chemistry methods. These methods determine the electronic wavefunction by optimizing both the shapes of the molecular orbitals and the mixing coefficients of multiple electron configurations simultaneously. CASSCF and RASSCF are specific types of MC-SCF calculations, differing in how the included configurations are selected. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8489,7 +8515,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Multi-Reference Coupled Cluster with Single and Double excitations, a high-accuracy quantum chemistry method that incorporates dynamic electron correlation using the coupled-cluster approach built upon a multi-reference starting wavefunction (obtained from methods like CASSCF). It aims to provide a highly accurate description for systems where both static (multi-reference character) and dynamic correlation effects are significant. These calculations are computationally very expensive (UNVERIFIED)."
+          "val" : "Multi-Reference Coupled Cluster with Single and Double excitations, a high-accuracy quantum chemistry method that incorporates dynamic electron correlation using the coupled-cluster approach built upon a multi-reference starting wavefunction (obtained from methods like CASSCF). It aims to provide a highly accurate description for systems where both static (multi-reference character) and dynamic correlation effects are significant. These calculations are computationally very expensive. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8502,7 +8528,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Multi-Reference Configuration Interaction with Single and Double excitations, a quantum chemistry method that accounts for electron correlation by performing a configuration interaction calculation (including configurations generated by single and double electron excitations) starting from a multi-reference wavefunction (e.g., from CASSCF). Like MR-CCSD, it targets high accuracy for electronically complex systems but is computationally demanding and may suffer from size-consistency issues depending on the formulation. It offers an alternative way to add dynamic correlation to a multi-reference description (UNVERIFIED)."
+          "val" : "Multi-Reference Configuration Interaction with Single and Double excitations, a quantum chemistry method that accounts for electron correlation by performing a configuration interaction calculation (including configurations generated by single and double electron excitations) starting from a multi-reference wavefunction (e.g., from CASSCF). Like MR-CCSD, it targets high accuracy for electronically complex systems but is computationally demanding and may suffer from size-consistency issues depending on the formulation. It offers an alternative way to add dynamic correlation to a multi-reference description. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8515,7 +8541,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Restricted Active Space Self-Consistent Field, a flexible type of multi-reference method (within the MC-SCF family) similar to CASSCF but offering more control over the included electron configurations. The active space is divided into subspaces (RAS1, RAS2, RAS3) with restrictions on the number of electrons or excitations allowed within and between them, making calculations feasible for larger active spaces than typically possible with CASSCF. It allows a tailored balance between computational cost and the desired level of multi-reference treatment (UNVERIFIED)."
+          "val" : "Restricted Active Space Self-Consistent Field, a flexible type of multi-reference method (within the MC-SCF family) similar to CASSCF but offering more control over the included electron configurations. The active space is divided into subspaces (RAS1, RAS2, RAS3) with restrictions on the number of electrons or excitations allowed within and between them, making calculations feasible for larger active spaces than typically possible with CASSCF. It allows a tailored balance between computational cost and the desired level of multi-reference treatment. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -8528,7 +8554,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A quantum chemistry method developed to account for electron correlation, closely related to the Coupled Cluster (CC) family of methods. It was designed to ensure size-consistency, an important theoretical property meaning the energy of two non-interacting systems is the sum of their individual energies, which is not guaranteed by standard truncated Configuration Interaction (CI). It offers a systematic way to improve upon the Hartree-Fock description (UNVERIFIED)."
+          "val" : "A quantum chemistry method developed to account for electron correlation, closely related to the Coupled Cluster (CC) family of methods. It was designed to ensure size-consistency, an important theoretical property meaning the energy of two non-interacting systems is the sum of their individual energies, which is not guaranteed by standard truncated Configuration Interaction (CI). It offers a systematic way to improve upon the Hartree-Fock description. (UNVERIFIED)"
         }
       }
     }, {
@@ -8537,7 +8563,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Quadratic Configuration Interaction with Singles, Doubles, and a perturbative estimate of Triple excitations. This method adds an approximate correction for the effects of triple electron excitations onto the QCISD calculation, significantly improving accuracy for many chemical properties. QCISD(T) is considered a high-accuracy method, often yielding results close to experimental values, and is comparable in accuracy and cost to the widely used CCSD(T) method (UNVERIFIED)."
+          "val" : "Quadratic Configuration Interaction with Singles, Doubles, and a perturbative estimate of Triple excitations. This method adds an approximate correction for the effects of triple electron excitations onto the QCISD calculation, significantly improving accuracy for many chemical properties. QCISD(T) is considered a high-accuracy method, often yielding results close to experimental values, and is comparable in accuracy and cost to the widely used CCSD(T) method. (UNVERIFIED)"
         }
       }
     }, {
@@ -8546,7 +8572,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Quadratic Configuration Interaction with Singles and Doubles, the specific level of QCI theory that includes electron configurations generated by single and double excitations from the reference (usually Hartree-Fock) configuration. Its formulation makes it very similar in performance and cost to the CCSD (Coupled Cluster Singles and Doubles) method. It provides a reliable way to capture a large fraction of the electron correlation energy (UNVERIFIED)."
+          "val" : "Quadratic Configuration Interaction with Singles and Doubles, the specific level of QCI theory that includes electron configurations generated by single and double excitations from the reference (usually Hartree-Fock) configuration. Its formulation makes it very similar in performance and cost to the CCSD (Coupled Cluster Singles and Doubles) method. It provides a reliable way to capture a large fraction of the electron correlation energy. (UNVERIFIED)"
         }
       }
     }, {
@@ -9266,12 +9292,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000905",
-      "lbl" : "small molecule structure (deprecated)",
+      "lbl" : "obsolete small molecule structure",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Small molecule structure formats are designed primarily for representing organic and drug-like molecules, often emphasizing chemical details like bond orders, formal charges, and stereochemistry. These formats are widely used in cheminformatics, drug discovery databases, and as input for various modeling tasks. Common examples include SDF, Mol2, and SMILES strings. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. Small molecule structure formats are designed primarily for representing organic and drug-like molecules, often emphasizing chemical details like bond orders, formal charges, and stereochemistry. These formats are widely used in cheminformatics, drug discovery databases, and as input for various modeling tasks. Common examples include SDF, Mol2, and SMILES strings."
+        },
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000906",
@@ -9756,7 +9783,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A specific type of validation technique focused on assessing the quality of the three-dimensional arrangement of atoms (the conformation) in simulated biomolecules. It evaluates whether the molecular geometry, including bond lengths, angles, and steric arrangements, is plausible according to known chemical and physical rules. This ensures the structural models generated or sampled during a simulation are stereochemically sound (UNVERIFIED)."
+          "val" : "A specific type of validation technique focused on assessing the quality of the three-dimensional arrangement of atoms (the conformation) in simulated biomolecules. It evaluates whether the molecular geometry, including bond lengths, angles, and steric arrangements, is plausible according to known chemical and physical rules. This ensures the structural models generated or sampled during a simulation are stereochemically sound. (UNVERIFIED)"
         }
       }
     }, {
@@ -9765,7 +9792,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A widely used graphical tool for conformation validation specifically applied to proteins. It plots the distribution of backbone dihedral angles (phi and psi) for each amino acid residue, allowing visualization of whether these angles fall into sterically allowed or disallowed regions. This provides a crucial check for the quality and realism of the protein backbone structure (UNVERIFIED)."
+          "val" : "A widely used graphical tool for conformation validation specifically applied to proteins. It plots the distribution of backbone dihedral angles (phi and psi) for each amino acid residue, allowing visualization of whether these angles fall into sterically allowed or disallowed regions. This provides a crucial check for the quality and realism of the protein backbone structure. (UNVERIFIED)"
         }
       }
     }, {
@@ -9831,7 +9858,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A core mathematical technique from linear algebra used to simplify a square matrix by finding its characteristic values (eigenvalues) and directions (eigenvectors), effectively transforming it into a diagonal matrix. In biomolecular simulations, this is heavily used in methods like Principal Component Analysis (PCA) to identify dominant modes of collective atomic motion from covariance matrices, or in Normal Mode Analysis (NMA) to find vibrational frequencies from Hessian matrices. Diagonalization reveals the fundamental components or modes underlying complex data or system dynamics (UNVERIFIED)."
+          "val" : "A core mathematical technique from linear algebra used to simplify a square matrix by finding its characteristic values (eigenvalues) and directions (eigenvectors), effectively transforming it into a diagonal matrix. In biomolecular simulations, this is heavily used in methods like Principal Component Analysis (PCA) to identify dominant modes of collective atomic motion from covariance matrices, or in Normal Mode Analysis (NMA) to find vibrational frequencies from Hessian matrices. Diagonalization reveals the fundamental components or modes underlying complex data or system dynamics. (UNVERIFIED)"
         }
       }
     }, {
@@ -10703,12 +10730,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001087",
-      "lbl" : "macromolecular structure format (deprecated)",
+      "lbl" : "obsolete macromolecular structure format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A file format specifically designed to describe the complex, three-dimensional structures of large biological molecules like proteins and DNA. These formats accommodate hierarchical descriptions, such as chains and residues, in addition to atomic coordinates. Examples include the widely used PDB and mmCIF formats. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A file format specifically designed to describe the complex, three-dimensional structures of large biological molecules like proteins and DNA. These formats accommodate hierarchical descriptions, such as chains and residues, in addition to atomic coordinates. Examples include the widely used PDB and mmCIF formats."
+        },
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001088",
@@ -10725,12 +10753,13 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001089",
-      "lbl" : "software-specific coordinate format (deprecated)",
+      "lbl" : "obsolete software-specific coordinate format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A coordinate file primarily stores the three-dimensional positions (X, Y, Z coordinates) of atoms in a molecular system. It may also contain atom names, residue information, and potentially periodic box dimensions, but typically lacks detailed bonding (topology) or force field parameter information. Common examples include PDB, GRO, and XYZ formats, used for initial structures or snapshots from simulations. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A coordinate file primarily stores the three-dimensional positions (X, Y, Z coordinates) of atoms in a molecular system. It may also contain atom names, residue information, and potentially periodic box dimensions, but typically lacks detailed bonding (topology) or force field parameter information. Common examples include PDB, GRO, and XYZ formats, used for initial structures or snapshots from simulations."
+        },
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001090",
@@ -11783,7 +11812,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A Gaussian accelerated MD parameter that specifies the upper limit of the standard deviation for the potential energy boost. This parameter controls the maximum strength of the applied bias. . This is often set with keywords like sigma0P or sigma0D."
+          "val" : "A Gaussian accelerated MD parameter that specifies the upper limit of the standard deviation for the potential energy boost. This parameter controls the maximum strength of the applied bias. This is often set with keywords like sigma0P or sigma0D."
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -12159,7 +12188,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A volumetric analysis parameter that specifies the mathematical function or algorithm used when calculating properties on a 3D grid. Different functions might be used for averaging, summing, or mapping specific atomic properties onto the grid points. The grid function determines what property is being represented by the volumetric data. This is often set with a keyword that specifies the function name. (UNVERIFIED)e"
+          "val" : "A volumetric analysis parameter that specifies the mathematical function or algorithm used when calculating properties on a 3D grid. Different functions might be used for averaging, summing, or mapping specific atomic properties onto the grid points. The grid function determines what property is being represented by the volumetric data. This is often set with a keyword that specifies the function name. (UNVERIFIED)"
         }
       }
     }, {
@@ -12373,7 +12402,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A quantitative or qualitative output data item generated by a simulation or analysis process. It represents the actual measured state, derived metric, or calculated result of the system (e.g., instantaneous potential energy, calculated RMSD, assigned cluster IDs).  (UNVERIFIED)"
+          "val" : "A quantitative or qualitative output data item generated by a simulation or analysis process. It represents the actual measured state, derived metric, or calculated result of the system (e.g., instantaneous potential energy, calculated RMSD, assigned cluster IDs). (UNVERIFIED)"
         }
       }
     }, {
@@ -13641,21 +13670,33 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001404",
-      "lbl" : "Pearson product-moment correlation coefficient",
+      "lbl" : "obsolete Pearson product-moment correlation coefficient",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A specific type of correlation coefficient that measures the linear relationship between two continuous variables. It is the most common method for calculating correlation. This value is often reported in analysis as the Pearson correlation coefficient or simply 'r'. This is a standard output of statistical packages. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A specific type of correlation coefficient that measures the linear relationship between two continuous variables. It is the most common method for calculating correlation. This value is often reported in analysis as the Pearson correlation coefficient or simply 'r'. This is a standard output of statistical packages."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated both MOLSIM:000112 and STATO:0000280 - 'Pearson product-moment correlation coefficient' is the full formal name of Pearson's correlation coefficient. Replaced by the reused STATO term." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000280"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001405",
-      "lbl" : "Spearman rank correlation coefficient",
+      "lbl" : "obsolete Spearman rank correlation coefficient",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A specific type of correlation coefficient that measures the monotonic relationship between two variables, based on their ranks rather than their raw values. It is less sensitive to outliers than the Pearson correlation. The Spearman rank correlation coefficient is a non-parametric measure of association. This is often reported as rho or Spearman's rho. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A specific type of correlation coefficient that measures the monotonic relationship between two variables, based on their ranks rather than their raw values. It is less sensitive to outliers than the Pearson correlation. The Spearman rank correlation coefficient is a non-parametric measure of association. This is often reported as rho or Spearman's rho."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated STATO:0000201. STATO is the canonical OBO home for statistics and its definition of this term is fuller than MOLSIM's (it covers the monotonic-function reading, the perfect +/-1 case, and when to prefer it over Pearson's). Note the symbol 'rho' named in the retired definition is not carried on the STATO term, which has no synonyms, because MOLSIM must not annotate a foreign IRI." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000201"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001406",
@@ -13686,21 +13727,33 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001409",
-      "lbl" : "standard error of the mean (SEM)",
+      "lbl" : "obsolete standard error of the mean (SEM)",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of statistical property that estimates the standard deviation of the sample mean, quantifying how precisely the sample mean represents the true population mean. It is calculated by dividing the sample standard deviation by the square root of the sample size. The standard error of the mean is a key measure of the uncertainty of a calculated average value. This is often abbreviated as SEM. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A type of statistical property that estimates the standard deviation of the sample mean, quantifying how precisely the sample mean represents the true population mean. It is calculated by dividing the sample standard deviation by the square root of the sample size. The standard error of the mean is a key measure of the uncertainty of a calculated average value. This is often abbreviated as SEM."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated STATO:0000037. STATO is the canonical OBO home for statistics; reused in place of this term. Note the '(SEM)' abbreviation carried by the retired label is not reproduced on the STATO term, because MOLSIM must not annotate a foreign IRI; STATO's own definition spells out the abbreviation." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000037"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001410",
-      "lbl" : "coefficient of determination",
+      "lbl" : "obsolete coefficient of determination",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of statistical property, also known as R-squared, that indicates the proportion of the variance in the dependent variable that is predictable from the independent variable(s). It provides a measure of how well the observed outcomes are replicated by the model. The coefficient of determination is a key metric for assessing the goodness of fit of a regression model. This is often reported as R^2 or R-squared. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A type of statistical property, also known as R-squared, that indicates the proportion of the variance in the dependent variable that is predictable from the independent variable(s). It provides a measure of how well the observed outcomes are replicated by the model. The coefficient of determination is a key metric for assessing the goodness of fit of a regression model. This is often reported as R^2 or R-squared."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated STATO:0000564. STATO is the canonical OBO home for statistics; reused in place of this term." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000564"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001411",
@@ -13735,12 +13788,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001414",
-      "lbl" : "standard deviation",
+      "lbl" : "obsolete standard deviation",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of statistical property that measures the amount of variation or dispersion of a set of values. A low standard deviation indicates that the values tend to be close to the mean, while a high value indicates that the values are spread out over a wider range. It is a fundamental measure of the variability of a calculated property. This is often abbreviated as sd or stdev. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A type of statistical property that measures the amount of variation or dispersion of a set of values. A low standard deviation indicates that the values tend to be close to the mean, while a high value indicates that the values are spread out over a wider range. It is a fundamental measure of the variability of a calculated property. This is often abbreviated as sd or stdev."
+        },
+        "comments" : [ "Obsoleted 2026-07-29: duplicated STATO:0000237. STATO is the canonical OBO home for statistics; reused in place of this term." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/STATO_0000237"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001415",
@@ -14417,12 +14476,17 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001484",
-      "lbl" : "statistical model",
+      "lbl" : "statistical mechanics model",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A statistical model is a mathematical representation of a system that is based on the principles of statistical mechanics, describing the system in terms of probabilities and distributions. In the context of simulation, this refers to the underlying theoretical framework that connects the microscopic movements of atoms to the macroscopic thermodynamic properties we observe. For experts, the simulation itself is a method to generate a series of snapshots that sample from the probability distribution defined by the chosen statistical model, such as the canonical ensemble. (UNVERIFIED)"
-        }
+          "val" : "A statistical mechanics model is a mathematical representation of a system that is based on the principles of statistical mechanics, describing the system in terms of probabilities and distributions. In the context of simulation, this refers to the underlying theoretical framework that connects the microscopic movements of atoms to the macroscopic thermodynamic properties we observe. For experts, the simulation itself is a method to generate a series of snapshots that sample from the probability distribution defined by the chosen statistical mechanics model, such as the canonical ensemble. (UNVERIFIED)"
+        },
+        "comments" : [ "Not to be confused with STATO:0000107 \"statistical model\", which is a statistics and inference concept: a formalization of relationships between random variables. This term is the statistical-MECHANICS sense - the theoretical framework connecting the microscopic motion of atoms to macroscopic thermodynamic properties, for example the canonical ensemble. Renamed 2026-07-29 to remove that ambiguity; \"statistical model\" is retained as an exact synonym." ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "statistical model"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001485",
@@ -14430,7 +14494,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Maxwell-Boltzmann distribution is a statistical model that describes the distribution of speeds or kinetic energies for particles in a gas or liquid at thermal equilibrium. In molecular dynamics simulations, thermostat algorithms are designed to ensure that the velocities of the atoms in the system correctly follow this distribution for the target temperature. For experts, verifying that the system's kinetic energy distribution matches the Maxwell-Boltzmann curve is a key check that the simulation is correctly sampling the desired temperature. (UNVERIFIED)"
+          "val" : "The Maxwell-Boltzmann distribution is a statistical mechanics model that describes the distribution of speeds or kinetic energies for particles in a gas or liquid at thermal equilibrium. In molecular dynamics simulations, thermostat algorithms are designed to ensure that the velocities of the atoms in the system correctly follow this distribution for the target temperature. For experts, verifying that the system's kinetic energy distribution matches the Maxwell-Boltzmann curve is a key check that the simulation is correctly sampling the desired temperature. (UNVERIFIED)"
         }
       }
     }, {
@@ -14439,7 +14503,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A two-state transition model is a simplified statistical model used to describe a system that can exist in two distinct states, such as a protein in a folded or unfolded state. The model characterizes the probability of switching from one state to the other, often used to analyze the kinetics of conformational changes."
+          "val" : "A two-state transition model is a simplified statistical mechanics model used to describe a system that can exist in two distinct states, such as a protein in a folded or unfolded state. The model characterizes the probability of switching from one state to the other, often used to analyze the kinetics of conformational changes."
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -16134,7 +16198,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Metatwist is an analysis tool for studying the twisting motions of helical molecules, such as DNA, using data from a metadynamics simulation. It is probably designed to analyze a free energy surface calculated as a function of a helical twist collective variable. This would allow a researcher to quantify the energetic cost and identify the pathways associated with the twisting and untwisting of a molecular helix. (VERY-) (UNVERIFIED)"
+          "val" : "Metatwist is an analysis tool for studying the twisting motions of helical molecules, such as DNA, using data from a metadynamics simulation. It is probably designed to analyze a free energy surface calculated as a function of a helical twist collective variable. This would allow a researcher to quantify the energetic cost and identify the pathways associated with the twisting and untwisting of a molecular helix. (UNVERIFIED)"
         }
       }
     }, {
@@ -16916,13 +16980,14 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001747",
-      "lbl" : "trajectory analysis algorithm (deprecated)",
+      "lbl" : "obsolete trajectory analysis algorithm",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A trajectory analysis algorithm is a computational procedure that processes the time-series of atomic coordinates from a simulation to calculate a specific property. These algorithms are the engines of analysis tools, turning raw simulation output into interpretable scientific data. For experts, this includes the specific algorithms for tasks like imaging periodic trajectories, calculating correlation functions, or clustering conformations. (UNVERIFIED)"
+          "val" : "OBSOLETE. A trajectory analysis algorithm is a computational procedure that processes the time-series of atomic coordinates from a simulation to calculate a specific property. These algorithms are the engines of analysis tools, turning raw simulation output into interpretable scientific data. For experts, this includes the specific algorithms for tasks like imaging periodic trajectories, calculating correlation functions, or clustering conformations."
         },
-        "comments" : [ "candidate for removal per https://github.com/CPCLab/molsim-ontology/issues/21" ]
+        "comments" : [ "candidate for removal per https://github.com/CPCLab/molsim-ontology/issues/21" ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001748",
@@ -17033,13 +17098,14 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001759",
-      "lbl" : "Miller indices (deprecated)",
+      "lbl" : "obsolete Miller indices",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Miller indices are a set of three integers (h, k, l) that uniquely describe the orientation of a plane of atoms within a crystal lattice. These indices are determined from the positions of the spots in an X-ray diffraction pattern and are fundamental to crystallography. They are used to define the specific crystal faces and to calculate the theoretical diffraction pattern from a structural model. (UNVERIFIED)"
+          "val" : "OBSOLETE. Miller indices are a set of three integers (h, k, l) that uniquely describe the orientation of a plane of atoms within a crystal lattice. These indices are determined from the positions of the spots in an X-ray diffraction pattern and are fundamental to crystallography. They are used to define the specific crystal faces and to calculate the theoretical diffraction pattern from a structural model."
         },
-        "comments" : [ "Marked for removal. See: https://github.com/CPCLab/molsim-ontology/issues/26" ]
+        "comments" : [ "Marked for removal. See: https://github.com/CPCLab/molsim-ontology/issues/26" ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001760",
@@ -19319,7 +19385,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "AMBER-GS (Garcia-Sanbonmatsu) is a variant of the AMBER protein force field designed to improve the simulation of protein secondary structure equilibrium. It specifically modifies the backbone torsion potentials of the earlier ff94 parameter set to reduce the artificial over-stabilization of alpha-helices. For experts, this modification typically involves setting the N=3 term of the Fourier series for phi and psi dihedrals to zero to correct the helical propensity bias. (UNVERFIED)"
+          "val" : "AMBER-GS (Garcia-Sanbonmatsu) is a variant of the AMBER protein force field designed to improve the simulation of protein secondary structure equilibrium. It specifically modifies the backbone torsion potentials of the earlier ff94 parameter set to reduce the artificial over-stabilization of alpha-helices. For experts, this modification typically involves setting the N=3 term of the Fourier series for phi and psi dihedrals to zero to correct the helical propensity bias. (UNVERIFIED)"
         }
       }
     }, {
@@ -19590,7 +19656,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A numerical coefficient in a force field that defines the stiffness of the short-range repulsive barrier between two atoms. In the Lennard-Jones potential, this is the \nC12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents atomic overlap. For experts, while physically approximating an exponential repulsion, the \n1/r ^12 form is chosen primarily for computational efficiency as the square of the dispersion term. (UNVERIFIED)"
+          "val" : "A numerical coefficient in a force field that defines the stiffness of the short-range repulsive barrier between two atoms. In the Lennard-Jones potential, this is the C12 term (4ϵσ^12), approximating the Pauli exclusion principle that prevents atomic overlap. For experts, while physically approximating an exponential repulsion, the 1/r ^12 form is chosen primarily for computational efficiency as the square of the dispersion term. (UNVERIFIED)"
         }
       }
     }, {
@@ -20066,7 +20132,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "AutoDock is a suite of automated docking tools designed to predict how small molecules bind to a receptor of known 3D structure. Older than Vina, classic AutoDock (e.g., AutoDock 4) utilizes a Lamarckian genetic algorithm and a grid-based empirical scoring function. It remains widely used for generating starting poses for molecular dynamics simulations.  (UNVERIFIED)"
+          "val" : "AutoDock is a suite of automated docking tools designed to predict how small molecules bind to a receptor of known 3D structure. Older than Vina, classic AutoDock (e.g., AutoDock 4) utilizes a Lamarckian genetic algorithm and a grid-based empirical scoring function. It remains widely used for generating starting poses for molecular dynamics simulations. (UNVERIFIED)"
         }
       }
     }, {
@@ -20075,7 +20141,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "GOLD (Genetic Optimisation for Ligand Docking) is a highly regarded commercial docking program developed by the Cambridge Crystallographic Data Centre (CCDC). It uses a genetic algorithm to explore ligand conformational space and offers multiple scoring functions. It is frequently used in pharmaceutical pipelines to generate highly accurate protein-ligand complex structures for subsequent MD refinement.  (UNVERIFIED)"
+          "val" : "GOLD (Genetic Optimisation for Ligand Docking) is a highly regarded commercial docking program developed by the Cambridge Crystallographic Data Centre (CCDC). It uses a genetic algorithm to explore ligand conformational space and offers multiple scoring functions. It is frequently used in pharmaceutical pipelines to generate highly accurate protein-ligand complex structures for subsequent MD refinement. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -20088,7 +20154,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Glide (Grid-based Ligand Docking with Energetics) is a commercial molecular docking program within the Schrödinger software suite. It uses a systematic, hierarchical search of positional, orientational, and conformational space followed by evaluation with an empirical scoring function (e.g., SP, XP). It is heavily utilized in industry for virtual screening and preparing complexes for Desmond MD simulations.  (UNVERIFIED)"
+          "val" : "Glide (Grid-based Ligand Docking with Energetics) is a commercial molecular docking program within the Schrödinger software suite. It uses a systematic, hierarchical search of positional, orientational, and conformational space followed by evaluation with an empirical scoring function (e.g., SP, XP). It is heavily utilized in industry for virtual screening and preparing complexes for Desmond MD simulations. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -20187,7 +20253,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The PDBQT format is an extension of the standard PDB format specifically designed for use with the AutoDock and AutoDock Vina molecular docking suites. In addition to atomic coordinates, it stores calculated partial charges ('Q') and AutoDock-specific atom types ('T'), making it a structural format that intrinsically carries the predictive interaction parameters required for, and generated by, docking algorithms.(UNVERIFIED)"
+          "val" : "The PDBQT format is an extension of the standard PDB format specifically designed for use with the AutoDock and AutoDock Vina molecular docking suites. In addition to atomic coordinates, it stores calculated partial charges ('Q') and AutoDock-specific atom types ('T'), making it a structural format that intrinsically carries the predictive interaction parameters required for, and generated by, docking algorithms. (UNVERIFIED)"
         }
       }
     }, {
@@ -21240,7 +21306,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second."
+          "val" : "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21253,7 +21319,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A unit of pressure defined as 101,325 pascals (Pa) or 1.01325 bar, approximately equal to the average atmospheric pressure at sea level on Earth."
+          "val" : "A unit of pressure defined as 101,325 pascals (Pa) or 1.01325 bar, approximately equal to the average atmospheric pressure at sea level on Earth. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21266,7 +21332,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A unit of velocity, representing one angstrom (10^-10 meters) of distance traveled per nanosecond (10^-9 seconds) of time. It is commonly used in molecular dynamics simulations and studies of atomic-scale processes."
+          "val" : "A unit of velocity, representing one angstrom (10^-10 meters) of distance traveled per nanosecond (10^-9 seconds) of time. It is commonly used in molecular dynamics simulations and studies of atomic-scale processes. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21279,7 +21345,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A unit of energy per amount of substance, defined as one kilocalorie of energy (1000 thermochemical gram calories) per one mole of substance. It is commonly used in chemistry and biology for thermodynamic quantities."
+          "val" : "A unit of energy per amount of substance, defined as one kilocalorie of energy (1000 thermochemical gram calories) per one mole of substance. It is commonly used in chemistry and biology for thermodynamic quantities. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21292,7 +21358,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A unit of energy per amount of substance per area, commonly used in molecular dynamics simulations for expressing force constants and restraint weights."
+          "val" : "A unit of energy per amount of substance per area, commonly used in molecular dynamics simulations for expressing force constants and restraint weights. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21305,7 +21371,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A unit of electric charge defined as the charge carried by a single proton. It is a fundamental physical constant, with a value of exactly 1.602176634 × 10^-19 coulombs."
+          "val" : "A unit of electric charge defined as the charge carried by a single proton. It is a fundamental physical constant, with a value of exactly 1.602176634 × 10^-19 coulombs. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21318,7 +21384,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A unit that measures a fluid's resistance to flow under the influence of gravity. It is the ratio of the fluid's dynamic viscosity to its density."
+          "val" : "A unit that measures a fluid's resistance to flow under the influence of gravity. It is the ratio of the fluid's dynamic viscosity to its density. (UNVERIFIED)"
         }
       }
     }, {
@@ -21327,7 +21393,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A centimeter-gram-second (CGS) unit of kinematic viscosity, defined as the kinematic viscosity of a fluid that passes one square centimeter in one second. It is equivalent to the unit Stokes (St)."
+          "val" : "A centimeter-gram-second (CGS) unit of kinematic viscosity, defined as the kinematic viscosity of a fluid that passes one square centimeter in one second. It is equivalent to the unit Stokes (St). (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21340,7 +21406,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A unit that measures the separation of positive and negative electrical charges within a system, indicating the system's overall polarity."
+          "val" : "A unit that measures the separation of positive and negative electrical charges within a system, indicating the system's overall polarity. (UNVERIFIED)"
         }
       }
     }, {
@@ -21349,7 +21415,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A centimeter-gram-second (CGS) unit of electric dipole moment, defined as 10^-18 statcoulomb-centimeters. One Debye is approximately equal to 3.33564 × 10^-30 coulomb-meters."
+          "val" : "A centimeter-gram-second (CGS) unit of electric dipole moment, defined as 10^-18 statcoulomb-centimeters. One Debye is approximately equal to 3.33564 × 10^-30 coulomb-meters. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -21362,7 +21428,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Kabsch algorithm, is a method for calculating the optimal rotation matrix that minimizes the RMSD between two paired sets of points. The algorithm only computes the rotation matrix, but it also requires the computation of a translation vector."
+          "val" : "The Kabsch algorithm, is a method for calculating the optimal rotation matrix that minimizes the RMSD between two paired sets of points. The algorithm only computes the rotation matrix, but it also requires the computation of a translation vector. (UNVERIFIED)"
         }
       }
     }, {
@@ -21371,7 +21437,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "In protein structure, STRIDE (Structural identification) is an algorithm for the assignment of protein secondary structure elements given the atomic coordinates of the protein."
+          "val" : "In protein structure, STRIDE (Structural identification) is an algorithm for the assignment of protein secondary structure elements given the atomic coordinates of the protein. (UNVERIFIED)"
         }
       }
     }, {
@@ -21389,7 +21455,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Statistical algorithm which fit a known distribution to the data using maximum likelihood or Bayesian methods."
+          "val" : "Statistical algorithm which fit a known distribution to the data using maximum likelihood or Bayesian methods. (UNVERIFIED)"
         }
       }
     }, {
@@ -21398,7 +21464,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Statistical algorithm which uses smooth piecewise polynomials to fit the densitiy."
+          "val" : "Statistical algorithm which uses smooth piecewise polynomials to fit the densitiy. (UNVERIFIED)"
         }
       }
     }, {
@@ -21407,7 +21473,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Schrake-Rupley algorithm is a classic method for calculating the solvent accessible surface area (SASA) of a molecule by \"rolling\" a probe sphere over the atoms' van der Waals surfaces."
+          "val" : "The Schrake-Rupley algorithm is a classic method for calculating the solvent accessible surface area (SASA) of a molecule by \"rolling\" a probe sphere over the atoms' van der Waals surfaces. (UNVERIFIED)"
         }
       }
     }, {
@@ -21530,6 +21596,9 @@
       "id" : "http://purl.obolibrary.org/obo/SO_0000417",
       "type" : "CLASS"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/STATO_0000142",
+      "type" : "CLASS"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/UO_0000000",
       "type" : "CLASS"
     }, {
@@ -21591,7 +21660,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "The source for the used protein structures (e.g. PDB).  It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"
+          "val" : "The source for the used protein structures (e.g. PDB). It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"
         }
       }
     }, {
@@ -22203,7 +22272,8 @@
       "meta" : {
         "definition" : {
           "val" : "A relation that associates a molecular system with a mapping from ion species to the count of ions of each species present. It records the ionic composition used, for example, to neutralize charge or set ionic strength. (NEWLY_ADDED) (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "This property stores its value as text, not as a number. The text lists each kind of ion and how many of them there are, for example {\"Na+\": 12, \"Cl-\": 10}. That is how the simulation files themselves write it. The other count properties next to this one use plain numbers, because each of them counts a single thing. This one has to count several kinds of ion at the same time, and the ontology has no way yet to say which count belongs to which ion. We looked at two other ways of doing it: making a separate property for every kind of ion, or making a small object that holds one ion and its number. Both would add a lot of work for little gain right now, so we kept the text form. The text itself can be checked later with SHACL, a rule language for checking data files." ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002125",
@@ -23016,7 +23086,7 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "The NCBI Reference Sequence (RefSeq) collection for nucleotide data, providing a comprehensive, integrated, non-redundant, and well-annotated set of sequences for chromosomes, genomic regions, transcripts, and RNAs. RefSeq aims to provide stable reference sequences for various organisms. It is a critical resource for genomics and gene annotation"
+          "val" : "The NCBI Reference Sequence (RefSeq) collection for nucleotide data, providing a comprehensive, integrated, non-redundant, and well-annotated set of sequences for chromosomes, genomic regions, transcripts, and RNAs. RefSeq aims to provide stable reference sequences for various organisms. It is a critical resource for genomics and gene annotation. (UNVERIFIED)"
         }
       }
     }, {
@@ -23088,7 +23158,7 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "A manually curated, large-scale database of bioactive drug-like small molecules and their quantitative bioactivity data against drug targets (primarily proteins). It brings together chemical, bioactivity, and genomic data to aid the translation of genomic information into effective new drugs. ChEMBL is a critical resource for drug discovery, pharmacology, and medicinal chemistry."
+          "val" : "A manually curated, large-scale database of bioactive drug-like small molecules and their quantitative bioactivity data against drug targets (primarily proteins). It brings together chemical, bioactivity, and genomic data to aid the translation of genomic information into effective new drugs. ChEMBL is a critical resource for drug discovery, pharmacology, and medicinal chemistry. (UNVERIFIED)"
         }
       }
     }, {
@@ -23169,7 +23239,7 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "Conserved Domain Database by NCBI -  A database maintained by NCBI containing manually curated models of ancient domains and full-length proteins, as well as models imported from other sources like Pfam and SMART. CDD is used to identify conserved domains within protein sequences, providing insights into their function. It is a key tool for protein sequence analysis. (UNVERIFIED)"
+          "val" : "Conserved Domain Database by NCBI - A database maintained by NCBI containing manually curated models of ancient domains and full-length proteins, as well as models imported from other sources like Pfam and SMART. CDD is used to identify conserved domains within protein sequences, providing insights into their function. It is a key tool for protein sequence analysis. (UNVERIFIED)"
         }
       }
     }, {
@@ -23214,7 +23284,7 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "A free, open-source, curated, and peer-reviewed pathway database that provides detailed information on human biological pathways and processes. Reactome uses a hierarchical organization to describe molecular events, from individual reactions to complex pathways, linking genes, proteins, and small molecules. It is a key resource for systems biology and pathway analysis."
+          "val" : "A free, open-source, curated, and peer-reviewed pathway database that provides detailed information on human biological pathways and processes. Reactome uses a hierarchical organization to describe molecular events, from individual reactions to complex pathways, linking genes, proteins, and small molecules. It is a key resource for systems biology and pathway analysis. (UNVERIFIED)"
         }
       }
     }, {
@@ -23332,7 +23402,12 @@
       "meta" : {
         "definition" : {
           "val" : "A database and web server that provides a collection of pre-equilibrated molecular dynamics simulations of proteins, particularly focusing on pharmaceutically relevant targets. MoDEL aims to offer ready-to-use starting points for further simulation studies, such as ligand binding or conformational analysis. (UNVERIFIED)"
-        }
+        },
+        "comments" : [ "Distinct from the class 'model' (MOLSIM:000006), which it resembles only in spelling: this is a named simulation data repository, that is a general kind of representation. Case-insensitive lexical matching conflates the two, so prefer the synonym 'MoDEL database' when matching." ],
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MoDEL database"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001002",
@@ -23466,7 +23541,14 @@
       "lbl" : "obsolete Omni-Path",
       "type" : "INDIVIDUAL",
       "meta" : {
+        "definition" : {
+          "val" : "OBSOLETE. A redundant untyped individual that duplicated the class 'omni-path' (MOLSIM:001949). It should not be used; use that class instead."
+        },
         "comments" : [ "Obsoleted: redundant untyped individual duplicating the class 'omni-path' (MOLSIM_001949), which is the concept to use instead." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_001949"
+        } ],
         "deprecated" : true
       }
     }, {
@@ -23524,6 +23606,10 @@
       "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000117",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0100001",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
@@ -24007,14 +24093,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000110",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001691"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000111",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000112",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000111"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000113",
       "pred" : "is_a",
@@ -24991,10 +25069,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000353",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000354",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000355",
       "pred" : "is_a",
@@ -26284,10 +26358,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000328"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000679",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000659"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000680",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000328"
@@ -27136,10 +27206,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001073"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000905",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000906",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
@@ -27652,17 +27718,9 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001091"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001087",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001088",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001085"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001089",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001090",
       "pred" : "is_a",
@@ -28744,31 +28802,15 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001292"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001404",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000111"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001405",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000111"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001406",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000111"
+      "obj" : "http://purl.obolibrary.org/obo/STATO_0000142"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001407",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001408",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001409",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001410",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
     }, {
@@ -28781,10 +28823,6 @@
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001411"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001413",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001414",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
     }, {
@@ -30120,10 +30158,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001745"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001747",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000037"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001748",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001696"
@@ -30167,10 +30201,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001758",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001711"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001759",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000447"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001760",
       "pred" : "is_a",
@@ -30374,7 +30404,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001810",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000111"
+      "obj" : "http://purl.obolibrary.org/obo/STATO_0000142"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001811",
       "pred" : "is_a",
