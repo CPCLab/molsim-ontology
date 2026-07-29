@@ -95,6 +95,25 @@ MOLSIM provides a semantic framework spanning the full molecular-simulation life
 * **Analysis & outputs:** trajectories and conformational ensembles; thermodynamic, structural, and kinetic properties (e.g., RMSD, RMSF, radius of gyration, potential of mean force, Markov state models); correlation functions; and unit-bearing quantities.
 * **Provenance & metadata:** simulation parameters and schedules, system-composition counts, system-classification labels, and per-term editorial provenance, supporting FAIR, machine-actionable simulation metadata.
 
+### Where the boundary is
+
+The list above says what MOLSIM covers. This says how we decide whether a *new* term belongs, so that the scope stays stable as the ontology grows.
+
+**The membership test.** For any candidate term, ask:
+
+> **Would a complete record of a simulation dataset need to state it?**
+
+That spans four things: what was **configured** (timestep, thermostat, force field), what was **computed** (RMSD, potential of mean force, free energies), where the inputs **came from** (a PDB entry, a UniProt accession, a publication), and what it **ran on** (engine, version, hardware). If a full dataset record would not mention it, MOLSIM does not need it, however closely related it may seem.
+
+We deliberately draw the boundary by **use case** rather than by subject matter. "Anything about molecular simulation" has no natural edge: in computational chemistry everything connects to everything, so two people applying that rule reach different answers and the scope drifts. "What a dataset record must state" is a question anyone can answer by opening a real file, which is also how MOLSIM was built — its terms were extracted from AMBER, cpptraj and GROMACS keyword frequencies and from metadata specifications, not from a textbook index.
+
+**Depth limit for neighbouring fields.** MOLSIM necessarily touches quantum chemistry, computational materials science and structural biology. Where it does, terms go **at most two levels** below the point where they attach. So we record *which* QM engine was used, whether QM/MM was active, and which basis set parameterised a force field — because a dataset record states those. We do not model the internal machinery of quantum-chemical methods, because it does not appear in that record and belongs to whoever owns that domain.
+
+**This rule governs new terms.** It applies to terms added from 2026-07-29 onward. Existing terms are retained; where one sits outside the rule it is kept for stability and simply not extended. Terms are never deleted in any case — a published IRI is a permanent commitment, so anything withdrawn is deprecated with `owl:deprecated` and, where a successor exists, an `IAO:0100001` ("term replaced by") pointer.
+
+**Relationship to EMMO-based materials-modelling ontologies.** A separate ecosystem — [EMMO](https://emmo-repo.github.io/), OSMO and VISO, developed around the European Materials Modelling Council — also describes simulation, using a different top-level framework. MOLSIM is the OBO-aligned ontology for **biomolecular** simulation metadata and is intended to **complement** rather than compete with that work; the two focus on different communities and different kinds of system. Where concepts correspond we will publish [SSSOM](https://mapping-commons.github.io/sssom/) mappings rather than adopt a shared upper ontology, since the two frameworks are not directly interoperable.
+
+
 ## Competency Questions
 
 MOLSIM is designed to represent simulations in enough detail to answer questions such as:
