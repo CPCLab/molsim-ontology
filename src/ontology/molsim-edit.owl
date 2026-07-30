@@ -4951,7 +4951,7 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
 
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000311 "RMSD analysis is a calculation that measures how much a molecule's shape has changed over time compared to a reference shape, which is usually the starting shape or an average shape. As a type of structural analysis, this method quantifies the global structural deviation by calculating the root-mean-square deviation of atomic coordinates between trajectory frames and a reference structure after optimal superposition. It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and as a metric for clustering algorithms."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000311 "A calculation that measures how much a molecule's shape has changed compared to a reference structure by quantifying the root-mean-square deviation of atomic coordinates after optimal superposition. This can be performed against a single static starting structure over time (1D trajectory), or calculated for every pair of frames in a simulation to produce a frame-to-frame comparative matrix, often displayed as a 2D heat map (2D RMSD analysis). It is the most common procedure for assessing simulation stability, monitoring conformational transitions, and serving as a metric for clustering algorithms."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000311 "RMSD analysis"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000311 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_000311 obo:MOLSIM_000917)
@@ -6058,10 +6058,11 @@ SubClassOf(obo:MOLSIM_000480 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000481 (2D RMSD analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000481 "A 2D RMSD analysis is a method where the Root-Mean-Square Deviation (RMSD) is calculated for multiple frames in a simulation trajectory with respect to a reference structure. The reference structure is usually the first frame in the trajectory or an average structure of the whole simulation. The results are typically visualized as a two-dimensional plot, where each point represents the RMSD between one frame and the reference structure."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000481 "2D RMSD analysis"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000481 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_000481 obo:MOLSIM_000917)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000481 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000481 "OBSOLETE. A 2D RMSD analysis is a method where the Root-Mean-Square Deviation (RMSD) is calculated for multiple frames in a simulation trajectory with respect to a reference structure. The reference structure is usually the first frame in the trajectory or an average structure of the whole simulation. The results are typically visualized as a two-dimensional plot, where each point represents the RMSD between one frame and the reference structure."@en)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000481 obo:MOLSIM_000311)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000481 "Retired as redundant with 'RMSD analysis' (MOLSIM:000311), which shares the same parent and the same underlying principle. The 2D frame-to-frame form is now covered explicitly by that term's definition. Reported and approved by the term verifier in GitHub issue #45."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000481 "obsolete 2D RMSD analysis"@en)
 
 # Class: obo:MOLSIM_000482 (lipid SCD order parameter calculation analysis)
 
@@ -7279,6 +7280,8 @@ SubClassOf(obo:MOLSIM_000678 obo:MOLSIM_000328)
 AnnotationAssertion(owl:deprecated obo:MOLSIM_000679 "true"^^xsd:boolean)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000679 "OBSOLETE. Image bond fixing is a post-processing step applied to simulation trajectories to correct the visual representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear \"broken\" in the raw output, with parts of it on opposite sides of the simulation box. This procedure identifies such cases and translates the atomic coordinates to make the molecule appear whole, which is essential for correct visualization and many types of analysis."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000679 "obsolete image bond fixing analysis"@en)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000679 obo:MOLSIM_000659)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000679 "Retired as redundant with its former parent 'periodic boundary imaging' (MOLSIM:000659), of which it was the only child. Bond fixing is an implicit outcome of imaging, and that term's definition now states so. Reported and approved by the term verifier in GitHub issue #45."@en)
 
 # Class: obo:MOLSIM_000680 (atom selection analysis)
 
@@ -8640,6 +8643,7 @@ SubClassOf(obo:MOLSIM_000904 obo:MOLSIM_001073)
 AnnotationAssertion(owl:deprecated obo:MOLSIM_000905 "true"^^xsd:boolean)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000905 "OBSOLETE. Small molecule structure formats are designed primarily for representing organic and drug-like molecules, often emphasizing chemical details like bond orders, formal charges, and stereochemistry. These formats are widely used in cheminformatics, drug discovery databases, and as input for various modeling tasks. Common examples include SDF, Mol2, and SMILES strings."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000905 "obsolete small molecule structure"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000905 "Retired in the file-format flattening. Classifying structure formats by molecule size was an artificial distinction: a small molecule can be stored in a PDB file and a macromolecule in a mol2 file. Its former children are now direct children of 'molecular structure format' (MOLSIM:001088). Reported in GitHub issue #20."@en)
 
 # Class: obo:MOLSIM_000906 (mol2 format)
 
@@ -9516,6 +9520,7 @@ SubClassOf(obo:MOLSIM_001086 obo:MOLSIM_001091)
 AnnotationAssertion(owl:deprecated obo:MOLSIM_001087 "true"^^xsd:boolean)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001087 "OBSOLETE. A file format specifically designed to describe the complex, three-dimensional structures of large biological molecules like proteins and DNA. These formats accommodate hierarchical descriptions, such as chains and residues, in addition to atomic coordinates. Examples include the widely used PDB and mmCIF formats."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001087 "obsolete macromolecular structure format"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001087 "Retired in the file-format flattening. Classifying structure formats by molecule size was an artificial distinction: a small molecule can be stored in a PDB file and a macromolecule in a mol2 file. Its former children are now direct children of 'molecular structure format' (MOLSIM:001088). Reported in GitHub issue #20."@en)
 
 # Class: obo:MOLSIM_001088 (molecular structure format)
 
@@ -9529,6 +9534,7 @@ SubClassOf(obo:MOLSIM_001088 obo:MOLSIM_001085)
 AnnotationAssertion(owl:deprecated obo:MOLSIM_001089 "true"^^xsd:boolean)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001089 "OBSOLETE. A coordinate file primarily stores the three-dimensional positions (X, Y, Z coordinates) of atoms in a molecular system. It may also contain atom names, residue information, and potentially periodic box dimensions, but typically lacks detailed bonding (topology) or force field parameter information. Common examples include PDB, GRO, and XYZ formats, used for initial structures or snapshots from simulations."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001089 "obsolete software-specific coordinate format"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001089 "Retired in the same file-format flattening. Grouping coordinate formats by the software that writes them proved unhelpful, since formats are not owned by one program. Its former children are now direct children of 'molecular structure format' (MOLSIM:001088). Related discussion in GitHub issue #20."@en)
 
 # Class: obo:MOLSIM_001090 (molecular trajectory format)
 
