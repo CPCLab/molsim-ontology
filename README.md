@@ -46,7 +46,7 @@ The primary goal of this ontology is to standardize the representation of molecu
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | **Prefix**               | `MOLSIM`                                                                                                           |
 | **Namespace**            | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                           |
-| **Size**                 | 2,053 live classes · 113 data properties · 16 object properties · 70 named individuals (2,267 terms declared, 15 retired) |
+| **Size**                 | 2,053 live classes · 113 data properties · 16 object properties · 70 live named individuals (2,267 terms declared, 15 retired) |
 | **Hierarchy**            | Domain-oriented (no upper ontology yet; see [Ontology Alignment](#ontology-alignment-reuse-now-abstraction-later)) |
 | **Management**           | ODK (Ontology Development Kit) + ROBOT, reasoned with ELK                                                          |
 | **Source serialization** | OWL Functional Syntax: [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl)                              |
