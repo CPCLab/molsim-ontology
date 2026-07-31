@@ -2225,6 +2225,7 @@ Declaration(NamedIndividual(obo:MOLSIM_001532))
 Declaration(NamedIndividual(obo:MOLSIM_001945))
 Declaration(AnnotationProperty(<http://protege.stanford.edu/plugins/owl/protege#defaultLanguage>))
 Declaration(AnnotationProperty(obo:IAO_0000115))
+Declaration(AnnotationProperty(obo:IAO_0000116))
 Declaration(AnnotationProperty(obo:IAO_0000117))
 Declaration(AnnotationProperty(obo:IAO_0000119))
 Declaration(AnnotationProperty(obo:IAO_0100001))
@@ -2248,6 +2249,7 @@ AnnotationAssertion(rdfs:label obo:IAO_0000115 "definition")
 
 # Annotation Property: obo:IAO_0000117 (term editor)
 
+AnnotationAssertion(rdfs:label obo:IAO_0000116 "editor note"@en)
 AnnotationAssertion(rdfs:label obo:IAO_0000117 "term editor"@en)
 
 # Annotation Property: obo:IAO_0000119 (definition source)
@@ -3444,6 +3446,7 @@ SubClassOf(obo:MOLSIM_000075 obo:MOLSIM_000074)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000076 "A molecular similarity measure that compares two molecular structures by calculating their overlap while allowing asymmetric weighting through parameters α and β. The measure ranges from 0 (completely different) to 1 (identical), and can be adjusted to emphasize either the reference or query molecule in the comparison. It is particularly useful in molecular screening as it can identify both substructure and superstructure relationships between molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000076 "Tversky index algorithm"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_000076 "General form, for reference: T(A,B) = |A n B| / (alpha*|A - B| + beta*|B - A| + |A n B|), where A and B are the feature sets of the two molecules being compared. alpha weights features unique to A (the reference) and beta weights features unique to B (the query or fit molecule); alpha = beta = 1 reduces to the Tanimoto coefficient, and alpha = beta = 0.5 gives the Dice coefficient. The named variants below differ only in their fixed alpha/beta values, which each of their definitions states. Note this text is a plain-string note: no OWL consumer renders mathematical notation, so it is written to be readable as-is rather than as LaTeX. Requested in GitHub issue #1."@en)
 SubClassOf(obo:MOLSIM_000076 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000077 (Dice coefficient algorithm)
