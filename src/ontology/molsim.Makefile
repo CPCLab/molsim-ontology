@@ -81,10 +81,50 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 		--lower-terms $(IMPORTDIR)/uo_terms.txt \
 		--output $@
 
-$(IMPORTDIR)/so_import.owl: $(MIRRORDIR)/so.owl
+# SO: two extractions from the same mirror, merged into one file.
+# Two extractions are needed because the two groups of terms want opposite treatment.
+#
+# (1) so_terms.txt -- UNBOUNDED MIREOT (no --upper-terms).
+#     Unbounded means robot also brings in each term's ancestors. This group needs that:
+#       - the MDDB base modifications, SO:0001918 5_methylcytosine and its siblings, get
+#         their place in the tree from SO:0000305 modified_DNA_base;
+#       - SO:0001078 polypeptide_secondary_structure needs its link up to
+#         SO:0001070 polypeptide_structural_region, which molsim-edit.owl in turn places
+#         under MOLSIM:002090 molecular entity.
+#     Bound this group and those classes arrive with no parent, breaking both.
+#
+# (2) so_ss_terms.txt -- BOUNDED MIREOT (--upper-terms same as --lower-terms).
+#     Bounded means no ancestors at all: each class arrives bare. That is what we want
+#     here, because molsim-edit.owl states the parents itself. It puts
+#     SO:0001114 peptide_helix under MOLSIM:001781 secondary structure, and puts the three
+#     helix types under SO:0001114 peptide_helix.
+#     Staying bare avoids two problems:
+#       - SO:0001116 right_handed_peptide_helix would come along as well. It is an extra
+#         level between the helix and its types that MOLSIM has no use for.
+#       - the path up to SO:0001078 polypeptide_secondary_structure would be added a
+#         second time, so SO:0001114 peptide_helix would reach the same ancestor by two
+#         routes. Harmless to the reasoner, but confusing to read.
+#
+# Merging the two results keeps this a single import module. That means no extra Import()
+# line in molsim-edit.owl, no extra catalog-v001.xml entry, and no new ODK import_group
+# product (which would also need a mirror of its own).
+#
+# The two terms files are listed as prerequisites deliberately. Without them make only
+# compares the module against the mirror, finds the module is newer, and does nothing when
+# you edit a terms list. The uo, go, stato and chebi rules in this file still have that
+# gap, so editing their terms lists needs a forced rebuild.
+$(IMPORTDIR)/so_import.owl: $(MIRRORDIR)/so.owl $(IMPORTDIR)/so_terms.txt $(IMPORTDIR)/so_ss_terms.txt
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/so_terms.txt \
+		--output $(TMPDIR)/so_base.owl
+	$(ROBOT) extract --input $< \
+		--method MIREOT \
+		--lower-terms $(IMPORTDIR)/so_ss_terms.txt \
+		--upper-terms $(IMPORTDIR)/so_ss_terms.txt \
+		--output $(TMPDIR)/so_secondary_structure.owl
+	$(ROBOT) merge --input $(TMPDIR)/so_base.owl \
+		--input $(TMPDIR)/so_secondary_structure.owl \
 		--output $@
 
 # GO: bounded MIREOT (upper == lower) so only the listed leaf terms are pulled,

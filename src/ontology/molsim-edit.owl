@@ -2249,7 +2249,7 @@ Declaration(AnnotationProperty(foaf:homepage))
 
 # Annotation Property: obo:IAO_0000115 (definition)
 
-AnnotationAssertion(rdfs:label obo:IAO_0000115 "definition")
+AnnotationAssertion(rdfs:label obo:IAO_0000115 "definition"@en)
 
 # Annotation Property: obo:IAO_0000117 (term editor)
 
@@ -2259,6 +2259,10 @@ AnnotationAssertion(rdfs:label obo:IAO_0000117 "term editor"@en)
 # Annotation Property: obo:IAO_0000119 (definition source)
 
 AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
+
+# Annotation Property: obo:IAO_0100001 (term replaced by)
+
+AnnotationAssertion(rdfs:label obo:IAO_0100001 "term replaced by"@en)
 
 
 ############################
@@ -13687,7 +13691,7 @@ SubClassOf(obo:MOLSIM_001780 obo:MOLSIM_001778)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001781 "Secondary structure refers to the regular, repeating local shapes, like spirals and zig-zags, that a protein or nucleic acid chain folds into. In proteins, this refers to common motifs such as alpha-helices and beta-sheets, which are stabilized by a regular pattern of hydrogen bonds between backbone atoms. Identifying and tracking the secondary structure is a fundamental analysis for understanding a protein's overall architecture and how its shape changes during a simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001781 "secondary structure"@en)
-SubClassOf(obo:MOLSIM_001781 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001781 obo:SO_0001078)
 
 # Class: obo:MOLSIM_001782 (beta sheet)
 
@@ -13711,30 +13715,35 @@ SubClassOf(obo:MOLSIM_001784 obo:MOLSIM_001782)
 
 # Class: obo:MOLSIM_001785 (helix)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001785 "A helix is a common shape in proteins and DNA where the molecular chain is twisted into a spiral or corkscrew. It is a secondary structure motif characterized by a repeating pattern of backbone dihedral angles that causes the polymer chain to follow a helical path, which is stabilized by a regular pattern of internal hydrogen bonds. The alpha-helix in proteins and the double helix of DNA are two of the most fundamental and recognizable structures in biology."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001785 "helix"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001785 orcid:0000-0002-8291-8071)
-SubClassOf(obo:MOLSIM_001785 obo:MOLSIM_001781)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001785 "OBSOLETE. A helix is a common shape in proteins and DNA where the molecular chain is twisted into a spiral or corkscrew. It is a secondary structure motif characterized by a repeating pattern of backbone dihedral angles that causes the polymer chain to follow a helical path, which is stabilized by a regular pattern of internal hydrogen bonds. The alpha-helix in proteins and the double helix of DNA are two of the most fundamental and recognizable structures in biology."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001785 "obsolete helix"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001785 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001785 obo:SO_0001114)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001785 "Retired 2026-08-05 in favour of the Sequence Ontology term, which covers the same concept in the ontology whose scope owns protein secondary structure. The MOLSIM hierarchy position is preserved: the SO class is asserted under MOLSIM:001781 secondary structure so the DSSP category set stays in one place."@en)
 
 # Class: obo:MOLSIM_001786 (3-10 helix)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001786 "The 3-10 helix is a type of spiral shape found in proteins that is tighter and more narrow than the common alpha-helix. It is a secondary structure motif characterized by a repeating hydrogen bond between the backbone carbonyl of a residue and the backbone amide of the residue three positions down the chain (i → i+3). While less common than the alpha-helix, short segments of 3-10 helix are often found at the ends of alpha-helices, acting as a cap to the structure."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001786 "3-10 helix"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001786 orcid:0000-0002-8291-8071)
-SubClassOf(obo:MOLSIM_001786 obo:MOLSIM_001785)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001786 "OBSOLETE. The 3-10 helix is a type of spiral shape found in proteins that is tighter and more narrow than the common alpha-helix. It is a secondary structure motif characterized by a repeating hydrogen bond between the backbone carbonyl of a residue and the backbone amide of the residue three positions down the chain (i → i+3). While less common than the alpha-helix, short segments of 3-10 helix are often found at the ends of alpha-helices, acting as a cap to the structure."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001786 "obsolete 3-10 helix"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001786 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001786 obo:SO_0001119)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001786 "Retired 2026-08-05 in favour of the Sequence Ontology term, which covers the same concept in the ontology whose scope owns protein secondary structure. The MOLSIM hierarchy position is preserved: the SO class is asserted under MOLSIM:001781 secondary structure so the DSSP category set stays in one place."@en)
 
 # Class: obo:MOLSIM_001787 (alpha helix)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001787 "The alpha-helix is the most common spiral shape found in proteins, resembling a coiled ribbon. It is a right-handed secondary structure motif characterized by a repeating hydrogen bond between the backbone carbonyl of a residue and the backbone amide of the residue four positions down the chain (i → i+4). This highly stable and common structure forms a fundamental building block for the architecture of most proteins. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001787 "alpha helix"@en)
-SubClassOf(obo:MOLSIM_001787 obo:MOLSIM_001785)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001787 "OBSOLETE. The alpha-helix is the most common spiral shape found in proteins, resembling a coiled ribbon. It is a right-handed secondary structure motif characterized by a repeating hydrogen bond between the backbone carbonyl of a residue and the backbone amide of the residue four positions down the chain (i → i+4). This highly stable and common structure forms a fundamental building block for the architecture of most proteins."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001787 "obsolete alpha helix"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001787 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001787 obo:SO_0001117)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001787 "Retired 2026-08-05 in favour of the Sequence Ontology term, which covers the same concept in the ontology whose scope owns protein secondary structure. The MOLSIM hierarchy position is preserved: the SO class is asserted under MOLSIM:001781 secondary structure so the DSSP category set stays in one place."@en)
 
 # Class: obo:MOLSIM_001788 (pi helix)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001788 "The pi-helix is a wide spiral shape found in proteins that is less stable than the common alpha-helix. It is a secondary structure motif characterized by a repeating hydrogen bond between the backbone carbonyl of a residue and the backbone amide of the residue five positions down the chain (i → i+5). Because its internal packing is less favorable, the pi-helix is usually found only as a short, single-turn insertion within other helical structures. Once thought to be rare, short π-helices are found in 15% of known protein structures and are believed to be an evolutionary adaptation derived by the insertion of a single amino acid into an α-helix."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001788 "pi helix"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001788 orcid:0000-0002-8291-8071)
-SubClassOf(obo:MOLSIM_001788 obo:MOLSIM_001785)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001788 "OBSOLETE. The pi-helix is a wide spiral shape found in proteins that is less stable than the common alpha-helix. It is a secondary structure motif characterized by a repeating hydrogen bond between the backbone carbonyl of a residue and the backbone amide of the residue five positions down the chain (i → i+5). Because its internal packing is less favorable, the pi-helix is usually found only as a short, single-turn insertion within other helical structures. Once thought to be rare, short π-helices are found in 15% of known protein structures and are believed to be an evolutionary adaptation derived by the insertion of a single amino acid into an α-helix."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001788 "obsolete pi helix"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001788 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001788 obo:SO_0001118)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001788 "Retired 2026-08-05 in favour of the Sequence Ontology term, which covers the same concept in the ontology whose scope owns protein secondary structure. The MOLSIM hierarchy position is preserved: the SO class is asserted under MOLSIM:001781 secondary structure so the DSSP category set stays in one place."@en)
 
 # Class: obo:MOLSIM_001789 (turn)
 
@@ -17376,6 +17385,10 @@ SubClassOf(obo:GO_0000786 obo:MOLSIM_001894)
 # Bridges: place reused SO umbrellas under MOLSIM domain parents for browsability
 # (these external classes keep their SO parents from the import; MOLSIM adds a domain parent)
 SubClassOf(obo:SO_0001070 obo:MOLSIM_002090)
+SubClassOf(obo:SO_0001114 obo:MOLSIM_001781)
+SubClassOf(obo:SO_0001117 obo:SO_0001114)
+SubClassOf(obo:SO_0001118 obo:SO_0001114)
+SubClassOf(obo:SO_0001119 obo:SO_0001114)
 SubClassOf(obo:SO_0000305 obo:MOLSIM_000006)
 SubClassOf(obo:STATO_0000280 obo:STATO_0000142)
 SubClassOf(obo:STATO_0000201 obo:STATO_0000142)
