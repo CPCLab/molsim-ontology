@@ -16489,7 +16489,7 @@ SubClassOf(obo:MOLSIM_002155 obo:MOLSIM_000310)
 # Class: obo:MOLSIM_002156 (simulation stage)
 
 Declaration(Class(obo:MOLSIM_002156))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002156 "A molecular dynamics process that constitutes one discrete, chronological phase within a larger simulation protocol, characterized by its own role and its own input and output files. Examples include a heating stage or a production stage. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002156 "A molecular dynamics process that constitutes one discrete, chronological phase within a larger simulation run, characterized by its own role and its own input and output files. Examples include a heating stage or a production stage. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002156 "simulation stage"@en)
 SubClassOf(obo:MOLSIM_002156 obo:MOLSIM_000000)
 
@@ -16566,10 +16566,10 @@ SubClassOf(obo:MOLSIM_002166 obo:MOLSIM_001696)
 # Object Property: obo:MOLSIM_002167 (has simulation stage)
 
 Declaration(ObjectProperty(obo:MOLSIM_002167))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002167 "A relation that links a simulation protocol to one of the discrete stages that make it up. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002167 "A relation that links a molecular dynamics process to one of the discrete stages that make it up. The stages belong to the run rather than to the protocol, because one protocol may be followed by many runs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002167 "has simulation stage"@en)
 SubObjectPropertyOf(obo:MOLSIM_002167 owl:topObjectProperty)
-ObjectPropertyDomain(obo:MOLSIM_002167 obo:MOLSIM_002155)
+ObjectPropertyDomain(obo:MOLSIM_002167 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002167 obo:MOLSIM_002156)
 
 # Object Property: obo:MOLSIM_002168 (has parameter schedule)
@@ -16856,6 +16856,15 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002202 "has simulation parameter"@en)
 SubObjectPropertyOf(obo:MOLSIM_002202 owl:topObjectProperty)
 ObjectPropertyDomain(obo:MOLSIM_002202 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002202 obo:MOLSIM_001164)
+
+# Object Property: obo:MOLSIM_002250 (follows protocol)
+
+Declaration(ObjectProperty(obo:MOLSIM_002250))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002250 "A relation that links a molecular dynamics process to the simulation protocol it was carried out according to. The protocol is the reusable plan and the process is one execution of it, so a single protocol may be followed by many runs. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002250 "follows protocol"@en)
+SubObjectPropertyOf(obo:MOLSIM_002250 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002250 obo:MOLSIM_000000)
+ObjectPropertyRange(obo:MOLSIM_002250 obo:MOLSIM_002155)
 
 
 # ==== ambermeta disjointness axioms ====
