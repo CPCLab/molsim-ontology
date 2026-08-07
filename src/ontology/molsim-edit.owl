@@ -2985,20 +2985,24 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000001 "software"@en)
 # Class: obo:MOLSIM_000002 (preparation)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000002 "The initial stage of a biomolecular simulation process, focused on setting up the molecular system and simulation environment before running the main simulation. This typically involves obtaining structures, adding missing atoms or molecules (like solvent), assigning force field parameters, defining simulation conditions (box, ensemble), and performing initial minimization and equilibration. Proper preparation is crucial for the stability and validity of subsequent simulation steps. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000002 "preparation"@en)
-SubClassOf(obo:MOLSIM_000002 obo:MOLSIM_000000)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000002 "preparation"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000002 "simulation preparation"@en)
+SubClassOf(obo:MOLSIM_000002 obo:MOLSIM_002156)
 
 # Class: obo:MOLSIM_000003 (execution)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000003 "The stage of a biomolecular simulation process where the main simulation runs are performed according to the prepared system and defined parameters to generate trajectory data. This phase involves propagating the system forward in time using algorithms like molecular dynamics or Monte Carlo, under specific ensemble conditions. The goal is typically to sample conformational space, observe dynamic events, or calculate specific properties like free energies. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000003 "execution"@en)
-SubClassOf(obo:MOLSIM_000003 obo:MOLSIM_000000)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000003 "The stage of a biomolecular simulation process where the main simulation runs are performed according to the prepared system and defined parameters to generate trajectory data. This phase involves propagating the system forward in time using algorithms like molecular dynamics or Monte Carlo, under specific ensemble conditions. The goal is typically to sample conformational space, observe dynamic events, or calculate specific properties like free energies."@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000003 "execution"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000003 "simulation execution"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000003 orcid:0000-0002-8291-8071)
+SubClassOf(obo:MOLSIM_000003 obo:MOLSIM_002156)
 
 # Class: obo:MOLSIM_000004 (analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000004 "The stage following simulation execution, where the generated trajectory data and energy files are processed and interpreted to extract meaningful scientific insights. This involves calculating various structural, dynamic, and thermodynamic properties, such as RMSD, RMSF, distances, angles, hydrogen bonds, interaction energies, free energies, diffusion coefficients, and clustering conformations. Appropriate analysis techniques are crucial for drawing valid conclusions from simulation results. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000004 "analysis"@en)
-SubClassOf(obo:MOLSIM_000004 obo:MOLSIM_000000)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000004 "analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000004 "simulation analysis"@en)
+SubClassOf(obo:MOLSIM_000004 obo:MOLSIM_002156)
 
 # Class: obo:MOLSIM_000005 (protonation)
 
@@ -4313,6 +4317,7 @@ SubClassOf(obo:MOLSIM_000207 obo:MOLSIM_001802)
 # Class: obo:MOLSIM_000208 (thermalization)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000208 "A step within the preparation or equilibration phase where the system's temperature is gradually raised or adjusted to the desired target temperature for the production simulation. This is typically done by coupling the system to a thermostat while velocities are assigned or rescaled. Proper thermalization ensures the system reaches the correct kinetic energy distribution before equilibration or production runs. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000208 "heating"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000208 "thermalization"@en)
 SubClassOf(obo:MOLSIM_000208 obo:MOLSIM_000002)
 
@@ -4975,8 +4980,9 @@ SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
 # Class: obo:MOLSIM_000310 (plan specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "TODO: to be imported from http://purl.obolibrary.org/obo/IAO_0000104 (plan specification)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "Kept as a MOLSIM term rather than reusing IAO:0000104 plan specification, which is already present in the IAO import module but referenced nowhere. Reusing it would pull in two grouping levels MOLSIM has no use for, IAO:0000033 directive information entity and IAO:0000030 information content entity, and would place this branch under the BFO spine (BFO:0000031 generically dependent continuant and above), which MOLSIM defers. Revisit only if upper-ontology alignment is opened."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
+SubClassOf(obo:MOLSIM_000310 obo:MOLSIM_001072)
 
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
@@ -5870,10 +5876,10 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000447 "identifier"@en)
 
 # Class: obo:MOLSIM_000448 (protein database ID)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000448 "A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information."@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000448 orcid:0000-0003-4177-3619)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000448 "protein database ID"@en)
-SubClassOf(obo:MOLSIM_000448 obo:MOLSIM_000447)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000448 "OBSOLETE. A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000448 "obsolete protein database ID"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000448 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000448 "Retired 2026-08-07 on review by Daniel Beltran Anadon. Two objections, both accepted. First, the Protein Data Bank is not a protein database: it holds nucleic acids, protein-nucleic acid complexes and other assemblies, so the label and definition made a claim that is simply false. Second, a PDB entry identifies a deposited structure while a UniProt accession identifies a sequence record, so grouping them said less than it appeared to. Its two children, MOLSIM:000686 PDB ID and MOLSIM:000687 Uniprot ID, were re-parented to MOLSIM:000447 identifier alongside the other identifiers. No IAO:0100001 successor, because there is no single term that replaces it; this is the same shape as the other retired grouping terms whose children were re-parented instead. Note the term had been verified by orcid:0000-0003-4177-3619 before this review."@en)
 
 # Class: obo:MOLSIM_000449 (electrostatic damping function)
 
@@ -7361,13 +7367,13 @@ SubClassOf(obo:MOLSIM_000685 obo:MOLSIM_000141)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000686 "A PDB ID is the unique four-character alphanumeric code assigned to each experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier (e.g., '1TIM', '6M0J') serves as the standard way to reference and retrieve specific 3D structural data for proteins, nucleic acids, and their complexes. It allows researchers globally to unambiguously access the same structural entry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000686 "PDB ID"@en)
-SubClassOf(obo:MOLSIM_000686 obo:MOLSIM_000448)
+SubClassOf(obo:MOLSIM_000686 obo:MOLSIM_000447)
 
 # Class: obo:MOLSIM_000687 (Uniprot ID)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000687 "A UniProt ID, more formally known as a UniProt Accession Number (e.g., 'P00761', 'Q8WZ42'), is the stable and unique identifier assigned to a protein sequence record in the UniProt Knowledgebase (UniProtKB). This ID provides access to comprehensive information about a protein, including its sequence, function, annotations, and cross-references to other databases. It serves as a primary key for protein sequence and functional data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000687 "Uniprot ID"@en)
-SubClassOf(obo:MOLSIM_000687 obo:MOLSIM_000448)
+SubClassOf(obo:MOLSIM_000687 obo:MOLSIM_000447)
 
 # Class: obo:MOLSIM_000688 (data source)
 
@@ -9233,16 +9239,21 @@ SubClassOf(obo:MOLSIM_001041 obo:MOLSIM_001040)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001042 "The AMBER prmtop format is a text file that acts as a blueprint for a molecule, defining all its chemical properties for a simulation. It contains a complete description of the atoms, their connectivity through bonds, the force field parameters governing their interactions, and their partial charges. This file, used in conjunction with a coordinate file, provides all the static information the AMBER simulation engine needs to calculate the forces on the system. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001042 "AMBER parmtop format"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001042 "AMBER prmtop format"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001042 "parm7 format"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001042 "AMBER PARM7 format"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001042 "AMBER parm7 format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001042 "prmtop format"@en)
 SubClassOf(obo:MOLSIM_001042 obo:MOLSIM_000472)
 
 # Class: obo:MOLSIM_001043 (parm7 format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001043 "A file format from the Amber simulation software that describes the structure and force field parameters of a molecule. This is the traditional, ASCII-based version of the Amber parameter/topology file, containing all information needed to calculate forces on the system. It is often used interchangeably with the prmtop format. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001043 "OBSOLETE. A file format from the Amber simulation software that describes the structure and force field parameters of a molecule. This is the traditional, ASCII-based version of the Amber parameter/topology file, containing all information needed to calculate forces on the system. It is often used interchangeably with the prmtop format."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001043 "AMBER PARM7 format"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001043 "AMBER parm7 format"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001043 "parm7 format"@en)
-SubClassOf(obo:MOLSIM_001043 obo:MOLSIM_000472)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001043 "obsolete parm7 format"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001043 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001043 obo:MOLSIM_001042)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001043 "Retired 2026-08-07 as an internal duplicate of MOLSIM:001042 prmtop format. ParmEd writes one Amber topology format under two extensions, .prmtop and .parm7, so these were never two formats. Both terms also carried skos:exactMatch to the same EDAM term, EDAM:format_3881 AMBER top, which is what surfaced the duplication. prmtop survives because it is the name that actually occurs in practice: 19 occurrences against 0 for parm7 in the AMBER keyword corpus this ontology was extracted from. Its names are kept as exact synonyms on MOLSIM:001042."@en)
 
 # Class: obo:MOLSIM_001044 (cif format)
 
@@ -9287,15 +9298,19 @@ SubClassOf(obo:MOLSIM_001048 obo:MOLSIM_000447)
 
 # Class: obo:MOLSIM_001049 (rst format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001049 "A file format from the Amber software that saves the state of a simulation, allowing it to be continued later. This is a general term for Amber restart files, which can be either text-based or binary. It contains the atomic coordinates, velocities, and simulation box dimensions at a specific point in time. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001049 "A file format from the Amber software that saves the state of a simulation in plain text, allowing the run to be continued later. It contains the atomic coordinates, velocities, and periodic box dimensions at a specific point in time, in a human-readable form. The same ASCII format is written under several extensions, including .rst, .rst7 and .restrt. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001049 "rst7 format"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001049 "restrt format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001049 "rst format"@en)
 SubClassOf(obo:MOLSIM_001049 obo:MOLSIM_000471)
 
 # Class: obo:MOLSIM_001050 (rst7 format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001050 "A text-based file format from the Amber software that saves the state of a simulation. It is the ASCII version of the Amber restart file, containing coordinates, velocities, and box information in a human-readable format. This format is often used for its portability and ease of inspection. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001050 "rst7 format"@en)
-SubClassOf(obo:MOLSIM_001050 obo:MOLSIM_000471)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001050 "OBSOLETE. A text-based file format from the Amber software that saves the state of a simulation. It is the ASCII version of the Amber restart file, containing coordinates, velocities, and box information in a human-readable format. This format is often used for its portability and ease of inspection."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001050 "obsolete rst7 format"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001050 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001050 obo:MOLSIM_001049)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001050 "Retired 2026-08-07 as an internal duplicate of MOLSIM:001049 rst format. ParmEd writes one Amber ASCII coordinate format under several extensions, .rst7, .restrt and .inpcrd, so .rst and .rst7 were never two formats; the real division in this family is ASCII against the binary NetCDF MOLSIM:001051 ncrst format. Both terms also carried skos:closeMatch to the same EDAM term, EDAM:format_3886 RST, which is the pattern that surfaced the duplication. The curator chose rst as the surviving label; note that ParmEd itself does not write a .rst extension, so rst7 format and restrt format are kept as exact synonyms on MOLSIM:001049."@en)
 
 # Class: obo:MOLSIM_001051 (ncrst format)
 
@@ -12341,8 +12356,10 @@ SubClassOf(obo:MOLSIM_001565 obo:MOLSIM_001968)
 
 # Class: obo:MOLSIM_001566 (library)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001566 "A software library is a collection of pre-written code and subroutines that provide specific functionalities to be used by other programs. Libraries are not executed directly by end-users but are imported or linked by developers to perform specialized tasks, such as mathematical computations or file parsing. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001566 "library"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001566 "A software library is a collection of pre-written code and subroutines that provide specific functionalities to be used by other programs. Libraries are not executed directly by end-users but are imported or linked by developers to perform specialized tasks, such as mathematical computations or file parsing."@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001566 "library"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001566 "software library"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001566 orcid:0000-0002-8291-8071)
 SubClassOf(obo:MOLSIM_001566 obo:MOLSIM_000170)
 
 # Class: obo:MOLSIM_001567 (FFTW)
@@ -16483,7 +16500,7 @@ SubClassOf(obo:MOLSIM_002155 obo:MOLSIM_000310)
 # Class: obo:MOLSIM_002156 (simulation stage)
 
 Declaration(Class(obo:MOLSIM_002156))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002156 "A molecular dynamics process that constitutes one discrete, chronological phase within a larger simulation protocol, characterized by its own role and its own input and output files. Examples include a heating stage or a production stage. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002156 "A molecular dynamics process that constitutes one discrete, chronological phase within a larger simulation run, characterized by its own role and its own input and output files. Examples include a heating stage or a production stage. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002156 "simulation stage"@en)
 SubClassOf(obo:MOLSIM_002156 obo:MOLSIM_000000)
 
@@ -16560,10 +16577,10 @@ SubClassOf(obo:MOLSIM_002166 obo:MOLSIM_001696)
 # Object Property: obo:MOLSIM_002167 (has simulation stage)
 
 Declaration(ObjectProperty(obo:MOLSIM_002167))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002167 "A relation that links a simulation protocol to one of the discrete stages that make it up. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002167 "A relation that links a molecular dynamics process to one of the discrete stages that make it up. The stages belong to the run rather than to the protocol, because one protocol may be followed by many runs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002167 "has simulation stage"@en)
 SubObjectPropertyOf(obo:MOLSIM_002167 owl:topObjectProperty)
-ObjectPropertyDomain(obo:MOLSIM_002167 obo:MOLSIM_002155)
+ObjectPropertyDomain(obo:MOLSIM_002167 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002167 obo:MOLSIM_002156)
 
 # Object Property: obo:MOLSIM_002168 (has parameter schedule)
@@ -16850,6 +16867,15 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002202 "has simulation parameter"@en)
 SubObjectPropertyOf(obo:MOLSIM_002202 owl:topObjectProperty)
 ObjectPropertyDomain(obo:MOLSIM_002202 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002202 obo:MOLSIM_001164)
+
+# Object Property: obo:MOLSIM_002250 (follows protocol)
+
+Declaration(ObjectProperty(obo:MOLSIM_002250))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002250 "A relation that links a molecular dynamics process to the simulation protocol it was carried out according to. The protocol is the reusable plan and the process is one execution of it, so a single protocol may be followed by many runs. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002250 "follows protocol"@en)
+SubObjectPropertyOf(obo:MOLSIM_002250 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002250 obo:MOLSIM_000000)
+ObjectPropertyRange(obo:MOLSIM_002250 obo:MOLSIM_002155)
 
 
 # ==== ambermeta disjointness axioms ====
