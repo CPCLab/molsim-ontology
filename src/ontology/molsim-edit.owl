@@ -4953,7 +4953,7 @@ SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "Kept as a MOLSIM term rather than reusing IAO:0000104 plan specification, which is already present in the IAO import module but referenced nowhere. Reusing it would pull in two grouping levels MOLSIM has no use for, IAO:0000033 directive information entity and IAO:0000030 information content entity, and would place this branch under the BFO spine (BFO:0000031 generically dependent continuant and above), which MOLSIM defers. Revisit only if upper-ontology alignment is opened."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
-SubClassOf(obo:MOLSIM_000310 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_000310 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
@@ -9442,29 +9442,32 @@ SubClassOf(obo:MOLSIM_001071 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_001072 (information content entity)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001072 "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001072 "information content entity"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001072 "OBSOLETE. An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001072 "obsolete information content entity"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001072 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001072 obo:IAO_0000030)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001072 "Retired 2026-08-12 when MOLSIM adopted COB as its upper level. IAO:0000030 information content entity is one of COB's five roots and says the same thing, so keeping a MOLSIM class beside it was a duplicate. Its 8 direct children were re-parented onto IAO:0000030 in the same change; the 46 terms below them moved with their parents.")
 
 # Class: obo:MOLSIM_001073 (molecular system specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001073 "A molecular system specification defines the physical and chemical properties of a molecule required for computational chemistry and quantum mechanical simulations. This specification is the complete informational blueprint of the system before any simulation is performed."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001073 "molecular system specification"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001073 orcid:0000-0002-8291-8071)
-SubClassOf(obo:MOLSIM_001073 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001073 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001074 (process specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001074 "A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification must be recorded to ensure a computational experiment is reproducible."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001074 "process specification"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001074 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_001074 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001074 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001075 (process output)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001075 "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. These files are crucial for analyzing the outcome of computational jobs."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001075 "process output"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001075 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_001075 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001075 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001076 (molecular topology)
 
@@ -15616,7 +15619,7 @@ SubClassOf(obo:MOLSIM_002074 obo:MOLSIM_002067)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002075 "A dataset consisting of a collection of distinct molecular structures or conformations. Unlike a simulation trajectory, it does not inherently possess a chronological order, but rather represents a sampling of the structurally accessible states of a molecule (e.g., an NMR structural ensemble, or representative frames extracted via clustering). (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002075 "structural ensemble"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002075 "conformational ensemble"@en)
-SubClassOf(obo:MOLSIM_002075 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002075 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002076 (molecular mechanics)
 
@@ -16504,7 +16507,7 @@ SubClassOf(obo:MOLSIM_002159 obo:MOLSIM_000353)
 Declaration(Class(obo:MOLSIM_002160))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002160 "An information content entity that records a failure, exception, or warning encountered while reading or extracting metadata from a simulation data file. It preserves the reason a file could not be fully processed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002160 "file parsing error"@en)
-SubClassOf(obo:MOLSIM_002160 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002160 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002161 (file format convention)
 
@@ -16518,7 +16521,7 @@ SubClassOf(obo:MOLSIM_002161 obo:MOLSIM_000436)
 Declaration(Class(obo:MOLSIM_002162))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002162 "An information content entity that assigns a high-level descriptive category to a molecular system based on its overall composition, such as a protein-ligand complex in explicit water. It provides a concise, human-readable summary of what is being simulated. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002162 "system classification label"@en)
-SubClassOf(obo:MOLSIM_002162 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002162 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002163 (atom selection mask)
 
@@ -17263,7 +17266,7 @@ SubClassOf(obo:MOLSIM_002234 obo:MOLSIM_000843)
 Declaration(Class(obo:MOLSIM_002235))
 AnnotationAssertion(rdfs:label obo:MOLSIM_002235 "source structure residue mapping"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002235 "An information content entity that records how the atoms or residues in a simulation correspond to an experimental source structure (such as a PDB entry), including any changes made, for example point mutations or modelled-in missing residues. (UNVERIFIED)"@en)
-SubClassOf(obo:MOLSIM_002235 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002235 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002236 (oligomeric state)
 
