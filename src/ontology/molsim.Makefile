@@ -75,7 +75,13 @@ test: sssom_test
 # the mirror/*.owl sources to be present. Only an actual import refresh (IMP=true,
 # MIR=true) needs the mirrors.
 ifeq ($(IMP),true)
-$(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
+# NOTE on the two mirrors that are not present locally, measured 2026-08-12.
+# mirror/uo.owl does not exist at all, and the ChEBI mirror is mirror/chebi.owl.gz
+# while the rule below asks for mirror/chebi.owl. Both rules are correct as written and
+# both now depend on their terms file, but neither can be rebuilt offline: make stops
+# with "No rule to make target". Rebuilding them needs MIR=true and a download. The go
+# and stato rules were tested and both now rebuild when their terms file changes.
+$(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/uo_terms.txt \
@@ -130,7 +136,7 @@ $(IMPORTDIR)/so_import.owl: $(MIRRORDIR)/so.owl $(IMPORTDIR)/so_terms.txt $(IMPO
 # GO: bounded MIREOT (upper == lower) so only the listed leaf terms are pulled,
 # NOT their ancestors — this deliberately avoids dragging in GO cellular_component,
 # COB, or BFO upper-ontology classes (MOLSIM policy: no new upper-ontology imports).
-$(IMPORTDIR)/go_import.owl: $(MIRRORDIR)/go.owl
+$(IMPORTDIR)/go_import.owl: $(MIRRORDIR)/go.owl $(IMPORTDIR)/go_terms.txt
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/go_terms.txt \
@@ -141,14 +147,14 @@ $(IMPORTDIR)/go_import.owl: $(MIRRORDIR)/go.owl
 # STATO:0000039 statistic -> IAO:0000027 data item -> IAO:0000030 information content
 # entity -> BFO:0000031 -> BFO:0000001, so an unbounded extraction would inject IAO and
 # BFO upper-ontology parentage (MOLSIM policy: no new upper-ontology imports).
-$(IMPORTDIR)/stato_import.owl: $(MIRRORDIR)/stato.owl
+$(IMPORTDIR)/stato_import.owl: $(MIRRORDIR)/stato.owl $(IMPORTDIR)/stato_terms.txt
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/stato_terms.txt \
 		--upper-terms $(IMPORTDIR)/stato_terms.txt \
 		--output $@
 
-$(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl
+$(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl $(IMPORTDIR)/chebi_terms.txt
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/chebi_terms.txt \
