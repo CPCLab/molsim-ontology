@@ -4951,10 +4951,12 @@ SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_000310 (plan specification)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "OBSOLETE. A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\""@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "Kept as a MOLSIM term rather than reusing IAO:0000104 plan specification, which is already present in the IAO import module but referenced nowhere. Reusing it would pull in two grouping levels MOLSIM has no use for, IAO:0000033 directive information entity and IAO:0000030 information content entity, and would place this branch under the BFO spine (BFO:0000031 generically dependent continuant and above), which MOLSIM defers. Revisit only if upper-ontology alignment is opened."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
-SubClassOf(obo:MOLSIM_000310 obo:IAO_0000030)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "obsolete plan specification"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000310 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000310 obo:IAO_0000104)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "Retired 2026-08-12 as part of the COB alignment. IAO:0000104 plan specification says the same thing and is reached from IAO:0000030 information content entity, which MOLSIM already adopted. This retirement waited until the branch was cleaned: MOLSIM:000310 previously held four children of which three were not plans, and those moved to MOLSIM:002251 atom selection specification and MOLSIM:002252 selection criteria. Its one remaining child, MOLSIM:002155 simulation protocol, was re-parented onto IAO:0000104 in the same change.")
 
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
@@ -16473,7 +16475,7 @@ DisjointClasses(obo:MOLSIM_001605 obo:MOLSIM_001970 obo:MOLSIM_001971 obo:MOLSIM
 Declaration(Class(obo:MOLSIM_002155))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002155 "A plan specification that describes a sequential, multi-stage computational workflow, such as minimization, heating, equilibration, and production, applied to a molecular system. It organizes the individual stages and their ordering into a single reproducible procedure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002155 "simulation protocol"@en)
-SubClassOf(obo:MOLSIM_002155 obo:MOLSIM_000310)
+SubClassOf(obo:MOLSIM_002155 obo:IAO_0000104)
 
 # Class: obo:MOLSIM_002156 (simulation stage)
 
