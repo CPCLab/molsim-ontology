@@ -69,6 +69,82 @@ sssom_test:
 
 test: sssom_test
 
+# ---------------------------------------------------------------------------
+# Mirror downloads for so, go and stato
+# ---------------------------------------------------------------------------
+# The generated Makefile writes a download rule for every ontology in its
+# IMPORTS list, and that list reads "ro iao omo uo chebi". SO, GO and STATO were
+# added to molsim-odk.yaml on 2026-07-22, 2026-07-24 and 2026-07-29, and the
+# generated Makefile was never regenerated afterwards, so it still describes
+# five imports instead of eight. Their extraction rules were written by hand
+# below; their download rules were never written at all.
+#
+# The gap was silent rather than loud, which is why it went unnoticed. Tested by
+# counterfactual on 2026-08-12: with these rules removed, `make mirror/go.owl
+# MIR=true` did NOT fail. It answered "Nothing to be done for 'mirror/go.owl'",
+# because make finds a file that exists, finds no rule that can remake it, and
+# treats it as a source file it was handed. So a mirror refresh looked like it
+# had succeeded while quietly skipping SO, GO and STATO, and the import modules
+# were then extracted from whatever copy happened to be on disk, however old.
+#
+# The loud failure arrives on any machine that does not already have the file.
+# mirror/ is gitignored, so a fresh clone has none of the three, and make then
+# stops with "No rule to make target 'mirror/so.owl'" (confirmed the same day
+# against mirror/pato.owl, which is absent and equally ruleless). The three
+# mirrors on this machine were put there by hand and, until now, nothing in the
+# repository could produce them again.
+#
+# GO is downloaded uncompressed on purpose. molsim-odk.yaml sets
+# use_gzipped: TRUE for it, but http://purl.obolibrary.org/obo/go.owl.gz answers
+# 404 while go.owl answers 200 and is 130 MB (both checked 2026-08-12). The
+# longer --max-time reflects that size: 200 seconds would demand 650 KB/s for
+# the whole download.
+#
+# WHAT TO DO WITH THIS SECTION AFTER THE NEXT `make update_repo`.
+#
+# `make update_repo` rewrites the generated Makefile from molsim-odk.yaml. It
+# rebuilds the IMPORTS list, so SO, GO and STATO finally appear in it, and the
+# generated file then writes its own mirror-so and mirror-stato. Each of those
+# two targets is defined twice at that point: once there, once here.
+#
+# Nothing breaks. Make warns "overriding recipe for target", then keeps the LATER
+# definition and discards the earlier one. `include molsim.Makefile` is the last
+# line of the generated Makefile, so the rule written here always wins. The
+# imports/chebi_import.owl and imports/uo_import.owl rules below already produce
+# that pair of warnings today, harmlessly.
+#
+# The cost of leaving them is slower to appear. If a later ODK version improves
+# how mirroring works, by adding a cache check or a re-download interval, the
+# rule here silently keeps the old behaviour, and the improvement is missed while
+# looking like it was installed. So delete mirror-so and mirror-stato once the
+# generated file defines them.
+#
+# KEEP mirror-go, and check before removing it. The config sets use_gzipped for
+# GO, so a generated rule would download go.owl.gz, and that address answers 404.
+# The rule here downloads go.owl, which answers 200. For SO and STATO the
+# generated rule is the better one; for GO the generated rule is broken.
+ifeq ($(MIR),true)
+
+.PHONY: mirror-so
+.PRECIOUS: $(MIRRORDIR)/so.owl
+mirror-so: | $(TMPDIR)
+	curl -L $(OBOBASE)/so.owl --create-dirs -o $(TMPDIR)/so-download.owl --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(TMPDIR)/so-download.owl -o $(TMPDIR)/$@.owl
+
+.PHONY: mirror-stato
+.PRECIOUS: $(MIRRORDIR)/stato.owl
+mirror-stato: | $(TMPDIR)
+	curl -L $(OBOBASE)/stato.owl --create-dirs -o $(TMPDIR)/stato-download.owl --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(TMPDIR)/stato-download.owl -o $(TMPDIR)/$@.owl
+
+.PHONY: mirror-go
+.PRECIOUS: $(MIRRORDIR)/go.owl
+mirror-go: | $(TMPDIR)
+	curl -L $(OBOBASE)/go.owl --create-dirs -o $(TMPDIR)/go-download.owl --retry 4 --max-time 1200 && \
+	$(ROBOT) convert -i $(TMPDIR)/go-download.owl -o $(TMPDIR)/$@.owl
+
+endif # MIR=true
+
 # Custom import modules. Guarded by IMP=true (like the standard rules in the main
 # Makefile) so that when imports are NOT being rebuilt (IMP=false, e.g. in CI/QC),
 # the committed imports/*_import.owl are treated as static files and do not require
@@ -76,11 +152,13 @@ test: sssom_test
 # MIR=true) needs the mirrors.
 ifeq ($(IMP),true)
 # NOTE on the two mirrors that are not present locally, measured 2026-08-12.
-# mirror/uo.owl does not exist at all, and the ChEBI mirror is mirror/chebi.owl.gz
-# while the rule below asks for mirror/chebi.owl. Both rules are correct as written and
-# both now depend on their terms file, but neither can be rebuilt offline: make stops
-# with "No rule to make target". Rebuilding them needs MIR=true and a download. The go
-# and stato rules were tested and both now rebuild when their terms file changes.
+# mirror/uo.owl does not exist at all, and the ChEBI mirror is mirror/chebi.owl.gz while
+# the rule below asks for mirror/chebi.owl. Both rules are correct as written and both now
+# depend on their terms file, but neither can be rebuilt offline: make stops with "No rule
+# to make target". This is a cold cache rather than a defect, because the generated
+# Makefile does hold a download rule for each of them, so MIR=true and a network
+# connection restore both. The go and stato rules were tested and both now rebuild when
+# their terms file changes.
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
