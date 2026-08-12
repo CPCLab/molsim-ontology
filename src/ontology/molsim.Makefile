@@ -180,3 +180,26 @@ release-nobfo: all
 		--preserve-structure false \
 		-o $(ONT)-base.owl
 	@echo "Done! BFO hierarchy has been removed."
+
+# IAO: take EXACTLY the requested terms and nothing above them.
+#
+# The generic ODK rule uses --method BOT over a seed built from the whole ontology.
+# IAO's own classes are BFO subclasses, so that pulls BFO's entire top level into the
+# module and into every release. Measured 2026-08-12: 12 BFO classes were published
+# while no MOLSIM class had a BFO parent. Editing the terms file does not fix it,
+# because the properties MOLSIM uses pull their domains and ranges, and those are the
+# BFO subclasses.
+#
+# Bounded MIREOT does not work here either: MIREOT is class-oriented, and every seed
+# in iao_terms.txt is currently a property, so it produced an empty module. `filter`
+# with `self` takes each named term with its own annotations and no ancestry, which is
+# the same approach the RO import already uses.
+$(IMPORTDIR)/iao_import.owl: $(MIRRORDIR)/iao.owl $(IMPORTDIR)/iao_terms.txt
+	$(ROBOT) filter --input $< \
+		--term-file $(IMPORTDIR)/iao_terms.txt \
+		--select "self annotations" \
+		--signature true \
+		--trim true \
+		annotate --ontology-iri $(ONTBASE)/imports/iao_import.owl \
+		convert -f ofn \
+		--output $@
