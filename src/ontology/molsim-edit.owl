@@ -2897,12 +2897,21 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002148 "born radii set name"@en)
 SubDataPropertyOf(obo:MOLSIM_002148 obo:MOLSIM_002143)
 DataPropertyRange(obo:MOLSIM_002148 xsd:string)
 
-# Data Property: obo:MOLSIM_002149 (has log or validation record)
+# Data Property: obo:MOLSIM_002149 (has diagnostic record)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002149 "A relation that groups properties recording diagnostic messages and validation outcomes produced while running or checking a simulation. It serves as an organizing parent for log- and validation-related metadata relations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002149 "has log or validation record"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002149 "A relation that groups properties recording what a simulation or a checking step reported about itself, such as an error message, a warning, or the outcome of a validation check. It gathers the output a run produced about its own progress, as distinct from the settings it was given. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002149 "has diagnostic record"@en)
 SubDataPropertyOf(obo:MOLSIM_002149 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_002149 obo:MOLSIM_000000)
 DataPropertyRange(obo:MOLSIM_002149 xsd:string)
+
+# Data Property: obo:MOLSIM_002253 (has run input record)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002253 "A relation that groups properties recording what a simulation run was given to start from, such as the settings parsed from its input file or the restart file it continued from. It covers the input side of a run, as distinct from what the run reported about itself. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002253 "has run input record"@en)
+SubDataPropertyOf(obo:MOLSIM_002253 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_002253 obo:MOLSIM_000000)
+DataPropertyRange(obo:MOLSIM_002253 xsd:string)
 
 # Data Property: obo:MOLSIM_002150 (has error message)
 
@@ -16741,7 +16750,7 @@ DataPropertyRange(obo:MOLSIM_002188 xsd:string)
 Declaration(DataProperty(obo:MOLSIM_002189))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002189 "A relation that associates a simulation with the complete, serialized set of key-value control parameters parsed from its input file. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002189 "raw control parameters"@en)
-SubDataPropertyOf(obo:MOLSIM_002189 obo:MOLSIM_002149)
+SubDataPropertyOf(obo:MOLSIM_002189 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002189 xsd:string)
 
 # Data Property: obo:MOLSIM_002190 (REMD variant type)
@@ -16755,9 +16764,10 @@ DataPropertyRange(obo:MOLSIM_002190 xsd:string)
 # Data Property: obo:MOLSIM_002191 (restart file path)
 
 Declaration(DataProperty(obo:MOLSIM_002191))
+Declaration(DataProperty(obo:MOLSIM_002253))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002191 "A relation that associates a simulation stage with the file path or identifier of the restart file used to initiate it. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002191 "restart file path"@en)
-SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002149)
+SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002191 xsd:string)
 
 # ==== ambermeta Tier B native gap closure ====
