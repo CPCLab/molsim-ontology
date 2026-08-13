@@ -3059,10 +3059,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000015 "A set of parameters speci
 AnnotationAssertion(rdfs:label obo:MOLSIM_000015 "ion force field"@en)
 SubClassOf(obo:MOLSIM_000015 obo:MOLSIM_000772)
 
-# Class: obo:MOLSIM_000016 (other organic molecules force field)
+# Class: obo:MOLSIM_000016 (general purpose organic force field)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000016 "General purpose force fields applicable to a wide range of organic molecules not covered by protein, lipid, nucleic acid, or carbohydrate specific parameter sets. These general force fields (like GAFF, CGenFF) use atom typing rules based on chemical environment to assign parameters, making them versatile for arbitrary organic molecules like drugs or ligands. They contrast with highly specialized biomolecular force fields. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000016 "other organic molecules force field"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000016 "other organic molecules force field"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000016 "general purpose organic force field"@en)
 SubClassOf(obo:MOLSIM_000016 obo:MOLSIM_000772)
 
 # Class: obo:MOLSIM_000017 (minimal basis set)
@@ -3722,7 +3723,7 @@ SubClassOf(obo:MOLSIM_000117 obo:MOLSIM_000300)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000118 "Jensen-Shannon Divergence (JSD) is a method for measuring the similarity between two probability distributions, based on the Kullback-Leibler (KL) divergence. Unlike KL divergence, JSD is symmetric (JSD(P||Q) = JSD(Q||P)) and always has a finite value. It essentially measures the divergence of each distribution from the average of the two distributions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000118 "Jensen-Shannon divergence analysis"@en)
-SubClassOf(obo:MOLSIM_000118 obo:MOLSIM_000351)
+SubClassOf(obo:MOLSIM_000118 obo:MOLSIM_000400)
 
 # Class: obo:MOLSIM_000119 (Kullback-Leibler divergence)
 
@@ -5244,11 +5245,12 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000350 "SAXS"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000350 "small angle x-ray scattering"@en)
 SubClassOf(obo:MOLSIM_000350 obo:MOLSIM_000990)
 
-# Class: obo:MOLSIM_000351 (similarity and divergence analysis)
+# Class: obo:MOLSIM_000351 (obsolete similarity and divergence analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000351 "Similarity and divergence measures are mathematical quantities used to compare two probability distributions, datasets, or sequences, quantifying how similar or different they are. Similarity measures indicate closeness (higher values mean more similar), while divergence measures quantify the difference or 'distance' between them (higher values mean more different). These are used in various fields including information theory, statistics, and bioinformatics (e.g., comparing conformational ensembles). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000351 "similarity and divergence analysis"@en)
-SubClassOf(obo:MOLSIM_000351 obo:MOLSIM_000400)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000351 "OBSOLETE. Similarity and divergence measures are mathematical quantities used to compare two probability distributions, datasets, or sequences, quantifying how similar or different they are. Similarity measures indicate closeness (higher values mean more similar), while divergence measures quantify the difference or 'distance' between them (higher values mean more different). These are used in various fields including information theory, statistics, and bioinformatics (e.g., comparing conformational ensembles)."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000351 "obsolete similarity and divergence analysis"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000351 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000351 "Retired 2026-08-13. It held a single child, MOLSIM:000118 Jensen-Shannon divergence analysis, which now sits directly under MOLSIM:000400 statistical analysis beside correlation analysis and hypothesis testing analysis. Three faults made it worth removing rather than renaming: the label joined two ideas with and, which reviewers raised as a pattern in August 2026; it grouped one term, so it explained nothing; and its definition described similarity and divergence measures, meaning quantities, while the class was labelled an analysis and parented under statistical analysis. The same shape as MOLSIM:000918 global structure analysis, retired on 2026-08-08.")
 
 # Class: obo:MOLSIM_000352 (binpos format)
 
