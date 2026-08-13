@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                f19ce452d44a9ec65f069d8f3edc88c55b49150ccbd0e628cacbc6a232bc936d
+CONFIG_HASH=                2ab35ac3710e5376cd1734c7dea476a191b2bf05b57ced1c251b4cc15848ade2
 
 
 # ----------------------------------------
@@ -187,7 +187,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  ro iao omo uo chebi
+IMPORTS =  ro iao omo uo so go stato chebi
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -434,6 +434,26 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl
 	@echo "       This rule needs to be overwritten in molsim.Makefile!"
 	@false
 
+## Module for ontology: so (custom)
+$(IMPORTDIR)/so_import.owl: $(MIRRORDIR)/so.owl
+	@echo "ERROR: You have configured so as a custom module;"
+	@echo "       This rule needs to be overwritten in molsim.Makefile!"
+	@false
+
+## Module for ontology: go (custom)
+ifeq ($(IMP_LARGE),true)
+$(IMPORTDIR)/go_import.owl: 
+	@echo "ERROR: You have configured go as a custom module;"
+	@echo "       This rule needs to be overwritten in molsim.Makefile!"
+	@false
+endif # IMP_LARGE=true
+
+## Module for ontology: stato (custom)
+$(IMPORTDIR)/stato_import.owl: $(MIRRORDIR)/stato.owl
+	@echo "ERROR: You have configured stato as a custom module;"
+	@echo "       This rule needs to be overwritten in molsim.Makefile!"
+	@false
+
 ## Module for ontology: chebi (custom)
 ifeq ($(IMP_LARGE),true)
 $(IMPORTDIR)/chebi_import.owl: 
@@ -544,6 +564,31 @@ mirror-omo: | $(TMPDIR)
 mirror-uo: | $(TMPDIR)
 	curl -L $(OBOBASE)/uo.owl --create-dirs -o $(TMPDIR)/uo-download.owl --retry 4 --max-time 200 && \
 	$(ROBOT) convert -i $(TMPDIR)/uo-download.owl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: so
+.PHONY: mirror-so
+.PRECIOUS: $(MIRRORDIR)/so.owl
+mirror-so: | $(TMPDIR)
+	curl -L $(OBOBASE)/so.owl --create-dirs -o $(TMPDIR)/so-download.owl --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(TMPDIR)/so-download.owl -o $(TMPDIR)/$@.owl
+
+
+## ONTOLOGY: go
+
+ifeq ($(IMP_LARGE),true)
+mirror-go: | $(TMPDIR)
+	curl -L $(OBOBASE)/go.owl.gz --create-dirs -o $(MIRRORDIR)/go.owl.gz --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(MIRRORDIR)/go.owl.gz -o $(TMPDIR)/$@.owl
+endif
+
+
+## ONTOLOGY: stato
+.PHONY: mirror-stato
+.PRECIOUS: $(MIRRORDIR)/stato.owl
+mirror-stato: | $(TMPDIR)
+	curl -L $(OBOBASE)/stato.owl --create-dirs -o $(TMPDIR)/stato-download.owl --retry 4 --max-time 200 && \
+	$(ROBOT) convert -i $(TMPDIR)/stato-download.owl -o $(TMPDIR)/$@.owl
 
 
 ## ONTOLOGY: chebi
