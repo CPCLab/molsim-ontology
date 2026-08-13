@@ -2228,6 +2228,7 @@ Declaration(AnnotationProperty(obo:IAO_0000116))
 Declaration(AnnotationProperty(obo:IAO_0000117))
 Declaration(AnnotationProperty(obo:IAO_0000119))
 Declaration(AnnotationProperty(obo:IAO_0100001))
+Declaration(AnnotationProperty(obo:MOLSIM_002254))
 Declaration(AnnotationProperty(dcterms:contributor))
 Declaration(AnnotationProperty(dcterms:creator))
 Declaration(AnnotationProperty(dcterms:description))
@@ -2254,6 +2255,11 @@ AnnotationAssertion(rdfs:label obo:IAO_0000117 "term editor"@en)
 # Annotation Property: obo:IAO_0000119 (definition source)
 
 AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
+
+# Annotation Property: obo:MOLSIM_002254 (has software keyword)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002254 "A relation that records the name a piece of simulation software uses for the concept this term names, as it appears in that software's input file, output file or command line. The software the name belongs to is given by annotating the statement itself with dcterms:source, so one property serves every program rather than needing one property per program. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002254 "has software keyword"@en)
 
 # Annotation Property: obo:IAO_0100001 (term replaced by)
 
@@ -9948,6 +9954,8 @@ SubClassOf(obo:MOLSIM_001186 obo:MOLSIM_001185)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001187 "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001187 "non-bonded cutoff distance"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001187 "cut")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_001187 "rvdw")
 SubClassOf(obo:MOLSIM_001187 obo:MOLSIM_001185)
 SubClassOf(obo:MOLSIM_001187 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
 SubClassOf(obo:MOLSIM_001187 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
