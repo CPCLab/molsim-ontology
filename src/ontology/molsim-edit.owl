@@ -10,7 +10,6 @@ Prefix(dcterms:=<http://purl.org/dc/terms/>)
 Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
 Prefix(orcid:=<https://orcid.org/>)
 
-
 Ontology(<http://purl.obolibrary.org/obo/molsim.owl>
 Import(<http://purl.obolibrary.org/obo/molsim/components/molsim_units_component.owl>)
 Import(<http://purl.obolibrary.org/obo/molsim/imports/chebi_import.owl>)
@@ -2065,10 +2064,6 @@ Declaration(Class(obo:MOLSIM_010026))
 Declaration(Class(obo:MOLSIM_010027))
 Declaration(Class(obo:MOLSIM_010028))
 Declaration(Class(obo:UO_0000001))
-Declaration(ObjectProperty(obo:BFO_0000050))
-Declaration(ObjectProperty(obo:BFO_0000051))
-Declaration(ObjectProperty(obo:BFO_0000055))
-Declaration(ObjectProperty(obo:BFO_0000063))
 Declaration(ObjectProperty(obo:IAO_0000039))
 Declaration(DataProperty(obo:IAO_0000004))
 Declaration(ObjectProperty(obo:IAO_0000136))
@@ -2264,30 +2259,9 @@ AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
 
 AnnotationAssertion(rdfs:label obo:IAO_0100001 "term replaced by"@en)
 
-
 ############################
 #   Object Properties
 ############################
-
-# Object Property: obo:BFO_0000050 (part of)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000050 "part of"@en)
-SubObjectPropertyOf(obo:BFO_0000050 owl:topObjectProperty)
-
-# Object Property: obo:BFO_0000051 (has part)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000051 "has part"@en)
-SubObjectPropertyOf(obo:BFO_0000051 owl:topObjectProperty)
-
-# Object Property: obo:BFO_0000055 (realizes)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000055 "realizes"@en)
-SubObjectPropertyOf(obo:BFO_0000055 owl:topObjectProperty)
-
-# Object Property: obo:BFO_0000063 (precedes)
-
-AnnotationAssertion(rdfs:label obo:BFO_0000063 "precedes"@en)
-SubObjectPropertyOf(obo:BFO_0000063 owl:topObjectProperty)
 
 # Object Property: obo:IAO_0000039 (has measurement unit label)
 
@@ -2355,6 +2329,7 @@ ObjectPropertyRange(obo:MOLSIM_001034 obo:MOLSIM_000904)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001035 "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001035 "validated ligand selection criteria"@en)
+SubClassOf(obo:MOLSIM_001035 obo:MOLSIM_002252)
 SubObjectPropertyOf(obo:MOLSIM_001035 owl:topObjectProperty)
 ObjectPropertyDomain(obo:MOLSIM_001035 obo:MOLSIM_000310)
 ObjectPropertyRange(obo:MOLSIM_001035 obo:MOLSIM_000143)
@@ -2391,7 +2366,6 @@ SubObjectPropertyOf(obo:RO_0002233 owl:topObjectProperty)
 
 AnnotationAssertion(rdfs:label obo:RO_0002234 "has output"@en)
 SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
-
 
 ############################
 #   Data Properties
@@ -2964,8 +2938,6 @@ DataPropertyRange(obo:MOLSIM_002154 xsd:string)
 # Data Property: owl:topDataProperty (owl:topDataProperty)
 
 DataPropertyDomain(owl:topDataProperty obo:MOLSIM_001887)
-
-
 
 ############################
 #   Classes
@@ -3895,7 +3867,7 @@ SubClassOf(obo:MOLSIM_000142 obo:MOLSIM_000127)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000143 "Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000143 "ligand pairs selection criteria"@en)
-SubClassOf(obo:MOLSIM_000143 obo:MOLSIM_000310)
+SubClassOf(obo:MOLSIM_000143 obo:MOLSIM_002252)
 
 # Class: obo:MOLSIM_000144 (structural similarity)
 
@@ -4103,7 +4075,7 @@ SubClassOf(obo:MOLSIM_000175 obo:MOLSIM_000161)
 
 # Class: obo:MOLSIM_000176 (GAMESS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000176 "This likely refers to GAMESS-US (General Atomic and Molecular Electronic Structure System), a widely used, freely available quantum chemistry software package. It provides a broad range of quantum mechanical methods (HF, DFT, MP2, CCSD, MCSCF) and features for geometry optimization, vibrational analysis, property calculation, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (If GAMESS-UK was intended, see previous definition) (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000176 "A quantum chemistry engine of the GAMESS family, a group of related ab initio electronic structure packages that share a common origin and a similar range of methods. Two distinct programs carry the name and are maintained separately, so a record should normally state which one was used. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000176 "GAMESS"@en)
 SubClassOf(obo:MOLSIM_000176 obo:MOLSIM_000161)
 
@@ -4979,10 +4951,12 @@ SubClassOf(obo:MOLSIM_000309 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_000310 (plan specification)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000310 "OBSOLETE. A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\""@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "Kept as a MOLSIM term rather than reusing IAO:0000104 plan specification, which is already present in the IAO import module but referenced nowhere. Reusing it would pull in two grouping levels MOLSIM has no use for, IAO:0000033 directive information entity and IAO:0000030 information content entity, and would place this branch under the BFO spine (BFO:0000031 generically dependent continuant and above), which MOLSIM defers. Revisit only if upper-ontology alignment is opened."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "plan specification"@en)
-SubClassOf(obo:MOLSIM_000310 obo:MOLSIM_001072)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000310 "obsolete plan specification"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000310 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000310 obo:IAO_0000104)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000310 "Retired 2026-08-12 as part of the COB alignment. IAO:0000104 plan specification says the same thing and is reached from IAO:0000030 information content entity, which MOLSIM already adopted. This retirement waited until the branch was cleaned: MOLSIM:000310 previously held four children of which three were not plans, and those moved to MOLSIM:002251 atom selection specification and MOLSIM:002252 selection criteria. Its one remaining child, MOLSIM:002155 simulation protocol, was re-parented onto IAO:0000104 in the same change.")
 
 # Class: obo:MOLSIM_000311 (RMSD analysis)
 
@@ -5669,7 +5643,9 @@ SubClassOf(obo:MOLSIM_000414 obo:MOLSIM_000845)
 
 # Class: obo:MOLSIM_000415 (EMIL free energy analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000415 "The EMIL (Energy and Motion from an Implicit Liquid) free energy method is a computational technique for calculating the free energy profile along a specific coordinate. It works by determining the average force exerted by the solvent on the solute at different points along a pathway and then integrating this force to obtain the potential of mean force. This provides an efficient way to map out the energetic landscape of a conformational change or binding process. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000415 "A free energy calculation analysis that computes an absolute free energy by thermodynamic integration from a realistic atomistic model to a simplified reference model whose free energy can be solved exactly. The Einstein Molecule model is used for the solute, in which each atom is held in place by a harmonic potential so that the reference free energy has a closed-form solution. EMIL is the name of the module that implements this in AMBER, and its authors call the underlying method Thermodynamic Integration relative to an Exact Solution. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000415 "Berryman J.T. and Schilling T. Free energies by thermodynamic integration relative to an exact solution, used to find the handedness-switching salt concentration for DNA. J. Chem. Theory Comput. 9(1):679-686, 2013.")
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000415 "Berryman J.T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia, 2014. States that the AMBER implementation of this method is called EMIL.")
 AnnotationAssertion(rdfs:label obo:MOLSIM_000415 "EMIL free energy analysis"@en)
 SubClassOf(obo:MOLSIM_000415 obo:MOLSIM_000615)
 
@@ -5962,7 +5938,7 @@ SubClassOf(obo:MOLSIM_000460 obo:MOLSIM_000257)
 
 # Class: obo:MOLSIM_000461 (molecular mechanics Poisson-Boltzmann surface area module)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000461 "This likely refers to a software module or library component within a larger simulation or modeling package that provides the functionality to perform MM/PBSA calculations. Unlike a standalone script like MMPBSA.py, this would be an integrated part of a program (like CHARMM, Schrödinger suite, MOE) offering MM/PBSA analysis as one of its features, using its internal MM energy calculation routines and PB solvers. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000461 "A molecular mechanics Poisson-Boltzmann surface area tool that is built into a larger simulation or modelling package rather than run on its own. It uses that package's own energy routines and Poisson-Boltzmann solver, which is what distinguishes it from a standalone script such as MMPBSA.py. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000461 "MMPBSA module"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000461 "molecular mechanics Poisson-Boltzmann surface area module"@en)
 SubClassOf(obo:MOLSIM_000461 obo:MOLSIM_000460)
@@ -7885,13 +7861,13 @@ SubClassOf(obo:MOLSIM_000778 obo:MOLSIM_000161)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000779 "A quantum chemistry software package developed in the UK, distinct from GAMESS-US, though sharing common historical roots. It offers a broad range of ab initio QM methods (HF, MP2, CCSD(T), MCSCF, DFT) and includes capabilities for QM/MM calculations. Like other QM packages, it is primarily used for electronic structure calculations and parameterization rather than large-scale classical MD. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000779 "GAMESS-UK"@en)
-SubClassOf(obo:MOLSIM_000779 obo:MOLSIM_000161)
+SubClassOf(obo:MOLSIM_000779 obo:MOLSIM_000176)
 
 # Class: obo:MOLSIM_000780 (GAMESS-US)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000780 "A widely used, freely available quantum chemistry software package (General Atomic and Molecular Electronic Structure System). It provides a broad range of quantum mechanical methods, from semi-empirical to high-level ab initio (HF, DFT, MP2, CCSD, MCSCF), and includes features for geometry optimization, vibrational analysis, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000780 "GAMESS-US"@en)
-SubClassOf(obo:MOLSIM_000780 obo:MOLSIM_000161)
+SubClassOf(obo:MOLSIM_000780 obo:MOLSIM_000176)
 
 # Class: obo:MOLSIM_000781 (GROMOS)
 
@@ -8784,9 +8760,10 @@ SubClassOf(obo:MOLSIM_000917 obo:MOLSIM_000026)
 
 # Class: obo:MOLSIM_000918 (global structure analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000918 "A structural analysis focusing on the overall architecture, shape, fold, and packing of a macromolecule or molecular complex, rather than fine details. This is often characterized by metrics like the radius of gyration, principal moments of inertia, overall dimensions, secondary structure content (for proteins), or tertiary arrangement of domains. It provides a macroscopic view of the molecule's conformation and large-scale structural changes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000918 "global structure analysis"@en)
-SubClassOf(obo:MOLSIM_000918 obo:MOLSIM_000917)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000918 "OBSOLETE. A structural analysis focusing on the overall architecture, shape, fold, and packing of a macromolecule or molecular complex, rather than fine details. This is often characterized by metrics like the radius of gyration, principal moments of inertia, overall dimensions, secondary structure content (for proteins), or tertiary arrangement of domains. It provides a macroscopic view of the molecule's conformation and large-scale structural changes."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000918 "obsolete global structure analysis"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000918 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000918 "Retired because it grouped nothing: the analyses its definition named (radius of gyration, principal moments of inertia, secondary structure) are siblings under MOLSIM:000917 structural analysis, not subclasses of this term. Raised in the August 2026 definition review.")
 
 # Class: obo:MOLSIM_000921 (crd format)
 
@@ -9468,29 +9445,32 @@ SubClassOf(obo:MOLSIM_001071 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_001072 (information content entity)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001072 "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001072 "information content entity"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001072 "OBSOLETE. An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001072 "obsolete information content entity"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001072 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001072 obo:IAO_0000030)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001072 "Retired 2026-08-12 when MOLSIM adopted COB as its upper level. IAO:0000030 information content entity is one of COB's five roots and says the same thing, so keeping a MOLSIM class beside it was a duplicate. Its 8 direct children were re-parented onto IAO:0000030 in the same change; the 46 terms below them moved with their parents.")
 
 # Class: obo:MOLSIM_001073 (molecular system specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001073 "A molecular system specification defines the physical and chemical properties of a molecule required for computational chemistry and quantum mechanical simulations. This specification is the complete informational blueprint of the system before any simulation is performed."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001073 "molecular system specification"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001073 orcid:0000-0002-8291-8071)
-SubClassOf(obo:MOLSIM_001073 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001073 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001074 (process specification)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001074 "A process specification is the abstract set of instructions and parameters that define how a computational task, like a simulation or an analysis, should be performed. It represents the complete plan for the process, including the choice of algorithms, control settings, and input files. This specification must be recorded to ensure a computational experiment is reproducible."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001074 "process specification"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001074 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_001074 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001074 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001075 (process output)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001075 "An output file is generated by a computational program and contains the results of the calculation or simulation, along with logs, progress information, and any error messages. These files are crucial for analyzing the outcome of computational jobs."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001075 "process output"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001075 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_001075 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_001075 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_001076 (molecular topology)
 
@@ -9666,7 +9646,9 @@ SubClassOf(obo:MOLSIM_001101 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_001102 (EMIL input format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001102 "The EMIL input format is a specific file that contains the control data and parameters for running a calculation with the EMIL (Energy and Motion from an Implicit Liquid) program. It specifies the settings required by the EMIL method to calculate free energy profiles and analyze molecular motions. This input file is the primary way a user provides instructions to the EMIL software. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001102 "A simulation parameter format that holds the control settings for an EMIL absolute free energy calculation in AMBER, conventionally in a file named emilParameters.in. It records the reference model parameters and the integration settings that the calculation needs. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001102 "Berryman J.T. and Schilling T. Free energies by thermodynamic integration relative to an exact solution, used to find the handedness-switching salt concentration for DNA. J. Chem. Theory Comput. 9(1):679-686, 2013.")
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001102 "Berryman J.T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia, 2014. States that the AMBER implementation of this method is called EMIL.")
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001102 "emilParameters.in format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001102 "EMIL input format"@en)
 SubClassOf(obo:MOLSIM_001102 obo:MOLSIM_002065)
@@ -15640,7 +15622,7 @@ SubClassOf(obo:MOLSIM_002074 obo:MOLSIM_002067)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002075 "A dataset consisting of a collection of distinct molecular structures or conformations. Unlike a simulation trajectory, it does not inherently possess a chronological order, but rather represents a sampling of the structurally accessible states of a molecule (e.g., an NMR structural ensemble, or representative frames extracted via clustering). (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002075 "structural ensemble"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002075 "conformational ensemble"@en)
-SubClassOf(obo:MOLSIM_002075 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002075 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002076 (molecular mechanics)
 
@@ -16031,7 +16013,6 @@ SubClassOf(obo:MOLSIM_010027 obo:MOLSIM_000328)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010028 "LEaP analysis is the diagnostic process performed by the AMBER LEaP program to validate the chemical and topological integrity of a molecular system during setup. It scans the assembled unit for critical errors such as unassigned force field parameters, non-integer net charges, or atoms with overlapping coordinates. This check is a mandatory quality control step to ensure that the generated topology and coordinate files are physically valid for molecular dynamics simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_010028 "leap analysis"@en)
 SubClassOf(obo:MOLSIM_010028 obo:MOLSIM_000328)
-
 
 ############################
 #   Named Individuals
@@ -16437,7 +16418,6 @@ AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001945 obo:MOLSIM_001949)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001945 "Obsoleted: redundant untyped individual duplicating the class 'omni-path' (MOLSIM_001949), which is the concept to use instead."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001945 "obsolete Omni-Path"@en)
 
-
 DisjointClasses(obo:MOLSIM_000005 obo:MOLSIM_000208 obo:MOLSIM_000209)
 DisjointClasses(obo:MOLSIM_000017 obo:MOLSIM_000485 obo:MOLSIM_000580 obo:MOLSIM_000581)
 DisjointClasses(obo:MOLSIM_000021 obo:MOLSIM_000132 obo:MOLSIM_000741 obo:MOLSIM_000742 obo:MOLSIM_000743 obo:MOLSIM_000744 obo:MOLSIM_000745 obo:MOLSIM_000746 obo:MOLSIM_000747 obo:MOLSIM_000748 obo:MOLSIM_000749 obo:MOLSIM_000750 obo:MOLSIM_000751 obo:MOLSIM_000752 obo:MOLSIM_000753 obo:MOLSIM_000754 obo:MOLSIM_000755 obo:MOLSIM_000756 obo:MOLSIM_000757 obo:MOLSIM_000758 obo:MOLSIM_000759 obo:MOLSIM_000760 obo:MOLSIM_000761 obo:MOLSIM_000762)
@@ -16495,7 +16475,7 @@ DisjointClasses(obo:MOLSIM_001605 obo:MOLSIM_001970 obo:MOLSIM_001971 obo:MOLSIM
 Declaration(Class(obo:MOLSIM_002155))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002155 "A plan specification that describes a sequential, multi-stage computational workflow, such as minimization, heating, equilibration, and production, applied to a molecular system. It organizes the individual stages and their ordering into a single reproducible procedure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002155 "simulation protocol"@en)
-SubClassOf(obo:MOLSIM_002155 obo:MOLSIM_000310)
+SubClassOf(obo:MOLSIM_002155 obo:IAO_0000104)
 
 # Class: obo:MOLSIM_002156 (simulation stage)
 
@@ -16530,7 +16510,7 @@ SubClassOf(obo:MOLSIM_002159 obo:MOLSIM_000353)
 Declaration(Class(obo:MOLSIM_002160))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002160 "An information content entity that records a failure, exception, or warning encountered while reading or extracting metadata from a simulation data file. It preserves the reason a file could not be fully processed. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002160 "file parsing error"@en)
-SubClassOf(obo:MOLSIM_002160 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002160 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002161 (file format convention)
 
@@ -16544,14 +16524,14 @@ SubClassOf(obo:MOLSIM_002161 obo:MOLSIM_000436)
 Declaration(Class(obo:MOLSIM_002162))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002162 "An information content entity that assigns a high-level descriptive category to a molecular system based on its overall composition, such as a protein-ligand complex in explicit water. It provides a concise, human-readable summary of what is being simulated. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002162 "system classification label"@en)
-SubClassOf(obo:MOLSIM_002162 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002162 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002163 (atom selection mask)
 
 Declaration(Class(obo:MOLSIM_002163))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002163 "A plan specification that defines a specific subset of atoms within a molecular system using a formal string or logical expression, for the purpose of applying restraints, constraints, or targeted analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002163 "atom selection mask"@en)
-SubClassOf(obo:MOLSIM_002163 obo:MOLSIM_000310)
+SubClassOf(obo:MOLSIM_002163 obo:MOLSIM_002251)
 
 # Class: obo:MOLSIM_002164 (trajectory frame interval)
 
@@ -16776,7 +16756,6 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002191 "restart file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002149)
 DataPropertyRange(obo:MOLSIM_002191 xsd:string)
 
-
 # ==== ambermeta Tier B native gap closure ====
 # Class: obo:MOLSIM_002192 (initial density)
 
@@ -16809,7 +16788,6 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002195 "gpu model name"@en)
 SubDataPropertyOf(obo:MOLSIM_002195 owl:topDataProperty)
 DataPropertyDomain(obo:MOLSIM_002195 obo:MOLSIM_001941)
 DataPropertyRange(obo:MOLSIM_002195 xsd:string)
-
 
 # ==== ambermeta minor native gap closure ====
 # Class: obo:MOLSIM_002196 (atom count consistency check)
@@ -16857,7 +16835,6 @@ SubDataPropertyOf(obo:MOLSIM_002201 owl:topDataProperty)
 DataPropertyDomain(obo:MOLSIM_002201 obo:MOLSIM_002155)
 DataPropertyRange(obo:MOLSIM_002201 xsd:integer)
 
-
 # ==== ambermeta relational connector ====
 # Object Property: obo:MOLSIM_002202 (has simulation parameter)
 
@@ -16877,13 +16854,11 @@ SubObjectPropertyOf(obo:MOLSIM_002250 owl:topObjectProperty)
 ObjectPropertyDomain(obo:MOLSIM_002250 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002250 obo:MOLSIM_002155)
 
-
 # ==== ambermeta disjointness axioms ====
 DisjointClasses(obo:MOLSIM_002115 obo:MOLSIM_002116 obo:MOLSIM_002117 obo:MOLSIM_002118 obo:MOLSIM_002119 obo:MOLSIM_002120)
 DisjointClasses(obo:MOLSIM_002030 obo:MOLSIM_002109 obo:MOLSIM_002110 obo:MOLSIM_002111)
 DisjointClasses(obo:MOLSIM_002196 obo:MOLSIM_002197 obo:MOLSIM_002198 obo:MOLSIM_002199)
 DisjointClasses(obo:MOLSIM_002164 obo:MOLSIM_002165)
-
 
 # ==== enumeration/format disjointness batch ====
 # thermostat algorithm (MOLSIM_000038) — 11 children
@@ -16905,8 +16880,7 @@ DisjointClasses(obo:MOLSIM_000025 obo:MOLSIM_000319 obo:MOLSIM_000445 obo:MOLSIM
 # molecular dynamics engine (MOLSIM_000160) — 14 children
 DisjointClasses(obo:MOLSIM_000777 obo:MOLSIM_000784 obo:MOLSIM_000786 obo:MOLSIM_000790 obo:MOLSIM_001568 obo:MOLSIM_001599 obo:MOLSIM_001669 obo:MOLSIM_001670 obo:MOLSIM_001675 obo:MOLSIM_001683 obo:MOLSIM_001929 obo:MOLSIM_001935 obo:MOLSIM_002043 obo:MOLSIM_002064)
 # quantum chemistry engine (MOLSIM_000161) — 28 children
-DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000176 obo:MOLSIM_000177 obo:MOLSIM_000178 obo:MOLSIM_000179 obo:MOLSIM_000180 obo:MOLSIM_000181 obo:MOLSIM_000182 obo:MOLSIM_000183 obo:MOLSIM_000184 obo:MOLSIM_000773 obo:MOLSIM_000775 obo:MOLSIM_000776 obo:MOLSIM_000778 obo:MOLSIM_000779 obo:MOLSIM_000780 obo:MOLSIM_000783 obo:MOLSIM_000785 obo:MOLSIM_000787 obo:MOLSIM_000792 obo:MOLSIM_001580 obo:MOLSIM_001581 obo:MOLSIM_001592 obo:MOLSIM_001593 obo:MOLSIM_001594 obo:MOLSIM_001595 obo:MOLSIM_001596 obo:MOLSIM_001618)
-
+DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000176 obo:MOLSIM_000177 obo:MOLSIM_000178 obo:MOLSIM_000179 obo:MOLSIM_000180 obo:MOLSIM_000181 obo:MOLSIM_000182 obo:MOLSIM_000183 obo:MOLSIM_000184 obo:MOLSIM_000773 obo:MOLSIM_000775 obo:MOLSIM_000776 obo:MOLSIM_000778 obo:MOLSIM_000783 obo:MOLSIM_000785 obo:MOLSIM_000787 obo:MOLSIM_000792 obo:MOLSIM_001580 obo:MOLSIM_001581 obo:MOLSIM_001592 obo:MOLSIM_001593 obo:MOLSIM_001594 obo:MOLSIM_001595 obo:MOLSIM_001596 obo:MOLSIM_001618)
 
 # ==== disjointness batch 2 (formats / force-fields / QC methods) ====
 # --- formats ---
@@ -16935,7 +16909,7 @@ DisjointClasses(obo:MOLSIM_000442 obo:MOLSIM_001114 obo:MOLSIM_001117)
 # script format (MOLSIM_000438) — 3 children
 DisjointClasses(obo:MOLSIM_000444 obo:MOLSIM_000867 obo:MOLSIM_000916)
 # AMBER restart format (MOLSIM_000471) — 3 children
-DisjointClasses(obo:MOLSIM_001049 obo:MOLSIM_001050 obo:MOLSIM_001051)
+DisjointClasses(obo:MOLSIM_001049 obo:MOLSIM_001051)
 # GROMACS trajectory format (MOLSIM_000903) — 3 children
 DisjointClasses(obo:MOLSIM_001054 obo:MOLSIM_001055 obo:MOLSIM_001056)
 # --- force fields ---
@@ -16970,7 +16944,6 @@ DisjointClasses(obo:MOLSIM_001523 obo:MOLSIM_001524 obo:MOLSIM_001534 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_001460 obo:MOLSIM_001461 obo:MOLSIM_001462)
 # Hartree-Fock (MOLSIM_000810) — 3 children
 DisjointClasses(obo:MOLSIM_000812 obo:MOLSIM_000813 obo:MOLSIM_000814)
-
 
 # ==== disjointness batch 3 (algorithms / hardware / models) ====
 # --- algorithms ---
@@ -17282,7 +17255,7 @@ SubClassOf(obo:MOLSIM_002232 obo:MOLSIM_000171)
 Declaration(Class(obo:MOLSIM_002233))
 AnnotationAssertion(rdfs:label obo:MOLSIM_002233 "atom index group"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002233 "A plan specification that defines a named group of atoms selected from the system, so the group can be referred to by name during setup or analysis. It is the concept behind a Gromacs index (.ndx) file, where groups such as Protein or Water are listed. (UNVERIFIED)"@en)
-SubClassOf(obo:MOLSIM_002233 obo:MOLSIM_000310)
+SubClassOf(obo:MOLSIM_002233 obo:MOLSIM_002251)
 
 # Class: obo:MOLSIM_002234 (classical molecular dynamics)
 
@@ -17296,7 +17269,7 @@ SubClassOf(obo:MOLSIM_002234 obo:MOLSIM_000843)
 Declaration(Class(obo:MOLSIM_002235))
 AnnotationAssertion(rdfs:label obo:MOLSIM_002235 "source structure residue mapping"@en)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002235 "An information content entity that records how the atoms or residues in a simulation correspond to an experimental source structure (such as a PDB entry), including any changes made, for example point mutations or modelled-in missing residues. (UNVERIFIED)"@en)
-SubClassOf(obo:MOLSIM_002235 obo:MOLSIM_001072)
+SubClassOf(obo:MOLSIM_002235 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002236 (oligomeric state)
 
@@ -17404,6 +17377,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002249 "A nucleic acid analysis t
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002249 "Dissecting the Spatial Structure of RNA"@en)
 SubClassOf(obo:MOLSIM_002249 obo:MOLSIM_001960)
 
+Declaration(Class(obo:MOLSIM_002251))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002251 "atom selection specification"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002251 "An information content entity that records which atoms of a molecular system a tool should act on. It may be a stored list of atom indices or an expression that is evaluated to produce that list. It says what to operate on, not what to do with it. (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002251 obo:IAO_0000030)
+
+Declaration(Class(obo:MOLSIM_002252))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002252 "selection criteria"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002252 "An information content entity that records the conditions and factors used when choosing which items to include in a study, such as which ligands to simulate. It states what was considered rather than what was chosen. (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002252 obo:IAO_0000030)
+
 # Class: obo:GO_0000786 (nucleosome) — reused from GO, parented under a MOLSIM class
 
 SubClassOf(obo:GO_0000786 obo:MOLSIM_001894)
@@ -17415,6 +17398,7 @@ SubClassOf(obo:SO_0001114 obo:MOLSIM_001781)
 SubClassOf(obo:SO_0001117 obo:SO_0001114)
 SubClassOf(obo:SO_0001118 obo:SO_0001114)
 SubClassOf(obo:SO_0001119 obo:SO_0001114)
+SubClassOf(obo:SO_0100012 obo:MOLSIM_001781)
 SubClassOf(obo:SO_0000305 obo:MOLSIM_000006)
 SubClassOf(obo:STATO_0000280 obo:STATO_0000142)
 SubClassOf(obo:STATO_0000201 obo:STATO_0000142)
