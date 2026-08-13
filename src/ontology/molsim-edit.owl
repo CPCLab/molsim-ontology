@@ -3866,7 +3866,7 @@ SubClassOf(obo:MOLSIM_000142 obo:MOLSIM_000127)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000143 "Ligand pairs selection criteria refer to the set of guiding principles and factors considered when choosing pairs of ligands for comparative computational studies, particularly for relative binding free energy calculations. The goal is to select pairs that are sufficiently similar to ensure reliable calculations but also diverse enough to provide meaningful insights. These criteria help optimize the design and feasibility of computational drug discovery campaigns. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000143 "ligand pairs selection criteria"@en)
-SubClassOf(obo:MOLSIM_000143 obo:MOLSIM_002252)
+SubClassOf(obo:MOLSIM_000143 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_000144 (structural similarity)
 
@@ -17382,9 +17382,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002251 "An information content en
 SubClassOf(obo:MOLSIM_002251 obo:IAO_0000030)
 
 Declaration(Class(obo:MOLSIM_002252))
-AnnotationAssertion(rdfs:label obo:MOLSIM_002252 "selection criteria"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002252 "An information content entity that records the conditions and factors used when choosing which items to include in a study, such as which ligands to simulate. It states what was considered rather than what was chosen. (UNVERIFIED)"@en)
-SubClassOf(obo:MOLSIM_002252 obo:IAO_0000030)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002252 "obsolete selection criteria"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002252 "OBSOLETE. An information content entity that records the conditions and factors used when choosing which items to include in a study, such as which ligands to simulate. It states what was considered rather than what was chosen."@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_002252 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002252 "Retired 2026-08-13, the day after it was minted. It was created to group three children of the retired MOLSIM:000310 plan specification, but only one of the three belonged: MOLSIM:002163 atom selection mask and MOLSIM:002233 atom index group went to MOLSIM:002251 atom selection specification instead, and MOLSIM:001035 validated ligand selection criteria turned out to be an object property that never belonged in a class tree. That left one child, MOLSIM:000143 ligand pairs selection criteria, which is itself the group its twelve criteria belong to. A search of the whole ontology found no other term that could join: every other label mentioning selection or criteria is a convergence threshold, an algorithm or an analysis, all correctly placed elsewhere. MOLSIM:000143 was re-parented to IAO:0000030 information content entity, where it sat before. Never present in a release file.")
 
 # Class: obo:GO_0000786 (nucleosome) — reused from GO, parented under a MOLSIM class
 
