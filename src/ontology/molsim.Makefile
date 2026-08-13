@@ -237,6 +237,38 @@ $(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl $(IMPORTDIR)/chebi_terms.t
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/chebi_terms.txt \
 		--output $@
+
+# IAO: take EXACTLY the requested terms and nothing above them.
+#
+# The generic ODK rule uses --method BOT over a seed built from the whole ontology.
+# IAO's own classes are BFO subclasses, so that pulls BFO's entire top level into the
+# module and into every release. Measured 2026-08-12: 12 BFO classes were published
+# while no MOLSIM class had a BFO parent. Editing the terms file does not fix it,
+# because the properties MOLSIM uses pull their domains and ranges, and those are the
+# BFO subclasses.
+#
+# Bounded MIREOT does not work here either: MIREOT is class-oriented, and every seed
+# in iao_terms.txt is currently a property, so it produced an empty module. `filter`
+# with `self` takes each named term with its own annotations and no ancestry, which is
+# the same approach the RO import already uses.
+#
+# THIS RULE MUST STAY INSIDE THE IMP=true GUARD. It sat outside it from 2026-08-12
+# until later the same day, and CI failed with "No rule to make target
+# 'mirror/iao.owl'". The reason is that mirror/ is gitignored, so a CI checkout has an
+# empty mirror directory. With IMP=false the committed imports/*_import.owl are meant
+# to be treated as static files that need no mirror at all, and a rule declared outside
+# the guard breaks that promise: make sees the dependency, cannot satisfy it, and stops
+# before any test runs. It passed locally only because this machine happens to have a
+# copy of the mirror.
+$(IMPORTDIR)/iao_import.owl: $(MIRRORDIR)/iao.owl $(IMPORTDIR)/iao_terms.txt
+	$(ROBOT) filter --input $< \
+		--term-file $(IMPORTDIR)/iao_terms.txt \
+		--select "self annotations" \
+		--signature true \
+		--trim true \
+		annotate --ontology-iri $(ONTBASE)/imports/iao_import.owl \
+		convert -f ofn \
+		--output $@
 endif
 
 $(COMPONENTSDIR)/molsim_units_component.owl: $(SRC) templates/molsim_units_component.tsv
@@ -265,25 +297,3 @@ release-nobfo: all
 		-o $(ONT)-base.owl
 	@echo "Done! BFO hierarchy has been removed."
 
-# IAO: take EXACTLY the requested terms and nothing above them.
-#
-# The generic ODK rule uses --method BOT over a seed built from the whole ontology.
-# IAO's own classes are BFO subclasses, so that pulls BFO's entire top level into the
-# module and into every release. Measured 2026-08-12: 12 BFO classes were published
-# while no MOLSIM class had a BFO parent. Editing the terms file does not fix it,
-# because the properties MOLSIM uses pull their domains and ranges, and those are the
-# BFO subclasses.
-#
-# Bounded MIREOT does not work here either: MIREOT is class-oriented, and every seed
-# in iao_terms.txt is currently a property, so it produced an empty module. `filter`
-# with `self` takes each named term with its own annotations and no ancestry, which is
-# the same approach the RO import already uses.
-$(IMPORTDIR)/iao_import.owl: $(MIRRORDIR)/iao.owl $(IMPORTDIR)/iao_terms.txt
-	$(ROBOT) filter --input $< \
-		--term-file $(IMPORTDIR)/iao_terms.txt \
-		--select "self annotations" \
-		--signature true \
-		--trim true \
-		annotate --ontology-iri $(ONTBASE)/imports/iao_import.owl \
-		convert -f ofn \
-		--output $@
