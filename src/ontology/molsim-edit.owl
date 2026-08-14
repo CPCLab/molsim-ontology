@@ -3227,12 +3227,15 @@ SubClassOf(obo:MOLSIM_000039 obo:MOLSIM_000382)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000040 "A barostat algorithm that weakly couples the system to an external pressure bath by rescaling the simulation box volume and particle coordinates based on the difference between the current instantaneous pressure and the target pressure. Similar to the Berendsen thermostat, it is computationally simple and effective for equilibration but does not rigorously sample the correct NPT ensemble. It allows isotropic or anisotropic pressure coupling. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000040 "Berendsen barostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000040 "barostat=1")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_000040 "pcoupl=Berendsen")
 SubClassOf(obo:MOLSIM_000040 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000041 (Monte Carlo barostat)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000041 "A barostat algorithm where trial changes to the simulation box volume are attempted periodically during a molecular dynamics simulation using a Monte Carlo acceptance criterion. Accepted moves rescale the box dimensions and particle coordinates. This method correctly samples the NPT ensemble but can be less efficient than continuous barostats for large volume fluctuations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000041 "Monte Carlo barostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000041 "barostat=2")
 SubClassOf(obo:MOLSIM_000041 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000042 (Andersen barostat)
@@ -3245,6 +3248,7 @@ SubClassOf(obo:MOLSIM_000042 obo:MOLSIM_000039)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000043 "An extension of the Andersen barostat that allows the simulation box shape and volume to change anisotropically, meaning the lengths of the box edges and the angles between them can fluctuate independently. This is crucial for simulating phase transitions or studying materials under anisotropic stress conditions while correctly sampling the NPT ensemble. It uses a matrix of barostat variables coupled to the pressure tensor. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000043 "Parrinello-Rahman barostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_000043 "pcoupl=Parrinello-Rahman")
 SubClassOf(obo:MOLSIM_000043 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_000044 (Langevin-piston barostat)
@@ -3257,6 +3261,7 @@ SubClassOf(obo:MOLSIM_000044 obo:MOLSIM_000039)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000045 "A Langevin thermostat is a widely used algorithm in molecular dynamics simulations that maintains a constant temperature by mimicking a solvent environment. It modifies Newton's equations of motion by adding two forces to each particle: a frictional drag force that removes kinetic energy, and a random, stochastic force that adds kinetic energy."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000045 "Langevin thermostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000045 "ntt=3")
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000045 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_000045 obo:MOLSIM_000038)
 
@@ -3264,12 +3269,16 @@ SubClassOf(obo:MOLSIM_000045 obo:MOLSIM_000038)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000046 "A thermostat algorithm that weakly couples the system to an external heat bath by rescaling particle velocities at each step based on the difference between the current instantaneous temperature and the target temperature. While computationally simple and effective at bringing the system to the target temperature, it does not rigorously generate configurations from the correct canonical (NVT) ensemble. It is often used for equilibration phases rather than production simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000046 "Berendsen thermostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000046 "ntt=1")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_000046 "tcoupl=berendsen")
 SubClassOf(obo:MOLSIM_000046 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000047 (Andersen thermostat)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000047 "A thermostat algorithm that maintains temperature by introducing stochastic collisions between randomly selected particles and fictitious heat bath particles. When a particle \"collides,\" its velocity is reassigned from a Maxwell-Boltzmann distribution corresponding to the target temperature. This method correctly generates configurations from the canonical (NVT) ensemble. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000047 "Andersen thermostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_000047 "tcoupl=andersen")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000047 "ntt=2")
 SubClassOf(obo:MOLSIM_000047 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000048 (Nosé-Hoover thermostat)
@@ -3277,6 +3286,7 @@ SubClassOf(obo:MOLSIM_000047 obo:MOLSIM_000038)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000048 "A deterministic thermostat algorithm that controls temperature by introducing an extended degree of freedom (a thermostat variable) that dynamically couples to the physical system's kinetic energy. This extended variable evolves according to its own equation of motion, causing the physical system's temperature to fluctuate around the target value in a way consistent with the canonical (NVT) ensemble. It avoids the stochastic elements of Langevin or Andersen thermostats. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000048 "Nose-Hoover"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000048 "Nosé-Hoover thermostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_000048 "tcoupl=nose-hoover")
 SubClassOf(obo:MOLSIM_000048 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000049 (constraint algorithm)
@@ -5453,6 +5463,9 @@ SubClassOf(obo:MOLSIM_000380 obo:MOLSIM_000367)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000381 "An adaptive thermostat is a type of temperature control algorithm that can adjust its behavior during the course of a simulation. This allows it to respond more effectively to changes in the system, such as a protein undergoing a large conformational change. For experts, these thermostats often modify their coupling strength or other parameters on-the-fly to provide more stable and efficient temperature control compared to static methods. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000381 "adaptive thermostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000381 "ntt=6")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000381 "ntt=7")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_000381 "ntt=8")
 SubClassOf(obo:MOLSIM_000381 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000382 (simulation control algorithm)
@@ -8035,6 +8048,7 @@ SubClassOf(obo:MOLSIM_000801 obo:MOLSIM_000038)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000802 "Velocity Rescaling thermostat, an algorithm that modifies the Berendsen weak coupling approach to correctly generate configurations from the canonical (NVT) ensemble. It rescales velocities based on the kinetic energy difference but includes a stochastic term related to the system's kinetic energy fluctuations, ensuring proper statistical sampling. It combines the simplicity of Berendsen-like scaling with rigorous ensemble generation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000802 "V-rescale thermostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_000802 "tcoupl=v-rescale")
 SubClassOf(obo:MOLSIM_000802 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000803 (semi-empirical method)
@@ -10415,10 +10429,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001257 "A DIIS parameter that spe
 AnnotationAssertion(rdfs:label obo:MOLSIM_001257 "DIIS attempts"@en)
 SubClassOf(obo:MOLSIM_001257 obo:MOLSIM_001256)
 
-# Class: obo:MOLSIM_001258 (DIIS matrices)
+# Class: obo:MOLSIM_001258 (number of DIIS matrices)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001258 "A DIIS parameter that specifies the number of error vectors (matrices) to be used by the DIIS convergence algorithm. This parameter defines the size of the subspace used for the extrapolation. The DIIS matrices is a key parameter for tuning the DIIS algorithm. This is often set with the keyword ndiis_matrices. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001258 "DIIS matrices"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001258 "A DIIS parameter that specifies the number of error vectors, also called matrices, to be used by the DIIS convergence algorithm. It defines the size of the subspace used for the extrapolation. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001258 "DIIS matrices"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001258 "number of DIIS matrices"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001258 "ndiis_matrices")
 SubClassOf(obo:MOLSIM_001258 obo:MOLSIM_001256)
 
 # Class: obo:MOLSIM_001259 (constant pH parameter)
@@ -10433,10 +10449,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001260 "A constant pH parameter t
 AnnotationAssertion(rdfs:label obo:MOLSIM_001260 "CpHMD state change attempt frequency"@en)
 SubClassOf(obo:MOLSIM_001260 obo:MOLSIM_001259)
 
-# Class: obo:MOLSIM_001261 (CpHMD solvent relaxation steps)
+# Class: obo:MOLSIM_001261 (number of CpHMD solvent relaxation steps)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001261 "A constant pH parameter that specifies the number of solvent relaxation steps to be performed after a protonation state change. This allows the solvent to reorient around the newly charged or neutralized residue. The CpHMD solvent relaxation steps is a key parameter for ensuring a stable CpHMD simulation. This is often set with the keyword ntrelax. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001261 "CpHMD solvent relaxation steps"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001261 "A constant pH parameter that specifies the number of solvent relaxation steps performed after a protonation state change. Those steps let the solvent reorient around the residue that has just been charged or neutralised. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001261 "CpHMD solvent relaxation steps"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001261 "number of CpHMD solvent relaxation steps"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001261 "ntrelax")
 SubClassOf(obo:MOLSIM_001261 obo:MOLSIM_001259)
 
 # Class: obo:MOLSIM_001262 (polarizable force field parameter)
@@ -10495,10 +10513,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001270 "A volumetric analysis par
 AnnotationAssertion(rdfs:label obo:MOLSIM_001270 "grid function"@en)
 SubClassOf(obo:MOLSIM_001270 obo:MOLSIM_001268)
 
-# Class: obo:MOLSIM_001271 (grid points)
+# Class: obo:MOLSIM_001271 (number of grid points)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001271 "A volumetric analysis parameter that specifies the number of points in each dimension of a 3D grid. This parameter directly controls the size and resolution of the volumetric data. The grid points are a key parameter for defining the scope of the grid-based analysis. This is often set with the keyword --ng. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001271 "grid points"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001271 "A volumetric analysis parameter that specifies the number of points in each dimension of a three-dimensional grid. It controls the size and the resolution of the volumetric data. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001271 "grid points"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001271 "number of grid points"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001271 "--ng")
 SubClassOf(obo:MOLSIM_001271 obo:MOLSIM_001268)
 
 # Class: obo:MOLSIM_001272 (statistical analysis parameter)
@@ -13423,6 +13443,7 @@ SubClassOf(obo:MOLSIM_001731 obo:MOLSIM_000038)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001732 "The Bussi thermostat, also known as the stochastic velocity rescaling thermostat, is an algorithm for controlling the temperature in a molecular dynamics simulation. It works by periodically rescaling the atomic velocities based on a random factor drawn from a specific statistical distribution, ensuring that the system's total kinetic energy correctly samples the canonical ensemble. This method is highly effective as it combines the gentle temperature coupling of the Berendsen thermostat with the rigorous statistical accuracy of the Nosé-Hoover thermostat, making it a popular choice in modern simulation packages. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001732 "Bussi thermostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001732 "ntt=11")
 SubClassOf(obo:MOLSIM_001732 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_001733 (velocity-Verlet middle integrator)
@@ -15354,6 +15375,8 @@ SubClassOf(obo:MOLSIM_002027 obo:MOLSIM_000032)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002028 "The stochastic cell rescaling barostat (C-rescale) is an algorithm used to control pressure in molecular simulations by adjusting the simulation box size using a stochastic differential equation. It combines deterministic box scaling with a random noise term to enforce the target pressure while ensuring the system correctly samples the isothermal-isobaric (NPT) ensemble. For experts, this method (Bernetti & Bussi) yields the correct volume distribution without the unphysical oscillations often seen with deterministic barostats like Parrinello-Rahman, effectively treating the volume as a degree of freedom coupled to a Langevin piston. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002028 "stochastic cell rescaling barostat"@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_002028 "pcoupl=C-rescale")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_002028 "baro_stochastic=1")
 SubClassOf(obo:MOLSIM_002028 obo:MOLSIM_000039)
 
 # Class: obo:MOLSIM_002029 (integrator type)

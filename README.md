@@ -46,8 +46,8 @@ The primary goal of this ontology is to standardize the representation of molecu
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | **Prefix**               | `MOLSIM`                                                                                                           |
 | **Namespace**            | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                           |
-| **Size**                 | 2,046 live classes · 113 data properties · 17 object properties · 70 live named individuals (2,269 terms declared, 23 retired) |
-| **Hierarchy**            | Domain-oriented; no upper ontology yet, and COB is the current intention if we adopt one (see [Ontology Alignment](#ontology-alignment-reuse-now-abstraction-later)) |
+| **Size**                 | 2,043 live classes · 114 data properties · 17 object properties · 70 live named individuals (2,273 terms declared, 29 retired) |
+| **Hierarchy**            | Domain-oriented, aligned with **COB** since 2026-08-12 (see [Ontology Alignment](#ontology-alignment-what-we-reuse-and-what-we-align-to)) |
 | **Management**           | ODK (Ontology Development Kit) + ROBOT, reasoned with ELK                                                          |
 | **Source serialization** | OWL Functional Syntax: [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl)                              |
 | **License**              | CC BY 4.0                                                                                                          |
@@ -61,7 +61,7 @@ We are preparing MOLSIM for submission to the [OBO Foundry](http://obofoundry.or
 `http://purl.obolibrary.org/obo/molsim.owl`
 *(Note: This URL will not be active until official OBO Foundry acceptance.)*
 
-### Ontology Alignment: reuse now, abstraction later
+### Ontology Alignment: what we reuse, and what we align to
 
 MOLSIM uses a domain-oriented class hierarchy chosen for browsability by molecular-simulation domain experts. Our alignment work is split by a single test: **does reusing a term add a layer of abstraction above our hierarchy, or not?**
 
@@ -74,15 +74,19 @@ MOLSIM uses a domain-oriented class hierarchy chosen for browsability by molecul
 | **UO**        | units of measurement                                                                                                                                     | used as the unit filler in our quantity pattern; we never invent units                                                  |
 | **GO**        | `nucleosome`                                                                                                                                             | bridged under a MOLSIM parent                                                                                           |
 | **RO**        | relations (`participates in`, `has part` family)                                                                                                         | reused instead of minting our own equivalents                                                                           |
-| **IAO / OMO** | annotation properties and standard OBO metadata                                                                                                          | infrastructure (definitions, term editors, license), not domain content                                                 |
+| **IAO / OMO** | annotation properties and standard OBO metadata, **and two classes used as parents**: `IAO:0000030 information content entity` and `IAO:0000104 plan specification` | mostly infrastructure (definitions, term editors, license); the two classes are the COB attachment, and ten MOLSIM classes sit under them |
 
-To keep this safe we extract these terms with **bounded MIREOT** where the source ontology's parents would drag in an upper ontology; that is, we take the term itself and none of its ancestors. As a result **no MOLSIM class is currently placed under a BFO or COB class.**
+To keep this safe we extract these terms with **bounded MIREOT** where the source ontology's parents would pull in an upper ontology; that is, we take the term itself and none of its ancestors. Fourteen MOLSIM classes do sit under an external parent, and they are chosen one at a time: nine under `IAO:0000030 information content entity`, one under `IAO:0000104 plan specification`, two under `STATO:0000142 correlation coefficient`, and one each under `SO:0000417 polypeptide_domain` and `SO:0001078 polypeptide_secondary_structure`. **No BFO class appears anywhere in the release.**
 
-**Deferred: alignment that would add abstraction.** Aligning MOLSIM to an upper ontology is planned but **deliberately postponed**. Upper-ontology alignment inserts abstract parents above our domain branches, and during the ongoing domain-expert verification phase we prioritise a hierarchy that experts can read and validate directly.
+**Done: MOLSIM aligns with COB.** Adopted on 2026-08-12. [COB](https://obofoundry.org/COB/), the Core Ontology for Biology and Biomedicine, is built on BFO and reuses its mid-level classes while dropping the most abstract ones, so it gives three levels of abstraction above a domain term where BFO gives six. OBO Foundry Principle 5 also points mid and upper level terms toward COB.
 
-**If and when we do align, the current intention is COB rather than BFO.** The two are not alternatives: the [Core Ontology for Biology and Biomedicine (COB)](https://obofoundry.org/COB/) is built on BFO, reusing its mid-level classes while dropping the most abstract ones. Measured on 2026-08-07, COB places `information content entity`, `process` and `material entity` at its roots, where BFO puts three further levels above them (*entity*, *continuant*, *generically dependent continuant*). For a concrete MOLSIM term such as `simulation protocol` that is **three levels of abstraction via COB against six via BFO**, for the same end class, since COB defines no plan class of its own and reuses `IAO:0000104 plan specification` exactly as a BFO-aligned ontology would. OBO Foundry Principle 5 also points mid and upper level terms toward COB.
+The attachment is deliberately small. `IAO:0000030 information content entity` is one of COB's five roots, and MOLSIM's own duplicate of it was retired in its favour, along with `MOLSIM:000310 plan specification` in favour of `IAO:0000104 plan specification`. Those are the only two classes the IAO import now carries, and both are used as parents. `IAO:0000033 directive information entity` was left out on purpose, because it would add a grouping level holding a single child.
 
-The trade-off is honest in both directions: BFO is an ISO standard (ISO/IEC 21838-2) and is roughly twice as widely used, while COB is younger and smaller. But adopting COB does not foreclose BFO, because COB's classes *are* BFO IRIs where they overlap, so full BFO could be layered on later without retiring or re-parenting anything. The reverse is not true. One known gap: COB has no home for software, which is 298 MOLSIM classes, so IAO would be needed alongside it. 
+**The alignment removed BFO rather than adding it.** Before this change `imports/iao_import.owl` held thirty-six classes of which two were used, and twelve of them were BFO's entire top level. Every release published them although no MOLSIM class had a BFO parent. The cause was the generic import rule, which builds its seed from the whole ontology and pulls every ancestor. The import now takes only the terms MOLSIM asks for, and the release contains no BFO class at all.
+
+Adopting COB does not foreclose BFO, because COB's classes *are* BFO IRIs where they overlap, so full BFO could be layered on later without retiring or re-parenting anything. The reverse is not true. One known gap: COB has no home for software, which is 298 MOLSIM classes, so IAO is used alongside it.
+
+**A correction to an earlier statement.** This README, and a reply on issue #23, previously said that BFO alignment is a structural requirement for OBO Foundry membership. That is wrong. No OBO principle requires BFO; Principle 5 asks for terms from suitable mid or upper level ontologies, which is a weaker requirement and is what makes COB a legitimate choice. The correction is recorded in discussion #96.
 
 **Where correspondence is enough, we map instead of importing.** When another ontology describes the same thing but models it differently (for instance PSI-MI treats scientific databases as classes while MOLSIM treats each specific database as an individual) we record the correspondence as an [SSSOM](https://mapping-commons.github.io/sssom/) mapping in `src/ontology/mappings/` and import nothing. This keeps interoperability without importing a structure that conflicts with ours.
 
@@ -152,7 +156,7 @@ Development is conducted in the `src` directory. Editors should work with the so
 Until the official OBO PURL is active, you can access the latest compiled version of the ontology directly from this repository:
 
 * [`molsim.owl` (Latest Snapshot)](molsim.owl)
-* The .obo release does not include MOLSIM's 113 data properties or its 70 named individuals: the OBO format cannot represent data properties, and named individuals are dropped in conversion, so the .obo file is a class-only view. Use the OWL or JSON release if you need the full ontology.
+* The .obo release does not include MOLSIM's 114 data properties or its 70 named individuals: the OBO format cannot represent data properties, and named individuals are dropped in conversion, so the .obo file is a class-only view. Use the OWL or JSON release if you need the full ontology.
 
 ## Contributing
 
