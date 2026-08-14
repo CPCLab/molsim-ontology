@@ -9866,6 +9866,7 @@ SubClassOf(obo:MOLSIM_001169 obo:MOLSIM_001165)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001170 "A specific minimization convergence criteria based on the root-mean-square of the gradient, which represents the forces on the atoms. The minimization will stop when the RMS of the forces falls below this specified threshold. This is a common way to define convergence and is often set with the keyword drms. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001170 "minimization drms criterion"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001170 "AMBER 26 Reference Manual, p. 434, entry drms."@en)
 SubClassOf(obo:MOLSIM_001170 obo:MOLSIM_001169)
 
 # Class: obo:MOLSIM_001171 (minimization gradient tolerance)
@@ -9896,6 +9897,7 @@ SubClassOf(obo:MOLSIM_001174 obo:MOLSIM_001173)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001175 "A temperature control parameter that specifies the desired temperature for the simulation. The thermostat algorithm will adjust the kinetic energy of the atoms to keep the average temperature fluctuating around this target temperature. This is a fundamental parameter for any simulation and is often set with the keyword temp0. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001175 "target temperature"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001175 "AMBER 26 Reference Manual, p. 436, entry temp0."@en)
 SubClassOf(obo:MOLSIM_001175 obo:MOLSIM_001173)
 
 # Class: obo:MOLSIM_001176 (thermostat coupling parameter)
@@ -9908,12 +9910,14 @@ SubClassOf(obo:MOLSIM_001176 obo:MOLSIM_001173)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001177 "A specific thermostat coupling parameter, often used in thermostats like Berendsen or Nosé-Hoover, that defines the time constant for temperature relaxation. A smaller value results in tighter, more aggressive temperature coupling. The thermostat coupling constant is a key parameter for tuning the thermostat's behavior. This is often set with the keyword tautp. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001177 "thermostat coupling constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001177 "AMBER 26 Reference Manual, p. 436, entry tautp."@en)
 SubClassOf(obo:MOLSIM_001177 obo:MOLSIM_001176)
 
 # Class: obo:MOLSIM_001178 (thermostat collision frequency)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001178 "A specific thermostat coupling parameter used in stochastic thermostats like the Langevin integrator. It represents the effective frequency with which the simulated particles collide with fictitious solvent particles, controlling the rate of heat exchange. The thermostat collision frequency also influences the system's dynamics by introducing a frictional component. This is often set with the keyword gamma_ln. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001178 "thermostat collision frequency"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001178 "AMBER 26 Reference Manual, p. 216, entry gamma_ln."@en)
 SubClassOf(obo:MOLSIM_001178 obo:MOLSIM_001176)
 
 # Class: obo:MOLSIM_001179 (pressure control parameter)
@@ -9932,18 +9936,21 @@ SubClassOf(obo:MOLSIM_001180 obo:MOLSIM_001179)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001181 "A pressure control parameter that specifies the desired pressure for the simulation. The barostat algorithm will adjust the volume of the simulation box to keep the average pressure fluctuating around this target pressure. This is a fundamental parameter for any constant pressure simulation and is often set with the keyword pres0. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001181 "target pressure"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001181 "AMBER 26 Reference Manual, p. 438, entry pres0."@en)
 SubClassOf(obo:MOLSIM_001181 obo:MOLSIM_001179)
 
 # Class: obo:MOLSIM_001182 (barostat coupling constant)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001182 "A pressure control parameter that defines the time constant for pressure relaxation in algorithms like the Berendsen barostat. A smaller value results in tighter, more aggressive pressure coupling. The barostat coupling constant is a key parameter for tuning the barostat's behavior during equilibration. This is often set with the keyword taup. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001182 "barostat coupling constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001182 "AMBER 26 Reference Manual, p. 438, entry taup."@en)
 SubClassOf(obo:MOLSIM_001182 obo:MOLSIM_001179)
 
 # Class: obo:MOLSIM_001183 (compressibility)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001183 "A pressure control parameter that specifies the compressibility of the solvent used in the simulation. This value is required by some barostat algorithms to correctly calculate the pressure and adjust the box volume. The compressibility is a physical property of the simulated medium. This is often set with the keyword comp. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001183 "compressibility"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001183 "AMBER 26 Reference Manual, p. 438, entry comp."@en)
 SubClassOf(obo:MOLSIM_001183 obo:MOLSIM_001179)
 
 # Class: obo:MOLSIM_001184 (interaction parameter)
@@ -9984,6 +9991,7 @@ SubClassOf(obo:MOLSIM_001188 obo:MOLSIM_001185)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001189 "A non-bonded interaction parameter that specifies how often the list of neighboring atoms (the pairlist) is updated during the simulation. A more frequent update is more accurate but computationally more expensive. The pairlist update frequency is a key parameter for tuning simulation performance. This is often set with the keyword nsnb. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001189 "pairlist update frequency"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001189 "AMBER 26 Reference Manual, p. 456, entry nsnb."@en)
 SubClassOf(obo:MOLSIM_001189 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_001190 (pairlist skin)
@@ -10008,6 +10016,7 @@ SubClassOf(obo:MOLSIM_001192 obo:MOLSIM_001191)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001193 "An electrostatic parameter used by the Particle Mesh Ewald (PME) method that specifies the spacing of the grid used for the reciprocal space calculation. A smaller PME grid spacing results in a more accurate calculation but is computationally more expensive. This is a key parameter for tuning the accuracy of the PME method. This is often set with keywords like fft_grids_per_ang or by setting the grid dimensions directly. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001193 "PME grid spacing"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001193 "AMBER 26 Reference Manual, p. 500, entry fft_grids_per_ang."@en)
 SubClassOf(obo:MOLSIM_001193 obo:MOLSIM_001191)
 
 # Class: obo:MOLSIM_001194 (PME grid dimensions)
@@ -10026,24 +10035,30 @@ SubClassOf(obo:MOLSIM_001195 obo:MOLSIM_001191)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001196 "A specific dielectric constant parameter used in continuum solvent models like Poisson-Boltzmann or Generalized Born. It represents the dielectric constant of the solute molecule itself, which is typically low to reflect its non-polar interior. The internal dielectric constant is a key parameter for MM/PBSA and MM/GBSA calculations. This is often set with the keyword indi or epsin. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001196 "internal dielectric constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001196 "AMBER 26 Reference Manual, p. 82, entry epsin."@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001196 "AMBER 26 Reference Manual, p. 952, entry indi."@en)
 SubClassOf(obo:MOLSIM_001196 obo:MOLSIM_001195)
 
 # Class: obo:MOLSIM_001197 (external dielectric constant)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001197 "A specific dielectric constant parameter used in continuum solvent models like Poisson-Boltzmann or Generalized Born. It represents the dielectric constant of the bulk solvent, which is typically high for polar solvents like water. The external dielectric constant is a key parameter for MM/PBSA and MM/GBSA calculations. This is often set with the keyword exdi or epsout. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001197 "external dielectric constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001197 "AMBER 26 Reference Manual, p. 82, entry epsout."@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001197 "AMBER 26 Reference Manual, p. 952, entry exdi."@en)
 SubClassOf(obo:MOLSIM_001197 obo:MOLSIM_001195)
 
 # Class: obo:MOLSIM_001198 (direct sum cutoff)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001198 "An electrostatic parameter used in Ewald-based methods that specifies the cutoff distance for the real-space (direct sum) part of the calculation. This parameter balances the computational work done in real space versus reciprocal space. The direct sum cutoff is a key parameter for tuning the performance of the PME method. This is often set with the keyword es_cutoff or rcoulomb. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001198 "direct sum cutoff"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001198 "AMBER 26 Reference Manual, p. 499, entry es_cutoff."@en)
 SubClassOf(obo:MOLSIM_001198 obo:MOLSIM_001191)
 
 # Class: obo:MOLSIM_001199 (external field parameter)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001199 "A type of interaction parameter that specifies the properties of an external electric or magnetic field applied to the simulation system. This is used to study the response of the system to external fields. The external field parameter allows for the simulation of systems under non-standard conditions. This is often set with keywords like efx. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001199 "external field parameter"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001199 "AMBER 26 Reference Manual, p. 457, entry efx."@en)
 SubClassOf(obo:MOLSIM_001199 obo:MOLSIM_001184)
 
 # Class: obo:MOLSIM_001200 (external electric field component)
@@ -10095,6 +10110,7 @@ SubClassOf(obo:MOLSIM_001206 obo:MOLSIM_001201)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001207 "A restraint parameter that specifies the force constant for a harmonic or other restraining potential. A larger restraint energy constant results in a stronger force pulling the restrained atoms towards their target values. This is a key parameter for controlling the strength of the applied restraints. This is often set with the keyword restraint_wt."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001207 "restraint energy constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001207 "AMBER 26 Reference Manual, p. 433, entry restraint_wt."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001207 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001207 obo:MOLSIM_001206)
 
@@ -10102,12 +10118,14 @@ SubClassOf(obo:MOLSIM_001207 obo:MOLSIM_001206)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001208 "A restraint parameter that specifies which atoms or groups of atoms in the system are subject to the restraining potential. The restraint mask allows for the application of restraints to specific parts of the molecule, such as the backbone or a particular residue. This is a key parameter for defining the scope of the restraints. This is often set with the keyword restraintmask. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001208 "restraint mask"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001208 "AMBER 26 Reference Manual, p. 433, entry restraintmask."@en)
 SubClassOf(obo:MOLSIM_001208 obo:MOLSIM_001206)
 
 # Class: obo:MOLSIM_001209 (water cap force constant)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001209 "A specific restraint energy constant used to apply a restraining potential to a spherical cap of water molecules around a solute. This is used in some simulation setups to prevent the solute from becoming exposed to the vacuum. The water cap force constant controls the strength of this spherical boundary potential. This is often set with the keyword fcap."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001209 "water cap force constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001209 "AMBER 26 Reference Manual, p. 454, entry fcap."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001209 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001209 obo:MOLSIM_001206)
 
@@ -10127,6 +10145,8 @@ SubClassOf(obo:MOLSIM_001211 obo:MOLSIM_001210)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001212 "A system setup parameter that specifies the molar concentration of salt in the simulation solvent. The ionic strength affects the screening of electrostatic interactions and is crucial for mimicking experimental buffer conditions. This is a key parameter for accurately modeling the electrostatic environment of the system. This is often set with the keyword ion_concentration or saltcon."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001212 "ionic strength"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001212 "AMBER 26 Reference Manual, p. 984, entry ion_concentration."@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001212 "AMBER 26 Reference Manual, p. 73, entry saltcon."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001212 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001212 obo:MOLSIM_001210)
 
@@ -10161,12 +10181,14 @@ SubClassOf(obo:MOLSIM_001216 obo:MOLSIM_001210)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001217 "A system setup parameter used in some constant pressure simulations that specifies the target surface tension of the system. This is relevant for simulations of interfaces, such as lipid bilayers or liquid-vapor interfaces. The surface tension parameter allows the barostat to correctly handle anisotropic systems. This is often set with the keyword gamma_ten. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001217 "surface tension"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001217 "AMBER 26 Reference Manual, p. 439, entry gamma_ten."@en)
 SubClassOf(obo:MOLSIM_001217 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001218 (number of QM/MM partitions)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001218 "A system setup parameter used in adaptive QM/MM simulations that defines the number of different QM/MM regions or partitions that will be used. This parameter controls the complexity of the adaptive QM/MM setup. The number of QM/MM partitions is a key input for setting up these advanced simulations. This is often set with the keyword n_partition. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001218 "number of QM/MM partitions"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001218 "AMBER 26 Reference Manual, p. 211, entry n_partition."@en)
 SubClassOf(obo:MOLSIM_001218 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_001219 (enhanced sampling parameter)
@@ -10194,6 +10216,7 @@ SubClassOf(obo:MOLSIM_001221 obo:MOLSIM_001220)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001222 "A steered molecular dynamics parameter that specifies the stiffness of the harmonic potential used to pull the system along the reaction coordinate. A larger steered MD restraint energy constant results in a stiffer spring and less deviation from the target path. This is a key parameter for controlling the strength of the steering. This is often set with the keyword harm."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001222 "steered MD restraint energy constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001222 "AMBER 26 Reference Manual, p. 610, entry harm."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001222 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001222 obo:MOLSIM_001220)
 
@@ -10278,6 +10301,8 @@ SubClassOf(obo:MOLSIM_001233 obo:MOLSIM_001219)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001234 "A Gaussian accelerated MD parameter that specifies the upper limit of the standard deviation for the potential energy boost. This parameter controls the maximum strength of the applied bias. This is often set with keywords like sigma0P or sigma0D."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001234 "GaMD potential boost stddev limit"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001234 "AMBER 26 Reference Manual, p. 526, entry sigma0D."@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001234 "AMBER 26 Reference Manual, p. 526, entry sigma0P."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001234 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001234 obo:MOLSIM_001233)
 
@@ -10292,6 +10317,7 @@ SubClassOf(obo:MOLSIM_001235 obo:MOLSIM_001219)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001236 "A random acceleration MD parameter that specifies the strength of the acceleration boost applied in a Random Acceleration Molecular Dynamics (RAMD) simulation. This parameter controls the magnitude of the random forces used to accelerate the system's exploration. The RAMD boost strength is a key parameter for tuning the RAMD simulation. This is often set with the keyword ramdboost."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001236 "RAMD boost strength"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001236 "AMBER 26 Reference Manual, p. 458, entry ramdboost."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001236 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001236 obo:MOLSIM_001235)
 
@@ -10306,6 +10332,7 @@ SubClassOf(obo:MOLSIM_001237 obo:MOLSIM_001219)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001238 "A targeted MD parameter that specifies the force constant for the RMSD restraint potential used to guide the simulation towards the target structure. A larger targeted MD force constant results in a stronger biasing force. This is a key parameter for controlling the strength of the targeted MD simulation. This is often set with the keyword tgtmdfrc."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001238 "targeted MD force constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001238 "AMBER 26 Reference Manual, p. 532, entry tgtmdfrc."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001238 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001238 obo:MOLSIM_001237)
 
@@ -10313,6 +10340,7 @@ SubClassOf(obo:MOLSIM_001238 obo:MOLSIM_001237)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001239 "A targeted MD parameter that specifies the target root-mean-square deviation (RMSD) value for the restraint. The simulation is guided to reduce the RMSD of the current structure relative to a reference structure to this targeted MD RMSD target value. This is a key parameter for defining the endpoint of the TMD simulation. This is often set with the keyword tgtrmsd."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001239 "targeted MD RMSD target"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001239 "AMBER 26 Reference Manual, p. 532, entry tgtrmsd."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001239 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001239 obo:MOLSIM_001237)
 
@@ -10327,6 +10355,7 @@ SubClassOf(obo:MOLSIM_001240 obo:MOLSIM_001219)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001241 "A nudged elastic band parameter that specifies the spring force constant connecting adjacent images along the reaction path. This parameter ensures that the images are evenly spaced and do not drift off the path. The NEB spring constant is a key parameter for the stability and convergence of the NEB calculation. This is often set with the keyword nebk."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001241 "NEB spring constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001241 "AMBER 26 Reference Manual, p. 550, entry nebk."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001241 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001241 obo:MOLSIM_001240)
 
@@ -10334,6 +10363,7 @@ SubClassOf(obo:MOLSIM_001241 obo:MOLSIM_001240)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001242 "A nudged elastic band parameter that specifies the number of intermediate structures (images) to optimize along the reaction path. A larger NEB number of images provides a more detailed representation of the path but is computationally more expensive. This is a key parameter for controlling the resolution of the NEB calculation. This is often set with the keyword neb_nimage."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001242 "NEB number of images"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001242 "AMBER 26 Reference Manual, p. 550, entry neb_nimage."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001242 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001242 obo:MOLSIM_001240)
 
@@ -10348,6 +10378,7 @@ SubClassOf(obo:MOLSIM_001243 obo:MOLSIM_001219)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001244 "A well-tempered metadynamics parameter that controls the rate at which the height of the added Gaussian hills decreases. A higher well-tempered pseudo-temperature results in a faster convergence but a less detailed exploration of the energy landscape. This is a key parameter for tuning the well-tempered metadynamics simulation. This is often set with the keyword wt_temperature."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001244 "well-tempered pseudo-temperature"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001244 "AMBER 26 Reference Manual, p. 613, entry wt_temperature."@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001244 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001244 obo:MOLSIM_001243)
 
@@ -10361,18 +10392,21 @@ SubClassOf(obo:MOLSIM_001245 obo:MOLSIM_001164)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001246 "A QM/MM parameter that specifies the total integer charge of the quantum mechanical (QM) region. This is a critical parameter for ensuring that the QM calculation is performed with the correct electronic state. The QM charge must be set correctly for the QM/MM simulation to be physically meaningful. This is often set with the keyword qmcharge. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001246 "QM charge"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001246 "AMBER 26 Reference Manual, p. 159, entry qmcharge."@en)
 SubClassOf(obo:MOLSIM_001246 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001247 (QM/MM link atom distance)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001247 "A QM/MM parameter that specifies the distance from a QM atom to its corresponding link atom, which is used to saturate the valency at the QM/MM boundary. The QM/MM link atom distance is a key parameter for ensuring a stable and accurate treatment of the QM/MM interface. This is often set with the keyword lnk_dis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001247 "QM/MM link atom distance"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001247 "AMBER 26 Reference Manual, p. 175, entry lnk_dis."@en)
 SubClassOf(obo:MOLSIM_001247 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001248 (QM/MM non-bonded cutoff)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001248 "A QM/MM parameter that specifies the cutoff distance for non-bonded interactions between the QM region and the MM region. This is a key parameter for controlling the computational cost and accuracy of the QM/MM calculation. The QM/MM non-bonded cutoff is often set with the keyword qmcut. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001248 "QM/MM non-bonded cutoff"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001248 "AMBER 26 Reference Manual, p. 172, entry qmcut."@en)
 SubClassOf(obo:MOLSIM_001248 obo:MOLSIM_001245)
 
 # Class: obo:MOLSIM_001249 (DFTB parameter)
@@ -10385,12 +10419,14 @@ SubClassOf(obo:MOLSIM_001249 obo:MOLSIM_001245)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001250 "A DFTB parameter that specifies the maximum number of self-consistent charge (SCC) iterations for the DFTB calculation. This parameter controls the convergence of the DFTB calculation. The DFTB max iterations is a key parameter for ensuring a converged electronic structure. This is often set with the keyword dftb_maxiter. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001250 "DFTB max iterations"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001250 "AMBER 26 Reference Manual, p. 159, entry dftb_maxiter."@en)
 SubClassOf(obo:MOLSIM_001250 obo:MOLSIM_001249)
 
 # Class: obo:MOLSIM_001251 (DFTB electronic temperature)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001251 "A DFTB parameter that specifies an electronic temperature to accelerate the convergence of the DFTB calculation. This is a numerical trick used to improve the stability of the SCF procedure. The DFTB electronic temperature is a key parameter for difficult-to-converge systems. This is often set with the keyword dftb_telec. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001251 "DFTB electronic temperature"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001251 "AMBER 26 Reference Manual, p. 159, entry dftb_telec."@en)
 SubClassOf(obo:MOLSIM_001251 obo:MOLSIM_001249)
 
 # Class: obo:MOLSIM_001252 (SCF parameter)
@@ -10403,18 +10439,21 @@ SubClassOf(obo:MOLSIM_001252 obo:MOLSIM_001245)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001253 "An SCF parameter that specifies the maximum number of iterations allowed for the Self-Consistent Field (SCF) procedure to converge. This parameter prevents the calculation from running indefinitely if it fails to converge. The max SCF iterations is a key parameter for controlling the computational cost of the QM calculation. This is often set with the keyword itrmax. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001253 "max SCF iterations"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001253 "AMBER 26 Reference Manual, p. 161, entry itrmax."@en)
 SubClassOf(obo:MOLSIM_001253 obo:MOLSIM_001252)
 
 # Class: obo:MOLSIM_001254 (SCF convergence criteria)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001254 "An SCF parameter that specifies the energy or density threshold for the self-consistent field (SCF) procedure to be considered converged. A smaller SCF convergence criteria results in a more accurate calculation but may require more iterations. This is a key parameter for controlling the accuracy of the QM calculation. This is often set with the keyword scfconv. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001254 "SCF convergence criteria"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001254 "AMBER 26 Reference Manual, p. 160, entry scfconv."@en)
 SubClassOf(obo:MOLSIM_001254 obo:MOLSIM_001252)
 
 # Class: obo:MOLSIM_001255 (SCF damping factor)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001255 "An SCF parameter that specifies a damping factor used to improve the convergence of the Self-Consistent Field (SCF) procedure. This is a numerical trick used to prevent oscillations in the SCF energy. The SCF damping factor is a key parameter for difficult-to-converge systems. This is often set with the keyword damp. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001255 "SCF damping factor"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001255 "AMBER 26 Reference Manual, p. 479, entry damp."@en)
 SubClassOf(obo:MOLSIM_001255 obo:MOLSIM_001252)
 
 # Class: obo:MOLSIM_001256 (DIIS parameter)
@@ -10427,6 +10466,7 @@ SubClassOf(obo:MOLSIM_001256 obo:MOLSIM_001252)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001257 "A DIIS parameter that specifies the number of DIIS extrapolation attempts to be made to aid SCF convergence. This parameter controls how aggressively the DIIS algorithm is applied. The DIIS attempts is a key parameter for tuning the SCF convergence. This is often set with the keyword ndiis_attempts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001257 "DIIS attempts"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001257 "AMBER 26 Reference Manual, p. 162, entry ndiis_attempts."@en)
 SubClassOf(obo:MOLSIM_001257 obo:MOLSIM_001256)
 
 # Class: obo:MOLSIM_001258 (number of DIIS matrices)
@@ -10467,6 +10507,7 @@ SubClassOf(obo:MOLSIM_001262 obo:MOLSIM_001164)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001263 "A polarizable force field parameter that specifies the convergence criterion for the self-consistent field calculation of the induced dipoles. A smaller induced dipole convergence criterion results in a more accurate calculation but may require more iterations. This is a key parameter for controlling the accuracy and performance of a polarizable simulation. This is often set with the keyword dipole_scf_tol. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001263 "induced dipole convergence criterion"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001263 "AMBER 26 Reference Manual, p. 465, entry dipole_scf_tol."@en)
 SubClassOf(obo:MOLSIM_001263 obo:MOLSIM_001262)
 
 # Class: obo:MOLSIM_001264 (analysis parameter)
@@ -10505,6 +10546,7 @@ SubClassOf(obo:MOLSIM_001268 obo:MOLSIM_001264)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001269 "A volumetric analysis parameter that specifies the spacing between points in a 3D grid used for spatial analysis of simulation data. A smaller grid spacing yields a higher resolution grid but increases the computational cost of the grid-based calculation. This is a key parameter for controlling the resolution of the volumetric data. This is often set with the keyword spacing or grdspc. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001269 "grid spacing"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001269 "AMBER 26 Reference Manual, p. 138, entry grdspc."@en)
 SubClassOf(obo:MOLSIM_001269 obo:MOLSIM_001268)
 
 # Class: obo:MOLSIM_001270 (grid function)
@@ -10567,12 +10609,14 @@ SubClassOf(obo:MOLSIM_001278 obo:MOLSIM_001277)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001279 "An MM-PBSA/GBSA parameter that specifies the dielectric constant of the implicit membrane region in a continuum solvent calculation. This is a key parameter for accurately modeling the electrostatic environment of a membrane protein. The membrane dielectric constant is typically set to a low value to represent the non-polar lipid core. This is often set with the keyword emem. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001279 "membrane dielectric constant"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001279 "AMBER 26 Reference Manual, p. 953, entry emem."@en)
 SubClassOf(obo:MOLSIM_001279 obo:MOLSIM_001278)
 
 # Class: obo:MOLSIM_001280 (probe radius)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001280 "An MM-PBSA/GBSA parameter that specifies the radius of the probe molecule (typically water) used to calculate the solvent-accessible surface area. The probe radius is a key parameter for the non-polar part of the solvation free energy calculation. This is often set with the keyword probe or prbrad. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001280 "probe radius"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001280 "AMBER 26 Reference Manual, p. 952, entry prbrad."@en)
 SubClassOf(obo:MOLSIM_001280 obo:MOLSIM_001278)
 
 # Class: obo:MOLSIM_001281 (cavity offset)
