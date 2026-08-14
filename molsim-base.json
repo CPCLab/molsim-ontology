@@ -61,14 +61,20 @@
         "val" : "Scope note: MOLSIM's boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README."
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-08-07"
+        "val" : "2026-08-14"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-08-07/molsim-base.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-08-14/molsim-base.json"
     },
     "nodes" : [ {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000030",
+      "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000104",
+      "type" : "CLASS"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000000",
       "lbl" : "molecular dynamics process",
       "type" : "CLASS",
@@ -251,21 +257,29 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000016",
-      "lbl" : "other organic molecules force field",
+      "lbl" : "general purpose organic force field",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "General purpose force fields applicable to a wide range of organic molecules not covered by protein, lipid, nucleic acid, or carbohydrate specific parameter sets. These general force fields (like GAFF, CGenFF) use atom typing rules based on chemical environment to assign parameters, making them versatile for arbitrary organic molecules like drugs or ligands. They contrast with highly specialized biomolecular force fields. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "other organic molecules force field"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000017",
-      "lbl" : "minimal",
+      "lbl" : "minimal basis set",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A minimal basis set includes only the minimum number of basis functions required to accommodate all the electrons of an atom in its ground electronic state. For example, it uses one function for the 1s orbital of hydrogen, and one function each for the 1s, 2s, and 2p orbitals (px, py, pz) of a second-row element like carbon. Minimal basis sets like STO-nG are computationally inexpensive but generally provide low accuracy. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "minimal"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000018",
@@ -520,7 +534,26 @@
       "meta" : {
         "definition" : {
           "val" : "A barostat algorithm that weakly couples the system to an external pressure bath by rescaling the simulation box volume and particle coordinates based on the difference between the current instantaneous pressure and the target pressure. Similar to the Berendsen thermostat, it is computationally simple and effective for equilibration but does not rigorously sample the correct NPT ensemble. It allows isotropic or anisotropic pressure coupling. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "barostat=1",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "pcoupl=Berendsen",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000041",
@@ -529,7 +562,17 @@
       "meta" : {
         "definition" : {
           "val" : "A barostat algorithm where trial changes to the simulation box volume are attempted periodically during a molecular dynamics simulation using a Monte Carlo acceptance criterion. Accepted moves rescale the box dimensions and particle coordinates. This method correctly samples the NPT ensemble but can be less efficient than continuous barostats for large volume fluctuations. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "barostat=2",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000042",
@@ -547,7 +590,17 @@
       "meta" : {
         "definition" : {
           "val" : "An extension of the Andersen barostat that allows the simulation box shape and volume to change anisotropically, meaning the lengths of the box edges and the angles between them can fluctuate independently. This is crucial for simulating phase transitions or studying materials under anisotropic stress conditions while correctly sampling the NPT ensemble. It uses a matrix of barostat variables coupled to the pressure tensor. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "pcoupl=Parrinello-Rahman",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000044",
@@ -569,6 +622,15 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntt=3",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
         } ]
       }
     }, {
@@ -578,7 +640,26 @@
       "meta" : {
         "definition" : {
           "val" : "A thermostat algorithm that weakly couples the system to an external heat bath by rescaling particle velocities at each step based on the difference between the current instantaneous temperature and the target temperature. While computationally simple and effective at bringing the system to the target temperature, it does not rigorously generate configurations from the correct canonical (NVT) ensemble. It is often used for equilibration phases rather than production simulations. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntt=1",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "tcoupl=berendsen",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000047",
@@ -587,7 +668,26 @@
       "meta" : {
         "definition" : {
           "val" : "A thermostat algorithm that maintains temperature by introducing stochastic collisions between randomly selected particles and fictitious heat bath particles. When a particle \"collides,\" its velocity is reassigned from a Maxwell-Boltzmann distribution corresponding to the target temperature. This method correctly generates configurations from the canonical (NVT) ensemble. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntt=2",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "tcoupl=andersen",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000048",
@@ -600,6 +700,16 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Nose-Hoover"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "tcoupl=nose-hoover",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
         } ]
       }
     }, {
@@ -1670,12 +1780,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000150",
-      "lbl" : "structural changes",
+      "lbl" : "structural change",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "This criterion focuses specifically on the nature and magnitude of the structural changes between a pair of ligands being considered for relative free energy calculations. Ideally, the transformation involves small, localized changes (e.g., adding a methyl group, changing a halogen) rather than large rearrangements or changes in net charge, as smaller perturbations generally lead to more reliable alchemical calculations. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "structural changes"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000151",
@@ -1737,12 +1851,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000157",
-      "lbl" : "framework",
+      "lbl" : "simulation framework",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A reusable software platform or environment that provides a basic structure and set of tools or libraries for developing applications or performing complex tasks within a specific domain. In biomolecular simulation, a framework might offer standardized ways to set up simulations, manage data, integrate different tools, or build custom analysis workflows, providing a higher level of abstraction than individual tools or scripts. Examples could include workflow management systems (like Galaxy, KNIME adapted for simulation) or simulation setup environments (like CHARMM-GUI). (UNVERIFIED)"
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "framework"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "https://doi.org/10.1002/jcc"
@@ -1952,7 +2070,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "This likely refers to GAMESS-US (General Atomic and Molecular Electronic Structure System), a widely used, freely available quantum chemistry software package. It provides a broad range of quantum mechanical methods (HF, DFT, MP2, CCSD, MCSCF) and features for geometry optimization, vibrational analysis, property calculation, and QM/MM simulations. GAMESS-US is extensively used in computational chemistry research and education for electronic structure calculations relevant to biomolecular systems. (If GAMESS-UK was intended, see previous definition) (UNVERIFIED)"
+          "val" : "A quantum chemistry engine of the GAMESS family, a group of related ab initio electronic structure packages that share a common origin and a similar range of methods. Two distinct programs carry the name and are maintained separately, so a record should normally state which one was used. (UNVERIFIED)"
         }
       }
     }, {
@@ -2029,21 +2147,29 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000185",
-      "lbl" : "π-π interactions",
+      "lbl" : "π-π interaction",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A non-covalent interaction occurring between aromatic rings, arising from a combination of electrostatic interactions between their quadrupole moments (electron-rich faces vs electron-poorer edges) and Van der Waals (dispersion) forces. The preferred geometry (e.g., stacked, parallel-displaced, T-shaped) depends on the specific aromatic systems and influences the interaction strength. They are important in protein structure (stacking of Phe, Tyr, Trp, His residues) and the stability of DNA/RNA helices (base stacking). (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "π-π interactions"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000186",
-      "lbl" : "hydrophobic interactions",
+      "lbl" : "hydrophobic interaction",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "The observed tendency for nonpolar molecules or molecular groups to associate with each other when in an aqueous (water) environment, effectively minimizing their disruptive contact with water molecules. This phenomenon is primarily entropically driven by the favorable increase in the entropy of water molecules that are released from ordered \"cages\" (solvation shells) around the nonpolar surfaces when they aggregate. It is a major driving force for protein folding (burying hydrophobic residues), membrane formation, and ligand binding."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "hydrophobic interactions"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -2051,21 +2177,29 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000187",
-      "lbl" : "electrostatic interactions",
+      "lbl" : "electrostatic interaction",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Non-covalent interactions arising from the Coulombic forces between charged or polar species (possessing permanent or induced charge distributions). This encompasses interactions between ions (ion-ion, forming salt bridges), ions and dipoles, dipoles and dipoles, and higher-order multipoles, as well as interactions involving induced dipoles. These interactions can be long-range (decaying as 1/r for ion-ion) and are fundamental to the structure, function, solvation, and binding of biomolecules in their typically polar biological environment. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "electrostatic interactions"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000188",
-      "lbl" : "cation-π interactions",
+      "lbl" : "cation-π interaction",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A specific type of non-covalent electrostatic interaction involving the attractive force between a cation (a positively charged ion, e.g., Na+,K+,Lys+,Arg+) and the electron-rich face of an aromatic π-system (like benzene, or the side chains of Phe, Tyr, Trp, His). The cation is attracted to the negative electrostatic potential above and below the plane of the aromatic ring, which arises from its quadrupole moment. These interactions contribute significantly to protein structure stabilization and molecular recognition, including ligand binding. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "cation-π interactions"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000189",
@@ -2082,12 +2216,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000190",
-      "lbl" : "backbone hydrogen bonds",
+      "lbl" : "backbone hydrogen bond",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Hydrogen bonds formed specifically between the atoms of the polypeptide backbone in proteins or peptides. The most common form involves the amide hydrogen (N-H group) of one residue acting as the donor and the carbonyl oxygen (C=O group) of another residue (often i→i+4 in helices or between strands in sheets) acting as the acceptor."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "backbone hydrogen bonds"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -2095,12 +2233,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000191",
-      "lbl" : "side-chain hydrogen bonds",
+      "lbl" : "side-chain hydrogen bond",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Hydrogen bonds where at least one of the participating atoms (either the donor hydrogen attached to its electronegative atom, or the acceptor electronegative atom) belongs to an amino acid side chain, rather than exclusively involving backbone atoms. These interactions can occur between two side chains, or between a side chain and the backbone, contributing to the stability of the protein's tertiary and quaternary structure, protein-ligand interactions, and enzyme active site chemistry."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "side-chain hydrogen bonds"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-2294-5393"
@@ -2108,12 +2250,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000192",
-      "lbl" : "backbone-side chain hydrogen bonds",
+      "lbl" : "backbone-side chain hydrogen bond",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Hydrogen bonds formed specifically between an atom on the polypeptide backbone (either the amide N-H donor or the carbonyl C=O acceptor) and an atom within an amino acid side chain (acting as acceptor or donor, respectively). These interactions directly link the regular backbone structure to the specific side chain identities and conformations, playing crucial roles in stabilizing protein folds (tertiary structure) and positioning side chains for function."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "backbone-side chain hydrogen bonds"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -2130,16 +2276,20 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000194",
-      "lbl" : "disulfide bridges",
+      "lbl" : "disulfide bridge",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A specific type of covalent bond formed by the oxidation of the thiol (-SH) groups of two cysteine amino acid residues, creating a sulfur-sulfur bond (-S-S-). These bonds can form between cysteines within the same polypeptide chain (intramolecular) or between different chains (intermolecular), acting as strong cross-links that significantly stabilize the folded tertiary or quaternary structure of many proteins, particularly extracellular ones. Formation and breakage of disulfide bridges are important biochemical processes. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "disulfide bridges"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000195",
-      "lbl" : "ensemble",
+      "lbl" : "thermodynamic ensemble",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -2147,10 +2297,10 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "statistical ensemble"
+          "val" : "ensemble"
         }, {
           "pred" : "hasExactSynonym",
-          "val" : "thermodynamic ensemble"
+          "val" : "statistical ensemble"
         } ]
       }
     }, {
@@ -3414,13 +3564,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000310",
-      "lbl" : "plan specification",
+      "lbl" : "obsolete plan specification",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\" (UNVERIFIED)"
+          "val" : "OBSOLETE. A plan specification is a document or set of rules that describes how a study or experiment should be designed and carried out. As a type of information content entity, it represents the formal design of a computational experiment, such as the ligand pairs selection criteria for a relative binding free energy study. This specification outlines the rationale and criteria for selecting systems and parameters before the simulation or analysis is performed, ensuring a systematic and reproducible approach. This concept is often described in publications in sections titled \"Experimental Design,\" \"Study Protocol,\" \"Selection Criteria,\" or \"Computational Strategy.\""
         },
-        "comments" : [ "Kept as a MOLSIM term rather than reusing IAO:0000104 plan specification, which is already present in the IAO import module but referenced nowhere. Reusing it would pull in two grouping levels MOLSIM has no use for, IAO:0000033 directive information entity and IAO:0000030 information content entity, and would place this branch under the BFO spine (BFO:0000031 generically dependent continuant and above), which MOLSIM defers. Revisit only if upper-ontology alignment is opened." ]
+        "comments" : [ "Kept as a MOLSIM term rather than reusing IAO:0000104 plan specification, which is already present in the IAO import module but referenced nowhere. Reusing it would pull in two grouping levels MOLSIM has no use for, IAO:0000033 directive information entity and IAO:0000030 information content entity, and would place this branch under the BFO spine (BFO:0000031 generically dependent continuant and above), which MOLSIM defers. Revisit only if upper-ontology alignment is opened.", "Retired 2026-08-12 as part of the COB alignment. IAO:0000104 plan specification says the same thing and is reached from IAO:0000030 information content entity, which MOLSIM already adopted. This retirement waited until the branch was cleaned: MOLSIM:000310 previously held four children of which three were not plans, and those moved to MOLSIM:002251 atom selection specification and MOLSIM:002252 selection criteria. Its one remaining child, MOLSIM:002155 simulation protocol, was re-parented onto IAO:0000104 in the same change." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000104"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000311",
@@ -3506,7 +3661,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000317",
-      "lbl" : "json format",
+      "lbl" : "JSON format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -3515,7 +3670,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000318",
-      "lbl" : "yaml format",
+      "lbl" : "YAML format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -3533,7 +3688,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000320",
-      "lbl" : "toml format",
+      "lbl" : "TOML format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -3863,12 +4018,14 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000351",
-      "lbl" : "similarity and divergence analysis",
+      "lbl" : "obsolete similarity and divergence analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Similarity and divergence measures are mathematical quantities used to compare two probability distributions, datasets, or sequences, quantifying how similar or different they are. Similarity measures indicate closeness (higher values mean more similar), while divergence measures quantify the difference or 'distance' between them (higher values mean more different). These are used in various fields including information theory, statistics, and bioinformatics (e.g., comparing conformational ensembles). (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. Similarity and divergence measures are mathematical quantities used to compare two probability distributions, datasets, or sequences, quantifying how similar or different they are. Similarity measures indicate closeness (higher values mean more similar), while divergence measures quantify the difference or 'distance' between them (higher values mean more different). These are used in various fields including information theory, statistics, and bioinformatics (e.g., comparing conformational ensembles)."
+        },
+        "comments" : [ "Retired 2026-08-13. It held a single child, MOLSIM:000118 Jensen-Shannon divergence analysis, which now sits directly under MOLSIM:000400 statistical analysis beside correlation analysis and hypothesis testing analysis. Three faults made it worth removing rather than renaming: the label joined two ideas with and, which reviewers raised as a pattern in August 2026; it grouped one term, so it explained nothing; and its definition described similarity and divergence measures, meaning quantities, while the class was labelled an analysis and parented under statistical analysis. The same shape as MOLSIM:000918 global structure analysis, retired on 2026-08-08." ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000352",
@@ -3876,7 +4033,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A .binpos file is a binary format used to store atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD. (UNVERIFIED)"
+          "val" : "A binary file format that stores atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -4203,7 +4360,35 @@
       "meta" : {
         "definition" : {
           "val" : "An adaptive thermostat is a type of temperature control algorithm that can adjust its behavior during the course of a simulation. This allows it to respond more effectively to changes in the system, such as a protein undergoing a large conformational change. For experts, these thermostats often modify their coupling strength or other parameters on-the-fly to provide more stable and efficient temperature control compared to static methods. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntt=6",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntt=7",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntt=8",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000382",
@@ -4292,12 +4477,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000391",
-      "lbl" : "semi-isotropic pressure scaling barostat",
+      "lbl" : "semi-isotropic position scaling barostat",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "semi-isotropic pressure scaling barostat"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -4588,8 +4777,15 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The EMIL (Energy and Motion from an Implicit Liquid) free energy method is a computational technique for calculating the free energy profile along a specific coordinate. It works by determining the average force exerted by the solvent on the solute at different points along a pathway and then integrating this force to obtain the potential of mean force. This provides an efficient way to map out the energetic landscape of a conformational change or binding process. (UNVERIFIED)"
-        }
+          "val" : "A free energy calculation analysis that computes an absolute free energy by thermodynamic integration from a realistic atomistic model to a simplified reference model whose free energy can be solved exactly. The Einstein Molecule model is used for the solute, in which each atom is held in place by a harmonic potential so that the reference free energy has a closed-form solution. EMIL is the name of the module that implements this in AMBER, and its authors call the underlying method Thermodynamic Integration relative to an Exact Solution. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Berryman J.T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia, 2014. States that the AMBER implementation of this method is called EMIL."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Berryman J.T. and Schilling T. Free energies by thermodynamic integration relative to an exact solution, used to find the handedness-switching salt concentration for DNA. J. Chem. Theory Comput. 9(1):679-686, 2013."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000416",
@@ -4886,20 +5082,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000445",
-      "lbl" : "mmcif format",
+      "lbl" : "mmCIF format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)"
-        },
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "mmCIF format"
-        } ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000446",
-      "lbl" : "pdb format",
+      "lbl" : "PDB format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -5025,7 +5217,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000458",
-      "lbl" : "fluoroscence spectroscopy",
+      "lbl" : "fluorescence spectroscopy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -5068,7 +5260,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "This likely refers to a software module or library component within a larger simulation or modeling package that provides the functionality to perform MM/PBSA calculations. Unlike a standalone script like MMPBSA.py, this would be an integrated part of a program (like CHARMM, Schrödinger suite, MOE) offering MM/PBSA analysis as one of its features, using its internal MM energy calculation routines and PB solvers. (UNVERIFIED)"
+          "val" : "A molecular mechanics Poisson-Boltzmann surface area tool that is built into a larger simulation or modelling package rather than run on its own. It uses that package's own energy routines and Poisson-Boltzmann solver, which is what distinguishes it from a standalone script such as MMPBSA.py. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -5151,7 +5343,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000468",
-      "lbl" : "mrc format",
+      "lbl" : "MRC format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -5345,12 +5537,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000485",
-      "lbl" : "split-valence",
+      "lbl" : "split-valence basis set",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Split-valence basis sets improve upon minimal basis sets by using two or more basis functions with different spatial extents to represent each valence atomic orbital, while still using a single function for core orbitals. This allows the molecular orbitals to change size and shape more flexibly upon molecule formation, leading to significantly better accuracy than minimal basis sets. Examples include the Pople basis sets (e.g., 3-21G, 6-31G) and correlation-consistent sets. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "split-valence"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000486",
@@ -6320,16 +6516,20 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000594",
-      "lbl" : "gnu format",
+      "lbl" : "Gnuplot data format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A data file format designed to be used with the Gnuplot plotting program. It typically consists of columns of numerical data in a simple text-based layout that Gnuplot can easily parse and visualize. This format is widely used for generating scientific graphs and plots from raw data. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "gnu format"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000595",
-      "lbl" : "xplor format",
+      "lbl" : "XPLOR format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -6355,7 +6555,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000597",
-      "lbl" : "dx format",
+      "lbl" : "DX format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -6385,7 +6585,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Log file from an Amber Replica Exchange MD simulation. The main file extension for Amber REM (Replica Exchange Molecular Dynamics) log files is .log, typically named as rem.log, according to the Amber documentation and tutorial resources. This log file tracks exchanges, replica temperatures, and relevant statistics for the REMD process. (UNVERIFIED)"
+          "val" : "A log file format that records the progress of an Amber replica exchange molecular dynamics simulation. The main file extension for Amber REM (Replica Exchange Molecular Dynamics) log files is .log, typically named as rem.log, according to the Amber documentation and tutorial resources. This log file tracks exchanges, replica temperatures, and relevant statistics for the REMD process. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6401,7 +6601,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Amber evecs eigenvector file is a specialized output from Principal Component Analysis (PCA), normal mode analysis, or quasiharmonic analysis in AMBER (using cpptraj or ptraj). This file stores the eigenvectors (or “principal modes”) and eigenvalues resulting from the diagonalization of a covariance or mass-weighted covariance matrix, commonly used in essential dynamics analysis of molecular simulations. The output file is usually called evecs.dat, evecs.out, or follows a similar naming scheme. There is no fixed \"file extension\" required; however, the content and formatting are standardized for compatibility with AMBER utilities (e.g., cpptraj, ptraj) that read and write them. (UNVERIFIED)"
+          "val" : "A file format that holds the eigenvectors and eigenvalues produced by principal component analysis, normal mode analysis or quasiharmonic analysis in AMBER. The vectors come from diagonalising a covariance or mass-weighted covariance matrix, and are used in essential dynamics analysis of molecular simulations. There is no required extension: the file is usually called evecs.dat or evecs.out, and its layout is standardised so that AMBER tools such as cpptraj and ptraj can read and write it. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6417,7 +6617,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A cpout (constant pH output) file is generated during constant pH Molecular Dynamics (CpHMD) simulations in AMBER, contain the results of the simulation—such as pH-dependent state changes, lambda values, protonation fractions, and statistics relevant to titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations. (UNVERIFIED)"
+          "val" : "An output file format produced during constant pH molecular dynamics in AMBER, holding pH-dependent state changes, lambda values, protonation fractions and statistics for titratable groups. These files are produced as a result of the simulation or post-simulation analysis, not used to initiate or restart simulations. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6487,7 +6687,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000608",
-      "lbl" : "ccp4 map format",
+      "lbl" : "CCP4 map format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -6504,7 +6704,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The file for storing pre-calculated pairwise distances does not have a single, mandatory extension, but a common convention exists. The recommended format is a binary file, for which the conventional extension is .cmatrix. (UNVERIFIED)"
+          "val" : "A binary file format that stores pre-calculated pairwise distances between structures. It has no mandatory extension, but .cmatrix is the conventional one. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -6562,7 +6762,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000614",
-      "lbl" : "off format",
+      "lbl" : "OFF format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -8360,7 +8560,17 @@
       "meta" : {
         "definition" : {
           "val" : "Velocity Rescaling thermostat, an algorithm that modifies the Berendsen weak coupling approach to correctly generate configurations from the canonical (NVT) ensemble. It rescales velocities based on the kinetic energy difference but includes a stochastic term related to the system's kinetic energy fluctuations, ensuring proper statistical sampling. It combines the simplicity of Berendsen-like scaling with rigorous ensemble generation. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "tcoupl=v-rescale",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000803",
@@ -8643,12 +8853,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000832",
-      "lbl" : "multi-reference",
+      "lbl" : "multi-reference method",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A class of advanced quantum mechanics methods required for accurately describing molecules or chemical processes where the electronic structure cannot be well represented by a single dominant electron configuration (as assumed in basic Hartree-Fock theory). These situations often involve stretched bonds, excited states, diradicals, or transition metals, necessitating the use of multiple electronic configurations to capture the essential physics. These methods are typically more computationally demanding than single-reference approaches. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "multi-reference"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000833",
@@ -8910,12 +9124,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000855",
-      "lbl" : "neural networks",
+      "lbl" : "neural network",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Neural networks, a type of machine learning model, are increasingly used as tools within enhanced sampling methods. They can be employed to automatically identify complex collective variables capturing slow dynamics, represent highly flexible biasing potentials for methods like metadynamics, or directly learn and reconstruct free energy surfaces from simulation data. Their ability to model complex, non-linear relationships makes them powerful for tackling challenging sampling problems. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "neural networks"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000856",
@@ -9031,7 +9249,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000864",
-      "lbl" : "transition state ensembles",
+      "lbl" : "transition state ensemble",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -9040,6 +9258,9 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "TSE"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "transition state ensembles"
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
@@ -9069,7 +9290,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An ADF input file contains keywords and data blocks that instruct the Amsterdam Density Functional (ADF) software package on how to perform a quantum chemical calculation. It specifies details like the desired computational task (e.g., geometry optimization, frequency calculation), the molecular geometry, the choice of density functional and basis set, and other calculation parameters. The format uses specific ADF keywords and block structures (e.g., ATOMS, GEOMETRY). (UNVERIFIED)"
+          "val" : "An input file format that carries the keywords and data blocks instructing the Amsterdam Density Functional software how to perform a quantum chemical calculation. It specifies details like the desired computational task (e.g., geometry optimization, frequency calculation), the molecular geometry, the choice of density functional and basis set, and other calculation parameters. The format uses specific ADF keywords and block structures (e.g., ATOMS, GEOMETRY). (UNVERIFIED)"
         }
       }
     }, {
@@ -9091,7 +9312,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A GAMESS input file provides instructions to the GAMESS (US) quantum chemistry program, structured into distinct groups identified by keywords starting with '$' (e.g., $CONTRL, $BASIS, $DATA). Within these groups, keywords specify the type of calculation (e.g., RUNTYP=OPTIMIZE), the theoretical method (e.g., SCFTYP=RHF), basis set, molecular geometry, and other computational details. The format follows specific Fortran namelist-like conventions. (UNVERIFIED)"
+          "val" : "An input file format that instructs the GAMESS (US) quantum chemistry program, structured into groups identified by keywords starting with '$', such as $CONTRL, $BASIS and $DATA. Within these groups, keywords specify the type of calculation (e.g., RUNTYP=OPTIMIZE), the theoretical method (e.g., SCFTYP=RHF), basis set, molecular geometry, and other computational details. The format follows specific Fortran namelist-like conventions. (UNVERIFIED)"
         }
       }
     }, {
@@ -9109,7 +9330,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A Gaussian input file, often with a .com or .gjf extension, instructs the Gaussian quantum chemistry software. It characteristically includes a 'route section' (starting with #) containing keywords that define the theoretical method, basis set, and calculation type (e.g., optimization, frequency), followed by a title section, charge and spin multiplicity, and the molecular geometry. The structure is highly standardized within the Gaussian ecosystem. (UNVERIFIED)"
+          "val" : "An input file format that instructs the Gaussian quantum chemistry software, carrying the extension .com or .gjf. It characteristically includes a 'route section' (starting with #) containing keywords that define the theoretical method, basis set, and calculation type (e.g., optimization, frequency), followed by a title section, charge and spin multiplicity, and the molecular geometry. The structure is highly standardized within the Gaussian ecosystem. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9138,7 +9359,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The HIN (.hin) file is the native format for the HyperChem molecular modeling software package. It stores information about the molecular system, including atomic coordinates, connectivity, atom types according to specific force fields, and potentially other parameters or calculation settings used within HyperChem. It serves as both an input and a way to save the molecular setup. (UNVERIFIED)"
+          "val" : "The native file format of the HyperChem molecular modelling software package, written with the extension .hin. It stores information about the molecular system, including atomic coordinates, connectivity, atom types according to specific force fields, and potentially other parameters or calculation settings used within HyperChem. It serves as both an input and a way to save the molecular setup. (UNVERIFIED)"
         }
       }
     }, {
@@ -9147,7 +9368,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A Jaguar input file provides the instructions for a quantum chemistry calculation using the Jaguar software, often part of the Schrödinger suite. It uses a specific syntax with data sections delimited by &section_name (e.g., &gen, &zmat) and terminated by &, containing keywords and values controlling the calculation type, method, basis set, and molecular geometry. The structure facilitates setting up various QM tasks. (UNVERIFIED)"
+          "val" : "An input file format that carries the instructions for a quantum chemistry calculation in Jaguar, part of the Schrodinger suite. It uses a specific syntax with data sections delimited by &section_name (e.g., &gen, &zmat) and terminated by &, containing keywords and values controlling the calculation type, method, basis set, and molecular geometry. The structure facilitates setting up various QM tasks. (UNVERIFIED)"
         }
       }
     }, {
@@ -9200,7 +9421,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A Q-Chem input file provides instructions to the Q-Chem quantum chemistry program using distinct data blocks marked by $block_name and $end. Key blocks include $molecule (defining charge, multiplicity, and geometry), $rem (specifying calculation method, basis set, job type via keywords), and potentially others like $basis or $opt. This structure organizes the input required for a wide range of QM calculations. (UNVERIFIED)"
+          "val" : "An input file format that instructs the Q-Chem quantum chemistry program, using data blocks marked by $block_name and $end. Key blocks include $molecule (defining charge, multiplicity, and geometry), $rem (specifying calculation method, basis set, job type via keywords), and potentially others like $basis or $opt. This structure organizes the input required for a wide range of QM calculations. (UNVERIFIED)"
         }
       }
     }, {
@@ -9209,16 +9430,16 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The ADF output file is the main text file produced by the Amsterdam Density Functional (ADF) program, containing comprehensive results of the quantum chemical calculation. It includes details on the input parameters used, self-consistent field (SCF) convergence progress, final energies, calculated molecular properties (like dipole moments, charges), atomic coordinates, and timing information. This file is the primary source for analyzing ADF calculation outcomes. (UNVERIFIED)"
+          "val" : "The main text output format of the Amsterdam Density Functional program, holding the results of a quantum chemical calculation. It includes details on the input parameters used, self-consistent field (SCF) convergence progress, final energies, calculated molecular properties (like dipole moments, charges), atomic coordinates, and timing information. This file is the primary source for analyzing ADF calculation outcomes. (UNVERIFIED)"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000880",
-      "lbl" : "rkf format",
+      "lbl" : "RKF format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "ADF Tape41 (now more commonly the .rkf or ADF Results File) is a structured binary file generated by the Amsterdam Density Functional package. It stores a comprehensive set of calculation results, including basis set details, molecular orbital coefficients, electron densities, gradients, and potentially Hessians, in a key-value database format. This file is essential for advanced analysis, visualization, and restarting calculations. (UNVERIFIED)"
+          "val" : "A structured binary file format generated by the Amsterdam Density Functional package, written with the extension .rkf and formerly called ADF Tape41. It stores a comprehensive set of calculation results, including basis set details, molecular orbital coefficients, electron densities, gradients, and potentially Hessians, in a key-value database format. This file is essential for advanced analysis, visualization, and restarting calculations. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9247,7 +9468,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The GAMESS output file (.log or .out) is the primary text file generated by the GAMESS (US) quantum chemistry program. It contains a comprehensive record of the calculation, including echoed input parameters, details about the basis set and molecular geometry, step-by-step convergence information (e.g., for SCF or geometry optimization), final energies, molecular orbital information, and various calculated properties. This file is essential for extracting and analyzing results. (UNVERIFIED)"
+          "val" : "The primary text output format of the GAMESS (US) quantum chemistry program, written with the extension .log or .out. It contains a comprehensive record of the calculation, including echoed input parameters, details about the basis set and molecular geometry, step-by-step convergence information (e.g., for SCF or geometry optimization), final energies, molecular orbital information, and various calculated properties. This file is essential for extracting and analyzing results. (UNVERIFIED)"
         }
       }
     }, {
@@ -9265,7 +9486,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Gaussian log file (.log) is the standard text output generated by the Gaussian quantum chemistry software suite. It contains a detailed, often verbose, record of the calculation, including setup information, convergence progress for SCF and geometry optimizations, final energies, molecular orbital details, calculated properties (like dipole moments, charges), and often vibrational frequencies and thermochemical analysis. A compact summary, the \"archive entry\", is usually included near the end. (UNVERIFIED)"
+          "val" : "The standard text output format of the Gaussian quantum chemistry software suite, written with the extension .log. It contains a detailed, often verbose, record of the calculation, including setup information, convergence progress for SCF and geometry optimizations, final energies, molecular orbital details, calculated properties (like dipole moments, charges), and often vibrational frequencies and thermochemical analysis. A compact summary, the \"archive entry\", is usually included near the end. (UNVERIFIED)"
         }
       }
     }, {
@@ -9287,7 +9508,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Jaguar output file (.out) is the main text file generated by the Jaguar quantum chemistry program. It logs the progress and results of the calculation, including input parameters, convergence information for SCF and geometry optimization cycles, final energies, molecular properties such as charges and dipole moments, and vibrational frequencies if requested. Jaguar often produces associated structure files (e.g., .mae) containing the final geometry. (UNVERIFIED)"
+          "val" : "The main text output format of the Jaguar quantum chemistry program, written with the extension .out. It logs the progress and results of the calculation, including input parameters, convergence information for SCF and geometry optimization cycles, final energies, molecular properties such as charges and dipole moments, and vibrational frequencies if requested. Jaguar often produces associated structure files (e.g., .mae) containing the final geometry. (UNVERIFIED)"
         }
       }
     }, {
@@ -9296,7 +9517,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The MOPAC output file (.out) contains the results from a calculation performed by the MOPAC semi-empirical program. It typically includes an echo of the input keywords, details of geometry optimization steps (if performed), the final optimized geometry, the calculated heat of formation (ΔH f), ionization potential, dipole moment, and atomic charges. A summary section usually highlights the key results and timings. (UNVERIFIED)"
+          "val" : "An output file format holding the results of a calculation performed by the MOPAC semi-empirical program, written with the extension .out. It typically includes an echo of the input keywords, details of geometry optimization steps (if performed), the final optimized geometry, the calculated heat of formation (ΔH f), ionization potential, dipole moment, and atomic charges. A summary section usually highlights the key results and timings. (UNVERIFIED)"
         }
       }
     }, {
@@ -9305,7 +9526,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The NWChem output file (.out, .nwout) is the main text log generated by the NWChem computational chemistry package, documenting the execution of the tasks specified in the input file. It contains detailed information about the calculation setup, convergence progress for various steps (like SCF or geometry optimization), calculated energies using the requested methods (QM, MM, or combined), molecular properties, and timing information. Due to NWChem's flexibility, the output structure can vary depending on the complexity of the input directives. (UNVERIFIED)"
+          "val" : "The main text log format of the NWChem computational chemistry package, written with the extension .out or .nwout, documenting the tasks the input file requested. It contains detailed information about the calculation setup, convergence progress for various steps (like SCF or geometry optimization), calculated energies using the requested methods (QM, MM, or combined), molecular properties, and timing information. Due to NWChem's flexibility, the output structure can vary depending on the complexity of the input directives. (UNVERIFIED)"
         }
       }
     }, {
@@ -9314,7 +9535,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Q-Chem output file (.out, .qcout) is the primary text output generated by the Q-Chem quantum chemistry program. It contains the results corresponding to the specifications in the input file, including details on the method and basis set used, convergence information for SCF and geometry optimization, final electronic energies, molecular orbital information, various calculated properties (charges, dipole moments), and potentially vibrational analysis results. A summary section often highlights key computed values. (UNVERIFIED)"
+          "val" : "The primary text output format of the Q-Chem quantum chemistry program, written with the extension .out or .qcout. It contains the results corresponding to the specifications in the input file, including details on the method and basis set used, convergence information for SCF and geometry optimization, final electronic energies, molecular orbital information, various calculated properties (charges, dipole moments), and potentially vibrational analysis results. A summary section often highlights key computed values. (UNVERIFIED)"
         }
       }
     }, {
@@ -9323,7 +9544,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The Gaussian checkpoint file (.chk) is a binary file that stores a wealth of information about a completed or running Gaussian calculation, including the molecular geometry, basis set details, molecular orbital coefficients, density matrix, and forces. It is essential for restarting interrupted calculations (especially geometry optimizations or frequency calculations) and for post-processing tasks like generating cube files or performing wavefunction analysis. It can be converted to a formatted version (.fchk). (UNVERIFIED)"
+          "val" : "A binary checkpoint file format that stores the state of a completed or running Gaussian calculation, including the molecular geometry, basis set details, molecular orbital coefficients, density matrix and forces. It is essential for restarting interrupted calculations (especially geometry optimizations or frequency calculations) and for post-processing tasks like generating cube files or performing wavefunction analysis. It can be converted to a formatted version (.fchk). (UNVERIFIED)"
         }
       }
     }, {
@@ -9431,7 +9652,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The GROMACS system topology file (.top) describes the entire molecular system to be simulated. It typically starts by including force field parameter files and specific molecule topology files (.itp) using #include directives. Crucially, it concludes with a [ molecules ] section listing the names and counts of each type of molecule present in the simulation box. (UNVERIFIED)"
+          "val" : "A topology file format that describes an entire molecular system to be simulated with GROMACS, written with the extension .top. It typically starts by including force field parameter files and specific molecule topology files (.itp) using #include directives. Crucially, it concludes with a [ molecules ] section listing the names and counts of each type of molecule present in the simulation box. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -9455,11 +9676,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000901",
-      "lbl" : "psf format",
+      "lbl" : "PSF format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A Protein Structure File (.psf) defines the atoms, connectivity (bonds, angles, dihedrals, impropers), and basic atomic properties (like type indices, charges, masses) for a molecular system. Importantly, it does not contain the actual force field parameters (like bond spring constants or Lennard-Jones values), which must be provided separately. PSF files are widely used by simulation programs like CHARMM, NAMD, and visualization tools like VMD. (UNVERIFIED)"
+          "val" : "A topology file format that defines the atoms of a molecular system, their connectivity as bonds, angles, dihedrals and impropers, and basic atomic properties such as type indices, charges and masses. Importantly, it does not contain the actual force field parameters (like bond spring constants or Lennard-Jones values), which must be provided separately. PSF files are widely used by simulation programs like CHARMM, NAMD, and visualization tools like VMD. (UNVERIFIED)"
         }
       }
     }, {
@@ -9510,29 +9731,21 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000906",
-      "lbl" : "mol2 format",
+      "lbl" : "Mol2 format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)"
-        },
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "Mol2 format"
-        } ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000907",
-      "lbl" : "sdf format",
+      "lbl" : "SDF format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "The Structure-Data File (SDF, .sdf) format is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)"
-        },
-        "synonyms" : [ {
-          "pred" : "hasExactSynonym",
-          "val" : "SDF format"
-        } ]
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000908",
@@ -9580,7 +9793,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000912",
-      "lbl" : "fasta format",
+      "lbl" : "FASTA format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -9602,7 +9815,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000914",
-      "lbl" : "xml format",
+      "lbl" : "XML format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -9611,7 +9824,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000915",
-      "lbl" : "cml format",
+      "lbl" : "CML format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -9642,12 +9855,14 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000918",
-      "lbl" : "global structure analysis",
+      "lbl" : "obsolete global structure analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A structural analysis focusing on the overall architecture, shape, fold, and packing of a macromolecule or molecular complex, rather than fine details. This is often characterized by metrics like the radius of gyration, principal moments of inertia, overall dimensions, secondary structure content (for proteins), or tertiary arrangement of domains. It provides a macroscopic view of the molecule's conformation and large-scale structural changes. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A structural analysis focusing on the overall architecture, shape, fold, and packing of a macromolecule or molecular complex, rather than fine details. This is often characterized by metrics like the radius of gyration, principal moments of inertia, overall dimensions, secondary structure content (for proteins), or tertiary arrangement of domains. It provides a macroscopic view of the molecule's conformation and large-scale structural changes."
+        },
+        "comments" : [ "Retired because it grouped nothing: the analyses its definition named (radius of gyration, principal moments of inertia, secondary structure) are siblings under MOLSIM:000917 structural analysis, not subclasses of this term. Raised in the August 2026 definition review." ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000921",
@@ -10247,12 +10462,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001019",
-      "lbl" : "hyperfine spectra tensors",
+      "lbl" : "hyperfine coupling tensor",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "The hyperfine interaction is the coupling between an electron spin and a nuclear spin; the associated tensor mathematically describes how this interaction's strength and character depend on the molecule's orientation relative to an external magnetic field. Measured in magnetic resonance experiments (like EPR, ENDOR), the principal values and orientation of this tensor reveal detailed information about the electron spin density distribution around the nucleus. This provides precise structural information regarding the electron's location and bonding. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "hyperfine spectra tensors"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001020",
@@ -10274,12 +10493,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001022",
-      "lbl" : "specialized techniques",
+      "lbl" : "chiroptical spectroscopy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "This category includes spectroscopic methods that might be less common, combine principles from different types of spectroscopy, or probe highly specific molecular properties like chirality or non-linear optical responses. They often provide unique structural or dynamic insights that complement more standard techniques. Examples include techniques sensitive to molecular chirality or those using multiple synchronized laser pulses. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "specialized techniques"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001023",
@@ -10292,12 +10515,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001024",
-      "lbl" : "optical rotations",
+      "lbl" : "optical rotation",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Optical rotation is the phenomenon where the plane of linearly polarized light is rotated upon passing through a sample containing chiral molecules; it's a manifestation of optical activity. This effect arises because chiral molecules interact differently with the left- and right-circularly polarized components of plane-polarized light (circular birefringence). Measuring this rotation provides a fundamental characterization of molecular chirality and is used for analysis of chiral compounds. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "optical rotations"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001032",
@@ -10367,11 +10594,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001041",
-      "lbl" : "xpm format",
+      "lbl" : "XPM format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The GROMACS XPM file is an ASCII text file format used by the GROMACS molecular dynamics suite to store two-dimensional matrix data. It is a specialized application of the general XPixMap (.xpm) format, adapted to represent scientific data such as distance matrices, root-mean-square deviation (RMSD) matrices, or hydrogen bond patterns. The format is human-readable and designed for easy visualization. It encodes numerical data as a color-coded image defined by characters, making it viewable with standard XPM viewers and convertible into graphical formats like PostScript using GROMACS utilities such as gmx xpm2ps. (UNVERIFIED)"
+          "val" : "An ASCII text file format used by GROMACS to store two-dimensional matrix data such as distance matrices, root-mean-square deviation matrices or hydrogen bond patterns. It is a specialised application of the general XPixMap format, encoding numerical values as a colour-coded image defined by characters. That makes it readable by standard XPM viewers and convertible to graphical formats such as PostScript with GROMACS utilities like gmx xpm2ps. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -10430,7 +10657,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001044",
-      "lbl" : "cif format",
+      "lbl" : "CIF format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -10582,7 +10809,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001055",
-      "lbl" : "xtc trajectory format",
+      "lbl" : "XTC trajectory format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -10595,7 +10822,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001056",
-      "lbl" : "tng trajectory format",
+      "lbl" : "TNG trajectory format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -10669,7 +10896,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001061",
-      "lbl" : "h5md format",
+      "lbl" : "H5MD format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -10682,7 +10909,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001062",
-      "lbl" : "pqr format",
+      "lbl" : "PQR format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -10808,12 +11035,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001072",
-      "lbl" : "information content entity",
+      "lbl" : "obsolete information content entity",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. An information content entity is an abstract concept representing any piece of data, information, or knowledge that can be identified and described. In the context of simulations, it refers to the abstract data itself, such as the concept of a molecular structure or a simulation parameter set, separate from the specific file format used to store it. This distinction helps in organizing and standardizing the description of simulation data and metadata."
+        },
+        "comments" : [ "Retired 2026-08-12 when MOLSIM adopted COB as its upper level. IAO:0000030 information content entity is one of COB's five roots and says the same thing, so keeping a MOLSIM class beside it was a duplicate. Its 8 direct children were re-parented onto IAO:0000030 in the same change; the 46 terms below them moved with their parents." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000030"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001073",
@@ -11039,7 +11272,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A topology file defines the constituent atoms of a molecular system, how they are bonded together (connectivity), and the specific force field parameters associated with them. This includes atom types, partial charges, and parameters for bonds, angles, dihedral angles, and non-bonded interactions (like Lennard-Jones parameters). It essentially provides the 'rules' for how atoms interact in a molecular mechanics simulation. (UNVERIFIED)"
+          "val" : "A file format that defines the atoms of a molecular system, how they are bonded together, and the force field parameters that apply to them. This includes atom types, partial charges, and parameters for bonds, angles, dihedral angles, and non-bonded interactions (like Lennard-Jones parameters). It essentially provides the 'rules' for how atoms interact in a molecular mechanics simulation. (UNVERIFIED)"
         }
       }
     }, {
@@ -11153,11 +11386,18 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "The EMIL input format is a specific file that contains the control data and parameters for running a calculation with the EMIL (Energy and Motion from an Implicit Liquid) program. It specifies the settings required by the EMIL method to calculate free energy profiles and analyze molecular motions. This input file is the primary way a user provides instructions to the EMIL software. (UNVERIFIED)"
+          "val" : "A simulation parameter format that holds the control settings for an EMIL absolute free energy calculation in AMBER, conventionally in a file named emilParameters.in. It records the reference model parameters and the integration settings that the calculation needs. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "emilParameters.in format"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Berryman J.T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia, 2014. States that the AMBER implementation of this method is called EMIL."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Berryman J.T. and Schilling T. Free energies by thermodynamic integration relative to an exact solution, used to find the handedness-switching salt concentration for DNA. J. Chem. Theory Comput. 9(1):679-686, 2013."
         } ]
       }
     }, {
@@ -11339,7 +11579,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001120",
-      "lbl" : "nef format",
+      "lbl" : "NEF format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -11577,7 +11817,26 @@
       "meta" : {
         "definition" : {
           "val" : "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "cut",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "rvdw",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001188",
@@ -11729,12 +11988,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001204",
-      "lbl" : "constrained bonds",
+      "lbl" : "constrained bond",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A constraint parameter that specifies which bonds in the system should be constrained. Common choices include constraining all bonds, only bonds involving hydrogen, or no bonds. The constrained bonds parameter determines which degrees of freedom are removed from the system. This is often set with a keyword that specifies the scope of the constraints, such as all-bonds or h-bonds. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "constrained bonds"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001205",
@@ -12347,12 +12610,26 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001258",
-      "lbl" : "DIIS matrices",
+      "lbl" : "number of DIIS matrices",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A DIIS parameter that specifies the number of error vectors (matrices) to be used by the DIIS convergence algorithm. This parameter defines the size of the subspace used for the extrapolation. The DIIS matrices is a key parameter for tuning the DIIS algorithm. This is often set with the keyword ndiis_matrices. (UNVERIFIED)"
-        }
+          "val" : "A DIIS parameter that specifies the number of error vectors, also called matrices, to be used by the DIIS convergence algorithm. It defines the size of the subspace used for the extrapolation. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "DIIS matrices"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ndiis_matrices",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001259",
@@ -12374,12 +12651,26 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001261",
-      "lbl" : "CpHMD solvent relaxation steps",
+      "lbl" : "number of CpHMD solvent relaxation steps",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A constant pH parameter that specifies the number of solvent relaxation steps to be performed after a protonation state change. This allows the solvent to reorient around the newly charged or neutralized residue. The CpHMD solvent relaxation steps is a key parameter for ensuring a stable CpHMD simulation. This is often set with the keyword ntrelax. (UNVERIFIED)"
-        }
+          "val" : "A constant pH parameter that specifies the number of solvent relaxation steps performed after a protonation state change. Those steps let the solvent reorient around the residue that has just been charged or neutralised. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "CpHMD solvent relaxation steps"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntrelax",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001262",
@@ -12472,12 +12763,26 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001271",
-      "lbl" : "grid points",
+      "lbl" : "number of grid points",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A volumetric analysis parameter that specifies the number of points in each dimension of a 3D grid. This parameter directly controls the size and resolution of the volumetric data. The grid points are a key parameter for defining the scope of the grid-based analysis. This is often set with the keyword --ng. (UNVERIFIED)"
-        }
+          "val" : "A volumetric analysis parameter that specifies the number of points in each dimension of a three-dimensional grid. It controls the size and the resolution of the volumetric data. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "grid points"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "--ng",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001272",
@@ -13257,12 +13562,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001347",
-      "lbl" : "native contacts",
+      "lbl" : "native contact",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A type of structural property that quantifies the number of specific atom-atom contacts that are present in a reference \"native\" structure but may be lost in other conformations. It is often used as a reaction coordinate to monitor the progress of protein folding or unfolding. A decrease in native contacts indicates a loss of the native structure. This value is a common output of folding analysis scripts. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "native contacts"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001348",
@@ -13325,12 +13634,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001352",
-      "lbl" : "orientation",
+      "lbl" : "molecular orientation",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A type of structural property that describes the rotational position of a molecule or a group of atoms in three-dimensional space. It is often represented by a set of Euler angles, a rotation matrix, or a quaternion. Analyzing the orientation is essential for understanding the tumbling of molecules in solution or the alignment of components in a complex."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "orientation"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -15083,12 +15396,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001515",
-      "lbl" : "Lennard-Jones parameters",
+      "lbl" : "Lennard-Jones parameter",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Lennard-Jones parameters are the two numerical values, epsilon and sigma, that define the van der Waals interaction for a specific atom type in a force field. The sigma parameter defines the size of the atom, or the distance at which the interaction energy is zero, while the epsilon parameter defines the depth of the energy well, or the strength of the attraction. For experts, these parameters are fundamental to the non-bonded part of the force field and are critical for modeling molecular packing and dispersion forces. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "Lennard-Jones parameters"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001516",
@@ -17218,7 +17535,17 @@
       "meta" : {
         "definition" : {
           "val" : "The Bussi thermostat, also known as the stochastic velocity rescaling thermostat, is an algorithm for controlling the temperature in a molecular dynamics simulation. It works by periodically rescaling the atomic velocities based on a random factor drawn from a specific statistical distribution, ensuring that the system's total kinetic energy correctly samples the canonical ensemble. This method is highly effective as it combines the gentle temperature coupling of the Berendsen thermostat with the rigorous statistical accuracy of the Nosé-Hoover thermostat, making it a popular choice in modern simulation packages. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "ntt=11",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001733",
@@ -18569,12 +18896,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001858",
-      "lbl" : "hydrophobic patches",
+      "lbl" : "hydrophobic patch",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Hydrophobic patches are clusters of non-polar, \"water-fearing\" atoms or amino acid side-chains that are exposed on the surface of a larger molecule, such as a protein. Because water molecules are highly polar, they are repelled by these non-polar regions and instead cluster together to interact with themselves."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "hydrophobic patches"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -18627,12 +18958,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001864",
-      "lbl" : "residence times",
+      "lbl" : "residence time",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Residence time is the average amount of time that a molecule, such as a water molecule or a ligand, spends in a specific, defined location, like a protein's binding site. It is calculated from a simulation by monitoring when a molecule enters a region and when it leaves, and then averaging this duration over many such events."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "residence times"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -18649,12 +18984,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001866",
-      "lbl" : "backbone DH fluctuations",
+      "lbl" : "backbone DH fluctuation",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Backbone DH fluctuations are a measure of how much the backbone of a protein wiggles and changes shape during a simulation. It specifically quantifies the fluctuations in the dihedral angles (DH) of the protein's backbone, which describe the rotations around the chemical bonds that connect the amino acids. Analyzing these fluctuations provides a detailed picture of the protein's flexibility and dynamics that is independent of its overall tumbling motion."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "backbone DH fluctuations"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-8291-8071"
@@ -18727,12 +19066,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001872",
-      "lbl" : "lipid order parameters",
+      "lbl" : "lipid order parameter",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "Lipid order parameters are a set of values that measure how well-aligned and ordered the flexible tails of lipid molecules are within a simulated cell membrane. A value of 1 means the lipid tail is perfectly straight and aligned perpendicular to the membrane surface, while a value of 0 means it is completely disordered. These parameters, specifically the deuterium order parameter (SCD), can be directly compared with experimental results from NMR spectroscopy, making them one of the most important metrics for validating the physical accuracy of a membrane simulation."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "lipid order parameters"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -20361,12 +20704,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002020",
-      "lbl" : "hybrid NNP/MM simulations",
+      "lbl" : "hybrid NNP/MM simulation",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "A multiscale simulation technique that couples a region described by a Neural Network Potential (NNP) with a larger environment described by a classical molecular mechanics (MM) force field. It allows for the accurate modeling of reactive centers or complex electronic effects using machine learning, while efficiently capturing long-range environmental effects with standard physics-based models. For experts, this method typically employs electrostatic or mechanical embedding schemes similar to QM/MM to handle the boundary interactions between the NNP-active region and the classical surroundings. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "hybrid NNP/MM simulations"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002021",
@@ -20442,7 +20789,26 @@
       "meta" : {
         "definition" : {
           "val" : "The stochastic cell rescaling barostat (C-rescale) is an algorithm used to control pressure in molecular simulations by adjusting the simulation box size using a stochastic differential equation. It combines deterministic box scaling with a random noise term to enforce the target pressure while ensuring the system correctly samples the isothermal-isobaric (NPT) ensemble. For experts, this method (Bernetti & Bussi) yields the correct volume distribution without the unphysical oscillations often seen with deterministic barostats like Parrinello-Rahman, effectively treating the volume as a degree of freedom coupled to a Langevin piston. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "baro_stochastic=1",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "pcoupl=C-rescale",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002029",
@@ -21867,6 +22233,26 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002251",
+      "lbl" : "atom selection specification",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An information content entity that records which atoms of a molecular system a tool should act on. It may be a stored list of atom indices or an expression that is evaluated to produce that list. It says what to operate on, not what to do with it. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002252",
+      "lbl" : "obsolete selection criteria",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "OBSOLETE. An information content entity that records the conditions and factors used when choosing which items to include in a study, such as which ligands to simulate. It states what was considered rather than what was chosen."
+        },
+        "comments" : [ "Retired 2026-08-13, the day after it was minted. It was created to group three children of the retired MOLSIM:000310 plan specification, but only one of the three belonged: MOLSIM:002163 atom selection mask and MOLSIM:002233 atom index group went to MOLSIM:002251 atom selection specification instead, and MOLSIM:001035 validated ligand selection criteria turned out to be an object property that never belonged in a class tree. That left one child, MOLSIM:000143 ligand pairs selection criteria, which is itself the group its twelve criteria belong to. A search of the whole ontology found no other term that could join: every other label mentioning selection or criteria is a convergence threshold, an algorithm or an analysis, all correctly placed elsewhere. MOLSIM:000143 was re-parented to IAO:0000030 information content entity, where it sat before. Never present in a release file." ],
+        "deprecated" : true
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -22194,42 +22580,42 @@
       "propertyType" : "OBJECT"
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000297",
-      "lbl" : "periodic box type",
+      "lbl" : "has periodic box type",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "Describes the geometric shape of the simulation cell used to apply periodic boundary conditions, which mimic an infinite system by ensuring particles leaving one side re-enter from the opposite. Common shapes include cubic, triclinic (general parallelepiped), or rhombic dodecahedron, influencing computational efficiency and isotropy. This property links a simulation setup to its specific box geometry. (UNVERIFIED)"
+          "val" : "A relation that links a molecular simulation system to the geometric shape of the simulation cell used to apply periodic boundary conditions. Those conditions mimic an infinite system by making a particle that leaves one side re-enter from the opposite side. Common shapes are cubic, triclinic and rhombic dodecahedron, and the choice affects both computational cost and how isotropic the system is. (UNVERIFIED)"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000504",
-      "lbl" : "molecular dynamics suite utility",
+      "lbl" : "has molecular dynamics suite utility",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "Links a specific computational process or analysis step to the particular utility program from a molecular dynamics software suite that was used to perform it. For instance, an analysis of simulation trajectories might use a specific trajectory processing utility, or system preparation might involve a specific solvation tool. This property helps specify the exact software tools employed within a broader simulation workflow, where the utility is a component of a larger software package. (UNVERIFIED)"
+          "val" : "A relation that links a computational process or analysis step to the utility program from a molecular dynamics software suite that was used to perform it. For example, a trajectory analysis may use a particular trajectory processing utility, or system preparation a particular solvation tool. It records the exact tool used within a larger workflow, where that tool is one component of a bigger software package. (UNVERIFIED)"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000507",
-      "lbl" : "alignment tool",
+      "lbl" : "has alignment tool",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "In molecular dynamics, alignment tool provides spatial re-orientation of membrane proteins with respect to the hydrocarbon core of the lipid bilayer. It connects a structural alignment procedure or analysis step to the specific software program or tool used to perform the alignment of molecular structures. Structural alignment is used to superimpose molecular structures (e.g., proteins, nucleic acids) to compare their conformations or identify conserved regions. This property identifies the computational tool responsible for generating the alignment. (UNVERIFIED)"
+          "val" : "A relation that links a structural alignment procedure or analysis step to the software program used to perform the alignment. Structural alignment superimposes molecular structures such as proteins or nucleic acids, so that their conformations can be compared or conserved regions found. (UNVERIFIED)"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000508",
-      "lbl" : "protein structure source",
+      "lbl" : "has protein structure source",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "The source for the used protein structures (e.g. PDB). It indicates the origin or method by which a specific protein's 3D structural coordinates, used as input for a simulation or analysis, were obtained. This could be an entry in an experimental database like the Protein Data Bank (PDB), a result from a computational prediction method (e.g., homology modeling, ab initio prediction), or another defined source. This property is crucial for tracing the provenance and assessing the initial quality of structural data. (UNVERIFIED)"
+          "val" : "A relation that links a molecular structure to the origin from which its three-dimensional coordinates were obtained. The origin may be an entry in an experimental database such as the Protein Data Bank, the output of a computational prediction method such as homology modelling, or another defined source. Recording it lets a reader trace where a structure came from and judge its quality. (UNVERIFIED)"
         }
       }
     }, {
@@ -22239,27 +22625,27 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "Describes the overall physical context or medium represented in the simulation or calculation (e.g., 'aqueous solution', 'lipid bilayer', 'vacuum', 'crystal lattice'). This context influences the choice of simulation parameters (like boundary conditions, dielectrics) and the interpretation of results. Note: This might be better modeled as an Object Property linking to predefined environment instances/classes. (UNVERIFIED)"
+          "val" : "A relation that links a molecular simulation system to the overall physical context or medium it represents, such as an aqueous solution, a lipid bilayer, a vacuum or a crystal lattice. That context shapes the choice of simulation parameters, including boundary conditions and dielectric treatment, and how the results should be read. (UNVERIFIED)"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001034",
-      "lbl" : "template complex structure",
+      "lbl" : "has template complex structure",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "Refers to the specific initial 3D structural model of the molecular complex (e.g., protein-ligand) used as the starting point or reference for the simulation or free energy calculation. This structure is often derived from experimental data (e.g., PDB file) or previous computational modeling (e.g., docking pose). Note: This might be better modeled as an Object Property linking to a structure data entity or file identifier. (UNVERIFIED)"
+          "val" : "A relation that links a molecular simulation system to the initial three-dimensional structural model of the molecular complex used as its starting point. That structure is often taken from experimental data such as a PDB entry, or from earlier computational modelling such as a docking pose. (UNVERIFIED)"
         }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001035",
-      "lbl" : "validated ligand selection criteria",
+      "lbl" : "has validated ligand selection criteria",
       "type" : "PROPERTY",
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "Describes the specific rules, checks, or conditions that were applied to confirm that the chosen ligands and the designed alchemical transformations between them are suitable and physically reasonable for a relative binding free energy calculation study. This might involve checks on structural similarity, charge/protonation state consistency, or avoiding transformations that break/form covalent bonds inappropriately. (UNVERIFIED)"
+          "val" : "A relation that links a plan specification to the rules, checks or conditions applied to confirm that the chosen ligands, and the alchemical transformations between them, are suitable for a relative binding free energy calculation. Those checks may cover structural similarity, consistency of charge and protonation state, or avoiding transformations that inappropriately break or form covalent bonds. (UNVERIFIED)"
         }
       }
     }, {
@@ -22269,7 +22655,7 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "definition" : {
-          "val" : "Defines the specific geometric variable or collective variable along which the system is steered or biased in an SMD or umbrella sampling simulation. Examples include distance between two groups, angle, dihedral angle, or a more complex function of atomic coordinates. Note: This might be better modeled with an Object Property linking to a definition of the coordinate. (UNVERIFIED)"
+          "val" : "A relation that links an enhanced sampling process to the geometric or collective variable along which the system is steered or biased. Examples are the distance between two groups of atoms, an angle, a dihedral angle, or a more complex function of atomic coordinates. (UNVERIFIED)"
         }
       }
     }, {
@@ -22368,12 +22754,12 @@
       "propertyType" : "DATA"
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001121",
-      "lbl" : "composition counts",
+      "lbl" : "has composition count",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A category for properties that quantify the chemical composition of the molecular system. This includes the total number of atoms, residues, and specific molecule types. These counts define the stoichiometry and overall size of the system being simulated. (UNVERIFIED)"
+          "val" : "A relation that groups properties quantifying the chemical composition of a molecular system, such as the total number of atoms, residues and molecules of each type. Those counts give the stoichiometry and the overall size of the system being simulated. (UNVERIFIED)"
         }
       }
     }, {
@@ -22474,12 +22860,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001131",
-      "lbl" : "topological counts",
+      "lbl" : "has topological count",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A category for properties that quantify the covalent structure and connectivity of the molecular system. This includes the number of bonds, angles, and dihedral angles. These descriptors define the system's topology, which is the graph of how atoms are connected. (UNVERIFIED)"
+          "val" : "A relation that groups properties quantifying the covalent structure and connectivity of a molecular system, such as the number of bonds, angles and dihedral angles. Together they describe the topology, which is the graph of how the atoms are joined. (UNVERIFIED)"
         }
       }
     }, {
@@ -22561,12 +22947,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001139",
-      "lbl" : "constraint descriptors",
+      "lbl" : "has constraint count",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A category for properties that describe which degrees of freedom in the system are fixed or constrained during a simulation. This includes counts of bonds or angles that are held rigid by algorithms like SHAKE. These descriptors specify how the system's natural dynamics have been modified. (UNVERIFIED)"
+          "val" : "A relation that groups properties counting the degrees of freedom held fixed during a simulation, such as the bonds and angles made rigid by an algorithm like SHAKE. They record how far the natural dynamics of the system has been altered. (UNVERIFIED)"
         }
       }
     }, {
@@ -22604,12 +22990,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001143",
-      "lbl" : "force field parameterization descriptors",
+      "lbl" : "has force field parameter count",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A category for properties that quantify the diversity of the force field parameters applied to the molecular system. This includes the number of unique types of bonds, angles, and atoms. These descriptors reflect the complexity of the energy function used to model the system's physics. (UNVERIFIED)"
+          "val" : "A relation that groups properties counting the distinct force field parameters applied to a molecular system, such as the number of unique bond, angle and atom types. The counts indicate how complex the energy function used to model the system is. (UNVERIFIED)"
         }
       }
     }, {
@@ -22669,12 +23055,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001149",
-      "lbl" : "alchemical system descriptors",
+      "lbl" : "has alchemical transformation count",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A category for properties that describe the scope of a chemical transformation in a free energy calculation. This includes counts of the atoms, bonds, and angles that are being \"perturbed\" or changed during the simulation. These descriptors define the specifics of the alchemical modification being performed. (UNVERIFIED)"
+          "val" : "A relation that groups properties counting what a chemical transformation in a free energy calculation covers, such as the atoms, bonds and angles being changed during the simulation. They set out the scope of the alchemical modification performed. (UNVERIFIED)"
         }
       }
     }, {
@@ -22745,12 +23131,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001156",
-      "lbl" : "flags and state descriptors",
+      "lbl" : "has state descriptor",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A category for properties that describe the overall state or key qualitative features of the molecular system. This includes boolean flags or textual descriptions of the system's composition and setup conditions. These descriptors provide high-level context about the nature of the simulation. (UNVERIFIED)"
+          "val" : "A relation that groups properties describing the overall state or the main qualitative features of a molecular system, such as yes-or-no flags and short textual descriptions of its composition and setup. They give high-level context about what kind of simulation it is. (UNVERIFIED)"
         }
       }
     }, {
@@ -22966,23 +23352,33 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002136",
-      "lbl" : "box type flag",
+      "lbl" : "obsolete box type flag",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that records the kind of periodic box used for a molecular system, such as rectangular or truncated octahedral. It identifies the geometry of the periodic unit cell. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that records the kind of periodic box used for a molecular system, such as rectangular or truncated octahedral. It identifies the geometry of the periodic unit cell."
+        },
+        "comments" : [ "Retired 2026-08-13. It duplicated MOLSIM:000297 has periodic box type, which links a molecular simulation system to the class MOLSIM:000032 box type and its five children. This term held the same information as a plain string, so no value could be checked, while the object property points at a real hierarchy that a reasoner can use. Its label also broke the house convention: ten of the eleven data properties ending in flag are yes-or-no values, and this one recorded which box geometry was used." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000297"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002137",
-      "lbl" : "trajectory metadata descriptors",
+      "lbl" : "has trajectory metadata",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
           "val" : "A relation that groups descriptive properties characterizing a molecular dynamics trajectory as a whole, such as its length and coordinate encoding. It serves as an organizing parent for individual trajectory-level metadata relations. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Domain chosen 2026-08-13. This domain asserts something the other grouping properties here do not: anything carrying a child of this property, such as MOLSIM:002138 number of frames, is inferred to be a MOLSIM:001081 simulation trajectory. That is correct if a frame count is only ever recorded about a trajectory. If the source metadata ever records a frame count against a whole run rather than against its trajectory file, the domain should be MOLSIM:000000 molecular dynamics process instead. Confirm against the MDDB records before relying on it."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002138",
@@ -23006,7 +23402,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002140",
-      "lbl" : "structural and dimensional arrays",
+      "lbl" : "has box geometry array",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
@@ -23036,7 +23432,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002143",
-      "lbl" : "system nomenclature descriptors",
+      "lbl" : "has system nomenclature",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
@@ -23096,12 +23492,12 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002149",
-      "lbl" : "log and validation descriptors",
+      "lbl" : "has diagnostic record",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that groups properties recording diagnostic messages and validation outcomes produced while running or checking a simulation. It serves as an organizing parent for log- and validation-related metadata relations. (UNVERIFIED)"
+          "val" : "A relation that groups properties recording what a simulation or a checking step reported about itself, such as an error message, a warning, or the outcome of a validation check. It gathers the output a run produced about its own progress, as distinct from the settings it was given. (UNVERIFIED)"
         }
       }
     }, {
@@ -23522,6 +23918,16 @@
       "meta" : {
         "definition" : {
           "val" : "A relation that records whether the histone proteins still have their flexible tails, floppy ends that stick out from the spool and are often chemically marked to control gene activity. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002253",
+      "lbl" : "has run input record",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that groups properties recording what a simulation run was given to start from, such as the settings parsed from its input file or the restart file it continued from. It covers the input side of a run, as distinct from what the run reported about itself. (UNVERIFIED)"
         }
       }
     }, {
@@ -24191,9 +24597,23 @@
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000119",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0100001",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+      "lbl" : "has software keyword",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that records the name a piece of simulation software uses for the concept this term names, as it appears in that software's input file, output file or command line. The software the name belongs to is given by annotating the statement itself with dcterms:source, so one property serves every program rather than needing one property per program. (UNVERIFIED)"
+        }
+      }
     }, {
       "id" : "http://purl.org/dc/elements/1.1/type",
       "type" : "PROPERTY",
@@ -24698,7 +25118,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000118",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000351"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000119",
       "pred" : "is_a",
@@ -24798,7 +25218,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000143",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000310"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000144",
       "pred" : "is_a",
@@ -25476,10 +25896,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000610"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000310",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000311",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
@@ -25643,10 +26059,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000350",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000990"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000351",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000352",
       "pred" : "is_a",
@@ -27286,11 +27698,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000779",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000176"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000780",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000176"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000781",
       "pred" : "is_a",
@@ -27836,10 +28248,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000026"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000918",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000921",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
@@ -28234,15 +28642,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001073",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001074",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001075",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001076",
       "pred" : "is_a",
@@ -32046,7 +32454,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002075",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002076",
       "pred" : "is_a",
@@ -32226,7 +32634,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002155",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000310"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000104"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002156",
       "pred" : "is_a",
@@ -32246,7 +32654,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002160",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002161",
       "pred" : "is_a",
@@ -32254,11 +32662,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002162",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002163",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000310"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002251"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002164",
       "pred" : "is_a",
@@ -32354,7 +32762,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002233",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000310"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002251"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002234",
       "pred" : "is_a",
@@ -32362,7 +32770,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002235",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001072"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002236",
       "pred" : "is_a",
@@ -32403,6 +32811,10 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002249",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001960"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002251",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
@@ -32890,14 +33302,14 @@
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001033",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
-      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000231" ]
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_002067" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001034",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000904" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001035",
-      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000310" ],
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/IAO_0000104" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000143" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_001036",
