@@ -24,10 +24,25 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # fetch-depth: 0 gets the full history. The release check below compares
+      # commit dates, and the default shallow clone has no history to compare.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Run ontology QC checks
         env:
           DEFAULT_BRANCH: main
         run: cd src/ontology && make ROBOT_ENV='ROBOT_JAVA_ARGS=-Xmx6G' test IMP=false PAT=false MIR=false
+
+      # Warns, never fails. The release artefacts are built by hand, so they can
+      # fall behind the edit file without anyone noticing: 17 BFO classes stayed
+      # in the published release for 2 days after the edit file dropped them.
+      # This says so on the pull request instead of waiting to be spotted.
+      - name: Check whether the release is behind the edit file
+        if: always()
+        continue-on-error: true
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          bash src/scripts/check_release_lag.sh
 
