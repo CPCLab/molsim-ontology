@@ -267,3 +267,35 @@ release-nobfo: all
 		-o $(ONT)-base.owl
 	@echo "Done! BFO hierarchy has been removed."
 
+
+# RO: overrides the ODK-generated rule at Makefile:413.
+#
+# ro_terms.txt asks for 7 terms but only 5 arrived. The 2 missing are
+# BFO:0000051 has part and BFO:0000063 precedes, which RO declares under a BFO
+# URI prefix, as the terms file itself notes. The generated recipe deleted them
+# with `remove --axioms external --base-iri .../RO`, which keeps only the RO
+# namespace. Adding the BFO namespace lets the 2 requested properties survive.
+#
+# Nothing of BFO's hierarchy comes with them. The SECOND remove below keeps only
+# the terms listed in ro_terms.txt, so BFO:0000003 occurrent, the domain and
+# range of precedes, and its property chains are all dropped. Each property
+# arrives bare: a declaration, a label and a definition, exactly like the 5
+# already there.
+$(IMPORTDIR)/ro_import.owl: $(MIRRORDIR)/ro.owl $(IMPORTDIR)/ro_terms.txt $(IMPORTSEED) | all_robot_plugins
+	$(ROBOT) annotate --input $< --remove-annotations \
+		 odk:normalize --add-source true \
+		 extract --term-file $(IMPORTDIR)/ro_terms.txt $(T_IMPORTSEED) \
+		         --copy-ontology-annotations true --force true --method BOT \
+		 remove --axioms external --preserve-structure false --trim false \
+		        --base-iri http://purl.obolibrary.org/obo/RO \
+		        --base-iri http://purl.obolibrary.org/obo/BFO \
+		 remove $(foreach p, $(ANNOTATION_PROPERTIES), --term $(p)) \
+		        --term rdfs:label \
+		        --term IAO:0000115 \
+		        --term OMO:0002000 \
+		        --term-file $(IMPORTDIR)/ro_terms.txt $(T_IMPORTSEED) \
+		        --select complement \
+		 odk:normalize --base-iri http://purl.obolibrary.org/obo \
+		               --subset-decls true --synonym-decls true \
+		 repair --merge-axiom-annotations true \
+		 $(ANNOTATE_CONVERT_FILE)
