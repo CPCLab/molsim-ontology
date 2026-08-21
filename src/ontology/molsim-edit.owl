@@ -3623,14 +3623,14 @@ SubClassOf(obo:MOLSIM_000100 obo:MOLSIM_000098)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000101 "In chemical kinetics and simulation, the transition state refers to a specific, high-energy, transient molecular configuration along the reaction coordinate connecting two stable states (e.g., reactant and product, or bound and unbound states). It is connected to the energy barrier that must be overcome for the transition to occur. While challenging to simulate directly due to its short lifetime, characterizing the transition state is crucial for understanding reaction mechanisms and rates, often studied using specialized simulation techniques or QM methods."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000101 "transition state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000101 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000101 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000101 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000102 (metastable state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000102 "A state of a system that is locally stable (residing in a minimum on the potential energy surface) but has a higher free energy than the globally stable state. The system can persist in a metastable state for a significant time if the energy barrier to reach a more stable state is high. Examples in biomolecular systems include misfolded protein conformations, transiently bound ligand poses, or specific intermediate states along a functional cycle."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000102 "metastable state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000102 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000102 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000102 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000103 (encounter complex)
 
@@ -3644,14 +3644,14 @@ SubClassOf(obo:MOLSIM_000103 obo:MOLSIM_000098)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000104 "A general state referring to a molecule (either ligand or receptor, or the complex) being surrounded by solvent molecules (typically a water buffer in biological contexts). This term emphasizes the presence and influence of the solvent on the molecule's structure, dynamics, and energetics. Both the bound and unbound states are typically solvated states, and solvation effects are crucial components of binding free energies and conformational preferences."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000104 "solvated state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000104 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000104 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000104 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000105 (conformational state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000105 "A specific three-dimensional arrangement or shape adopted by a flexible molecule, such as a protein or ligand. Molecules can typically exist in multiple conformational states, corresponding to different local minima on their potential energy surface, separated by energy barriers. Simulations are often used to explore the accessible conformational states, their relative populations, and the transitions between them, which are essential for molecular function and binding."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000105 "conformational state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000105 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000105 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000105 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000106 (protonation state)
 
@@ -3669,7 +3669,7 @@ SubClassOf(obo:MOLSIM_000107 obo:MOLSIM_001210)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000108 "An electronic state of a molecule where one or more electrons have been promoted to higher energy levels than in the ground electronic state, typically following the absorption of light (photoexcitation). Excited states have different electron distributions, geometries, and reactivity compared to the ground state and are central to photochemistry and spectroscopy (like fluorescence). Simulating excited states requires quantum mechanical methods (like TD-DFT or CASSCF) as classical force fields are typically parameterized only for the ground electronic state. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000108 "excited state"@en)
-SubClassOf(obo:MOLSIM_000108 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000108 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000109 (method)
 
@@ -17694,6 +17694,13 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002252 "obsolete selection criteria"@e
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002252 "OBSOLETE. An information content entity that records the conditions and factors used when choosing which items to include in a study, such as which ligands to simulate. It states what was considered rather than what was chosen."@en)
 AnnotationAssertion(owl:deprecated obo:MOLSIM_002252 "true"^^xsd:boolean)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_002252 "Retired 2026-08-13, the day after it was minted. It was created to group three children of the retired MOLSIM:000310 plan specification, but only one of the three belonged: MOLSIM:002163 atom selection mask and MOLSIM:002233 atom index group went to MOLSIM:002251 atom selection specification instead, and MOLSIM:001035 validated ligand selection criteria turned out to be an object property that never belonged in a class tree. That left one child, MOLSIM:000143 ligand pairs selection criteria, which is itself the group its twelve criteria belong to. A search of the whole ontology found no other term that could join: every other label mentioning selection or criteria is a convergence threshold, an algorithm or an analysis, all correctly placed elsewhere. MOLSIM:000143 was re-parented to IAO:0000030 information content entity, where it sat before. Never present in a release file.")
+
+# Class: obo:MOLSIM_002255 (molecular state)
+
+Declaration(Class(obo:MOLSIM_002255))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002255 "molecular state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002255 "A state that a molecule or molecular system occupies, characterised by its shape, its surroundings, its position on the energy surface, or its electronic configuration. It describes a condition the system is in, rather than a relationship to another molecule or a choice made when the system was built. (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002255 obo:MOLSIM_000006)
 
 # Class: obo:GO_0000786 (nucleosome) — reused from GO, parented under a MOLSIM class
 
