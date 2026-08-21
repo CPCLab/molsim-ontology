@@ -15996,10 +15996,12 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002089 "sugar ring flip"
 AnnotationAssertion(rdfs:label obo:MOLSIM_002089 "sugar ring pucker transition"@en)
 SubClassOf(obo:MOLSIM_002089 obo:MOLSIM_001793)
 
-# Class: obo:MOLSIM_002090 (molecular entity)
+# Class: obo:MOLSIM_002090 (molecular structural component)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002090 "A molecular entity is a broad term used to describe any distinct physical or chemical building block within a modeled system. It encompasses a wide hierarchy of structural objects, including individual atoms, ions, monomeric residues, polymer chains, and complete molecules, all of which possess specific physical properties and spatial coordinates. For simulation experts and ontology developers, this serves as the foundational, top-level parent class for all structural components, providing a clean architectural root that can be easily mapped to external standards like the Basic Formal Ontology (BFO) or ChEBI. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002090 "molecular entity"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002090 "A physical constituent of a simulated molecular system that is treated as a distinct unit with its own properties and spatial coordinates. It covers atoms, ions, residues, polymer chains and whole molecules. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_002090 "Top-level parent for the structural components of a simulated system. Kept as a MOLSIM class rather than reusing CHEBI:23367 molecular entity, because this branch spans 2 ChEBI branches that do not meet: atom and molecule are molecular entities in ChEBI, while residue and chain sit under CHEBI:24433 group, a sibling of molecular entity. Grouping all 4 suits the description of a coordinate file, where they are 4 levels of one containment hierarchy. Renamed from 'molecular entity' on 2026-08-21 so that the primary label is unique across the ontologies MOLSIM is released alongside; the former name is kept as an exact synonym."@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002090 "molecular entity"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002090 "molecular structural component"@en)
 
 # Class: obo:MOLSIM_002091 (residue)
 
@@ -16019,10 +16021,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002093 "A chain is a continuous, 
 AnnotationAssertion(rdfs:label obo:MOLSIM_002093 "chain"@en)
 SubClassOf(obo:MOLSIM_002093 obo:MOLSIM_002090)
 
-# Class: obo:MOLSIM_002094 (molecule)
+# Class: obo:MOLSIM_002094 (molecular unit)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002094 "A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002094 "molecule"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002094 "A distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002094 "molecule"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002094 "molecular unit"@en)
 SubClassOf(obo:MOLSIM_002094 obo:MOLSIM_002090)
 
 # Class: obo:MOLSIM_002095 (pocket detection tool)
