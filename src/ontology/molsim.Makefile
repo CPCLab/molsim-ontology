@@ -268,6 +268,11 @@ release-nobfo: all
 	@echo "Done! BFO hierarchy has been removed."
 
 
+# Guarded like the 6 rules above: this recipe needs mirror/ro.owl, which is
+# gitignored and absent in CI. Without the guard, IMP=false still leaves the
+# rule defined, make finds it stale because of $(IMPORTSEED), and the build
+# stops with "No rule to make target 'mirror/ro.owl'".
+ifeq ($(IMP),true)
 # RO: overrides the ODK-generated rule at Makefile:413.
 #
 # ro_terms.txt asks for 7 terms but only 5 arrived. The 2 missing are
@@ -299,3 +304,4 @@ $(IMPORTDIR)/ro_import.owl: $(MIRRORDIR)/ro.owl $(IMPORTDIR)/ro_terms.txt $(IMPO
 		               --subset-decls true --synonym-decls true \
 		 repair --merge-axiom-annotations true \
 		 $(ANNOTATE_CONVERT_FILE)
+endif # IMP=true
