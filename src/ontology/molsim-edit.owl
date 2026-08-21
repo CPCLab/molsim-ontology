@@ -2080,6 +2080,10 @@ Declaration(ObjectProperty(obo:RO_0000058))
 Declaration(ObjectProperty(obo:RO_0000086))
 Declaration(ObjectProperty(obo:RO_0002233))
 Declaration(ObjectProperty(obo:RO_0002234))
+Declaration(ObjectProperty(obo:OBI_0000293))
+Declaration(ObjectProperty(obo:OBI_0000295))
+Declaration(ObjectProperty(obo:OBI_0000299))
+Declaration(ObjectProperty(obo:OBI_0000312))
 Declaration(DataProperty(obo:MOLSIM_001121))
 Declaration(DataProperty(obo:MOLSIM_001122))
 Declaration(DataProperty(obo:MOLSIM_001123))
@@ -2245,16 +2249,12 @@ Declaration(AnnotationProperty(foaf:homepage))
 
 # Annotation Property: obo:IAO_0000115 (definition)
 
-AnnotationAssertion(rdfs:label obo:IAO_0000115 "definition"@en)
 
 # Annotation Property: obo:IAO_0000117 (term editor)
 
-AnnotationAssertion(rdfs:label obo:IAO_0000116 "editor note"@en)
-AnnotationAssertion(rdfs:label obo:IAO_0000117 "term editor"@en)
 
 # Annotation Property: obo:IAO_0000119 (definition source)
 
-AnnotationAssertion(rdfs:label obo:IAO_0000119 "definition source"@en)
 
 # Annotation Property: obo:MOLSIM_002254 (has software keyword)
 
@@ -2263,7 +2263,6 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002254 "has software keyword"@en)
 
 # Annotation Property: obo:IAO_0100001 (term replaced by)
 
-AnnotationAssertion(rdfs:label obo:IAO_0100001 "term replaced by"@en)
 
 ############################
 #   Object Properties
@@ -2271,16 +2270,13 @@ AnnotationAssertion(rdfs:label obo:IAO_0100001 "term replaced by"@en)
 
 # Object Property: obo:IAO_0000039 (has measurement unit label)
 
-AnnotationAssertion(rdfs:label obo:IAO_0000039 "has measurement unit label"@en)
 SubObjectPropertyOf(obo:IAO_0000039 owl:topObjectProperty)
 
 # Data Property: obo:IAO_0000004 (has measurement value)
 
-AnnotationAssertion(rdfs:label obo:IAO_0000004 "has measurement value"@en)
 
 # Object Property: obo:IAO_0000136 (is about)
 
-AnnotationAssertion(rdfs:label obo:IAO_0000136 "is about"@en)
 SubObjectPropertyOf(obo:IAO_0000136 owl:topObjectProperty)
 
 # Object Property: obo:MOLSIM_000297 (has periodic box type)
@@ -2349,28 +2345,25 @@ ObjectPropertyRange(obo:MOLSIM_001036 obo:MOLSIM_001994)
 
 # Object Property: obo:RO_0000056 (participates in)
 
-AnnotationAssertion(rdfs:label obo:RO_0000056 "participates in"@en)
 SubObjectPropertyOf(obo:RO_0000056 owl:topObjectProperty)
 
 # Object Property: obo:RO_0000058 (is concretized as)
 
-AnnotationAssertion(rdfs:label obo:RO_0000058 "is concretized as"@en)
 
 # Object Property: obo:RO_0000086 (has quality)
 
-AnnotationAssertion(rdfs:label obo:RO_0000086 "has quality"@en)
 SubObjectPropertyOf(obo:RO_0000086 owl:topObjectProperty)
 
 # Object Property: obo:RO_0002233 (has input)
 
 AnnotationAssertion(rdfs:comment obo:RO_0002233 "http://purl.obolibrary.org/obo/RO_0002233")
-AnnotationAssertion(rdfs:label obo:RO_0002233 "has input"@en)
 SubObjectPropertyOf(obo:RO_0002233 owl:topObjectProperty)
 
 # Object Property: obo:RO_0002234 (has output)
 
-AnnotationAssertion(rdfs:label obo:RO_0002234 "has output"@en)
 SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
+SubObjectPropertyOf(obo:OBI_0000293 obo:RO_0002233)
+SubObjectPropertyOf(obo:OBI_0000299 obo:RO_0002234)
 
 ############################
 #   Data Properties
@@ -3101,7 +3094,7 @@ SubClassOf(obo:MOLSIM_000020 obo:MOLSIM_000008)
 # Class: obo:MOLSIM_000021 (amber ff14SB)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000021 "A specific protein force field parameter set from the AMBER family (ff), released around 2014, with optimizations primarily for side-chain (S) and backbone (B) torsion angles compared to earlier versions like ff99SB. It was widely adopted for its improved accuracy in representing protein secondary structure and dynamics. It is an all-atom force field."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000021 "amber ff14SB"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000021 "AMBER ff14SB"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000021 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_000021 obo:MOLSIM_000009)
 
@@ -3130,7 +3123,6 @@ SubClassOf(obo:MOLSIM_000024 obo:MOLSIM_000016)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000025 "A text-based molecular structure format, similar to the mol2 format, but designed to include additional records for atomic connectivity. It is used to represent chemical structures with an expanded description of their bonding topology. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000025 "mol3 format"@en)
 SubClassOf(obo:MOLSIM_000025 obo:MOLSIM_001088)
-SubClassOf(obo:MOLSIM_000025 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_000026 (analysis method)
 
@@ -3474,21 +3466,27 @@ SubClassOf(obo:MOLSIM_000077 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000078 (Euclidean distance)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000078 "A common method for calculating the distance between two points (e.g., representing molecules in a multi-dimensional property space or conformations by atom coordinates) based on the straight-line distance in that space. It is calculated as the square root of the sum of squared differences between corresponding coordinates or features. Lower Euclidean distance implies higher similarity in the context of the chosen space. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000078 "A type of statistical property representing the straight-line distance between two points in a multi-dimensional space, which may represent molecules in a property space or conformations by atom coordinates. It is calculated as the square root of the sum of squared differences between corresponding coordinates or features. Lower Euclidean distance implies higher similarity in the context of the chosen space. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000078 "Euclidean distance"@en)
 SubClassOf(obo:MOLSIM_000078 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_000078 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_000078 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_000079 (Manhattan distance)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000079 "A type of statistical property representing the distance between two points in a multi-dimensional space, calculated as the sum of the absolute differences of their coordinates. The Manhattan distance is an alternative to the Euclidean distance for measuring similarity in clustering and data analysis. This is also known as the city block distance. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000079 "Manhattan distance"@en)
 SubClassOf(obo:MOLSIM_000079 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_000079 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_000079 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_000080 (distance)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000080 "A type of `structural property` that represents the separation between two specified atoms or centers of mass. It is a fundamental geometric measure used to monitor interactions like hydrogen bonds, salt bridges, or the separation between molecular components. Analysis outputs frequently report `distance` values over time. This value is commonly referred to as `dist` in analysis scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000080 "distance"@en)
 SubClassOf(obo:MOLSIM_000080 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_000080 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_000080 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_000081 (Hamming distance algorithm)
 
@@ -3625,14 +3623,14 @@ SubClassOf(obo:MOLSIM_000100 obo:MOLSIM_000098)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000101 "In chemical kinetics and simulation, the transition state refers to a specific, high-energy, transient molecular configuration along the reaction coordinate connecting two stable states (e.g., reactant and product, or bound and unbound states). It is connected to the energy barrier that must be overcome for the transition to occur. While challenging to simulate directly due to its short lifetime, characterizing the transition state is crucial for understanding reaction mechanisms and rates, often studied using specialized simulation techniques or QM methods."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000101 "transition state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000101 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000101 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000101 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000102 (metastable state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000102 "A state of a system that is locally stable (residing in a minimum on the potential energy surface) but has a higher free energy than the globally stable state. The system can persist in a metastable state for a significant time if the energy barrier to reach a more stable state is high. Examples in biomolecular systems include misfolded protein conformations, transiently bound ligand poses, or specific intermediate states along a functional cycle."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000102 "metastable state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000102 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000102 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000102 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000103 (encounter complex)
 
@@ -3646,32 +3644,32 @@ SubClassOf(obo:MOLSIM_000103 obo:MOLSIM_000098)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000104 "A general state referring to a molecule (either ligand or receptor, or the complex) being surrounded by solvent molecules (typically a water buffer in biological contexts). This term emphasizes the presence and influence of the solvent on the molecule's structure, dynamics, and energetics. Both the bound and unbound states are typically solvated states, and solvation effects are crucial components of binding free energies and conformational preferences."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000104 "solvated state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000104 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000104 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000104 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000105 (conformational state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000105 "A specific three-dimensional arrangement or shape adopted by a flexible molecule, such as a protein or ligand. Molecules can typically exist in multiple conformational states, corresponding to different local minima on their potential energy surface, separated by energy barriers. Simulations are often used to explore the accessible conformational states, their relative populations, and the transitions between them, which are essential for molecular function and binding."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000105 "conformational state"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000105 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000105 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000105 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000106 (protonation state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000106 "The specific state of a molecule defined by which of its ionizable functional groups are protonated (e.g., -COOH vs -COO-, -NH3+ vs -NH2) or deprotonated. The protonation state depends on the pKa values of the groups and the pH of the environment. Determining the correct protonation state(s) for amino acid residues and ligands is a critical step in preparing systems for simulation, as it dictates charge distribution and electrostatic interactions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000106 "protonation state"@en)
-SubClassOf(obo:MOLSIM_000106 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000106 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_000107 (tautomeric state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000107 "One of two or more structural isomers of a molecule that readily interconvert through a process called tautomerization, most commonly involving the migration of a proton accompanied by a switch of a single and adjacent double bond. For example, keto-enol tautomerism is common in organic chemistry. Identifying the relevant tautomeric state(s) for a ligand or residue under simulation conditions is important for accurate modeling, particularly for heterocyclic compounds often found in drugs and cofactors. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000107 "tautomeric state"@en)
-SubClassOf(obo:MOLSIM_000107 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000107 obo:MOLSIM_001210)
 
 # Class: obo:MOLSIM_000108 (excited state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000108 "An electronic state of a molecule where one or more electrons have been promoted to higher energy levels than in the ground electronic state, typically following the absorption of light (photoexcitation). Excited states have different electron distributions, geometries, and reactivity compared to the ground state and are central to photochemistry and spectroscopy (like fluorescence). Simulating excited states requires quantum mechanical methods (like TD-DFT or CASSCF) as classical force fields are typically parameterized only for the ground electronic state. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000108 "excited state"@en)
-SubClassOf(obo:MOLSIM_000108 obo:MOLSIM_000098)
+SubClassOf(obo:MOLSIM_000108 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000109 (method)
 
@@ -3746,6 +3744,8 @@ SubClassOf(obo:MOLSIM_000118 obo:MOLSIM_000400)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000119 "Kullback-Leibler (KL) divergence, also known as relative entropy, measures how one probability distribution (P) differs from a second, reference probability distribution (Q). It quantifies the information lost when distribution Q is used to approximate distribution P. KL divergence is non-negative, zero only if P and Q are identical, but it is not symmetric (KL(P||Q) != KL(Q||P)) and can be infinite. It quantifies the information lost when the second distribution is used to approximate the first. The Kullback-Leibler divergence is a fundamental concept in information theory used to compare distributions. This is often abbreviated as KL divergence. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000119 "Kullback-Leibler divergence"@en)
 SubClassOf(obo:MOLSIM_000119 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_000119 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_000119 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_000120 (dimensionality reduction technique analysis)
 
@@ -4982,7 +4982,6 @@ SubClassOf(obo:MOLSIM_000307 obo:MOLSIM_001659)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000308 "A simulation method is a computational technique that mimics how a system changes over time. As a type of computational method, it involves numerically integrating equations of motion to generate a trajectory that describes the system's dynamic evolution, such as in molecular dynamics or enhanced sampling. The choice of simulation method dictates the physical laws and algorithms used to propagate the system's state, as controlled by parameters in the main simulation input file. This is referred to in log files and inputs with keywords like \"integrator,\" \"dynamics,\" \"nsteps,\" and \"dt.\" (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000308 "simulation method"@en)
 SubClassOf(obo:MOLSIM_000308 obo:MOLSIM_000140)
-SubClassOf(obo:MOLSIM_000308 obo:MOLSIM_000841)
 
 # Class: obo:MOLSIM_000309 (entropy analysis)
 
@@ -5888,7 +5887,6 @@ DisjointClasses(obo:MOLSIM_000445 obo:MOLSIM_000446)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000446 "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000446 "PDB format"@en)
 SubClassOf(obo:MOLSIM_000446 obo:MOLSIM_001088)
-SubClassOf(obo:MOLSIM_000446 obo:MOLSIM_001090)
 
 # Class: obo:MOLSIM_000447 (identifier)
 
@@ -7364,7 +7362,7 @@ SubClassOf(obo:MOLSIM_000681 obo:MOLSIM_000639)
 # Class: obo:MOLSIM_000682 (amber ff19SB)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000682 "Amber ff19SB is a modern and widely used set of rules, or a force field, for accurately simulating the structure and movement of proteins. The AMBER ff19SB protein force field is a recent refinement of the ff14SB lineage, incorporating updated quantum mechanical calculations for backbone dihedral angle parameters to improve the description of protein secondary structure balance. It is considered a state-of-the-art choice for all-atom protein simulations, offering high fidelity for studying protein folding, dynamics, and interactions."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000682 "amber ff19SB"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000682 "AMBER ff19SB"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000682 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_000682 obo:MOLSIM_000009)
 
@@ -7655,82 +7653,82 @@ SubClassOf(obo:MOLSIM_000737 obo:MOLSIM_000735)
 # Class: obo:MOLSIM_000738 (amber glycam 06)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000738 "A specific parameter set within the AMBER family, developed by the GLYCAM group for simulating carbohydrates (glycans). Released around 2006, it provides parameters for common monosaccharides and the glycosidic linkages between them, enabling the study of oligosaccharides and the carbohydrate portions of glycoproteins/glycolipids. It is designed to be compatible with AMBER protein/lipid force fields. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000738 "amber glycam 06"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000738 "AMBER GLYCAM 06"@en)
 SubClassOf(obo:MOLSIM_000738 obo:MOLSIM_000012)
 DisjointClasses(obo:MOLSIM_000738 obo:MOLSIM_000739)
 
 # Class: obo:MOLSIM_000739 (amber glycam 06 EP)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000739 "A specific version of the GLYCAM06 carbohydrate force field, where 'EP' refers to modifications involving Extra Points. These extra points, typically placed near oxygen atoms to represent lone pair electron density, are added to improve the description of electrostatic interactions, particularly the directionality and geometry of hydrogen bonding in carbohydrates. This aims for higher accuracy at an increased computational cost. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000739 "amber glycam 06 EP"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000739 "AMBER GLYCAM 06 EP"@en)
 SubClassOf(obo:MOLSIM_000739 obo:MOLSIM_000012)
 
 # Class: obo:MOLSIM_000740 (amber AMOEBA)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000740 "Ion parameters specifically designed for use with the AMOEBA (Atomic Multipole Optimized Energetics for Biomolecular Applications) polarizable force field within the AMBER simulation suite. Unlike fixed-charge models, AMOEBA uses atomic multipoles (charges, dipoles, quadrupoles) and induced dipoles to describe electrostatics more accurately. The corresponding ion parameters are developed to be consistent with this advanced electrostatic treatment, aiming for higher fidelity, especially for ion-water and ion-biomolecule interactions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000740 "amber AMOEBA"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000740 "AMBER AMOEBA"@en)
 SubClassOf(obo:MOLSIM_000740 obo:MOLSIM_000015)
 
 # Class: obo:MOLSIM_000741 (amber ff02)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000741 "A specific protein force field parameter set from the AMBER family, representing one of the earlier polarizable force fields. Unlike fixed-charge force fields (like ff99SB), ff02 includes electronic polarizability explicitly, aiming for a more accurate description of electrostatics but at a higher computational cost. Its adoption was less widespread than fixed-charge counterparts."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000741 "amber ff02"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000741 "AMBER ff02"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000741 orcid:0000-0002-8291-8071)
 SubClassOf(obo:MOLSIM_000741 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000742 (amber ff10)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000742 "A specific protein force field parameter set from the AMBER family, incorporating updates (e.g., to backbone torsions) over ff99SB, developed around 2010. It served as an evolutionary step in the AMBER force field lineage. However, it was largely superseded by subsequent versions like ff12SB and ff14SB. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000742 "amber ff10"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000742 "AMBER ff10"@en)
 SubClassOf(obo:MOLSIM_000742 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000743 (amber ff12SB)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000743 "A specific protein force field parameter set from the AMBER family, representing an update released around 2012. Compared to ff99SB, ff12SB refined quantum-chemical (QM) based side-chain dihedral parameters and updated the backbone φ rotational profile to compensate for biases seen in earlier version. It served as an intermediate improvement before the release of ff14SB."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000743 "amber ff12SB"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000743 "AMBER ff12SB"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000743 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_000743 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000744 (amber ff94)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000744 "An early, widely influential all-atom protein force field parameter set from the AMBER family, released around 1994. It provided a complete set of parameters for proteins and became a benchmark for subsequent developments. While largely superseded by newer versions (ff96, ff99, ff99SB, ff14SB etc.), its development laid crucial groundwork. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000744 "amber ff94"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000744 "AMBER ff94"@en)
 SubClassOf(obo:MOLSIM_000744 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000745 (amber ff96)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000745 "A subsequent refinement of the AMBER ff94 protein force field parameter set, released around 1996. It included adjustments based on accumulated experience and new data, aiming to improve performance compared to ff94. Like ff94, it has been largely replaced by later versions but represents a step in the evolution. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000745 "amber ff96"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000745 "AMBER ff96"@en)
 SubClassOf(obo:MOLSIM_000745 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000746 (amber ff99)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000746 "An important revision of the AMBER protein force field parameter set released around 1999, incorporating significant updates, especially to backbone torsion parameters, compared to ff94/ff96. It aimed to better reproduce secondary structure propensities. Several variants of ff99 exist, addressing specific issues or refining parameters further. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000746 "amber ff99"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000746 "AMBER ff99"@en)
 SubClassOf(obo:MOLSIM_000746 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000747 (amber ff99 phi)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000747 "A specific modification of the AMBER ff99 protein force field. This variant likely involved adjustments targeted at the phi (ϕ) backbone dihedral angle parameters, aiming to correct specific structural biases observed with the original ff99. Such targeted modifications are common in force field development. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000747 "amber ff99 phi"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000747 "AMBER ff99 phi"@en)
 SubClassOf(obo:MOLSIM_000747 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000748 (amber ff99bsc0)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000748 "A specific modification of the AMBER ff99 protein force field, where 'bsc0' refers to refinements of the chi (χ) dihedral angle parameters for nucleic acids (specifically DNA), developed by the Barcelona group (bsc = Barcelona Supercomputing Center, 0 likely version). This highlights that ff99 base parameters were sometimes combined with specialized parameters for other molecule types. Although listed under protein, bsc0 is primarily for DNA backbone. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000748 "amber ff99bsc0"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000748 "AMBER ff99bsc0"@en)
 SubClassOf(obo:MOLSIM_000748 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000749 (amber ff99SB)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000749 "A highly popular and widely used refinement of the AMBER ff99 protein force field, where 'SB' indicates improvements primarily focused on side-chain (S) and backbone (B) dihedral torsion potentials. It corrected some imbalances in secondary structure preference found in ff99. ff99SB served as a robust baseline before the development of ff14SB. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000749 "amber ff99SB"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000749 "AMBER ff99SB"@en)
 SubClassOf(obo:MOLSIM_000749 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000750 (amber ff99SB ILDN)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000750 "A specific refinement of the AMBER ff99SB protein force field, where 'ILDN' refers to targeted improvements for the side-chain torsion potentials of four specific amino acids: Isoleucine (I), Leucine (L), Aspartate (D), and Asparagine (N). This modification aimed to improve the description of intrinsically disordered proteins and protein dynamics. It is often used in conjunction with ff99SB. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000750 "amber ff99SB ILDN"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000750 "AMBER ff99SB ILDN"@en)
 SubClassOf(obo:MOLSIM_000750 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000751 (CHARMM 22)
@@ -8734,7 +8732,6 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_000905 "Retired in the file-format f
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000906 "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000906 "Mol2 format"@en)
 SubClassOf(obo:MOLSIM_000906 obo:MOLSIM_001088)
-SubClassOf(obo:MOLSIM_000906 obo:MOLSIM_001090)
 DisjointClasses(obo:MOLSIM_000906 obo:MOLSIM_000907)
 
 # Class: obo:MOLSIM_000907 (SDF format)
@@ -8863,7 +8860,7 @@ SubClassOf(obo:MOLSIM_000928 obo:MOLSIM_000917)
 # Class: obo:MOLSIM_000936 (amber OL24)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000936 "A refined set of force field parameters specifically developed to improve the accuracy of DNA simulations using the AMBER force field. It provides an updated description of the sugar-pucker torsional potential, which is critical for correctly capturing the conformational equilibrium between A-form and B-form DNA. These parameters are intended as an update to be used in conjunction with a parent protein-DNA force field like ff14SB. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000936 "amber OL24"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000936 "AMBER OL24"@en)
 SubClassOf(obo:MOLSIM_000936 obo:MOLSIM_000010)
 
 # Class: obo:MOLSIM_000937 (structure clustering analysis)
@@ -9842,6 +9839,8 @@ SubClassOf(obo:MOLSIM_001165 obo:MOLSIM_001164)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001166 "A type of integration parameter that specifies the discrete interval of time between successive steps in a molecular dynamics simulation. The choice of simulation time step is a critical balance between computational efficiency and numerical stability, as it must be short enough to capture the fastest atomic motions. This is commonly specified in input files with the keyword dt. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001166 "simulation time step"@en)
 SubClassOf(obo:MOLSIM_001166 obo:MOLSIM_001165)
+SubClassOf(obo:MOLSIM_001166 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_001166 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001167 (simulation duration)
 
@@ -9899,6 +9898,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001175 "A temperature control par
 AnnotationAssertion(rdfs:label obo:MOLSIM_001175 "target temperature"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001175 "AMBER 26 Reference Manual, p. 436, entry temp0."@en)
 SubClassOf(obo:MOLSIM_001175 obo:MOLSIM_001173)
+SubClassOf(obo:MOLSIM_001175 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000005))
+SubClassOf(obo:MOLSIM_001175 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001176 (thermostat coupling parameter)
 
@@ -10789,12 +10790,16 @@ SubClassOf(obo:MOLSIM_001307 obo:MOLSIM_001294)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001308 "A component of the system's energy that is calculated for a specific region of the molecule using the principles of quantum mechanics. This term is only present in QM/MM simulations, where it represents the energy of the quantum mechanical region. The QM energy is the primary energy term for the part of the system where chemical reactions or complex electronic effects are being studied. It is often reported in the output as QM Energy or E_qm. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001308 "QM energy"@en)
 SubClassOf(obo:MOLSIM_001308 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001308 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
+SubClassOf(obo:MOLSIM_001308 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001309 (SCF energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001309 "A specific type of QM energy representing the electronic energy of the quantum mechanical region as determined by the Self-Consistent Field (SCF) procedure. This value is the converged energy from a Hartree-Fock or Density Functional Theory calculation. The SCF energy is a primary output in QM/MM log files, and its convergence is a key indicator of a successful quantum calculation. This term is often labeled as E(SCF) or SCF Done. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001309 "SCF energy"@en)
 SubClassOf(obo:MOLSIM_001309 obo:MOLSIM_001308)
+SubClassOf(obo:MOLSIM_001309 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
+SubClassOf(obo:MOLSIM_001309 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001310 (boost energy)
 
@@ -10953,6 +10958,8 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001334 "RMSD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001334 "root mean square deviation (RMSD)"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001334 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_001334 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001334 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001334 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001335 (root mean square fluctuation)
 
@@ -10961,6 +10968,8 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001335 "RMSF"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001335 "root mean square fluctuation (RMSF)"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001335 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_001335 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001335 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001335 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001336 (distance RMSD)
 
@@ -10969,6 +10978,8 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001336 "dRMSD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001336 "distance RMSD (dRMSD)"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001336 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_001336 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001336 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001336 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001337 (hydrogen mass repartitioning analysis)
 
@@ -10982,12 +10993,16 @@ SubClassOf(obo:MOLSIM_001337 obo:MOLSIM_000328)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001338 "A specific type of distance that measures the average separation between an ion and the oxygen atoms of surrounding water molecules. This value is a key descriptor of an ion's first solvation shell. It is used to validate and parameterize ion force fields by comparing to experimental data. This value is often referred to as IOD or Ion-Oxygen Distance. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001338 "ion-oxygen distance"@en)
 SubClassOf(obo:MOLSIM_001338 obo:MOLSIM_000080)
+SubClassOf(obo:MOLSIM_001338 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001338 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001339 (angle)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001339 "A type of structural property representing the angle formed by three specified atoms. It is a fundamental descriptor of local molecular geometry. Monitoring bond angle values over time is used to characterize the flexibility and conformational changes of a molecule. This value is commonly referred to as angle in analysis scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001339 "angle"@en)
 SubClassOf(obo:MOLSIM_001339 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001339 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001339 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001340 (dihedral angle)
 
@@ -10995,12 +11010,16 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001340 "A type of structural prop
 AnnotationAssertion(rdfs:label obo:MOLSIM_001340 "dihedral angle"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001340 orcid:0000-0002-8291-8071)
 SubClassOf(obo:MOLSIM_001340 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001340 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001340 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001341 (protein backbone torsion angle)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001341 "A specific type of dihedral angle that describes the conformation of the protein backbone. The key angles determine the protein's secondary structure. Their values are the basis of the Ramachandran plot, a fundamental tool for structural validation. These angles are universally known as phi, psi, and omega. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001341 "protein backbone torsion angle"@en)
 SubClassOf(obo:MOLSIM_001341 obo:MOLSIM_001340)
+SubClassOf(obo:MOLSIM_001341 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001341 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001342 (protein side-chain torsion angle)
 
@@ -11009,6 +11028,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001342 "protein side-chain torsion ang
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001342 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001342 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001342 obo:MOLSIM_001340)
+SubClassOf(obo:MOLSIM_001342 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001342 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001343 (nucleic acid torsion angle)
 
@@ -11017,6 +11038,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001343 "nucleic acid torsion angle"@en
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001343 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001343 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001343 obo:MOLSIM_001340)
+SubClassOf(obo:MOLSIM_001343 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001343 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001344 (radius of gyration)
 
@@ -11025,6 +11048,8 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001344 "Rg"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001344 "radius of gyration"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001344 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_001344 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001344 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001344 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001345 (B-factor)
 
@@ -11033,12 +11058,16 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001345 "B-factor"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001345 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001345 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001345 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001345 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000047))
+SubClassOf(obo:MOLSIM_001345 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001346 (TM-score)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001346 "A type of structural property used to assess the topological similarity between two protein structures, with a value ranging from 0 to 1. Unlike RMSD, the TM-score is less sensitive to local deviations and gives more weight to the global fold, making it a better metric for comparing distantly related proteins. A score above 0.5 generally indicates the same protein fold. This value is a standard output of protein structure comparison tools. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001346 "TM-score"@en)
 SubClassOf(obo:MOLSIM_001346 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001346 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001346 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001347 (native contact)
 
@@ -11046,6 +11075,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001347 "A type of structural prop
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001347 "native contacts"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001347 "native contact"@en)
 SubClassOf(obo:MOLSIM_001347 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001347 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000189))
+SubClassOf(obo:MOLSIM_001347 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001348 (coordination number)
 
@@ -11054,6 +11085,8 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001348 "CN"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001348 "coordination number"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001348 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001348 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001348 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000189))
+SubClassOf(obo:MOLSIM_001348 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001349 (molecular surface area)
 
@@ -11061,6 +11094,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001349 "A type of structural prop
 AnnotationAssertion(rdfs:label obo:MOLSIM_001349 "molecular surface area"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001349 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001349 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001349 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000047))
+SubClassOf(obo:MOLSIM_001349 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001350 (sugar pucker)
 
@@ -11076,6 +11111,8 @@ SubClassOf(obo:MOLSIM_001350 obo:MOLSIM_001333)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001351 "A type of structural property that describes the \"handedness\" of a chiral center in a molecule. It is a fundamental stereochemical property that determines how a molecule interacts with other chiral molecules and polarized light. Analysis tools can checkchirality to ensure that the stereochemistry is maintained correctly during a simulation. This property is fundamental to stereochemistry. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001351 "chirality"@en)
 SubClassOf(obo:MOLSIM_001351 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001351 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001351 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001352 (molecular orientation)
 
@@ -11091,6 +11128,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001353 "A specific type of orient
 AnnotationAssertion(rdfs:label obo:MOLSIM_001353 "orientation angle"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001353 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001353 obo:MOLSIM_001352)
+SubClassOf(obo:MOLSIM_001353 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001353 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001354 (orientation projection)
 
@@ -11106,6 +11145,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001355 "tilt"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001355 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001355 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001355 obo:MOLSIM_001366)
+SubClassOf(obo:MOLSIM_001355 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001355 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001356 (spin angle)
 
@@ -11113,6 +11154,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001356 "A specific type of orient
 AnnotationAssertion(rdfs:label obo:MOLSIM_001356 "spin angle"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001356 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001356 obo:MOLSIM_001352)
+SubClassOf(obo:MOLSIM_001356 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001356 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001357 (orientation quaternion)
 
@@ -11141,6 +11184,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001360 "shear"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001360 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001360 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001360 obo:MOLSIM_001359)
+SubClassOf(obo:MOLSIM_001360 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001360 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001361 (stretch)
 
@@ -11149,6 +11194,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001361 "stretch"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001361 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001361 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001361 obo:MOLSIM_001359)
+SubClassOf(obo:MOLSIM_001361 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001361 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001362 (stagger)
 
@@ -11157,6 +11204,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001362 "stagger"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001362 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001362 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001362 obo:MOLSIM_001359)
+SubClassOf(obo:MOLSIM_001362 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001362 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001363 (buckle)
 
@@ -11165,6 +11214,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001363 "buckle"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001363 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001363 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001363 obo:MOLSIM_001359)
+SubClassOf(obo:MOLSIM_001363 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001363 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001364 (propeller twist)
 
@@ -11173,6 +11224,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001364 "propeller twist"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001364 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001364 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001364 obo:MOLSIM_001359)
+SubClassOf(obo:MOLSIM_001364 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001364 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001365 (opening)
 
@@ -11181,6 +11234,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001365 "opening"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001365 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001365 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001365 obo:MOLSIM_001359)
+SubClassOf(obo:MOLSIM_001365 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001365 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001366 (base pair step parameter)
 
@@ -11196,6 +11251,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001367 "shift"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001367 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001367 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001367 obo:MOLSIM_001366)
+SubClassOf(obo:MOLSIM_001367 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001367 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001368 (slide)
 
@@ -11204,6 +11261,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001368 "slide"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001368 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001368 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001368 obo:MOLSIM_001366)
+SubClassOf(obo:MOLSIM_001368 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001368 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001369 (rise)
 
@@ -11212,6 +11271,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001369 "rise"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001369 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001369 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001369 obo:MOLSIM_001366)
+SubClassOf(obo:MOLSIM_001369 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001369 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001370 (roll)
 
@@ -11220,6 +11281,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001370 "roll"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001370 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001370 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001370 obo:MOLSIM_001366)
+SubClassOf(obo:MOLSIM_001370 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001370 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001371 (twist)
 
@@ -11228,6 +11291,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001371 "twist"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001371 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001371 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001371 obo:MOLSIM_001366)
+SubClassOf(obo:MOLSIM_001371 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000121))
+SubClassOf(obo:MOLSIM_001371 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001372 (displacement parameter)
 
@@ -11244,6 +11309,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001373 "x-displacement"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001373 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001373 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001373 obo:MOLSIM_001372)
+SubClassOf(obo:MOLSIM_001373 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001373 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001374 (y-displacement)
 
@@ -11252,6 +11319,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001374 "y-displacement"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001374 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001374 orcid:0000-0002-4303-9349)
 SubClassOf(obo:MOLSIM_001374 obo:MOLSIM_001372)
+SubClassOf(obo:MOLSIM_001374 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001374 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001375 (electronic property)
 
@@ -11306,12 +11375,16 @@ SubClassOf(obo:MOLSIM_001382 obo:MOLSIM_001380)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001383 "A type of electronic property representing the minimum energy required to remove an electron from a molecule. It is a fundamental measure of a molecule's resistance to oxidation. The ionization potential is a key quantity calculated by quantum chemistry programs to assess electronic stability. This is often estimated from the energy of the highest occupied molecular orbital (HOMO). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001383 "ionization potential"@en)
 SubClassOf(obo:MOLSIM_001383 obo:MOLSIM_001375)
+SubClassOf(obo:MOLSIM_001383 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
+SubClassOf(obo:MOLSIM_001383 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001384 (electron affinity)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001384 "A type of electronic property representing the energy released when an electron is added to a molecule. It is a fundamental measure of a molecule's ability to accept an electron and its resistance to reduction. The electron affinity is a key quantity calculated by quantum chemistry programs to assess electronic stability. This is often estimated from the energy of the lowest unoccupied molecular orbital (LUMO). (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001384 "electron affinity"@en)
 SubClassOf(obo:MOLSIM_001384 obo:MOLSIM_001375)
+SubClassOf(obo:MOLSIM_001384 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
+SubClassOf(obo:MOLSIM_001384 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001385 (wavefunction property)
 
@@ -11324,12 +11397,16 @@ SubClassOf(obo:MOLSIM_001385 obo:MOLSIM_001375)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001386 "A specific wavefunction property representing the total electronic energy of the molecular system for a given nuclear geometry. This is the primary output of most quantum chemical calculations. It is the expectation value of the Hamiltonian operator for the calculated wavefunction. This is often referred to as the SCF Energy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001386 "wavefunction energy"@en)
 SubClassOf(obo:MOLSIM_001386 obo:MOLSIM_001385)
+SubClassOf(obo:MOLSIM_001386 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
+SubClassOf(obo:MOLSIM_001386 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001387 (wavefunction stability index)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001387 "A specific wavefunction property that indicates whether the calculated electronic wavefunction corresponds to a true energy minimum. A stable wavefunction is a prerequisite for obtaining reliable results from a quantum chemical calculation. The wavefunction stability index is a diagnostic tool used to ensure the quality of the calculation. This is often reported as the result of a Stable=Opt calculation in Gaussian. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001387 "wavefunction stability index"@en)
 SubClassOf(obo:MOLSIM_001387 obo:MOLSIM_001385)
+SubClassOf(obo:MOLSIM_001387 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001387 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001388 (charge distribution descriptor)
 
@@ -11366,6 +11443,8 @@ SubClassOf(obo:MOLSIM_001392 obo:MOLSIM_001391)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001393 "A type of kinetic property that measures the average distance a particle has traveled from its starting position over a certain time interval. The Mean Square Displacement is a key quantity used to characterize the dynamics of a system. The slope of the MSD curve over time is directly proportional to the diffusion coefficient. This is often abbreviated as MSD. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001393 "mean square displacement"@en)
 SubClassOf(obo:MOLSIM_001393 obo:MOLSIM_001391)
+SubClassOf(obo:MOLSIM_001393 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000047))
+SubClassOf(obo:MOLSIM_001393 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001394 (NMR relaxation time)
 
@@ -11373,6 +11452,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001394 "A type of kinetic propert
 AnnotationAssertion(rdfs:label obo:MOLSIM_001394 "NMR relaxation time"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001394 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001394 obo:MOLSIM_001391)
+SubClassOf(obo:MOLSIM_001394 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_001394 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001395 (T1 relaxation)
 
@@ -11380,6 +11461,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001395 "A specific type of NMR re
 AnnotationAssertion(rdfs:label obo:MOLSIM_001395 "T1 relaxation"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001395 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001395 obo:MOLSIM_001394)
+SubClassOf(obo:MOLSIM_001395 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_001395 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001396 (T2 relaxation)
 
@@ -11387,6 +11470,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001396 "A specific type of NMR re
 AnnotationAssertion(rdfs:label obo:MOLSIM_001396 "T2 relaxation"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001396 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001396 obo:MOLSIM_001394)
+SubClassOf(obo:MOLSIM_001396 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_001396 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001397 (correlation time)
 
@@ -11394,6 +11479,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001397 "A type of kinetic propert
 AnnotationAssertion(rdfs:label obo:MOLSIM_001397 "correlation time"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001397 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001397 obo:MOLSIM_001391)
+SubClassOf(obo:MOLSIM_001397 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_001397 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001398 (spectroscopic property)
 
@@ -11408,6 +11495,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001399 "A type of spectroscopic p
 AnnotationAssertion(rdfs:label obo:MOLSIM_001399 "J-coupling"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001399 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001399 obo:MOLSIM_001398)
+SubClassOf(obo:MOLSIM_001399 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000105))
+SubClassOf(obo:MOLSIM_001399 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001400 (residual dipolar coupling)
 
@@ -11415,6 +11504,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001400 "A type of spectroscopic p
 AnnotationAssertion(rdfs:label obo:MOLSIM_001400 "residual dipolar coupling"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001400 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001400 obo:MOLSIM_001398)
+SubClassOf(obo:MOLSIM_001400 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000105))
+SubClassOf(obo:MOLSIM_001400 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001401 (deuterium order parameter)
 
@@ -11422,6 +11513,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001401 "The deuterium order param
 AnnotationAssertion(rdfs:label obo:MOLSIM_001401 "deuterium order parameter"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001401 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001401 obo:MOLSIM_001398)
+SubClassOf(obo:MOLSIM_001401 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001401 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001402 (S2 order parameter)
 
@@ -11429,6 +11522,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001402 "A type of spectroscopic p
 AnnotationAssertion(rdfs:label obo:MOLSIM_001402 "S2 order parameter"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001402 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001402 obo:MOLSIM_001398)
+SubClassOf(obo:MOLSIM_001402 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001402 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001403 (statistical property)
 
@@ -11457,6 +11552,8 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001405 "obsolete Spearman rank correla
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001406 "A specific type of correlation coefficient that measures the ordinal association between two variables. It is based on counting the number of concordant and discordant pairs in the data. The Kendall tau correlation coefficient is a non-parametric statistic used to measure the strength of the relationship between two ranked variables. This is often reported as tau or Kendall's tau. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001406 "Kendall tau correlation coefficient"@en)
 SubClassOf(obo:MOLSIM_001406 obo:STATO_0000142)
+SubClassOf(obo:MOLSIM_001406 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001406 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001407 (root mean square error (RMSE))
 
@@ -11492,18 +11589,24 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001411 "A type of statistical pro
 AnnotationAssertion(rdfs:label obo:MOLSIM_001411 "distribution overlap"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001411 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001411 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_001411 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001411 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001412 (phase space overlap)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001412 "A specific type of distribution overlap that measures the overlap between the potential energy distributions of adjacent states in an alchemical free energy calculation. Sufficient Phase space overlap is a prerequisite for obtaining reliable free energy estimates. It is a key diagnostic for assessing the quality of alchemical simulations. This is often abbreviated as PSO. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001412 "phase space overlap"@en)
 SubClassOf(obo:MOLSIM_001412 obo:MOLSIM_001411)
+SubClassOf(obo:MOLSIM_001412 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001412 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001413 (conditional probability)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001413 "A type of statistical property that measures the probability of an event occurring, given that another event has already occurred. In simulation analysis, Conditional Probabilities are used to understand the relationships and dependencies between different molecular states or events. They are a core component of Markov State Model analysis. This is a key output of kinetic analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001413 "conditional probability"@en)
 SubClassOf(obo:MOLSIM_001413 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_001413 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001413 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001414 (standard deviation)
 
@@ -11518,36 +11621,48 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_001414 "obsolete standard deviation"@e
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001415 "A type of statistical property that measures how far two subsets of a metric space are from each other. It is the greatest of all the distances from a point in one set to the closest point in the other set. The Hausdorff distance is a robust metric for comparing the overall shape of two conformational ensembles. This is a specialized metric in topology. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001415 "Hausdorff distance"@en)
 SubClassOf(obo:MOLSIM_001415 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_001415 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001415 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001416 (clustering quality metric)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001416 "A type of statistical property used to evaluate the performance of a clustering algorithm. These metrics provide a quantitative measure of how well the algorithm has partitioned the data into distinct and compact clusters. They are essential for assessing the validity of a clustering result. These are standard outputs of clustering analysis programs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001416 "clustering quality metric"@en)
 SubClassOf(obo:MOLSIM_001416 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_001416 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001416 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001417 (Davies-Bouldin Index)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001417 "A specific clustering quality metric that is calculated as the average similarity between each cluster and its most similar one. A lower Davies-Bouldin Index indicates a better clustering, where clusters are dense and well-separated. It is a common metric for evaluating the output of a clustering algorithm. This is often abbreviated as DBI. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001417 "Davies-Bouldin Index"@en)
 SubClassOf(obo:MOLSIM_001417 obo:MOLSIM_001416)
+SubClassOf(obo:MOLSIM_001417 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001417 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001418 (pseudo-F statistic)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001418 "A specific clustering quality metric used to determine the optimal number of clusters in a dataset. It is calculated as the ratio of the between-cluster variance to the within-cluster variance. A peak in the pseudo-F statistic for a given number of clusters suggests that it is the optimal partitioning. This is often abbreviated as pSF. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001418 "pseudo-F statistic"@en)
 SubClassOf(obo:MOLSIM_001418 obo:MOLSIM_001416)
+SubClassOf(obo:MOLSIM_001418 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001418 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001419 (SSR/SST ratio)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001419 "A specific clustering quality metric that represents the ratio of the sum of squares between clusters (SSR) to the total sum of squares (SST). A value close to 1 indicates that the clusters are well-separated. The SSR/SST ratio is a measure of the variance explained by the clustering. This is a standard statistical measure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001419 "SSR/SST ratio"@en)
 SubClassOf(obo:MOLSIM_001419 obo:MOLSIM_001416)
+SubClassOf(obo:MOLSIM_001419 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001419 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001420 (cluster silhouette)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001420 "A specific clustering quality metric that measures how similar an object is to its own cluster compared to other clusters. The cluster silhouette score ranges from -1 to 1, where a high value indicates that the object is well matched to its own cluster and poorly matched to neighboring clusters. It is a powerful tool for assessing the quality of a clustering result. This is a standard metric in cluster analysis. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001420 "cluster silhouette"@en)
 SubClassOf(obo:MOLSIM_001420 obo:MOLSIM_001416)
+SubClassOf(obo:MOLSIM_001420 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001420 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001421 (correlation function)
 
@@ -11611,12 +11726,16 @@ SubClassOf(obo:MOLSIM_001429 obo:MOLSIM_001427)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001430 "A type of miscellaneous descriptor that specifies the number of interactions, such as hydrogen bonds or close contacts, involving a specific atom or group of atoms. The atom interaction count is often averaged over a simulation trajectory. It helps to quantify the interaction environment of particular atoms or groups. This is a common output of structural analysis scripts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001430 "atom interaction count"@en)
 SubClassOf(obo:MOLSIM_001430 obo:MOLSIM_001427)
+SubClassOf(obo:MOLSIM_001430 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000189))
+SubClassOf(obo:MOLSIM_001430 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001431 (similarity score)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001431 "A type of miscellaneous descriptor that provides a metric for measuring the similarity between two entities, such as molecular structures or atom types. The similarity score is a quantitative measure used in various contexts, from virtual screening to parameter estimation. This is a key output of cheminformatics tools. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001431 "similarity score"@en)
 SubClassOf(obo:MOLSIM_001431 obo:MOLSIM_001427)
+SubClassOf(obo:MOLSIM_001431 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001431 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001432 (adaptive string method)
 
@@ -11664,42 +11783,42 @@ SubClassOf(obo:MOLSIM_001438 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001439 (amber OL3)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001439 "The amber OL3 force field is a specific set of parameters for simulating RNA, designed for use with the AMBER simulation package. Developed by the Olomouc group in the Czech Republic, it represents a significant refinement of RNA backbone dihedral parameters over previous versions. For researchers studying RNA, OL3 was a widely adopted standard that provided a more accurate description of RNA's structural and dynamic behavior. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001439 "amber OL3"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001439 "The AMBER OL3 force field is a specific set of parameters for simulating RNA, designed for use with the AMBER simulation package. Developed by the Olomouc group in the Czech Republic, it represents a significant refinement of RNA backbone dihedral parameters over previous versions. For researchers studying RNA, OL3 was a widely adopted standard that provided a more accurate description of RNA's structural and dynamic behavior. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001439 "AMBER OL3"@en)
 SubClassOf(obo:MOLSIM_001439 obo:MOLSIM_000011)
 
 # Class: obo:MOLSIM_001440 (amber ff15ipq)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001440 "This is a specialized force field for simulating proteins that pays extra attention to how proteins interact with water and charged ions. The AMBER ff15ipq force field was developed to improve the description of protein interactions with ions by using a novel charge model (Implicitly Polarized Charge, IPq) that better reproduces experimental hydration free energies. This force field is particularly recommended for simulations where the accurate modeling of protein-ion interactions or salt bridge dynamics is critical to the system's behavior."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001440 "amber ff15ipq"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001440 "AMBER ff15ipq"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001440 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001440 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_001441 (amber ff15ipq-m)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001441 "A force field specifically parameterized for the simulation of protein mimetics, which are synthetic molecules designed to mimic natural proteins. It extends the existing ff15ipq force field to include parameters for non-standard, artificial, heterogenous building blocks, such as D-amino acids and beta-amino acids. This enables researchers to accurately model the structure and dynamics of these non-natural biopolymers."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001441 "amber ff15ipq-m"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001441 "AMBER ff15ipq-m"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001441 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001441 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_001442 (amber ff03)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001442 "Amber ff03 is a modified version of the ff99 AMBER force field. The main changes are that charges are now derived from quantum calculations that use a continuum dielectric to mimic solvent polarization, and that the φ and ψ backbone torsions for proteins are modified, with the effect of decreasing the preference for helical configurations. The changes are just for proteins; nucleic acid parameters are the same as in ff99."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001442 "amber ff03"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001442 "AMBER ff03"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001442 orcid:0000-0002-8291-8071)
 SubClassOf(obo:MOLSIM_001442 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_001443 (amber ff03ua)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001443 "This is a simplified version of the amber ff03 force field where the aliphatic hydrogen atoms on all amino acid side-chains are united to their corresponding carbon atoms. The aliphatic hydrogen atoms on all alpha carbon atoms are still represented explicitly to minimize the impact of the united-atom approximation on protein backbone conformations. In addition, aromatic hydrogens are also explicitly represented. Nucleic acid parameters are still in all atom and kept the same as in ff99."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001443 "amber ff03ua"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001443 "This is a simplified version of the AMBER ff03 force field where the aliphatic hydrogen atoms on all amino acid side-chains are united to their corresponding carbon atoms. The aliphatic hydrogen atoms on all alpha carbon atoms are still represented explicitly to minimize the impact of the united-atom approximation on protein backbone conformations. In addition, aromatic hydrogens are also explicitly represented. Nucleic acid parameters are still in all atom and kept the same as in ff99."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001443 "AMBER ff03ua"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001443 orcid:0000-0002-8291-8071)
 SubClassOf(obo:MOLSIM_001443 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_001444 (amber OL15)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001444 "The amber OL15 force field is a set of parameters for simulating DNA, designed for use with the AMBER software package. It is a refinement of previous DNA models from the Olomouc group that provides a more accurate description of the DNA backbone's flexibility and conformational preferences. This force field was a significant improvement for achieving realistic DNA structures and dynamics in simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001444 "amber OL15"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001444 "The AMBER OL15 force field is a set of parameters for simulating DNA, designed for use with the AMBER software package. It is a refinement of previous DNA models from the Olomouc group that provides a more accurate description of the DNA backbone's flexibility and conformational preferences. This force field was a significant improvement for achieving realistic DNA structures and dynamics in simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001444 "AMBER OL15"@en)
 SubClassOf(obo:MOLSIM_001444 obo:MOLSIM_000010)
 
 # Class: obo:MOLSIM_001445 (nucleic acid force field)
@@ -11711,8 +11830,8 @@ SubClassOf(obo:MOLSIM_001445 obo:MOLSIM_000772)
 
 # Class: obo:MOLSIM_001446 (amber bsc1)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001446 "The amber bsc1 force field is a specific and widely used refinement for the dihedral angle parameters of the DNA backbone, designed for use with AMBER force fields. Developed by the Barcelona Supercomputing Center (BSC), it significantly improves the description of DNA's structural dynamics compared to the uncorrected force fields. It is considered a standard addition for obtaining accurate DNA simulations."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001446 "amber bsc1"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001446 "The AMBER bsc1 force field is a specific and widely used refinement for the dihedral angle parameters of the DNA backbone, designed for use with AMBER force fields. Developed by the Barcelona Supercomputing Center (BSC), it significantly improves the description of DNA's structural dynamics compared to the uncorrected force fields. It is considered a standard addition for obtaining accurate DNA simulations."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001446 "AMBER bsc1"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001446 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_001446 obo:MOLSIM_001445)
 
@@ -11724,8 +11843,8 @@ SubClassOf(obo:MOLSIM_001447 obo:MOLSIM_000010)
 
 # Class: obo:MOLSIM_001448 (amber OL21)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001448 "The amber OL21 force field is a recent and highly accurate set of parameters for simulating DNA molecules within the AMBER simulation framework. It represents a state-of-the-art model that incorporates new quantum mechanical calculations and experimental data to further refine the description of the DNA backbone and sugar puckering. This force field is designed to provide a very accurate representation of DNA's structural properties in high-fidelity simulations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001448 "amber OL21"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001448 "The AMBER OL21 force field is a recent and highly accurate set of parameters for simulating DNA molecules within the AMBER simulation framework. It represents a state-of-the-art model that incorporates new quantum mechanical calculations and experimental data to further refine the description of the DNA backbone and sugar puckering. This force field is designed to provide a very accurate representation of DNA's structural properties in high-fidelity simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001448 "AMBER OL21"@en)
 SubClassOf(obo:MOLSIM_001448 obo:MOLSIM_000010)
 
 # Class: obo:MOLSIM_001449 (lipid11)
@@ -12231,7 +12350,7 @@ SubClassOf(obo:MOLSIM_001529 obo:MOLSIM_000204)
 # Class: obo:MOLSIM_001530 (amber fb15)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001530 "The AMBER FB15 (force-balanced 15) protein force field is a refinement of the AMBER94 ff with a systematic and thorough optimization of the intramolecular terms. The key difference in the optimized result is a significant lowering of the potential in regions away from the energy minima, which is expected to yield greater flexibility in finite temperature simulations. This force field is particularly useful for simulations of proteins, particularly when fluctuations away from equilibrium, conformational changes, and/or temperature dependence are expected to play important roles."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001530 "amber fb15"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001530 "AMBER fb15"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001530 orcid:0000-0002-8291-8071)
 SubClassOf(obo:MOLSIM_001530 obo:MOLSIM_000009)
 
@@ -12271,6 +12390,8 @@ SubClassOf(obo:MOLSIM_001536 obo:MOLSIM_001535)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001537 "Temperature is a thermodynamic property that measures the average kinetic energy of the atoms and molecules in the simulation. It is the primary indicator of the system's thermal state and is constantly monitored to ensure the simulation is stable and correctly samples the target ensemble. For experts, this value is calculated from the particle velocities via the equipartition theorem and is maintained by a thermostat to correspond to a specific thermodynamic temperature. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001537 "temperature"@en)
 SubClassOf(obo:MOLSIM_001537 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_001537 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000005))
+SubClassOf(obo:MOLSIM_001537 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001538 (charge-dependent van der Waals correction)
 
@@ -13906,6 +14027,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001796 "In computational chemistr
 AnnotationAssertion(rdfs:label obo:MOLSIM_001796 "mean solvation force"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001796 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001796 obo:MOLSIM_001391)
+SubClassOf(obo:MOLSIM_001796 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000107))
+SubClassOf(obo:MOLSIM_001796 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001797 (atom position)
 
@@ -13919,12 +14042,16 @@ SubClassOf(obo:MOLSIM_001797 obo:MOLSIM_001333)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001798 "Charge transfer energy is the energy stabilization that occurs when a small amount of electron density moves from one molecule to another when they interact at close range. This is a quantum mechanical effect that is not captured by simple fixed-charge force fields but contributes to the strength of interactions like hydrogen bonds. Accurately modeling this energy component, often with polarizable force fields or QM/MM methods, is important for a highly accurate description of molecular binding. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001798 "charge transfer energy"@en)
 SubClassOf(obo:MOLSIM_001798 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001798 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
+SubClassOf(obo:MOLSIM_001798 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001799 (reference energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001799 "A reference energy is a defined baseline or zero-point energy against which other energies are compared. In free energy calculations, it is often the energy of a known or simplified state, and all other states are described by their energy difference relative to this reference. Using a consistent reference energy is essential for making meaningful comparisons between the stabilities of different molecules or conformations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001799 "reference energy"@en)
 SubClassOf(obo:MOLSIM_001799 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001799 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
+SubClassOf(obo:MOLSIM_001799 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001800 (physical property)
 
@@ -13937,6 +14064,8 @@ SubClassOf(obo:MOLSIM_001800 obo:MOLSIM_001292)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001801 "The atomic scattering factor is a measure of how strongly a single atom scatters waves, such as X-rays, which is a key piece of information for determining molecular structures from experiments. This factor depends on the number of electrons an atom has and the angle at which the X-rays are scattered. It is a fundamental component used in crystallographic refinement programs to calculate the theoretical diffraction pattern from a molecular model for comparison with experimental data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001801 "atomic scattering factor"@en)
 SubClassOf(obo:MOLSIM_001801 obo:MOLSIM_001800)
+SubClassOf(obo:MOLSIM_001801 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001801 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001802 (script)
 
@@ -13968,6 +14097,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001806 "The REMD round-trip time 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001806 "REMD round-trip time"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001806 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001806 obo:MOLSIM_001391)
+SubClassOf(obo:MOLSIM_001806 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_001806 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001807 (lifetime curve data)
 
@@ -13987,12 +14118,16 @@ SubClassOf(obo:MOLSIM_001808 obo:MOLSIM_001403)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001809 "The root-mean-square inner product is a mathematical measure used to compare the similarity of two sets of collective motions, for example, from two different simulations. It quantifies the overlap between the dominant modes of motion (eigenvectors) derived from Principal Component Analysis of two different trajectories. A high value, approaching 1, indicates that the two simulations have sampled a very similar space of essential dynamics, which is a powerful way to assess convergence or compare the dynamics of two different systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001809 "root-mean-square inner product"@en)
 SubClassOf(obo:MOLSIM_001809 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_001809 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001809 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001810 (RMS average correlation)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001810 "The RMS average correlation is a statistical measure that quantifies the average degree of correlated motion between all the different parts of a molecule during a simulation. It is calculated by taking the root-mean-square of all the pairwise correlation values from a dynamic cross-correlation matrix. This single value provides a global metric of the overall collectivity of the system's dynamics, with a higher value indicating that the molecule's motions are more concerted. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001810 "RMS average correlation"@en)
 SubClassOf(obo:MOLSIM_001810 obo:STATO_0000142)
+SubClassOf(obo:MOLSIM_001810 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001810 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001811 (solute-solvent interaction energy density)
 
@@ -14011,6 +14146,8 @@ SubClassOf(obo:MOLSIM_001812 obo:MOLSIM_001803)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001813 "This is a calculated energy value that represents the average electrostatic interaction energy of a single solvent molecule with all other solvent molecules in a simulation. It is calculated by taking the total solvent-solvent electrostatic energy, as computed by the Particle Mesh Ewald (PME) method, and dividing it by the number of solvent molecules. This normalized energy is a useful diagnostic for checking the equilibration of the solvent and for comparing the cohesive properties of different water models. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001813 "normalized PME solvent energy"@en)
 SubClassOf(obo:MOLSIM_001813 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001813 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001813 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001814 (PME solvent energy density)
 
@@ -14023,6 +14160,8 @@ SubClassOf(obo:MOLSIM_001814 obo:MOLSIM_001294)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001815 "This is a measure of the average interaction energy between a single water molecule and all of its neighbors in a simulation. It is calculated by taking the total interaction energy of all water molecules with each other and dividing by the number of water molecules. This value quantifies the cohesiveness of the simulated water and is a key property used to validate a water model by comparing it to the experimental heat of vaporization. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001815 "normalized water-water interaction energy"@en)
 SubClassOf(obo:MOLSIM_001815 obo:MOLSIM_001803)
+SubClassOf(obo:MOLSIM_001815 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001815 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001816 (dipole moment density)
 
@@ -14041,18 +14180,24 @@ SubClassOf(obo:MOLSIM_001817 obo:MOLSIM_001333)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001818 "A normalized neighbor count is a measure that describes the local density of molecules, like water, around a central point, adjusted for the expected density at that distance. It is calculated by counting the number of neighboring molecules within a certain radius and then dividing by the number that would be expected in a uniform, bulk liquid. This quantity is directly related to the radial distribution function (RDF) and is used to quantify the degree of solvent structuring around a solute. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001818 "normalized neighbor count"@en)
 SubClassOf(obo:MOLSIM_001818 obo:MOLSIM_001348)
+SubClassOf(obo:MOLSIM_001818 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001818 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001819 (tetrahedral order parameter)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001819 "The tetrahedral order parameter is a measure of how well the water molecules surrounding a central water molecule are arranged in a perfect pyramid-like shape. It is a quantitative measure that describes the local structure of a liquid by calculating how closely the arrangement of a central molecule and its four nearest neighbors resembles a perfect tetrahedron. In simulations of water, this parameter is used to characterize the degree of local structure and hydrogen bonding, with a higher value indicating a more ordered, ice-like arrangement. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001819 "tetrahedral order parameter"@en)
 SubClassOf(obo:MOLSIM_001819 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001819 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001819 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001820 (normalized tetrahedral order parameter)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001820 "This is a standardized score from -1/3 to 1 that shows how perfectly pyramid-shaped the arrangement of water molecules is. It is a version of the tetrahedral order parameter that has been scaled so that a value of 1 corresponds to a perfect tetrahedral arrangement and a value of 0 corresponds to a completely random, ideal gas-like arrangement. This normalization makes the parameter easier to interpret and allows for a more direct comparison of the degree of local ordering in different simulations or under different conditions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001820 "normalized tetrahedral order parameter"@en)
 SubClassOf(obo:MOLSIM_001820 obo:MOLSIM_001819)
+SubClassOf(obo:MOLSIM_001820 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001820 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001821 (chemical shift restraint simulation)
 
@@ -14236,6 +14381,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001847 "The Larmor frequency is t
 AnnotationAssertion(rdfs:label obo:MOLSIM_001847 "Larmor frequency"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001847 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001847 obo:MOLSIM_001800)
+SubClassOf(obo:MOLSIM_001847 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000105))
+SubClassOf(obo:MOLSIM_001847 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001848 (QM/MM switching function)
 
@@ -14345,12 +14492,16 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001864 "residence times"
 AnnotationAssertion(rdfs:label obo:MOLSIM_001864 "residence time"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001864 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001864 obo:MOLSIM_001391)
+SubClassOf(obo:MOLSIM_001864 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_001864 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001865 (pLDDT)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001865 "The pLDDT score indicates how confident a computer program, like AlphaFold, is about its prediction for the position of each part of a protein's structure. The predicted Local Distance Difference Test (pLDDT) score ranges from 0 to 100, where a higher score means the program is more confident that the local atomic environment of an amino acid is predicted correctly. This per-residue confidence metric allows researchers to quickly identify which regions of a model are likely to be reliable and which are disordered or poorly predicted. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001865 "pLDDT"@en)
 SubClassOf(obo:MOLSIM_001865 obo:MOLSIM_001403)
+SubClassOf(obo:MOLSIM_001865 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001865 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001866 (backbone DH fluctuation)
 
@@ -14387,6 +14538,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001870 "Lipid density is a measur
 AnnotationAssertion(rdfs:label obo:MOLSIM_001870 "lipid density"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001870 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001870 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001870 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
+SubClassOf(obo:MOLSIM_001870 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001871 (lipid distribution analysis)
 
@@ -14402,6 +14555,8 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001872 "lipid order para
 AnnotationAssertion(rdfs:label obo:MOLSIM_001872 "lipid order parameter"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001872 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001872 obo:MOLSIM_001398)
+SubClassOf(obo:MOLSIM_001872 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+SubClassOf(obo:MOLSIM_001872 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001873 (membrane geometry)
 
@@ -14423,6 +14578,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001875 "The membrane width is the
 AnnotationAssertion(rdfs:label obo:MOLSIM_001875 "membrane width"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001875 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001875 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001875 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001875 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001876 (pore dimension)
 
@@ -14430,6 +14587,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001876 "The pore dimension refers
 AnnotationAssertion(rdfs:label obo:MOLSIM_001876 "pore dimension"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001876 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_001876 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001876 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001876 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001877 (DNA-bendability)
 
@@ -14892,12 +15051,16 @@ SubClassOf(obo:MOLSIM_001943 obo:MOLSIM_001845)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001944 "Pressure is a thermodynamic property that represents the force per unit area exerted by the particles on the boundaries of the simulation box. It is a key indicator of the system's physical state and is monitored to ensure the simulation has reached the correct density under constant pressure conditions. For experts, this value is calculated from the kinetic energy and the virial of internal forces and is maintained by a barostat algorithm in the NPT ensemble. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001944 "pressure"@en)
 SubClassOf(obo:MOLSIM_001944 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_001944 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000109))
+SubClassOf(obo:MOLSIM_001944 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001946 (volume)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001946 "Volume is a thermodynamic property that represents the three-dimensional size of the periodic simulation box containing the molecular system. In simulations run at constant pressure, this value fluctuates as the barostat adjusts the box dimensions to maintain the target pressure. For experts, the average volume is a primary output used to determine the equilibrium density of the system, a key property for validating the simulation model. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001946 "volume"@en)
 SubClassOf(obo:MOLSIM_001946 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_001946 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000095))
+SubClassOf(obo:MOLSIM_001946 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001947 (ethernet)
 
@@ -15160,6 +15323,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001987 "A measurement of the clos
 AnnotationAssertion(rdfs:label obo:MOLSIM_001987 "minimum distance"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001987 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_001987 obo:MOLSIM_001333)
+SubClassOf(obo:MOLSIM_001987 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_001987 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001988 (helmholtz free energy)
 
@@ -15831,10 +15996,12 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002089 "sugar ring flip"
 AnnotationAssertion(rdfs:label obo:MOLSIM_002089 "sugar ring pucker transition"@en)
 SubClassOf(obo:MOLSIM_002089 obo:MOLSIM_001793)
 
-# Class: obo:MOLSIM_002090 (molecular entity)
+# Class: obo:MOLSIM_002090 (molecular structural component)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002090 "A molecular entity is a broad term used to describe any distinct physical or chemical building block within a modeled system. It encompasses a wide hierarchy of structural objects, including individual atoms, ions, monomeric residues, polymer chains, and complete molecules, all of which possess specific physical properties and spatial coordinates. For simulation experts and ontology developers, this serves as the foundational, top-level parent class for all structural components, providing a clean architectural root that can be easily mapped to external standards like the Basic Formal Ontology (BFO) or ChEBI. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002090 "molecular entity"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002090 "A physical constituent of a simulated molecular system that is treated as a distinct unit with its own properties and spatial coordinates. It covers atoms, ions, residues, polymer chains and whole molecules. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_002090 "Top-level parent for the structural components of a simulated system. Kept as a MOLSIM class rather than reusing CHEBI:23367 molecular entity, because this branch spans 2 ChEBI branches that do not meet: atom and molecule are molecular entities in ChEBI, while residue and chain sit under CHEBI:24433 group, a sibling of molecular entity. Grouping all 4 suits the description of a coordinate file, where they are 4 levels of one containment hierarchy. Renamed from 'molecular entity' on 2026-08-21 so that the primary label is unique across the ontologies MOLSIM is released alongside; the former name is kept as an exact synonym."@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002090 "molecular entity"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002090 "molecular structural component"@en)
 
 # Class: obo:MOLSIM_002091 (residue)
 
@@ -15854,10 +16021,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002093 "A chain is a continuous, 
 AnnotationAssertion(rdfs:label obo:MOLSIM_002093 "chain"@en)
 SubClassOf(obo:MOLSIM_002093 obo:MOLSIM_002090)
 
-# Class: obo:MOLSIM_002094 (molecule)
+# Class: obo:MOLSIM_002094 (molecular unit)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002094 "A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002094 "molecule"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002094 "A chemical unit composed of two or more atoms bonded together, or a single monoatomic ion counted as one. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002094 "molecule"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002094 "molecular unit"@en)
 SubClassOf(obo:MOLSIM_002094 obo:MOLSIM_002090)
 
 # Class: obo:MOLSIM_002095 (pocket detection tool)
@@ -15971,12 +16139,16 @@ SubClassOf(obo:MOLSIM_002111 obo:MOLSIM_002108)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002112 "A simulation state that represents the elapsed model time reached by the system at a given point in a molecular dynamics run. It records how far the simulation has advanced along the physical time coordinate. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002112 "simulation state time"@en)
 SubClassOf(obo:MOLSIM_002112 obo:MOLSIM_001083)
+SubClassOf(obo:MOLSIM_002112 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002112 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002113 (final density)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002113 "A thermodynamic property that represents the mass density of the simulated system at the end of a run or equilibration stage. It is commonly compared against experimental density to assess whether the system has equilibrated correctly. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002113 "final density"@en)
 SubClassOf(obo:MOLSIM_002113 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_002113 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
+SubClassOf(obo:MOLSIM_002113 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002114 (computational performance metric)
 
@@ -15989,36 +16161,48 @@ SubClassOf(obo:MOLSIM_002114 obo:MOLSIM_001292)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002115 "A computational performance metric that measures the total real-world elapsed time taken to complete a run from start to finish. It reflects the actual time a user waits, including all computation and input or output. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002115 "total wallclock time"@en)
 SubClassOf(obo:MOLSIM_002115 obo:MOLSIM_002114)
+SubClassOf(obo:MOLSIM_002115 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002115 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002116 (total cpu time)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002116 "A computational performance metric that measures the cumulative processor time consumed by a run, summed across all active compute cores. It reflects total computational effort rather than elapsed real time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002116 "total cpu time"@en)
 SubClassOf(obo:MOLSIM_002116 obo:MOLSIM_002114)
+SubClassOf(obo:MOLSIM_002116 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002116 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002117 (setup wallclock time)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002117 "A computational performance metric that measures the real-world elapsed time spent preparing a run before the production phase begins, such as reading inputs and building data structures. It isolates initialization overhead from the main computation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002117 "setup wallclock time"@en)
 SubClassOf(obo:MOLSIM_002117 obo:MOLSIM_002114)
+SubClassOf(obo:MOLSIM_002117 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002117 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002118 (production wallclock time)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002118 "A computational performance metric that measures the real-world elapsed time spent in the production phase of a run, during which the trajectory of interest is generated. It excludes setup and finalization overhead. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002118 "production wallclock time"@en)
 SubClassOf(obo:MOLSIM_002118 obo:MOLSIM_002114)
+SubClassOf(obo:MOLSIM_002118 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002118 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002119 (average integration step time)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002119 "A computational performance metric that represents the mean real-world time required to advance the simulation by one integration step. It is a convenient measure of per-step computational efficiency. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002119 "average integration step time"@en)
 SubClassOf(obo:MOLSIM_002119 obo:MOLSIM_002114)
+SubClassOf(obo:MOLSIM_002119 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002119 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002120 (simulation throughput)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002120 "A computational performance metric that expresses how much simulated model time is produced per unit of real-world computing time, commonly reported as nanoseconds per day. It is a standard measure for comparing the practical speed of simulations. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002120 "simulation throughput"@en)
 SubClassOf(obo:MOLSIM_002120 obo:MOLSIM_002114)
+SubClassOf(obo:MOLSIM_002120 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000280))
+SubClassOf(obo:MOLSIM_002120 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_010011 (Kabsch RMSD algorithm)
 
@@ -16035,7 +16219,7 @@ SubClassOf(obo:MOLSIM_010012 obo:MOLSIM_001745)
 # Class: obo:MOLSIM_010013 (gaussian mixture model algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010013 "The Gaussian mixture model (GMM) algorithm is a probabilistic statistical method that represents a complex data distribution as a weighted sum of multiple simple Gaussian components. It assumes that the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters, which are optimized to fit the data. In biomolecular simulation, this algorithm is frequently used for clustering conformational states or analyzing free energy landscapes by decomposing complex probability densities into distinct populations. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_010013 "gaussian mixture model algorithm"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_010013 "Gaussian mixture model algorithm"@en)
 SubClassOf(obo:MOLSIM_010013 obo:MOLSIM_001751)
 
 # Class: obo:MOLSIM_010014 (parametric distribution fitting algorithm)
@@ -16655,6 +16839,8 @@ Declaration(Class(obo:MOLSIM_002164))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002164 "A simulation state time that represents the average amount of simulated time elapsed between consecutive saved frames of a trajectory. It reflects how finely the trajectory samples the simulated time coordinate. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002164 "trajectory frame interval"@en)
 SubClassOf(obo:MOLSIM_002164 obo:MOLSIM_002112)
+SubClassOf(obo:MOLSIM_002164 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002164 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002165 (inter-stage time gap)
 
@@ -16662,6 +16848,8 @@ Declaration(Class(obo:MOLSIM_002165))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002165 "A simulation state time that represents the difference between the end time of one simulation stage and the start time of the next. A nonzero gap indicates a break in the continuous simulated-time coordinate across stages. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002165 "inter-stage time gap"@en)
 SubClassOf(obo:MOLSIM_002165 obo:MOLSIM_002112)
+SubClassOf(obo:MOLSIM_002165 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000003))
+SubClassOf(obo:MOLSIM_002165 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002166 (hydrogen detection strategy)
 
@@ -16880,6 +17068,8 @@ Declaration(Class(obo:MOLSIM_002192))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002192 "A thermodynamic property that represents the mass density of the simulated system at the start of a run, computed from the topology mass and the initial periodic box volume. It provides a baseline for comparison against the equilibrated density reached during a constant-pressure run. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002192 "initial density"@en)
 SubClassOf(obo:MOLSIM_002192 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_002192 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
+SubClassOf(obo:MOLSIM_002192 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Data Property: obo:MOLSIM_002193 (is charge neutral)
 
@@ -17504,6 +17694,13 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002252 "obsolete selection criteria"@e
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002252 "OBSOLETE. An information content entity that records the conditions and factors used when choosing which items to include in a study, such as which ligands to simulate. It states what was considered rather than what was chosen."@en)
 AnnotationAssertion(owl:deprecated obo:MOLSIM_002252 "true"^^xsd:boolean)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_002252 "Retired 2026-08-13, the day after it was minted. It was created to group three children of the retired MOLSIM:000310 plan specification, but only one of the three belonged: MOLSIM:002163 atom selection mask and MOLSIM:002233 atom index group went to MOLSIM:002251 atom selection specification instead, and MOLSIM:001035 validated ligand selection criteria turned out to be an object property that never belonged in a class tree. That left one child, MOLSIM:000143 ligand pairs selection criteria, which is itself the group its twelve criteria belong to. A search of the whole ontology found no other term that could join: every other label mentioning selection or criteria is a convergence threshold, an algorithm or an analysis, all correctly placed elsewhere. MOLSIM:000143 was re-parented to IAO:0000030 information content entity, where it sat before. Never present in a release file.")
+
+# Class: obo:MOLSIM_002255 (molecular state)
+
+Declaration(Class(obo:MOLSIM_002255))
+AnnotationAssertion(rdfs:label obo:MOLSIM_002255 "molecular state"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002255 "A state that a molecule or molecular system occupies, characterised by its shape, its surroundings, its position on the energy surface, or its electronic configuration. It describes a condition the system is in, rather than a relationship to another molecule or a choice made when the system was built. (UNVERIFIED)"@en)
+SubClassOf(obo:MOLSIM_002255 obo:MOLSIM_000006)
 
 # Class: obo:GO_0000786 (nucleosome) — reused from GO, parented under a MOLSIM class
 
