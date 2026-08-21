@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-08-14/molsim-base.owl
+data-version: molsim/releases/2026-08-21/molsim-base.owl
 default-namespace: molsim
 idspace: dc http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -26,7 +26,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by/4.0/
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-08-14" xsd:string
+property_value: owl:versionInfo "2026-08-21" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -171,7 +171,7 @@ property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
 id: MOLSIM:000021
-name: amber ff14SB
+name: AMBER ff14SB
 def: "A specific protein force field parameter set from the AMBER family (ff), released around 2014, with optimizations primarily for side-chain (S) and backbone (B) torsion angles compared to earlier versions like ff99SB. It was widely adopted for its improved accuracy in representing protein secondary structure and dynamics. It is an all-atom force field." []
 is_a: MOLSIM:000009 ! protein force field
 disjoint_from: MOLSIM:000132 ! CHARMM36
@@ -205,7 +205,6 @@ id: MOLSIM:000025
 name: mol3 format
 def: "A text-based molecular structure format, similar to the mol2 format, but designed to include additional records for atomic connectivity. It is used to represent chemical structures with an expanded description of their bonding topology. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
-is_a: MOLSIM:001090 ! molecular trajectory format
 disjoint_from: MOLSIM:000097 ! NetCDF trajectory format
 disjoint_from: MOLSIM:000319 ! standard xyz format
 
@@ -567,20 +566,23 @@ is_a: MOLSIM:000074 ! similarity calculation algorithm
 [Term]
 id: MOLSIM:000078
 name: Euclidean distance
-def: "A common method for calculating the distance between two points (e.g., representing molecules in a multi-dimensional property space or conformations by atom coordinates) based on the straight-line distance in that space. It is calculated as the square root of the sum of squared differences between corresponding coordinates or features. Lower Euclidean distance implies higher similarity in the context of the chosen space. (UNVERIFIED)" []
+def: "A type of statistical property representing the straight-line distance between two points in a multi-dimensional space, which may represent molecules in a property space or conformations by atom coordinates. It is calculated as the square root of the sum of squared differences between corresponding coordinates or features. Lower Euclidean distance implies higher similarity in the context of the chosen space. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:000079
 name: Manhattan distance
 def: "A type of statistical property representing the distance between two points in a multi-dimensional space, calculated as the sum of the absolute differences of their coordinates. The Manhattan distance is an alternative to the Euclidean distance for measuring similarity in clustering and data analysis. This is also known as the city block distance. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:000080
 name: distance
 def: "A type of `structural property` that represents the separation between two specified atoms or centers of mass. It is a fundamental geometric measure used to monitor interactions like hydrogen bonds, salt bridges, or the separation between molecular components. Analysis outputs frequently report `distance` values over time. This value is commonly referred to as `dist` in analysis scripts. (UNVERIFIED)" []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 
 [Term]
 id: MOLSIM:000081
@@ -720,14 +722,14 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 id: MOLSIM:000101
 name: transition state
 def: "In chemical kinetics and simulation, the transition state refers to a specific, high-energy, transient molecular configuration along the reaction coordinate connecting two stable states (e.g., reactant and product, or bound and unbound states). It is connected to the energy barrier that must be overcome for the transition to occur. While challenging to simulate directly due to its short lifetime, characterizing the transition state is crucial for understanding reaction mechanisms and rates, often studied using specialized simulation techniques or QM methods." []
-is_a: MOLSIM:000098 ! ligand state
+is_a: MOLSIM:002255 ! molecular state
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:000102
 name: metastable state
 def: "A state of a system that is locally stable (residing in a minimum on the potential energy surface) but has a higher free energy than the globally stable state. The system can persist in a metastable state for a significant time if the energy barrier to reach a more stable state is high. Examples in biomolecular systems include misfolded protein conformations, transiently bound ligand poses, or specific intermediate states along a functional cycle." []
-is_a: MOLSIM:000098 ! ligand state
+is_a: MOLSIM:002255 ! molecular state
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -741,33 +743,33 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 id: MOLSIM:000104
 name: solvated state
 def: "A general state referring to a molecule (either ligand or receptor, or the complex) being surrounded by solvent molecules (typically a water buffer in biological contexts). This term emphasizes the presence and influence of the solvent on the molecule's structure, dynamics, and energetics. Both the bound and unbound states are typically solvated states, and solvation effects are crucial components of binding free energies and conformational preferences." []
-is_a: MOLSIM:000098 ! ligand state
+is_a: MOLSIM:002255 ! molecular state
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:000105
 name: conformational state
 def: "A specific three-dimensional arrangement or shape adopted by a flexible molecule, such as a protein or ligand. Molecules can typically exist in multiple conformational states, corresponding to different local minima on their potential energy surface, separated by energy barriers. Simulations are often used to explore the accessible conformational states, their relative populations, and the transitions between them, which are essential for molecular function and binding." []
-is_a: MOLSIM:000098 ! ligand state
+is_a: MOLSIM:002255 ! molecular state
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:000106
 name: protonation state
 def: "The specific state of a molecule defined by which of its ionizable functional groups are protonated (e.g., -COOH vs -COO-, -NH3+ vs -NH2) or deprotonated. The protonation state depends on the pKa values of the groups and the pH of the environment. Determining the correct protonation state(s) for amino acid residues and ligands is a critical step in preparing systems for simulation, as it dictates charge distribution and electrostatic interactions. (UNVERIFIED)" []
-is_a: MOLSIM:000098 ! ligand state
+is_a: MOLSIM:001210 ! system setup parameter
 
 [Term]
 id: MOLSIM:000107
 name: tautomeric state
 def: "One of two or more structural isomers of a molecule that readily interconvert through a process called tautomerization, most commonly involving the migration of a proton accompanied by a switch of a single and adjacent double bond. For example, keto-enol tautomerism is common in organic chemistry. Identifying the relevant tautomeric state(s) for a ligand or residue under simulation conditions is important for accurate modeling, particularly for heterocyclic compounds often found in drugs and cofactors. (UNVERIFIED)" []
-is_a: MOLSIM:000098 ! ligand state
+is_a: MOLSIM:001210 ! system setup parameter
 
 [Term]
 id: MOLSIM:000108
 name: excited state
 def: "An electronic state of a molecule where one or more electrons have been promoted to higher energy levels than in the ground electronic state, typically following the absorption of light (photoexcitation). Excited states have different electron distributions, geometries, and reactivity compared to the ground state and are central to photochemistry and spectroscopy (like fluorescence). Simulating excited states requires quantum mechanical methods (like TD-DFT or CASSCF) as classical force fields are typically parameterized only for the ground electronic state. (UNVERIFIED)" []
-is_a: MOLSIM:000098 ! ligand state
+is_a: MOLSIM:002255 ! molecular state
 
 [Term]
 id: MOLSIM:000109
@@ -844,6 +846,7 @@ id: MOLSIM:000119
 name: Kullback-Leibler divergence
 def: "Kullback-Leibler (KL) divergence, also known as relative entropy, measures how one probability distribution (P) differs from a second, reference probability distribution (Q). It quantifies the information lost when distribution Q is used to approximate distribution P. KL divergence is non-negative, zero only if P and Q are identical, but it is not symmetric (KL(P||Q) != KL(Q||P)) and can be infinite. It quantifies the information lost when the second distribution is used to approximate the first. The Kullback-Leibler divergence is a fundamental concept in information theory used to compare distributions. This is often abbreviated as KL divergence. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:000120
@@ -2117,7 +2120,6 @@ id: MOLSIM:000308
 name: simulation method
 def: "A simulation method is a computational technique that mimics how a system changes over time. As a type of computational method, it involves numerically integrating equations of motion to generate a trajectory that describes the system's dynamic evolution, such as in molecular dynamics or enhanced sampling. The choice of simulation method dictates the physical laws and algorithms used to propagate the system's state, as controlled by parameters in the main simulation input file. This is referred to in log files and inputs with keywords like \"integrator,\" \"dynamics,\" \"nsteps,\" and \"dt.\" (UNVERIFIED)" []
 is_a: MOLSIM:000140 ! computational method
-is_a: MOLSIM:000841 ! empirical method
 
 [Term]
 id: MOLSIM:000309
@@ -3032,7 +3034,6 @@ id: MOLSIM:000446
 name: PDB format
 def: "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
-is_a: MOLSIM:001090 ! molecular trajectory format
 
 [Term]
 id: MOLSIM:000447
@@ -4523,7 +4524,7 @@ is_a: MOLSIM:000639 ! polarizable force field
 
 [Term]
 id: MOLSIM:000682
-name: amber ff19SB
+name: AMBER ff19SB
 def: "Amber ff19SB is a modern and widely used set of rules, or a force field, for accurately simulating the structure and movement of proteins. The AMBER ff19SB protein force field is a recent refinement of the ff14SB lineage, incorporating updated quantum mechanical calculations for backbone dihedral angle parameters to improve the description of protein secondary structure balance. It is considered a state-of-the-art choice for all-atom protein simulations, offering high fidelity for studying protein folding, dynamics, and interactions." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
@@ -4819,83 +4820,83 @@ property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:000738
-name: amber glycam 06
+name: AMBER GLYCAM 06
 def: "A specific parameter set within the AMBER family, developed by the GLYCAM group for simulating carbohydrates (glycans). Released around 2006, it provides parameters for common monosaccharides and the glycosidic linkages between them, enabling the study of oligosaccharides and the carbohydrate portions of glycoproteins/glycolipids. It is designed to be compatible with AMBER protein/lipid force fields. (UNVERIFIED)" []
 is_a: MOLSIM:000012 ! carbohydrates force field
-disjoint_from: MOLSIM:000739 ! amber glycam 06 EP
+disjoint_from: MOLSIM:000739 ! AMBER GLYCAM 06 EP
 
 [Term]
 id: MOLSIM:000739
-name: amber glycam 06 EP
+name: AMBER GLYCAM 06 EP
 def: "A specific version of the GLYCAM06 carbohydrate force field, where 'EP' refers to modifications involving Extra Points. These extra points, typically placed near oxygen atoms to represent lone pair electron density, are added to improve the description of electrostatic interactions, particularly the directionality and geometry of hydrogen bonding in carbohydrates. This aims for higher accuracy at an increased computational cost. (UNVERIFIED)" []
 is_a: MOLSIM:000012 ! carbohydrates force field
 
 [Term]
 id: MOLSIM:000740
-name: amber AMOEBA
+name: AMBER AMOEBA
 def: "Ion parameters specifically designed for use with the AMOEBA (Atomic Multipole Optimized Energetics for Biomolecular Applications) polarizable force field within the AMBER simulation suite. Unlike fixed-charge models, AMOEBA uses atomic multipoles (charges, dipoles, quadrupoles) and induced dipoles to describe electrostatics more accurately. The corresponding ion parameters are developed to be consistent with this advanced electrostatic treatment, aiming for higher fidelity, especially for ion-water and ion-biomolecule interactions. (UNVERIFIED)" []
 is_a: MOLSIM:000015 ! ion force field
 disjoint_from: MOLSIM:001472 ! bonded metal model
 
 [Term]
 id: MOLSIM:000741
-name: amber ff02
+name: AMBER ff02
 def: "A specific protein force field parameter set from the AMBER family, representing one of the earlier polarizable force fields. Unlike fixed-charge force fields (like ff99SB), ff02 includes electronic polarizability explicitly, aiming for a more accurate description of electrostatics but at a higher computational cost. Its adoption was less widespread than fixed-charge counterparts." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
 id: MOLSIM:000742
-name: amber ff10
+name: AMBER ff10
 def: "A specific protein force field parameter set from the AMBER family, incorporating updates (e.g., to backbone torsions) over ff99SB, developed around 2010. It served as an evolutionary step in the AMBER force field lineage. However, it was largely superseded by subsequent versions like ff12SB and ff14SB. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000743
-name: amber ff12SB
+name: AMBER ff12SB
 def: "A specific protein force field parameter set from the AMBER family, representing an update released around 2012. Compared to ff99SB, ff12SB refined quantum-chemical (QM) based side-chain dihedral parameters and updated the backbone φ rotational profile to compensate for biases seen in earlier version. It served as an intermediate improvement before the release of ff14SB." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:000744
-name: amber ff94
+name: AMBER ff94
 def: "An early, widely influential all-atom protein force field parameter set from the AMBER family, released around 1994. It provided a complete set of parameters for proteins and became a benchmark for subsequent developments. While largely superseded by newer versions (ff96, ff99, ff99SB, ff14SB etc.), its development laid crucial groundwork. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000745
-name: amber ff96
+name: AMBER ff96
 def: "A subsequent refinement of the AMBER ff94 protein force field parameter set, released around 1996. It included adjustments based on accumulated experience and new data, aiming to improve performance compared to ff94. Like ff94, it has been largely replaced by later versions but represents a step in the evolution. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000746
-name: amber ff99
+name: AMBER ff99
 def: "An important revision of the AMBER protein force field parameter set released around 1999, incorporating significant updates, especially to backbone torsion parameters, compared to ff94/ff96. It aimed to better reproduce secondary structure propensities. Several variants of ff99 exist, addressing specific issues or refining parameters further. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000747
-name: amber ff99 phi
+name: AMBER ff99 phi
 def: "A specific modification of the AMBER ff99 protein force field. This variant likely involved adjustments targeted at the phi (ϕ) backbone dihedral angle parameters, aiming to correct specific structural biases observed with the original ff99. Such targeted modifications are common in force field development. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000748
-name: amber ff99bsc0
+name: AMBER ff99bsc0
 def: "A specific modification of the AMBER ff99 protein force field, where 'bsc0' refers to refinements of the chi (χ) dihedral angle parameters for nucleic acids (specifically DNA), developed by the Barcelona group (bsc = Barcelona Supercomputing Center, 0 likely version). This highlights that ff99 base parameters were sometimes combined with specialized parameters for other molecule types. Although listed under protein, bsc0 is primarily for DNA backbone. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000749
-name: amber ff99SB
+name: AMBER ff99SB
 def: "A highly popular and widely used refinement of the AMBER ff99 protein force field, where 'SB' indicates improvements primarily focused on side-chain (S) and backbone (B) dihedral torsion potentials. It corrected some imbalances in secondary structure preference found in ff99. ff99SB served as a robust baseline before the development of ff14SB. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000750
-name: amber ff99SB ILDN
+name: AMBER ff99SB ILDN
 def: "A specific refinement of the AMBER ff99SB protein force field, where 'ILDN' refers to targeted improvements for the side-chain torsion potentials of four specific amino acids: Isoleucine (I), Leucine (L), Aspartate (D), and Asparagine (N). This modification aimed to improve the description of intrinsically disordered proteins and protein dynamics. It is often used in conjunction with ff99SB. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
@@ -5908,7 +5909,6 @@ id: MOLSIM:000906
 name: Mol2 format
 def: "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
-is_a: MOLSIM:001090 ! molecular trajectory format
 disjoint_from: MOLSIM:000907 ! SDF format
 
 [Term]
@@ -6037,10 +6037,10 @@ is_a: MOLSIM:000917 ! structural analysis
 
 [Term]
 id: MOLSIM:000936
-name: amber OL24
+name: AMBER OL24
 def: "A refined set of force field parameters specifically developed to improve the accuracy of DNA simulations using the AMBER force field. It provides an updated description of the sugar-pucker torsional potential, which is critical for correctly capturing the conformational equilibrium between A-form and B-form DNA. These parameters are intended as an update to be used in conjunction with a parent protein-DNA force field like ff14SB. (UNVERIFIED)" []
 is_a: MOLSIM:000010 ! DNA force field
-disjoint_from: MOLSIM:001444 ! amber OL15
+disjoint_from: MOLSIM:001444 ! AMBER OL15
 
 [Term]
 id: MOLSIM:000937
@@ -7027,6 +7027,7 @@ id: MOLSIM:001166
 name: simulation time step
 def: "A type of integration parameter that specifies the discrete interval of time between successive steps in a molecular dynamics simulation. The choice of simulation time step is a critical balance between computational efficiency and numerical stability, as it must be short enough to capture the fastest atomic motions. This is commonly specified in input files with the keyword dt. (UNVERIFIED)" []
 is_a: MOLSIM:001165 ! integration parameter
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:001167
@@ -7052,6 +7053,7 @@ id: MOLSIM:001170
 name: minimization drms criterion
 def: "A specific minimization convergence criteria based on the root-mean-square of the gradient, which represents the forces on the atoms. The minimization will stop when the RMS of the forces falls below this specified threshold. This is a common way to define convergence and is often set with the keyword drms. (UNVERIFIED)" []
 is_a: MOLSIM:001169 ! minimization convergence criteria
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 434, entry drms." xsd:string
 
 [Term]
 id: MOLSIM:001171
@@ -7082,6 +7084,8 @@ id: MOLSIM:001175
 name: target temperature
 def: "A temperature control parameter that specifies the desired temperature for the simulation. The thermostat algorithm will adjust the kinetic energy of the atoms to keep the average temperature fluctuating around this target temperature. This is a fundamental parameter for any simulation and is often set with the keyword temp0. (UNVERIFIED)" []
 is_a: MOLSIM:001173 ! temperature control parameter
+relationship: IAO:0000039 UO:0000005 {all_only="true"}
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 436, entry temp0." xsd:string
 
 [Term]
 id: MOLSIM:001176
@@ -7094,12 +7098,14 @@ id: MOLSIM:001177
 name: thermostat coupling constant
 def: "A specific thermostat coupling parameter, often used in thermostats like Berendsen or Nosé-Hoover, that defines the time constant for temperature relaxation. A smaller value results in tighter, more aggressive temperature coupling. The thermostat coupling constant is a key parameter for tuning the thermostat's behavior. This is often set with the keyword tautp. (UNVERIFIED)" []
 is_a: MOLSIM:001176 ! thermostat coupling parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 436, entry tautp." xsd:string
 
 [Term]
 id: MOLSIM:001178
 name: thermostat collision frequency
 def: "A specific thermostat coupling parameter used in stochastic thermostats like the Langevin integrator. It represents the effective frequency with which the simulated particles collide with fictitious solvent particles, controlling the rate of heat exchange. The thermostat collision frequency also influences the system's dynamics by introducing a frictional component. This is often set with the keyword gamma_ln. (UNVERIFIED)" []
 is_a: MOLSIM:001176 ! thermostat coupling parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 216, entry gamma_ln." xsd:string
 
 [Term]
 id: MOLSIM:001179
@@ -7118,18 +7124,21 @@ id: MOLSIM:001181
 name: target pressure
 def: "A pressure control parameter that specifies the desired pressure for the simulation. The barostat algorithm will adjust the volume of the simulation box to keep the average pressure fluctuating around this target pressure. This is a fundamental parameter for any constant pressure simulation and is often set with the keyword pres0. (UNVERIFIED)" []
 is_a: MOLSIM:001179 ! pressure control parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 438, entry pres0." xsd:string
 
 [Term]
 id: MOLSIM:001182
 name: barostat coupling constant
 def: "A pressure control parameter that defines the time constant for pressure relaxation in algorithms like the Berendsen barostat. A smaller value results in tighter, more aggressive pressure coupling. The barostat coupling constant is a key parameter for tuning the barostat's behavior during equilibration. This is often set with the keyword taup. (UNVERIFIED)" []
 is_a: MOLSIM:001179 ! pressure control parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 438, entry taup." xsd:string
 
 [Term]
 id: MOLSIM:001183
 name: compressibility
 def: "A pressure control parameter that specifies the compressibility of the solvent used in the simulation. This value is required by some barostat algorithms to correctly calculate the pressure and adjust the box volume. The compressibility is a physical property of the simulated medium. This is often set with the keyword comp. (UNVERIFIED)" []
 is_a: MOLSIM:001179 ! pressure control parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 438, entry comp." xsd:string
 
 [Term]
 id: MOLSIM:001184
@@ -7169,6 +7178,7 @@ id: MOLSIM:001189
 name: pairlist update frequency
 def: "A non-bonded interaction parameter that specifies how often the list of neighboring atoms (the pairlist) is updated during the simulation. A more frequent update is more accurate but computationally more expensive. The pairlist update frequency is a key parameter for tuning simulation performance. This is often set with the keyword nsnb. (UNVERIFIED)" []
 is_a: MOLSIM:001185 ! non-bonded interaction parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 456, entry nsnb." xsd:string
 
 [Term]
 id: MOLSIM:001190
@@ -7193,6 +7203,7 @@ id: MOLSIM:001193
 name: PME grid spacing
 def: "An electrostatic parameter used by the Particle Mesh Ewald (PME) method that specifies the spacing of the grid used for the reciprocal space calculation. A smaller PME grid spacing results in a more accurate calculation but is computationally more expensive. This is a key parameter for tuning the accuracy of the PME method. This is often set with keywords like fft_grids_per_ang or by setting the grid dimensions directly. (UNVERIFIED)" []
 is_a: MOLSIM:001191 ! electrostatic parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 500, entry fft_grids_per_ang." xsd:string
 
 [Term]
 id: MOLSIM:001194
@@ -7211,24 +7222,30 @@ id: MOLSIM:001196
 name: internal dielectric constant
 def: "A specific dielectric constant parameter used in continuum solvent models like Poisson-Boltzmann or Generalized Born. It represents the dielectric constant of the solute molecule itself, which is typically low to reflect its non-polar interior. The internal dielectric constant is a key parameter for MM/PBSA and MM/GBSA calculations. This is often set with the keyword indi or epsin. (UNVERIFIED)" []
 is_a: MOLSIM:001195 ! dielectric constant
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 82, entry epsin." xsd:string
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 952, entry indi." xsd:string
 
 [Term]
 id: MOLSIM:001197
 name: external dielectric constant
 def: "A specific dielectric constant parameter used in continuum solvent models like Poisson-Boltzmann or Generalized Born. It represents the dielectric constant of the bulk solvent, which is typically high for polar solvents like water. The external dielectric constant is a key parameter for MM/PBSA and MM/GBSA calculations. This is often set with the keyword exdi or epsout. (UNVERIFIED)" []
 is_a: MOLSIM:001195 ! dielectric constant
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 82, entry epsout." xsd:string
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 952, entry exdi." xsd:string
 
 [Term]
 id: MOLSIM:001198
 name: direct sum cutoff
 def: "An electrostatic parameter used in Ewald-based methods that specifies the cutoff distance for the real-space (direct sum) part of the calculation. This parameter balances the computational work done in real space versus reciprocal space. The direct sum cutoff is a key parameter for tuning the performance of the PME method. This is often set with the keyword es_cutoff or rcoulomb. (UNVERIFIED)" []
 is_a: MOLSIM:001191 ! electrostatic parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 499, entry es_cutoff." xsd:string
 
 [Term]
 id: MOLSIM:001199
 name: external field parameter
 def: "A type of interaction parameter that specifies the properties of an external electric or magnetic field applied to the simulation system. This is used to study the response of the system to external fields. The external field parameter allows for the simulation of systems under non-standard conditions. This is often set with keywords like efx. (UNVERIFIED)" []
 is_a: MOLSIM:001184 ! interaction parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 457, entry efx." xsd:string
 
 [Term]
 id: MOLSIM:001200
@@ -7281,12 +7298,14 @@ name: restraint energy constant
 def: "A restraint parameter that specifies the force constant for a harmonic or other restraining potential. A larger restraint energy constant results in a stronger force pulling the restrained atoms towards their target values. This is a key parameter for controlling the strength of the applied restraints. This is often set with the keyword restraint_wt." []
 is_a: MOLSIM:001206 ! restraint parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 433, entry restraint_wt." xsd:string
 
 [Term]
 id: MOLSIM:001208
 name: restraint mask
 def: "A restraint parameter that specifies which atoms or groups of atoms in the system are subject to the restraining potential. The restraint mask allows for the application of restraints to specific parts of the molecule, such as the backbone or a particular residue. This is a key parameter for defining the scope of the restraints. This is often set with the keyword restraintmask. (UNVERIFIED)" []
 is_a: MOLSIM:001206 ! restraint parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 433, entry restraintmask." xsd:string
 
 [Term]
 id: MOLSIM:001209
@@ -7294,6 +7313,7 @@ name: water cap force constant
 def: "A specific restraint energy constant used to apply a restraining potential to a spherical cap of water molecules around a solute. This is used in some simulation setups to prevent the solute from becoming exposed to the vacuum. The water cap force constant controls the strength of this spherical boundary potential. This is often set with the keyword fcap." []
 is_a: MOLSIM:001206 ! restraint parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 454, entry fcap." xsd:string
 
 [Term]
 id: MOLSIM:001210
@@ -7313,6 +7333,8 @@ name: ionic strength
 def: "A system setup parameter that specifies the molar concentration of salt in the simulation solvent. The ionic strength affects the screening of electrostatic interactions and is crucial for mimicking experimental buffer conditions. This is a key parameter for accurately modeling the electrostatic environment of the system. This is often set with the keyword ion_concentration or saltcon." []
 is_a: MOLSIM:001210 ! system setup parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 73, entry saltcon." xsd:string
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 984, entry ion_concentration." xsd:string
 
 [Term]
 id: MOLSIM:001213
@@ -7346,12 +7368,14 @@ id: MOLSIM:001217
 name: surface tension
 def: "A system setup parameter used in some constant pressure simulations that specifies the target surface tension of the system. This is relevant for simulations of interfaces, such as lipid bilayers or liquid-vapor interfaces. The surface tension parameter allows the barostat to correctly handle anisotropic systems. This is often set with the keyword gamma_ten. (UNVERIFIED)" []
 is_a: MOLSIM:001210 ! system setup parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 439, entry gamma_ten." xsd:string
 
 [Term]
 id: MOLSIM:001218
 name: number of QM/MM partitions
 def: "A system setup parameter used in adaptive QM/MM simulations that defines the number of different QM/MM regions or partitions that will be used. This parameter controls the complexity of the adaptive QM/MM setup. The number of QM/MM partitions is a key input for setting up these advanced simulations. This is often set with the keyword n_partition. (UNVERIFIED)" []
 is_a: MOLSIM:001210 ! system setup parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 211, entry n_partition." xsd:string
 
 [Term]
 id: MOLSIM:001219
@@ -7380,6 +7404,7 @@ name: steered MD restraint energy constant
 def: "A steered molecular dynamics parameter that specifies the stiffness of the harmonic potential used to pull the system along the reaction coordinate. A larger steered MD restraint energy constant results in a stiffer spring and less deviation from the target path. This is a key parameter for controlling the strength of the steering. This is often set with the keyword harm." []
 is_a: MOLSIM:001220 ! steered molecular dynamics parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 610, entry harm." xsd:string
 
 [Term]
 id: MOLSIM:001223
@@ -7464,6 +7489,8 @@ name: GaMD potential boost stddev limit
 def: "A Gaussian accelerated MD parameter that specifies the upper limit of the standard deviation for the potential energy boost. This parameter controls the maximum strength of the applied bias. This is often set with keywords like sigma0P or sigma0D." []
 is_a: MOLSIM:001233 ! Gaussian accelerated MD parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 526, entry sigma0D." xsd:string
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 526, entry sigma0P." xsd:string
 
 [Term]
 id: MOLSIM:001235
@@ -7478,6 +7505,7 @@ name: RAMD boost strength
 def: "A random acceleration MD parameter that specifies the strength of the acceleration boost applied in a Random Acceleration Molecular Dynamics (RAMD) simulation. This parameter controls the magnitude of the random forces used to accelerate the system's exploration. The RAMD boost strength is a key parameter for tuning the RAMD simulation. This is often set with the keyword ramdboost." []
 is_a: MOLSIM:001235 ! random acceleration MD parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 458, entry ramdboost." xsd:string
 
 [Term]
 id: MOLSIM:001237
@@ -7492,6 +7520,7 @@ name: targeted MD force constant
 def: "A targeted MD parameter that specifies the force constant for the RMSD restraint potential used to guide the simulation towards the target structure. A larger targeted MD force constant results in a stronger biasing force. This is a key parameter for controlling the strength of the targeted MD simulation. This is often set with the keyword tgtmdfrc." []
 is_a: MOLSIM:001237 ! targeted MD parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 532, entry tgtmdfrc." xsd:string
 
 [Term]
 id: MOLSIM:001239
@@ -7499,6 +7528,7 @@ name: targeted MD RMSD target
 def: "A targeted MD parameter that specifies the target root-mean-square deviation (RMSD) value for the restraint. The simulation is guided to reduce the RMSD of the current structure relative to a reference structure to this targeted MD RMSD target value. This is a key parameter for defining the endpoint of the TMD simulation. This is often set with the keyword tgtrmsd." []
 is_a: MOLSIM:001237 ! targeted MD parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 532, entry tgtrmsd." xsd:string
 
 [Term]
 id: MOLSIM:001240
@@ -7513,6 +7543,7 @@ name: NEB spring constant
 def: "A nudged elastic band parameter that specifies the spring force constant connecting adjacent images along the reaction path. This parameter ensures that the images are evenly spaced and do not drift off the path. The NEB spring constant is a key parameter for the stability and convergence of the NEB calculation. This is often set with the keyword nebk." []
 is_a: MOLSIM:001240 ! nudged elastic band parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 550, entry nebk." xsd:string
 
 [Term]
 id: MOLSIM:001242
@@ -7520,6 +7551,7 @@ name: NEB number of images
 def: "A nudged elastic band parameter that specifies the number of intermediate structures (images) to optimize along the reaction path. A larger NEB number of images provides a more detailed representation of the path but is computationally more expensive. This is a key parameter for controlling the resolution of the NEB calculation. This is often set with the keyword neb_nimage." []
 is_a: MOLSIM:001240 ! nudged elastic band parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 550, entry neb_nimage." xsd:string
 
 [Term]
 id: MOLSIM:001243
@@ -7534,6 +7566,7 @@ name: well-tempered pseudo-temperature
 def: "A well-tempered metadynamics parameter that controls the rate at which the height of the added Gaussian hills decreases. A higher well-tempered pseudo-temperature results in a faster convergence but a less detailed exploration of the energy landscape. This is a key parameter for tuning the well-tempered metadynamics simulation. This is often set with the keyword wt_temperature." []
 is_a: MOLSIM:001243 ! well-tempered metadynamics parameter
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 613, entry wt_temperature." xsd:string
 
 [Term]
 id: MOLSIM:001245
@@ -7546,18 +7579,21 @@ id: MOLSIM:001246
 name: QM charge
 def: "A QM/MM parameter that specifies the total integer charge of the quantum mechanical (QM) region. This is a critical parameter for ensuring that the QM calculation is performed with the correct electronic state. The QM charge must be set correctly for the QM/MM simulation to be physically meaningful. This is often set with the keyword qmcharge. (UNVERIFIED)" []
 is_a: MOLSIM:001245 ! QM/MM parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 159, entry qmcharge." xsd:string
 
 [Term]
 id: MOLSIM:001247
 name: QM/MM link atom distance
 def: "A QM/MM parameter that specifies the distance from a QM atom to its corresponding link atom, which is used to saturate the valency at the QM/MM boundary. The QM/MM link atom distance is a key parameter for ensuring a stable and accurate treatment of the QM/MM interface. This is often set with the keyword lnk_dis. (UNVERIFIED)" []
 is_a: MOLSIM:001245 ! QM/MM parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 175, entry lnk_dis." xsd:string
 
 [Term]
 id: MOLSIM:001248
 name: QM/MM non-bonded cutoff
 def: "A QM/MM parameter that specifies the cutoff distance for non-bonded interactions between the QM region and the MM region. This is a key parameter for controlling the computational cost and accuracy of the QM/MM calculation. The QM/MM non-bonded cutoff is often set with the keyword qmcut. (UNVERIFIED)" []
 is_a: MOLSIM:001245 ! QM/MM parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 172, entry qmcut." xsd:string
 
 [Term]
 id: MOLSIM:001249
@@ -7570,12 +7606,14 @@ id: MOLSIM:001250
 name: DFTB max iterations
 def: "A DFTB parameter that specifies the maximum number of self-consistent charge (SCC) iterations for the DFTB calculation. This parameter controls the convergence of the DFTB calculation. The DFTB max iterations is a key parameter for ensuring a converged electronic structure. This is often set with the keyword dftb_maxiter. (UNVERIFIED)" []
 is_a: MOLSIM:001249 ! DFTB parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 159, entry dftb_maxiter." xsd:string
 
 [Term]
 id: MOLSIM:001251
 name: DFTB electronic temperature
 def: "A DFTB parameter that specifies an electronic temperature to accelerate the convergence of the DFTB calculation. This is a numerical trick used to improve the stability of the SCF procedure. The DFTB electronic temperature is a key parameter for difficult-to-converge systems. This is often set with the keyword dftb_telec. (UNVERIFIED)" []
 is_a: MOLSIM:001249 ! DFTB parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 159, entry dftb_telec." xsd:string
 
 [Term]
 id: MOLSIM:001252
@@ -7588,18 +7626,21 @@ id: MOLSIM:001253
 name: max SCF iterations
 def: "An SCF parameter that specifies the maximum number of iterations allowed for the Self-Consistent Field (SCF) procedure to converge. This parameter prevents the calculation from running indefinitely if it fails to converge. The max SCF iterations is a key parameter for controlling the computational cost of the QM calculation. This is often set with the keyword itrmax. (UNVERIFIED)" []
 is_a: MOLSIM:001252 ! SCF parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 161, entry itrmax." xsd:string
 
 [Term]
 id: MOLSIM:001254
 name: SCF convergence criteria
 def: "An SCF parameter that specifies the energy or density threshold for the self-consistent field (SCF) procedure to be considered converged. A smaller SCF convergence criteria results in a more accurate calculation but may require more iterations. This is a key parameter for controlling the accuracy of the QM calculation. This is often set with the keyword scfconv. (UNVERIFIED)" []
 is_a: MOLSIM:001252 ! SCF parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 160, entry scfconv." xsd:string
 
 [Term]
 id: MOLSIM:001255
 name: SCF damping factor
 def: "An SCF parameter that specifies a damping factor used to improve the convergence of the Self-Consistent Field (SCF) procedure. This is a numerical trick used to prevent oscillations in the SCF energy. The SCF damping factor is a key parameter for difficult-to-converge systems. This is often set with the keyword damp. (UNVERIFIED)" []
 is_a: MOLSIM:001252 ! SCF parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 479, entry damp." xsd:string
 
 [Term]
 id: MOLSIM:001256
@@ -7612,6 +7653,7 @@ id: MOLSIM:001257
 name: DIIS attempts
 def: "A DIIS parameter that specifies the number of DIIS extrapolation attempts to be made to aid SCF convergence. This parameter controls how aggressively the DIIS algorithm is applied. The DIIS attempts is a key parameter for tuning the SCF convergence. This is often set with the keyword ndiis_attempts. (UNVERIFIED)" []
 is_a: MOLSIM:001256 ! DIIS parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 162, entry ndiis_attempts." xsd:string
 
 [Term]
 id: MOLSIM:001258
@@ -7652,6 +7694,7 @@ id: MOLSIM:001263
 name: induced dipole convergence criterion
 def: "A polarizable force field parameter that specifies the convergence criterion for the self-consistent field calculation of the induced dipoles. A smaller induced dipole convergence criterion results in a more accurate calculation but may require more iterations. This is a key parameter for controlling the accuracy and performance of a polarizable simulation. This is often set with the keyword dipole_scf_tol. (UNVERIFIED)" []
 is_a: MOLSIM:001262 ! polarizable force field parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 465, entry dipole_scf_tol." xsd:string
 
 [Term]
 id: MOLSIM:001264
@@ -7690,6 +7733,7 @@ id: MOLSIM:001269
 name: grid spacing
 def: "A volumetric analysis parameter that specifies the spacing between points in a 3D grid used for spatial analysis of simulation data. A smaller grid spacing yields a higher resolution grid but increases the computational cost of the grid-based calculation. This is a key parameter for controlling the resolution of the volumetric data. This is often set with the keyword spacing or grdspc. (UNVERIFIED)" []
 is_a: MOLSIM:001268 ! volumetric analysis parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 138, entry grdspc." xsd:string
 
 [Term]
 id: MOLSIM:001270
@@ -7752,12 +7796,14 @@ id: MOLSIM:001279
 name: membrane dielectric constant
 def: "An MM-PBSA/GBSA parameter that specifies the dielectric constant of the implicit membrane region in a continuum solvent calculation. This is a key parameter for accurately modeling the electrostatic environment of a membrane protein. The membrane dielectric constant is typically set to a low value to represent the non-polar lipid core. This is often set with the keyword emem. (UNVERIFIED)" []
 is_a: MOLSIM:001278 ! MM-PBSA/GBSA parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 953, entry emem." xsd:string
 
 [Term]
 id: MOLSIM:001280
 name: probe radius
 def: "An MM-PBSA/GBSA parameter that specifies the radius of the probe molecule (typically water) used to calculate the solvent-accessible surface area. The probe radius is a key parameter for the non-polar part of the solvation free energy calculation. This is often set with the keyword probe or prbrad. (UNVERIFIED)" []
 is_a: MOLSIM:001278 ! MM-PBSA/GBSA parameter
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 952, entry prbrad." xsd:string
 
 [Term]
 id: MOLSIM:001281
@@ -7929,12 +7975,14 @@ id: MOLSIM:001308
 name: QM energy
 def: "A component of the system's energy that is calculated for a specific region of the molecule using the principles of quantum mechanics. This term is only present in QM/MM simulations, where it represents the energy of the quantum mechanical region. The QM energy is the primary energy term for the part of the system where chemical reactions or complex electronic effects are being studied. It is often reported in the output as QM Energy or E_qm. (UNVERIFIED)" []
 is_a: MOLSIM:001294 ! energy
+relationship: IAO:0000039 UO:0000111 {all_only="true"}
 
 [Term]
 id: MOLSIM:001309
 name: SCF energy
 def: "A specific type of QM energy representing the electronic energy of the quantum mechanical region as determined by the Self-Consistent Field (SCF) procedure. This value is the converged energy from a Hartree-Fock or Density Functional Theory calculation. The SCF energy is a primary output in QM/MM log files, and its convergence is a key indicator of a successful quantum calculation. This term is often labeled as E(SCF) or SCF Done. (UNVERIFIED)" []
 is_a: MOLSIM:001308 ! QM energy
+relationship: IAO:0000039 UO:0000111 {all_only="true"}
 
 [Term]
 id: MOLSIM:001310
@@ -8092,6 +8140,7 @@ name: root mean square deviation (RMSD)
 def: "A type of structural property that measures the average distance between the atoms of two superimposed molecular structures. It is the most common metric for quantifying the difference between two conformations, often used to track a simulation's stability relative to a starting structure. Analysis outputs frequently report the RMSD value over time." []
 synonym: "RMSD" EXACT []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
@@ -8100,6 +8149,7 @@ name: root mean square fluctuation (RMSF)
 def: "A type of structural property that measures the fluctuation of each individual atom around its average position over the course of a simulation. It is used to identify flexible or mobile regions within a molecule, such as loops or termini in a protein. Analysis outputs often report the per-residue RMSF or atomicfluct to highlight these regions." []
 synonym: "RMSF" EXACT []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
@@ -8108,6 +8158,7 @@ name: distance RMSD (dRMSD)
 def: "A type of structural property that measures the difference between two structures based on their internal pairwise atomic distances, rather than their Cartesian coordinates. This metric does not require structural alignment and can be more sensitive to changes in internal conformation. It is a useful alternative to standard RMSD for comparing flexible molecules." []
 synonym: "dRMSD" EXACT []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
@@ -8122,18 +8173,21 @@ id: MOLSIM:001338
 name: ion-oxygen distance
 def: "A specific type of distance that measures the average separation between an ion and the oxygen atoms of surrounding water molecules. This value is a key descriptor of an ion's first solvation shell. It is used to validate and parameterize ion force fields by comparing to experimental data. This value is often referred to as IOD or Ion-Oxygen Distance. (UNVERIFIED)" []
 is_a: MOLSIM:000080 ! distance
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 
 [Term]
 id: MOLSIM:001339
 name: angle
 def: "A type of structural property representing the angle formed by three specified atoms. It is a fundamental descriptor of local molecular geometry. Monitoring bond angle values over time is used to characterize the flexibility and conformational changes of a molecule. This value is commonly referred to as angle in analysis scripts. (UNVERIFIED)" []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 
 [Term]
 id: MOLSIM:001340
 name: dihedral angle
 def: "A type of structural property representing the torsion angle defined by four sequentially bonded atoms, which describes the rotation around the central bond. The dihedral angle is the most important descriptor for characterizing the overall conformation of a flexible molecule. Its value is a primary output of many structural analysis tools. This value is commonly referred to as dihedral or torsion." []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
@@ -8141,12 +8195,14 @@ id: MOLSIM:001341
 name: protein backbone torsion angle
 def: "A specific type of dihedral angle that describes the conformation of the protein backbone. The key angles determine the protein's secondary structure. Their values are the basis of the Ramachandran plot, a fundamental tool for structural validation. These angles are universally known as phi, psi, and omega. (UNVERIFIED)" []
 is_a: MOLSIM:001340 ! dihedral angle
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 
 [Term]
 id: MOLSIM:001342
 name: protein side-chain torsion angle
 def: "A specific type of dihedral angle that describes the conformation of an amino acid's side chain. These angles determine the spatial arrangement of the side chain's functional groups. They are critical for understanding molecular interactions and protein packing. These angles are commonly referred to as chi angles, such as chi1 or chi2." []
 is_a: MOLSIM:001340 ! dihedral angle
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8155,6 +8211,7 @@ id: MOLSIM:001343
 name: nucleic acid torsion angle
 def: "A specific nucleic acid backbone dihedral angle is a torsion angle describing rotation about a bond in the sugar-phosphate backbone of DNA or RNA. The six backbone torsion angles (α, β, γ, δ, ε, and ζ), together with the glycosidic torsion angle (χ) and the sugar pucker, define the local conformation, flexibility, and overall geometry of the nucleic acid helix." []
 is_a: MOLSIM:001340 ! dihedral angle
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8164,6 +8221,7 @@ name: radius of gyration
 def: "A type of structural property that measures the overall compactness of a molecule or a group of atoms. It is calculated as the root-mean-square distance of the atoms from their common center of mass. The radius of gyration is used to monitor large-scale conformational changes like protein folding or unfolding." []
 synonym: "Rg" EXACT []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
@@ -8171,6 +8229,7 @@ id: MOLSIM:001345
 name: B-factor
 def: "A structural property that quantifies the positional fluctuation or displacement of an atom, representing its mobility. It is calculated from the mean-square fluctuations of atomic positions in a simulation and is analogous to the crystallographic B-factor or temperature factor. High B-factor values indicate regions of high flexibility. This value is often referred to as bfactor or B-factor." []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000047 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8179,6 +8238,7 @@ id: MOLSIM:001346
 name: TM-score
 def: "A type of structural property used to assess the topological similarity between two protein structures, with a value ranging from 0 to 1. Unlike RMSD, the TM-score is less sensitive to local deviations and gives more weight to the global fold, making it a better metric for comparing distantly related proteins. A score above 0.5 generally indicates the same protein fold. This value is a standard output of protein structure comparison tools. (UNVERIFIED)" []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001347
@@ -8186,6 +8246,7 @@ name: native contact
 def: "A type of structural property that quantifies the number of specific atom-atom contacts that are present in a reference \"native\" structure but may be lost in other conformations. It is often used as a reaction coordinate to monitor the progress of protein folding or unfolding. A decrease in native contacts indicates a loss of the native structure. This value is a common output of folding analysis scripts. (UNVERIFIED)" []
 synonym: "native contacts" EXACT []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000189 {all_only="true"}
 
 [Term]
 id: MOLSIM:001348
@@ -8193,6 +8254,7 @@ name: coordination number
 def: "A type of structural property that represents the average number of neighboring particles within a certain distance of a central particle. For an ion in water, the Coordination Number typically refers to the number of water molecules in its first solvation shell. It is a fundamental descriptor of local solvent structure and is used to validate force fields. This value is often abbreviated as CN." []
 synonym: "CN" EXACT []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000189 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8200,6 +8262,7 @@ id: MOLSIM:001349
 name: molecular surface area
 def: "A type of structural property that measures the surface area of a molecule that is accessible to a solvent. This quantity is crucial for understanding solvation effects. It is a key component in implicit solvent models and is often used to characterize a molecule's exposure to its environment. This value is commonly known as Solvent Accessible Surface Area or SASA." []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000047 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8216,6 +8279,7 @@ id: MOLSIM:001351
 name: chirality
 def: "A type of structural property that describes the \"handedness\" of a chiral center in a molecule. It is a fundamental stereochemical property that determines how a molecule interacts with other chiral molecules and polarized light. Analysis tools can checkchirality to ensure that the stereochemistry is maintained correctly during a simulation. This property is fundamental to stereochemistry. (UNVERIFIED)" []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001352
@@ -8230,6 +8294,7 @@ id: MOLSIM:001353
 name: orientation angle
 def: "A specific type of orientation descriptor that represents the angle of rotation between the current orientation and a reference orientation. This provides a simple, scalar measure of how much a molecule has rotated. This value is often reported as ORIENTATION_ANGLE." []
 is_a: MOLSIM:001352 ! molecular orientation
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8244,6 +8309,7 @@ id: MOLSIM:001355
 name: tilt
 def: "A base pair step parameter that describes the rotation of one base pair relative to the next around their short axes. A non-zero tilt causes the helix to bend. It is an important parameter for describing DNA curvature. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8252,6 +8318,7 @@ id: MOLSIM:001356
 name: spin angle
 def: "A specific type of orientation descriptor that represents the angle of rotation of a molecule around a specific unit axis. The SPINANGLE is useful for analyzing spinning motions." []
 is_a: MOLSIM:001352 ! molecular orientation
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8279,6 +8346,7 @@ id: MOLSIM:001360
 name: shear
 def: "A base pair parameter that quantifies the translational displacement of one base relative to the other along their short axis, within the plane of the base pair. A non-zero shear indicates a lateral displacement of the two bases from their ideal paired geometry, altering their relative alignment while maintaining the base-pair plane. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8287,6 +8355,7 @@ id: MOLSIM:001361
 name: stretch
 def: "A base pair parameter that quantifies the translational displacement of one base relative to the other along the axis of the hydrogen bonds. A non-zero stretch measures how much the base pair is pulled apart or compressed. It reflects the strength and dynamics of the hydrogen bonds holding the pair together. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8295,6 +8364,7 @@ id: MOLSIM:001362
 name: stagger
 def: "A base pair parameter that quantifies the translational displacement of one base relative to the other along the axis perpendicular to the base pair plane. A non-zero stagger indicates that the two bases are offset in the direction normal to the base-pair plane, resulting in a difference in their relative height and a deviation from an ideal coplanar geometry. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8303,6 +8373,7 @@ id: MOLSIM:001363
 name: buckle
 def: "A base pair parameter that describes the rotation of the two bases relative to each other around their long axis, roughly parallel to the hydrogen bonds. A non-zero buckle angle indicates that the bases are tilted relative to each other, producing a bent base-pair geometry. It contributes to the overall shape of the helix. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8311,6 +8382,7 @@ id: MOLSIM:001364
 name: propeller twist
 def: "A base pair parameter that describes the rotation of the two bases relative to each other around an axis connecting their glycosidic bonds. This propeller twist optimizes stacking with adjacent base pairs but can strain hydrogen bonds. It is a key determinant of helix stability and groove dimensions. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8319,6 +8391,7 @@ id: MOLSIM:001365
 name: opening
 def: "An intra-base-pair parameter that describes the relative rotation of the two bases around the axis perpendicular to the base-pair plane. A non-zero opening angle indicates that the base pair deviates from its ideal planar geometry, altering the orientation of the hydrogen-bonding and increasing their exposure to the solvent. Large opening values are often associated with transient base-pair opening (\"breathing\") or fraying events. Opening is a standard structural parameter reported by nucleic acid analysis programs." []
 is_a: MOLSIM:001359 ! base pair parameter
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8334,6 +8407,7 @@ id: MOLSIM:001367
 name: shift
 def: "A base pair step parameter that describes the translational displacement of one base pair relative to the next along their short axes. A non-zero shift indicates a lateral sliding motion. It affects the alignment and stacking interactions between adjacent base pairs. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8342,6 +8416,7 @@ id: MOLSIM:001368
 name: slide
 def: "A base pair step parameter that describes the translational displacement of one base pair relative to the next along their long axes. A non-zero slide is a major determinant of the width of the major and minor grooves. It is a key parameter for describing B-form DNA. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8350,6 +8425,7 @@ id: MOLSIM:001369
 name: rise
 def: "A base pair step parameter that describes the translational distance between two adjacent base pairs along the central helical axis. The rise per step is a primary determinant of the overall length of the DNA or RNA helix. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8358,6 +8434,7 @@ id: MOLSIM:001370
 name: roll
 def: "A base pair step parameter that describes the rotation of one base pair relative to the next around their long axes. A non-zero roll angle causes the helix to bend into the major or minor groove. It is a crucial parameter for DNA bendability and protein recognition. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8366,6 +8443,7 @@ id: MOLSIM:001371
 name: twist
 def: "A base pair step parameter that describes the rotation of one base pair relative to the next around the central helical axis. The helical twist is the primary determinant of the number of base pairs per turn in a DNA or RNA helix. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001366 ! base pair step parameter
+relationship: IAO:0000039 UO:0000121 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8382,6 +8460,7 @@ id: MOLSIM:001373
 name: x-displacement
 def: "A displacement parameter that measures the translation of a base pair away from the central helical axis towards the major or minor groove. The x-displacement is a key parameter for distinguishing between A-form and B-form DNA. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001372 ! displacement parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8390,6 +8469,7 @@ id: MOLSIM:001374
 name: y-displacement
 def: "A displacement parameter that measures the translation of a base pair away from the central helical axis along the axis of the base pair's hydrogen bonds. The y-displacement is typically small in canonical DNA structures. This is a standard output of nucleic acid analysis programs." []
 is_a: MOLSIM:001372 ! displacement parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -8446,12 +8526,14 @@ id: MOLSIM:001383
 name: ionization potential
 def: "A type of electronic property representing the minimum energy required to remove an electron from a molecule. It is a fundamental measure of a molecule's resistance to oxidation. The ionization potential is a key quantity calculated by quantum chemistry programs to assess electronic stability. This is often estimated from the energy of the highest occupied molecular orbital (HOMO). (UNVERIFIED)" []
 is_a: MOLSIM:001375 ! electronic property
+relationship: IAO:0000039 UO:0000111 {all_only="true"}
 
 [Term]
 id: MOLSIM:001384
 name: electron affinity
 def: "A type of electronic property representing the energy released when an electron is added to a molecule. It is a fundamental measure of a molecule's ability to accept an electron and its resistance to reduction. The electron affinity is a key quantity calculated by quantum chemistry programs to assess electronic stability. This is often estimated from the energy of the lowest unoccupied molecular orbital (LUMO). (UNVERIFIED)" []
 is_a: MOLSIM:001375 ! electronic property
+relationship: IAO:0000039 UO:0000111 {all_only="true"}
 
 [Term]
 id: MOLSIM:001385
@@ -8464,12 +8546,14 @@ id: MOLSIM:001386
 name: wavefunction energy
 def: "A specific wavefunction property representing the total electronic energy of the molecular system for a given nuclear geometry. This is the primary output of most quantum chemical calculations. It is the expectation value of the Hamiltonian operator for the calculated wavefunction. This is often referred to as the SCF Energy. (UNVERIFIED)" []
 is_a: MOLSIM:001385 ! wavefunction property
+relationship: IAO:0000039 UO:0000111 {all_only="true"}
 
 [Term]
 id: MOLSIM:001387
 name: wavefunction stability index
 def: "A specific wavefunction property that indicates whether the calculated electronic wavefunction corresponds to a true energy minimum. A stable wavefunction is a prerequisite for obtaining reliable results from a quantum chemical calculation. The wavefunction stability index is a diagnostic tool used to ensure the quality of the calculation. This is often reported as the result of a Stable=Opt calculation in Gaussian. (UNVERIFIED)" []
 is_a: MOLSIM:001385 ! wavefunction property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001388
@@ -8506,12 +8590,14 @@ id: MOLSIM:001393
 name: mean square displacement
 def: "A type of kinetic property that measures the average distance a particle has traveled from its starting position over a certain time interval. The Mean Square Displacement is a key quantity used to characterize the dynamics of a system. The slope of the MSD curve over time is directly proportional to the diffusion coefficient. This is often abbreviated as MSD. (UNVERIFIED)" []
 is_a: MOLSIM:001391 ! kinetic property
+relationship: IAO:0000039 UO:0000047 {all_only="true"}
 
 [Term]
 id: MOLSIM:001394
 name: NMR relaxation time
 def: "A type of kinetic property that characterizes the rate at which nuclear spins return to thermal equilibrium after being perturbed in a Nuclear Magnetic Resonance (NMR) experiment. These relaxation times are sensitive to molecular motions on different timescales. They are key experimental observables that can be compared with simulation results to validate molecular dynamics. These are known as T1 and T2 relaxation times." []
 is_a: MOLSIM:001391 ! kinetic property
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8519,6 +8605,7 @@ id: MOLSIM:001395
 name: T1 relaxation
 def: "A specific type of NMR relaxation time, also known as the spin-lattice or longitudinal relaxation time. It characterizes the rate at which the nuclear spins exchange energy with their surrounding environment (the \"lattice\"). The T1 relaxation time is sensitive to fast molecular motions, on the order of the inverse of the Larmor frequency. This is a key parameter in NMR spectroscopy." []
 is_a: MOLSIM:001394 ! NMR relaxation time
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8526,6 +8613,7 @@ id: MOLSIM:001396
 name: T2 relaxation
 def: "A specific type of NMR relaxation time, also known as the spin-spin or transverse relaxation time. It characterizes the rate at which the nuclear spins lose phase coherence with each other. The T2 relaxation time is sensitive to both fast and slow molecular motions, making it a rich source of dynamical information. This is a key parameter in NMR spectroscopy." []
 is_a: MOLSIM:001394 ! NMR relaxation time
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8533,6 +8621,7 @@ id: MOLSIM:001397
 name: correlation time
 def: "A type of kinetic property that represents the time scale over which a system's properties, such as the orientation of a bond, remain correlated. It is a measure of the \"memory\" of the system's dynamics. The correlation time is a key parameter in the interpretation of NMR relaxation data. This is often denoted tcorr or tau_c." []
 is_a: MOLSIM:001391 ! kinetic property
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8547,6 +8636,7 @@ id: MOLSIM:001399
 name: J-coupling
 def: "A type of spectroscopic property that measures the through-bond interaction between two nuclear spins, which causes splitting of NMR signals. The J-coupling is highly sensitive to the dihedral angle between the coupled nuclei, as described by the Karplus relationship. It is a key piece of experimental data used to determine molecular conformation. This is a standard output of NMR analysis programs." []
 is_a: MOLSIM:001398 ! spectroscopic property
+relationship: IAO:0000039 UO:0000105 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8554,6 +8644,7 @@ id: MOLSIM:001400
 name: residual dipolar coupling
 def: "A type of spectroscopic property that provides long-range structural information in NMR experiments by measuring the orientation of bond vectors in a weakly aligned molecule. Residual Dipolar Couplings (RDCs) are extremely valuable for determining the relative orientation of distant parts of a molecule. They provide powerful restraints for refining molecular structures." []
 is_a: MOLSIM:001398 ! spectroscopic property
+relationship: IAO:0000039 UO:0000105 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8561,6 +8652,7 @@ id: MOLSIM:001401
 name: deuterium order parameter
 def: "The deuterium order parameter (SCD) measures the orientational order and dynamic disorder of lipid acyl chains in MD simulations. It allows for direct validation of membrane fluidity and structural phases against deuterium NMR experiments." []
 is_a: MOLSIM:001398 ! spectroscopic property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8568,6 +8660,7 @@ id: MOLSIM:001402
 name: S2 order parameter
 def: "A type of spectroscopic property that measures the motional restriction of a bond vector, typically an N-H bond in a protein, on fast timescales. The S2 order parameter ranges from 0 (completely isotropic motion) to 1 (completely rigid) and is measured by NMR relaxation experiments. It is a powerful tool for characterizing internal protein dynamics. This is a standard output of NMR relaxation analysis." []
 is_a: MOLSIM:001398 ! spectroscopic property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8597,6 +8690,7 @@ id: MOLSIM:001406
 name: Kendall tau correlation coefficient
 def: "A specific type of correlation coefficient that measures the ordinal association between two variables. It is based on counting the number of concordant and discordant pairs in the data. The Kendall tau correlation coefficient is a non-parametric statistic used to measure the strength of the relationship between two ranked variables. This is often reported as tau or Kendall's tau. (UNVERIFIED)" []
 is_a: STATO:0000142
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001407
@@ -8631,6 +8725,7 @@ id: MOLSIM:001411
 name: distribution overlap
 def: "A type of statistical property that quantifies the degree to which two probability distributions share common regions. In umbrella sampling simulations, this is a critical diagnostic for ensuring that adjacent simulation windows have sampled sufficiently overlapping regions of phase space. The distribution overlap is a key metric for validating the results of umbrella sampling or replica exchange simulations. This is often reported as Phase space overlap (PSO)." []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -8638,12 +8733,14 @@ id: MOLSIM:001412
 name: phase space overlap
 def: "A specific type of distribution overlap that measures the overlap between the potential energy distributions of adjacent states in an alchemical free energy calculation. Sufficient Phase space overlap is a prerequisite for obtaining reliable free energy estimates. It is a key diagnostic for assessing the quality of alchemical simulations. This is often abbreviated as PSO. (UNVERIFIED)" []
 is_a: MOLSIM:001411 ! distribution overlap
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001413
 name: conditional probability
 def: "A type of statistical property that measures the probability of an event occurring, given that another event has already occurred. In simulation analysis, Conditional Probabilities are used to understand the relationships and dependencies between different molecular states or events. They are a core component of Markov State Model analysis. This is a key output of kinetic analysis. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001414
@@ -8658,36 +8755,42 @@ id: MOLSIM:001415
 name: Hausdorff distance
 def: "A type of statistical property that measures how far two subsets of a metric space are from each other. It is the greatest of all the distances from a point in one set to the closest point in the other set. The Hausdorff distance is a robust metric for comparing the overall shape of two conformational ensembles. This is a specialized metric in topology. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001416
 name: clustering quality metric
 def: "A type of statistical property used to evaluate the performance of a clustering algorithm. These metrics provide a quantitative measure of how well the algorithm has partitioned the data into distinct and compact clusters. They are essential for assessing the validity of a clustering result. These are standard outputs of clustering analysis programs. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001417
 name: Davies-Bouldin Index
 def: "A specific clustering quality metric that is calculated as the average similarity between each cluster and its most similar one. A lower Davies-Bouldin Index indicates a better clustering, where clusters are dense and well-separated. It is a common metric for evaluating the output of a clustering algorithm. This is often abbreviated as DBI. (UNVERIFIED)" []
 is_a: MOLSIM:001416 ! clustering quality metric
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001418
 name: pseudo-F statistic
 def: "A specific clustering quality metric used to determine the optimal number of clusters in a dataset. It is calculated as the ratio of the between-cluster variance to the within-cluster variance. A peak in the pseudo-F statistic for a given number of clusters suggests that it is the optimal partitioning. This is often abbreviated as pSF. (UNVERIFIED)" []
 is_a: MOLSIM:001416 ! clustering quality metric
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001419
 name: SSR/SST ratio
 def: "A specific clustering quality metric that represents the ratio of the sum of squares between clusters (SSR) to the total sum of squares (SST). A value close to 1 indicates that the clusters are well-separated. The SSR/SST ratio is a measure of the variance explained by the clustering. This is a standard statistical measure. (UNVERIFIED)" []
 is_a: MOLSIM:001416 ! clustering quality metric
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001420
 name: cluster silhouette
 def: "A specific clustering quality metric that measures how similar an object is to its own cluster compared to other clusters. The cluster silhouette score ranges from -1 to 1, where a high value indicates that the object is well matched to its own cluster and poorly matched to neighboring clusters. It is a powerful tool for assessing the quality of a clustering result. This is a standard metric in cluster analysis. (UNVERIFIED)" []
 is_a: MOLSIM:001416 ! clustering quality metric
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001421
@@ -8751,12 +8854,14 @@ id: MOLSIM:001430
 name: atom interaction count
 def: "A type of miscellaneous descriptor that specifies the number of interactions, such as hydrogen bonds or close contacts, involving a specific atom or group of atoms. The atom interaction count is often averaged over a simulation trajectory. It helps to quantify the interaction environment of particular atoms or groups. This is a common output of structural analysis scripts. (UNVERIFIED)" []
 is_a: MOLSIM:001427 ! miscellaneous descriptor
+relationship: IAO:0000039 UO:0000189 {all_only="true"}
 
 [Term]
 id: MOLSIM:001431
 name: similarity score
 def: "A type of miscellaneous descriptor that provides a metric for measuring the similarity between two entities, such as molecular structures or atom types. The similarity score is a quantitative measure used in various contexts, from virtual screening to parameter estimation. This is a key output of cheminformatics tools. (UNVERIFIED)" []
 is_a: MOLSIM:001427 ! miscellaneous descriptor
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001432
@@ -8804,42 +8909,42 @@ is_a: MOLSIM:000204 ! ligand charge model
 
 [Term]
 id: MOLSIM:001439
-name: amber OL3
-def: "The amber OL3 force field is a specific set of parameters for simulating RNA, designed for use with the AMBER simulation package. Developed by the Olomouc group in the Czech Republic, it represents a significant refinement of RNA backbone dihedral parameters over previous versions. For researchers studying RNA, OL3 was a widely adopted standard that provided a more accurate description of RNA's structural and dynamic behavior. (UNVERIFIED)" []
+name: AMBER OL3
+def: "The AMBER OL3 force field is a specific set of parameters for simulating RNA, designed for use with the AMBER simulation package. Developed by the Olomouc group in the Czech Republic, it represents a significant refinement of RNA backbone dihedral parameters over previous versions. For researchers studying RNA, OL3 was a widely adopted standard that provided a more accurate description of RNA's structural and dynamic behavior. (UNVERIFIED)" []
 is_a: MOLSIM:000011 ! RNA force field
 
 [Term]
 id: MOLSIM:001440
-name: amber ff15ipq
+name: AMBER ff15ipq
 def: "This is a specialized force field for simulating proteins that pays extra attention to how proteins interact with water and charged ions. The AMBER ff15ipq force field was developed to improve the description of protein interactions with ions by using a novel charge model (Implicitly Polarized Charge, IPq) that better reproduces experimental hydration free energies. This force field is particularly recommended for simulations where the accurate modeling of protein-ion interactions or salt bridge dynamics is critical to the system's behavior." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:001441
-name: amber ff15ipq-m
+name: AMBER ff15ipq-m
 def: "A force field specifically parameterized for the simulation of protein mimetics, which are synthetic molecules designed to mimic natural proteins. It extends the existing ff15ipq force field to include parameters for non-standard, artificial, heterogenous building blocks, such as D-amino acids and beta-amino acids. This enables researchers to accurately model the structure and dynamics of these non-natural biopolymers." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:001442
-name: amber ff03
+name: AMBER ff03
 def: "Amber ff03 is a modified version of the ff99 AMBER force field. The main changes are that charges are now derived from quantum calculations that use a continuum dielectric to mimic solvent polarization, and that the φ and ψ backbone torsions for proteins are modified, with the effect of decreasing the preference for helical configurations. The changes are just for proteins; nucleic acid parameters are the same as in ff99." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
 id: MOLSIM:001443
-name: amber ff03ua
-def: "This is a simplified version of the amber ff03 force field where the aliphatic hydrogen atoms on all amino acid side-chains are united to their corresponding carbon atoms. The aliphatic hydrogen atoms on all alpha carbon atoms are still represented explicitly to minimize the impact of the united-atom approximation on protein backbone conformations. In addition, aromatic hydrogens are also explicitly represented. Nucleic acid parameters are still in all atom and kept the same as in ff99." []
+name: AMBER ff03ua
+def: "This is a simplified version of the AMBER ff03 force field where the aliphatic hydrogen atoms on all amino acid side-chains are united to their corresponding carbon atoms. The aliphatic hydrogen atoms on all alpha carbon atoms are still represented explicitly to minimize the impact of the united-atom approximation on protein backbone conformations. In addition, aromatic hydrogens are also explicitly represented. Nucleic acid parameters are still in all atom and kept the same as in ff99." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
 id: MOLSIM:001444
-name: amber OL15
-def: "The amber OL15 force field is a set of parameters for simulating DNA, designed for use with the AMBER software package. It is a refinement of previous DNA models from the Olomouc group that provides a more accurate description of the DNA backbone's flexibility and conformational preferences. This force field was a significant improvement for achieving realistic DNA structures and dynamics in simulations. (UNVERIFIED)" []
+name: AMBER OL15
+def: "The AMBER OL15 force field is a set of parameters for simulating DNA, designed for use with the AMBER software package. It is a refinement of previous DNA models from the Olomouc group that provides a more accurate description of the DNA backbone's flexibility and conformational preferences. This force field was a significant improvement for achieving realistic DNA structures and dynamics in simulations. (UNVERIFIED)" []
 is_a: MOLSIM:000010 ! DNA force field
 
 [Term]
@@ -8851,8 +8956,8 @@ property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:001446
-name: amber bsc1
-def: "The amber bsc1 force field is a specific and widely used refinement for the dihedral angle parameters of the DNA backbone, designed for use with AMBER force fields. Developed by the Barcelona Supercomputing Center (BSC), it significantly improves the description of DNA's structural dynamics compared to the uncorrected force fields. It is considered a standard addition for obtaining accurate DNA simulations." []
+name: AMBER bsc1
+def: "The AMBER bsc1 force field is a specific and widely used refinement for the dihedral angle parameters of the DNA backbone, designed for use with AMBER force fields. Developed by the Barcelona Supercomputing Center (BSC), it significantly improves the description of DNA's structural dynamics compared to the uncorrected force fields. It is considered a standard addition for obtaining accurate DNA simulations." []
 is_a: MOLSIM:001445 ! nucleic acid force field
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
@@ -8864,8 +8969,8 @@ is_a: MOLSIM:000010 ! DNA force field
 
 [Term]
 id: MOLSIM:001448
-name: amber OL21
-def: "The amber OL21 force field is a recent and highly accurate set of parameters for simulating DNA molecules within the AMBER simulation framework. It represents a state-of-the-art model that incorporates new quantum mechanical calculations and experimental data to further refine the description of the DNA backbone and sugar puckering. This force field is designed to provide a very accurate representation of DNA's structural properties in high-fidelity simulations. (UNVERIFIED)" []
+name: AMBER OL21
+def: "The AMBER OL21 force field is a recent and highly accurate set of parameters for simulating DNA molecules within the AMBER simulation framework. It represents a state-of-the-art model that incorporates new quantum mechanical calculations and experimental data to further refine the description of the DNA backbone and sugar puckering. This force field is designed to provide a very accurate representation of DNA's structural properties in high-fidelity simulations. (UNVERIFIED)" []
 is_a: MOLSIM:000010 ! DNA force field
 
 [Term]
@@ -9375,7 +9480,7 @@ is_a: MOLSIM:000204 ! ligand charge model
 
 [Term]
 id: MOLSIM:001530
-name: amber fb15
+name: AMBER fb15
 def: "The AMBER FB15 (force-balanced 15) protein force field is a refinement of the AMBER94 ff with a systematic and thorough optimization of the intramolecular terms. The key difference in the optimized result is a significant lowering of the potential in regions away from the energy minima, which is expected to yield greater flexibility in finite temperature simulations. This force field is particularly useful for simulations of proteins, particularly when fluctuations away from equilibrium, conformational changes, and/or temperature dependence are expected to play important roles." []
 is_a: MOLSIM:000009 ! protein force field
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
@@ -9416,6 +9521,7 @@ id: MOLSIM:001537
 name: temperature
 def: "Temperature is a thermodynamic property that measures the average kinetic energy of the atoms and molecules in the simulation. It is the primary indicator of the system's thermal state and is constantly monitored to ensure the simulation is stable and correctly samples the target ensemble. For experts, this value is calculated from the particle velocities via the equipartition theorem and is maintained by a thermostat to correspond to a specific thermodynamic temperature. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
+relationship: IAO:0000039 UO:0000005 {all_only="true"}
 
 [Term]
 id: MOLSIM:001538
@@ -10787,7 +10893,7 @@ id: MOLSIM:001752
 name: kernel density estimation algorithm
 def: "Kernel Density Estimation (KDE) is a statistical algorithm used to estimate the underlying probability distribution of a set of data points. It works by placing a small \"kernel\" function (like a Gaussian) at each data point and then summing these functions to create a smooth curve representing the data's density. In simulation analysis, KDE is a powerful method for visualizing the free energy landscape along a reaction coordinate from the histogram of observed values. (UNVERIFIED)" []
 is_a: MOLSIM:001751 ! statistical algorithm
-disjoint_from: MOLSIM:010013 ! gaussian mixture model algorithm
+disjoint_from: MOLSIM:010013 ! Gaussian mixture model algorithm
 
 [Term]
 id: MOLSIM:001753
@@ -11077,6 +11183,7 @@ id: MOLSIM:001796
 name: mean solvation force
 def: "In computational chemistry and molecular dynamics, the mean solvation force is the average net force exerted by solvent molecules on a solute molecule, with all solvent degrees of freedom thermally averaged out. It represents the derivative of the potential of mean force (PMF) and drives conformational changes and structural binding in liquids." []
 is_a: MOLSIM:001391 ! kinetic property
+relationship: IAO:0000039 UO:0000107 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -11091,12 +11198,14 @@ id: MOLSIM:001798
 name: charge transfer energy
 def: "Charge transfer energy is the energy stabilization that occurs when a small amount of electron density moves from one molecule to another when they interact at close range. This is a quantum mechanical effect that is not captured by simple fixed-charge force fields but contributes to the strength of interactions like hydrogen bonds. Accurately modeling this energy component, often with polarizable force fields or QM/MM methods, is important for a highly accurate description of molecular binding. (UNVERIFIED)" []
 is_a: MOLSIM:001294 ! energy
+relationship: IAO:0000039 UO:0000111 {all_only="true"}
 
 [Term]
 id: MOLSIM:001799
 name: reference energy
 def: "A reference energy is a defined baseline or zero-point energy against which other energies are compared. In free energy calculations, it is often the energy of a known or simplified state, and all other states are described by their energy difference relative to this reference. Using a consistent reference energy is essential for making meaningful comparisons between the stabilities of different molecules or conformations. (UNVERIFIED)" []
 is_a: MOLSIM:001294 ! energy
+relationship: IAO:0000039 UO:0000111 {all_only="true"}
 
 [Term]
 id: MOLSIM:001800
@@ -11109,6 +11218,7 @@ id: MOLSIM:001801
 name: atomic scattering factor
 def: "The atomic scattering factor is a measure of how strongly a single atom scatters waves, such as X-rays, which is a key piece of information for determining molecular structures from experiments. This factor depends on the number of electrons an atom has and the angle at which the X-rays are scattered. It is a fundamental component used in crystallographic refinement programs to calculate the theoretical diffraction pattern from a molecular model for comparison with experimental data. (UNVERIFIED)" []
 is_a: MOLSIM:001800 ! physical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001802
@@ -11139,6 +11249,7 @@ id: MOLSIM:001806
 name: REMD round-trip time
 def: "The REMD round-trip time is a diagnostic metric that measures how long it takes for a single simulation copy to travel through the full range of temperatures in a Replica Exchange Molecular Dynamics simulation. In this method, multiple simulations are run at different temperatures, and this metric tracks the time for one replica to go from the lowest to the highest temperature and back again. A short round-trip time indicates that the simulation is sampling conformations efficiently, which is necessary to obtain reliable results." []
 is_a: MOLSIM:001391 ! kinetic property
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -11159,12 +11270,14 @@ id: MOLSIM:001809
 name: root-mean-square inner product
 def: "The root-mean-square inner product is a mathematical measure used to compare the similarity of two sets of collective motions, for example, from two different simulations. It quantifies the overlap between the dominant modes of motion (eigenvectors) derived from Principal Component Analysis of two different trajectories. A high value, approaching 1, indicates that the two simulations have sampled a very similar space of essential dynamics, which is a powerful way to assess convergence or compare the dynamics of two different systems. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001810
 name: RMS average correlation
 def: "The RMS average correlation is a statistical measure that quantifies the average degree of correlated motion between all the different parts of a molecule during a simulation. It is calculated by taking the root-mean-square of all the pairwise correlation values from a dynamic cross-correlation matrix. This single value provides a global metric of the overall collectivity of the system's dynamics, with a higher value indicating that the molecule's motions are more concerted. (UNVERIFIED)" []
 is_a: STATO:0000142
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001811
@@ -11183,6 +11296,7 @@ id: MOLSIM:001813
 name: normalized PME solvent energy
 def: "This is a calculated energy value that represents the average electrostatic interaction energy of a single solvent molecule with all other solvent molecules in a simulation. It is calculated by taking the total solvent-solvent electrostatic energy, as computed by the Particle Mesh Ewald (PME) method, and dividing it by the number of solvent molecules. This normalized energy is a useful diagnostic for checking the equilibration of the solvent and for comparing the cohesive properties of different water models. (UNVERIFIED)" []
 is_a: MOLSIM:001294 ! energy
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001814
@@ -11195,6 +11309,7 @@ id: MOLSIM:001815
 name: normalized water-water interaction energy
 def: "This is a measure of the average interaction energy between a single water molecule and all of its neighbors in a simulation. It is calculated by taking the total interaction energy of all water molecules with each other and dividing by the number of water molecules. This value quantifies the cohesiveness of the simulated water and is a key property used to validate a water model by comparing it to the experimental heat of vaporization. (UNVERIFIED)" []
 is_a: MOLSIM:001803 ! interaction energy
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001816
@@ -11213,18 +11328,21 @@ id: MOLSIM:001818
 name: normalized neighbor count
 def: "A normalized neighbor count is a measure that describes the local density of molecules, like water, around a central point, adjusted for the expected density at that distance. It is calculated by counting the number of neighboring molecules within a certain radius and then dividing by the number that would be expected in a uniform, bulk liquid. This quantity is directly related to the radial distribution function (RDF) and is used to quantify the degree of solvent structuring around a solute. (UNVERIFIED)" []
 is_a: MOLSIM:001348 ! coordination number
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001819
 name: tetrahedral order parameter
 def: "The tetrahedral order parameter is a measure of how well the water molecules surrounding a central water molecule are arranged in a perfect pyramid-like shape. It is a quantitative measure that describes the local structure of a liquid by calculating how closely the arrangement of a central molecule and its four nearest neighbors resembles a perfect tetrahedron. In simulations of water, this parameter is used to characterize the degree of local structure and hydrogen bonding, with a higher value indicating a more ordered, ice-like arrangement. (UNVERIFIED)" []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001820
 name: normalized tetrahedral order parameter
 def: "This is a standardized score from -1/3 to 1 that shows how perfectly pyramid-shaped the arrangement of water molecules is. It is a version of the tetrahedral order parameter that has been scaled so that a value of 1 corresponds to a perfect tetrahedral arrangement and a value of 0 corresponds to a completely random, ideal gas-like arrangement. This normalization makes the parameter easier to interpret and allows for a more direct comparison of the degree of local ordering in different simulations or under different conditions. (UNVERIFIED)" []
 is_a: MOLSIM:001819 ! tetrahedral order parameter
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001821
@@ -11407,6 +11525,7 @@ id: MOLSIM:001847
 name: Larmor frequency
 def: "The Larmor frequency is the specific rate at which a magnetic particle, like an atomic nucleus, wobbles or \"precesses\" when placed in a strong external magnetic field. This is analogous to the way a spinning top wobbles in the Earth's gravitational field. This frequency is the fundamental principle behind all Nuclear Magnetic Resonance (NMR) experiments, as it determines the exact frequency of energy the nucleus will absorb." []
 is_a: MOLSIM:001800 ! physical property
+relationship: IAO:0000039 UO:0000105 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -11518,6 +11637,7 @@ name: residence time
 def: "Residence time is the average amount of time that a molecule, such as a water molecule or a ligand, spends in a specific, defined location, like a protein's binding site. It is calculated from a simulation by monitoring when a molecule enters a region and when it leaves, and then averaging this duration over many such events." []
 synonym: "residence times" EXACT []
 is_a: MOLSIM:001391 ! kinetic property
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -11525,6 +11645,7 @@ id: MOLSIM:001865
 name: pLDDT
 def: "The pLDDT score indicates how confident a computer program, like AlphaFold, is about its prediction for the position of each part of a protein's structure. The predicted Local Distance Difference Test (pLDDT) score ranges from 0 to 100, where a higher score means the program is more confident that the local atomic environment of an amino acid is predicted correctly. This per-residue confidence metric allows researchers to quickly identify which regions of a model are likely to be reliable and which are disordered or poorly predicted. (UNVERIFIED)" []
 is_a: MOLSIM:001403 ! statistical property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 
 [Term]
 id: MOLSIM:001866
@@ -11560,6 +11681,7 @@ id: MOLSIM:001870
 name: lipid density
 def: "Lipid density is a measure of how tightly packed the lipid molecules are in a simulated cell membrane. It is typically calculated as a one-dimensional profile along the axis perpendicular to the membrane plane, showing the mass or electron density of different lipid components like headgroups and tails. Analyzing the lipid density profile is a fundamental check to ensure the simulated membrane has the correct structure and thickness, and it reveals how an embedded protein might locally perturb the lipid packing." []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000052 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -11575,6 +11697,7 @@ name: lipid order parameter
 def: "Lipid order parameters are a set of values that measure how well-aligned and ordered the flexible tails of lipid molecules are within a simulated cell membrane. A value of 1 means the lipid tail is perfectly straight and aligned perpendicular to the membrane surface, while a value of 0 means it is completely disordered. These parameters, specifically the deuterium order parameter (SCD), can be directly compared with experimental results from NMR spectroscopy, making them one of the most important metrics for validating the physical accuracy of a membrane simulation." []
 synonym: "lipid order parameters" EXACT []
 is_a: MOLSIM:001398 ! spectroscopic property
+relationship: IAO:0000039 UO:0000186 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -11596,6 +11719,7 @@ id: MOLSIM:001875
 name: membrane width
 def: "The membrane width is the thickness of a simulated cell membrane, measured from one side to the other, along the z-axis. It is typically defined as the distance between the peaks in the density profile of the lipid headgroups or phosphate atoms on opposite sides of the bilayer. The membrane width is a key structural parameter that is monitored to confirm a simulation is properly equilibrated and is used to understand how membrane proteins match their hydrophobic length to the surrounding lipid environment." []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -11603,6 +11727,7 @@ id: MOLSIM:001876
 name: pore dimension
 def: "The pore dimension refers to the size and shape of a channel or tunnel that passes through a protein. This property is calculated by finding the radius of the narrowest point (the constriction site) and the overall profile of the channel's radius along its length. Analyzing the pore dimensions is critical for understanding how ion channels and transporters function, as it determines which molecules are small enough to pass through the membrane." []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -12069,12 +12194,14 @@ id: MOLSIM:001944
 name: pressure
 def: "Pressure is a thermodynamic property that represents the force per unit area exerted by the particles on the boundaries of the simulation box. It is a key indicator of the system's physical state and is monitored to ensure the simulation has reached the correct density under constant pressure conditions. For experts, this value is calculated from the kinetic energy and the virial of internal forces and is maintained by a barostat algorithm in the NPT ensemble. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
+relationship: IAO:0000039 UO:0000109 {all_only="true"}
 
 [Term]
 id: MOLSIM:001946
 name: volume
 def: "Volume is a thermodynamic property that represents the three-dimensional size of the periodic simulation box containing the molecular system. In simulations run at constant pressure, this value fluctuates as the barostat adjusts the box dimensions to maintain the target pressure. For experts, the average volume is a primary output used to determine the equilibrium density of the system, a key property for validating the simulation model. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
+relationship: IAO:0000039 UO:0000095 {all_only="true"}
 
 [Term]
 id: MOLSIM:001947
@@ -12340,6 +12467,7 @@ id: MOLSIM:001987
 name: minimum distance
 def: "A measurement of the closest separation between two distinct groups of atoms in a structure. It is calculated by evaluating the Euclidean distance between all possible atom pairs from the two groups and selecting the smallest value. This metric is frequently used in trajectory analysis to define contact maps, monitor collision avoidance, or serve as a collective variable for pathway sampling." []
 is_a: MOLSIM:001333 ! structural property
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
@@ -13017,32 +13145,35 @@ is_a: MOLSIM:001793 ! conformational transition
 
 [Term]
 id: MOLSIM:002090
-name: molecular entity
-def: "A molecular entity is a broad term used to describe any distinct physical or chemical building block within a modeled system. It encompasses a wide hierarchy of structural objects, including individual atoms, ions, monomeric residues, polymer chains, and complete molecules, all of which possess specific physical properties and spatial coordinates. For simulation experts and ontology developers, this serves as the foundational, top-level parent class for all structural components, providing a clean architectural root that can be easily mapped to external standards like the Basic Formal Ontology (BFO) or ChEBI. (UNVERIFIED)" []
+name: molecular structural component
+def: "A physical constituent of a simulated molecular system that is treated as a distinct unit with its own properties and spatial coordinates. It covers atoms, ions, residues, polymer chains and whole molecules. (UNVERIFIED)" []
+synonym: "molecular entity" EXACT []
+property_value: IAO:0000116 "Top-level parent for the structural components of a simulated system. Kept as a MOLSIM class rather than reusing CHEBI:23367 molecular entity, because this branch spans 2 ChEBI branches that do not meet: atom and molecule are molecular entities in ChEBI, while residue and chain sit under CHEBI:24433 group, a sibling of molecular entity. Grouping all 4 suits the description of a coordinate file, where they are 4 levels of one containment hierarchy. Renamed from 'molecular entity' on 2026-08-21 so that the primary label is unique across the ontologies MOLSIM is released alongside; the former name is kept as an exact synonym." xsd:string
 
 [Term]
 id: MOLSIM:002091
 name: residue
 def: "A residue is a single monomeric building block within a larger polymeric chain, such as an individual amino acid in a protein or a nucleotide in DNA. In structural biology and modeling, it is defined as a discrete group of covalently bonded atoms that share a common identifier and are treated as a collective structural unit. For simulation experts, the residue level serves as a fundamental hierarchical grouping for assigning force field parameters, constructing topologies, and performing targeted structural analyses. (UNVERIFIED)" []
-is_a: MOLSIM:002090 ! molecular entity
+is_a: MOLSIM:002090 ! molecular structural component
 
 [Term]
 id: MOLSIM:002092
 name: atom
 def: "An atom is the most basic, fundamental building block of matter that makes up all molecular structures. In the context of classical molecular modeling, it is mathematically represented as a point mass in three-dimensional space with specific physical properties, such as a partial charge and van der Waals radius, dictated by a force field. For simulation experts, the explicit representation and tracking of individual atoms are essential for calculating precise interatomic forces and generating high-resolution molecular dynamics trajectories. (UNVERIFIED)" []
-is_a: MOLSIM:002090 ! molecular entity
+is_a: MOLSIM:002090 ! molecular structural component
 
 [Term]
 id: MOLSIM:002093
 name: chain
 def: "A chain is a continuous, linear sequence of linked molecular building blocks, such as a single strand of DNA or a folded polypeptide. Structurally, it consists of a series of covalently bonded residues that are grouped together under a unique alphanumeric identifier (Chain ID) within a coordinate file. In molecular simulations, properly defining separate chains is critical for accurately modeling multi-subunit complexes, preventing artificial cross-linking during topology generation, and analyzing intermolecular interactions. (UNVERIFIED)" []
-is_a: MOLSIM:002090 ! molecular entity
+is_a: MOLSIM:002090 ! molecular structural component
 
 [Term]
 id: MOLSIM:002094
-name: molecule
-def: "A molecule is a distinct, independent chemical entity composed of two or more atoms bonded together, or a single monoatomic ion acting as a discrete unit. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)" []
-is_a: MOLSIM:002090 ! molecular entity
+name: molecular unit
+def: "A chemical unit composed of two or more atoms bonded together, or a single monoatomic ion counted as one. In computational chemistry, it represents a complete, covalently continuous structure—ranging from a single solvent molecule to a massive protein—that does not share covalent bonds with other entities in the system. For simulation experts, defining individual molecules is necessary for applying periodic boundary imaging, managing solvent dynamics, and computing macroscopic thermodynamic properties like diffusion. (UNVERIFIED)" []
+synonym: "molecule" EXACT []
+is_a: MOLSIM:002090 ! molecular structural component
 
 [Term]
 id: MOLSIM:002095
@@ -13155,12 +13286,14 @@ id: MOLSIM:002112
 name: simulation state time
 def: "A simulation state that represents the elapsed model time reached by the system at a given point in a molecular dynamics run. It records how far the simulation has advanced along the physical time coordinate. (UNVERIFIED)" []
 is_a: MOLSIM:001083 ! simulation state
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002113
 name: final density
 def: "A thermodynamic property that represents the mass density of the simulated system at the end of a run or equilibration stage. It is commonly compared against experimental density to assess whether the system has equilibrated correctly. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
+relationship: IAO:0000039 UO:0000052 {all_only="true"}
 
 [Term]
 id: MOLSIM:002114
@@ -13174,36 +13307,42 @@ name: total wallclock time
 def: "A computational performance metric that measures the total real-world elapsed time taken to complete a run from start to finish. It reflects the actual time a user waits, including all computation and input or output. (UNVERIFIED)" []
 is_a: MOLSIM:002114 ! computational performance metric
 disjoint_from: MOLSIM:002116 ! total cpu time
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002116
 name: total cpu time
 def: "A computational performance metric that measures the cumulative processor time consumed by a run, summed across all active compute cores. It reflects total computational effort rather than elapsed real time. (UNVERIFIED)" []
 is_a: MOLSIM:002114 ! computational performance metric
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002117
 name: setup wallclock time
 def: "A computational performance metric that measures the real-world elapsed time spent preparing a run before the production phase begins, such as reading inputs and building data structures. It isolates initialization overhead from the main computation. (UNVERIFIED)" []
 is_a: MOLSIM:002114 ! computational performance metric
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002118
 name: production wallclock time
 def: "A computational performance metric that measures the real-world elapsed time spent in the production phase of a run, during which the trajectory of interest is generated. It excludes setup and finalization overhead. (UNVERIFIED)" []
 is_a: MOLSIM:002114 ! computational performance metric
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002119
 name: average integration step time
 def: "A computational performance metric that represents the mean real-world time required to advance the simulation by one integration step. It is a convenient measure of per-step computational efficiency. (UNVERIFIED)" []
 is_a: MOLSIM:002114 ! computational performance metric
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002120
 name: simulation throughput
 def: "A computational performance metric that expresses how much simulated model time is produced per unit of real-world computing time, commonly reported as nanoseconds per day. It is a standard measure for comparing the practical speed of simulations. (UNVERIFIED)" []
 is_a: MOLSIM:002114 ! computational performance metric
+relationship: IAO:0000039 UO:0000280 {all_only="true"}
 
 [Term]
 id: MOLSIM:002155
@@ -13265,12 +13404,14 @@ name: trajectory frame interval
 def: "A simulation state time that represents the average amount of simulated time elapsed between consecutive saved frames of a trajectory. It reflects how finely the trajectory samples the simulated time coordinate. (UNVERIFIED)" []
 is_a: MOLSIM:002112 ! simulation state time
 disjoint_from: MOLSIM:002165 ! inter-stage time gap
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002165
 name: inter-stage time gap
 def: "A simulation state time that represents the difference between the end time of one simulation stage and the start time of the next. A nonzero gap indicates a break in the continuous simulated-time coordinate across stages. (UNVERIFIED)" []
 is_a: MOLSIM:002112 ! simulation state time
+relationship: IAO:0000039 UO:0000003 {all_only="true"}
 
 [Term]
 id: MOLSIM:002166
@@ -13283,6 +13424,7 @@ id: MOLSIM:002192
 name: initial density
 def: "A thermodynamic property that represents the mass density of the simulated system at the start of a run, computed from the topology mass and the initial periodic box volume. It provides a baseline for comparison against the equilibrated density reached during a constant-pressure run. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
+relationship: IAO:0000039 UO:0000052 {all_only="true"}
 
 [Term]
 id: MOLSIM:002196
@@ -13496,6 +13638,12 @@ comment: Retired 2026-08-13, the day after it was minted. It was created to grou
 is_obsolete: true
 
 [Term]
+id: MOLSIM:002255
+name: molecular state
+def: "A state that a molecule or molecular system occupies, characterised by its shape, its surroundings, its position on the energy surface, or its electronic configuration. It describes a condition the system is in, rather than a relationship to another molecule or a choice made when the system was built. (UNVERIFIED)" []
+is_a: MOLSIM:000006 ! model
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second. (UNVERIFIED)" []
@@ -13577,7 +13725,7 @@ is_a: MOLSIM:001745 ! secondary structure assignment algorithm
 
 [Term]
 id: MOLSIM:010013
-name: gaussian mixture model algorithm
+name: Gaussian mixture model algorithm
 def: "The Gaussian mixture model (GMM) algorithm is a probabilistic statistical method that represents a complex data distribution as a weighted sum of multiple simple Gaussian components. It assumes that the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters, which are optimized to fit the data. In biomolecular simulation, this algorithm is frequently used for clustering conformational states or analyzing free energy landscapes by decomposing complex probability densities into distinct populations. (UNVERIFIED)" []
 is_a: MOLSIM:001751 ! statistical algorithm
 
