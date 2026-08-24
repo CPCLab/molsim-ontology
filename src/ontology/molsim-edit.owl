@@ -10168,6 +10168,44 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001214 "A system setup parameter 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001214 "molecular termini state"@en)
 SubClassOf(obo:MOLSIM_001214 obo:MOLSIM_001210)
 
+# Class: obo:MOLSIM_002264 (acetyl capping group)
+
+Declaration(Class(obo:MOLSIM_002264))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002264 "A molecular termini state in which the N-terminus of a polymer chain is closed off with an acetyl group, so that the end carries no electric charge. Capping this way makes a short peptide behave more like a piece cut from the middle of a longer chain. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002264 "ACE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002264 "acetyl capping group"@en)
+SubClassOf(obo:MOLSIM_002264 obo:MOLSIM_001214)
+
+# Class: obo:MOLSIM_002265 (N-methylamide capping group)
+
+Declaration(Class(obo:MOLSIM_002265))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002265 "A molecular termini state in which the C-terminus of a polymer chain is closed off with an N-methylamide group, so that the end carries no electric charge. It is the usual partner to an acetyl group at the other end of the chain. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002265 "NME"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002265 "N-methylamide capping group"@en)
+SubClassOf(obo:MOLSIM_002265 obo:MOLSIM_001214)
+
+# Class: obo:MOLSIM_002266 (amide capping group)
+
+Declaration(Class(obo:MOLSIM_002266))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002266 "A molecular termini state in which the C-terminus of a polymer chain is closed off with a plain amide group, so that the end carries no electric charge. It is a smaller alternative to an N-methylamide cap. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002266 "NHE"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002266 "amide capping group"@en)
+SubClassOf(obo:MOLSIM_002266 obo:MOLSIM_001214)
+
+# Class: obo:MOLSIM_002267 (charged N-terminus)
+
+Declaration(Class(obo:MOLSIM_002267))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002267 "A molecular termini state in which the N-terminus of a polymer chain is left uncapped and carries a positive charge, as a free amine group does at the pH of most simulations. This is the usual choice when the chain being simulated is a whole protein rather than a fragment of one. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002267 "charged N-terminus"@en)
+SubClassOf(obo:MOLSIM_002267 obo:MOLSIM_001214)
+
+# Class: obo:MOLSIM_002268 (charged C-terminus)
+
+Declaration(Class(obo:MOLSIM_002268))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002268 "A molecular termini state in which the C-terminus of a polymer chain is left uncapped and carries a negative charge, as a free carboxylic acid group does at the pH of most simulations. This is the usual choice when the chain being simulated is a whole protein rather than a fragment of one. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002268 "charged C-terminus"@en)
+SubClassOf(obo:MOLSIM_002268 obo:MOLSIM_001214)
+
 # Class: obo:MOLSIM_001215 (alchemical transformation state)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001215 "A system setup parameter that specifies whether the simulation involves an alchemical transformation for a free energy calculation. This parameter indicates that some atoms/residues in the system have their properties changed over the course of the simulation. The alchemical transformation state is a key descriptor for identifying free energy calculations. This is often controlled by a perturbation flag (lambda, λ)."@en)
@@ -17103,12 +17141,13 @@ DataPropertyRange(obo:MOLSIM_002259 xsd:string)
 
 # Data Property: obo:MOLSIM_002260 (has capping group)
 
-Declaration(DataProperty(obo:MOLSIM_002260))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002260 "A relation that associates a molecular simulation system with the chemical groups used to close off the open ends of a protein or peptide chain, such as an acetyl group at the start and an N-methyl amide group at the end. Capping removes the electric charge that a bare chain end would otherwise carry, which matters most for short peptides. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:comment obo:MOLSIM_002260 "This property stores its value as text, because a system may cap several chains and each end differently. Values look like \"ACE, NME\" or \"chain A: ACE and NME; chain B: none\". Checking the text follows a fixed shape is a job for SHACL rather than OWL."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002260 "has capping group"@en)
-SubDataPropertyOf(obo:MOLSIM_002260 obo:MOLSIM_001156)
-DataPropertyRange(obo:MOLSIM_002260 xsd:string)
+Declaration(ObjectProperty(obo:MOLSIM_002260))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002260 "A relation that links a molecular simulation system to the chemical state chosen for the ends of its polymer chains, whether each end was closed off with a capping group or left uncapped and carrying a charge. The choice changes the total charge of the system, and it matters most for short peptides, where the two ends are a large part of the whole molecule. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002260 "has capping group"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002260 "has termini state"@en)
+SubObjectPropertyOf(obo:MOLSIM_002260 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002260 obo:MOLSIM_001887)
+ObjectPropertyRange(obo:MOLSIM_002260 obo:MOLSIM_001214)
 
 # Data Property: obo:MOLSIM_002261 (has symmetric leaflet composition)
 
