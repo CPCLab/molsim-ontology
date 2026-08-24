@@ -17061,6 +17061,23 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002191 "restart file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002191 xsd:string)
 
+# Data Property: obo:MOLSIM_002256 (has topology file path)
+
+Declaration(DataProperty(obo:MOLSIM_002256))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002256 "A relation that associates a molecular dynamics process with the file path or identifier of the topology file defining the simulated system, such as an AMBER prmtop file or a GROMACS top file. The topology file states which atoms are present, how they are bonded, which parameters they were assigned, and which chemical states were assumed when the system was built. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_002256 "MOLSIM records the composition of a simulated system at the system level and points at the topology and coordinate files for the per-residue detail, rather than restating that detail term by term. This is why there is no vocabulary for individual histidine or cysteine states: those are decided per residue and per atom, and the topology file states them exactly. Paired with MOLSIM:002257 has coordinate file path, which records the starting positions."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002256 "has topology file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002256 obo:MOLSIM_002253)
+DataPropertyRange(obo:MOLSIM_002256 xsd:string)
+
+# Data Property: obo:MOLSIM_002257 (has coordinate file path)
+
+Declaration(DataProperty(obo:MOLSIM_002257))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002257 "A relation that associates a molecular dynamics process with the file path or identifier of the coordinate file holding the starting position of every atom, such as an AMBER inpcrd or rst7 file or a GROMACS gro file. Together with the topology file it fixes the exact system state a run began from. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002257 "has coordinate file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002257 obo:MOLSIM_002253)
+DataPropertyRange(obo:MOLSIM_002257 xsd:string)
+
 # ==== ambermeta Tier B native gap closure ====
 # Class: obo:MOLSIM_002192 (initial density)
 
