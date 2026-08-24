@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                2ab35ac3710e5376cd1734c7dea476a191b2bf05b57ced1c251b4cc15848ade2
+CONFIG_HASH=                9485da79af66bb142a8ce05182dfabed52b49bda18d9cd7226315348edc1d074
 
 
 # ----------------------------------------
@@ -187,7 +187,7 @@ all_main: $(MAIN_FILES)
 # ----------------------------------------
 
 
-IMPORTS =  ro iao omo uo so go stato chebi
+IMPORTS =  ro iao omo uo so go stato
 
 IMPORT_ROOTS = $(patsubst %, $(IMPORTDIR)/%_import, $(IMPORTS))
 IMPORT_OWL_FILES = $(foreach n,$(IMPORT_ROOTS), $(n).owl)
@@ -454,14 +454,6 @@ $(IMPORTDIR)/stato_import.owl: $(MIRRORDIR)/stato.owl
 	@echo "       This rule needs to be overwritten in molsim.Makefile!"
 	@false
 
-## Module for ontology: chebi (custom)
-ifeq ($(IMP_LARGE),true)
-$(IMPORTDIR)/chebi_import.owl: 
-	@echo "ERROR: You have configured chebi as a custom module;"
-	@echo "       This rule needs to be overwritten in molsim.Makefile!"
-	@false
-endif # IMP_LARGE=true
-
 endif # IMP=true
 
 .PHONY: refresh-imports
@@ -589,15 +581,6 @@ endif
 mirror-stato: | $(TMPDIR)
 	curl -L $(OBOBASE)/stato.owl --create-dirs -o $(TMPDIR)/stato-download.owl --retry 4 --max-time 200 && \
 	$(ROBOT) convert -i $(TMPDIR)/stato-download.owl -o $(TMPDIR)/$@.owl
-
-
-## ONTOLOGY: chebi
-
-ifeq ($(IMP_LARGE),true)
-mirror-chebi: | $(TMPDIR)
-	curl -L $(OBOBASE)/chebi.owl.gz --create-dirs -o $(MIRRORDIR)/chebi.owl.gz --retry 4 --max-time 200 && \
-	$(ROBOT) convert -i $(MIRRORDIR)/chebi.owl.gz -o $(TMPDIR)/$@.owl
-endif
 
 
 $(MIRRORDIR)/%.owl: mirror-% | $(MIRRORDIR)

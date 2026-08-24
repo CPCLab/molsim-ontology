@@ -44,12 +44,18 @@ import_group:
       module_type: custom
 #    - id: iao
 #      module_type: custom       
-    - id: chebi
-      module_type: custom
+# ChEBI import removed 2026-08-24. It delivered 189 classes and none was ever
+# referenced by a MOLSIM axiom, a parent or a mapping. Aligning MOLSIM's chemistry
+# against ChEBI's ~190,000 terms is out of scope, and the agreed approach records
+# system composition at the system level while pointing at the topology file for the
+# per-residue chemical detail. Re-enable only when a named ChEBI term is genuinely
+# needed as a parent or inside an axiom, and bound the extraction when you do.
+#    - id: chebi
+#      module_type: custom
 #      annotate_defined_by: true
-      mirror_type: no_mirror
-      is_large: TRUE
-      use_gzipped: TRUE
+#      mirror_type: no_mirror
+#      is_large: TRUE
+#      use_gzipped: TRUE
 #    - id: ncit
 #      module_type: custom
 #      mirror_type: no_mirror

@@ -121,14 +121,13 @@ endif # MIR=true
 # the mirror/*.owl sources to be present. Only an actual import refresh (IMP=true,
 # MIR=true) needs the mirrors.
 ifeq ($(IMP),true)
-# NOTE on the two mirrors that are not present locally, measured 2026-08-12.
-# mirror/uo.owl does not exist at all, and the ChEBI mirror is mirror/chebi.owl.gz while
-# the rule below asks for mirror/chebi.owl. Both rules are correct as written and both now
-# depend on their terms file, but neither can be rebuilt offline: make stops with "No rule
-# to make target". This is a cold cache rather than a defect, because the generated
-# Makefile does hold a download rule for each of them, so MIR=true and a network
-# connection restore both. The go and stato rules were tested and both now rebuild when
-# their terms file changes.
+# NOTE on the one mirror that is not present locally, measured 2026-08-12 and still
+# true on 2026-08-24. mirror/uo.owl does not exist, so the uo rule below cannot be
+# rebuilt offline: make stops with "No rule to make target". This is a cold cache
+# rather than a defect, because the generated Makefile holds a download rule for it,
+# so MIR=true and a network connection restore it. The ChEBI rule that shared this
+# problem was deleted on 2026-08-24 together with the import. The go and stato rules
+# were tested and both rebuild when their terms file changes.
 $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 	$(ROBOT) extract --input $< \
 		--method MIREOT \
@@ -165,7 +164,7 @@ $(IMPORTDIR)/uo_import.owl: $(MIRRORDIR)/uo.owl $(IMPORTDIR)/uo_terms.txt
 #
 # The two terms files are listed as prerequisites deliberately. Without them make only
 # compares the module against the mirror, finds the module is newer, and does nothing when
-# you edit a terms list. The uo, go, stato and chebi rules in this file still have that
+# you edit a terms list. The uo, go and stato rules in this file still have that
 # gap, so editing their terms lists needs a forced rebuild.
 $(IMPORTDIR)/so_import.owl: $(MIRRORDIR)/so.owl $(IMPORTDIR)/so_terms.txt $(IMPORTDIR)/so_ss_terms.txt
 	$(ROBOT) extract --input $< \
@@ -200,12 +199,6 @@ $(IMPORTDIR)/stato_import.owl: $(MIRRORDIR)/stato.owl $(IMPORTDIR)/stato_terms.t
 		--method MIREOT \
 		--lower-terms $(IMPORTDIR)/stato_terms.txt \
 		--upper-terms $(IMPORTDIR)/stato_terms.txt \
-		--output $@
-
-$(IMPORTDIR)/chebi_import.owl: $(MIRRORDIR)/chebi.owl $(IMPORTDIR)/chebi_terms.txt
-	$(ROBOT) extract --input $< \
-		--method MIREOT \
-		--lower-terms $(IMPORTDIR)/chebi_terms.txt \
 		--output $@
 
 # IAO: take EXACTLY the requested terms and nothing above them.
