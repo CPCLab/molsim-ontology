@@ -17082,6 +17082,60 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002257 "has coordinate file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002257 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002257 xsd:string)
 
+# Object Property: obo:MOLSIM_002258 (has water model)
+
+Declaration(ObjectProperty(obo:MOLSIM_002258))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002258 "A relation that links a molecular simulation system to the water model used to represent its solvent, such as TIP3P or SPC/E. The choice fixes the geometry and the charges of every water molecule, and it affects properties that depend on the solvent, including diffusion and the strength of hydrogen bonds. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002258 "has water model"@en)
+SubObjectPropertyOf(obo:MOLSIM_002258 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002258 obo:MOLSIM_001887)
+ObjectPropertyRange(obo:MOLSIM_002258 obo:MOLSIM_000014)
+
+# Data Property: obo:MOLSIM_002259 (has cosolvent)
+
+Declaration(DataProperty(obo:MOLSIM_002259))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002259 "A relation that associates a molecular simulation system with any solvent added alongside water, such as urea, glycerol or an alcohol. A cosolvent changes how the solute behaves, and a record that omits it describes a different system from the one that was run. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002259 "This property stores its value as text, because a system may contain more than 1 cosolvent and each may carry a concentration. Values look like \"urea 8 M\" or \"glycerol 30 percent, DMSO 5 percent\". Checking the text follows a fixed shape is a job for SHACL rather than OWL."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002259 "has cosolvent"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_002259 "Holds text rather than pointing at a named class for each substance, and that is a deliberate choice rather than a shortcut. Pointing at named classes would need MOLSIM classes for urea, glycerol, DMSO and every other cosolvent, which is a chemistry vocabulary that ChEBI already provides with roughly 190,000 terms. The ChEBI import was removed on 2026-08-24 because all 189 classes it delivered were unreferenced, and the agreed approach records what a system is made of at the system level while pointing at the topology file for the per-residue chemical detail. The cost of the text form is real: urea, Urea, URE and 8M urea are the same substance and different strings, so a search by substance is unreliable. Revisit only when a specific record must be queried by substance rather than read by a person. The fix then is to import the few named ChEBI terms actually needed, bounded so that no ancestors arrive with them, and change this property to point at those. The same reasoning applies to the data properties MOLSIM:001161 lipid composition and MOLSIM:001162 lipid ratio, which also hold text."@en)
+SubDataPropertyOf(obo:MOLSIM_002259 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002259 xsd:string)
+
+# Data Property: obo:MOLSIM_002260 (has capping group)
+
+Declaration(DataProperty(obo:MOLSIM_002260))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002260 "A relation that associates a molecular simulation system with the chemical groups used to close off the open ends of a protein or peptide chain, such as an acetyl group at the start and an N-methyl amide group at the end. Capping removes the electric charge that a bare chain end would otherwise carry, which matters most for short peptides. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002260 "This property stores its value as text, because a system may cap several chains and each end differently. Values look like \"ACE, NME\" or \"chain A: ACE and NME; chain B: none\". Checking the text follows a fixed shape is a job for SHACL rather than OWL."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002260 "has capping group"@en)
+SubDataPropertyOf(obo:MOLSIM_002260 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002260 xsd:string)
+
+# Data Property: obo:MOLSIM_002261 (has symmetric leaflet composition)
+
+Declaration(DataProperty(obo:MOLSIM_002261))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002261 "A relation that records whether the two layers of a simulated membrane hold the same mixture of lipids as each other. Real cell membranes are usually different on their two sides, so whether a simulation copied that difference or ignored it changes what the results can be said to show. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002261 "has symmetric leaflet composition"@en)
+SubDataPropertyOf(obo:MOLSIM_002261 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002261 xsd:boolean)
+
+# Data Property: obo:MOLSIM_002262 (has membrane dimensions)
+
+Declaration(DataProperty(obo:MOLSIM_002262))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002262 "A relation that associates a molecular simulation system with the size of its membrane patch in the plane of the membrane. The patch must be wide enough that a protein does not feel its own periodic copy across the boundary, so the size limits which conclusions the simulation can support. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002262 "This property stores its value as text, because the size has 2 numbers and a unit. Values look like \"9.5 x 9.5 nm\" or \"120 x 95 angstrom\". It carries no unit restriction for the same reason MOLSIM:001213 periodic box dimensions carries none: the unit and value pattern describes a single number, and a patch size is two. A single length in this domain does take that pattern, as MOLSIM:001875 membrane width does. Checking the text follows a fixed shape is a job for SHACL rather than OWL."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002262 "has membrane dimensions"@en)
+SubDataPropertyOf(obo:MOLSIM_002262 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002262 xsd:string)
+
+# Data Property: obo:MOLSIM_002263 (has lipid clash removal criterion)
+
+Declaration(DataProperty(obo:MOLSIM_002263))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002263 "A relation that associates a molecular simulation system with the rule used to delete lipids that overlapped the protein when the membrane was built. Placing a protein into a lipid patch always leaves some lipids sitting where the protein is, and the rule chosen for removing them decides how many lipids the finished system holds. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002263 "This property stores its value as text, because the rule is usually a short description rather than a single number. Values look like \"lipids with any atom within 0.6 nm of the protein were deleted\" or \"removed by the InflateGRO procedure\". Checking the text follows a fixed shape is a job for SHACL rather than OWL."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002263 "has lipid clash removal criterion"@en)
+SubDataPropertyOf(obo:MOLSIM_002263 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002263 xsd:string)
+
 # ==== ambermeta Tier B native gap closure ====
 # Class: obo:MOLSIM_002192 (initial density)
 
