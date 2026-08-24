@@ -3152,16 +3152,17 @@ SubClassOf(obo:MOLSIM_000029 obo:MOLSIM_000028)
 
 # Class: obo:MOLSIM_000030 (water type)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000030 "Refers to specific parameterizations or types of water models commonly used in biomolecular simulations, often used somewhat interchangeably with 'water model'. Each 'water type' (e.g., SPC, TIP3P, TIP4P-Ew) defines the geometry, number of interaction sites, and associated parameters (charges, Lennard-Jones) for representing water molecules. The choice significantly influences simulation outcomes, particularly solvation effects and dynamics. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000030 "water type"@en)
-SubClassOf(obo:MOLSIM_000030 obo:MOLSIM_000006)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000030 "OBSOLETE. Refers to specific parameterizations or types of water models commonly used in biomolecular simulations, often used somewhat interchangeably with 'water model'. Each 'water type' (e.g., SPC, TIP3P, TIP4P-Ew) defines the geometry, number of interaction sites, and associated parameters (charges, Lennard-Jones) for representing water molecules. The choice significantly influences simulation outcomes, particularly solvation effects and dynamics."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000030 "obsolete water type"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000030 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000030 "Retired 2026-08-24. Its own definition described it as 'often used somewhat interchangeably with water model', and that is what it was: a second home for water models alongside MOLSIM:000014 water model force field, which holds all 18. Its two children were re-parented rather than replaced, so there is no single successor. MOLSIM:000031 optimal point charges moved to MOLSIM:000014 beside OPC3, and MOLSIM:000476 TIP3P water model was retired as a duplicate of MOLSIM:000022 TIP3P.")
 
-# Class: obo:MOLSIM_000031 (optimal point charges)
+# Class: obo:MOLSIM_000031 (OPC)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000031 "Refers to water models, like the TIP series (Transferable Intermolecular Potential), where the partial charges assigned to the interaction sites are specifically optimized during parameter development to best reproduce a set of target experimental properties of liquid water (e.g., density, enthalpy of vaporization, dielectric constant). This optimization aims to improve the accuracy of simulations where water plays a crucial role as a solvent. The 'optimal' nature is relative to the properties targeted during parameterization. (UNVERIFIED)"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000031 "OPC"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000031 "optimal point charges"@en)
-SubClassOf(obo:MOLSIM_000031 obo:MOLSIM_000030)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000031 "A rigid four-site water model whose partial charges and geometry were optimised together to reproduce bulk properties of liquid water, including the density, the heat of vaporisation and the dielectric constant. It reproduces several of those properties more closely than the older three-site and four-site models at a similar computational cost. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000031 "optimal point charges"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000031 "OPC"@en)
+SubClassOf(obo:MOLSIM_000031 obo:MOLSIM_000014)
 
 # Class: obo:MOLSIM_000032 (box type)
 
@@ -3398,9 +3399,11 @@ SubClassOf(obo:MOLSIM_000066 obo:MOLSIM_000065)
 
 # Class: obo:MOLSIM_000067 (water model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000067 "Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000067 "water model"@en)
-SubClassOf(obo:MOLSIM_000067 obo:MOLSIM_000065)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000067 "OBSOLETE. Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000067 "obsolete water model"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000067 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000067 obo:MOLSIM_000014)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000067 "Retired 2026-08-24. It named a water model but held none: all 18 sit under MOLSIM:000014 water model force field, which its own definition pointed at by naming TIP3P, SPC/E and TIP4P-Ew as the parameter sets involved. The distinction it was reaching for, explicit solvation with water specifically, is already carried by MOLSIM:000066 explicit solvent model, whose definition names the same models. It was also asserted disjoint from MOLSIM:000066, which was wrong, since explicit water is a kind of explicit solvent rather than something separate from it.")
 
 # Class: obo:MOLSIM_000068 (implicit solvent model)
 
@@ -6084,9 +6087,11 @@ SubClassOf(obo:MOLSIM_000475 obo:MOLSIM_000229)
 
 # Class: obo:MOLSIM_000476 (TIP3P water model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000476 "A specific, widely used 3-point water model type characterized by its simplicity and computational efficiency (Transferable Intermolecular Potential 3-Point). It places charges on the oxygen and two hydrogen atoms and represents water as a rigid molecule with experimentally derived geometry. While computationally fast, it is known to have limitations in reproducing some properties of real water (like the temperature of maximum density or dielectric constant) compared to more complex models. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000476 "TIP3P water model"@en)
-SubClassOf(obo:MOLSIM_000476 obo:MOLSIM_000030)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000476 "OBSOLETE. A specific, widely used 3-point water model type characterized by its simplicity and computational efficiency (Transferable Intermolecular Potential 3-Point). It places charges on the oxygen and two hydrogen atoms and represents water as a rigid molecule with experimentally derived geometry. While computationally fast, it is known to have limitations in reproducing some properties of real water (like the temperature of maximum density or dielectric constant) compared to more complex models."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000476 "obsolete TIP3P water model"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000476 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000476 obo:MOLSIM_000022)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000476 "Retired 2026-08-24 as a duplicate. MOLSIM:000022 TIP3P describes the same rigid three-site model with charges on the oxygen and two hydrogens, and sits with the other 18 water models under MOLSIM:000014 water model force field. This one sat under the parallel MOLSIM:000030 water type branch, which was retired in the same change.")
 
 # Class: obo:MOLSIM_000477 (CHELPG charge analysis)
 
@@ -17061,6 +17066,23 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002191 "restart file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002191 xsd:string)
 
+# Data Property: obo:MOLSIM_002256 (has topology file path)
+
+Declaration(DataProperty(obo:MOLSIM_002256))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002256 "A relation that associates a molecular dynamics process with the file path or identifier of the topology file defining the simulated system, such as an AMBER prmtop file or a GROMACS top file. The topology file states which atoms are present, how they are bonded, which parameters they were assigned, and which chemical states were assumed when the system was built. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_002256 "MOLSIM records the composition of a simulated system at the system level and points at the topology and coordinate files for the per-residue detail, rather than restating that detail term by term. This is why there is no vocabulary for individual histidine or cysteine states: those are decided per residue and per atom, and the topology file states them exactly. Paired with MOLSIM:002257 has coordinate file path, which records the starting positions."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002256 "has topology file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002256 obo:MOLSIM_002253)
+DataPropertyRange(obo:MOLSIM_002256 xsd:string)
+
+# Data Property: obo:MOLSIM_002257 (has coordinate file path)
+
+Declaration(DataProperty(obo:MOLSIM_002257))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002257 "A relation that associates a molecular dynamics process with the file path or identifier of the coordinate file holding the starting position of every atom, such as an AMBER inpcrd or rst7 file or a GROMACS gro file. Together with the topology file it fixes the exact system state a run began from. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002257 "has coordinate file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002257 obo:MOLSIM_002253)
+DataPropertyRange(obo:MOLSIM_002257 xsd:string)
+
 # ==== ambermeta Tier B native gap closure ====
 # Class: obo:MOLSIM_002192 (initial density)
 
@@ -17311,7 +17333,7 @@ DisjointClasses(obo:MOLSIM_001947 obo:MOLSIM_001948 obo:MOLSIM_001949)
 DisjointClasses(obo:MOLSIM_001936 obo:MOLSIM_001938 obo:MOLSIM_010024)
 # --- models / solvation ---
 # solvation model (MOLSIM_000065) — 10 children
-DisjointClasses(obo:MOLSIM_000066 obo:MOLSIM_000067 obo:MOLSIM_000068 obo:MOLSIM_000069 obo:MOLSIM_000070 obo:MOLSIM_000071 obo:MOLSIM_000072 obo:MOLSIM_001475 obo:MOLSIM_001496 obo:MOLSIM_001535)
+DisjointClasses(obo:MOLSIM_000066 obo:MOLSIM_000068 obo:MOLSIM_000069 obo:MOLSIM_000070 obo:MOLSIM_000071 obo:MOLSIM_000072 obo:MOLSIM_001475 obo:MOLSIM_001496 obo:MOLSIM_001535)
 # implicit solvent model (MOLSIM_000068) — 6 children
 DisjointClasses(obo:MOLSIM_000073 obo:MOLSIM_000270 obo:MOLSIM_000271 obo:MOLSIM_001478 obo:MOLSIM_001516 obo:MOLSIM_001526)
 # radii set (MOLSIM_000272) — 9 children
