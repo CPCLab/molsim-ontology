@@ -9976,12 +9976,27 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001186 "A non-bonded interaction 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001186 "non-bonded method parameter"@en)
 SubClassOf(obo:MOLSIM_001186 obo:MOLSIM_001185)
 
+# Class: obo:MOLSIM_002269 (van der Waals cutoff distance)
+
+Declaration(Class(obo:MOLSIM_002269))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002269 "A non-bonded interaction parameter that specifies the distance beyond which van der Waals interactions are no longer calculated. Several programs set this separately from the electrostatic cut-off so that the two can take different values. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002269 "van der Waals cutoff distance"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002269 "GROMACS 2026.3 Reference Manual, p. 53, entry rvdw, which gives the distance for the LJ or Buckingham cut-off."@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002269 "AMBER 26 Reference Manual, p. 499, entry vdw_cutoff. States that es_cutoff and vdw_cutoff control the cutoffs for vdw and electrostatic direct force interactions separately, that cut must not be given as well, and that vdw_cutoff must be greater than or equal to es_cutoff."@en)
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_002269 "rvdw")
+AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_002269 "vdw_cutoff")
+SubClassOf(obo:MOLSIM_002269 obo:MOLSIM_001185)
+SubClassOf(obo:MOLSIM_002269 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
+SubClassOf(obo:MOLSIM_002269 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
+
 # Class: obo:MOLSIM_001187 (non-bonded cutoff distance)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001187 "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001187 "A non-bonded interaction parameter that specifies the single distance beyond which both van der Waals and electrostatic interactions are no longer calculated directly. Using one distance for both is the common case, and it is the main way to reduce the cost of a simulation. Programs that allow the two to be set separately use a more specific parameter for each. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001187 "non-bonded cutoff distance"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001187 "AMBER 26 Reference Manual, p. 456, entry cut."@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001187 "AMBER 26 Reference Manual, p. 467, card CUT, which names this quantity the non-bonded cutoff distance."@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001187 "NAMD 3.x User's Guide, p. 55, section 5.2.3, entry cutoff. States that the cutoff is the local interaction distance common to both electrostatic and van der Waals calculations."@en)
 AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001187 "cut")
-AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_001187 "rvdw")
 SubClassOf(obo:MOLSIM_001187 obo:MOLSIM_001185)
 SubClassOf(obo:MOLSIM_001187 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
 SubClassOf(obo:MOLSIM_001187 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
@@ -17463,8 +17478,8 @@ SubClassOf(obo:MOLSIM_002205 obo:MOLSIM_002203)
 
 # Class: obo:SO_0100003 (intrinsically unstructured polypeptide region)
 
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:SO_0100003 "intrinsically disordered region"@en)
-AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:SO_0100003 "IDR"@en)
+AnnotationAssertion(Annotation(dcterms:source <http://purl.obolibrary.org/obo/molsim.owl>) oboInOwl:hasExactSynonym obo:SO_0100003 "intrinsically disordered region"@en)
+AnnotationAssertion(Annotation(dcterms:source <http://purl.obolibrary.org/obo/molsim.owl>) oboInOwl:hasExactSynonym obo:SO_0100003 "IDR"@en)
 
 # Class: obo:MOLSIM_002206 (protein functional class label)
 
