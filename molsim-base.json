@@ -61,12 +61,12 @@
         "val" : "Scope note: MOLSIM's boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README."
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-08-21"
+        "val" : "2026-08-28"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-08-21/molsim-base.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-08-28/molsim-base.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000030",
@@ -415,24 +415,26 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000030",
-      "lbl" : "water type",
+      "lbl" : "obsolete water type",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Refers to specific parameterizations or types of water models commonly used in biomolecular simulations, often used somewhat interchangeably with 'water model'. Each 'water type' (e.g., SPC, TIP3P, TIP4P-Ew) defines the geometry, number of interaction sites, and associated parameters (charges, Lennard-Jones) for representing water molecules. The choice significantly influences simulation outcomes, particularly solvation effects and dynamics. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. Refers to specific parameterizations or types of water models commonly used in biomolecular simulations, often used somewhat interchangeably with 'water model'. Each 'water type' (e.g., SPC, TIP3P, TIP4P-Ew) defines the geometry, number of interaction sites, and associated parameters (charges, Lennard-Jones) for representing water molecules. The choice significantly influences simulation outcomes, particularly solvation effects and dynamics."
+        },
+        "comments" : [ "Retired 2026-08-24. Its own definition described it as 'often used somewhat interchangeably with water model', and that is what it was: a second home for water models alongside MOLSIM:000014 water model force field, which holds all 18. Its two children were re-parented rather than replaced, so there is no single successor. MOLSIM:000031 optimal point charges moved to MOLSIM:000014 beside OPC3, and MOLSIM:000476 TIP3P water model was retired as a duplicate of MOLSIM:000022 TIP3P." ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000031",
-      "lbl" : "optimal point charges",
+      "lbl" : "OPC",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Refers to water models, like the TIP series (Transferable Intermolecular Potential), where the partial charges assigned to the interaction sites are specifically optimized during parameter development to best reproduce a set of target experimental properties of liquid water (e.g., density, enthalpy of vaporization, dielectric constant). This optimization aims to improve the accuracy of simulations where water plays a crucial role as a solvent. The 'optimal' nature is relative to the properties targeted during parameterization. (UNVERIFIED)"
+          "val" : "A rigid four-site water model whose partial charges and geometry were optimised together to reproduce bulk properties of liquid water, including the density, the heat of vaporisation and the dielectric constant. It reproduces several of those properties more closely than the older three-site and four-site models at a similar computational cost. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "OPC"
+          "val" : "optimal point charges"
         } ]
       }
     }, {
@@ -902,12 +904,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000067",
-      "lbl" : "water model",
+      "lbl" : "obsolete water model",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions."
+        },
+        "comments" : [ "Retired 2026-08-24. It named a water model but held none: all 18 sit under MOLSIM:000014 water model force field, which its own definition pointed at by naming TIP3P, SPC/E and TIP4P-Ew as the parameter sets involved. The distinction it was reaching for, explicit solvation with water specifically, is already carried by MOLSIM:000066 explicit solvent model, whose definition names the same models. It was also asserted disjoint from MOLSIM:000066, which was wrong, since explicit water is a kind of explicit solvent rather than something separate from it." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000014"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000068",
@@ -5438,12 +5446,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000476",
-      "lbl" : "TIP3P water model",
+      "lbl" : "obsolete TIP3P water model",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A specific, widely used 3-point water model type characterized by its simplicity and computational efficiency (Transferable Intermolecular Potential 3-Point). It places charges on the oxygen and two hydrogen atoms and represents water as a rigid molecule with experimentally derived geometry. While computationally fast, it is known to have limitations in reproducing some properties of real water (like the temperature of maximum density or dielectric constant) compared to more complex models. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A specific, widely used 3-point water model type characterized by its simplicity and computational efficiency (Transferable Intermolecular Potential 3-Point). It places charges on the oxygen and two hydrogen atoms and represents water as a rigid molecule with experimentally derived geometry. While computationally fast, it is known to have limitations in reproducing some properties of real water (like the temperature of maximum density or dielectric constant) compared to more complex models."
+        },
+        "comments" : [ "Retired 2026-08-24 as a duplicate. MOLSIM:000022 TIP3P describes the same rigid three-site model with charges on the oxygen and two hydrogens, and sits with the other 18 water models under MOLSIM:000014 water model force field. This one sat under the parallel MOLSIM:000030 water type branch, which was retired in the same change." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000022"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000477",
@@ -11844,24 +11858,24 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)"
+          "val" : "A non-bonded interaction parameter that specifies the single distance beyond which both van der Waals and electrostatic interactions are no longer calculated directly. Using one distance for both is the common case, and it is the main way to reduce the cost of a simulation. Programs that allow the two to be set separately use a more specific parameter for each. (UNVERIFIED)"
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 456, entry cut."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 467, card CUT, which names this quantity the non-bonded cutoff distance."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "NAMD 3.x User's Guide, p. 55, section 5.2.3, entry cutoff. States that the cutoff is the local interaction distance common to both electrostatic and van der Waals calculations."
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
           "val" : "cut",
           "meta" : {
             "basicPropertyValues" : [ {
               "pred" : "http://purl.org/dc/terms/source",
               "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
-            } ]
-          }
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
-          "val" : "rvdw",
-          "meta" : {
-            "basicPropertyValues" : [ {
-              "pred" : "http://purl.org/dc/terms/source",
-              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
             } ]
           }
         } ]
@@ -22435,6 +22449,97 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002264",
+      "lbl" : "acetyl capping group",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecular termini state in which the N-terminus of a polymer chain is closed off with an acetyl group, so that the end carries no electric charge. Capping this way makes a short peptide behave more like a piece cut from the middle of a longer chain. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "ACE"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002265",
+      "lbl" : "N-methylamide capping group",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecular termini state in which the C-terminus of a polymer chain is closed off with an N-methylamide group, so that the end carries no electric charge. It is the usual partner to an acetyl group at the other end of the chain. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "NME"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002266",
+      "lbl" : "amide capping group",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecular termini state in which the C-terminus of a polymer chain is closed off with a plain amide group, so that the end carries no electric charge. It is a smaller alternative to an N-methylamide cap. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "NHE"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002267",
+      "lbl" : "charged N-terminus",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecular termini state in which the N-terminus of a polymer chain is left uncapped and carries a positive charge, as a free amine group does at the pH of most simulations. This is the usual choice when the chain being simulated is a whole protein rather than a fragment of one. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002268",
+      "lbl" : "charged C-terminus",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A molecular termini state in which the C-terminus of a polymer chain is left uncapped and carries a negative charge, as a free carboxylic acid group does at the pH of most simulations. This is the usual choice when the chain being simulated is a whole protein rather than a fragment of one. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002269",
+      "lbl" : "van der Waals cutoff distance",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A non-bonded interaction parameter that specifies the distance beyond which van der Waals interactions are no longer calculated. Several programs set this separately from the electrostatic cut-off so that the two can take different values. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 499, entry vdw_cutoff. States that es_cutoff and vdw_cutoff control the cutoffs for vdw and electrostatic direct force interactions separately, that cut must not be given as well, and that vdw_cutoff must be greater than or equal to es_cutoff."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROMACS 2026.3 Reference Manual, p. 53, entry rvdw, which gives the distance for the LJ or Buckingham cut-off."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "rvdw",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
+            } ]
+          }
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
+          "val" : "vdw_cutoff",
+          "meta" : {
+            "basicPropertyValues" : [ {
+              "pred" : "http://purl.org/dc/terms/source",
+              "val" : "http://purl.obolibrary.org/obo/MOLSIM_000217"
+            } ]
+          }
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -22962,6 +23067,30 @@
         "definition" : {
           "val" : "A relation that links a molecular dynamics process to the simulation protocol it was carried out according to. The protocol is the reusable plan and the process is one execution of it, so a single protocol may be followed by many runs. (UNVERIFIED)"
         }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002258",
+      "lbl" : "has water model",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that links a molecular simulation system to the water model used to represent its solvent, such as TIP3P or SPC/E. The choice fixes the geometry and the charges of every water molecule, and it affects properties that depend on the solvent, including diffusion and the strength of hydrogen bonds. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002260",
+      "lbl" : "has termini state",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that links a molecular simulation system to the chemical state chosen for the ends of its polymer chains, whether each end was closed off with a capping group or left uncapped and carrying a charge. The choice changes the total charge of the system, and it matters most for short peptides, where the two ends are a large part of the whole molecule. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has capping group"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000004",
@@ -24146,6 +24275,77 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002256",
+      "lbl" : "has topology file path",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular dynamics process with the file path or identifier of the topology file defining the simulated system, such as an AMBER prmtop file or a GROMACS top file. The topology file states which atoms are present, how they are bonded, which parameters they were assigned, and which chemical states were assumed when the system was built. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "MOLSIM records the composition of a simulated system at the system level and points at the topology and coordinate files for the per-residue detail, rather than restating that detail term by term. This is why there is no vocabulary for individual histidine or cysteine states: those are decided per residue and per atom, and the topology file states them exactly. Paired with MOLSIM:002257 has coordinate file path, which records the starting positions."
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002257",
+      "lbl" : "has coordinate file path",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular dynamics process with the file path or identifier of the coordinate file holding the starting position of every atom, such as an AMBER inpcrd or rst7 file or a GROMACS gro file. Together with the topology file it fixes the exact system state a run began from. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002259",
+      "lbl" : "has cosolvent",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular simulation system with any solvent added alongside water, such as urea, glycerol or an alcohol. A cosolvent changes how the solute behaves, and a record that omits it describes a different system from the one that was run. (UNVERIFIED)"
+        },
+        "comments" : [ "This property stores its value as text, because a system may contain more than 1 cosolvent and each may carry a concentration. Values look like \"urea 8 M\" or \"glycerol 30 percent, DMSO 5 percent\". Checking the text follows a fixed shape is a job for SHACL rather than OWL." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Holds text rather than pointing at a named class for each substance, and that is a deliberate choice rather than a shortcut. Pointing at named classes would need MOLSIM classes for urea, glycerol, DMSO and every other cosolvent, which is a chemistry vocabulary that ChEBI already provides with roughly 190,000 terms. The ChEBI import was removed on 2026-08-24 because all 189 classes it delivered were unreferenced, and the agreed approach records what a system is made of at the system level while pointing at the topology file for the per-residue chemical detail. The cost of the text form is real: urea, Urea, URE and 8M urea are the same substance and different strings, so a search by substance is unreliable. Revisit only when a specific record must be queried by substance rather than read by a person. The fix then is to import the few named ChEBI terms actually needed, bounded so that no ancestors arrive with them, and change this property to point at those. The same reasoning applies to the data properties MOLSIM:001161 lipid composition and MOLSIM:001162 lipid ratio, which also hold text."
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002261",
+      "lbl" : "has symmetric leaflet composition",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that records whether the two layers of a simulated membrane hold the same mixture of lipids as each other. Real cell membranes are usually different on their two sides, so whether a simulation copied that difference or ignored it changes what the results can be said to show. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002262",
+      "lbl" : "has membrane dimensions",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular simulation system with the size of its membrane patch in the plane of the membrane. The patch must be wide enough that a protein does not feel its own periodic copy across the boundary, so the size limits which conclusions the simulation can support. (UNVERIFIED)"
+        },
+        "comments" : [ "This property stores its value as text, because the size has 2 numbers and a unit. Values look like \"9.5 x 9.5 nm\" or \"120 x 95 angstrom\". It carries no unit restriction for the same reason MOLSIM:001213 periodic box dimensions carries none: the unit and value pattern describes a single number, and a patch size is two. A single length in this domain does take that pattern, as MOLSIM:001875 membrane width does. Checking the text follows a fixed shape is a job for SHACL rather than OWL." ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002263",
+      "lbl" : "has lipid clash removal criterion",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular simulation system with the rule used to delete lipids that overlapped the protein when the membrane was built. Placing a protein into a lipid patch always leaves some lipids sitting where the protein is, and the rule chosen for removing them decides how many lipids the finished system holds. (UNVERIFIED)"
+        },
+        "comments" : [ "This property stores its value as text, because the rule is usually a short description rather than a single number. Values look like \"lipids with any atom within 0.6 nm of the protein were deleted\" or \"removed by the InflateGRO procedure\". Checking the text follows a fixed shape is a job for SHACL rather than OWL." ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000723",
       "lbl" : "PDB",
       "type" : "INDIVIDUAL",
@@ -24987,13 +25187,9 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000028"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000030",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000031",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000030"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000014"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000032",
       "pred" : "is_a",
@@ -25128,10 +25324,6 @@
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000066",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000065"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000067",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000065"
     }, {
@@ -26750,10 +26942,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000475",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000229"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000476",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000477",
       "pred" : "is_a",
@@ -33019,6 +33207,30 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002264",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001214"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002265",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001214"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002266",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001214"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002267",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001214"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002268",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001214"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002269",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
@@ -33478,6 +33690,14 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002250",
       "pred" : "subPropertyOf",
       "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002258",
+      "pred" : "subPropertyOf",
+      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002260",
+      "pred" : "subPropertyOf",
+      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
     } ],
     "domainRangeAxioms" : [ {
       "predicateId" : "http://purl.obolibrary.org/obo/IAO_0000039",
@@ -33881,6 +34101,10 @@
         "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002192",
         "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
         "obj" : "http://purl.obolibrary.org/obo/UO_0000052"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002269",
+        "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
+        "obj" : "http://purl.obolibrary.org/obo/UO_0000001"
       } ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_000297",
@@ -33950,6 +34174,14 @@
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002250",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000000" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_002155" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002258",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000014" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002260",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001214" ]
     } ]
   } ]
 }
