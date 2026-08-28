@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-08-21/molsim-base.owl
+data-version: molsim/releases/2026-08-28/molsim-base.owl
 default-namespace: molsim
 idspace: dc http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -26,7 +26,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by/4.0/
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-08-21" xsd:string
+property_value: owl:versionInfo "2026-08-28" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -236,16 +236,17 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:000030
-name: water type
-def: "Refers to specific parameterizations or types of water models commonly used in biomolecular simulations, often used somewhat interchangeably with 'water model'. Each 'water type' (e.g., SPC, TIP3P, TIP4P-Ew) defines the geometry, number of interaction sites, and associated parameters (charges, Lennard-Jones) for representing water molecules. The choice significantly influences simulation outcomes, particularly solvation effects and dynamics. (UNVERIFIED)" []
-is_a: MOLSIM:000006 ! model
+name: obsolete water type
+def: "OBSOLETE. Refers to specific parameterizations or types of water models commonly used in biomolecular simulations, often used somewhat interchangeably with 'water model'. Each 'water type' (e.g., SPC, TIP3P, TIP4P-Ew) defines the geometry, number of interaction sites, and associated parameters (charges, Lennard-Jones) for representing water molecules. The choice significantly influences simulation outcomes, particularly solvation effects and dynamics." []
+comment: Retired 2026-08-24. Its own definition described it as 'often used somewhat interchangeably with water model', and that is what it was: a second home for water models alongside MOLSIM:000014 water model force field, which holds all 18. Its two children were re-parented rather than replaced, so there is no single successor. MOLSIM:000031 optimal point charges moved to MOLSIM:000014 beside OPC3, and MOLSIM:000476 TIP3P water model was retired as a duplicate of MOLSIM:000022 TIP3P.
+is_obsolete: true
 
 [Term]
 id: MOLSIM:000031
-name: optimal point charges
-def: "Refers to water models, like the TIP series (Transferable Intermolecular Potential), where the partial charges assigned to the interaction sites are specifically optimized during parameter development to best reproduce a set of target experimental properties of liquid water (e.g., density, enthalpy of vaporization, dielectric constant). This optimization aims to improve the accuracy of simulations where water plays a crucial role as a solvent. The 'optimal' nature is relative to the properties targeted during parameterization. (UNVERIFIED)" []
-synonym: "OPC" EXACT []
-is_a: MOLSIM:000030 ! water type
+name: OPC
+def: "A rigid four-site water model whose partial charges and geometry were optimised together to reproduce bulk properties of liquid water, including the density, the heat of vaporisation and the dielectric constant. It reproduces several of those properties more closely than the older three-site and four-site models at a similar computational cost. (UNVERIFIED)" []
+synonym: "optimal point charges" EXACT []
+is_a: MOLSIM:000014 ! water model force field
 
 [Term]
 id: MOLSIM:000032
@@ -490,13 +491,15 @@ id: MOLSIM:000066
 name: explicit solvent model
 def: "A solvation model where individual solvent molecules (e.g., water molecules represented by a specific water model like TIP3P or SPC/E) are explicitly included in the simulation system alongside the solute molecule(s). This approach provides the most detailed, atomistic representation of solute-solvent interactions, capturing specific hydrogen bonding patterns, local solvent structure, and dynamic effects. However, it significantly increases the system size and computational expense due to the large number of solvent particles that must be simulated. (UNVERIFIED)" []
 is_a: MOLSIM:000065 ! solvation model
-disjoint_from: MOLSIM:000067 ! water model
+disjoint_from: MOLSIM:000068 ! implicit solvent model
 
 [Term]
 id: MOLSIM:000067
-name: water model
-def: "Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions. (UNVERIFIED)" []
-is_a: MOLSIM:000065 ! solvation model
+name: obsolete water model
+def: "OBSOLETE. Within the context of solvation models, this typically refers to the use of an explicit solvent model where the solvent is specifically water, represented using a particular force field parameter set (e.g., TIP3P, SPC/E, TIP4P-Ew). This distinguishes it from implicit solvation approaches or explicit simulations using non-aqueous solvents. The term emphasizes that water molecules are being directly simulated using a chosen set of parameters defining their interactions." []
+comment: Retired 2026-08-24. It named a water model but held none: all 18 sit under MOLSIM:000014 water model force field, which its own definition pointed at by naming TIP3P, SPC/E and TIP4P-Ew as the parameter sets involved. The distinction it was reaching for, explicit solvation with water specifically, is already carried by MOLSIM:000066 explicit solvent model, whose definition names the same models. It was also asserted disjoint from MOLSIM:000066, which was wrong, since explicit water is a kind of explicit solvent rather than something separate from it.
+is_obsolete: true
+replaced_by: MOLSIM:000014
 
 [Term]
 id: MOLSIM:000068
@@ -3240,9 +3243,11 @@ is_a: MOLSIM:000229 ! resolution-based simulation method
 
 [Term]
 id: MOLSIM:000476
-name: TIP3P water model
-def: "A specific, widely used 3-point water model type characterized by its simplicity and computational efficiency (Transferable Intermolecular Potential 3-Point). It places charges on the oxygen and two hydrogen atoms and represents water as a rigid molecule with experimentally derived geometry. While computationally fast, it is known to have limitations in reproducing some properties of real water (like the temperature of maximum density or dielectric constant) compared to more complex models. (UNVERIFIED)" []
-is_a: MOLSIM:000030 ! water type
+name: obsolete TIP3P water model
+def: "OBSOLETE. A specific, widely used 3-point water model type characterized by its simplicity and computational efficiency (Transferable Intermolecular Potential 3-Point). It places charges on the oxygen and two hydrogen atoms and represents water as a rigid molecule with experimentally derived geometry. While computationally fast, it is known to have limitations in reproducing some properties of real water (like the temperature of maximum density or dielectric constant) compared to more complex models." []
+comment: Retired 2026-08-24 as a duplicate. MOLSIM:000022 TIP3P describes the same rigid three-site model with charges on the oxygen and two hydrogens, and sits with the other 18 water models under MOLSIM:000014 water model force field. This one sat under the parallel MOLSIM:000030 water type branch, which was retired in the same change.
+is_obsolete: true
+replaced_by: MOLSIM:000022
 
 [Term]
 id: MOLSIM:000477
@@ -7161,11 +7166,13 @@ is_a: MOLSIM:001185 ! non-bonded interaction parameter
 [Term]
 id: MOLSIM:001187
 name: non-bonded cutoff distance
-def: "A non-bonded interaction parameter that specifies the distance beyond which direct van der Waals and electrostatic interactions are not calculated. Using a non-bonded cutoff distance is the primary way to reduce the computational cost of a simulation. Its value must be chosen carefully to balance accuracy and speed. This is often set with the keyword cut or rvdw. (UNVERIFIED)" []
+def: "A non-bonded interaction parameter that specifies the single distance beyond which both van der Waals and electrostatic interactions are no longer calculated directly. Using one distance for both is the common case, and it is the main way to reduce the cost of a simulation. Programs that allow the two to be set separately use a more specific parameter for each. (UNVERIFIED)" []
 is_a: MOLSIM:001185 ! non-bonded interaction parameter
 relationship: IAO:0000039 UO:0000001 {all_only="true"}
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 456, entry cut." xsd:string
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 467, card CUT, which names this quantity the non-bonded cutoff distance." xsd:string
+property_value: IAO:0000119 "NAMD 3.x User's Guide, p. 55, section 5.2.3, entry cutoff. States that the cutoff is the local interaction distance common to both electrostatic and van der Waals calculations." xsd:string
 property_value: MOLSIM:002254 "cut" xsd:string {dcterms:source="MOLSIM:000217"}
-property_value: MOLSIM:002254 "rvdw" xsd:string {dcterms:source="MOLSIM:000247"}
 
 [Term]
 id: MOLSIM:001188
@@ -13644,6 +13651,50 @@ def: "A state that a molecule or molecular system occupies, characterised by its
 is_a: MOLSIM:000006 ! model
 
 [Term]
+id: MOLSIM:002264
+name: acetyl capping group
+def: "A molecular termini state in which the N-terminus of a polymer chain is closed off with an acetyl group, so that the end carries no electric charge. Capping this way makes a short peptide behave more like a piece cut from the middle of a longer chain. (UNVERIFIED)" []
+synonym: "ACE" EXACT []
+is_a: MOLSIM:001214 ! molecular termini state
+
+[Term]
+id: MOLSIM:002265
+name: N-methylamide capping group
+def: "A molecular termini state in which the C-terminus of a polymer chain is closed off with an N-methylamide group, so that the end carries no electric charge. It is the usual partner to an acetyl group at the other end of the chain. (UNVERIFIED)" []
+synonym: "NME" EXACT []
+is_a: MOLSIM:001214 ! molecular termini state
+
+[Term]
+id: MOLSIM:002266
+name: amide capping group
+def: "A molecular termini state in which the C-terminus of a polymer chain is closed off with a plain amide group, so that the end carries no electric charge. It is a smaller alternative to an N-methylamide cap. (UNVERIFIED)" []
+synonym: "NHE" EXACT []
+is_a: MOLSIM:001214 ! molecular termini state
+
+[Term]
+id: MOLSIM:002267
+name: charged N-terminus
+def: "A molecular termini state in which the N-terminus of a polymer chain is left uncapped and carries a positive charge, as a free amine group does at the pH of most simulations. This is the usual choice when the chain being simulated is a whole protein rather than a fragment of one. (UNVERIFIED)" []
+is_a: MOLSIM:001214 ! molecular termini state
+
+[Term]
+id: MOLSIM:002268
+name: charged C-terminus
+def: "A molecular termini state in which the C-terminus of a polymer chain is left uncapped and carries a negative charge, as a free carboxylic acid group does at the pH of most simulations. This is the usual choice when the chain being simulated is a whole protein rather than a fragment of one. (UNVERIFIED)" []
+is_a: MOLSIM:001214 ! molecular termini state
+
+[Term]
+id: MOLSIM:002269
+name: van der Waals cutoff distance
+def: "A non-bonded interaction parameter that specifies the distance beyond which van der Waals interactions are no longer calculated. Several programs set this separately from the electrostatic cut-off so that the two can take different values. (UNVERIFIED)" []
+is_a: MOLSIM:001185 ! non-bonded interaction parameter
+relationship: IAO:0000039 UO:0000001 {all_only="true"}
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 499, entry vdw_cutoff. States that es_cutoff and vdw_cutoff control the cutoffs for vdw and electrostatic direct force interactions separately, that cut must not be given as well, and that vdw_cutoff must be greater than or equal to es_cutoff." xsd:string
+property_value: IAO:0000119 "GROMACS 2026.3 Reference Manual, p. 53, entry rvdw, which gives the distance for the LJ or Buckingham cut-off." xsd:string
+property_value: MOLSIM:002254 "rvdw" xsd:string {dcterms:source="MOLSIM:000247"}
+property_value: MOLSIM:002254 "vdw_cutoff" xsd:string {dcterms:source="MOLSIM:000217"}
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second. (UNVERIFIED)" []
@@ -13941,4 +13992,19 @@ name: follows protocol
 def: "A relation that links a molecular dynamics process to the simulation protocol it was carried out according to. The protocol is the reusable plan and the process is one execution of it, so a single protocol may be followed by many runs. (UNVERIFIED)" []
 domain: MOLSIM:000000 ! molecular dynamics process
 range: MOLSIM:002155 ! simulation protocol
+
+[Typedef]
+id: MOLSIM:002258
+name: has water model
+def: "A relation that links a molecular simulation system to the water model used to represent its solvent, such as TIP3P or SPC/E. The choice fixes the geometry and the charges of every water molecule, and it affects properties that depend on the solvent, including diffusion and the strength of hydrogen bonds. (UNVERIFIED)" []
+domain: MOLSIM:001887 ! molecular simulation system
+range: MOLSIM:000014 ! water model force field
+
+[Typedef]
+id: MOLSIM:002260
+name: has termini state
+def: "A relation that links a molecular simulation system to the chemical state chosen for the ends of its polymer chains, whether each end was closed off with a capping group or left uncapped and carrying a charge. The choice changes the total charge of the system, and it matters most for short peptides, where the two ends are a large part of the whole molecule. (UNVERIFIED)" []
+synonym: "has capping group" EXACT []
+domain: MOLSIM:001887 ! molecular simulation system
+range: MOLSIM:001214 ! molecular termini state
 
