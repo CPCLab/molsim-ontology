@@ -46,7 +46,7 @@ The primary goal of this ontology is to standardize the representation of molecu
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | **Prefix**               | `MOLSIM`                                                                                                           |
 | **Namespace**            | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                           |
-| **Size**                 | 2,043 live classes · 114 data properties · 17 object properties · 70 live named individuals (2,273 terms declared, 29 retired) |
+| **Size**                 | 2,047 live classes · 119 live data properties · 19 live object properties · 70 live named individuals (2,288 terms declared, 32 retired) |
 | **Hierarchy**            | Domain-oriented, aligned with **COB** since 2026-08-12 (see [Ontology Alignment](#ontology-alignment-what-we-reuse-and-what-we-align-to)) |
 | **Management**           | ODK (Ontology Development Kit) + ROBOT, reasoned with ELK                                                          |
 | **Source serialization** | OWL Functional Syntax: [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl)                              |
@@ -156,7 +156,7 @@ Development is conducted in the `src` directory. Editors should work with the so
 Until the official OBO PURL is active, you can access the latest compiled version of the ontology directly from this repository:
 
 * [`molsim.owl` (Latest Snapshot)](molsim.owl)
-* The .obo release does not include MOLSIM's 114 data properties or its 70 named individuals: the OBO format cannot represent data properties, and named individuals are dropped in conversion, so the .obo file is a class-only view. Use the OWL or JSON release if you need the full ontology.
+* The .obo release does not include MOLSIM's 119 live data properties or its 70 live named individuals: the OBO format cannot represent data properties, and named individuals are dropped in conversion, so the .obo file is a class-only view. Use the OWL or JSON release if you need the full ontology.
 
 ## Contributing
 
