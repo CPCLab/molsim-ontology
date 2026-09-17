@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-08-28/molsim-full.owl
+data-version: molsim/releases/2026-09-17/molsim-full.owl
 default-namespace: molsim
 idspace: dc http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -7,6 +7,7 @@ idspace: foaf http://xmlns.com/foaf/0.1/
 idspace: oboInOwl http://www.geneontology.org/formats/oboInOwl# 
 idspace: orcid https://orcid.org/ 
 idspace: protege http://protege.stanford.edu/plugins/owl/protege# 
+idspace: skos http://www.w3.org/2004/02/skos/core# 
 remark: AI assistance disclosure: initial drafts of the term definitions in this ontology were produced with the assistance of large language models, primarily Google Gemini, with further drafting and curation support from Anthropic Claude; all drafts were then curated and reviewed by humans. Verification status is recorded per term and is machine-readable: a term carrying an IAO:0000117 (term editor) annotation has been checked by the named domain expert, whose ORCID is given; a definition whose text still ends with the marker (UNVERIFIED) has not yet been reviewed by a domain expert and should be treated as a draft. Terms marked owl:deprecated are retired and are exempt from verification.
 remark: Release-format note: the OWL and JSON products (molsim.owl, molsim.json and their -base/-full variants) are the complete and canonical releases. The OBO-format product (molsim.obo) is a CLASS-ONLY VIEW: OBO 1.2 cannot represent datatype properties, and named individuals are not carried through the conversion, so the data properties (per-species composition counts, boolean flags, serialised arrays) and the named individuals of this ontology are absent from it. The class hierarchy, definitions, synonyms and object properties in molsim.obo are complete and correct. Use the OWL or JSON release if you need the full content.
 remark: Scope note: MOLSIM's boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README.
@@ -25,7 +26,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by/4.0/
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-08-28" xsd:string
+property_value: owl:versionInfo "2026-09-17" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -549,6 +550,7 @@ id: MOLSIM:000063
 name: covalent interaction
 def: "Interactions resulting from the sharing of valence electrons between atoms, forming stable chemical bonds (e.g., C-C, C-N, C-O, S-S) that define the fundamental connectivity and constitution of a molecule. In classical biomolecular simulations using force fields, covalent bonds, along with bond angles and dihedral angles defining local geometry, are usually represented by potential energy terms (e.g., harmonic springs, periodic functions) that maintain the molecular structure, rather than allowing bonds to form or break dynamically (which requires QM or reactive force fields). These are the strongest interactions within molecules (>50 kcal/mol). (UNVERIFIED)" []
 is_a: MOLSIM:000057 ! interaction type
+property_value: skos:closeMatch NCIT:C41573
 
 [Term]
 id: MOLSIM:000064
@@ -744,12 +746,14 @@ id: MOLSIM:000093
 name: genetic algorithm
 def: "A class of heuristic optimization algorithms inspired by the process of natural selection and evolution. They maintain a population of candidate solutions (chromosomes) that evolve over generations through processes like selection, crossover (recombination), and mutation, guided by a fitness function that evaluates solution quality. Genetic algorithms are often used for complex optimization problems where exact methods are infeasible. (UNVERIFIED)" []
 is_a: MOLSIM:000087 ! optimal transformation path algorithm
+property_value: skos:exactMatch KISAO_0000506
 
 [Term]
 id: MOLSIM:000094
 name: simulated annealing algorithm
 def: "A probabilistic heuristic algorithm used for finding the global optimum of a function in a large search space, inspired by the annealing process in metallurgy. It starts with an initial solution and iteratively explores neighboring solutions, accepting worse solutions with a probability that decreases over time (controlled by a \"temperature\" parameter), allowing it to escape local optima. It is a metaheuristic for global optimization. (UNVERIFIED)" []
 is_a: MOLSIM:000087 ! optimal transformation path algorithm
+property_value: skos:exactMatch KISAO_0000503
 
 [Term]
 id: MOLSIM:000095
@@ -939,6 +943,7 @@ name: principal component analysis
 def: "Principal Component Analysis (PCA) is a statistical dimensionality reduction technique that identifies the principal components – orthogonal directions along which the variance in a dataset is maximized. By projecting the data onto the first few principal components, which capture the largest amount of variance, PCA reduces dimensionality while preserving the most significant patterns of variation. In simulations, it's often used to identify dominant collective motions from atomic trajectories. (UNVERIFIED)" []
 synonym: "PCA" EXACT []
 is_a: MOLSIM:000120 ! dimensionality reduction technique analysis
+property_value: skos:closeMatch OBI:0200051
 
 [Term]
 id: MOLSIM:000122
@@ -965,6 +970,7 @@ id: MOLSIM:000125
 name: Kolmogorov-Smirnov test analysis
 def: "The Kolmogorov-Smirnov (KS) test is a non-parametric statistical test used to determine if two underlying one-dimensional probability distributions differ, or if a sample of data comes from a specific reference probability distribution. It quantifies the maximum distance between the empirical distribution function of the sample(s) and the cumulative distribution function of the reference distribution or the other sample. It is sensitive to differences in location, scale, and shape. (UNVERIFIED)" []
 is_a: MOLSIM:000124 ! statistical test analysis
+property_value: skos:closeMatch STATO:0000083
 
 [Term]
 id: MOLSIM:000126
@@ -1185,6 +1191,7 @@ def: "A text-based file format from the Amber software that stores the movement 
 synonym: "AMBER mdcrd format" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
+property_value: skos:exactMatch format:3878
 
 [Term]
 id: MOLSIM:000160
@@ -1479,6 +1486,7 @@ def: "X-ray crystallography is an experimental technique that determines the thr
 synonym: "X-ray" EXACT []
 is_a: MOLSIM:000200 ! protein structure determination method
 disjoint_from: MOLSIM:000202 ! nuclear magnetic resonance
+property_value: skos:closeMatch NCIT:C17672
 
 [Term]
 id: MOLSIM:000202
@@ -1487,6 +1495,7 @@ def: "Nuclear Magnetic Resonance (NMR) spectroscopy is an experimental technique
 synonym: "NMR" EXACT []
 is_a: MOLSIM:000200 ! protein structure determination method
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: skos:closeMatch CHMO:0000591
 
 [Term]
 id: MOLSIM:000203
@@ -1494,6 +1503,7 @@ name: cryogenic electron microscopy
 def: "Cryogenic electron microscopy (Cryo-EM) is an experimental technique that determines the structure of molecules and complexes by imaging samples rapidly frozen in a thin layer of vitreous (non-crystalline) ice using an electron microscope. Sophisticated image processing techniques are used to average images of thousands or millions of individual particles to reconstruct a high-resolution three-dimensional density map. Cryo-EM is particularly powerful for large, flexible complexes that are difficult to crystallize. (UNVERIFIED)" []
 synonym: "Cryo-EM" EXACT []
 is_a: MOLSIM:000200 ! protein structure determination method
+property_value: skos:exactMatch CHMO:0002413
 
 [Term]
 id: MOLSIM:000204
@@ -2193,6 +2203,7 @@ def: "A widely used free software environment and programming language specifica
 is_a: MOLSIM:000306 ! statistical package
 is_a: MOLSIM:001659 ! programming language
 disjoint_from: MOLSIM:001660 ! NAB
+property_value: skos:closeMatch SWO:0000415
 
 [Term]
 id: MOLSIM:000308
@@ -2263,12 +2274,14 @@ name: JSON format
 def: "JSON (JavaScript Object Notation) is a lightweight, text-based data interchange format consisting of attribute-value pairs and array data types. It is widely used in computational workflows for serializing structured data, such as simulation configuration settings, molecular metadata, or API responses from database web servers, offering a simpler and more compact alternative to XML. (UNVERIFIED)" []
 is_a: MOLSIM:000910 ! general data format
 disjoint_from: MOLSIM:000318 ! YAML format
+property_value: skos:exactMatch format:3464
 
 [Term]
 id: MOLSIM:000318
 name: YAML format
 def: "YAML is a human-readable data serialization format that relies on indentation to define structure, making it exceptionally easy to read and edit. In the context of computational chemistry, it is frequently employed for configuration files, defining software environments (e.g., Conda), and specifying parameters for automated simulation workflows and pipelines. (UNVERIFIED)" []
 is_a: MOLSIM:000910 ! general data format
+property_value: skos:exactMatch format:3750
 
 [Term]
 id: MOLSIM:000319
@@ -2287,6 +2300,7 @@ id: MOLSIM:000321
 name: pickle format
 def: "The pickle format is a Python-specific binary serialization format used to convert Python object hierarchies into a byte stream. In computational chemistry pipelines, it is frequently used to persist complex data structures, such as machine learning models, analysis results, or system states, allowing them to be saved to disk and reloaded later. (UNVERIFIED)" []
 is_a: MOLSIM:000910 ! general data format
+property_value: skos:exactMatch format:4002
 
 [Term]
 id: MOLSIM:000322
@@ -2489,10 +2503,13 @@ is_obsolete: true
 [Term]
 id: MOLSIM:000352
 name: binpos format
-def: "A binary file format that stores atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the \"Scripps 'binpos' format\" and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD. (UNVERIFIED)" []
+def: "A binary file format that stores atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the Scripps Research Institute BinPos format and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD. (UNVERIFIED)" []
 synonym: ".binpos" EXACT []
 synonym: "Scripps binpos format" EXACT []
+synonym: "Scripps Research Institute BinPos" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
+property_value: IAO:0000119 "EDAM 1.25, class format_3885 BinPos (http://edamontology.org/format_3885), which names the Scripps Research Institute as the originator of the format. Wording is MOLSIM's own; EDAM is CC BY-SA 4.0." xsd:string
+property_value: skos:exactMatch format:3885
 
 [Term]
 id: MOLSIM:000353
@@ -2810,6 +2827,7 @@ id: MOLSIM:000400
 name: statistical analysis
 def: "Statistical methods are techniques grounded in mathematical probability theory used for collecting, analyzing, interpreting, presenting, and drawing conclusions from data. In biomolecular simulation, they are essential for processing simulation outputs, assessing uncertainty, testing hypotheses, and validating models against experimental observations. These methods help extract meaningful signals from inherently noisy or complex simulation data. (UNVERIFIED)" []
 is_a: MOLSIM:000367 ! numerical analysis
+property_value: skos:closeMatch operation:2238
 
 [Term]
 id: MOLSIM:000401
@@ -2858,6 +2876,7 @@ id: MOLSIM:000407
 name: optimization algorithm
 def: "An optimization algorithm is a procedure that systematically searches for the best possible solution from a set of available alternatives, typically by finding the input values that result in the minimum or maximum of a given function. In molecular simulation, these algorithms are used to find the lowest energy conformation of a molecule or to determine the most likely transition pathway. For experts, the choice of optimization algorithm can greatly affect the efficiency and success of finding a solution. (UNVERIFIED)" []
 is_a: MOLSIM:000037 ! algorithm
+property_value: skos:closeMatch KISAO_0000552
 
 [Term]
 id: MOLSIM:000408
@@ -3070,6 +3089,7 @@ name: NMR data format
 def: "A category of data formats for files containing information derived from Nuclear Magnetic Resonance (NMR) experiments. These formats are used to store and exchange experimental data, such as structural restraints, that can be used in simulations." []
 is_a: MOLSIM:000436 ! data format
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
+property_value: skos:closeMatch format:3824
 
 [Term]
 id: MOLSIM:000441
@@ -3107,23 +3127,26 @@ name: mmCIF format
 def: "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
 disjoint_from: MOLSIM:000446 ! PDB format
+property_value: skos:exactMatch format:1477
 
 [Term]
 id: MOLSIM:000446
 name: PDB format
 def: "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
+property_value: skos:exactMatch format:1476
 
 [Term]
 id: MOLSIM:000447
 name: identifier
 def: "An identifier is a unique name, code, or label assigned to a specific entity, data record, or concept to distinguish it unambiguously from others within a given context. In scientific databases and computational workflows, identifiers (like accession numbers or unique IDs) are crucial for referencing, retrieving, and linking specific pieces of information accurately. They serve as unique addresses for data points or objects. (UNVERIFIED)" []
+property_value: skos:closeMatch IAO:0020000
 
 [Term]
 id: MOLSIM:000448
 name: obsolete protein database ID
 def: "OBSOLETE. A protein database ID is a unique alphanumeric code assigned to each entry in a public protein structure or sequence database, such as the Protein Data Bank (PDB ID, e.g., '1TIM') or UniProt (accession number, e.g., 'P00761'). These identifiers serve as the standard way to reference and retrieve specific protein structures or sequence information." []
-comment: Retired 2026-08-07 on review by Daniel Beltran Anadon. Two objections, both accepted. First, the Protein Data Bank is not a protein database: it holds nucleic acids, protein-nucleic acid complexes and other assemblies, so the label and definition made a claim that is simply false. Second, a PDB entry identifies a deposited structure while a UniProt accession identifies a sequence record, so grouping them said less than it appeared to. Its two children, MOLSIM:000686 PDB ID and MOLSIM:000687 Uniprot ID, were re-parented to MOLSIM:000447 identifier alongside the other identifiers. No IAO:0100001 successor, because there is no single term that replaces it; this is the same shape as the other retired grouping terms whose children were re-parented instead. Note the term had been verified by orcid:0000-0003-4177-3619 before this review.
+comment: Retired 2026-08-07 on review by orcid:0000-0002-2294-5393. Two objections, both accepted. First, the Protein Data Bank is not a protein database: it holds nucleic acids, protein-nucleic acid complexes and other assemblies, so the label and definition made a claim that is simply false. Second, a PDB entry identifies a deposited structure while a UniProt accession identifies a sequence record, so grouping them said less than it appeared to. Its two children, MOLSIM:000686 PDB ID and MOLSIM:000687 UniProt ID, were re-parented to MOLSIM:000447 identifier alongside the other identifiers. No IAO:0100001 successor, because there is no single term that replaces it; this is the same shape as the other retired grouping terms whose children were re-parented instead. Note the term had been verified by orcid:0000-0003-4177-3619 before this review.
 is_obsolete: true
 
 [Term]
@@ -3158,6 +3181,7 @@ name: nucleic acid structure analysis
 def: "Nucleic acid structure analysis is a specialized type of structural analysis that calculates a set of parameters describing the detailed geometry of a DNA or RNA helix, known as the helical parameters. This includes parameters that describe the geometry of individual base pairs as well as the relationship between adjacent base pairs, such as twist, roll, and slide." []
 is_a: MOLSIM:000917 ! structural analysis
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
+property_value: skos:closeMatch operation:2481
 
 [Term]
 id: MOLSIM:000454
@@ -3256,6 +3280,7 @@ def: "Förster Resonance Energy Transfer (FRET) is a specific phenomenon in fluo
 synonym: "FRET" EXACT []
 is_a: MOLSIM:000458 ! fluorescence spectroscopy
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: skos:exactMatch CHMO:0000062
 
 [Term]
 id: MOLSIM:000468
@@ -3337,6 +3362,7 @@ name: molecular surface analysis
 def: "Molecular surface analysis is a category of analysis methods used to calculate and characterize the surface of a molecule. This includes calculating properties like the total surface area, identifying pockets and cavities, and mapping properties like electrostatic potential onto the surface." []
 is_a: MOLSIM:000917 ! structural analysis
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: skos:closeMatch operation:3351
 
 [Term]
 id: MOLSIM:000479
@@ -3992,6 +4018,7 @@ name: pathway analysis
 def: "A form of reaction analysis aimed at identifying and characterizing the sequence of intermediate states and transition states that connect reactants to products, effectively mapping the reaction pathway. This can involve exploring multiple possible routes, using algorithms to find minimum energy paths, or analyzing trajectories from reaction dynamics simulations." []
 is_a: MOLSIM:000027 ! reaction analysis
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: skos:closeMatch operation:3928
 
 [Term]
 id: MOLSIM:000589
@@ -4459,8 +4486,9 @@ is_a: MOLSIM:000917 ! structural analysis
 [Term]
 id: MOLSIM:000659
 name: periodic boundary imaging
-def: "A fundamental trajectory post-processing step used to correct the visual and coordinate representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear 'broken' or jump across the box in the raw output. This procedure translates the atomic coordinates back into the primary simulation box, implicitly fixing broken 'image bonds' to ensure molecules remain whole and centered. This is a mandatory prerequisite for correct visualization and accurate calculation of structural properties. (UNVERIFIED)" []
+def: "A fundamental trajectory post-processing step used to correct the visual representation of molecules in a periodic system. When a molecule crosses a periodic boundary, it can appear 'broken' or jump across the box in the raw output. This procedure translates the atomic coordinates back into the primary simulation box, implicitly fixing broken 'image bonds' to ensure target molecules remain whole and centered. This is a mandatory prerequisite for correct visualization and accurate calculation of some structural properties." []
 is_a: MOLSIM:001767 ! trajectory post-processing
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:000660
@@ -4633,12 +4661,14 @@ id: MOLSIM:000686
 name: PDB ID
 def: "A PDB ID is the unique four-character alphanumeric code assigned to each experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier (e.g., '1TIM', '6M0J') serves as the standard way to reference and retrieve specific 3D structural data for proteins, nucleic acids, and their complexes. It allows researchers globally to unambiguously access the same structural entry. (UNVERIFIED)" []
 is_a: MOLSIM:000447 ! identifier
+property_value: skos:exactMatch data:1127
 
 [Term]
 id: MOLSIM:000687
-name: Uniprot ID
+name: UniProt ID
 def: "A UniProt ID, more formally known as a UniProt Accession Number (e.g., 'P00761', 'Q8WZ42'), is the stable and unique identifier assigned to a protein sequence record in the UniProt Knowledgebase (UniProtKB). This ID provides access to comprehensive information about a protein, including its sequence, function, annotations, and cross-references to other databases. It serves as a primary key for protein sequence and functional data. (UNVERIFIED)" []
 is_a: MOLSIM:000447 ! identifier
+property_value: skos:exactMatch data:2291
 
 [Term]
 id: MOLSIM:000688
@@ -4694,6 +4724,7 @@ name: sequence database
 def: "A primary database that stores and organizes linear sequences of amino acids (for proteins) or nucleotides (for DNA/RNA). These databases are fundamental for comparative genomics, evolutionary studies, identifying functional motifs, and linking sequence to structure and function. Examples include GenBank for nucleic acids and UniProtKB for protein sequences." []
 is_a: MOLSIM:000690 ! primary database
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
+property_value: skos:closeMatch MI:0683
 
 [Term]
 id: MOLSIM:000696
@@ -4816,6 +4847,7 @@ name: literature database
 def: "A database that indexes and provides access to bibliographic information from scientific journals, conference proceedings, and other scholarly publications. These are essential tools for researchers to find relevant scientific articles and stay updated on research findings. PubMed and Scopus are widely used examples." []
 is_a: MOLSIM:000689 ! database source
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
+property_value: skos:closeMatch MI:0445
 
 [Term]
 id: MOLSIM:000714
@@ -5465,21 +5497,21 @@ disjoint_from: MOLSIM:000829 ! Moeller-Plesset 3
 id: MOLSIM:000829
 name: Moeller-Plesset 3
 def: "MP3 represents third-order Møller-Plesset perturbation theory, calculating the energy correction up to the third order based on the Hartree-Fock reference. While it includes higher-order correlation effects compared to MP2, MP3 does not always offer a systematic improvement in accuracy over MP2 and can sometimes yield worse results. Consequently, it is less commonly used in computational chemistry applications compared to MP2 or MP4. (UNVERIFIED)" []
-comment: MP3
+synonym: "MP3" EXACT []
 is_a: MOLSIM:000827 ! Moeller-Plesset
 
 [Term]
 id: MOLSIM:000830
 name: Moeller-Plesset 4
 def: "MP4 stands for fourth-order Møller-Plesset perturbation theory, providing a higher level of electron correlation treatment by including energy contributions from single, double, triple, and quadruple excitations relative to the Hartree-Fock reference (often denoted MP4(SDTQ)). The inclusion of triple excitations, even if approximated, is particularly important for achieving high accuracy for many chemical systems. MP4 offers significantly better accuracy than MP2 but at a substantially higher computational cost. (UNVERIFIED)" []
-comment: MP4
+synonym: "MP4" EXACT []
 is_a: MOLSIM:000827 ! Moeller-Plesset
 
 [Term]
 id: MOLSIM:000831
 name: Moeller-Plesset 5
 def: "MP5 represents fifth-order Møller-Plesset perturbation theory, calculating the electron correlation energy correction up to the fifth order. It incorporates even higher-order excitation effects beyond MP4, aiming for further refinement in accuracy. However, the computational cost of MP5 is extremely high, and it is very rarely used in practice, as other methods like coupled cluster often provide similar or better accuracy more efficiently at that level of computational expense. (UNVERIFIED)" []
-comment: MP5
+synonym: "MP5" EXACT []
 is_a: MOLSIM:000827 ! Moeller-Plesset
 
 [Term]
@@ -5563,12 +5595,14 @@ def: "Molecular dynamics (MD) is a computer simulation technique used to study t
 synonym: "MD" EXACT []
 is_a: MOLSIM:000308 ! simulation method
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
+property_value: skos:closeMatch operation:2476
 
 [Term]
 id: MOLSIM:000844
 name: NetCDF format
 def: "The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, including earth sciences, climate modeling, and molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard. (UNVERIFIED)" []
 is_a: MOLSIM:000910 ! general data format
+property_value: skos:exactMatch format:3650
 
 [Term]
 id: MOLSIM:000845
@@ -5955,8 +5989,10 @@ is_a: MOLSIM:001091 ! molecular topology format
 [Term]
 id: MOLSIM:000901
 name: PSF format
-def: "A topology file format that defines the atoms of a molecular system, their connectivity as bonds, angles, dihedrals and impropers, and basic atomic properties such as type indices, charges and masses. Importantly, it does not contain the actual force field parameters (like bond spring constants or Lennard-Jones values), which must be provided separately. PSF files are widely used by simulation programs like CHARMM, NAMD, and visualization tools like VMD. (UNVERIFIED)" []
+def: "A topology file format that defines the atoms of a molecular system, their connectivity as bonds, angles, dihedrals and impropers, and basic atomic properties such as type indices, charges and masses. Importantly, it does not contain the actual force field parameters (like bond spring constants or Lennard-Jones values), which must be provided separately. Originating with X-Plor, the format is widely used by simulation programs such as CHARMM and NAMD, and by visualization tools such as VMD. (UNVERIFIED)" []
 is_a: MOLSIM:001091 ! molecular topology format
+property_value: IAO:0000119 "EDAM 1.25, class format_3882 PSF (http://edamontology.org/format_3882), which records the X-Plor origin. Wording is MOLSIM's own; EDAM is CC BY-SA 4.0." xsd:string
+property_value: skos:exactMatch format:3882
 
 [Term]
 id: MOLSIM:000902
@@ -5991,12 +6027,15 @@ name: Mol2 format
 def: "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
 disjoint_from: MOLSIM:000907 ! SDF format
+property_value: skos:exactMatch format:3816
 
 [Term]
 id: MOLSIM:000907
 name: SDF format
-def: "The Structure-Data File (SDF, .sdf) format is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)" []
+def: "The Structure-Data File (SDF, .sdf) format, developed by MDL Information Systems, is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)" []
 is_a: MOLSIM:001088 ! molecular structure format
+property_value: IAO:0000119 "EDAM 1.25, class format_3814 SDF (http://edamontology.org/format_3814), which records the MDL Information Systems origin. Wording is MOLSIM's own; EDAM is CC BY-SA 4.0." xsd:string
+property_value: skos:exactMatch format:3814
 
 [Term]
 id: MOLSIM:000908
@@ -6029,6 +6068,7 @@ id: MOLSIM:000912
 name: FASTA format
 def: "The Fasta format is a simple and widely used text-based format for storing biological sequence data (nucleotides or amino acids). Each sequence entry begins with a single-line description header, marked by a greater-than symbol ('>'), followed by the sequence data on one or more subsequent lines. Its simplicity makes it easily readable by humans and parsable by many bioinformatics tools. (UNVERIFIED)" []
 is_a: MOLSIM:000908 ! sequence data format
+property_value: skos:closeMatch format:1929
 
 [Term]
 id: MOLSIM:000913
@@ -6042,12 +6082,14 @@ id: MOLSIM:000914
 name: XML format
 def: "XML (Extensible Markup Language) is a flexible, text-based markup language used to encode data in a format that is both human-readable and machine-readable. It uses user-defined tags to structure data hierarchically with elements and attributes. XML is widely used for data exchange on the web and in various scientific domains, including bioinformatics (e.g., CML). (UNVERIFIED)" []
 is_a: MOLSIM:000910 ! general data format
+property_value: skos:exactMatch format:2332
 
 [Term]
 id: MOLSIM:000915
 name: CML format
 def: "CML (Chemical Markup Language) is an application of XML specifically designed for representing chemical information in a structured way. It defines a vocabulary of XML tags and conventions for encoding molecular structures, reactions, spectra, computational chemistry results, and related data. CML aims to facilitate the storage, exchange, and management of chemical information across different software and platforms. (UNVERIFIED)" []
 is_a: MOLSIM:000914 ! XML format
+property_value: skos:exactMatch format:4023
 
 [Term]
 id: MOLSIM:000916
@@ -6377,6 +6419,7 @@ name: spectroscopy
 def: "Spectroscopy is the study of how matter interacts with energy, particularly electromagnetic radiation like light. By analyzing how energy is absorbed, emitted, or scattered by a substance, we can learn about its atomic and molecular structure, composition, and dynamics. It serves as a fundamental set of tools for observing the properties of molecules." []
 is_a: MOLSIM:000304 ! experimental method
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: skos:closeMatch CHMO:0000228
 
 [Term]
 id: MOLSIM:001009
@@ -6533,6 +6576,7 @@ synonym: "AMBER parmtop format" EXACT []
 synonym: "AMBER prmtop format" EXACT []
 synonym: "parm7 format" EXACT []
 is_a: MOLSIM:000472 ! AMBER topology format
+property_value: skos:exactMatch format:3881
 
 [Term]
 id: MOLSIM:001043
@@ -6550,6 +6594,7 @@ name: CIF format
 def: "The Crystallographic Information File (cif) format is a standard text-based file format used to store information about molecular structures, especially those determined by experiments. It uses a flexible tag-based structure with key-value pairs, making it more robust and extensible for handling the large, complex structures and extensive metadata common in modern structural biology. As the official format of the Protein Data Bank (PDB), the macromolecular CIF (mmCIF) variant has superseded the older PDB format for archiving and distributing 3D coordinates of proteins and nucleic acids." []
 is_a: MOLSIM:001088 ! molecular structure format
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
+property_value: skos:exactMatch format:4024
 
 [Term]
 id: MOLSIM:001045
@@ -6576,6 +6621,7 @@ def: "A chain ID is a letter used to label different polymer molecules, like dif
 comment: An identifier used in PDB files to distinguish different polymer chains.
 synonym: "chainid" EXACT []
 is_a: MOLSIM:000447 ! identifier
+property_value: skos:closeMatch data:1008
 
 [Term]
 id: MOLSIM:001048
@@ -6593,6 +6639,7 @@ synonym: "restrt format" EXACT []
 synonym: "rst7 format" EXACT []
 is_a: MOLSIM:000471 ! AMBER restart format
 disjoint_from: MOLSIM:001051 ! ncrst format
+property_value: skos:closeMatch format:3886
 
 [Term]
 id: MOLSIM:001050
@@ -6691,6 +6738,7 @@ def: "The PQR format is a modification of the standard Protein Data Bank (PDB) f
 synonym: ".pqr" EXACT []
 is_a: MOLSIM:001088 ! molecular structure format
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
+property_value: skos:exactMatch format:4035
 
 [Term]
 id: MOLSIM:001063
@@ -7115,6 +7163,7 @@ id: MOLSIM:001167
 name: simulation duration
 def: "A type of integration parameter that specifies the total length of time the simulation is run. This determines how much conformational space can be explored and the timescale of the phenomena that can be observed. The simulation duration is typically set by specifying the total number of steps, nsteps, in the input file. (UNVERIFIED)" []
 is_a: MOLSIM:001165 ! integration parameter
+property_value: skos:exactMatch SBO:0000585
 
 [Term]
 id: MOLSIM:001168
@@ -7849,6 +7898,7 @@ id: MOLSIM:001274
 name: confidence level
 def: "A statistical analysis parameter that specifies the desired confidence level for calculating a confidence interval. A confidence level of 95% means that the calculated interval is expected to contain the true value of the parameter in 95% of cases. This is a key parameter for quantifying the uncertainty of a calculated property. This is often set as a percentage. (UNVERIFIED)" []
 is_a: MOLSIM:001272 ! statistical analysis parameter
+property_value: skos:closeMatch STATO:0000561
 
 [Term]
 id: MOLSIM:001275
@@ -8173,6 +8223,7 @@ id: MOLSIM:001326
 name: entropy
 def: "A type of thermodynamic property that measures the degree of disorder or the number of accessible microscopic states for a system. It is a fundamental quantity that contributes to the free energy, with higher entropy being thermodynamically favorable. In simulations, the entropy is often calculated from the fluctuations of molecules or by analyzing vibrational modes. This value is often reported as S or T*S. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
+property_value: skos:closeMatch SBO:0000576
 
 [Term]
 id: MOLSIM:001327
@@ -8667,6 +8718,7 @@ id: MOLSIM:001392
 name: diffusion coefficient
 def: "A type of kinetic property that measures the rate at which particles spread out over time due to random thermal motion. It is a fundamental measure of translational mobility in a liquid or gas. The diffusion coefficient is typically calculated from the mean-square displacement of particles in a simulation. This is often denoted D or self-diffusion coefficient. (UNVERIFIED)" []
 is_a: MOLSIM:001391 ! kinetic property
+property_value: skos:closeMatch PBPKO:00431
 
 [Term]
 id: MOLSIM:001393
@@ -8774,6 +8826,7 @@ name: Kendall tau correlation coefficient
 def: "A specific type of correlation coefficient that measures the ordinal association between two variables. It is based on counting the number of concordant and discordant pairs in the data. The Kendall tau correlation coefficient is a non-parametric statistic used to measure the strength of the relationship between two ranked variables. This is often reported as tau or Kendall's tau. (UNVERIFIED)" []
 is_a: STATO:0000142 ! correlation coefficient
 relationship: IAO:0000039 UO:0000186 {all_only="true"} ! has measurement unit label dimensionless unit
+property_value: skos:closeMatch STATO:0000240
 
 [Term]
 id: MOLSIM:001407
@@ -9429,6 +9482,7 @@ id: MOLSIM:001508
 name: space group
 def: "A space group is a mathematical description of the symmetry of a crystal structure. It defines the set of symmetry operations, such as rotations and translations, that can be applied to the crystal's asymmetric unit to generate the entire, infinitely repeating lattice. For experts, the space group is a fundamental property determined from the diffraction pattern that dictates how the molecules are packed in the crystal. (UNVERIFIED)" []
 is_a: MOLSIM:001494 ! crystallographic model component
+property_value: skos:closeMatch PROCO:0000110
 
 [Term]
 id: MOLSIM:001509
@@ -9763,6 +9817,7 @@ name: application programming interface
 def: "An application programming interface (API) is a set of rules and definitions that allows different software components or applications to communicate with each other. It acts as an intermediary, specifying the types of requests that can be made, how to make them, and the data formats that should be used. For developers, APIs are essential for building modular software, enabling a simulation tool to leverage the capabilities of a specialized mathematics library or a parallel computing framework. (UNVERIFIED)" []
 is_a: MOLSIM:000170 ! software component
 disjoint_from: MOLSIM:001566 ! software library
+property_value: skos:closeMatch SWO:9000054
 
 [Term]
 id: MOLSIM:001563
@@ -10590,6 +10645,7 @@ id: MOLSIM:001691
 name: integration algorithm
 def: "An integration algorithm is the numerical engine of a molecular dynamics simulation, responsible for calculating how the positions and velocities of atoms change over time. It works by taking the forces on the atoms at one moment and using them to predict the atomic positions a very short time later. For experts, the choice of integration algorithm, such as the common velocity-Verlet integrator, is a critical parameter that affects the stability, accuracy, and energy conservation of the simulation. (UNVERIFIED)" []
 is_a: MOLSIM:000382 ! simulation control algorithm
+property_value: skos:closeMatch KISAO_0000475
 
 [Term]
 id: MOLSIM:001692
@@ -10709,6 +10765,7 @@ id: MOLSIM:001710
 name: Levenberg-Marquardt algorithm
 def: "The Levenberg-Marquardt algorithm is an optimization algorithm used to solve non-linear least squares problems. It adaptively switches between the Gauss-Newton method and the method of gradient descent, making it robust and efficient. In biomolecular simulation, it is often used in the context of force field parameterization, where it can fit parameters to reproduce experimental or quantum mechanical data. (UNVERIFIED)" []
 is_a: MOLSIM:000407 ! optimization algorithm
+property_value: skos:exactMatch KISAO_0000515
 
 [Term]
 id: MOLSIM:001711
@@ -10773,6 +10830,7 @@ id: MOLSIM:001720
 name: conjugate gradient algorithm
 def: "The conjugate gradient algorithm is an efficient iterative algorithm for finding the local minimum of a function, widely used for energy minimization of large molecular systems. It uses information about both the current gradient (forces) and the previous search direction to generate a new search direction that is \"conjugate\" to the old ones, accelerating convergence. For simulation experts, conjugate gradient is often the preferred method for refining molecular structures after an initial steepest descent minimization. (UNVERIFIED)" []
 is_a: MOLSIM:000408 ! energy minimization algorithm
+property_value: skos:closeMatch KISAO_0000357
 
 [Term]
 id: MOLSIM:001721
@@ -10925,6 +10983,7 @@ id: MOLSIM:001744
 name: steepest descent algorithm
 def: "The steepest descent algorithm is a simple and robust energy minimization algorithm that iteratively moves the atoms in the direction of the greatest force. At each step, it adjusts the atomic positions in the direction opposite to the gradient of the potential energy. While it is not the most efficient method for finding a precise minimum, it is very effective at rapidly relieving major steric clashes in an initial, high-energy structure. (UNVERIFIED)" []
 is_a: MOLSIM:000408 ! energy minimization algorithm
+property_value: skos:exactMatch KISAO_0000511
 
 [Term]
 id: MOLSIM:001745
@@ -10998,6 +11057,7 @@ def: "An atom name is a unique label given to an atom within a specific residue 
 is_a: MOLSIM:000447 ! identifier
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 property_value: IAO:0000117 orcid:0000-0003-4177-3619
+property_value: skos:exactMatch data:1757
 
 [Term]
 id: MOLSIM:001756
@@ -11041,6 +11101,7 @@ id: MOLSIM:001762
 name: voxel
 def: "A voxel is the basic building block of a three-dimensional grid, similar to how a pixel is the basic unit of a 2D image. In simulation analysis, a voxel is a small cubic volume in space that is assigned a value, such as the average density of water or the strength of the electrostatic potential at that location. The collection of all these voxels creates a full 3D volumetric map that can be visualized to understand the spatial properties of a molecular system. (UNVERIFIED)" []
 is_a: MOLSIM:001761 ! volumetric data component
+property_value: skos:closeMatch NCIT:C79424
 
 [Term]
 id: MOLSIM:001763
@@ -11167,6 +11228,7 @@ id: MOLSIM:001782
 name: beta sheet
 def: "A beta sheet is a common shape in proteins where parts of the amino acid chain line up side-by-side like ribbons in a flat, pleated sheet. It is a secondary structure motif formed by two or more extended polypeptide chains, called beta-strands, which are linked laterally by a regular pattern of hydrogen bonds between their backbone atoms. These sheet structures form the rigid core of many proteins and are critical for creating binding surfaces for other molecules. (UNVERIFIED)" []
 is_a: MOLSIM:001781 ! secondary structure
+property_value: skos:closeMatch NCIT:C13802
 
 [Term]
 id: MOLSIM:001783
@@ -11246,6 +11308,7 @@ name: conformational transition
 def: "A conformational transition is the process where a molecule changes from one stable three-dimensional molecular arrangement to another. This can be a large-scale event, such as a protein switching between an active and an inactive state, or a more local change like the flipping of a sugar ring. Studying these transitions is fundamental to understanding how molecular function is controlled by changes in structure." []
 is_a: MOLSIM:001391 ! kinetic property
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
+property_value: skos:closeMatch SBO:0000181
 
 [Term]
 id: MOLSIM:001794
@@ -11687,6 +11750,7 @@ id: MOLSIM:001859
 name: network analysis
 def: "Network analysis is a method that represents a molecule as a graph of nodes (atoms or residues) connected by edges (interactions or correlations) to analyze how information is communicated through its structure. By applying graph theory, this approach can identify critical residues that act as communication hubs and map the pathways of correlated motion that connect distant parts of the molecule. This is a powerful tool for understanding allosteric regulation and the long-range effects of mutations. (UNVERIFIED)" []
 is_a: MOLSIM:000004 ! simulation analysis
+property_value: skos:closeMatch operation:3927
 
 [Term]
 id: MOLSIM:001860
@@ -12258,6 +12322,7 @@ id: MOLSIM:001941
 name: graphics processing unit
 def: "A graphics processing unit (GPU) is a specialized processor with thousands of small cores, designed to perform many simple calculations simultaneously. This massively parallel architecture makes it extremely well-suited for the force calculation step in molecular dynamics, where the same calculation must be performed for thousands of pairs of atoms at once. The use of GPUs has dramatically accelerated biomolecular simulations, enabling routine access to timescales that were once only possible on the largest supercomputers. (UNVERIFIED)" []
 is_a: MOLSIM:001939 ! processing unit
+property_value: skos:closeMatch NCIT:C64196
 
 [Term]
 id: MOLSIM:001942
@@ -12278,6 +12343,7 @@ name: pressure
 def: "Pressure is a thermodynamic property that represents the force per unit area exerted by the particles on the boundaries of the simulation box. It is a key indicator of the system's physical state and is monitored to ensure the simulation has reached the correct density under constant pressure conditions. For experts, this value is calculated from the kinetic energy and the virial of internal forces and is maintained by a barostat algorithm in the NPT ensemble. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
 relationship: IAO:0000039 UO:0000109 {all_only="true"} ! has measurement unit label pressure unit
+property_value: skos:closeMatch SBO:0000279
 
 [Term]
 id: MOLSIM:001946
@@ -12285,6 +12351,7 @@ name: volume
 def: "Volume is a thermodynamic property that represents the three-dimensional size of the periodic simulation box containing the molecular system. In simulations run at constant pressure, this value fluctuates as the barostat adjusts the box dimensions to maintain the target pressure. For experts, the average volume is a primary output used to determine the equilibrium density of the system, a key property for validating the simulation model. (UNVERIFIED)" []
 is_a: MOLSIM:001293 ! thermodynamic property
 relationship: IAO:0000039 UO:0000095 {all_only="true"} ! has measurement unit label volume unit
+property_value: skos:closeMatch SBO:0000468
 
 [Term]
 id: MOLSIM:001947
@@ -12564,6 +12631,7 @@ id: MOLSIM:001989
 name: gibbs free energy
 def: "A measure of the maximum reversible work a system can perform at constant temperature and pressure. Defined as the enthalpy minus the product of temperature and entropy (G=H−TS), it determines the direction of spontaneous change and chemical equilibrium. For experts, this is the primary thermodynamic potential of interest in NPT simulations and is used to calculate binding affinities, solvation energies, and phase equilibria. (UNVERIFIED)" []
 is_a: MOLSIM:001314 ! free energy property
+property_value: skos:closeMatch SBO:0000580
 
 [Term]
 id: MOLSIM:001990
@@ -12793,6 +12861,7 @@ id: MOLSIM:002025
 name: brownian dynamics
 def: "A simulation method that models the movement of molecules as a random walk driven by thermal collisions and damped by solvent viscosity. Unlike standard molecular dynamics, it ignores the mass and inertia of the particles, assuming that friction brings them to a terminal velocity instantly in response to forces. For experts, this is the limit of Langevin dynamics where the friction coefficient is very large (overdamped regime), often used for simulating large biomolecules or coarse-grained models where solvent is treated implicitly. (UNVERIFIED)" []
 is_a: MOLSIM:000843 ! molecular dynamics
+property_value: skos:closeMatch NCIT:C70775
 
 [Term]
 id: MOLSIM:002026
@@ -12884,6 +12953,7 @@ def: "An atom ID is usually a number, that uniquely defines a given atom in a mo
 is_a: MOLSIM:000447 ! identifier
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 property_value: IAO:0000117 orcid:0000-0003-4177-3619
+property_value: skos:exactMatch data:0983
 
 [Term]
 id: MOLSIM:002040
@@ -13020,6 +13090,7 @@ is_a: MOLSIM:000715 ! prediction data format
 is_a: MOLSIM:001088 ! molecular structure format
 disjoint_from: MOLSIM:002059 ! PROPKA output format
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
+property_value: skos:exactMatch format:4036
 
 [Term]
 id: MOLSIM:002059
@@ -13057,6 +13128,7 @@ id: MOLSIM:002063
 name: metropolis Monte Carlo
 def: "The Metropolis Monte Carlo algorithm is a foundational stochastic method used to sample the conformational space of a molecular system according to a target thermodynamic distribution. It operates by proposing random trial moves, such as displacing atoms or rotating molecules, and evaluating them based on the resulting change in potential energy. Moves that lower the system's energy are accepted unconditionally, while moves that increase the energy are accepted with a probability proportional to the Boltzmann factor. For experts, this specific acceptance criterion ensures that the simulation rigorously explores the canonical (NVT) ensemble and correctly calculates equilibrium thermodynamic properties without the need to integrate Newton's equations of motion. (UNVERIFIED)" []
 is_a: MOLSIM:001740 ! enhanced sampling algorithm
+property_value: skos:exactMatch KISAO_0000278
 
 [Term]
 id: MOLSIM:002064
@@ -13222,9 +13294,10 @@ is_a: MOLSIM:002086 ! allosteric transition
 [Term]
 id: MOLSIM:002089
 name: sugar ring pucker transition
-def: "A sugar ring pucker transition is a localized flipping motion where the five-membered sugar ring of a nucleotide shifts between different non-planar shapes. This conformational transition typically involves interconversion between the C2'-endo and C3'-endo envelope states, altering the pseudorotation phase angle and shifting the overall nucleic acid backbone geometry. In molecular simulations, capturing the correct frequency of these puckering events is a critical test of a nucleic acid force field and is essential for distinguishing between A-form and B-form helices. (UNVERIFIED)" []
+def: "A conformational rearrangement in which the five-membered sugar ring of a nucleotide shifts between different non-planar shapes. In nucleic acids, this commonly involves transitions between North (C3′-endo-like) and South (C2′-endo-like) conformations, affecting local backbone geometry. Correctly reproducing these populations is an important test of nucleic-acid force fields and helps distinguish A- and B-form helices." []
 synonym: "sugar ring flip" EXACT []
 is_a: MOLSIM:001793 ! conformational transition
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 
 [Term]
 id: MOLSIM:002090
@@ -13278,7 +13351,8 @@ id: MOLSIM:002097
 name: Curves+
 def: "Curves+ is a software program for the structural analysis of DNA and RNA three-dimensional structures. It calculates a comprehensive set of geometric parameters describing nucleic acid conformation, including base-pair, base-pair step, backbone, groove, and helical axis parameters, using a reference frame attached to each base. These descriptors provide a detailed characterization of nucleic acid structure and flexibility." []
 is_a: MOLSIM:001960 ! nucleic acid analysis tool
-property_value: IAO:0000117 orcid:0000-0002-2294-5393
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
+property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
 [Term]
 id: MOLSIM:002098
@@ -13307,8 +13381,9 @@ is_a: MOLSIM:000353 ! validation analysis
 [Term]
 id: MOLSIM:002102
 name: coordinate wrapping process
-def: "A trajectory post-processing that translates atomic coordinates back into the primary periodic unit cell so that molecules which crossed periodic boundaries appear whole. It produces trajectories that are easier to visualize and analyze without altering the underlying physics. (UNVERIFIED)" []
+def: "A trajectory post-processing that translates atomic coordinates back into the primary periodic unit cell." []
 is_a: MOLSIM:001767 ! trajectory post-processing
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002103
@@ -13367,9 +13442,10 @@ is_a: MOLSIM:002108 ! output control parameter
 [Term]
 id: MOLSIM:002112
 name: simulation state time
-def: "A simulation state that represents the elapsed model time reached by the system at a given point in a molecular dynamics run. It records how far the simulation has advanced along the physical time coordinate. (UNVERIFIED)" []
+def: "A simulation state that represents the elapsed model time reached by the system at a given point in a molecular dynamics run. It records how far the simulation has advanced along the physical time coordinate." []
 is_a: MOLSIM:001083 ! simulation state
 relationship: IAO:0000039 UO:0000003 {all_only="true"} ! has measurement unit label time unit
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002113
@@ -13402,16 +13478,18 @@ relationship: IAO:0000039 UO:0000003 {all_only="true"} ! has measurement unit la
 [Term]
 id: MOLSIM:002117
 name: setup wallclock time
-def: "A computational performance metric that measures the real-world elapsed time spent preparing a run before the production phase begins, such as reading inputs and building data structures. It isolates initialization overhead from the main computation. (UNVERIFIED)" []
+def: "A computational performance metric that measures the real-world elapsed time spent preparing a run before the production phase begins, such as reading inputs and building data structures. It isolates initialization overhead from the main computation." []
 is_a: MOLSIM:002114 ! computational performance metric
 relationship: IAO:0000039 UO:0000003 {all_only="true"} ! has measurement unit label time unit
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002118
 name: production wallclock time
-def: "A computational performance metric that measures the real-world elapsed time spent in the production phase of a run, during which the trajectory of interest is generated. It excludes setup and finalization overhead. (UNVERIFIED)" []
+def: "A computational performance metric that measures the real-world elapsed time spent in the production phase of a simulation run, during which the trajectory of interest is generated. It excludes setup and finalization overhead." []
 is_a: MOLSIM:002114 ! computational performance metric
 relationship: IAO:0000039 UO:0000003 {all_only="true"} ! has measurement unit label time unit
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002119
@@ -13512,9 +13590,10 @@ relationship: IAO:0000039 UO:0000052 {all_only="true"} ! has measurement unit la
 [Term]
 id: MOLSIM:002196
 name: atom count consistency check
-def: "A cross-source validation that checks whether the atom count agrees across all files describing a stage, such as topology, coordinate, output, and trajectory files. A mismatch indicates the files do not describe the same system. (UNVERIFIED)" []
+def: "A cross-source validation that checks whether the atom count agrees across all files describing a system, such as topology, trajectory, etc. A mismatch indicates the files do not describe the same system." []
 is_a: MOLSIM:002159 ! cross-source validation
 disjoint_from: MOLSIM:002197 ! box consistency check
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002197
@@ -13566,12 +13645,14 @@ id: MOLSIM:002207
 name: enzyme classification label
 def: "A protein functional class label for a system whose main protein is an enzyme, a protein that speeds up a chemical reaction in the cell without being used up itself. (UNVERIFIED)" []
 is_a: MOLSIM:002206 ! protein functional class label
+property_value: skos:relatedMatch OBI:0000427
 
 [Term]
 id: MOLSIM:002208
 name: transport protein classification label
 def: "A protein functional class label for a system whose main protein is a transport protein, one that moves ions or molecules from place to place, for example carrying them across a cell membrane. (UNVERIFIED)" []
 is_a: MOLSIM:002206 ! protein functional class label
+property_value: skos:relatedMatch GO:0005215
 
 [Term]
 id: MOLSIM:002209
@@ -13590,6 +13671,7 @@ id: MOLSIM:002211
 name: signaling protein classification label
 def: "A protein functional class label for a system whose main protein is a signaling protein, one that passes messages within a cell or between cells so the cell can respond to its surroundings. (UNVERIFIED)" []
 is_a: MOLSIM:002206 ! protein functional class label
+property_value: skos:relatedMatch GO:0038023
 
 [Term]
 id: MOLSIM:002212
@@ -13620,6 +13702,7 @@ id: MOLSIM:002230
 name: SMILES code
 def: "An identifier that encodes the structure of a molecule as a short line of text, using the SMILES notation (Simplified Molecular-Input Line-Entry System). It lets a small molecule be written, searched, and shared as plain text, and complements the InChI code. (UNVERIFIED)" []
 is_a: MOLSIM:000447 ! identifier
+property_value: skos:closeMatch format:1196
 
 [Term]
 id: MOLSIM:002232
@@ -13685,27 +13768,31 @@ is_a: MOLSIM:002236 ! oligomeric state
 [Term]
 id: MOLSIM:002246
 name: spike opening conformational state
-def: "A conformational state of a coronavirus spike protein describing how many of its receptor-binding domains are raised into the open position, ready to engage a host cell. (UNVERIFIED)" []
+def: "A conformational state of a coronavirus spike protein describing how many of its receptor-binding domains are raised into the open position, ready to engage a host cell." []
 is_a: MOLSIM:000105 ! conformational state
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002247
 name: biological strain classification label
-def: "A system classification label naming the specific strain or sequence variant of the organism or virus that the simulated molecule comes from, for example a particular variant of the COVID-19 virus. It groups simulations by biological origin. (UNVERIFIED)" []
+def: "A system classification label naming the specific strain or sequence variant of the organism that the simulated molecule comes from, for example a particular variant of the COVID-19 virus. It groups simulations by biological origin." []
 is_a: MOLSIM:002162 ! system classification label
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002248
 name: histone variant classification label
-def: "A system classification label naming a non-standard version of a histone protein present in the structure (for example H2A.Z). Different histone versions can change how DNA is packaged and read. (UNVERIFIED)" []
+def: "A system classification label naming a non-standard version of a histone protein present in the structure (for example H2A.Z). Different histone versions can change how DNA is packaged and read." []
 is_a: MOLSIM:002162 ! system classification label
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:002249
 name: DSSR
-def: "A nucleic acid analysis tool that characterises RNA secondary structure and higher-order motifs directly from three-dimensional coordinates. Built on the 3DNA suite, it annotates base pairs, helices, stems, hairpin loops and multi-branch junctions, and produces schematic representations of the result. It is widely used for RNA structural bioinformatics and is integrated into viewers such as Jmol and PyMOL. (UNVERIFIED)" []
+def: "A nucleic acid analysis tool that characterises RNA and DNA secondary structure and higher-order motifs directly from three-dimensional coordinates. Built on the x3DNA suite, it annotates base pairs, helices, stems, hairpin loops and multi-branch junctions, and produces schematic representations of the result. It is widely used for RNA structural bioinformatics and is integrated into viewers such as Jmol and PyMOL." []
 synonym: "Dissecting the Spatial Structure of RNA" EXACT []
 is_a: MOLSIM:001960 ! nucleic acid analysis tool
+property_value: IAO:0000117 orcid:0000-0002-4303-9349
 
 [Term]
 id: MOLSIM:002251
@@ -13871,7 +13958,7 @@ is_a: MOLSIM:001751 ! statistical algorithm
 [Term]
 id: MOLSIM:010016
 name: Shrake-Rupley algorithm
-def: "The Schrake-Rupley algorithm is a classic method for calculating the solvent accessible surface area (SASA) of a molecule by \"rolling\" a probe sphere over the atoms' van der Waals surfaces. (UNVERIFIED)" []
+def: "The Shrake-Rupley algorithm is a classic method for calculating the solvent accessible surface area (SASA) of a molecule by \"rolling\" a probe sphere over the atoms' van der Waals surfaces. (UNVERIFIED)" []
 is_a: MOLSIM:001715 ! surface area calculation algorithm
 
 [Term]

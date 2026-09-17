@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                9485da79af66bb142a8ce05182dfabed52b49bda18d9cd7226315348edc1d074
+CONFIG_HASH=                c456f336f642dcd14e39d944fc5d5412fea631de88cee87c2db5f9bf804c63f3
 
 
 # ----------------------------------------
@@ -57,7 +57,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/molsim_units_component.owl 
+OTHER_SRC =                 $(COMPONENTSDIR)/molsim_units_component.owl $(COMPONENTSDIR)/molsim_mappings_component.owl 
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
@@ -492,11 +492,13 @@ all_components: $(OTHER_SRC)
 .PHONY: recreate-components
 recreate-components:
 	$(MAKE) --assume-new=$(TMPDIR)/stamp-component-molsim_units_component.owl \
+		--assume-new=$(TMPDIR)/stamp-component-molsim_mappings_component.owl \
 		COMP=true IMP=false MIR=true PAT=true all_components
 
 .PHONY: no-mirror-recreate-components
 no-mirror-recreate-components:
 	$(MAKE) --assume-new=$(TMPDIR)/stamp-component-molsim_units_component.owl \
+		--assume-new=$(TMPDIR)/stamp-component-molsim_mappings_component.owl \
 		COMP=true IMP=false MIR=false PAT=true all_components
 
 .PHONY: recreate-%
