@@ -15,7 +15,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-full.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-09-17/molsim-full.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-09-18/molsim-full.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-0476-9699"/>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
@@ -34,7 +34,7 @@
         <rdfs:comment xml:lang="en">AI assistance disclosure: initial drafts of the term definitions in this ontology were produced with the assistance of large language models, primarily Google Gemini, with further drafting and curation support from Anthropic Claude; all drafts were then curated and reviewed by humans. Verification status is recorded per term and is machine-readable: a term carrying an IAO:0000117 (term editor) annotation has been checked by the named domain expert, whose ORCID is given; a definition whose text still ends with the marker (UNVERIFIED) has not yet been reviewed by a domain expert and should be treated as a draft. Terms marked owl:deprecated are retired and are exempt from verification.</rdfs:comment>
         <rdfs:comment xml:lang="en">Release-format note: the OWL and JSON products (molsim.owl, molsim.json and their -base/-full variants) are the complete and canonical releases. The OBO-format product (molsim.obo) is a CLASS-ONLY VIEW: OBO 1.2 cannot represent datatype properties, and named individuals are not carried through the conversion, so the data properties (per-species composition counts, boolean flags, serialised arrays) and the named individuals of this ontology are absent from it. The class hierarchy, definitions, synonyms and object properties in molsim.obo are complete and correct. Use the OWL or JSON release if you need the full content.</rdfs:comment>
         <rdfs:comment xml:lang="en">Scope note: MOLSIM&apos;s boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README.</rdfs:comment>
-        <owl:versionInfo>2026-09-17</owl:versionInfo>
+        <owl:versionInfo>2026-09-18</owl:versionInfo>
         <foaf:homepage xml:lang="en">https://github.com/CPCLab/molsim-ontology</foaf:homepage>
     </owl:Ontology>
     
@@ -216,6 +216,12 @@ We also have the outstanding issue of how to aim different definitions to differ
         <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
         <rdfs:label xml:lang="en">definition source</rdfs:label>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000233 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000233"/>
     
 
 
@@ -2494,6 +2500,24 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     
 
 
+    <!-- http://purl.obolibrary.org/obo/IAO_0000013 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000013">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000088"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000311"/>
+        <obo:IAO_0000111 xml:lang="en">journal article</obo:IAO_0000111>
+        <obo:IAO_0000112 xml:lang="en">Examples are articles published in the journals, Nature and Science. The content can often be cited by reference to a paper based encoding, e.g.  Authors, Title of article, Journal name, date or year of publication, volume and page number.</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000120"/>
+        <obo:IAO_0000115 xml:lang="en">A report that is published in a journal.</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Alan Ruttenberg</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Chris Stoeckert</obo:IAO_0000117>
+        <obo:IAO_0000119 xml:lang="en">OBI_0000159</obo:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">group:OBI</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">journal article</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/IAO_0000027 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000027">
@@ -2544,6 +2568,34 @@ Previous. An information content entity is a non-realizable information entity t
         <obo:IAO_0000119 xml:lang="en">GROUP:OBI:&lt;http://purl.obolibrary.org/obo/obi&gt;</obo:IAO_0000119>
         <obo:IAO_0000119 xml:lang="en">OBI_0000266</obo:IAO_0000119>
         <rdfs:label xml:lang="en">curation status specification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000088 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000088">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
+        <obo:IAO_0000111 xml:lang="en">report</obo:IAO_0000111>
+        <obo:IAO_0000112 xml:lang="en">Examples of reports are gene lists and investigation reports. These are not published (journal) articles but may be included in a journal article.</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
+        <obo:IAO_0000115 xml:lang="en">A document assembled by an author for the purpose of providing information for the audience. A report is the output of a documenting process and has the objective to be consumed by a specific audience. Topic of the report is on something that has completed. A report is not a single figure. Examples of reports are journal article, patent application, grant progress report, case report (not patient record).</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">2009-03-16: comment from Darren Natale: I am slightly uneasy with the sentence &quot;Topic of the report is on 
+something that has completed.&quot;  Should it be restricted to those things 
+that are completed?  For example, a progress report is (usually) about 
+something that definitely has *not* been completed, or may include 
+(only) projections.  I think the definition would not suffer if the 
+whole sentence is deleted.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">2009-03-16: this was report of results with definition: A report is a narrative object that is a formal statement of the results of an investigation, or of any matter on which definite information is required, made by some person or body instructed or required to do so.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">2009-03-16: work has been done on this term during during the OBI workshop winter 2009 and the current definition was considered acceptable for use in OBI. If there is a need to modify this definition please notify OBI.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">2009-08-10 Alan Ruttenberg: Larry Hunter suggests that this be obsoleted and replaced by &apos;document&apos;. Alan restored as there are OBI dependencies and this merits further discussion</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">disagreement about where reports go. alan: only some gene lists are reports. Is a report all the content of some document? The example of usage suggests that a report may be part of  some article. Term needs clarification</obo:IAO_0000116>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Alan Ruttenberg</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Chris Stoeckert</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Melanie Courtot</obo:IAO_0000117>
+        <obo:IAO_0000119 xml:lang="en">GROUP: OBI</obo:IAO_0000119>
+        <obo:IAO_0000119 xml:lang="en">OBI_0000099</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">report</rdfs:label>
     </owl:Class>
     
 
@@ -2605,6 +2657,40 @@ Request that IAO either clarify these or change definitions not to use them</rdf
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">The reason for which a term has been deprecated. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">obsolescence reason specification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000310 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000310">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000688"/>
+        <obo:IAO_0000111 xml:lang="en">document</obo:IAO_0000111>
+        <obo:IAO_0000112 xml:lang="en">A journal article, patent application, laboratory notebook, or a book</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000120"/>
+        <obo:IAO_0000115 xml:lang="en">A collection of information content entities intended to be understood together as a whole</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Lawrence Hunter</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">document</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000311 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000311">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
+        <obo:IAO_0000111 xml:lang="en">publication</obo:IAO_0000111>
+        <obo:IAO_0000112 xml:lang="en">journal article, newspaper story, book, etc.</obo:IAO_0000112>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000120"/>
+        <obo:IAO_0000115 xml:lang="en">A document that is the output of a publishing process.</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Chris Stoeckert</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Jie Zheng</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">PERSON: Lawrence Hunter</obo:IAO_0000117>
+        <obo:IAO_0000118 xml:lang="en">published document</obo:IAO_0000118>
+        <obo:IAO_0000233 rdf:resource="https://github.com/information-artifact-ontology/IAO/issues/232"/>
+        <rdfs:comment xml:lang="en">Revisit the term in Octorber 2020. Improve the defintion.</rdfs:comment>
+        <rdfs:label xml:lang="en">publication</rdfs:label>
     </owl:Class>
     
 
@@ -6105,7 +6191,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000317">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000910"/>
-        <obo:IAO_0000115 xml:lang="en">JSON (JavaScript Object Notation) is a lightweight, text-based data interchange format consisting of attribute-value pairs and array data types. It is widely used in computational workflows for serializing structured data, such as simulation configuration settings, molecular metadata, or API responses from database web servers, offering a simpler and more compact alternative to XML. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">JSON (JavaScript Object Notation) is a textual data interchange format with a simple syntax and low parsing cost. It is human-readable and it has a flexible structure. The JSON format is widely used and it is natively supported for parsing and serialization in most mainstream programming languages.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">JSON format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_3464"/>
     </owl:Class>
@@ -6127,7 +6214,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000319">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
-        <obo:IAO_0000115 xml:lang="en">A standardized, minimalistic text-based file format used to store the Cartesian coordinates of atoms. It typically consists of a header line (atom count), a comment line, and one line per atom containing the element symbol and X, Y, Z positions. It generally does not contain connectivity or topology information. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A standardized, minimalistic text-based file format used to store the Cartesian coordinates of atoms. It typically consists of a header line (atom count), a comment line, and one line per atom containing the element symbol and X, Y, Z positions. It may contain multiple frames (i.e. trajectory). The XYZ file format is widely supported by many programs, although many slightly different XYZ file formats coexist (Tinker XYZ, UniChem XYZ, etc.).</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">standard xyz format</rdfs:label>
     </owl:Class>
     
@@ -6474,8 +6562,9 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000352">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001090"/>
-        <obo:IAO_0000115 xml:lang="en">A binary file format that stores atomic coordinate frames from a molecular dynamics simulation. The name itself stands for &quot;binary position.&quot; This format is often referred to as the Scripps Research Institute BinPos format and is recognized by Amber&apos;s analysis tools like cpptraj and other programs such as VMD. (UNVERIFIED)</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">EDAM 1.25, class format_3885 BinPos (http://edamontology.org/format_3885), which names the Scripps Research Institute as the originator of the format. Wording is MOLSIM&apos;s own; EDAM is CC BY-SA 4.0.</obo:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">The binpos (&quot;binary position&quot;) format is binary file format from Amber that stores atomic coordinate frames (i.e. a trajectory) from a molecular dynamics simulation.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">The Scripps Research Institute is named upstream as the originator of the format. Recorded here rather than in the definition, which was verified on 2026-09-18 without it. Source: EDAM 1.25, class format_3885 BinPos (http://edamontology.org/format_3885).</obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <oboInOwl:hasExactSynonym>.binpos</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">Scripps Research Institute BinPos</oboInOwl:hasExactSynonym>
         <oboInOwl:hasExactSynonym xml:lang="en">Scripps binpos format</oboInOwl:hasExactSynonym>
@@ -7479,7 +7568,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000445">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000446"/>
-        <obo:IAO_0000115 xml:lang="en">The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">mmCIF format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_1477"/>
     </owl:Class>
@@ -7490,7 +7580,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000446">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
-        <obo:IAO_0000115 xml:lang="en">The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata, atomic coordinates, and optionally connectivity. While still widely compatible with visualization and simulation software, it is considered obsolete since it has limitations for very large structures and complex metadata compared to the newer mmCIF format.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">PDB format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_1476"/>
     </owl:Class>
@@ -9950,7 +10041,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000686">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">A PDB ID is the unique four-character alphanumeric code assigned to each experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier (e.g., &apos;1TIM&apos;, &apos;6M0J&apos;) serves as the standard way to reference and retrieve specific 3D structural data for proteins, nucleic acids, and their complexes. It allows researchers globally to unambiguously access the same structural entry. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A PDB ID is the unique four-character alphanumeric code (e.g., &apos;1TIM&apos;, &apos;6M0J&apos;) where the first character is always numeric. Every PDB id is assigned to a experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier serves to reference and retrieve PDB data. However these identifiers are now deprecated in favor of the Extended PDB ID.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">PDB ID</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/data_1127"/>
     </owl:Class>
@@ -9961,7 +10053,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000687">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">A UniProt ID, more formally known as a UniProt Accession Number (e.g., &apos;P00761&apos;, &apos;Q8WZ42&apos;), is the stable and unique identifier assigned to a protein sequence record in the UniProt Knowledgebase (UniProtKB). This ID provides access to comprehensive information about a protein, including its sequence, function, annotations, and cross-references to other databases. It serves as a primary key for protein sequence and functional data. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A UniProt ID, more formally known as a UniProt Accession Number (e.g., &apos;P00761&apos;, &apos;Q8WZ42&apos;), is the stable and unique identifier assigned to a protein sequence record in the UniProt Knowledgebase (UniProtKB). This ID provides access to comprehensive information about a protein, including its sequence, function, annotations, and cross-references to other databases. It serves as a primary key for protein sequence and functional data.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">UniProt ID</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/data_2291"/>
     </owl:Class>
@@ -10283,10 +10376,10 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000717 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000717">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000688"/>
-        <obo:IAO_0000115 xml:lang="en">Refers to data obtained directly from a specific laboratory experiment. This can include data reported in a scientific publication for which no separate database entry exists, or unpublished results from ongoing research.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
-        <rdfs:label xml:lang="en">experimental data source</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. Refers to data obtained directly from a specific laboratory experiment. This can include data reported in a scientific publication for which no separate database entry exists, or unpublished results from ongoing research.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete experimental data source</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -10294,10 +10387,11 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000718 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000718">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000717"/>
-        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000719"/>
-        <obo:IAO_0000115 xml:lang="en">A published research article, review, book chapter, or conference proceeding that serves as the source of specific data, findings, or methodologies. When data is cited directly from a publication without an associated database entry, the publication itself is considered the data source. This is common for specific measurements or observations not typically archived elsewhere. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">scientific publication source</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A published research article, review, book chapter, or conference proceeding that serves as the source of specific data, findings, or methodologies. When data is cited directly from a publication without an associated database entry, the publication itself is considered the data source. This is common for specific measurements or observations not typically archived elsewhere.</obo:IAO_0000115>
+        <obo:IAO_0100001 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
+        <rdfs:comment xml:lang="en">Retired 2026-09-18 in favour of IAO:0000310 document, which is now imported and attached under MOLSIM:000688 data source. The term duplicated a concept IAO already models, and its own definition enumerated exactly IAO&apos;s document types. Part of the data source refactor asked for in review by orcid:0000-0002-2294-5393, which removed the facets experimental and private from the hierarchy and left it sorting sources by what kind of resource they are.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete scientific publication source</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -10305,9 +10399,10 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000719 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000719">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000717"/>
-        <obo:IAO_0000115 xml:lang="en">Data or findings originating from a laboratory experiment that have not yet been published or formally disseminated to the public or scientific community. This category covers preliminary results, ongoing research data, or information shared through informal channels before formal publication or deposition. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">unpublished experimental result source</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. Data or findings originating from a laboratory experiment that have not yet been published or formally disseminated to the public or scientific community. This category covers preliminary results, ongoing research data, or information shared through informal channels before formal publication or deposition.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete unpublished experimental result source</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -10315,10 +10410,10 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000720 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000720">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000688"/>
-        <obo:IAO_0000115 xml:lang="en">A data source that is not publicly accessible, such as an internal database maintained by a private company or research institution, or data held privately by an individual researcher. This category is important for acknowledging data origins that cannot be independently verified or accessed by the wider community.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
-        <rdfs:label xml:lang="en">private source</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A data source that is not publicly accessible, such as an internal database maintained by a private company or research institution, or data held privately by an individual researcher. This category is important for acknowledging data origins that cannot be independently verified or accessed by the wider community.</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete private source</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -10326,10 +10421,11 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000721 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000721">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000720"/>
-        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000722"/>
-        <obo:IAO_0000115 xml:lang="en">A database developed and maintained within a specific organization (e.g., a pharmaceutical company, a research institute) for its internal use, not generally accessible to the public. These often contain proprietary data, specialized collections, or information tailored to the organization&apos;s specific research needs. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">in house database</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A database developed and maintained within a specific organization (e.g., a pharmaceutical company, a research institute) for its internal use, not generally accessible to the public. These often contain proprietary data, specialized collections, or information tailored to the organization&apos;s specific research needs.</obo:IAO_0000115>
+        <obo:IAO_0100001 rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000689"/>
+        <rdfs:comment xml:lang="en">Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance. This one has a successor: an in house database is a database, so MOLSIM:000689 database source replaces it.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete in house database</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -10337,10 +10433,11 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000722 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000722">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000720"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000688"/>
         <obo:IAO_0000115 xml:lang="en">Information or data obtained directly from an individual researcher or expert through informal means such as email, conversation, or unpublished notes, rather than through a formal publication or public database. While sometimes necessary, such sources are typically less verifiable and are often used for supplementary or preliminary information.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
-        <rdfs:label xml:lang="en">private communication source</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">private communication source</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">personal communication source</rdfs:label>
     </owl:Class>
     
 
@@ -11466,7 +11563,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000844">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000910"/>
-        <obo:IAO_0000115 xml:lang="en">The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, including earth sciences, climate modeling, and molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, such as molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">NetCDF format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_3650"/>
     </owl:Class>
@@ -12081,8 +12179,9 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000901">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001091"/>
-        <obo:IAO_0000115 xml:lang="en">A topology file format that defines the atoms of a molecular system, their connectivity as bonds, angles, dihedrals and impropers, and basic atomic properties such as type indices, charges and masses. Importantly, it does not contain the actual force field parameters (like bond spring constants or Lennard-Jones values), which must be provided separately. Originating with X-Plor, the format is widely used by simulation programs such as CHARMM and NAMD, and by visualization tools such as VMD. (UNVERIFIED)</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">EDAM 1.25, class format_3882 PSF (http://edamontology.org/format_3882), which records the X-Plor origin. Wording is MOLSIM&apos;s own; EDAM is CC BY-SA 4.0.</obo:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">A Protein Structure File (.psf) defines the atoms, connectivity (bonds, angles, dihedrals, impropers), and basic atomic properties (like type indices, charges, masses) for a molecular system. Importantly, it does not contain the actual force field parameters. PSF files are used by the simulation programs CHARMM and NAMD.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">The format originates with X-Plor. Recorded here rather than in the definition, which was verified on 2026-09-18 without it. Source: EDAM 1.25, class format_3882 PSF (http://edamontology.org/format_3882).</obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">PSF format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_3882"/>
     </owl:Class>
@@ -12137,7 +12236,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000906">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
         <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000907"/>
-        <obo:IAO_0000115 xml:lang="en">The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">Mol2 format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_3816"/>
     </owl:Class>
@@ -12148,8 +12248,9 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000907">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001088"/>
-        <obo:IAO_0000115 xml:lang="en">The Structure-Data File (SDF, .sdf) format, developed by MDL Information Systems, is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)</obo:IAO_0000115>
-        <obo:IAO_0000119 xml:lang="en">EDAM 1.25, class format_3814 SDF (http://edamontology.org/format_3814), which records the MDL Information Systems origin. Wording is MOLSIM&apos;s own; EDAM is CC BY-SA 4.0.</obo:IAO_0000119>
+        <obo:IAO_0000115 xml:lang="en">The Structure-Data File (SDF, .sdf) format is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple blocks defining atomic coordinates and connectivity for each molecule concatenated together, where each block can be followed by data fields like IDs or calculated properties.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">The format was developed by MDL Information Systems. Recorded here rather than in the definition, which was verified on 2026-09-18 without it. Source: EDAM 1.25, class format_3814 SDF (http://edamontology.org/format_3814).</obo:IAO_0000116>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">SDF format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_3814"/>
     </owl:Class>
@@ -12202,7 +12303,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000912">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000908"/>
-        <obo:IAO_0000115 xml:lang="en">The Fasta format is a simple and widely used text-based format for storing biological sequence data (nucleotides or amino acids). Each sequence entry begins with a single-line description header, marked by a greater-than symbol (&apos;&gt;&apos;), followed by the sequence data on one or more subsequent lines. Its simplicity makes it easily readable by humans and parsable by many bioinformatics tools. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The Fasta format is a simple and widely used text-based format for storing biological sequence data (nucleotides or amino acids). Each sequence entry begins with a single-line description header, marked by a greater-than symbol (&apos;&gt;&apos;), followed by the sequence data on one or more subsequent lines. Its simplicity makes it easily readable by humans and parsable by many bioinformatics tools.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">FASTA format</rdfs:label>
         <skos:closeMatch rdf:resource="http://edamontology.org/format_1929"/>
     </owl:Class>
@@ -12224,7 +12326,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000914">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000910"/>
-        <obo:IAO_0000115 xml:lang="en">XML (Extensible Markup Language) is a flexible, text-based markup language used to encode data in a format that is both human-readable and machine-readable. It uses user-defined tags to structure data hierarchically with elements and attributes. XML is widely used for data exchange on the web and in various scientific domains, including bioinformatics (e.g., CML). (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">XML (Extensible Markup Language) is a flexible, text-based markup language used to encode data in a format that is both human-readable and machine-readable. It uses user-defined tags to structure data hierarchically with elements and attributes. XML is widely used for data exchange on the web and in various scientific domains, including bioinformatics.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">XML format</rdfs:label>
         <skos:exactMatch rdf:resource="http://edamontology.org/format_2332"/>
     </owl:Class>
@@ -13068,7 +13171,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001047">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">A chain ID is a letter used to label different polymer molecules, like different protein chains, in a structure file. As a type of identifier, the chain ID is a character, typically a letter, used in macromolecular structure formats like PDB or mmCIF to distinguish between different polymer chains within the same entry. It is an essential part of the atom selection syntax in analysis tools, allowing for the specific targeting of molecules in a complex, for example, :1-150@CA selects C-alpha atoms from the first chain by default. This is referred to in PDB files as &quot;chainID&quot; and used in selection masks in tools like VMD or cpptraj, often implicitly or with a colon prefix. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A chain ID is a letter used to label different polymer molecules, like different protein chains, in a structure file. The chain ID usually has a limited number of characters like in the PDB format (1) or in mmCIF and PSF formats (4). It is an essential part of the atom selection syntax in analysis tools, allowing for targeting of specific molecules in a system.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <oboInOwl:hasExactSynonym xml:lang="en">chainid</oboInOwl:hasExactSynonym>
         <rdfs:comment xml:lang="en">An identifier used in PDB files to distinguish different polymer chains.</rdfs:comment>
         <rdfs:label xml:lang="en">chain ID</rdfs:label>
@@ -13081,7 +13185,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001048">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">An insertion code is a letter used in structure files when extra amino acids have been inserted into a sequence without renumbering everything. As a type of identifier, the insertion code is a character used in PDB and mmCIF formats to handle residues that have been inserted into a sequence relative to a reference numbering scheme, allowing multiple residues to share the same residue number. This code is critical for unambiguously identifying specific residues in atom selections, for example, residue &quot;10A&quot; is distinct from &quot;10B&quot;. This is referred to in PDB files as &quot;iCode&quot; and is used in selection syntax, for example, residue 10A. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">An insertion code is a letter used in PDB and mmCIF structure files when extra amino acids have been inserted into a sequence without renumbering every residue after the insertion, thus allowing multiple residues to share the same residue number. This code is critical for unambiguously identifying specific residues in atom selections (e.g. residue &quot;10A&quot; is distinct from &quot;10B&quot;). This is referred to in PDB files as &quot;icode&quot;.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <oboInOwl:hasExactSynonym xml:lang="en">icodes</oboInOwl:hasExactSynonym>
         <rdfs:comment xml:lang="en">A character used in PDB files to handle insertions in a sequence.</rdfs:comment>
         <rdfs:label xml:lang="en">insertion code</rdfs:label>
@@ -13151,7 +13256,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001054">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000903"/>
-        <obo:IAO_0000115 xml:lang="en">A binary file format from the GROMACS software that stores the full-precision trajectory of a simulation. It saves the atomic coordinates, velocities, and forces at each time step without any loss of precision. This format is used when high accuracy is needed for analysis, such as for calculating kinetic properties. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A binary file format from the GROMACS software that stores the full-precision trajectory of a simulation. It saves the atomic coordinates, velocities, and forces at each time step without any loss of precision. This format is used instead of XTC format when high accuracy is needed for analysis.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <oboInOwl:hasExactSynonym xml:lang="en">GROMACS trr format</oboInOwl:hasExactSynonym>
         <rdfs:label xml:lang="en">trr trajectory format</rdfs:label>
     </owl:Class>
@@ -20723,7 +20829,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001742">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
-        <obo:IAO_0000115 xml:lang="en">The IUPAC International Chemical Identifier (InChI) is a standardized text string that provides a unique, machine-readable signature for a specific chemical substance. It is algorithmically generated from a molecule&apos;s structural information, ensuring that a given compound will always produce the same identifier regardless of how it was drawn or named. This code serves as a universal label for linking chemical information across different databases and software, much like a barcode for molecules. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">The IUPAC International Chemical Identifier (InChI) is a standardized text string that provides a unique, machine-readable signature for a specific chemical substance. It is algorithmically generated from a molecule&apos;s structural information and it is sensitive to its chirality, ensuring that a given compound will always produce the same identifier regardless of how it is drawn. This code serves as a universal label for linking chemical information across different databases and software.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">InChI code</rdfs:label>
     </owl:Class>
     
@@ -21375,7 +21482,8 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001800">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001292"/>
-        <obo:IAO_0000115 xml:lang="en">A physical property is a measurable characteristic of a substance or system that describes its physical state, such as its temperature, pressure, or density. In molecular simulations, these properties are calculated as averages over the course of the trajectory to describe the macroscopic state of the simulated system. These calculated properties are the primary outputs used to validate a simulation against experimental data and to understand the material characteristics of the molecular model. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A physical property is a measurable characteristic of a substance or system that describes its physical state, such as its temperature, pressure, or density. In molecular simulations, these properties are calculated as averages over the course of the trajectory to describe the macroscopic state of the simulated system. These calculated properties are the primary outputs used to validate a simulation against experimental data and to understand the material characteristics of the molecular model.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
         <rdfs:label xml:lang="en">physical property</rdfs:label>
     </owl:Class>
     
@@ -25723,6 +25831,139 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002270 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002270">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
+        <obo:IAO_0000115 xml:lang="en">A document that surveys and summarises existing published work on a topic rather than reporting new primary results. In biomolecular simulation a review is a common source for force field comparisons and method recommendations. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">review article</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002271 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002271">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
+        <obo:IAO_0000115 xml:lang="en">A document that forms one titled part of an edited book, usually written by different authors from the other parts. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">book chapter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002272 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002272">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
+        <obo:IAO_0000115 xml:lang="en">A document presenting the research carried out for an academic degree, submitted to and examined by the awarding institution. Simulation results are often reported here before they appear in any journal. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">thesis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002273 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002273">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
+        <obo:IAO_0000115 xml:lang="en">A document published as one of the collected contributions to a scientific meeting. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">conference proceeding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002274 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002274">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <obo:IAO_0000115 xml:lang="en">An information content entity that records one property of a data source, such as how its data was produced or who may see it. These are deliberately kept apart from the data source hierarchy itself, which sorts sources only by what kind of resource they are, so that a single source can carry several descriptors at once. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">data source descriptor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002275 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002275">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002274"/>
+        <obo:IAO_0000115 xml:lang="en">A data source descriptor that records how the data held by a source was produced. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">data origin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002276 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002276">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002275"/>
+        <obo:IAO_0000115 xml:lang="en">A data origin recording that the data was obtained by measurement in a laboratory rather than by calculation. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">experimental data origin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002277 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002277">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002275"/>
+        <obo:IAO_0000115 xml:lang="en">A data origin recording that the data was produced by calculation or simulation rather than by laboratory measurement. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">computational data origin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002278 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002278">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002274"/>
+        <obo:IAO_0000115 xml:lang="en">A data source descriptor that records who may obtain the data held by a source. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">data access</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002279 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002279">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002278"/>
+        <obo:IAO_0000115 xml:lang="en">A data access descriptor recording that the data may be obtained by anyone without permission or licence. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">public access</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002280 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002280">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002278"/>
+        <obo:IAO_0000115 xml:lang="en">A data access descriptor recording that the data may be obtained only under some condition, such as an institutional membership, a licence, an embargo period, or a direct request to its holder. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">restricted access</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002281 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002281">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
+        <obo:IAO_0000115 xml:lang="en">An Extended PDB ID is the unique twelve-character code composed of a &apos;pdb_&apos; header followed by 8 alphanumeric characters. Every Extended PDB ID is assigned to a experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier serves to reference and retrieve PDB data. This format is the successor of the legacy four-character PDB ID.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
+        <rdfs:label xml:lang="en">Extended PDB ID</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002282 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002282">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000447"/>
+        <obo:IAO_0000115 xml:lang="en">An InChIKey is a fixed-length, 27-character alphanumeric hash derived from the InChI (International Chemical Identifier) code of a chemical structure, used to uniquely and compactly identify chemical compounds in databases and web searches.</obo:IAO_0000115>
+        <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
+        <oboInOwl:hasExactSynonym xml:lang="en">InChiKey code</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">InChIKey code</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_010001 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_010001">
@@ -25955,9 +26196,10 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_010023 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_010023">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000719"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000688"/>
         <obo:IAO_0000115 xml:lang="en">An electronic lab journal source refers to data, observations, or protocols obtained directly from a digital laboratory notebook system used by a research group. Unlike public databases or formal publications, these sources contain raw, internal research records that document the day-to-day progress and specific conditions of an experiment. Citing this source acknowledges the provenance of data that exists within a private institutional framework and has not yet been publicly deposited or peer-reviewed. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">electronic lab journal source</rdfs:label>
+        <oboInOwl:hasExactSynonym xml:lang="en">electronic lab journal source</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">electronic laboratory notebook source</rdfs:label>
     </owl:Class>
     
 

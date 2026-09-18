@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2026-09-17
+data-version: releases/2026-09-18
 default-namespace: molsim
 idspace: dc http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -26,7 +26,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by/4.0/
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-09-17" xsd:string
+property_value: owl:versionInfo "2026-09-18" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -42,6 +42,20 @@ synonym: "cytoplasmic nucleosome" NARROW []
 synonym: "nuclear nucleosome" NARROW []
 xref: Wikipedia:Nucleosome
 is_a: MOLSIM:001894 ! hybrid complex system
+
+[Term]
+id: IAO:0000013
+name: journal article
+def: "A report that is published in a journal." []
+is_a: IAO:0000088 ! report
+is_a: IAO:0000311 ! publication
+property_value: IAO:0000111 "journal article" xsd:string
+property_value: IAO:0000112 "Examples are articles published in the journals, Nature and Science. The content can often be cited by reference to a paper based encoding, e.g.  Authors, Title of article, Journal name, date or year of publication, volume and page number." xsd:string
+property_value: IAO:0000114 IAO:0000120
+property_value: IAO:0000117 "PERSON: Alan Ruttenberg" xsd:string
+property_value: IAO:0000117 "PERSON: Chris Stoeckert" xsd:string
+property_value: IAO:0000119 "group:OBI" xsd:string
+property_value: IAO:0000119 "OBI_0000159" xsd:string
 
 [Term]
 id: IAO:0000027
@@ -67,6 +81,25 @@ def: "The curation status of the term. The allowed values come from an enumerate
 is_a: IAO:0000102 ! data about an ontology part
 property_value: IAO:0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>" xsd:string
 property_value: IAO:0000119 "OBI_0000266" xsd:string
+
+[Term]
+id: IAO:0000088
+name: report
+def: "A document assembled by an author for the purpose of providing information for the audience. A report is the output of a documenting process and has the objective to be consumed by a specific audience. Topic of the report is on something that has completed. A report is not a single figure. Examples of reports are journal article, patent application, grant progress report, case report (not patient record)." []
+is_a: IAO:0000310 ! document
+property_value: IAO:0000111 "report" xsd:string
+property_value: IAO:0000112 "Examples of reports are gene lists and investigation reports. These are not published (journal) articles but may be included in a journal article." xsd:string
+property_value: IAO:0000114 IAO:0000125
+property_value: IAO:0000116 "2009-03-16: comment from Darren Natale: I am slightly uneasy with the sentence \"Topic of the report is on \nsomething that has completed.\"  Should it be restricted to those things \nthat are completed?  For example, a progress report is (usually) about \nsomething that definitely has *not* been completed, or may include \n(only) projections.  I think the definition would not suffer if the \nwhole sentence is deleted." xsd:string
+property_value: IAO:0000116 "2009-03-16: this was report of results with definition: A report is a narrative object that is a formal statement of the results of an investigation, or of any matter on which definite information is required, made by some person or body instructed or required to do so." xsd:string
+property_value: IAO:0000116 "2009-03-16: work has been done on this term during during the OBI workshop winter 2009 and the current definition was considered acceptable for use in OBI. If there is a need to modify this definition please notify OBI." xsd:string
+property_value: IAO:0000116 "2009-08-10 Alan Ruttenberg: Larry Hunter suggests that this be obsoleted and replaced by 'document'. Alan restored as there are OBI dependencies and this merits further discussion" xsd:string
+property_value: IAO:0000116 "disagreement about where reports go. alan: only some gene lists are reports. Is a report all the content of some document? The example of usage suggests that a report may be part of  some article. Term needs clarification" xsd:string
+property_value: IAO:0000117 "PERSON: Alan Ruttenberg" xsd:string
+property_value: IAO:0000117 "PERSON: Chris Stoeckert" xsd:string
+property_value: IAO:0000117 "PERSON: Melanie Courtot" xsd:string
+property_value: IAO:0000119 "GROUP: OBI" xsd:string
+property_value: IAO:0000119 "OBI_0000099" xsd:string
 
 [Term]
 id: IAO:0000102
@@ -98,6 +131,32 @@ id: IAO:0000225
 name: obsolescence reason specification
 def: "The reason for which a term has been deprecated. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value." []
 is_a: IAO:0000102 ! data about an ontology part
+
+[Term]
+id: IAO:0000310
+name: document
+def: "A collection of information content entities intended to be understood together as a whole" []
+is_a: IAO:0000030 ! information content entity
+is_a: MOLSIM:000688 ! data source
+property_value: IAO:0000111 "document" xsd:string
+property_value: IAO:0000112 "A journal article, patent application, laboratory notebook, or a book" xsd:string
+property_value: IAO:0000114 IAO:0000120
+property_value: IAO:0000117 "PERSON: Lawrence Hunter" xsd:string
+
+[Term]
+id: IAO:0000311
+name: publication
+def: "A document that is the output of a publishing process." []
+comment: Revisit the term in Octorber 2020. Improve the defintion.
+is_a: IAO:0000310 ! document
+property_value: IAO:0000111 "publication" xsd:string
+property_value: IAO:0000112 "journal article, newspaper story, book, etc." xsd:string
+property_value: IAO:0000114 IAO:0000120
+property_value: IAO:0000117 "PERSON: Chris Stoeckert" xsd:string
+property_value: IAO:0000117 "PERSON: Jie Zheng" xsd:string
+property_value: IAO:0000117 "PERSON: Lawrence Hunter" xsd:string
+property_value: IAO:0000118 "published document" xsd:string
+property_value: IAO:0000233 https://github.com/information-artifact-ontology/IAO/issues/232
 
 [Term]
 id: IAO:0000409
@@ -2271,9 +2330,10 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 [Term]
 id: MOLSIM:000317
 name: JSON format
-def: "JSON (JavaScript Object Notation) is a lightweight, text-based data interchange format consisting of attribute-value pairs and array data types. It is widely used in computational workflows for serializing structured data, such as simulation configuration settings, molecular metadata, or API responses from database web servers, offering a simpler and more compact alternative to XML. (UNVERIFIED)" []
+def: "JSON (JavaScript Object Notation) is a textual data interchange format with a simple syntax and low parsing cost. It is human-readable and it has a flexible structure. The JSON format is widely used and it is natively supported for parsing and serialization in most mainstream programming languages." []
 is_a: MOLSIM:000910 ! general data format
 disjoint_from: MOLSIM:000318 ! YAML format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:3464
 
 [Term]
@@ -2286,8 +2346,9 @@ property_value: skos:exactMatch format:3750
 [Term]
 id: MOLSIM:000319
 name: standard xyz format
-def: "A standardized, minimalistic text-based file format used to store the Cartesian coordinates of atoms. It typically consists of a header line (atom count), a comment line, and one line per atom containing the element symbol and X, Y, Z positions. It generally does not contain connectivity or topology information. (UNVERIFIED)" []
+def: "A standardized, minimalistic text-based file format used to store the Cartesian coordinates of atoms. It typically consists of a header line (atom count), a comment line, and one line per atom containing the element symbol and X, Y, Z positions. It may contain multiple frames (i.e. trajectory). The XYZ file format is widely supported by many programs, although many slightly different XYZ file formats coexist (Tinker XYZ, UniChem XYZ, etc.)." []
 is_a: MOLSIM:001088 ! molecular structure format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:000320
@@ -2503,12 +2564,13 @@ is_obsolete: true
 [Term]
 id: MOLSIM:000352
 name: binpos format
-def: "A binary file format that stores atomic coordinate frames from a molecular dynamics simulation. The name itself stands for \"binary position.\" This format is often referred to as the Scripps Research Institute BinPos format and is recognized by Amber's analysis tools like cpptraj and other programs such as VMD. (UNVERIFIED)" []
+def: "The binpos (\"binary position\") format is binary file format from Amber that stores atomic coordinate frames (i.e. a trajectory) from a molecular dynamics simulation." []
 synonym: ".binpos" EXACT []
 synonym: "Scripps binpos format" EXACT []
 synonym: "Scripps Research Institute BinPos" EXACT []
 is_a: MOLSIM:001090 ! molecular trajectory format
-property_value: IAO:0000119 "EDAM 1.25, class format_3885 BinPos (http://edamontology.org/format_3885), which names the Scripps Research Institute as the originator of the format. Wording is MOLSIM's own; EDAM is CC BY-SA 4.0." xsd:string
+property_value: IAO:0000116 "The Scripps Research Institute is named upstream as the originator of the format. Recorded here rather than in the definition, which was verified on 2026-09-18 without it. Source: EDAM 1.25, class format_3885 BinPos (http://edamontology.org/format_3885)." xsd:string
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:3885
 
 [Term]
@@ -3124,16 +3186,18 @@ disjoint_from: MOLSIM:000867 ! CHARMM input format
 [Term]
 id: MOLSIM:000445
 name: mmCIF format
-def: "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data. (UNVERIFIED)" []
+def: "The mmCIF format (.cif or .mmcif) is the standard archival format for macromolecular structures used by the Protein Data Bank (PDB), superseding the legacy PDB format. It uses a flexible, dictionary-based syntax (CIF) with key-value pairs and loop structures to store atomic coordinates, connectivity, experimental details, and extensive metadata. It is better suited for handling large, complex structures and diverse experimental data." []
 is_a: MOLSIM:001088 ! molecular structure format
 disjoint_from: MOLSIM:000446 ! PDB format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:1477
 
 [Term]
 id: MOLSIM:000446
 name: PDB format
-def: "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata (HEADER, TITLE, REMARK), atomic coordinates (ATOM, HETATM), and optionally connectivity (CONECT). While still widely compatible with visualization and simulation software, it has limitations for very large structures and complex metadata compared to the newer mmCIF format. (UNVERIFIED)" []
+def: "The PDB format (.pdb) is the long-standing, fixed-column text format traditionally used for storing protein and nucleic acid structures from the Protein Data Bank. It includes records for metadata, atomic coordinates, and optionally connectivity. While still widely compatible with visualization and simulation software, it is considered obsolete since it has limitations for very large structures and complex metadata compared to the newer mmCIF format." []
 is_a: MOLSIM:001088 ! molecular structure format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:1476
 
 [Term]
@@ -4659,15 +4723,17 @@ is_a: MOLSIM:000141 ! theoretical approach
 [Term]
 id: MOLSIM:000686
 name: PDB ID
-def: "A PDB ID is the unique four-character alphanumeric code assigned to each experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier (e.g., '1TIM', '6M0J') serves as the standard way to reference and retrieve specific 3D structural data for proteins, nucleic acids, and their complexes. It allows researchers globally to unambiguously access the same structural entry. (UNVERIFIED)" []
+def: "A PDB ID is the unique four-character alphanumeric code (e.g., '1TIM', '6M0J') where the first character is always numeric. Every PDB id is assigned to a experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier serves to reference and retrieve PDB data. However these identifiers are now deprecated in favor of the Extended PDB ID." []
 is_a: MOLSIM:000447 ! identifier
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch data:1127
 
 [Term]
 id: MOLSIM:000687
 name: UniProt ID
-def: "A UniProt ID, more formally known as a UniProt Accession Number (e.g., 'P00761', 'Q8WZ42'), is the stable and unique identifier assigned to a protein sequence record in the UniProt Knowledgebase (UniProtKB). This ID provides access to comprehensive information about a protein, including its sequence, function, annotations, and cross-references to other databases. It serves as a primary key for protein sequence and functional data. (UNVERIFIED)" []
+def: "A UniProt ID, more formally known as a UniProt Accession Number (e.g., 'P00761', 'Q8WZ42'), is the stable and unique identifier assigned to a protein sequence record in the UniProt Knowledgebase (UniProtKB). This ID provides access to comprehensive information about a protein, including its sequence, function, annotations, and cross-references to other databases. It serves as a primary key for protein sequence and functional data." []
 is_a: MOLSIM:000447 ! identifier
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch data:2291
 
 [Term]
@@ -4872,43 +4938,47 @@ is_a: MOLSIM:002041 ! molecular structure visualization tool
 
 [Term]
 id: MOLSIM:000717
-name: experimental data source
-def: "Refers to data obtained directly from a specific laboratory experiment. This can include data reported in a scientific publication for which no separate database entry exists, or unpublished results from ongoing research." []
-is_a: MOLSIM:000688 ! data source
-property_value: IAO:0000117 orcid:0000-0002-2294-5393
+name: obsolete experimental data source
+def: "OBSOLETE. Refers to data obtained directly from a specific laboratory experiment. This can include data reported in a scientific publication for which no separate database entry exists, or unpublished results from ongoing research." []
+comment: Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance.
+is_obsolete: true
 
 [Term]
 id: MOLSIM:000718
-name: scientific publication source
-def: "A published research article, review, book chapter, or conference proceeding that serves as the source of specific data, findings, or methodologies. When data is cited directly from a publication without an associated database entry, the publication itself is considered the data source. This is common for specific measurements or observations not typically archived elsewhere. (UNVERIFIED)" []
-is_a: MOLSIM:000717 ! experimental data source
-disjoint_from: MOLSIM:000719 ! unpublished experimental result source
+name: obsolete scientific publication source
+def: "OBSOLETE. A published research article, review, book chapter, or conference proceeding that serves as the source of specific data, findings, or methodologies. When data is cited directly from a publication without an associated database entry, the publication itself is considered the data source. This is common for specific measurements or observations not typically archived elsewhere." []
+comment: Retired 2026-09-18 in favour of IAO:0000310 document, which is now imported and attached under MOLSIM:000688 data source. The term duplicated a concept IAO already models, and its own definition enumerated exactly IAO's document types. Part of the data source refactor asked for in review by orcid:0000-0002-2294-5393, which removed the facets experimental and private from the hierarchy and left it sorting sources by what kind of resource they are.
+is_obsolete: true
+replaced_by: IAO:0000310
 
 [Term]
 id: MOLSIM:000719
-name: unpublished experimental result source
-def: "Data or findings originating from a laboratory experiment that have not yet been published or formally disseminated to the public or scientific community. This category covers preliminary results, ongoing research data, or information shared through informal channels before formal publication or deposition. (UNVERIFIED)" []
-is_a: MOLSIM:000717 ! experimental data source
+name: obsolete unpublished experimental result source
+def: "OBSOLETE. Data or findings originating from a laboratory experiment that have not yet been published or formally disseminated to the public or scientific community. This category covers preliminary results, ongoing research data, or information shared through informal channels before formal publication or deposition." []
+comment: Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance.
+is_obsolete: true
 
 [Term]
 id: MOLSIM:000720
-name: private source
-def: "A data source that is not publicly accessible, such as an internal database maintained by a private company or research institution, or data held privately by an individual researcher. This category is important for acknowledging data origins that cannot be independently verified or accessed by the wider community." []
-is_a: MOLSIM:000688 ! data source
-property_value: IAO:0000117 orcid:0000-0002-2294-5393
+name: obsolete private source
+def: "OBSOLETE. A data source that is not publicly accessible, such as an internal database maintained by a private company or research institution, or data held privately by an individual researcher. This category is important for acknowledging data origins that cannot be independently verified or accessed by the wider community." []
+comment: Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance.
+is_obsolete: true
 
 [Term]
 id: MOLSIM:000721
-name: in house database
-def: "A database developed and maintained within a specific organization (e.g., a pharmaceutical company, a research institute) for its internal use, not generally accessible to the public. These often contain proprietary data, specialized collections, or information tailored to the organization's specific research needs. (UNVERIFIED)" []
-is_a: MOLSIM:000720 ! private source
-disjoint_from: MOLSIM:000722 ! private communication source
+name: obsolete in house database
+def: "OBSOLETE. A database developed and maintained within a specific organization (e.g., a pharmaceutical company, a research institute) for its internal use, not generally accessible to the public. These often contain proprietary data, specialized collections, or information tailored to the organization's specific research needs." []
+comment: Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance. This one has a successor: an in house database is a database, so MOLSIM:000689 database source replaces it.
+is_obsolete: true
+replaced_by: MOLSIM:000689
 
 [Term]
 id: MOLSIM:000722
-name: private communication source
+name: personal communication source
 def: "Information or data obtained directly from an individual researcher or expert through informal means such as email, conversation, or unpublished notes, rather than through a formal publication or public database. While sometimes necessary, such sources are typically less verifiable and are often used for supplementary or preliminary information." []
-is_a: MOLSIM:000720 ! private source
+synonym: "private communication source" EXACT []
+is_a: MOLSIM:000688 ! data source
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
@@ -5600,8 +5670,9 @@ property_value: skos:closeMatch operation:2476
 [Term]
 id: MOLSIM:000844
 name: NetCDF format
-def: "The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, including earth sciences, climate modeling, and molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard. (UNVERIFIED)" []
+def: "The NetCDF (Network Common Data Form) format, which typically uses the .nc extension, is a set of software libraries and a file format designed for storing and sharing array-oriented scientific data. Developed and maintained by the Unidata program at the University Corporation for Atmospheric Research (UCAR), it is an open standard widely used across many scientific disciplines, such as molecular dynamics. While Amber has adopted NetCDF as its preferred, modern format for storing trajectories and other data, the format itself is not specific to Amber and is a general-purpose standard." []
 is_a: MOLSIM:000910 ! general data format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:3650
 
 [Term]
@@ -5989,9 +6060,10 @@ is_a: MOLSIM:001091 ! molecular topology format
 [Term]
 id: MOLSIM:000901
 name: PSF format
-def: "A topology file format that defines the atoms of a molecular system, their connectivity as bonds, angles, dihedrals and impropers, and basic atomic properties such as type indices, charges and masses. Importantly, it does not contain the actual force field parameters (like bond spring constants or Lennard-Jones values), which must be provided separately. Originating with X-Plor, the format is widely used by simulation programs such as CHARMM and NAMD, and by visualization tools such as VMD. (UNVERIFIED)" []
+def: "A Protein Structure File (.psf) defines the atoms, connectivity (bonds, angles, dihedrals, impropers), and basic atomic properties (like type indices, charges, masses) for a molecular system. Importantly, it does not contain the actual force field parameters. PSF files are used by the simulation programs CHARMM and NAMD." []
 is_a: MOLSIM:001091 ! molecular topology format
-property_value: IAO:0000119 "EDAM 1.25, class format_3882 PSF (http://edamontology.org/format_3882), which records the X-Plor origin. Wording is MOLSIM's own; EDAM is CC BY-SA 4.0." xsd:string
+property_value: IAO:0000116 "The format originates with X-Plor. Recorded here rather than in the definition, which was verified on 2026-09-18 without it. Source: EDAM 1.25, class format_3882 PSF (http://edamontology.org/format_3882)." xsd:string
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:3882
 
 [Term]
@@ -6024,17 +6096,19 @@ is_obsolete: true
 [Term]
 id: MOLSIM:000906
 name: Mol2 format
-def: "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures. (UNVERIFIED)" []
+def: "The Mol2 format (.mol2) is a text-based file format originating from Sybyl software, commonly used to represent small molecules, especially in docking and cheminformatics applications. It stores atomic coordinates, atom names, connectivity (including bond orders), partial charges, and often uses specific Sybyl atom types. A single Mol2 file can contain multiple molecular structures." []
 is_a: MOLSIM:001088 ! molecular structure format
 disjoint_from: MOLSIM:000907 ! SDF format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:3816
 
 [Term]
 id: MOLSIM:000907
 name: SDF format
-def: "The Structure-Data File (SDF, .sdf) format, developed by MDL Information Systems, is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple MOL format blocks (defining atomic coordinates and connectivity for each molecule) concatenated together, where each block can be followed by data fields (like IDs or calculated properties) delimited by specific tags. Files typically separate molecule records with lines containing $$$$. (UNVERIFIED)" []
+def: "The Structure-Data File (SDF, .sdf) format is widely used in cheminformatics for storing libraries of small molecules along with associated data. It essentially consists of multiple blocks defining atomic coordinates and connectivity for each molecule concatenated together, where each block can be followed by data fields like IDs or calculated properties." []
 is_a: MOLSIM:001088 ! molecular structure format
-property_value: IAO:0000119 "EDAM 1.25, class format_3814 SDF (http://edamontology.org/format_3814), which records the MDL Information Systems origin. Wording is MOLSIM's own; EDAM is CC BY-SA 4.0." xsd:string
+property_value: IAO:0000116 "The format was developed by MDL Information Systems. Recorded here rather than in the definition, which was verified on 2026-09-18 without it. Source: EDAM 1.25, class format_3814 SDF (http://edamontology.org/format_3814)." xsd:string
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:3814
 
 [Term]
@@ -6066,8 +6140,9 @@ is_a: MOLSIM:001074 ! process specification
 [Term]
 id: MOLSIM:000912
 name: FASTA format
-def: "The Fasta format is a simple and widely used text-based format for storing biological sequence data (nucleotides or amino acids). Each sequence entry begins with a single-line description header, marked by a greater-than symbol ('>'), followed by the sequence data on one or more subsequent lines. Its simplicity makes it easily readable by humans and parsable by many bioinformatics tools. (UNVERIFIED)" []
+def: "The Fasta format is a simple and widely used text-based format for storing biological sequence data (nucleotides or amino acids). Each sequence entry begins with a single-line description header, marked by a greater-than symbol ('>'), followed by the sequence data on one or more subsequent lines. Its simplicity makes it easily readable by humans and parsable by many bioinformatics tools." []
 is_a: MOLSIM:000908 ! sequence data format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:closeMatch format:1929
 
 [Term]
@@ -6080,8 +6155,9 @@ is_a: MOLSIM:000909 ! volumetric data format
 [Term]
 id: MOLSIM:000914
 name: XML format
-def: "XML (Extensible Markup Language) is a flexible, text-based markup language used to encode data in a format that is both human-readable and machine-readable. It uses user-defined tags to structure data hierarchically with elements and attributes. XML is widely used for data exchange on the web and in various scientific domains, including bioinformatics (e.g., CML). (UNVERIFIED)" []
+def: "XML (Extensible Markup Language) is a flexible, text-based markup language used to encode data in a format that is both human-readable and machine-readable. It uses user-defined tags to structure data hierarchically with elements and attributes. XML is widely used for data exchange on the web and in various scientific domains, including bioinformatics." []
 is_a: MOLSIM:000910 ! general data format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:exactMatch format:2332
 
 [Term]
@@ -6617,19 +6693,21 @@ property_value: IAO:0000117 orcid:0000-0002-2294-5393
 [Term]
 id: MOLSIM:001047
 name: chain ID
-def: "A chain ID is a letter used to label different polymer molecules, like different protein chains, in a structure file. As a type of identifier, the chain ID is a character, typically a letter, used in macromolecular structure formats like PDB or mmCIF to distinguish between different polymer chains within the same entry. It is an essential part of the atom selection syntax in analysis tools, allowing for the specific targeting of molecules in a complex, for example, :1-150@CA selects C-alpha atoms from the first chain by default. This is referred to in PDB files as \"chainID\" and used in selection masks in tools like VMD or cpptraj, often implicitly or with a colon prefix. (UNVERIFIED)" []
+def: "A chain ID is a letter used to label different polymer molecules, like different protein chains, in a structure file. The chain ID usually has a limited number of characters like in the PDB format (1) or in mmCIF and PSF formats (4). It is an essential part of the atom selection syntax in analysis tools, allowing for targeting of specific molecules in a system." []
 comment: An identifier used in PDB files to distinguish different polymer chains.
 synonym: "chainid" EXACT []
 is_a: MOLSIM:000447 ! identifier
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 property_value: skos:closeMatch data:1008
 
 [Term]
 id: MOLSIM:001048
 name: insertion code
-def: "An insertion code is a letter used in structure files when extra amino acids have been inserted into a sequence without renumbering everything. As a type of identifier, the insertion code is a character used in PDB and mmCIF formats to handle residues that have been inserted into a sequence relative to a reference numbering scheme, allowing multiple residues to share the same residue number. This code is critical for unambiguously identifying specific residues in atom selections, for example, residue \"10A\" is distinct from \"10B\". This is referred to in PDB files as \"iCode\" and is used in selection syntax, for example, residue 10A. (UNVERIFIED)" []
+def: "An insertion code is a letter used in PDB and mmCIF structure files when extra amino acids have been inserted into a sequence without renumbering every residue after the insertion, thus allowing multiple residues to share the same residue number. This code is critical for unambiguously identifying specific residues in atom selections (e.g. residue \"10A\" is distinct from \"10B\"). This is referred to in PDB files as \"icode\"." []
 comment: A character used in PDB files to handle insertions in a sequence.
 synonym: "icodes" EXACT []
 is_a: MOLSIM:000447 ! identifier
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:001049
@@ -6672,10 +6750,11 @@ is_a: MOLSIM:000921 ! crd format
 [Term]
 id: MOLSIM:001054
 name: trr trajectory format
-def: "A binary file format from the GROMACS software that stores the full-precision trajectory of a simulation. It saves the atomic coordinates, velocities, and forces at each time step without any loss of precision. This format is used when high accuracy is needed for analysis, such as for calculating kinetic properties. (UNVERIFIED)" []
+def: "A binary file format from the GROMACS software that stores the full-precision trajectory of a simulation. It saves the atomic coordinates, velocities, and forces at each time step without any loss of precision. This format is used instead of XTC format when high accuracy is needed for analysis." []
 synonym: "GROMACS trr format" EXACT []
 is_a: MOLSIM:000903 ! GROMACS trajectory format
 disjoint_from: MOLSIM:001055 ! XTC trajectory format
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:001055
@@ -10968,8 +11047,9 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 [Term]
 id: MOLSIM:001742
 name: InChI code
-def: "The IUPAC International Chemical Identifier (InChI) is a standardized text string that provides a unique, machine-readable signature for a specific chemical substance. It is algorithmically generated from a molecule's structural information, ensuring that a given compound will always produce the same identifier regardless of how it was drawn or named. This code serves as a universal label for linking chemical information across different databases and software, much like a barcode for molecules. (UNVERIFIED)" []
+def: "The IUPAC International Chemical Identifier (InChI) is a standardized text string that provides a unique, machine-readable signature for a specific chemical substance. It is algorithmically generated from a molecule's structural information and it is sensitive to its chirality, ensuring that a given compound will always produce the same identifier regardless of how it is drawn. This code serves as a universal label for linking chemical information across different databases and software." []
 is_a: MOLSIM:000447 ! identifier
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:001743
@@ -11356,8 +11436,9 @@ relationship: IAO:0000039 UO:0000111 {all_only="true"} ! has measurement unit la
 [Term]
 id: MOLSIM:001800
 name: physical property
-def: "A physical property is a measurable characteristic of a substance or system that describes its physical state, such as its temperature, pressure, or density. In molecular simulations, these properties are calculated as averages over the course of the trajectory to describe the macroscopic state of the simulated system. These calculated properties are the primary outputs used to validate a simulation against experimental data and to understand the material characteristics of the molecular model. (UNVERIFIED)" []
+def: "A physical property is a measurable characteristic of a substance or system that describes its physical state, such as its temperature, pressure, or density. In molecular simulations, these properties are calculated as averages over the course of the trajectory to describe the macroscopic state of the simulated system. These calculated properties are the primary outputs used to validate a simulation against experimental data and to understand the material characteristics of the molecular model." []
 is_a: MOLSIM:001292 ! computed observable
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:001801
@@ -13858,6 +13939,87 @@ property_value: MOLSIM:002254 "rvdw" xsd:string {dcterms:source="MOLSIM:000247"}
 property_value: MOLSIM:002254 "vdw_cutoff" xsd:string {dcterms:source="MOLSIM:000217"}
 
 [Term]
+id: MOLSIM:002270
+name: review article
+def: "A document that surveys and summarises existing published work on a topic rather than reporting new primary results. In biomolecular simulation a review is a common source for force field comparisons and method recommendations. (UNVERIFIED)" []
+is_a: IAO:0000310 ! document
+
+[Term]
+id: MOLSIM:002271
+name: book chapter
+def: "A document that forms one titled part of an edited book, usually written by different authors from the other parts. (UNVERIFIED)" []
+is_a: IAO:0000310 ! document
+
+[Term]
+id: MOLSIM:002272
+name: thesis
+def: "A document presenting the research carried out for an academic degree, submitted to and examined by the awarding institution. Simulation results are often reported here before they appear in any journal. (UNVERIFIED)" []
+is_a: IAO:0000310 ! document
+
+[Term]
+id: MOLSIM:002273
+name: conference proceeding
+def: "A document published as one of the collected contributions to a scientific meeting. (UNVERIFIED)" []
+is_a: IAO:0000310 ! document
+
+[Term]
+id: MOLSIM:002274
+name: data source descriptor
+def: "An information content entity that records one property of a data source, such as how its data was produced or who may see it. These are deliberately kept apart from the data source hierarchy itself, which sorts sources only by what kind of resource they are, so that a single source can carry several descriptors at once. (UNVERIFIED)" []
+is_a: IAO:0000030 ! information content entity
+
+[Term]
+id: MOLSIM:002275
+name: data origin
+def: "A data source descriptor that records how the data held by a source was produced. (UNVERIFIED)" []
+is_a: MOLSIM:002274 ! data source descriptor
+
+[Term]
+id: MOLSIM:002276
+name: experimental data origin
+def: "A data origin recording that the data was obtained by measurement in a laboratory rather than by calculation. (UNVERIFIED)" []
+is_a: MOLSIM:002275 ! data origin
+
+[Term]
+id: MOLSIM:002277
+name: computational data origin
+def: "A data origin recording that the data was produced by calculation or simulation rather than by laboratory measurement. (UNVERIFIED)" []
+is_a: MOLSIM:002275 ! data origin
+
+[Term]
+id: MOLSIM:002278
+name: data access
+def: "A data source descriptor that records who may obtain the data held by a source. (UNVERIFIED)" []
+is_a: MOLSIM:002274 ! data source descriptor
+
+[Term]
+id: MOLSIM:002279
+name: public access
+def: "A data access descriptor recording that the data may be obtained by anyone without permission or licence. (UNVERIFIED)" []
+is_a: MOLSIM:002278 ! data access
+
+[Term]
+id: MOLSIM:002280
+name: restricted access
+def: "A data access descriptor recording that the data may be obtained only under some condition, such as an institutional membership, a licence, an embargo period, or a direct request to its holder. (UNVERIFIED)" []
+is_a: MOLSIM:002278 ! data access
+
+[Term]
+id: MOLSIM:002281
+name: Extended PDB ID
+def: "An Extended PDB ID is the unique twelve-character code composed of a 'pdb_' header followed by 8 alphanumeric characters. Every Extended PDB ID is assigned to a experimentally determined biomolecular structure deposited in the Protein Data Bank (PDB). This identifier serves to reference and retrieve PDB data. This format is the successor of the legacy four-character PDB ID." []
+is_a: MOLSIM:000447 ! identifier
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
+
+[Term]
+id: MOLSIM:002282
+name: InChIKey code
+def: "An InChIKey is a fixed-length, 27-character alphanumeric hash derived from the InChI (International Chemical Identifier) code of a chemical structure, used to uniquely and compactly identify chemical compounds in databases and web searches." []
+synonym: "InChiKey code" EXACT []
+is_a: MOLSIM:000447 ! identifier
+property_value: IAO:0000117 orcid:0000-0002-2294-5393
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second. (UNVERIFIED)" []
@@ -14001,9 +14163,10 @@ is_a: MOLSIM:001085 ! molecular data format
 
 [Term]
 id: MOLSIM:010023
-name: electronic lab journal source
+name: electronic laboratory notebook source
 def: "An electronic lab journal source refers to data, observations, or protocols obtained directly from a digital laboratory notebook system used by a research group. Unlike public databases or formal publications, these sources contain raw, internal research records that document the day-to-day progress and specific conditions of an experiment. Citing this source acknowledges the provenance of data that exists within a private institutional framework and has not yet been publicly deposited or peer-reviewed. (UNVERIFIED)" []
-is_a: MOLSIM:000719 ! unpublished experimental result source
+synonym: "electronic lab journal source" EXACT []
+is_a: MOLSIM:000688 ! data source
 
 [Term]
 id: MOLSIM:010024
