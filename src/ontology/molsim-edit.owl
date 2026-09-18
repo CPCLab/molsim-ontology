@@ -7623,44 +7623,118 @@ SubClassOf(obo:MOLSIM_000716 obo:MOLSIM_002041)
 
 # Class: obo:MOLSIM_000717 (experimental data source)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000717 "Refers to data obtained directly from a specific laboratory experiment. This can include data reported in a scientific publication for which no separate database entry exists, or unpublished results from ongoing research."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000717 "experimental data source"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000717 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_000717 obo:MOLSIM_000688)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000717 "OBSOLETE. Refers to data obtained directly from a specific laboratory experiment. This can include data reported in a scientific publication for which no separate database entry exists, or unpublished results from ongoing research."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000717 "obsolete experimental data source"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000717 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000717 "Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance."@en)
 
-# Class: obo:MOLSIM_000718 (scientific publication source)
+# Class: obo:MOLSIM_000718 (obsolete scientific publication source)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000718 "A published research article, review, book chapter, or conference proceeding that serves as the source of specific data, findings, or methodologies. When data is cited directly from a publication without an associated database entry, the publication itself is considered the data source. This is common for specific measurements or observations not typically archived elsewhere. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000718 "scientific publication source"@en)
-SubClassOf(obo:MOLSIM_000718 obo:MOLSIM_000717)
-DisjointClasses(obo:MOLSIM_000718 obo:MOLSIM_000719)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000718 "OBSOLETE. A published research article, review, book chapter, or conference proceeding that serves as the source of specific data, findings, or methodologies. When data is cited directly from a publication without an associated database entry, the publication itself is considered the data source. This is common for specific measurements or observations not typically archived elsewhere."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000718 "obsolete scientific publication source"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000718 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000718 obo:IAO_0000310)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000718 "Retired 2026-09-18 in favour of IAO:0000310 document, which is now imported and attached under MOLSIM:000688 data source. The term duplicated a concept IAO already models, and its own definition enumerated exactly IAO's document types. Part of the data source refactor asked for in review by orcid:0000-0002-2294-5393, which removed the facets experimental and private from the hierarchy and left it sorting sources by what kind of resource they are."@en)
+
+# IAO:0000310 document, imported 2026-09-18, attached here so a document can be
+# named as the origin of simulation data.
+SubClassOf(obo:IAO_0000310 obo:MOLSIM_000688)
+
+# Class: obo:MOLSIM_002270 (review article)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002270 "A document that surveys and summarises existing published work on a topic rather than reporting new primary results. In biomolecular simulation a review is a common source for force field comparisons and method recommendations. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002270 "review article"@en)
+SubClassOf(obo:MOLSIM_002270 obo:IAO_0000310)
+
+# Class: obo:MOLSIM_002271 (book chapter)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002271 "A document that forms one titled part of an edited book, usually written by different authors from the other parts. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002271 "book chapter"@en)
+SubClassOf(obo:MOLSIM_002271 obo:IAO_0000310)
+
+# Class: obo:MOLSIM_002272 (thesis)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002272 "A document presenting the research carried out for an academic degree, submitted to and examined by the awarding institution. Simulation results are often reported here before they appear in any journal. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002272 "thesis"@en)
+SubClassOf(obo:MOLSIM_002272 obo:IAO_0000310)
+
+# Class: obo:MOLSIM_002273 (conference proceeding)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002273 "A document published as one of the collected contributions to a scientific meeting. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002273 "conference proceeding"@en)
+SubClassOf(obo:MOLSIM_002273 obo:IAO_0000310)
+
+# Class: obo:MOLSIM_002274 (data source descriptor)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002274 "An information content entity that records one property of a data source, such as how its data was produced or who may see it. These are deliberately kept apart from the data source hierarchy itself, which sorts sources only by what kind of resource they are, so that a single source can carry several descriptors at once. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002274 "data source descriptor"@en)
+SubClassOf(obo:MOLSIM_002274 obo:IAO_0000030)
+
+# Class: obo:MOLSIM_002275 (data origin)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002275 "A data source descriptor that records how the data held by a source was produced. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002275 "data origin"@en)
+SubClassOf(obo:MOLSIM_002275 obo:MOLSIM_002274)
+
+# Class: obo:MOLSIM_002276 (experimental data origin)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002276 "A data origin recording that the data was obtained by measurement in a laboratory rather than by calculation. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002276 "experimental data origin"@en)
+SubClassOf(obo:MOLSIM_002276 obo:MOLSIM_002275)
+
+# Class: obo:MOLSIM_002277 (computational data origin)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002277 "A data origin recording that the data was produced by calculation or simulation rather than by laboratory measurement. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002277 "computational data origin"@en)
+SubClassOf(obo:MOLSIM_002277 obo:MOLSIM_002275)
+
+# Class: obo:MOLSIM_002278 (data access)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002278 "A data source descriptor that records who may obtain the data held by a source. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002278 "data access"@en)
+SubClassOf(obo:MOLSIM_002278 obo:MOLSIM_002274)
+
+# Class: obo:MOLSIM_002279 (public access)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002279 "A data access descriptor recording that the data may be obtained by anyone without permission or licence. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002279 "public access"@en)
+SubClassOf(obo:MOLSIM_002279 obo:MOLSIM_002278)
+
+# Class: obo:MOLSIM_002280 (restricted access)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002280 "A data access descriptor recording that the data may be obtained only under some condition, such as an institutional membership, a licence, an embargo period, or a direct request to its holder. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002280 "restricted access"@en)
+SubClassOf(obo:MOLSIM_002280 obo:MOLSIM_002278)
 
 # Class: obo:MOLSIM_000719 (unpublished experimental result source)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000719 "Data or findings originating from a laboratory experiment that have not yet been published or formally disseminated to the public or scientific community. This category covers preliminary results, ongoing research data, or information shared through informal channels before formal publication or deposition. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000719 "unpublished experimental result source"@en)
-SubClassOf(obo:MOLSIM_000719 obo:MOLSIM_000717)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000719 "OBSOLETE. Data or findings originating from a laboratory experiment that have not yet been published or formally disseminated to the public or scientific community. This category covers preliminary results, ongoing research data, or information shared through informal channels before formal publication or deposition."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000719 "obsolete unpublished experimental result source"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000719 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000719 "Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance."@en)
 
 # Class: obo:MOLSIM_000720 (private source)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000720 "A data source that is not publicly accessible, such as an internal database maintained by a private company or research institution, or data held privately by an individual researcher. This category is important for acknowledging data origins that cannot be independently verified or accessed by the wider community."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000720 "private source"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000720 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_000720 obo:MOLSIM_000688)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000720 "OBSOLETE. A data source that is not publicly accessible, such as an internal database maintained by a private company or research institution, or data held privately by an individual researcher. This category is important for acknowledging data origins that cannot be independently verified or accessed by the wider community."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000720 "obsolete private source"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000720 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000720 "Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance."@en)
 
 # Class: obo:MOLSIM_000721 (in house database)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000721 "A database developed and maintained within a specific organization (e.g., a pharmaceutical company, a research institute) for its internal use, not generally accessible to the public. These often contain proprietary data, specialized collections, or information tailored to the organization's specific research needs. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000721 "in house database"@en)
-SubClassOf(obo:MOLSIM_000721 obo:MOLSIM_000720)
-DisjointClasses(obo:MOLSIM_000721 obo:MOLSIM_000722)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000721 "OBSOLETE. A database developed and maintained within a specific organization (e.g., a pharmaceutical company, a research institute) for its internal use, not generally accessible to the public. These often contain proprietary data, specialized collections, or information tailored to the organization's specific research needs."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000721 "obsolete in house database"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000721 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000721 obo:MOLSIM_000689)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000721 "Retired 2026-09-18. MOLSIM:000688 data source sorted its children by 3 different questions at once: what kind of resource it is, how the data was produced, and who may see it. Only the first is a kind of source, so a private unpublished PDB entry belonged under all 3. The 2 facets are now recorded by the MOLSIM:002274 data source descriptor branch instead. Raised in review by orcid:0000-0002-2294-5393; neither this term nor its former children had a single instance. This one has a successor: an in house database is a database, so MOLSIM:000689 database source replaces it."@en)
 
 # Class: obo:MOLSIM_000722 (private communication source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000722 "Information or data obtained directly from an individual researcher or expert through informal means such as email, conversation, or unpublished notes, rather than through a formal publication or public database. While sometimes necessary, such sources are typically less verifiable and are often used for supplementary or preliminary information."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000722 "private communication source"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000722 "personal communication source"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000722 "private communication source"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000722 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_000722 obo:MOLSIM_000720)
+SubClassOf(obo:MOLSIM_000722 obo:MOLSIM_000688)
 
 # Class: obo:MOLSIM_000735 (resolution-based force field)
 
@@ -10009,6 +10083,17 @@ SubClassOf(obo:MOLSIM_001186 obo:MOLSIM_001185)
 # Class: obo:MOLSIM_002269 (van der Waals cutoff distance)
 
 Declaration(Class(obo:MOLSIM_002269))
+Declaration(Class(obo:MOLSIM_002270))
+Declaration(Class(obo:MOLSIM_002271))
+Declaration(Class(obo:MOLSIM_002272))
+Declaration(Class(obo:MOLSIM_002273))
+Declaration(Class(obo:MOLSIM_002274))
+Declaration(Class(obo:MOLSIM_002275))
+Declaration(Class(obo:MOLSIM_002276))
+Declaration(Class(obo:MOLSIM_002277))
+Declaration(Class(obo:MOLSIM_002278))
+Declaration(Class(obo:MOLSIM_002279))
+Declaration(Class(obo:MOLSIM_002280))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002269 "A non-bonded interaction parameter that specifies the distance beyond which van der Waals interactions are no longer calculated. Several programs set this separately from the electrostatic cut-off so that the two can take different values. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002269 "van der Waals cutoff distance"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002269 "GROMACS 2026.3 Reference Manual, p. 53, entry rvdw, which gives the distance for the LJ or Buckingham cut-off."@en)
@@ -16373,8 +16458,9 @@ SubClassOf(obo:MOLSIM_010022 obo:MOLSIM_001085)
 # Class: obo:MOLSIM_010023 (electronic lab journal source)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010023 "An electronic lab journal source refers to data, observations, or protocols obtained directly from a digital laboratory notebook system used by a research group. Unlike public databases or formal publications, these sources contain raw, internal research records that document the day-to-day progress and specific conditions of an experiment. Citing this source acknowledges the provenance of data that exists within a private institutional framework and has not yet been publicly deposited or peer-reviewed. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_010023 "electronic lab journal source"@en)
-SubClassOf(obo:MOLSIM_010023 obo:MOLSIM_000719)
+AnnotationAssertion(rdfs:label obo:MOLSIM_010023 "electronic laboratory notebook source"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_010023 "electronic lab journal source"@en)
+SubClassOf(obo:MOLSIM_010023 obo:MOLSIM_000688)
 
 # Class: obo:MOLSIM_010024 (local computing cluster system)
 
