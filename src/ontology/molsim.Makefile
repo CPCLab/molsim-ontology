@@ -234,6 +234,19 @@ $(IMPORTDIR)/iao_import.owl: $(MIRRORDIR)/iao.owl $(IMPORTDIR)/iao_terms.txt
 		--output $@
 endif
 
+# The mappings component publishes the curated SSSOM mappings in the release.
+# Before it existed the built molsim.owl held 0 references to CHMO, EDAM, NCIT
+# or KiSAO, because MAPPINGS is empty in the generated Makefile and nothing in
+# the ODK build reads mappings/molsim.sssom.tsv. Measured 2026-09-17.
+#
+# A script rather than `sssom convert`, so the output shape stays ours: SKOS
+# annotations only, never owl:equivalentClass. Decided 2026-09-17, because 29
+# exactMatch rows carry 0.9 confidence and do not claim identity in every model.
+$(COMPONENTSDIR)/molsim_mappings_component.owl: mappings/molsim.sssom.tsv ../scripts/build_mappings_component.py
+	python3 ../scripts/build_mappings_component.py \
+		--mapping-file mappings/molsim.sssom.tsv \
+		--output $@
+
 $(COMPONENTSDIR)/molsim_units_component.owl: $(SRC) templates/molsim_units_component.tsv
 	$(ROBOT) template --template templates/molsim_units_component.tsv \
 		--prefix "MOLSIM: http://purl.obolibrary.org/obo/MOLSIM_" \
