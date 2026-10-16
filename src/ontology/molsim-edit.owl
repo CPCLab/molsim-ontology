@@ -2751,10 +2751,11 @@ DataPropertyRange(obo:MOLSIM_002123 xsd:integer)
 
 # Data Property: obo:MOLSIM_002124 (ion counts dict)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002124 "A relation that associates a molecular system with a mapping from ion species to the count of ions of each species present. It records the ionic composition used, for example, to neutralize charge or set ionic strength. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002124 "A relation that associates a molecular system with a mapping from ion species to the count of ions of each species present. It records the ionic composition used, for example, to neutralize charge or set ionic strength."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002124 "ion counts dict"@en)
 SubDataPropertyOf(obo:MOLSIM_002124 obo:MOLSIM_001121)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_002124 "This property stores its value as text, not as a number. The text lists each kind of ion and how many of them there are, for example {\"Na+\": 12, \"Cl-\": 10}. That is how the simulation files themselves write it. The other count properties next to this one use plain numbers, because each of them counts a single thing. This one has to count several kinds of ion at the same time, and the ontology has no way yet to say which count belongs to which ion. We looked at two other ways of doing it: making a separate property for every kind of ion, or making a small object that holds one ion and its number. Both would add a lot of work for little gain right now, so we kept the text form. The text itself can be checked later with SHACL, a rule language for checking data files."@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002124 orcid:0009-0007-1391-4986)
 DataPropertyRange(obo:MOLSIM_002124 xsd:string)
 
 # Data Property: obo:MOLSIM_002125 (number of total angles)
@@ -2808,15 +2809,17 @@ DataPropertyRange(obo:MOLSIM_002131 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002132 (self-guided Langevin dynamics flag)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002132 "A relation that indicates whether a run employs self-guided Langevin dynamics, an enhanced sampling scheme that adds a guiding force to accelerate conformational exploration. It records the use of this sampling enhancement. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002132 "A relation that allows the software to apply a time-averaged or spatial-averaged guiding force derived from the system's own trajectory to accelerate low-frequency, concerted motions and enhance conformational sampling."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002132 "self-guided Langevin dynamics flag"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002132 orcid:0009-0007-1391-4986)
 SubDataPropertyOf(obo:MOLSIM_002132 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002132 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002133 (spherical cap flag)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002133 "A relation that indicates whether a spherical solvent cap was applied around a region of interest instead of full periodic solvation. It records the use of a localized, non-periodic solvent boundary. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002133 "A relation that controls whether a spherical portion of solvent (water) is applied around a solute, restrained by a soft half-harmonic potential."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002133 "spherical cap flag"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002133 orcid:0009-0007-1391-4986)
 SubDataPropertyOf(obo:MOLSIM_002133 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002133 xsd:boolean)
 
@@ -3764,9 +3767,10 @@ SubClassOf(obo:MOLSIM_000116 obo:MOLSIM_000349)
 
 # Class: obo:MOLSIM_000117 (Markov state model analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000117 "A data analysis method that divides the conformations visited in simulations into discrete states and counts the transitions between them, assuming the next state depends only on the current one and not on the path taken there. That assumption lets many short simulations be stitched into a picture of behaviour far longer than any of them. From it come the slow timescales, the populations of the states, and the routes between them. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000117 "It is a kinetic network model used to analyze complex conformational dynamics, such as protein folding, ligand binding, and structural rearrangements, by stitching together many short molecular dynamics (MD) simulations into a global long-timescale picture. It divides the conformations visited in simulations into discrete states and counts the transitions between them, assuming the next state depends only on the current one and not on the path taken there."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000117 "MSM"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000117 "Markov state model analysis"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000117 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_000117 obo:MOLSIM_000300)
 
 # Class: obo:MOLSIM_000118 (Jensen-Shannon divergence analysis)
@@ -16138,10 +16142,11 @@ SubClassOf(obo:MOLSIM_002075 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002076 (molecular mechanics)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002076 "A computational method that models molecules using classical physics, treating atoms as particles and bonds as springs, with the energy given by a fitted set of functions called a force field. Electrons never appear, so the method cannot describe a bond being made or broken. What it buys by that omission is speed: systems of hundreds of thousands of atoms become affordable. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002076 "A static computational method that calculates the potential energy of a molecule based on its 3D geometry, treating atoms as classical particles and chemical bonds as flexible springs. It uses an empirical force field to find the lowest-energy conformation (equilibrium geometry)."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002076 "MM"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002076 "molecular mechanics method"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002076 "molecular mechanics"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002076 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002076 obo:MOLSIM_000841)
 
 # Class: obo:MOLSIM_002077 (empirical scoring method)
@@ -16180,20 +16185,23 @@ SubClassOf(obo:MOLSIM_002081 obo:MOLSIM_000841)
 
 # Class: obo:MOLSIM_002082 (secondary structure change)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002082 "A local change in which a stretch of a protein or nucleic acid chain switches from one regular repeating shape to another, or to no regular shape at all. It happens by breaking and remaking the hydrogen bonds between nearby parts of the backbone, for example when a helix unwinds into a loop. It is local, so the rest of the molecule can stay as it was. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002082 "A protein secondary structure change occurs when the local spatial conformation of a polypeptide backbone, primarily alpha-helices, beta-sheets, turns, and random coils, transitions from one shape to another. These changes are stabilized or disrupted by alterations in backbone hydrogen bonding."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002082 "secondary structure change"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002082 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002082 obo:MOLSIM_001793)
 
 # Class: obo:MOLSIM_002083 (folding)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002083 "The process by which a linear chain of amino acids or nucleotides collapses into the compact 3-dimensional shape it needs to work. It is driven by non-polar groups avoiding water, by hydrogen bonds forming, and by charges attracting or repelling. Simulating it is hard because the process is slow on the scale a simulation can reach, yet the chain must find 1 shape among an enormous number. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002083 "The physical process by which a linear chain of amino acids transforms into a functional, three-dimensional structure. This 3D shape is essential for the protein to carry out its specific biological tasks."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002083 "folding"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002083 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002083 obo:MOLSIM_001793)
 
 # Class: obo:MOLSIM_002084 (unfolding)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002084 "The process by which a structured molecule loses its working 3-dimensional shape and becomes a disordered chain. It happens when the many weak interactions holding the structure together are disrupted at once, by heat, pressure, a change in acidity, or a chemical that competes for them. It is often simulated instead of folding, because it can be driven to happen fast enough to watch. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002084 "Protein unfolding transitions a native, three-dimensional functional protein back into an unordered or partially structured polypeptide chain. It is often simulated instead of folding, because it can be driven to happen fast enough to be observed in a reasonable timescale."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002084 "unfolding"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002084 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002084 obo:MOLSIM_001793)
 
 # Class: obo:MOLSIM_002085 (domain motion)
@@ -16204,8 +16212,9 @@ SubClassOf(obo:MOLSIM_002085 obo:MOLSIM_001793)
 
 # Class: obo:MOLSIM_002086 (allosteric transition)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002086 "A structural change in which something happening at one site on a molecule alters how a distant site behaves. The effect travels through the molecule along connected, coupled motions rather than through direct contact. It is how a molecule binding at one place can switch activity on or off somewhere else entirely. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002086 "A structural change in a protein or multi-subunit complex triggered when a small molecule (an effector or modulator) binds to a site separate from the active site."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002086 "allosteric transition"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002086 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002086 obo:MOLSIM_001793)
 
 # Class: obo:MOLSIM_002087 (ligand-induced allosteric transition)
@@ -16328,8 +16337,9 @@ SubClassOf(obo:MOLSIM_002104 obo:MOLSIM_000335)
 
 # Class: obo:MOLSIM_002105 (replica exchange attempt frequency)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002105 "An enhanced sampling parameter that specifies how often exchanges between neighboring replicas are attempted during a replica exchange simulation. It controls the rate at which configurations are swapped between conditions such as different temperatures. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002105 "An enhanced sampling parameter that specifies how often exchanges between neighboring replicas are attempted during a replica exchange simulation. It controls the rate at which configurations are swapped between conditions such as different temperatures or Hamiltonian λ values."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002105 "replica exchange attempt frequency"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002105 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002105 obo:MOLSIM_001219)
 
 # Class: obo:MOLSIM_002106 (center of mass removal interval)
@@ -16379,8 +16389,9 @@ SubClassOf(obo:MOLSIM_002112 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_002113 (final density)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002113 "A thermodynamic property that represents the mass density of the simulated system at the end of a run or equilibration stage. It is commonly compared against experimental density to assess whether the system has equilibrated correctly. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002113 "A thermodynamic property that represents the mass density of the simulated system at the end of a run or equilibration stage. It is commonly compared against experimental density to assess whether the system has equilibrated correctly."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002113 "final density"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002113 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002113 obo:MOLSIM_001293)
 SubClassOf(obo:MOLSIM_002113 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
 SubClassOf(obo:MOLSIM_002113 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
@@ -16585,23 +16596,26 @@ ClassAssertion(obo:MOLSIM_000692 obo:MOLSIM_000726)
 
 # Individual: obo:MOLSIM_000727 (NDB)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000727 "A nucleic acid structural database archiving experimentally determined 3-dimensional structures of DNA, RNA and their complexes. It describes structures in terms specific to nucleic acids, such as base pairing and backbone conformation, which a general structure archive does not. It is where nucleic acid geometry is looked up rather than derived. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000727 "The Nucleic Acid Database (NDB) was a specialized, value-added web repository founded in 1991 to collect, archive, and distribute three-dimensional (3D) structural information about DNA, RNA, and their protein/ligand complexes. The legacy NDB resource has been officially retired. It has been replaced by the Nucleic Acid Knowledgebase (NAKB), which preserves all original NDB functionality while expanding coverage to modern structural biology data."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000727 "NDB"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000727 "Nucleic Acid Database"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000727 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000693 obo:MOLSIM_000727)
 
 # Individual: obo:MOLSIM_000728 (EMDB)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000728 "An electron microscopy database that is the main public archive for 3-dimensional density maps of biomolecular complexes and subcellular structures. A map from this source shows shape at a resolution that may be too low to place individual atoms, which is why an atomic model is deposited separately. The 2 together are what a cryogenic electron microscopy study produces. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000728 "The Electron Microscopy Data Bank (EMDB) is a global public repository for 3D electron microscopy (3DEM) density maps and tomograms of biological specimens, macromolecules, viruses, and subcellular structures. It stores cryogenic-sample electron microscopy (cryoEM) volumes, helical reconstructions, electron tomograms, subtomogram averages, and electron crystallography maps."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000728 "EMDB"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000728 "Electron Microscopy Data Bank"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000728 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000694 obo:MOLSIM_000728)
 
 # Individual: obo:MOLSIM_000729 (EMPIAR)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000729 "An electron microscopy database holding the raw 2-dimensional image data, including movies and tilt series, from which 3-dimensional maps were reconstructed. Keeping the raw images allows a reconstruction to be repeated or improved as methods advance. It is the layer beneath the density map archive. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000729 "An electron microscopy database storing the raw, 2D micrographs and tilt series that researchers use to build 3D cryo-electron microscopy (cryo-EM) maps and models (which are archived in the EMDB)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000729 "EMPIAR"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000729 "Electron Microscopy Public Image Archive"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000729 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000694 obo:MOLSIM_000729)
 
 # Individual: obo:MOLSIM_000730 (GenBank)
@@ -16714,22 +16728,25 @@ ClassAssertion(obo:MOLSIM_000707 obo:MOLSIM_000957)
 
 # Individual: obo:MOLSIM_000958 (MassIVE)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000958 "A spectroscopic database holding mass spectrometry datasets, chiefly from proteomics experiments. It stores the measurements themselves rather than conclusions drawn from them, so an analysis can be repeated. It is one of the archives a proteomics study is expected to deposit in. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000958 "A spectroscopic database holding mass spectrometry datasets, chiefly from proteomics experiments. It stores the measurements themselves consenting to check reproducibility."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000958 "MassIVE"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000958 "Mass Spectrometry Interactive Virtual Environment"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000958 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000701 obo:MOLSIM_000958)
 
 # Individual: obo:MOLSIM_000959 (SDBS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000959 "An integrated spectral database system for organic compounds, maintained by the National Institute of Advanced Industrial Science and Technology (AIST), Japan. SDBS contains NMR (1H, 13C), mass spectra, IR, Raman, and ESR spectra for a large number of organic compounds. It is a valuable resource for chemical identification and structural elucidation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000959 "The Spectral Database for Organic Compounds (SDBS) is a free, searchable online database of experimental molecular spectra for organic molecules, hosted by the National Institute of Advanced Industrial Science and Technology (AIST) in Japan. SDBS contains NMR (1H, 13C), mass spectra, IR, Raman, and ESR spectra for a large number of organic compounds."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000959 "SDBS"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000959 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000701 obo:MOLSIM_000959)
 
 # Individual: obo:MOLSIM_000960 (BMRB)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000960 "An NMR data repository collecting nuclear magnetic resonance measurements on biological macromolecules and metabolites, including assigned chemical shifts, coupling constants and relaxation data. Those quantities are what a simulated structure or trajectory is compared against. It is the NMR counterpart of the structure archives. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000960 "An NMR data repository collecting nuclear magnetic resonance measurements on biological macromolecules and metabolites, including assigned chemical shifts, coupling constants and relaxation data. Those quantities are what a simulated structure or trajectory is compared against."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000960 "BMRB"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000960 "Biological Magnetic Resonance Data Bank"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000960 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000702 obo:MOLSIM_000960)
 
 # Individual: obo:MOLSIM_000961 (ComplexCARP)
@@ -16816,21 +16833,24 @@ ClassAssertion(obo:MOLSIM_000706 obo:MOLSIM_000977)
 
 # Individual: obo:MOLSIM_000991 (BindingDB)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000991 "A public, web-accessible database focusing on measured binding affinities of interactions between proteins (considered as drug targets) and small, drug-like molecules. It primarily contains data from enzyme assays, isothermal titration calorimetry, and surface plasmon resonance. BindingDB is a valuable resource for drug discovery, cheminformatics, and validating computational predictions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000991 "A public, web-accessible database focusing on measured binding affinities of interactions between proteins (considered as drug targets) and small, drug-like molecules. It primarily contains data from enzyme assays, isothermal titration calorimetry, and surface plasmon resonance."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000991 "BindingDB"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000991 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000707 obo:MOLSIM_000991)
 
 # Individual: obo:MOLSIM_000992 (PubChem BioAssay)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000992 "A public repository within PubChem that stores descriptions and results of biological screening assays on chemical substances, typically from high-throughput screening programs. PubChem BioAssay links chemical structures to their biological activities, providing valuable data for drug discovery and chemical biology. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000992 "A free, public repository hosted by the U.S. National Center for Biotechnology Information (NCBI) that archives experimental descriptions of biological activities and test results for small molecules, cell-based screens, and small interfering RNAs (siRNAs)."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000992 "PubChem BioAssay"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000992 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000707 obo:MOLSIM_000992)
 
 # Individual: obo:MOLSIM_000993 (IUPHAR/BPS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000993 "A bioactivity database, curated by experts, of pharmacological targets such as receptors, ion channels, enzymes and transporters, together with the drugs and ligands that act on them. Its entries are written and checked by specialists in each target family rather than gathered automatically. That makes it smaller than the automatically assembled collections and more reliable per entry. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000993 "An expert-curated, open-access online portal and searchable database that provides quantitative data on biological targets and the prescription medicines and experimental drugs that act on them. Its entries are written and checked by specialists in each target family rather than gathered automatically."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000993 "IUPHAR/BPS"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000993 "IUPHAR/BPS Guide to Pharmacology"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000993 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000707 obo:MOLSIM_000993)
 
 # Individual: obo:MOLSIM_000994 (DisGeNET)
@@ -17048,8 +17068,9 @@ SubClassOf(obo:MOLSIM_002156 obo:MOLSIM_000000)
 # Class: obo:MOLSIM_002157 (simulation parameter schedule)
 
 Declaration(Class(obo:MOLSIM_002157))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002157 "A simulation parameter that specifies how another parameter, such as target temperature, restraint force constant, or non-bonded cutoff, changes over the course of a run, whether across simulated time or across integration steps. It captures ramping and stepwise schedules applied during a stage. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002157 "A simulation parameter that specifies how another parameter, such as target temperature, restraint force constant, or non-bonded cutoff, changes over the course of a run, whether across simulated time or across integration steps. It captures ramping and stepwise schedules applied during a stage."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002157 "simulation parameter schedule"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002157 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002157 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_002158 (simulation continuity check)
@@ -17132,8 +17153,9 @@ ObjectPropertyRange(obo:MOLSIM_002167 obo:MOLSIM_002156)
 # Object Property: obo:MOLSIM_002168 (has parameter schedule)
 
 Declaration(ObjectProperty(obo:MOLSIM_002168))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002168 "A relation that links a molecular dynamics process to a schedule defining how one of its parameters varies over simulated time or integration steps. A parameter that changes during a run, such as a temperature being raised or a restraint being released, is not described by a single value. Without the schedule the record of the run would say only where it started. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002168 "A relation that links a molecular dynamics process to a schedule defining how one of its parameters varies over simulated time or integration steps. A parameter that changes during a run, such as a temperature being raised or a restraint being released, is not described by a single value."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002168 "has parameter schedule"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002168 orcid:0009-0007-1391-4986)
 SubObjectPropertyOf(obo:MOLSIM_002168 obo:MOLSIM_002202)
 ObjectPropertyDomain(obo:MOLSIM_002168 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002168 obo:MOLSIM_002157)
@@ -17261,8 +17283,9 @@ DataPropertyRange(obo:MOLSIM_002183 xsd:boolean)
 # Data Property: obo:MOLSIM_002184 (has temperature schedule)
 
 Declaration(DataProperty(obo:MOLSIM_002184))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002184 "A relation that indicates whether a run applies a time-varying target-temperature schedule. A run that heats or cools during its course is not described by a single temperature, so any average taken across it would be meaningless. The flag warns that the run is not at a steady state. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002184 "A relation that indicates whether a run applies a time-varying target-temperature schedule. A run that heats or cools during its course is not described by a single temperature, so any average taken across it would be meaningless. The flag warns that the run is not at a steady state."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002184 "has temperature schedule"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002184 orcid:0009-0007-1391-4986)
 SubDataPropertyOf(obo:MOLSIM_002184 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002184 xsd:boolean)
 
@@ -17309,8 +17332,9 @@ DataPropertyRange(obo:MOLSIM_002189 xsd:string)
 # Data Property: obo:MOLSIM_002190 (REMD variant type)
 
 Declaration(DataProperty(obo:MOLSIM_002190))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002190 "A relation that associates a replica-exchange trajectory with the exchanged-coordinate variant detected, such as temperature replica exchange or multi-dimensional replica exchange. What is being exchanged determines what the resulting ensemble means and how the frames may be recombined. A trajectory from one variant cannot be analysed as though it came from another. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002190 "A relation that determines specialized algorithmic modifications designed to bypass the steep computational cost of standard REMD by applying enhanced sampling to only a specific subsystem or localized region."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002190 "REMD variant type"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002190 orcid:0009-0007-1391-4986)
 SubDataPropertyOf(obo:MOLSIM_002190 obo:MOLSIM_002143)
 DataPropertyRange(obo:MOLSIM_002190 xsd:string)
 
@@ -17399,8 +17423,9 @@ DataPropertyRange(obo:MOLSIM_002263 xsd:string)
 # Class: obo:MOLSIM_002192 (initial density)
 
 Declaration(Class(obo:MOLSIM_002192))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002192 "A thermodynamic property that represents the mass density of the simulated system at the start of a run, computed from the topology mass and the initial periodic box volume. It provides a baseline for comparison against the equilibrated density reached during a constant-pressure run. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002192 "A thermodynamic property that represents the mass density of the simulated system at the start of a run, computed from the topology mass and the initial periodic box volume. It provides a baseline for comparison against the equilibrated density reached during a constant-pressure run."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002192 "initial density"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002192 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_002192 obo:MOLSIM_001293)
 SubClassOf(obo:MOLSIM_002192 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
 SubClassOf(obo:MOLSIM_002192 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
@@ -17463,8 +17488,9 @@ SubClassOf(obo:MOLSIM_002199 obo:MOLSIM_002159)
 # Data Property: obo:MOLSIM_002200 (HMR inferred from timestep flag)
 
 Declaration(DataProperty(obo:MOLSIM_002200))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002200 "A relation that indicates whether hydrogen mass repartitioning was inferred from the integration timestep, specifically a timestep of 3 femtoseconds or larger, rather than detected directly from the hydrogen masses in the topology. The inference is a reasonable guess and not a reading, because such a timestep is otherwise unstable. Marking how the value was obtained keeps a guess from being mistaken for a measurement. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002200 "A relation that indicates whether hydrogen mass repartitioning was inferred from the integration timestep, specifically a timestep of 3 femtoseconds or larger, rather than detected directly from the hydrogen masses in the topology. The inference is a reasonable guess and not a reading, because such a timestep is otherwise unstable."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002200 "HMR inferred from timestep flag"@en)
+AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002200 orcid:0009-0007-1391-4986)
 SubDataPropertyOf(obo:MOLSIM_002200 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002200 xsd:boolean)
 
