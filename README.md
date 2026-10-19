@@ -22,149 +22,139 @@
   </a>
 </p>
 
-## Table of Contents
+**MOLSIM** is an ontology for biomolecular simulation, both all-atom and coarse-grained. It gives shared names and definitions to the things a molecular dynamics study is made of: its methods, its parameters, its software, its file formats and the data it produces. The aim is that a simulation described with MOLSIM terms can be found, read and reused by people and by machines, whichever engine produced it, for example GROMACS, AMBER or NAMD. This makes simulation data **FAIR**: Findable, Accessible, Interoperable and Reusable.
 
-- [Introduction](#introduction)
-- [Development Status](#development-status)
+MOLSIM reuses terms from other [OBO Foundry](https://obofoundry.org/) ontologies where they fit, and defines its own terms where they do not.
+
+> ⚠️ **Alpha.** MOLSIM is under active development. Terms, definitions and the hierarchy can still change, so it is not yet recommended for production use.
+
+## Contents
+
+- [At a glance](#at-a-glance)
+- [Status](#status)
 - [Scope](#scope)
-- [Competency Questions](#competency-questions)
-- [Documentation](#documentation)
-- [Access and Usage](#access-and-usage)
+- [Competency questions](#competency-questions)
+- [Reuse of other ontologies](#reuse-of-other-ontologies)
+- [Documentation and files](#documentation-and-files)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
-## Introduction
+## At a glance
 
-**MOLSIM** is a domain (application) ontology designed to semantically represent platform-agnostic biomolecular simulations (all-atom and coarse-grained) as **FAIR** (Findable, Accessible, Interoperable, and Reusable) datasets. As an application ontology, it reuses terms from established OBO ontologies where they fit and defines its own where they do not.
+|                           |                                                                                                                 |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Prefix**                | `MOLSIM`                                                                                                        |
+| **Namespace**             | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                        |
+| **Live terms**            | 2,265: 2,056 classes, 119 data properties, 19 object properties, 70 named individuals and 1 annotation property |
+| **Retired terms**         | 37, kept so that their web addresses keep working                                                               |
+| **Checked by a reviewer** | 609 of the 2,265 live terms. The definitions of the other 1,656 end with `(UNVERIFIED)`                         |
+| **Hierarchy**             | 13 top-level branches, organised by topic, and aligned with COB at the top                                      |
+| **Built with**            | ODK (Ontology Development Kit) and ROBOT, checked with the ELK reasoner                                         |
+| **Source file**           | [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl), in OWL Functional Syntax                        |
+| **License**               | CC BY 4.0                                                                                                       |
 
-The primary goal of this ontology is to standardize the representation of molecular simulation data, processes, and methodologies across disparate simulation platforms, engines (e.g., GROMACS, AMBER, NAMD), and analysis tools, while ensuring these terms are interoperable with existing life sciences ontologies.
+All figures were measured on 2026-10-19.
 
-### At a Glance
+## Status
 
-|                          |                                                                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| **Prefix**               | `MOLSIM`                                                                                                           |
-| **Namespace**            | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                           |
-| **Size**                 | 2,055 live classes · 119 live data properties · 19 live object properties · 70 live named individuals (2,301 terms declared, 37 retired) |
-| **Hierarchy**            | Domain-oriented, aligned with **COB** since 2026-08-12 (see [Ontology Alignment](#ontology-alignment-what-we-reuse-and-what-we-align-to)) |
-| **Management**           | ODK (Ontology Development Kit) + ROBOT, reasoned with ELK                                                          |
-| **Source serialization** | OWL Functional Syntax: [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl)                              |
-| **License**              | CC BY 4.0                                                                                                          |
+**Expert review is the main work now.** The definitions that have not been checked yet were drafted with AI assistance. A definition ending with `(UNVERIFIED)` has not been checked by a domain expert, so please read it as a draft. A checked term names its reviewer by ORCID in `IAO:0000117 term editor`.
 
-## Development Status
-
-> ⚠️ **Active Development (Alpha)**
-> MOLSIM is currently in an active development phase. The hierarchy, class definitions, and relationships are subject to change. It is not yet recommended for production environments.
-
-We are preparing MOLSIM for submission to the [OBO Foundry](http://obofoundry.org/). Once accepted, the persistent URL (PURL) for the latest release will be:
-`http://purl.obolibrary.org/obo/molsim.owl`
-*(Note: This URL will not be active until official OBO Foundry acceptance.)*
-
-### Ontology Alignment: what we reuse, and what we align to
-
-MOLSIM uses a domain-oriented class hierarchy chosen for browsability by molecular-simulation domain experts. Our alignment work is split by a single test: **does reusing a term add a layer of abstraction above our hierarchy, or not?**
-
-**Already done: reuse that adds no abstraction.** Where an OBO ontology owns a concept we need, we reuse its term directly and place it *inside* our existing hierarchy, under a MOLSIM parent. This removes duplication without making the tree more abstract, so it costs domain experts nothing in readability. Implemented so far:
-
-| Ontology      | What we reuse                                                                                                                                            | How it is attached                                                                                                      |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **STATO**     | statistics — `p-value`, `standard deviation`, `correlation coefficient`, Pearson's, Spearman's, coefficient of determination, standard error of the mean | 7 classes under our `statistical property` branch; 8 former MOLSIM duplicates retired and redirected with `IAO:0100001` |
-| **SO**        | sequence features and **protein secondary structure** — `polypeptide_domain`, `peptide_helix`, `alpha_helix`, `pi_helix`, `three_ten_helix`, nucleic-acid base modifications | our `protein domain` sits under `SO:0000417`; our whole secondary-structure branch now sits under `SO:0001070 polypeptide_structural_region`, and four MOLSIM helix duplicates were retired in favour of the SO terms |
-| **UO**        | units of measurement                                                                                                                                     | used as the unit filler in our quantity pattern; we never invent units                                                  |
-| **GO**        | `nucleosome`                                                                                                                                             | bridged under a MOLSIM parent                                                                                           |
-| **RO**        | relations (`participates in`, `has part` family)                                                                                                         | reused instead of minting our own equivalents                                                                           |
-| **IAO / OMO** | annotation properties and standard OBO metadata, **and 6 classes**, 4 of them used as parents: `IAO:0000030 information content entity`, `IAO:0000104 plan specification`, `IAO:0000310 document` and `IAO:0000311 publication` | mostly infrastructure (definitions, term editors, license); `IAO:0000030` is the COB attachment, and 15 MOLSIM classes sit under the 4 |
-
-To keep this safe we extract these terms with **bounded MIREOT** where the source ontology's parents would pull in an upper ontology; that is, we take the term itself and none of its ancestors. 19 MOLSIM classes do sit under an external parent, and they are chosen one at a time: 10 under `IAO:0000030 information content entity`, 3 under `IAO:0000311 publication`, 2 under `STATO:0000142 correlation coefficient`, and 1 each under `IAO:0000104 plan specification`, `IAO:0000310 document`, `SO:0000417 polypeptide_domain` and `SO:0001078 polypeptide_secondary_structure`. **No BFO class appears anywhere in the release.**
-
-**Done: MOLSIM aligns with COB.** Adopted on 2026-08-12. [COB](https://obofoundry.org/COB/), the Core Ontology for Biology and Biomedicine, is built on BFO and reuses its mid-level classes while dropping the most abstract ones, so it gives three levels of abstraction above a domain term where BFO gives six. OBO Foundry Principle 5 also points mid and upper level terms toward COB.
-
-The attachment is deliberately small. `IAO:0000030 information content entity` is one of COB's five roots, and MOLSIM's own duplicate of it was retired in its favour, along with `MOLSIM:000310 plan specification` in favour of `IAO:0000104 plan specification`. The IAO import carries 6 classes. Those 2 were joined on 2026-09-18 by `IAO:0000310 document`, `IAO:0000311 publication`, `IAO:0000013 journal article` and `IAO:0000088 report`, which give the data source branch a home for the kinds of document a simulation study cites. `IAO:0000033 directive information entity` was left out on purpose, because it would add a grouping level holding a single child.
-
-**The alignment removed BFO rather than adding it.** Before this change `imports/iao_import.owl` held 36 classes of which 2 were used, and 12 of them were BFO's entire top level. Every release published them although no MOLSIM class had a BFO parent. The cause was the generic import rule, which builds its seed from the whole ontology and pulls every ancestor. The import now takes only the terms MOLSIM asks for, and the release contains no BFO class at all.
-
-Adopting COB does not foreclose BFO, because COB's classes *are* BFO IRIs where they overlap, so full BFO could be layered on later without retiring or re-parenting anything. The reverse is not true. One known gap: COB has no home for software, which is 298 MOLSIM classes, so IAO is used alongside it.
-
-**A correction to an earlier statement.** This README, and a reply on issue #23, previously said that BFO alignment is a structural requirement for OBO Foundry membership. That is wrong. No OBO principle requires BFO; Principle 5 asks for terms from suitable mid or upper level ontologies, which is a weaker requirement and is what makes COB a legitimate choice. The correction is recorded in discussion #96.
-
-**Where correspondence is enough, we map instead of importing.** When another ontology describes the same thing but models it differently (for instance PSI-MI treats scientific databases as classes while MOLSIM treats each specific database as an individual) we record the correspondence as an [SSSOM](https://mapping-commons.github.io/sssom/) mapping in `src/ontology/mappings/` and import nothing. This keeps interoperability without importing a structure that conflicts with ours. Since 2026-09-17 the release also publishes these mappings as SKOS annotations on the MOLSIM terms themselves, so a consumer can follow them without reading a separate file: 92 mappings reaching 14 external ontologies.
+**OBO Foundry.** We are preparing MOLSIM for submission to the OBO Foundry. After acceptance, the latest release will be available at `http://purl.obolibrary.org/obo/molsim.owl`. That address does not work yet.
 
 ## Scope
 
-MOLSIM provides a semantic framework spanning the full molecular-simulation lifecycle (system setup, execution, and analysis):
+MOLSIM covers the whole life of a simulation, from setting it up to running it and analysing the results:
 
-* **Computational processes:** molecular dynamics, energy minimization, equilibration and production stages, enhanced-sampling and free-energy workflows, constant-pH MD, and QM/MM.
-* **Algorithms & methods:** numerical integrators, thermostats and barostats, constraint algorithms (SHAKE/LINCS/SETTLE), long-range electrostatics (PME/Ewald) and cutoff schemes, energy-minimization algorithms, and enhanced-sampling methods (metadynamics, replica exchange, umbrella sampling).
-* **Force fields & parameterization:** additive and polarizable force fields, water/solvent models, ligand charge models (e.g., RESP), and options such as hydrogen-mass repartitioning.
-* **System specifications:** molecular systems (protein, nucleic acid, lipid/membrane, ligand, carbohydrate, ion, and solvent), simulation-box types and periodic boundary conditions, thermodynamic ensembles (NVE/NVT/NPT), restraints and constraints, ionic strength, and pH.
-* **Software & hardware:** simulation engines (e.g., GROMACS, AMBER, NAMD, LAMMPS, OpenMM), setup and analysis tools, and computing infrastructure (CPUs/GPUs, HPC).
-* **Data structures & formats:** topology, coordinate, and trajectory file formats; coordinate representations; structural identifiers; and physical units.
-* **Analysis & outputs:** trajectories and conformational ensembles; thermodynamic, structural, and kinetic properties (e.g., RMSD, RMSF, radius of gyration, potential of mean force, Markov state models); correlation functions; and unit-bearing quantities.
-* **Provenance & metadata:** simulation parameters and schedules, system-composition counts, system-classification labels, and per-term editorial provenance, supporting FAIR, machine-actionable simulation metadata.
+- **Computational processes:** molecular dynamics, energy minimization, equilibration and production stages, enhanced-sampling and free-energy workflows, constant-pH molecular dynamics, and QM/MM.
+- **Algorithms and methods:** numerical integrators, thermostats and barostats, constraint algorithms (SHAKE, LINCS, SETTLE), long-range electrostatics (PME, Ewald) and cutoff schemes, energy-minimization algorithms, and enhanced-sampling methods (metadynamics, replica exchange, umbrella sampling).
+- **Force fields and parameters:** additive and polarizable force fields, water and solvent models, ligand charge models such as RESP, and options such as hydrogen mass repartitioning.
+- **System specifications:** molecular systems (protein, nucleic acid, lipid and membrane, ligand, carbohydrate, ion, solvent), simulation box types and periodic boundary conditions, thermodynamic ensembles (NVE, NVT, NPT), restraints and constraints, ionic strength, and pH.
+- **Software and hardware:** simulation engines such as GROMACS, AMBER, NAMD, LAMMPS and OpenMM, setup and analysis tools, and computing infrastructure such as CPUs, GPUs and HPC clusters.
+- **Data and formats:** topology, coordinate and trajectory file formats, structural identifiers, and units.
+- **Analysis and results:** trajectories and conformational ensembles; thermodynamic, structural and kinetic properties such as RMSD, RMSF, radius of gyration, potential of mean force and Markov state models; and correlation functions.
+- **Metadata:** simulation parameters and schedules, counts of what a system contains, and where input data came from.
 
-### Where the boundary is
+### How we decide what belongs
 
-The list above says what MOLSIM covers. This says how we decide whether a *new* term belongs, so that the scope stays stable as the ontology grows.
+The list above says what MOLSIM covers. The rules below decide whether a *new* term belongs, so that the scope stays stable as MOLSIM grows.
 
-**The membership test.** For any candidate term, ask:
+**The test.** For any candidate term, we ask:
 
 > **Would a complete record of a simulation dataset need to state it?**
 
-That spans four things: what was **configured** (timestep, thermostat, force field), what was **computed** (RMSD, potential of mean force, free energies), where the inputs **came from** (a PDB entry, a UniProt accession, a publication), and what it **ran on** (engine, version, hardware). If a full dataset record would not mention it, MOLSIM does not need it, however closely related it may seem.
+That covers 4 things: what was **configured** (timestep, thermostat, force field), what was **computed** (RMSD, potential of mean force, free energies), where the inputs **came from** (a PDB entry, a UniProt accession, a publication), and what it **ran on** (engine, version, hardware). If a complete dataset record would not mention a term, MOLSIM does not need it.
 
-We deliberately draw the boundary by **use case** rather than by subject matter. "Anything about molecular simulation" has no natural edge: in computational chemistry everything connects to everything, so two people applying that rule reach different answers and the scope drifts. "What a dataset record must state" is a question anyone can answer by opening a real file, which is also how MOLSIM was built — its terms were extracted from AMBER, cpptraj and GROMACS keyword frequencies and from metadata specifications, not from a textbook index.
+We draw the line by **use** rather than by subject. "Anything about molecular simulation" has no clear edge, because in computational chemistry every topic connects to every other. "What a dataset record must state" can be checked by opening a real file. This is also how MOLSIM was built: its terms come from the keywords used in AMBER, cpptraj and GROMACS, and from metadata specifications.
 
-**Depth limit for neighbouring fields.** MOLSIM necessarily touches quantum chemistry, computational materials science and structural biology. Where it does, terms go **at most two levels** below the point where they attach. So we record *which* QM engine was used, whether QM/MM was active, and which basis set parameterised a force field — because a dataset record states those. We do not model the internal machinery of quantum-chemical methods, because it does not appear in that record and belongs to whoever owns that domain.
+**A depth limit for neighbouring fields.** MOLSIM touches other fields, such as quantum chemistry, materials science and structural biology. Where it does, it names the tools and choices from that field that a simulation record mentions, and stops there. In practice, terms go **at most 2 levels** below the point where the other field first enters MOLSIM.
 
-**This rule governs new terms.** It applies to terms added from 2026-07-29 onward. Existing terms are retained; where one sits outside the rule it is kept for stability and simply not extended. Terms are never deleted in any case — a published IRI is a permanent commitment, so anything withdrawn is deprecated with `owl:deprecated` and, where a successor exists, an `IAO:0100001` ("term replaced by") pointer.
+Quantum chemistry is the clearest example. Most biomolecular simulations treat atoms as balls joined by springs, which is fast. Sometimes one small region, such as the spot where a chemical reaction happens, is calculated with quantum chemistry instead, which describes the electrons. Mixing the 2 in one simulation is called QM/MM.
 
-**Relationship to EMMO-based materials-modelling ontologies.** A separate ecosystem — [EMMO](https://emmo-repo.github.io/), OSMO and VISO, developed around the European Materials Modelling Council — also describes simulation, using a different top-level framework. MOLSIM is the OBO-aligned ontology for **biomolecular** simulation metadata and is intended to **complement** rather than compete with that work; the two focus on different communities and different kinds of system. Where concepts correspond we will publish [SSSOM](https://mapping-commons.github.io/sssom/) mappings rather than adopt a shared upper ontology, since the two frameworks are not directly interoperable.
+| Where quantum chemistry enters MOLSIM | 1 level below         | What MOLSIM does *not* describe                                                     |
+| ------------------------------------- | --------------------- | ----------------------------------------------------------------------------------- |
+| `quantum chemistry engine`            | `Gaussian`, `Q-Chem`  | how each program calculates the electrons                                           |
+| `basis set`                           | `auxiliary basis set` | which mathematical functions a basis set is made of, and how many are used per atom |
 
+A basis set is the set of mathematical functions a quantum chemistry program uses to describe where the electrons can be. A simulation record says, for example, "the QM region was computed with Gaussian, using basis set 6-31G\*", and MOLSIM can record that. A record never states the equations Gaussian solves or how 6-31G\* is built, so MOLSIM leaves those details to the ontologies of that field, and links to them with mappings where useful.
 
-## Competency Questions
+**These rules apply to terms added from 2026-07-29 onward.** Older terms stay, and are not extended where they fall outside the rules. No term is ever deleted: a term that is withdrawn is marked with `owl:deprecated`, and where a replacement exists it points to it with `IAO:0100001 term replaced by`.
 
-MOLSIM is designed to represent simulations in enough detail to answer questions such as:
+**Materials-modelling ontologies.** [EMMO](https://emmo-repo.github.io/), OSMO and VISO, developed around the European Materials Modelling Council, also describe simulation, using a different top-level framework. MOLSIM focuses on **biomolecular** simulation and is meant to complement that work. Where concepts correspond, we plan to publish [SSSOM](https://mapping-commons.github.io/sssom/) mappings rather than share an upper ontology, because the 2 frameworks cannot be combined directly.
 
-* Which **MD engine and version** produced this trajectory, and on what **hardware**?
-* What **integration timestep**, **thermostat**, and **barostat** were used, and in which **ensemble** (NVT/NPT)?
-* Which **force field(s)** and **water/solvent model** parameterize the system, and was **hydrogen-mass repartitioning** applied?
-* What **molecular system** was simulated (protein, nucleic acid, lipid membrane, ligand, ions), and what is its **composition** (atom/residue counts)?
-* Which **enhanced-sampling** or **free-energy** method was applied, and with what **collective variables / restraints**?
-* What **analyses** were run (e.g., RMSD, RMSF, PMF, Markov state models), and in what **units** are the results expressed?
+## Competency questions
 
-> **Modeling example.** The class `non-bonded cutoff distance` is modeled as a length quantity carrying two universal restrictions (a UO length-unit restriction and a decimal value restriction) so that a cutoff such as "1.2 nm" is captured in a unit-aware, machine-readable way rather than as free text.
+MOLSIM is designed to describe simulations in enough detail to answer questions such as:
 
-## Documentation
+- Which **simulation engine and version** produced this trajectory, and on what **hardware**?
+- What **integration timestep**, **thermostat** and **barostat** were used, and in which **ensemble** (NVT, NPT)?
+- Which **force fields** and **water model** describe the system, and was **hydrogen mass repartitioning** used?
+- What **molecular system** was simulated (protein, nucleic acid, lipid membrane, ligand, ions), and what does it contain (atom and residue counts)?
+- Which **enhanced-sampling** or **free-energy** method was used, and with which **collective variables** and **restraints**?
+- Which **analyses** were run (for example RMSD, RMSF, potential of mean force, Markov state models), and in which **units** are the results?
 
-* **Class & Property Hierarchy:** Explore the ontology structure on [BioPortal](https://bioportal.bioontology.org/ontologies/MOLSIM).
-* **Technical Documentation:** Access the [development guides and technical details](https://cpclab.github.io/molsim-ontology/).
-* **Terms Overview:** Review the generated [ontology terms reference](https://cpclab.github.io/molsim-ontology/pylode.html).
+> **Example.** `MOLSIM:001187 non-bonded cutoff distance` (class) says what a cutoff is: a quantity whose unit is a length unit from UO and whose value is a decimal number, so that a cutoff such as "1.2 nm" can be recorded as a value with a unit rather than as free text. 101 MOLSIM classes follow this pattern. These statements describe the class; they do not check data. OWL assumes that missing information may exist elsewhere, so it does not report a record that has no unit or the wrong one. Checking records needs a separate validation language such as [SHACL](https://www.w3.org/TR/shacl/), and MOLSIM does not provide SHACL rules yet.
 
-> **Note on the Terms Overview:** To simplify the generated reference, `ChEBI` classes have been omitted, and `iao:definition` is temporarily rendered as `dcterms:description`. The source ontology itself consistently uses `iao:definition` for all concept definitions.
+## Reuse of other ontologies
 
-## Access and Usage
+MOLSIM's hierarchy is organised by topic, so that simulation experts can browse it. When another OBO ontology already has a term we need, we reuse that term and place it inside our hierarchy, as long as it does not add layers of abstraction above our own terms.
 
-### For Editors and Developers
+| Ontology  | What MOLSIM reuses                                                                                                                                                | How it is used                                                                                                                   |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **STATO** | 7 statistics classes, such as `p-value`, `standard deviation` and `correlation coefficient`                                                                       | placed under our `statistical property` branch. 8 MOLSIM duplicates were retired and point to the STATO terms                    |
+| **SO**    | 29 classes: protein domains, protein secondary structure (helix types and coil) and modified nucleic-acid bases                                                   | our `protein domain` and `secondary structure` classes sit under SO classes. 4 MOLSIM helix classes were retired in favour of SO |
+| **UO**    | 55 unit classes                                                                                                                                                   | the units for 101 MOLSIM quantity classes, across 14 kinds of unit. MOLSIM never defines its own units                           |
+| **IAO**   | 6 classes, such as `information content entity`, `plan specification`, `document` and `publication`, and the annotation properties `definition` and `term editor` | 15 MOLSIM classes sit under 4 of these IAO classes                                                                               |
+| **OMO**   | the standard OBO metadata properties                                                                                                                              | definitions, synonyms and other term metadata                                                                                    |
+| **RO**    | 7 relations, such as `has part`, `participates in`, `has input` and `has output`                                                                                  | reused instead of defining our own                                                                                               |
+| **OBI**   | 4 relations: `has specified input`, `has specified output` and their 2 inverses                                                                                   | declared as narrower versions of RO's `has input` and `has output`                                                               |
+| **GO**    | 1 class, `nucleosome`                                                                                                                                             | placed under a MOLSIM parent                                                                                                     |
 
-Development is conducted in the `src` directory. Editors should work with the source edit file:
+**Only the chosen terms are copied in.** Where a source ontology would also bring in its upper-level parents, we copy the term without its parents. 19 MOLSIM classes sit under a term from another ontology, and each was chosen separately. The release contains no BFO class. It does contain 2 relations with BFO identifiers, `has part` and `precedes`, because RO publishes them under those identifiers.
 
-* [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl)
+**COB at the top.** Since 2026-08-12, MOLSIM aligns with [COB](https://obofoundry.org/COB/), the Core Ontology for Biology and Biomedicine. OBO Foundry [Principle 5](https://obofoundry.org/principles/fp-005-delineated-content.html) says that mid- and upper-level terms "should be considered for" COB. The link is small on purpose: MOLSIM's own `information content entity` was retired in favour of `IAO:0000030 information content entity`, which is a top-level COB class, and MOLSIM's own `plan specification` was retired in favour of `IAO:0000104 plan specification`. COB uses BFO's own identifiers where the 2 overlap, so a full BFO alignment could be added later without retiring or moving any MOLSIM term. COB has no class for software, which covers 298 MOLSIM classes, so IAO is used alongside it.
 
-### For Users (Pre-Release)
+**A correction.** An earlier version of this README, and a reply on issue #23, said that aligning with BFO is required for OBO Foundry membership. That is wrong: no OBO principle requires BFO. The correction is recorded in discussion #96.
 
-Until the official OBO PURL is active, you can access the latest compiled version of the ontology directly from this repository:
+**Mappings instead of imports.** When another ontology describes the same thing but models it differently, we record the link as an [SSSOM](https://mapping-commons.github.io/sssom/) mapping in [`src/ontology/mappings/`](src/ontology/mappings/) and import nothing. For example, PSI-MI treats scientific databases as classes, while MOLSIM treats each database as a named individual. The release also publishes these mappings as SKOS annotations on the MOLSIM terms, so a tool can follow them without reading a separate file. There are 92 mappings to 14 other vocabularies, among them EDAM for file formats.
 
-* [`molsim.owl` (Latest Snapshot)](molsim.owl)
-* The .obo release does not include MOLSIM's 119 live data properties or its 70 live named individuals: the OBO format cannot represent data properties, and named individuals are dropped in conversion, so the .obo file is a class-only view. Use the OWL or JSON release if you need the full ontology.
+## Documentation and files
+
+- **Browse the hierarchy** on [BioPortal](https://bioportal.bioontology.org/ontologies/MOLSIM).
+- **Development guides** are on the [documentation site](https://cpclab.github.io/molsim-ontology/). To edit MOLSIM, start with [Editing MOLSIM](https://cpclab.github.io/molsim-ontology/custom/EditingMOLSIM/), which explains how to set up Protégé.
+- **Terms reference**, generated with pyLODE: [all terms on one page](https://cpclab.github.io/molsim-ontology/pylode.html). There, each definition is shown as `skos:definition`, copied from `IAO:0000115 definition`. The ontology itself uses `IAO:0000115 definition`.
+
+**Release files.** Until the OBO address above works, the latest build is in this repository: [`molsim.owl`](molsim.owl), [`molsim.obo`](molsim.obo) and [`molsim.json`](molsim.json), each also as a `-base` and a `-full` variant. The `.obo` files hold only classes and object properties, because the OBO format cannot represent data properties or named individuals. Use the OWL or JSON files if you need the 119 data properties and 70 named individuals.
+
+**Editing.** All changes are made in [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl). The other files are generated from it with ODK.
 
 ## Contributing
 
-The MOLSIM project is open to contributions and collaboration.
+MOLSIM is open to contributions.
 
-* **Term Requests:** If you need a specific term added to MOLSIM, please open a [new issue](https://github.com/CPCLab/molsim-ontology/issues) with the label `term request`.
-* **Bug Reports:** If you find an error in a definition or hierarchy, please report it via the [Issue Tracker](https://github.com/CPCLab/molsim-ontology/issues).
-* **Discussion:** For broader discussions regarding modeling decisions, please use the issue tracker or contact the maintainers.
+- **Suggest a term, or report a problem with a definition or the hierarchy:** open a [new issue](https://github.com/CPCLab/molsim-ontology/issues/new/choose) and pick the matching form, for example "Add new term", "Revise text definition" or "Typos/Bugs/Errors".
+- **Discuss a modelling decision** in [Discussions](https://github.com/CPCLab/molsim-ontology/discussions) or in the issue tracker.
+- **Domain experts** help most by checking definitions. Please contact the maintainers if you would like to join the review.
 
 ## License
 
@@ -172,4 +162,4 @@ MOLSIM is available under the [Creative Commons Attribution 4.0 International li
 
 ## Acknowledgements
 
-This ontology repository was created using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
+This ontology repository was created with the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
