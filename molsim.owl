@@ -15,7 +15,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-10-16/molsim.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-11-12/molsim.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-0476-9699"/>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
@@ -35,7 +35,7 @@
         <rdfs:comment xml:lang="en">AI assistance disclosure: initial drafts of the term definitions in this ontology were produced with the assistance of large language models, primarily Google Gemini, with further drafting and curation support from Anthropic Claude; all drafts were then curated and reviewed by humans. Verification status is recorded per term and is machine-readable: a term carrying an IAO:0000117 (term editor) annotation has been checked by the named domain expert, whose ORCID is given; a definition whose text still ends with the marker (UNVERIFIED) has not yet been reviewed by a domain expert and should be treated as a draft. Terms marked owl:deprecated are retired and are exempt from verification.</rdfs:comment>
         <rdfs:comment xml:lang="en">Release-format note: the OWL and JSON products (molsim.owl, molsim.json and their -base/-full variants) are the complete and canonical releases. The OBO-format product (molsim.obo) is a CLASS-ONLY VIEW: OBO 1.2 cannot represent datatype properties, and named individuals are not carried through the conversion, so the data properties (per-species composition counts, boolean flags, serialised arrays) and the named individuals of this ontology are absent from it. The class hierarchy, definitions, synonyms and object properties in molsim.obo are complete and correct. Use the OWL or JSON release if you need the full content.</rdfs:comment>
         <rdfs:comment xml:lang="en">Scope note: MOLSIM&apos;s boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README.</rdfs:comment>
-        <owl:versionInfo>2026-10-16</owl:versionInfo>
+        <owl:versionInfo>2026-11-12</owl:versionInfo>
         <foaf:homepage xml:lang="en">https://github.com/CPCLab/molsim-ontology</foaf:homepage>
     </owl:Ontology>
     
@@ -27178,6 +27178,40 @@ https://github.com/scipy/scipy/blob/v0.15.1/scipy/stats/stats.py#L1928</obo:STAT
     
 
 
+    <!-- http://purl.obolibrary.org/obo/STATO_0000150 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000150">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001403"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000115 xml:lang="en">a minimum value is a data item which denotes the smallest value found in a dataset or resulting from a calculation.</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">Alejandra Gonzalez-Beltran</obo:IAO_0000117>
+        <obo:IAO_0000117>COKA group</obo:IAO_0000117>
+        <obo:IAO_0000117>Orlaith Burke</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">Philippe Rocca-Serra</obo:IAO_0000117>
+        <obo:IAO_0000118 xml:lang="en">minimum value</obo:IAO_0000118>
+        <obo:IAO_0000119 xml:lang="en">STATO</obo:IAO_0000119>
+        <rdfs:label>minimum observed value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000151 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000151">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001403"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
+        <obo:IAO_0000115 xml:lang="en">maximum value is a data item which denotes the largest value found in a dataset or resulting from a calculation.</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">Alejandra Gonzalez-Beltran</obo:IAO_0000117>
+        <obo:IAO_0000117>COKA group</obo:IAO_0000117>
+        <obo:IAO_0000117>Orlaith Burke</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">Philippe Rocca-Serra</obo:IAO_0000117>
+        <obo:IAO_0000118 xml:lang="en">maximum value</obo:IAO_0000118>
+        <obo:IAO_0000119 xml:lang="en">STATO</obo:IAO_0000119>
+        <rdfs:label>maximum observed value</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/STATO_0000201 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000201">
@@ -27251,6 +27285,32 @@ http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html#sc
 source:
 https://github.com/scipy/scipy/blob/v0.15.1/scipy/stats/stats.py#L2427</obo:STATO_0000391>
         <rdfs:label xml:lang="en">Pearson&apos;s correlation coefficient</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000401 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000401">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001403"/>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000123"/>
+        <obo:IAO_0000115 xml:lang="en">the sample mean of sample of size n with n observations is an arithmetic mean computed over n number of observations on a statistical sample.
+The sample mean, denoted x¯ and read “x-bar,” is simply the average of the n data points x1, x2, ..., xn:
+
+x¯=x1+x2+⋯+xnn=1n∑i=1nxi
+The sample mean summarizes the &quot;location&quot; or &quot;center&quot; of the data.
+
+the sample mean is a measure of dispersion of the observations made on the sample and provides an unbias estimate of the population mean</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">Alejandra Gonzalez-Beltran</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">Orlaith Burke</obo:IAO_0000117>
+        <obo:IAO_0000117 xml:lang="en">Philippe Rocca-Serra</obo:IAO_0000117>
+        <obo:IAO_0000119 xml:lang="en">adapted from:
+https://onlinecourses.science.psu.edu/stat414/node/66
+and
+http://mathworld.wolfram.com/SampleMean.html
+
+last accessed: 2015-11-05</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">sample mean</rdfs:label>
     </owl:Class>
     
 
