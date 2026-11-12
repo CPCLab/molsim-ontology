@@ -61,12 +61,12 @@
         "val" : "Scope note: MOLSIM's boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README."
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-10-16"
+        "val" : "2026-11-12"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-10-16/molsim-full.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-11-12/molsim-full.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/GO_0000786",
@@ -24738,6 +24738,68 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/STATO_0000150",
+      "lbl" : "minimum observed value",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "a minimum value is a data item which denotes the smallest value found in a dataset or resulting from a calculation."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alejandra Gonzalez-Beltran"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "COKA group"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Orlaith Burke"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Philippe Rocca-Serra"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
+          "val" : "minimum value"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "STATO"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/STATO_0000151",
+      "lbl" : "maximum observed value",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "maximum value is a data item which denotes the largest value found in a dataset or resulting from a calculation."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alejandra Gonzalez-Beltran"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "COKA group"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Orlaith Burke"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Philippe Rocca-Serra"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
+          "val" : "maximum value"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "STATO"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/STATO_0000201",
       "lbl" : "Spearman's rank correlation coefficient",
       "type" : "CLASS",
@@ -24849,6 +24911,31 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/STATO_0000391",
           "val" : "scipy.stats.pearsonr(x, y)\n\nhttp://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html#scipy.stats.pearsonr\n\nsource:\nhttps://github.com/scipy/scipy/blob/v0.15.1/scipy/stats/stats.py#L2427"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/STATO_0000401",
+      "lbl" : "sample mean",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "the sample mean of sample of size n with n observations is an arithmetic mean computed over n number of observations on a statistical sample.\nThe sample mean, denoted x¯ and read “x-bar,” is simply the average of the n data points x1, x2, ..., xn:\n\nx¯=x1+x2+⋯+xnn=1n∑i=1nxi\nThe sample mean summarizes the \"location\" or \"center\" of the data.\n\nthe sample mean is a measure of dispersion of the observations made on the sample and provides an unbias estimate of the population mean"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000123"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alejandra Gonzalez-Beltran"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Orlaith Burke"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Philippe Rocca-Serra"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "adapted from:\nhttps://onlinecourses.science.psu.edu/stat414/node/66\nand\nhttp://mathworld.wolfram.com/SampleMean.html\n\nlast accessed: 2015-11-05"
         } ]
       }
     }, {
@@ -37479,6 +37566,14 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/STATO_0000150",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/STATO_0000151",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/STATO_0000201",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/STATO_0000142"
@@ -37490,6 +37585,10 @@
       "sub" : "http://purl.obolibrary.org/obo/STATO_0000280",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/STATO_0000142"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/STATO_0000401",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/STATO_0000564",
       "pred" : "is_a",
