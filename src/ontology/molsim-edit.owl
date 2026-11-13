@@ -4916,14 +4916,16 @@ SubClassOf(obo:MOLSIM_000290 obo:MOLSIM_000286)
 
 # Class: obo:MOLSIM_000291 (1-step soft-core approach)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000291 "A thermodynamic integration approach that uses a soft-core potential to cover the whole transformation in 1 window, or very few. The soft-core form keeps the energy finite as atoms appear and disappear, which is what makes so few windows possible. It saves simulation time at the cost of relying heavily on the soft-core form being well behaved. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000291 "A thermodynamic integration approach in which the charges and the van der Waals parameters of the changing atoms are transformed together in 1 calculation, using soft-core forms of both the van der Waals and the electrostatic potential. The soft-core forms keep the energy finite as atoms appear and disappear, so the charges do not have to be removed in a separate calculation first. The calculation is still run at several values of the coupling parameter. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000291 "1-step soft-core approach"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000291 "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core."@en)
 SubClassOf(obo:MOLSIM_000291 obo:MOLSIM_000286)
 
 # Class: obo:MOLSIM_000292 (multi-step approach)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000292 "A thermodynamic integration approach that divides the path between the 2 states into several discrete windows, each sampled separately. Dividing it keeps the change between neighbouring windows small enough for the samples to overlap. It is the standard arrangement, and the alternative of a single window is a special case. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000292 "A thermodynamic integration approach that splits the transformation into 2 or more separate calculations, for example removing the charges of the disappearing atoms first and then changing their van der Waals parameters. Each calculation is run at its own set of coupling parameter values, and the free energy changes are added. It avoids soft-core electrostatics but needs more simulations than doing the whole change in 1 calculation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000292 "multi-step approach"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000292 "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core."@en)
 SubClassOf(obo:MOLSIM_000292 obo:MOLSIM_000286)
 
 # Class: obo:MOLSIM_000293 (Hamiltonian replica exchange)
@@ -6507,32 +6509,37 @@ SubClassOf(obo:MOLSIM_000538 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000539 (cc-pV(D+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000539 "A correlation-consistent double-zeta basis set carrying 1 extra energy-optimised d type polarization function beyond the standard set. The extra function was added because the standard double-zeta set was found short of d functions for the second-row elements sodium to argon. For first-row elements it behaves like the ordinary double-zeta set. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000539 "A correlation-consistent double-zeta basis set carrying 1 extra high-exponent d type polarization function beyond the standard set. The extra function was added because the standard double-zeta set was found short of high-exponent d functions for the second-row elements aluminium to argon. For first-row elements it behaves like the ordinary double-zeta set. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000539 "cc-pV(D+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000539 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000539 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000540 (cc-pV(T+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000540 "A correlation-consistent triple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It describes polarization and correlation for the second-row elements sodium to argon more completely than the ordinary triple-zeta set. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000540 "A correlation-consistent triple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It describes polarization and correlation for the second-row elements aluminium to argon more completely than the ordinary triple-zeta set. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000540 "cc-pV(T+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000540 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000540 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000541 (cc-pV(Q+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000541 "A correlation-consistent quadruple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used for benchmark-quality results on the second-row elements sodium to argon, where d function flexibility limits accuracy. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000541 "A correlation-consistent quadruple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used for benchmark-quality results on the second-row elements aluminium to argon, where d function flexibility limits accuracy. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000541 "cc-pV(Q+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000541 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000541 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000542 (cc-pV(5+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000542 "A correlation-consistent quintuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used in high-level benchmark work on small molecules containing the second-row elements sodium to argon. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000542 "A correlation-consistent quintuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used in high-level benchmark work on small molecules containing the second-row elements aluminium to argon. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000542 "cc-pV(5+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000542 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000542 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000543 (cc-pV(6+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000543 "A correlation-consistent sextuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is a highly specialised set for work on the second-row elements sodium to argon near the complete basis set limit. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000543 "A correlation-consistent sextuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is a highly specialised set for work on the second-row elements aluminium to argon near the complete basis set limit. For other elements the 2 are equivalent. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000543 "cc-pV(6+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000543 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000543 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000544 (aug-cc-pVDZ)
@@ -6639,32 +6646,37 @@ SubClassOf(obo:MOLSIM_000560 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000561 (aug-cc-pV(D+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000561 "A correlation-consistent double-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is meant for the second-row elements sodium to argon in situations that also need diffuse functions, such as anions and weakly bound complexes. It combines 2 separate corrections to the standard double-zeta set. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000561 "A correlation-consistent double-zeta basis set that adds both a set of diffuse functions and 1 extra high-exponent d type polarization function. It is meant for the second-row elements aluminium to argon in situations that also need diffuse functions, such as anions and weakly bound complexes. It combines 2 separate corrections to the standard double-zeta set. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000561 "aug-cc-pV(D+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000561 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000561 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000562 (aug-cc-pV(T+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000562 "A correlation-consistent triple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It targets the second-row elements sodium to argon where both diffuse electron density and d orbital flexibility matter, such as anions and intermolecular complexes. It is the triple-zeta member of that combined family. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000562 "A correlation-consistent triple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It targets the second-row elements aluminium to argon where both diffuse electron density and d orbital flexibility matter, such as anions and intermolecular complexes. It is the triple-zeta member of that combined family. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000562 "aug-cc-pV(T+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000562 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000562 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000563 (aug-cc-pV(Q+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000563 "A correlation-consistent quadruple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is used for benchmark results on systems containing the second-row elements sodium to argon whose properties depend on both corrections. It is large enough that its use is restricted to small systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000563 "A correlation-consistent quadruple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is used for benchmark results on systems containing the second-row elements aluminium to argon whose properties depend on both corrections. It is large enough that its use is restricted to small systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000563 "aug-cc-pV(Q+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000563 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000563 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000564 (aug-cc-pV(5+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000564 "A correlation-consistent quintuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is a specialised benchmark set for the second-row elements sodium to argon in processes that also need diffuse functions. It is close to the complete basis set limit for those elements. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000564 "A correlation-consistent quintuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is a specialised benchmark set for the second-row elements aluminium to argon in processes that also need diffuse functions. It is close to the complete basis set limit for those elements. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000564 "aug-cc-pV(5+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000564 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000564 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000565 (aug-cc-pV(6+d)Z)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000565 "A correlation-consistent sextuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function, the latter for the second-row elements sodium to argon. It is among the largest combinations available and is used only for extreme benchmark work on very small systems containing those elements. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000565 "A correlation-consistent sextuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function, the latter for the second-row elements aluminium to argon. It is among the largest combinations available and is used only for extreme benchmark work on very small systems containing those elements. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000565 "aug-cc-pV(6+d)Z"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000565 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"@en)
 SubClassOf(obo:MOLSIM_000565 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000566 (aug-cc-pwCVDZ)
@@ -7874,7 +7886,7 @@ SubClassOf(obo:MOLSIM_000746 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000747 (amber ff99 phi)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000747 "A protein force field, introduced by Sorin and Pande in 2005, that changes the backbone phi torsion terms of AMBER ff99 to reduce its overly strong preference for helical structure. It was developed to study how helical peptides fold, and it agreed better than ff99 with measured folding rates and stabilities. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000747 "A protein force field, introduced by Sorin and Pande in 2005, that replaces the backbone phi torsion term of AMBER ff99 with the original one of ff94, because ff99 gives too little helical structure. It was developed to study how helical peptides fold, and it showed improved agreement with measured kinetic and thermodynamic data. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000747 "AMBER ff99 phi"@en)
 SubClassOf(obo:MOLSIM_000747 obo:MOLSIM_000009)
 
@@ -7971,7 +7983,7 @@ SubClassOf(obo:MOLSIM_000762 obo:MOLSIM_000009)
 
 # Class: obo:MOLSIM_000763 (TIP4P)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000763 "A rigid water model with 4 sites, the fourth being a massless point near the oxygen, on the bisector of the H-O-H angle, carrying that atom's negative charge. Moving the negative charge off the oxygen towards the hydrogens gives a better electrostatic field around the molecule. It costs more than a 3-site model and reproduces properties such as the dielectric constant and the temperature of maximum density better than TIP3P. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000763 "A rigid water model with 4 sites, the fourth being a massless point near the oxygen, on the bisector of the H-O-H angle, carrying that atom's negative charge. Moving the negative charge off the oxygen towards the hydrogens gives a better electrostatic field around the molecule. It costs more than a 3-site model and reproduces the temperature of maximum density better than TIP3P, although its dielectric constant is further from the measured value. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000763 "TIP4P"@en)
 SubClassOf(obo:MOLSIM_000763 obo:MOLSIM_000014)
 
@@ -9074,7 +9086,7 @@ SubClassOf(obo:MOLSIM_000941 obo:MOLSIM_000305)
 
 # Class: obo:MOLSIM_000942 (time cross correlation analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000942 "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and near zero means they are independent. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000942 "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and a value near zero means there is no linear relationship between them at that delay. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000942 "time cross correlation analysis"@en)
 SubClassOf(obo:MOLSIM_000942 obo:MOLSIM_000342)
 
@@ -9531,7 +9543,7 @@ SubClassOf(obo:MOLSIM_001052 obo:MOLSIM_000921)
 
 # Class: obo:MOLSIM_001053 (CHARMM cor format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001053 "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule. It is a binary, unformatted version of the CHARMM coordinate file, making it more compact and faster to read than its text-based counterpart. This format is often used for saving and reading structures within CHARMM workflows. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001053 "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule as text. It is the formatted version of the CHARMM coordinate file, with 1 line per atom, and an extended layout with wider columns is used for very large systems. CHARMM itself usually names these files with the extension .crd, while some other programs use .cor. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001053 "CHARMM cor format"@en)
 SubClassOf(obo:MOLSIM_001053 obo:MOLSIM_000921)
 
@@ -9842,8 +9854,9 @@ SubClassOf(obo:MOLSIM_001096 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_001097 (job control format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001097 "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical or experimental reference data. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001097 "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical reference energies or forces. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001097 "job control format"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001097 "AMBER 26 Reference Manual, p. 339 to 341, chapter 17 paramfit, section 17.2 The Job Control File."@en)
 SubClassOf(obo:MOLSIM_001097 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_001098 (ReaxFF force field format)
@@ -11357,7 +11370,7 @@ SubClassOf(obo:MOLSIM_001350 obo:MOLSIM_001333)
 
 # Class: obo:MOLSIM_001351 (chirality)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001351 "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A force field cannot change one into the other, so an error here persists through an entire simulation unnoticed. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001351 "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A simulation at ordinary temperature almost never changes one into the other, so an error in the starting structure usually persists unnoticed, although a simulation at high temperature can invert a centre. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001351 "chirality"@en)
 SubClassOf(obo:MOLSIM_001351 obo:MOLSIM_001333)
 SubClassOf(obo:MOLSIM_001351 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
@@ -14374,10 +14387,10 @@ SubClassOf(obo:MOLSIM_001809 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001810 (RMS average correlation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001810 "A single number summarising how strongly the parts of a molecule move together, computed as the root mean square of all the pairwise correlation values. It reduces a whole correlation matrix to 1 figure, so 2 simulations can be compared directly. It says how much correlated motion there is but not where. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001810 "A root mean square deviation that is calculated from coordinates first averaged over a running window of frames, and is reported as a series of values for increasing window sizes. The first value, for a window of 1 frame, is the plain average RMSD of all frames to a reference structure, and longer windows average away faster motions. The resulting curve shows on which time scales the structure still changes, which helps to judge whether a simulation has converged. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001810 "RMS average correlation"@en)
-SubClassOf(obo:MOLSIM_001810 obo:STATO_0000142)
-SubClassOf(obo:MOLSIM_001810 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001810 "CPPTRAJ Manual, p. 281, section 13.32 rmsavgcorr."@en)
+SubClassOf(obo:MOLSIM_001810 obo:MOLSIM_001334)
 SubClassOf(obo:MOLSIM_001810 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001811 (solute-solvent interaction energy density)
