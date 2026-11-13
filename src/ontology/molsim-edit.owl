@@ -15681,8 +15681,9 @@ SubClassOf(obo:MOLSIM_002001 obo:MOLSIM_001515)
 
 # Class: obo:MOLSIM_002002 (atom freezing)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002002 "A simulation technique in which the positions of a selected group of atoms are held fixed throughout a run, because their positions and velocities are not updated in the chosen directions. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, frozen atoms do not move at all. It is used, for example, to model a rigid wall or surface, or to let solvent relax around a fixed protein during equilibration. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002002 "A constraint and restraint parameter that names groups of atoms whose positions are not updated during a run, in all directions or only in chosen ones, so that those atoms stay where they are. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, fully frozen atoms do not move at all. It is used, for example, during equilibration to stop badly placed solvent molecules from pushing protein atoms, and in GROMACS it is set with freezegrps and freezedim. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002002 "atom freezing"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002002 "GROMACS 2026.3 Reference Manual, p. 79, entries freezegrps and freezedim."@en)
 SubClassOf(obo:MOLSIM_002002 obo:MOLSIM_001201)
 
 # Class: obo:MOLSIM_002003 (coarse-graining)
@@ -15752,8 +15753,9 @@ SubClassOf(obo:MOLSIM_002012 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_002013 (test particle insertion)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002013 "A sampling method that computes the chemical potential of a species by repeatedly placing a non-interacting trial particle at random positions in a simulation and recording the energy it would have. Averaging the Boltzmann factor of those energies gives the excess chemical potential directly. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002013 "A thermodynamics analysis that computes the excess chemical potential of a species by repeatedly inserting a trial copy of it, at random positions and orientations, into the frames of an existing trajectory and recording its interaction energy with the other particles. The trial particle does not change the other particles, and averaging the Boltzmann factor of the insertion energies gives the excess chemical potential. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002013 "test particle insertion"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002013 "GROMACS 2026.3 Reference Manual, p. 45, entry integrator, value tpi."@en)
 SubClassOf(obo:MOLSIM_002013 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_002014 (Gibbs sampling replica exchange)
@@ -15765,8 +15767,9 @@ SubClassOf(obo:MOLSIM_002014 obo:MOLSIM_000858)
 
 # Class: obo:MOLSIM_002015 (shell molecular dynamics)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002015 "A simulation method for polarizable force fields in which each polarizable atom is given a light charged particle attached to it by a spring. The particle shifts in response to the local electric field, which reproduces how an atom's electron cloud distorts. Treating polarization as an extra particle lets an ordinary integrator handle it. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002015 "A molecular dynamics method for polarizable force fields in which a charged shell particle, representing the electrons, is attached by a spring to each polarizable atom, and the shell positions are found by minimizing the potential energy at every step. The shell shifts in response to the local electric field, which reproduces how the electron cloud of an atom distorts. Some programs instead give the shell particle a small mass and move it with the integrator together with the atoms, as in the extended Lagrangian Drude oscillator method. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002015 "shell molecular dynamics"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002015 "GROMACS 2026.3 Reference Manual, p. 397, section 5.4.4 Shell molecular dynamics."@en)
 SubClassOf(obo:MOLSIM_002015 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_002016 (enforced rotation simulation)
