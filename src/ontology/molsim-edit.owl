@@ -6610,7 +6610,7 @@ SubClassOf(obo:MOLSIM_000554 obo:MOLSIM_000485)
 
 # Class: obo:MOLSIM_000555 (aug-cc-pV6Z-RI)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000555 "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It is required in practice, because calculations at that orbital basis size are otherwise not feasible. Its purpose is speed, not accuracy. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000555 "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It makes calculations at that orbital basis size much cheaper, although very small systems can also be calculated without it. Its purpose is speed, not accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000555 "aug-cc-pV6Z-RI"@en)
 SubClassOf(obo:MOLSIM_000555 obo:MOLSIM_000485)
 
@@ -8013,7 +8013,7 @@ SubClassOf(obo:MOLSIM_000767 obo:MOLSIM_000014)
 
 # Class: obo:MOLSIM_000768 (TIP6P)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000768 "A rigid water model with 6 sites, carrying charges on all 3 atoms, on 2 lone-pair points and on a further point near the oxygen. The extra sites refine the electrostatic field further still. Its cost restricts it to studies of water itself rather than of biomolecules in water. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000768 "A rigid water model with 6 sites: the oxygen and 2 hydrogen atoms, 2 lone-pair points, and a further point near the oxygen on the bisector of the H-O-H angle, combining the extra sites of 4-site and 5-site models. It was designed by Nada and van der Eerden in 2003 to simulate ice and liquid water near the melting point, and it gives a melting point of ordinary ice close to the measured one. The extra sites refine the electrostatic field around the molecule at a higher computing cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000768 "TIP6P"@en)
 SubClassOf(obo:MOLSIM_000768 obo:MOLSIM_000014)
 
@@ -8197,7 +8197,7 @@ SubClassOf(obo:MOLSIM_000797 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000798 (SHAPE algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000798 "A constraint algorithm that extends the SHAKE approach to rigid bodies of 3 or more atoms, correcting their positions after an unconstrained step by a rotation of each rigid body as a whole. It gives the same trajectory as fully converged SHAKE, but is more efficient and more accurate for groups of 3 or more atoms. It is used to keep rigid molecules or rigid fragments at their fixed geometry during a simulation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000798 "A constraint algorithm that keeps a group of atoms rigid by correcting their positions after each unconstrained step with a rotation of the group as a whole, found iteratively, instead of with the Lagrange multipliers that SHAKE uses. Its accuracy is comparable to that of SHAKE, and it also handles large linear and planar rigid groups, where SHAKE is hard to apply. It is used to keep rigid molecules or rigid fragments at their fixed geometry during a simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000798 "SHAPE algorithm"@en)
 SubClassOf(obo:MOLSIM_000798 obo:MOLSIM_000049)
 
@@ -9725,7 +9725,7 @@ SubClassOf(obo:MOLSIM_001077 obo:MOLSIM_001091)
 
 # Class: obo:MOLSIM_001078 (rtf format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001078 "A data format used by CHARMM that defines a reusable template for one chemical building block, such as an amino acid or a nucleotide. It gives the atoms in that block, their types and charges, the bonds between them, and their standard geometry. A topology for a whole molecule is assembled by joining these templates in sequence. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001078 "A data format used by CHARMM that defines reusable templates for chemical building blocks, such as amino acids or nucleotides, usually many in 1 file together with the list of atom types and patches that modify the templates. For each block it gives the atoms, their types and charges, the bonds between them, and their standard geometry. A topology for a whole molecule is assembled by joining these templates in sequence. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001078 "residue topology file (RTF) format"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001078 "rtf format"@en)
 SubClassOf(obo:MOLSIM_001078 obo:MOLSIM_001091)
@@ -12027,7 +12027,7 @@ SubClassOf(obo:MOLSIM_001435 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001436 (CM2 charge model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001436 "A charge model refining the earlier CM1 scheme with corrections fitted against a larger set of measured dipole moments and covering more elements. The functional form is unchanged; the fitting set and the coverage are wider. It is used where semi-empirical charges are wanted quickly and reliably. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001436 "A charge model that maps the Löwdin atomic charges from a semi-empirical, Hartree-Fock or density functional calculation onto corrected charges, using terms that depend on the bond orders between atoms and are fitted to measured dipole moments. It follows the earlier CM1 scheme, with a different mapping and a larger fitting set. It is used where good charges are wanted from a quick calculation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001436 "CM2 charge model"@en)
 SubClassOf(obo:MOLSIM_001436 obo:MOLSIM_000204)
 
@@ -12669,7 +12669,7 @@ SubClassOf(obo:MOLSIM_001539 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_001540 (GFN2-xTB)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001540 "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without the separate hydrogen bond and halogen bond corrections that the earlier method needed. It is the member of the family in general use. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001540 "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without any separate hydrogen bond or halogen bond correction, so the halogen bond correction of the earlier method is no longer needed. It is the member of the family in general use. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001540 "GFN2-xTB"@en)
 SubClassOf(obo:MOLSIM_001540 obo:MOLSIM_000803)
 
@@ -12861,8 +12861,9 @@ SubClassOf(obo:MOLSIM_001570 obo:MOLSIM_001569)
 
 # Class: obo:MOLSIM_001571 (Onufriev-Bashford-Case radii set)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001571 "A set of atomic radii fitted for use with the generalized Born model of the same authors. Radii and generalized Born model are fitted together, so using 1 with a different model degrades both. It is the default radii set for that model in AMBER. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001571 "A radii set chosen to match the generalized Born model of Onufriev, Bashford and Case, which AMBER selects with igb=2 or igb=5. In AMBER the radii recommended for this model are the mbondi2 set, chosen in LEaP with set default PBradii mbondi2, although the bondi set is also accepted for igb=5. A generalized Born model and its radii are tuned together, so using the radii with a different model reduces accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001571 "Onufriev-Bashford-Case radii set"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001571 "AMBER 26 Reference Manual, p. 71, Table 4.1 Recommended radii sets for various GB models, and p. 72, entry igb."@en)
 SubClassOf(obo:MOLSIM_001571 obo:MOLSIM_000272)
 
 # Class: obo:MOLSIM_001572 (ndfes)
@@ -13679,8 +13680,9 @@ SubClassOf(obo:MOLSIM_001700 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_001701 (Marsaglia random number generator algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001701 "A pseudo-random number generator of the family developed by Marsaglia, built from simple shift and multiply operations on a small internal state. The simplicity makes them fast and easy to implement, which is why they appear inside simulation engines. They pass standard statistical tests while using far less state than a long-period generator. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001701 "A random number generator algorithm, the one used by the AMBER programs sander and pmemd, that follows the universal generator of Marsaglia and Zaman: a lagged Fibonacci sequence over a table of 97 stored numbers, combined with a simple arithmetic sequence, gives uniform numbers between 0 and 1. It gives the same sequence on different computers for the same seed. It differs from the xorshift generators that Marsaglia published later, from which the Xoshiro generators descend. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001701 "Marsaglia random number generator algorithm"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001701 "AMBER 26 Reference Manual, p. 772, cpptraj command random, option marsaglia."@en)
 SubClassOf(obo:MOLSIM_001701 obo:MOLSIM_001700)
 
 # Class: obo:MOLSIM_001702 (Mersenne Twister random number generator algorithm)
@@ -15509,7 +15511,7 @@ SubClassOf(obo:MOLSIM_001974 obo:MOLSIM_001531)
 
 # Class: obo:MOLSIM_001975 (GROMOS 53a5)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001975 "A GROMOS parameter set fitted to reproduce properties of biomolecules in non-polar surroundings, such as the interior of a membrane. It shares its bonded parameters with the aqueous-fitted set of the same generation and differs in the non-bonded ones. The 2 are alternatives chosen by environment, not successive versions. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001975 "A united-atom force field of the GROMOS family, fitted to the thermodynamic properties of pure liquids of small polar molecules and to the solvation free enthalpies of amino acid analogues in cyclohexane. It was published in 2004 together with the 53A6 set, which starts from it and adjusts the partial charges to reproduce hydration free enthalpies in water. The 2 sets exist because no single set reproduced both, so 53A5 suits pure liquids and non-polar surroundings, while 53A6 is meant for biomolecules in water. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001975 "GROMOS 53a5"@en)
 SubClassOf(obo:MOLSIM_001975 obo:MOLSIM_001531)
 
@@ -15559,7 +15561,7 @@ SubClassOf(obo:MOLSIM_001982 obo:MOLSIM_000736)
 
 # Class: obo:MOLSIM_001983 (OPLS-AA/M)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001983 "A force field of the OPLS all-atom family with its protein backbone and side-chain torsion terms refitted again, by Robertson, Tirado-Rives and Jorgensen in 2015, to high-accuracy quantum energy scans of dipeptides. The new parameters were tested against measured properties of peptides in solution and improved on the earlier OPLS-AA/L revision. It is the latest OPLS version for proteins. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001983 "A force field of the OPLS all-atom family with its protein backbone and side-chain torsion terms refitted again, by Robertson, Tirado-Rives and Jorgensen in 2015, to high-accuracy quantum energy scans of dipeptides. The new parameters were tested against measured properties of peptides in solution and improved on the earlier OPLS-AA/L revision. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001983 "OPLS-AA/M"@en)
 SubClassOf(obo:MOLSIM_001983 obo:MOLSIM_000759)
 
@@ -17298,8 +17300,9 @@ DataPropertyRange(obo:MOLSIM_002181 xsd:boolean)
 # Data Property: obo:MOLSIM_002182 (has NMR restraints active)
 
 Declaration(DataProperty(obo:MOLSIM_002182))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002182 "A relation that indicates whether a simulation applies NMR-derived restraints or dynamically varying conditions. Such restraints pull the system towards experimental measurements, so the resulting structures reflect the data as well as the force field. A trajectory produced this way must not be treated as a free simulation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002182 "A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002182 "has NMR restraints active"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002182 "AMBER 26 Reference Manual, p. 431, entry nmropt; p. 467, weight change type TEMP0; p. 502, umbrella sampling restraints with nmropt = 1."@en)
 SubDataPropertyOf(obo:MOLSIM_002182 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002182 xsd:boolean)
 
