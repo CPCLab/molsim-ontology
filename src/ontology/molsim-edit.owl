@@ -5491,8 +5491,9 @@ SubClassOf(obo:MOLSIM_000377 obo:MOLSIM_000361)
 
 # Class: obo:MOLSIM_000378 (Z-matrix parameterization modeling)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000378 "A parameterization method in which the molecule's geometry is written in internal coordinates, as a Z-matrix of bond lengths, bond angles and dihedral angles, and parameters are fitted in those terms. This makes it easy to scan 1 degree of freedom at a time, such as a dihedral angle, and to fit the parameter that controls it. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000378 "A force field parameterization method that obtains the bond and angle force constants around a metal ion from a quantum calculation of the Hessian, expressed in internal coordinates such as bond lengths and bond angles. In MCPB.py it reads these force constants from the Gaussian output file of a geometry optimization and force constant calculation, so the metal-ligand bonds and angles must be among the internal coordinates used. It is an alternative to the Seminario method, which takes the force constants from sub-matrices of the Cartesian Hessian instead. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000378 "Z-matrix parameterization modeling"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000378 "AMBER 26 Reference Manual, p. 368, entry add_redcrd, and p. 371, MCPB.py step 2 options 2s and 2z."@en)
 SubClassOf(obo:MOLSIM_000378 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000379 (ZLM density fitting)
@@ -5542,8 +5543,9 @@ SubClassOf(obo:MOLSIM_000385 obo:MOLSIM_000428)
 
 # Class: obo:MOLSIM_000386 (QM-QM derivative calculation analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000386 "A numerical method for computing energy derivatives in a calculation with more than one quantum layer, such as a high-accuracy method inside a cheaper one. The derivatives of each layer must be combined so that the force on a shared atom is consistent. Getting the combination wrong produces forces that do not match the energy, and a simulation that drifts. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000386 "A numerical method for computing the forces between the atoms of the quantum region in a semi-empirical QM/MM calculation, from the derivatives of the electron repulsion integrals with respect to the atom positions. In AMBER the derivatives are computed analytically by default, or numerically, which is slower and meant mainly for testing. Inaccurate derivatives give forces that do not match the energy, so a simulation drifts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000386 "QM-QM derivative calculation analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000386 "AMBER 26 Reference Manual, p. 159, entry qmqmdx."@en)
 SubClassOf(obo:MOLSIM_000386 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000387 (QM Ewald treatment)
@@ -14076,8 +14078,9 @@ SubClassOf(obo:MOLSIM_001763 obo:MOLSIM_000447)
 
 # Class: obo:MOLSIM_001764 (neural network atom type)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001764 "A description of an atom's surroundings used by a machine-learned force field, computed from the positions of its neighbours rather than assigned from a table. A conventional atom type is a fixed label such as \"aromatic carbon\"; this instead varies continuously with the local geometry. That is what lets such a model describe environments it was never given a label for. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001764 "An atom type that the DPRc machine-learned correction in AMBER uses to choose which neural network parameters apply to an atom. An atom in the selected region takes its element symbol, a nearby atom outside that region takes the letter m followed by its element symbol, and water oxygen and hydrogen take OW and HW. This lets the correction for an interaction within the quantum region differ from that for an interaction between quantum and classical atoms of the same elements. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001764 "neural network atom type"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001764 "AMBER 26 Reference Manual, p. 206, section 11.7.2 Neural network atom type descriptors."@en)
 SubClassOf(obo:MOLSIM_001764 obo:MOLSIM_001763)
 
 # Class: obo:MOLSIM_001765 (modified amino acid residue name)
