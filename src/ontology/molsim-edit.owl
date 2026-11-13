@@ -5359,14 +5359,16 @@ SubClassOf(obo:MOLSIM_000357 obo:MOLSIM_000026)
 
 # Class: obo:MOLSIM_000358 (worm plot visualization analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000358 "A worm plot is a visualization method that displays a collection of superimposed molecular structures from a simulation or an NMR ensemble. Each structure is typically represented as a smooth tube or \"worm\" tracing the path of the protein backbone. This method provides a clear visual impression of the conformational variability and dynamic fluctuations within the molecular ensemble. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000358 "A visualization analysis that reduces a 3-dimensional density map, such as the density of water or ions, to a 1-dimensional profile along a curved path given by the user, for example the axis of an ion channel. The path is drawn as a smooth curve through pivot points, and at each point along it the density is integrated within a tube of chosen radius. The profile shows how the density of water or ions changes along channels and similar paths. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000358 "worm plot visualization analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000358 "AMBER 26 Reference Manual, p. 1109, section 46.1, MoFT metatwist worm plots."@en)
 SubClassOf(obo:MOLSIM_000358 obo:MOLSIM_000357)
 
 # Class: obo:MOLSIM_000359 (helical density map visualization analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000359 "A helical density map is a visualization method used to represent the three-dimensional distribution of atoms within a helical structure, averaged over time from a simulation. It creates a 3D grid where the value at each point represents the probability of finding an atom, which can then be displayed as a contoured surface. This method is particularly useful for analyzing the average structure and packing of molecules like DNA or alpha-helical proteins. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000359 "A visualization analysis that maps the density of water or ions around a helical region of a nucleic acid onto a plane perpendicular to the helical axis, in the average plane of the base pairs. In the twisted form the density is simply averaged along the axis. In the untwisted form the frame of reference rotates against the twist of the helix, so that the density is seen relative to the base pairs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000359 "helical density map visualization analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000359 "AMBER 26 Reference Manual, p. 1110, section 46.1, MoFT metatwist twisted and untwisted maps."@en)
 SubClassOf(obo:MOLSIM_000359 obo:MOLSIM_000357)
 
 # Class: obo:MOLSIM_000360 (Laplacian mapping ion placement analysis)
@@ -5967,8 +5969,9 @@ SubClassOf(obo:MOLSIM_000450 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000451 (isotropically distributed ensemble analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000451 "A structural analysis method that tests whether the orientations of the structures in a collection are spread evenly over all directions. It computes the distribution of orientations and looks for any preferred alignment. It is used to confirm that a simulation has not introduced an artificial bias in rotational motion, which some theoretical treatments assume is absent. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000451 "A dynamics analysis that finds the collective motions in a set of structures without first superimposing them on a reference, by replacing each structure with copies of it oriented evenly in all directions. Averaging over these orientations reduces the usual coordinate covariance matrix, with 3 rows per atom, to a matrix with 1 row per atom, whose eigenvectors give the collective modes. It was introduced for flexible proteins, such as partly folded states, for which a single superposition is hard to define. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000451 "isotropically distributed ensemble analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000451 "CPPTRAJ Manual, p. 180, command matrix, type idea."@en)
 SubClassOf(obo:MOLSIM_000451 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000452 (isotropic reorientational eigenmode dynamics analysis)
