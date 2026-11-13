@@ -7243,8 +7243,9 @@ SubClassOf(obo:MOLSIM_000652 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000653 (polar decomposition analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000653 "A structural analysis method that separates the change in shape of a group of atoms between 2 conformations into a pure rotation and an internal deformation. It does this by factorising the matrix that maps one set of coordinates onto the other. It answers whether a domain has turned as a rigid body or genuinely changed shape. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000653 "A thermodynamics analysis that splits the solvation free energy computed with the 3D reference interaction site model (3D-RISM) into a polar part and a non-polar part. The non-polar part comes from a second solution of the same equations with all solute charges set to 0, and the polar part is the rest. It shows how much of the solvation free energy comes from the electrostatic response of the solvent, and it needs about 80% more computing time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000653 "polar decomposition analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000653 "AMBER 26 Reference Manual, p. 126 and p. 148, 3D-RISM option polarDecomp."@en)
 SubClassOf(obo:MOLSIM_000653 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_000654 (path integral molecular dynamics)
@@ -14457,8 +14458,9 @@ SubClassOf(obo:MOLSIM_001819 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001820 (normalized tetrahedral order parameter)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001820 "A tetrahedral order parameter rescaled to run from −1/3 to 1, where 1 is a perfect tetrahedron and 0 is a random arrangement. The rescaling puts the value of random water at 0, so a number can be read directly as how much more ordered than random the arrangement is. It is the form usually reported. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001820 "A tetrahedral order parameter averaged over the water molecules found in 1 voxel, a small cell of the grid used by grid inhomogeneous solvation theory (GIST), and normalized by the number of those water molecules. For each water molecule the parameter is computed from the angles to its 4 nearest water neighbours, so that 1 means a perfect tetrahedron and 0 means a random arrangement. Mapping it voxel by voxel shows where water around a solute is more or less ordered than in bulk. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001820 "normalized tetrahedral order parameter"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001820 "AMBER 26 Reference Manual, p. 836, cpptraj command gist, output Order-norm."@en)
 SubClassOf(obo:MOLSIM_001820 obo:MOLSIM_001819)
 SubClassOf(obo:MOLSIM_001820 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
 SubClassOf(obo:MOLSIM_001820 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
@@ -14499,8 +14501,9 @@ SubClassOf(obo:MOLSIM_001825 obo:MOLSIM_001294)
 
 # Class: obo:MOLSIM_001826 (solvent reaction field potential)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001826 "An electrostatic method that represents the solvent beyond a cutoff distance as a uniform medium that polarizes in response to the charges inside, rather than as individual molecules. The polarized medium pushes back with a field that is added to the direct interactions. It is much cheaper than Ewald summation and less accurate, particularly for a system carrying a net charge. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001826 "An electrostatic potential that the surrounding solvent creates at the atoms of a molecule, after the solvent has arranged itself in response to that molecule's charges. In the implicitly polarized charge (IPolQ) method of the AMBER program mdgx, it is computed from the time-averaged charge density of explicit solvent sampled during a simulation with the molecule held fixed. A quantum calculation in the presence of this potential, averaged with one in vacuum, gives the target for fitting fixed partial charges. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001826 "solvent reaction field potential"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001826 "AMBER 26 Reference Manual, p. 352 to 353, section 18.4 Implicitly Polarized Charge Development."@en)
 SubClassOf(obo:MOLSIM_001826 obo:MOLSIM_001294)
 
 # Class: obo:MOLSIM_001827 (collective variable)
