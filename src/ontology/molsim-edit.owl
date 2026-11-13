@@ -2273,14 +2273,12 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002254 "has software keyword"@en)
 
 # Object Property: obo:IAO_0000039 (has measurement unit label)
 
-SubObjectPropertyOf(obo:IAO_0000039 owl:topObjectProperty)
 
 # Data Property: obo:IAO_0000004 (has measurement value)
 
 
 # Object Property: obo:IAO_0000136 (is about)
 
-SubObjectPropertyOf(obo:IAO_0000136 owl:topObjectProperty)
 
 # Object Property: obo:MOLSIM_000297 (has periodic box type)
 
@@ -2350,23 +2348,18 @@ ObjectPropertyRange(obo:MOLSIM_001036 obo:MOLSIM_001994)
 
 # Object Property: obo:RO_0000056 (participates in)
 
-SubObjectPropertyOf(obo:RO_0000056 owl:topObjectProperty)
 
 # Object Property: obo:RO_0000058 (is concretized as)
 
 
 # Object Property: obo:RO_0000086 (has quality)
 
-SubObjectPropertyOf(obo:RO_0000086 owl:topObjectProperty)
 
 # Object Property: obo:RO_0002233 (has input)
 
-AnnotationAssertion(rdfs:comment obo:RO_0002233 "http://purl.obolibrary.org/obo/RO_0002233")
-SubObjectPropertyOf(obo:RO_0002233 owl:topObjectProperty)
 
 # Object Property: obo:RO_0002234 (has output)
 
-SubObjectPropertyOf(obo:RO_0002234 owl:topObjectProperty)
 SubObjectPropertyOf(obo:OBI_0000293 obo:RO_0002233)
 SubObjectPropertyOf(obo:OBI_0000299 obo:RO_0002234)
 
@@ -3007,6 +3000,7 @@ DataPropertyDomain(owl:topDataProperty obo:MOLSIM_001887)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000000 "A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000000 "molecular dynamics process"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000000 orcid:0000-0002-8291-8071)
+SubClassOf(obo:MOLSIM_000000 ObjectSomeValuesFrom(obo:RO_0002233 obo:MOLSIM_001887))
 
 # Class: obo:MOLSIM_000001 (software)
 
@@ -3071,14 +3065,14 @@ SubClassOf(obo:MOLSIM_000009 obo:MOLSIM_000772)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000010 "A force field specifically developed and parameterized for simulating Deoxyribonucleic Acid (DNA) molecules. It focuses on accurately representing the structure, dynamics, and interactions of DNA bases, sugars, and phosphate backbone, including features like sugar pucker and helical parameters. Accurate DNA force fields are essential for studying DNA replication, transcription, and drug binding."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000010 "DNA force field"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000010 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_000010 obo:MOLSIM_000772)
+SubClassOf(obo:MOLSIM_000010 obo:MOLSIM_001445)
 
 # Class: obo:MOLSIM_000011 (RNA force field)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000011 "A force field specifically developed and parameterized for simulating Ribonucleic Acid (RNA) molecules. It aims to accurately capture the complex conformational landscape and catalytic potential of RNA. Development often focuses on improving descriptions of sugar pucker, backbone torsions (especially the epsilon and zeta angles), and non-canonical base interactions."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000011 "RNA force field"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000011 orcid:0000-0002-2294-5393)
-SubClassOf(obo:MOLSIM_000011 obo:MOLSIM_000772)
+SubClassOf(obo:MOLSIM_000011 obo:MOLSIM_001445)
 
 # Class: obo:MOLSIM_000012 (carbohydrates force field)
 
@@ -3499,13 +3493,14 @@ SubClassOf(obo:MOLSIM_000074 obo:MOLSIM_000037)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000075 "An algorithm that measures how similar 2 molecules are as the size of what they have in common divided by the size of what they cover together. For molecular fingerprints this is the number of features present in both divided by the number present in at least 1 of them. It is the standard measure for fingerprints, runs from 0 for nothing shared to 1 for identical sets, and is also applied to overlapping molecular volumes in shape comparison. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000075 "Tanimoto similarity algorithm"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000075 "Jaccard index"@en)
 SubClassOf(obo:MOLSIM_000075 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000076 (Tversky index algorithm)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000076 "A similarity calculation algorithm that compares 2 molecules by their overlap while weighting the features unique to each molecule differently, through 2 parameters, α and β. The measure ranges from 0 (nothing shared) to 1 (identical), and the weights can be set to emphasize either the reference (query) molecule or the fit (database) molecule. This asymmetry lets it find molecules that contain the reference as a substructure, or that are contained in it. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000076 "Tversky index algorithm"@en)
-AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_000076 "General form, for reference: T(A,B) = |A n B| / (alpha*|A - B| + beta*|B - A| + |A n B|), where A and B are the feature sets of the two molecules being compared. alpha weights features unique to A (the reference) and beta weights features unique to B (the query or fit molecule); alpha = beta = 1 reduces to the Tanimoto coefficient, and alpha = beta = 0.5 gives the Dice coefficient. The named variants below differ only in their fixed alpha/beta values, which each of their definitions states. Note this text is a plain-string note: no OWL consumer renders mathematical notation, so it is written to be readable as-is rather than as LaTeX. Requested in GitHub issue #1."@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_000076 "General form, for reference: T(A,B) = |A n B| / (alpha*|A - B| + beta*|B - A| + |A n B|), where A and B are the feature sets of the two molecules being compared. alpha weights features unique to A (the reference, or query, molecule) and beta weights features unique to B (the fit, or database, molecule); alpha = beta = 1 reduces to the Tanimoto coefficient, and alpha = beta = 0.5 gives the Dice coefficient. The named variants below differ only in their fixed alpha/beta values, which each of their definitions states. Note this text is a plain-string note: no OWL consumer renders mathematical notation, so it is written to be readable as-is rather than as LaTeX. Requested in GitHub issue #1."@en)
 SubClassOf(obo:MOLSIM_000076 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000077 (Dice coefficient algorithm)
@@ -3546,9 +3541,11 @@ SubClassOf(obo:MOLSIM_000081 obo:MOLSIM_000074)
 
 # Class: obo:MOLSIM_000082 (Jaccard index algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000082 "A similarity calculation method used for comparing 2 sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets). (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000082 "Jaccard index algorithm"@en)
-SubClassOf(obo:MOLSIM_000082 obo:MOLSIM_000074)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000082 "OBSOLETE. A similarity calculation method used for comparing 2 sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets)."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000082 "obsolete Jaccard index algorithm"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000082 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000082 obo:MOLSIM_000075)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000082 "Retired 2026-11-13. It duplicated MOLSIM:000075 Tanimoto similarity algorithm: on sets and binary fingerprints the Jaccard index and the Tanimoto coefficient are the same ratio, the size of the intersection divided by the size of the union. Jaccard index is kept as an exact synonym on MOLSIM:000075.")
 
 # Class: obo:MOLSIM_000083 (overlap coefficient algorithm)
 
@@ -4742,6 +4739,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000262 "A free energy analysis me
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000262 "MM/PBSA"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000262 "MMPBSA"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000262 "molecular mechanics Poisson Boltzmann surface area analysis"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000262 "MM-PBSA analysis"@en)
 SubClassOf(obo:MOLSIM_000262 obo:MOLSIM_000326)
 
 # Class: obo:MOLSIM_000263 (molecular mechanics generalized Born surface area analysis)
@@ -4750,6 +4748,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000263 "A free energy analysis me
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000263 "MM/GBSA"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000263 "MMGBSA"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000263 "molecular mechanics generalized Born surface area analysis"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000263 "MM-GBSA analysis"@en)
 SubClassOf(obo:MOLSIM_000263 obo:MOLSIM_000326)
 
 # Class: obo:MOLSIM_000264 (linear interaction energy analysis)
@@ -5169,7 +5168,7 @@ SubClassOf(obo:MOLSIM_000325 obo:MOLSIM_000308)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000326 "A free energy analysis that estimates the free energy difference between 2 states from simulations of those 2 end states only, without simulating the intermediate states between them. It is cheaper but less rigorous than methods that sample a path between the states. MM/PBSA and MM/GBSA are common examples; they combine molecular mechanics energies with continuum solvent models, using snapshots of the bound and unbound states. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000326 "endpoint free energy analysis"@en)
-SubClassOf(obo:MOLSIM_000326 obo:MOLSIM_000265)
+SubClassOf(obo:MOLSIM_000326 obo:MOLSIM_000261)
 
 # Class: obo:MOLSIM_000327 (active site focusing analysis)
 
@@ -5869,6 +5868,7 @@ SubClassOf(obo:MOLSIM_000431 obo:MOLSIM_000331)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000432 "A set of mathematical functions, often resembling atomic orbitals, used in quantum chemical calculations to represent the spatial distribution of electrons within a molecule (molecular orbitals). The choice and size of the basis set significantly impact the accuracy and computational cost of a simulation; larger, more flexible basis sets generally yield more accurate results but require more computer resources. These functions serve as the building blocks for constructing the calculated electronic wavefunction. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000432 "quantum mechanics basis set"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000432 "basis set"@en)
 SubClassOf(obo:MOLSIM_000432 obo:MOLSIM_000173)
 
 # Class: obo:MOLSIM_000433 (Altona & Sundaralingam pucker analysis)
@@ -7194,7 +7194,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000641 "A correction added to a q
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000641 "D3 dispersion model"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000641 "grimme dispersion correction"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000641 "empirical dispersion correction"@en)
-SubClassOf(obo:MOLSIM_000641 obo:MOLSIM_001463)
+SubClassOf(obo:MOLSIM_000641 obo:MOLSIM_001728)
 
 # Class: obo:MOLSIM_000642 (Gaussian-shaped constraint simulation)
 
@@ -8289,13 +8289,13 @@ SubClassOf(obo:MOLSIM_000807 obo:MOLSIM_000817)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000808 "A semi-empirical all-valence-electron method, in its second parameterisation, that neglects the differential overlap, the product of 2 different atomic orbitals, in the electron repulsion integrals even when both orbitals are on the same atom. The severity of that approximation makes it very fast and correspondingly crude. It is of historical interest rather than in current use. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000808 "CNDO/2"@en)
-SubClassOf(obo:MOLSIM_000808 obo:MOLSIM_000817)
+SubClassOf(obo:MOLSIM_000808 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_000809 (INDO)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000809 "A semi-empirical all-valence-electron method that keeps the 1-centre exchange integrals between different orbitals on the same atom, which the earlier complete neglect (CNDO) scheme discards. Keeping them is what lets it describe electron spin distributions and the properties that depend on them. It is the level the MINDO and SINDO families refine. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000809 "INDO"@en)
-SubClassOf(obo:MOLSIM_000809 obo:MOLSIM_000817)
+SubClassOf(obo:MOLSIM_000809 obo:MOLSIM_000803)
 
 # Class: obo:MOLSIM_000810 (Hartree-Fock)
 
@@ -8316,13 +8316,13 @@ SubClassOf(obo:MOLSIM_000812 obo:MOLSIM_000810)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000813 "An iterative computational procedure that solves for a set of molecular orbitals by repeatedly recomputing the average field each electron feels from all the others until the orbitals stop changing. It is how the Hartree-Fock equations, and those of density functional theory, are solved in practice. A calculation that fails to reach that fixed point is said not to have converged. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000813 "SCF"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000813 "self-consistent field"@en)
-SubClassOf(obo:MOLSIM_000813 obo:MOLSIM_000810)
+SubClassOf(obo:MOLSIM_000813 obo:MOLSIM_001728)
 
-# Class: obo:MOLSIM_000814 (Unrestricted Hartree-Fock)
+# Class: obo:MOLSIM_000814 (unrestricted Hartree-Fock)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000814 "A Hartree-Fock method that lets electrons of opposite spin occupy different spatial orbitals. The extra freedom describes unpaired electrons better than forcing paired orbitals does. The price is that the resulting wavefunction is not an eigenfunction of total spin, so it can be contaminated by states of higher multiplicity. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000814 "UHF"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000814 "Unrestricted Hartree-Fock"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000814 "unrestricted Hartree-Fock"@en)
 SubClassOf(obo:MOLSIM_000814 obo:MOLSIM_000810)
 
 # Class: obo:MOLSIM_000815 (MINDO)
@@ -8559,7 +8559,7 @@ SubClassOf(obo:MOLSIM_000849 obo:MOLSIM_000845)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000850 "A statistical model of a system that moves between discrete states, in which the next state depends only on the current one and not on how the system arrived there. That assumption is what makes long-timescale behaviour computable from short observations. It holds only if the states are chosen so that everything relevant about the past is captured by which state the system is in. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000850 "markov chain model"@en)
-SubClassOf(obo:MOLSIM_000850 obo:MOLSIM_000845)
+SubClassOf(obo:MOLSIM_000850 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000851 (max-flux approach)
 
@@ -8595,7 +8595,7 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_000854 "Retired 2026-11-13. It dupli
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000855 "A machine learning model built from layers of simple units, each combining its inputs and passing the result on, whose connection strengths are adjusted to fit training data. Given enough units it can represent almost any relationship, which is why it is used where no formula is known. In this field it is used to predict energies and forces, and to find useful coordinates automatically. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000855 "neural networks"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000855 "neural network"@en)
-SubClassOf(obo:MOLSIM_000855 obo:MOLSIM_000845)
+SubClassOf(obo:MOLSIM_000855 obo:MOLSIM_000006)
 
 # Class: obo:MOLSIM_000856 (nudged elastic band)
 
@@ -8662,7 +8662,7 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000864 "TSE"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000864 "transition state ensembles"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000864 "transition state ensemble"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000864 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000864 obo:MOLSIM_000845)
+SubClassOf(obo:MOLSIM_000864 obo:MOLSIM_002255)
 
 # Class: obo:MOLSIM_000865 (transition interface sampling)
 
@@ -9178,15 +9178,19 @@ SubClassOf(obo:MOLSIM_000951 obo:MOLSIM_000950)
 
 # Class: obo:MOLSIM_000952 (MM-PBSA analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000952 "An effective energy analysis that estimates the binding free energy of a molecular complex by combining molecular mechanics energies from simulation snapshots with a Poisson-Boltzmann calculation of the electrostatic solvation energy and a surface area term for the nonpolar solvation energy. The energies are averaged over many snapshots of the complex and of its separated parts. Solute entropy is not captured by this averaging and, when wanted, is estimated separately, for example by normal mode analysis. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000952 "MM-PBSA analysis"@en)
-SubClassOf(obo:MOLSIM_000952 obo:MOLSIM_010025)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000952 "OBSOLETE. An effective energy analysis that estimates the binding free energy of a molecular complex by combining molecular mechanics energies from simulation snapshots with a Poisson-Boltzmann calculation of the electrostatic solvation energy and a surface area term for the nonpolar solvation energy. The energies are averaged over many snapshots of the complex and of its separated parts. Solute entropy is not captured by this averaging and, when wanted, is estimated separately, for example by normal mode analysis."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000952 "obsolete MM-PBSA analysis"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000952 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000952 obo:MOLSIM_000262)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000952 "Retired 2026-11-13. It duplicated MOLSIM:000262 molecular mechanics Poisson Boltzmann surface area analysis, the same method filed under endpoint free energy analysis. Its label is kept as an exact synonym on MOLSIM:000262.")
 
 # Class: obo:MOLSIM_000953 (MM-GBSA analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000953 "An effective energy analysis that estimates binding free energies by combining molecular mechanics energies with a generalized Born model for the electrostatic part of the solvation free energy and a surface area term for the nonpolar part. The generalized Born model approximates the Poisson-Boltzmann equation at lower cost, which makes the method suited to large numbers of calculations such as virtual screening. In other respects it is the same as the Poisson-Boltzmann variant, MM-PBSA. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000953 "MM-GBSA analysis"@en)
-SubClassOf(obo:MOLSIM_000953 obo:MOLSIM_010025)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000953 "OBSOLETE. An effective energy analysis that estimates binding free energies by combining molecular mechanics energies with a generalized Born model for the electrostatic part of the solvation free energy and a surface area term for the nonpolar part. The generalized Born model approximates the Poisson-Boltzmann equation at lower cost, which makes the method suited to large numbers of calculations such as virtual screening. In other respects it is the same as the Poisson-Boltzmann variant, MM-PBSA."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000953 "obsolete MM-GBSA analysis"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000953 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000953 obo:MOLSIM_000263)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000953 "Retired 2026-11-13. It duplicated MOLSIM:000263 molecular mechanics generalized Born surface area analysis, the same method filed under endpoint free energy analysis. Its label is kept as an exact synonym on MOLSIM:000263.")
 
 # Class: obo:MOLSIM_000954 (interaction energy analysis)
 
@@ -10166,6 +10170,8 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001181 "A pressure control parame
 AnnotationAssertion(rdfs:label obo:MOLSIM_001181 "target pressure"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001181 "AMBER 26 Reference Manual, p. 438, entry pres0."@en)
 SubClassOf(obo:MOLSIM_001181 obo:MOLSIM_001179)
+SubClassOf(obo:MOLSIM_001181 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000109))
+SubClassOf(obo:MOLSIM_001181 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001182 (pressure coupling time constant)
 
@@ -11408,8 +11414,6 @@ SubClassOf(obo:MOLSIM_001350 obo:MOLSIM_001333)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001351 "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A simulation at ordinary temperature almost never changes one into the other, so an error in the starting structure usually persists unnoticed, although a simulation at high temperature can invert a centre. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001351 "chirality"@en)
 SubClassOf(obo:MOLSIM_001351 obo:MOLSIM_001333)
-SubClassOf(obo:MOLSIM_001351 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
-SubClassOf(obo:MOLSIM_001351 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001352 (molecular orientation)
 
@@ -12444,7 +12448,7 @@ SubClassOf(obo:MOLSIM_001495 obo:MOLSIM_001494)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001496 "A solvation shell refers to the layer of solvent molecules that are in direct contact with or in the immediate vicinity of a solute molecule. These solvent molecules are often more ordered and have different dynamic properties compared to the bulk solvent further away. Usually, analyzing the structure and dynamics of the first and second solvation shells is crucial for understanding the details of solute-solvent interactions."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001496 "solvation shell"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001496 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_001496 obo:MOLSIM_000065)
+SubClassOf(obo:MOLSIM_001496 obo:MOLSIM_002090)
 
 # Class: obo:MOLSIM_001497 (molecular structure representation)
 
@@ -12490,15 +12494,17 @@ SubClassOf(obo:MOLSIM_001503 obo:MOLSIM_001499)
 
 # Class: obo:MOLSIM_001504 (basis set)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001504 "A collection of mathematical functions combined to represent the shape of each electron orbital in a quantum chemistry calculation. The true orbitals cannot be written down, so they are built up from a finite set of simpler functions instead. The choice of these functions, together with the quantum method, largely sets both the accuracy and the cost of a calculation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001504 "basis set"@en)
-SubClassOf(obo:MOLSIM_001504 obo:MOLSIM_001463)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001504 "OBSOLETE. A collection of mathematical functions combined to represent the shape of each electron orbital in a quantum chemistry calculation. The true orbitals cannot be written down, so they are built up from a finite set of simpler functions instead. The choice of these functions, together with the quantum method, largely sets both the accuracy and the cost of a calculation."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001504 "obsolete basis set"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001504 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001504 obo:MOLSIM_000432)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001504 "Retired 2026-11-13. It duplicated MOLSIM:000432 quantum mechanics basis set in a second branch, under QM/MM model component. Its only child, MOLSIM:001505 auxiliary basis set, was moved under MOLSIM:000432 first.")
 
 # Class: obo:MOLSIM_001505 (auxiliary basis set)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001505 "A set of mathematical functions used to approximate products of orbital basis functions, rather than the orbitals themselves, so that electron repulsion integrals can be computed more cheaply. It is what makes density fitting and resolution-of-identity methods fast. It must be matched to the orbital basis set it is paired with, or the speed-up costs accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001505 "auxiliary basis set"@en)
-SubClassOf(obo:MOLSIM_001505 obo:MOLSIM_001504)
+SubClassOf(obo:MOLSIM_001505 obo:MOLSIM_000432)
 
 # Class: obo:MOLSIM_001506 (Lipid_ext parameter set)
 
@@ -12534,7 +12540,7 @@ SubClassOf(obo:MOLSIM_001510 obo:MOLSIM_001478)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001511 "A label classifying an atom by its element and its local bonding environment, in the scheme used by the SYBYL software and by the Mol2 file format. For instance, C.ar marks an aromatic carbon and C.2 a carbon with a double bond. Many modelling tools read these types from Mol2 files, for example when preparing a small molecule for docking or charge calculation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001511 "SYBYL atom type"@en)
-SubClassOf(obo:MOLSIM_001511 obo:MOLSIM_000331)
+SubClassOf(obo:MOLSIM_001511 obo:MOLSIM_001763)
 
 # Class: obo:MOLSIM_001512 (generalized distance coordinate restraint)
 
@@ -12554,7 +12560,7 @@ SubClassOf(obo:MOLSIM_001513 obo:MOLSIM_001375)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001514 "An alignment tensor is a mathematical object that describes the degree and direction of the average orientation of molecules in a sample that is not perfectly random. In an NMR experiment, molecules can be weakly aligned by a magnetic field, and the alignment tensor quantifies this small but measurable preference in orientation. This tensor is crucial for interpreting experimental data like residual dipolar couplings (RDCs), which provide powerful long-range structural information."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001514 "alignment tensor"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001514 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_001514 obo:MOLSIM_001375)
+SubClassOf(obo:MOLSIM_001514 obo:MOLSIM_001333)
 
 # Class: obo:MOLSIM_001515 (Lennard-Jones parameter)
 
@@ -12616,7 +12622,7 @@ SubClassOf(obo:MOLSIM_001523 obo:MOLSIM_001535)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001524 "An approximate equation relating the 2 unknown correlation functions in an integral equation theory of liquids, so that the system can be solved. Without it there are 2 unknowns and 1 equation. Different choices, such as hypernetted-chain or Kovalenko-Hirata, give measurably different solvation free energies from otherwise identical input. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001524 "closure relation"@en)
-SubClassOf(obo:MOLSIM_001524 obo:MOLSIM_001535)
+SubClassOf(obo:MOLSIM_001524 obo:MOLSIM_001287)
 
 # Class: obo:MOLSIM_001525 (Kovalenko-Hirata closure)
 
@@ -12662,7 +12668,7 @@ SubClassOf(obo:MOLSIM_001530 obo:MOLSIM_000009)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001531 "A force field in which non-polar hydrogens are merged into the heavy atom they are bonded to, so that a methyl group is 1 interaction site. This reduces the number of particles, so a simulation costs less than with an all-atom model. Polar hydrogens are kept as separate sites, because they take part in hydrogen bonds. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001531 "united-atom force field"@en)
-SubClassOf(obo:MOLSIM_001531 obo:MOLSIM_000007)
+SubClassOf(obo:MOLSIM_001531 obo:MOLSIM_000735)
 
 # Class: obo:MOLSIM_001533 (drude oscillator)
 
@@ -13546,7 +13552,7 @@ SubClassOf(obo:MOLSIM_001672 obo:MOLSIM_000714)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001673 "The Glycoprotein Builder is a web-based tool that automates the process of constructing three-dimensional models of glycoproteins. It allows users to start with a protein structure and graphically attach various glycan (sugar chain) structures to specific amino acid residues. For researchers, this tool greatly simplifies the otherwise complex and tedious task of building a complete, simulation-ready model of a glycosylated protein."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001673 "Glycoprotein Builder"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001673 orcid:0000-0002-8291-8071)
-SubClassOf(obo:MOLSIM_001673 obo:MOLSIM_001119)
+SubClassOf(obo:MOLSIM_001673 obo:MOLSIM_000714)
 
 # Class: obo:MOLSIM_001674 (RDKit)
 
@@ -13564,7 +13570,7 @@ SubClassOf(obo:MOLSIM_001675 obo:MOLSIM_001566)
 # Class: obo:MOLSIM_001676 (MPI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001676 "A standard specifying how parts of a parallel program running on separate machines exchange data by sending messages to one another. Because the machines share no memory, every piece of shared information must be sent explicitly. It is how a single simulation is spread across the nodes of a cluster. (UNVERIFIED)"@en)
-AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001676 "Message Parsing Interface"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001676 "Message Passing Interface"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001676 "MPI"@en)
 SubClassOf(obo:MOLSIM_001676 obo:MOLSIM_001562)
 
@@ -13917,6 +13923,7 @@ SubClassOf(obo:MOLSIM_001731 obo:MOLSIM_000038)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001732 "A thermostat algorithm that rescales the velocities towards the target temperature by a factor that includes a random part, chosen so that the kinetic energy follows the canonical distribution instead of being driven to a single value. It reaches the target temperature as quickly as simple rescaling schemes such as the Berendsen thermostat, while sampling the canonical ensemble correctly, which they do not. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001732 "Bussi thermostat"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001732 "stochastic velocity rescaling thermostat"@en)
 AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001732 "ntt=11")
 SubClassOf(obo:MOLSIM_001732 obo:MOLSIM_000038)
 
@@ -14910,7 +14917,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001877 "DNA bendability is the in
 AnnotationAssertion(rdfs:label obo:MOLSIM_001877 "DNA-bendability"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001877 orcid:0000-0002-7544-0938)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001877 orcid:0000-0002-4303-9349)
-SubClassOf(obo:MOLSIM_001877 obo:MOLSIM_001391)
+SubClassOf(obo:MOLSIM_001877 obo:MOLSIM_001333)
 
 # Class: obo:MOLSIM_001878 (base breathing)
 
@@ -15640,16 +15647,16 @@ SubClassOf(obo:MOLSIM_001987 obo:MOLSIM_001333)
 SubClassOf(obo:MOLSIM_001987 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000001))
 SubClassOf(obo:MOLSIM_001987 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
-# Class: obo:MOLSIM_001988 (helmholtz free energy)
+# Class: obo:MOLSIM_001988 (Helmholtz free energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001988 "A free energy defined as the internal energy minus the product of temperature and entropy, A = U − TS, whose decrease equals the largest amount of work a system can do at constant temperature. At constant temperature and volume a process goes forward on its own only if it lowers this quantity. It is the free energy estimated by simulations at constant volume and temperature (NVT, the canonical ensemble), usually as a difference between 2 states by methods such as thermodynamic integration or the Bennett acceptance ratio. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001988 "helmholtz free energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001988 "Helmholtz free energy"@en)
 SubClassOf(obo:MOLSIM_001988 obo:MOLSIM_001314)
 
-# Class: obo:MOLSIM_001989 (gibbs free energy)
+# Class: obo:MOLSIM_001989 (Gibbs free energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001989 "A free energy defined as the enthalpy minus the product of temperature and entropy, G = H − TS, whose decrease equals the largest amount of work other than expansion work that a system can do at constant temperature and pressure. At constant temperature and pressure a process goes forward on its own only if it lowers this quantity, so it decides the direction of change and the position of chemical equilibrium. It is the free energy estimated by simulations at constant pressure and temperature (NPT), for example for binding, solvation and phase equilibria. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001989 "gibbs free energy"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001989 "Gibbs free energy"@en)
 SubClassOf(obo:MOLSIM_001989 obo:MOLSIM_001314)
 
 # Class: obo:MOLSIM_001990 (virial)
@@ -16006,6 +16013,7 @@ SubClassOf(obo:MOLSIM_002043 obo:MOLSIM_000160)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002044 "A programming interface, developed by AMD, that lets the same source code run on graphics processors from more than one manufacturer. It closely mirrors the interface used for NVIDIA hardware, so existing code can be converted with little change. Simulation engines use it so that 1 version of their graphics processor code serves both AMD and NVIDIA hardware. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002044 "HIP"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_002044 "Not to be confused with HIP, the residue name that AMBER force fields use for histidine protonated on both ring nitrogens."@en)
 SubClassOf(obo:MOLSIM_002044 obo:MOLSIM_001562)
 
 # Class: obo:MOLSIM_002045 (SYCL)
@@ -16025,13 +16033,13 @@ SubClassOf(obo:MOLSIM_002046 obo:MOLSIM_001562)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002047 "An open-source implementation of the message passing standard, formed by merging several earlier projects and designed to support many kinds of network hardware. It is one of the most widely used implementations, alongside MPICH. Which implementation a simulation engine was built against can affect its performance. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002047 "OpenMPI"@en)
-SubClassOf(obo:MOLSIM_002047 obo:MOLSIM_001566)
+SubClassOf(obo:MOLSIM_002047 obo:MOLSIM_001654)
 
 # Class: obo:MOLSIM_002048 (MPICH)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002048 "An open-source implementation of the message passing standard, used directly and also as the basis several hardware vendors build their own versions on. It is one of the most widely used implementations, alongside Open MPI. Its performance depends heavily on the network hardware it is configured for. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002048 "MPICH"@en)
-SubClassOf(obo:MOLSIM_002048 obo:MOLSIM_001566)
+SubClassOf(obo:MOLSIM_002048 obo:MOLSIM_001654)
 
 # Class: obo:MOLSIM_002049 (AutoDock)
 
@@ -16572,19 +16580,19 @@ SubClassOf(obo:MOLSIM_010016 obo:MOLSIM_001715)
 
 # Class: obo:MOLSIM_010017 (color Tanimoto score)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010017 "A similarity score that measures how well the chemical features of 2 aligned molecules, such as hydrogen bond donors, acceptors and charged groups, overlap in space, as a Tanimoto ratio from 0 to 1. It complements a shape comparison, which cannot tell a hydrogen bond donor from an acceptor of the same size. \"Color\" here refers to feature type, not to any visual property. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010017 "A Tanimoto similarity algorithm that measures how well the chemical features of 2 aligned molecules, such as hydrogen bond donors, acceptors and charged groups, overlap in space, as a Tanimoto ratio from 0 to 1. It complements a shape comparison, which cannot tell a hydrogen bond donor from an acceptor of the same size. \"Color\" here refers to feature type, not to any visual property. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_010017 "color Tanimoto score"@en)
 SubClassOf(obo:MOLSIM_010017 obo:MOLSIM_000075)
 
 # Class: obo:MOLSIM_010018 (shape Tanimoto score)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010018 "A similarity score that measures how much the volumes of 2 aligned molecules overlap, as the shared volume divided by the total volume occupied by at least 1 of them. It ranges from 0 for no overlap to 1 for identical shape. It considers only shape, so 2 chemically unlike molecules that fill the same space score highly. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010018 "A Tanimoto similarity algorithm that measures how much the volumes of 2 aligned molecules overlap, as the shared volume divided by the total volume occupied by at least 1 of them. It ranges from 0 for no overlap to 1 for identical shape. It considers only shape, so 2 chemically unlike molecules that fill the same space score highly. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_010018 "shape Tanimoto score"@en)
 SubClassOf(obo:MOLSIM_010018 obo:MOLSIM_000075)
 
 # Class: obo:MOLSIM_010019 (Tanimoto combo score)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010019 "A similarity score adding the shape score and the chemical feature score, giving a value between 0 and 2. Adding them weights shape and chemistry equally, which suits searching for a molecule that both fits a site and makes the same contacts. Reporting the 2 parts separately alongside it is usual, since the sum hides which one is high. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010019 "A Tanimoto similarity algorithm that adds the shape score and the chemical feature score, giving a value between 0 and 2. Adding them weights shape and chemistry equally, which suits searching for a molecule that both fits a site and makes the same contacts. Reporting the 2 parts separately alongside it is usual, since the sum hides which one is high. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_010019 "Tanimoto combo score"@en)
 SubClassOf(obo:MOLSIM_010019 obo:MOLSIM_000075)
 
@@ -16993,10 +17001,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001002 "A web server tool for sha
 AnnotationAssertion(rdfs:label obo:MOLSIM_001002 "MDsrv"@en)
 ClassAssertion(obo:MOLSIM_000714 obo:MOLSIM_001002)
 
-# Individual: obo:MOLSIM_001003 (PDB-Dev)
+# Individual: obo:MOLSIM_001003 (PDB-IHM)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001003 "A protein structural database for structures of biological molecules determined by integrative or hybrid methods, which combine data from several experimental techniques with computational modelling. It began as a prototype archive and in 2024 was unified with the Protein Data Bank and renamed PDB-IHM, so its structures now receive PDB accession codes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001003 "PDB-Dev"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001003 "PDB-IHM"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001003 "PDB-Dev"@en)
 ClassAssertion(obo:MOLSIM_000692 obo:MOLSIM_001003)
 
 # Individual: obo:MOLSIM_001004 (AlphaFold Protein Structure Database)
@@ -17469,7 +17478,7 @@ AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_002259 "Holds text rather than po
 SubDataPropertyOf(obo:MOLSIM_002259 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002259 xsd:string)
 
-# Data Property: obo:MOLSIM_002260 (has capping group)
+# Object Property: obo:MOLSIM_002260 (has termini state)
 
 Declaration(ObjectProperty(obo:MOLSIM_002260))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002260 "A relation that links a molecular simulation system to the chemical state chosen for the ends of its polymer chains, whether each end was closed off with a capping group or left uncapped and carrying a charge. The choice changes the total charge of the system, and it matters most for short peptides, where the two ends are a large part of the whole molecule. (UNVERIFIED)"@en)
@@ -17580,6 +17589,14 @@ AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002200 orcid:0009-0007-1391-4986)
 SubDataPropertyOf(obo:MOLSIM_002200 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002200 xsd:boolean)
 
+# Data Property: obo:MOLSIM_002285 (has hydrogen mass repartitioning)
+
+Declaration(DataProperty(obo:MOLSIM_002285))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002285 "A relation that indicates whether the topology of a molecular simulation system uses hydrogen mass repartitioning, in which hydrogen atoms are made heavier by moving mass from the atoms they are bonded to. The total mass stays the same, and the slower hydrogen motion allows a longer integration time step. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002285 "has hydrogen mass repartitioning"@en)
+SubDataPropertyOf(obo:MOLSIM_002285 obo:MOLSIM_001156)
+DataPropertyRange(obo:MOLSIM_002285 xsd:boolean)
+
 # Data Property: obo:MOLSIM_002201 (total simulation steps)
 
 Declaration(DataProperty(obo:MOLSIM_002201))
@@ -17672,7 +17689,7 @@ DisjointClasses(obo:MOLSIM_000021 obo:MOLSIM_000132 obo:MOLSIM_000682 obo:MOLSIM
 # water model force field (MOLSIM_000014) — 18 children
 DisjointClasses(obo:MOLSIM_000022 obo:MOLSIM_000763 obo:MOLSIM_000764 obo:MOLSIM_000765 obo:MOLSIM_000766 obo:MOLSIM_000767 obo:MOLSIM_000768 obo:MOLSIM_000769 obo:MOLSIM_000770 obo:MOLSIM_000771 obo:MOLSIM_001064 obo:MOLSIM_001065 obo:MOLSIM_001489 obo:MOLSIM_001490 obo:MOLSIM_001491 obo:MOLSIM_001492 obo:MOLSIM_001493 obo:MOLSIM_001985)
 # chemical entity-based force field (MOLSIM_000772) — 10 children
-DisjointClasses(obo:MOLSIM_000008 obo:MOLSIM_000009 obo:MOLSIM_000010 obo:MOLSIM_000011 obo:MOLSIM_000012 obo:MOLSIM_000013 obo:MOLSIM_000014 obo:MOLSIM_000015 obo:MOLSIM_000016 obo:MOLSIM_001445)
+DisjointClasses(obo:MOLSIM_000008 obo:MOLSIM_000009 obo:MOLSIM_000012 obo:MOLSIM_000013 obo:MOLSIM_000014 obo:MOLSIM_000015 obo:MOLSIM_000016 obo:MOLSIM_001445)
 # united-atom force field (MOLSIM_001531) — 6 children
 DisjointClasses(obo:MOLSIM_001974 obo:MOLSIM_001975 obo:MOLSIM_001976 obo:MOLSIM_001977 obo:MOLSIM_001980 obo:MOLSIM_001981)
 # lipid  force field (MOLSIM_000008) — 5 children
@@ -17706,7 +17723,7 @@ DisjointClasses(obo:MOLSIM_000049 obo:MOLSIM_000074 obo:MOLSIM_000087 obo:MOLSIM
 # electrostatic interaction algorithm (MOLSIM_000053) — 6 children
 DisjointClasses(obo:MOLSIM_000055 obo:MOLSIM_000056 obo:MOLSIM_000390 obo:MOLSIM_000392 obo:MOLSIM_000428 obo:MOLSIM_000429)
 # similarity calculation algorithm (MOLSIM_000074) — 7 children
-DisjointClasses(obo:MOLSIM_000075 obo:MOLSIM_000076 obo:MOLSIM_000077 obo:MOLSIM_000081 obo:MOLSIM_000082 obo:MOLSIM_000083 obo:MOLSIM_000086)
+DisjointClasses(obo:MOLSIM_000075 obo:MOLSIM_000076 obo:MOLSIM_000077 obo:MOLSIM_000081 obo:MOLSIM_000083 obo:MOLSIM_000086)
 # Tanimoto similarity algorithm (MOLSIM_000075) — 3 children
 DisjointClasses(obo:MOLSIM_010017 obo:MOLSIM_010018 obo:MOLSIM_010019)
 # Tversky index algorithm (MOLSIM_000076) — 4 children
@@ -18167,7 +18184,7 @@ SubClassOf(obo:SO_0001117 obo:SO_0001114)
 SubClassOf(obo:SO_0001118 obo:SO_0001114)
 SubClassOf(obo:SO_0001119 obo:SO_0001114)
 SubClassOf(obo:SO_0100012 obo:MOLSIM_001781)
-SubClassOf(obo:SO_0000305 obo:MOLSIM_000006)
+SubClassOf(obo:SO_0000305 obo:MOLSIM_002090)
 SubClassOf(obo:STATO_0000280 obo:STATO_0000142)
 SubClassOf(obo:STATO_0000201 obo:STATO_0000142)
 SubClassOf(obo:STATO_0000564 obo:MOLSIM_001403)
@@ -18185,7 +18202,7 @@ DisjointClasses(obo:MOLSIM_001613 obo:MOLSIM_001615)
 DisjointClasses(obo:MOLSIM_001575 obo:MOLSIM_001583)
 DisjointClasses(obo:MOLSIM_001068 obo:MOLSIM_001067)
 DisjointClasses(obo:MOLSIM_000166 obo:MOLSIM_002099)
-DisjointClasses(obo:MOLSIM_001951 obo:MOLSIM_001952 obo:MOLSIM_001673 obo:MOLSIM_001705 obo:MOLSIM_001950 obo:MOLSIM_000466)
+DisjointClasses(obo:MOLSIM_001951 obo:MOLSIM_001952 obo:MOLSIM_001705 obo:MOLSIM_001950 obo:MOLSIM_000466)
 DisjointClasses(obo:MOLSIM_002049 obo:MOLSIM_001959 obo:MOLSIM_002050 obo:MOLSIM_002051 obo:MOLSIM_002052)
 DisjointClasses(obo:MOLSIM_000460 obo:MOLSIM_000462)
 DisjointClasses(obo:MOLSIM_001686 obo:MOLSIM_001597 obo:MOLSIM_001687 obo:MOLSIM_001685)
@@ -18208,7 +18225,7 @@ DisjointClasses(obo:MOLSIM_001850 obo:MOLSIM_001851)
 DisjointClasses(obo:MOLSIM_000160 obo:MOLSIM_000161)
 DisjointClasses(obo:MOLSIM_001562 obo:MOLSIM_001566)
 DisjointClasses(obo:MOLSIM_001585 obo:MOLSIM_002232 obo:MOLSIM_001588)
-DisjointClasses(obo:MOLSIM_001922 obo:MOLSIM_001656 obo:MOLSIM_001678 obo:MOLSIM_001921 obo:MOLSIM_001680 obo:MOLSIM_001661 obo:MOLSIM_001567 obo:MOLSIM_001587 obo:MOLSIM_001679 obo:MOLSIM_001918 obo:MOLSIM_001919 obo:MOLSIM_001654 obo:MOLSIM_002048 obo:MOLSIM_001923 obo:MOLSIM_002047 obo:MOLSIM_001978 obo:MOLSIM_001573 obo:MOLSIM_001920 obo:MOLSIM_001674 obo:MOLSIM_001598 obo:MOLSIM_000496 obo:MOLSIM_001579 obo:MOLSIM_001681 obo:MOLSIM_001582)
+DisjointClasses(obo:MOLSIM_001922 obo:MOLSIM_001656 obo:MOLSIM_001678 obo:MOLSIM_001921 obo:MOLSIM_001680 obo:MOLSIM_001661 obo:MOLSIM_001567 obo:MOLSIM_001587 obo:MOLSIM_001679 obo:MOLSIM_001918 obo:MOLSIM_001919 obo:MOLSIM_001654 obo:MOLSIM_001923 obo:MOLSIM_001978 obo:MOLSIM_001573 obo:MOLSIM_001920 obo:MOLSIM_001674 obo:MOLSIM_001598 obo:MOLSIM_000496 obo:MOLSIM_001579 obo:MOLSIM_001681 obo:MOLSIM_001582)
 DisjointClasses(obo:MOLSIM_000218 obo:MOLSIM_001665 obo:MOLSIM_001930 obo:MOLSIM_000491)
 DisjointClasses(obo:MOLSIM_001601 obo:MOLSIM_001574 obo:MOLSIM_001602)
 DisjointClasses(obo:MOLSIM_001063 obo:MOLSIM_000492 obo:MOLSIM_001934 obo:MOLSIM_000716 obo:MOLSIM_000240 obo:MOLSIM_000220 obo:MOLSIM_001957)
