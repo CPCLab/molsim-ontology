@@ -2086,6 +2086,7 @@ Declaration(ObjectProperty(obo:OBI_0000295))
 Declaration(ObjectProperty(obo:OBI_0000299))
 Declaration(ObjectProperty(obo:OBI_0000312))
 Declaration(DataProperty(obo:MOLSIM_001121))
+Declaration(DataProperty(obo:MOLSIM_002284))
 Declaration(DataProperty(obo:MOLSIM_001122))
 Declaration(DataProperty(obo:MOLSIM_001123))
 Declaration(DataProperty(obo:MOLSIM_001124))
@@ -2381,6 +2382,14 @@ SubDataPropertyOf(obo:MOLSIM_001121 owl:topDataProperty)
 DataPropertyDomain(obo:MOLSIM_001121 obo:MOLSIM_001887)
 DataPropertyRange(obo:MOLSIM_001121 xsd:integer)
 
+# Data Property: obo:MOLSIM_002284 (has topology index)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002284 "A relation that groups properties giving the position of 1 residue, molecule or atom in the ordered lists of the topology of a molecular simulation system, such as where the solute ends or where the solvent begins. Unlike a count, such an index points at 1 item in a list. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002284 "has topology index"@en)
+SubDataPropertyOf(obo:MOLSIM_002284 owl:topDataProperty)
+DataPropertyDomain(obo:MOLSIM_002284 obo:MOLSIM_001887)
+DataPropertyRange(obo:MOLSIM_002284 xsd:integer)
+
 # Data Property: obo:MOLSIM_001122 (number of total atoms)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001122 "A relation that gives the total number of atoms in a molecular system, counting every molecule present including solvent and ions. It is the single figure that most determines what a simulation will cost, because the work of each step grows with it. A solvated protein system is usually tens of thousands of atoms, most of them water. (UNVERIFIED)"@en)
@@ -2415,7 +2424,7 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_001125 "The IPTRES pointer in an AMB
 AnnotationAssertion(rdfs:label obo:MOLSIM_001125 "last solute residue number"@en)
 AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001125 "number of receptor residues"@en)
 AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001125 "IPTRES")
-SubDataPropertyOf(obo:MOLSIM_001125 obo:MOLSIM_001121)
+SubDataPropertyOf(obo:MOLSIM_001125 obo:MOLSIM_002284)
 DataPropertyRange(obo:MOLSIM_001125 xsd:integer)
 
 # Data Property: obo:MOLSIM_001126 (number of ligands)
@@ -2734,7 +2743,7 @@ DataPropertyRange(obo:MOLSIM_001162 xsd:string)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002121 "A relation that associates a molecular system with the index of the first solvent molecule in its ordered list of molecules. Molecules before it make up the solute, and molecules from it onwards make up the solvent. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002121 "first solvent molecule index"@en)
-SubDataPropertyOf(obo:MOLSIM_002121 obo:MOLSIM_001121)
+SubDataPropertyOf(obo:MOLSIM_002121 obo:MOLSIM_002284)
 DataPropertyRange(obo:MOLSIM_002121 xsd:integer)
 
 # Data Property: obo:MOLSIM_002122 (number of solvent molecules)
@@ -3601,7 +3610,7 @@ SubClassOf(obo:MOLSIM_000091 obo:MOLSIM_000087)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000092 "An algorithm that answers a question about a point by looking at whichever recorded points lie closest to it. It is used to classify, to cluster, and to build lists of which atoms are near enough to interact. It makes no assumption about the shape of the data, only that closeness is meaningful. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000092 "nearest neighbor algorithm"@en)
-SubClassOf(obo:MOLSIM_000092 obo:MOLSIM_000087)
+SubClassOf(obo:MOLSIM_000092 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_000093 (genetic algorithm)
 
@@ -3765,6 +3774,7 @@ SubClassOf(obo:MOLSIM_000115 obo:MOLSIM_000245)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000116 "A resampling method that estimates the uncertainty of a computed quantity by drawing many new samples of the same size from the existing data, with repetition allowed, and recomputing the quantity from each. The spread of the recomputed values estimates the standard error or confidence interval of the original value. It makes no assumption about how the data are distributed, but it treats data points as independent, so correlated data such as consecutive simulation frames are usually resampled in blocks. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000116 "bootstrap analysis"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_000116 "bootstrapped error estimates analysis"@en)
 SubClassOf(obo:MOLSIM_000116 obo:MOLSIM_000349)
 
 # Class: obo:MOLSIM_000117 (Markov state model analysis)
@@ -3854,11 +3864,11 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000129 "RMSE"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000129 "root mean square error analysis"@en)
 SubClassOf(obo:MOLSIM_000129 obo:MOLSIM_000127)
 
-# Class: obo:MOLSIM_000130 (mean absolute error analyisis)
+# Class: obo:MOLSIM_000130 (mean absolute error analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000130 "An error metric giving the average size of the difference between predicted and observed values, ignoring sign. Because it does not square the differences, every error counts in proportion to its size and one large error does not dominate. It is the measure to prefer when outliers are expected and should not be allowed to control the score. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000130 "MAE"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000130 "mean absolute error analyisis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000130 "mean absolute error analysis"@en)
 SubClassOf(obo:MOLSIM_000130 obo:MOLSIM_000127)
 
 # Class: obo:MOLSIM_000131 (mean squared error analysis)
@@ -3883,10 +3893,12 @@ SubClassOf(obo:MOLSIM_000133 obo:MOLSIM_000135)
 
 # Class: obo:MOLSIM_000134 (bootstrapped error estimates analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000134 "A validation method that puts an uncertainty on a result by resampling the data it came from and recomputing it many times. It is used to show that a conclusion does not rest on a few particular data points. A large spread across the resamples shows that the result is not reliable. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000134 "OBSOLETE. A validation method that puts an uncertainty on a result by resampling the data it came from and recomputing it many times. It is used to show that a conclusion does not rest on a few particular data points. A large spread across the resamples shows that the result is not reliable."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000134 "BSE"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000134 "bootstrapped error estimates analysis"@en)
-SubClassOf(obo:MOLSIM_000134 obo:MOLSIM_000353)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000134 "obsolete bootstrapped error estimates analysis"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000134 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000134 obo:MOLSIM_000116)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000134 "Retired 2026-11-13. It duplicated MOLSIM:000116 bootstrap analysis: both described estimating the uncertainty of a result by resampling its data with repetition and recomputing it. Its label is kept as a related synonym on MOLSIM:000116.")
 
 # Class: obo:MOLSIM_000135 (convergence and uncertainty quantification analysis)
 
@@ -4201,7 +4213,7 @@ SubClassOf(obo:MOLSIM_000183 obo:MOLSIM_000161)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000184 "A Python library for simulating the dynamics of open quantum systems, which exchange energy with their surroundings rather than being isolated. Its subject is quantum optics and quantum information rather than molecular electronic structure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000184 "QuTiP"@en)
-SubClassOf(obo:MOLSIM_000184 obo:MOLSIM_000161)
+SubClassOf(obo:MOLSIM_000184 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000185 (π-π interaction)
 
@@ -4561,7 +4573,7 @@ SubClassOf(obo:MOLSIM_000235 obo:MOLSIM_000231)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000236 "A free energy analysis method that combines histograms from several biased simulations, such as the windows of an umbrella sampling run, into a single unbiased free energy profile. It solves self-consistently for the free energy offset of each window, which is what removes the bias. It needs the sampled ranges of neighbouring windows to overlap. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000236 "WHAM"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000236 "weighted histogram analysis method analysis"@en)
-SubClassOf(obo:MOLSIM_000236 obo:MOLSIM_000353)
+SubClassOf(obo:MOLSIM_000236 obo:MOLSIM_000300)
 
 # Class: obo:MOLSIM_000237 (potential mean force analysis)
 
@@ -4821,10 +4833,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000275 "A set of van der Waals ra
 AnnotationAssertion(rdfs:label obo:MOLSIM_000275 "mbondi2"@en)
 SubClassOf(obo:MOLSIM_000275 obo:MOLSIM_000272)
 
-# Class: obo:MOLSIM_000276 (enthropic contributions mode analysis)
+# Class: obo:MOLSIM_000276 (entropic contributions mode analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000276 "A thermodynamics analysis method that estimates the entropy term of the free energy from the vibrational modes of a system. It approximates entropy from how the system vibrates about an average structure, rather than counting states directly. Normal mode analysis and the quasiharmonic approximation are the 2 usual routes. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000276 "enthropic contributions mode analysis"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000276 "entropic contributions mode analysis"@en)
 SubClassOf(obo:MOLSIM_000276 obo:MOLSIM_000309)
 
 # Class: obo:MOLSIM_000277 (quasiharmonic analysis)
@@ -4873,19 +4885,19 @@ SubClassOf(obo:MOLSIM_000282 obo:MOLSIM_001684)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000283 "A workflow program for AMBER and AmberTools that automates the calculation of binding free energies for a set of ligands that bind to the same receptor. It sets up and analyses the simulations for 3 approaches: MM-PBSA and MM-GBSA, linear interaction energy, and thermodynamic integration. It is written in Perl and calls AmberTools programs such as tleap, antechamber and cpptraj. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000283 "AMBER-FEW"@en)
-SubClassOf(obo:MOLSIM_000283 obo:MOLSIM_000281)
+SubClassOf(obo:MOLSIM_000283 obo:MOLSIM_000296)
 
 # Class: obo:MOLSIM_000284 (OpenCalphad)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000284 "An open-source software library for thermodynamic calculations using the CALPHAD method, which models phase equilibria in multi-component systems from fitted Gibbs energy expressions. It is used in materials science and metallurgy to compute phase diagrams. It is a thermodynamic modelling tool rather than a molecular simulation one. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000284 "OpenCalphad"@en)
-SubClassOf(obo:MOLSIM_000284 obo:MOLSIM_000281)
+SubClassOf(obo:MOLSIM_000284 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_000285 (Brick-CFCMC)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000285 "A Monte Carlo simulation program, open source and developed at Delft University of Technology, that computes phase and reaction equilibria with the continuous fractional component method. In that method a fractional molecule, whose interactions are scaled, is inserted or removed gradually, which makes molecule exchanges efficient even in dense liquids. Chemical potentials and partial molar properties can then be obtained directly from a single simulation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000285 "Brick-CFCMC"@en)
-SubClassOf(obo:MOLSIM_000285 obo:MOLSIM_000281)
+SubClassOf(obo:MOLSIM_000285 obo:MOLSIM_001851)
 
 # Class: obo:MOLSIM_000286 (thermodynamic integration approach)
 
@@ -6463,31 +6475,31 @@ SubClassOf(obo:MOLSIM_000528 obo:MOLSIM_000485)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000529 "An auxiliary basis set built to be paired with the correlation-consistent double-zeta orbital basis in resolution-of-identity or density fitting calculations. It approximates products of orbital basis functions rather than representing orbitals itself. Pairing it with a different orbital basis degrades the approximation it was fitted for. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000529 "cc-pVDZ-RI"@en)
-SubClassOf(obo:MOLSIM_000529 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000529 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000530 (cc-pVTZ-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000530 "An auxiliary basis set built to be paired with the correlation-consistent triple-zeta orbital basis in resolution-of-identity or density fitting calculations. It approximates products of orbital basis functions so integrals can be evaluated faster. It is not used to represent orbitals. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000530 "cc-pVTZ-RI"@en)
-SubClassOf(obo:MOLSIM_000530 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000530 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000531 (cc-pVQZ-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000531 "An auxiliary basis set built to be paired with the correlation-consistent quadruple-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions that fitting products of the larger orbital basis requires. Its purpose is speed, not accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000531 "cc-pVQZ-RI"@en)
-SubClassOf(obo:MOLSIM_000531 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000531 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000532 (cc-pV5Z-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000532 "An auxiliary basis set built to be paired with the correlation-consistent quintuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It is not used to represent orbitals; it approximates products of them so that integrals can be evaluated faster. Without it, calculations at that orbital basis size are often impractical. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000532 "cc-pV5Z-RI"@en)
-SubClassOf(obo:MOLSIM_000532 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000532 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000533 (cc-pV6Z-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000533 "An auxiliary basis set built to be paired with the correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It approximates products of orbital basis functions rather than the orbitals themselves. It is what allows benchmark calculations at that orbital basis size to run at all. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000533 "cc-pV6Z-RI"@en)
-SubClassOf(obo:MOLSIM_000533 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000533 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000534 (cc-pCVDZ)
 
@@ -6600,31 +6612,31 @@ SubClassOf(obo:MOLSIM_000550 obo:MOLSIM_000485)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000551 "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent double-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that basis. Pairing it with a different orbital basis degrades the approximation it was fitted for. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000551 "aug-cc-pVDZ-RI"@en)
-SubClassOf(obo:MOLSIM_000551 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000551 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000552 (aug-cc-pVTZ-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000552 "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent triple-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that basis. Pairing it with a different orbital basis degrades the approximation it was fitted for. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000552 "aug-cc-pVTZ-RI"@en)
-SubClassOf(obo:MOLSIM_000552 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000552 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000553 (aug-cc-pVQZ-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000553 "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent quadruple-zeta orbital basis in density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that basis. Its purpose is speed, not accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000553 "aug-cc-pVQZ-RI"@en)
-SubClassOf(obo:MOLSIM_000553 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000553 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000554 (aug-cc-pV5Z-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000554 "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent quintuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that orbital basis. Its purpose is speed, not accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000554 "aug-cc-pV5Z-RI"@en)
-SubClassOf(obo:MOLSIM_000554 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000554 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000555 (aug-cc-pV6Z-RI)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000555 "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It makes calculations at that orbital basis size much cheaper, although very small systems can also be calculated without it. Its purpose is speed, not accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000555 "aug-cc-pV6Z-RI"@en)
-SubClassOf(obo:MOLSIM_000555 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000555 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000556 (aug-cc-pCVDZ)
 
@@ -6749,7 +6761,7 @@ SubClassOf(obo:MOLSIM_000574 obo:MOLSIM_000485)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000575 "An auxiliary basis set developed by the Ahlrichs group to fit the Coulomb part of the electron repulsion in a density fitting calculation. Fitting only the Coulomb term, rather than the whole 2-electron integral set, gives most of the speed-up at very little cost in accuracy. It is matched to the Karlsruhe orbital basis sets. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000575 "Ahlrichs Coulomb fitting"@en)
-SubClassOf(obo:MOLSIM_000575 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000575 obo:MOLSIM_001505)
 
 # Class: obo:MOLSIM_000576 (Ahlrichs Polarization)
 
@@ -7197,10 +7209,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000643 "A force field parameteriz
 AnnotationAssertion(rdfs:label obo:MOLSIM_000643 "Lorentz-Berthelot mixing modeling"@en)
 SubClassOf(obo:MOLSIM_000643 obo:MOLSIM_000374)
 
-# Class: obo:MOLSIM_000644 (HF/6-31G RESP)
+# Class: obo:MOLSIM_000644 (HF/6-31G* RESP)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000644 "A protocol for deriving atomic charges in which the electrostatic potential is computed at the Hartree-Fock level with the 6-31G* basis set, then point charges are fitted to it with a restraint pulling buried charges towards zero. That combination is not the most accurate available; it is used because it systematically overestimates polarity by about the amount a simulation in fixed-charge water requires. It is the convention behind many AMBER force fields, including the general AMBER force fields, so charges for a new molecule used with them are usually derived the same way. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000644 "HF/6-31G RESP"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000644 "HF/6-31G* RESP"@en)
 SubClassOf(obo:MOLSIM_000644 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_000645 (SIRAH force field)
@@ -7859,6 +7871,7 @@ SubClassOf(obo:MOLSIM_000739 obo:MOLSIM_000012)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000740 "A set of ion parameters for the AMOEBA polarizable force field as distributed with the AMBER suite. Because AMOEBA represents charge with atomic multipoles and explicit induced dipoles rather than fixed point charges, ions need parameters fitted for that form. Parameters from a fixed-charge force field cannot be used with it. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000740 "AMBER AMOEBA"@en)
 SubClassOf(obo:MOLSIM_000740 obo:MOLSIM_000015)
+SubClassOf(obo:MOLSIM_000740 obo:MOLSIM_000639)
 
 # Class: obo:MOLSIM_000741 (amber ff02)
 
@@ -7908,7 +7921,7 @@ SubClassOf(obo:MOLSIM_000747 obo:MOLSIM_000009)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000748 "A force field for nucleic acids, built on the AMBER ff99 parameter set with the alpha and gamma backbone dihedral terms refit by the Barcelona group. The refit removed the build-up of non-native gamma trans backbone geometries that made DNA simulations degrade on the 50 to 100 nanosecond timescale. It became the base of later AMBER DNA and RNA force fields, such as OL15 and OL3. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000748 "AMBER ff99bsc0"@en)
-SubClassOf(obo:MOLSIM_000748 obo:MOLSIM_000009)
+SubClassOf(obo:MOLSIM_000748 obo:MOLSIM_001445)
 
 # Class: obo:MOLSIM_000749 (amber ff99SB)
 
@@ -8382,7 +8395,7 @@ SubClassOf(obo:MOLSIM_000825 obo:MOLSIM_000807)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000826 "A semi-empirical all-valence-electron method, developed by Zerner and coworkers, that is based on the intermediate neglect of differential overlap (INDO) approximation and has parameters for transition metals. Its spectroscopic form, ZINDO/S, is fitted to electronic excitation energies and is used with configuration interaction to calculate UV-visible spectra. Its other form, ZINDO/1, is meant for ground-state geometries and energies. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000826 "ZINDO"@en)
-SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000817)
+SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000809)
 
 # Class: obo:MOLSIM_000827 (Moeller-Plesset)
 
@@ -9324,22 +9337,25 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001009 "A spectroscopic technique
 AnnotationAssertion(rdfs:label obo:MOLSIM_001009 "vibrational spectroscopy"@en)
 SubClassOf(obo:MOLSIM_001009 obo:MOLSIM_001008)
 
-# Class: obo:MOLSIM_001010 (infrared spectra)
+# Class: obo:MOLSIM_001010 (infrared spectroscopy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001010 "A spectrum recording how strongly a sample absorbs infrared light across a range of frequencies. Absorption occurs where the frequency matches a molecular vibration that changes the molecule's dipole, so the positions of the bands identify chemical groups. Its band positions can be compared with vibrational frequencies computed by quantum chemical or force field methods. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001010 "infrared spectra"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001010 "A vibrational spectroscopy technique that measures how strongly a sample absorbs infrared light across a range of frequencies. Absorption occurs where the frequency matches a molecular vibration that changes the molecule's dipole, so the positions of the bands identify chemical groups. The measured band positions can be compared with vibrational frequencies computed by quantum chemical or force field methods. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001010 "infrared spectroscopy"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001010 "infrared spectra"@en)
 SubClassOf(obo:MOLSIM_001010 obo:MOLSIM_001009)
 
-# Class: obo:MOLSIM_001011 (raman spectra)
+# Class: obo:MOLSIM_001011 (Raman spectroscopy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001011 "A spectrum recording the small shift in frequency of light scattered by a sample, which reveals the vibrations that took or gave energy to the photons. It detects vibrations that change the molecule's polarizability, while infrared absorption detects those that change its dipole, so the 2 methods often show different bands. They are therefore complementary rather than alternatives. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001011 "raman spectra"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001011 "A vibrational spectroscopy technique that measures the small shift in frequency of light scattered by a sample, which reveals the vibrations that took or gave energy to the photons. It detects vibrations that change the molecule's polarizability, while infrared absorption detects those that change its dipole, so the 2 techniques often show different bands. They are therefore complementary rather than alternatives. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001011 "Raman spectroscopy"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001011 "raman spectra"@en)
 SubClassOf(obo:MOLSIM_001011 obo:MOLSIM_001009)
 
-# Class: obo:MOLSIM_001012 (pre-resonance raman spectra)
+# Class: obo:MOLSIM_001012 (pre-resonance Raman spectroscopy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001012 "A spectrum recorded with the illuminating light tuned close to, but not at, an electronic absorption band of the sample. Approaching an absorption greatly enhances the scattering from vibrations connected with it, so a chosen part of a large molecule dominates the spectrum. It is used to study a selected site, such as the active site of a complex biomolecule. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001012 "pre-resonance raman spectra"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001012 "A vibrational spectroscopy technique, a form of Raman spectroscopy, in which the illuminating light is tuned close to, but not at, an electronic absorption band of the sample. Approaching an absorption greatly enhances the scattering from vibrations connected with it, so a chosen part of a large molecule dominates the spectrum. It is used to study a selected site, such as the active site of a complex biomolecule. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001012 "pre-resonance Raman spectroscopy"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001012 "pre-resonance raman spectra"@en)
 SubClassOf(obo:MOLSIM_001012 obo:MOLSIM_001009)
 
 # Class: obo:MOLSIM_001013 (vibrational circular dichroism)
@@ -9354,11 +9370,12 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001014 "A spectroscopic technique
 AnnotationAssertion(rdfs:label obo:MOLSIM_001014 "electronic spectroscopy"@en)
 SubClassOf(obo:MOLSIM_001014 obo:MOLSIM_001008)
 
-# Class: obo:MOLSIM_001015 (UV/visible spectra)
+# Class: obo:MOLSIM_001015 (UV/visible spectroscopy)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001015 "A spectrum recording how strongly a sample absorbs light across the ultraviolet and visible range, as a function of wavelength. Absorption occurs where the photon energy matches a gap between electronic levels, so the positions of the bands report on bonding and conjugation. It is the measurement a computed electronic transition is compared against. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001015 "An electronic spectroscopy technique that measures how strongly a sample absorbs light across the ultraviolet and visible range, as a function of wavelength. Absorption occurs where the photon energy matches a gap between electronic levels, so the positions of the bands report on bonding and conjugation. It is the measurement that a computed electronic transition is compared against. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001015 "UV/Vis"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001015 "UV/visible spectra"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001015 "UV/visible spectroscopy"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001015 "UV/visible spectra"@en)
 SubClassOf(obo:MOLSIM_001015 obo:MOLSIM_001014)
 
 # Class: obo:MOLSIM_001016 (electronic transition band shape)
@@ -9982,7 +9999,7 @@ SubClassOf(obo:MOLSIM_001113 obo:MOLSIM_010021)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001114 "A text data format in which a 1D-RISM calculation writes how a property of the bulk solvent, such as the pair distribution, the direct correlation or the site-site potential, varies with distance for every pair of solvent sites. After a few header lines starting with #, each line gives a separation followed by the value for each site pair. The susceptibility file that 3D-RISM reads is written in a different format. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001114 "site-site functionals format"@en)
-SubClassOf(obo:MOLSIM_001114 obo:MOLSIM_010022)
+SubClassOf(obo:MOLSIM_001114 obo:MOLSIM_001106)
 
 # Class: obo:MOLSIM_001115 (total excess coordination number format)
 
@@ -10073,12 +10090,13 @@ SubClassOf(obo:MOLSIM_001169 obo:MOLSIM_001165)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001170 "A minimization convergence criterion based on the root-mean-square of the energy gradient, which measures how large the forces on the atoms are. The minimization stops when this root-mean-square value falls below the chosen threshold. It is a common way to define when a minimization has converged. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001170 "minimization drms criterion"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001170 "AMBER 26 Reference Manual, p. 434, entry drms."@en)
-SubClassOf(obo:MOLSIM_001170 obo:MOLSIM_001169)
+SubClassOf(obo:MOLSIM_001170 obo:MOLSIM_001171)
 
 # Class: obo:MOLSIM_001171 (minimization gradient tolerance)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001171 "A minimization convergence criterion giving the threshold on the energy gradient below which an energy minimization is stopped. A smaller value makes the geometry optimization stricter and needs more steps. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001171 "A minimization convergence criterion giving the threshold on the energy gradient below which an energy minimization is stopped. Programs measure the gradient in different ways, for example as its root-mean-square in AMBER (drms) or as the largest force on any atom in GROMACS (emtol). A smaller value makes the minimization stricter and needs more steps. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001171 "minimization gradient tolerance"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001171 "AMBER 26 Reference Manual, p. 434, entry drms; GROMACS 2026.3 Reference Manual, p. 47, entry emtol."@en)
 SubClassOf(obo:MOLSIM_001171 obo:MOLSIM_001169)
 
 # Class: obo:MOLSIM_001172 (thermodynamic ensemble parameter)
@@ -10179,8 +10197,9 @@ SubClassOf(obo:MOLSIM_001185 obo:MOLSIM_001184)
 
 # Class: obo:MOLSIM_001186 (non-bonded method parameter)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001186 "A non-bonded interaction parameter naming how interactions are handled at the cutoff distance, such as truncating them sharply, shifting them so that they reach zero at the cutoff, or smoothly switching them to zero over a range. A sharp truncation makes the energy and the force change abruptly when a pair of atoms crosses the cutoff, which harms energy conservation. The choice therefore affects the stability of a simulation as well as its accuracy. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001186 "A non-bonded interaction parameter naming how long-range non-bonded interactions are treated: with no cutoff, with a cutoff and a reaction field beyond it, or with Ewald summation, particle mesh Ewald (PME), or PME for both the electrostatic and the Lennard-Jones interactions. In OpenMM this is the setting nonbondedMethod, and every choice except no cutoff also needs a cutoff distance. The choice decides both the accuracy of the long-range forces and the cost of computing them. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001186 "non-bonded method parameter"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001186 "OpenMM User Guide, section 3.7.5 Nonbonded Interactions, parameter nonbondedMethod."@en)
 SubClassOf(obo:MOLSIM_001186 obo:MOLSIM_001185)
 
 # Class: obo:MOLSIM_002269 (van der Waals cutoff distance)
@@ -11686,10 +11705,11 @@ SubClassOf(obo:MOLSIM_001387 obo:MOLSIM_001385)
 SubClassOf(obo:MOLSIM_001387 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
 SubClassOf(obo:MOLSIM_001387 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
-# Class: obo:MOLSIM_001388 (charge distribution descriptor)
+# Class: obo:MOLSIM_001388 (group charge)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001388 "An electronic property giving the total charge of a chosen group of atoms rather than of a single one. Grouping is more robust than per-atom charges, because the arbitrariness of dividing charge between neighbouring atoms partly cancels. It is used to state the charge of a quantum region or of a functional group. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001388 "charge distribution descriptor"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001388 "group charge"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001388 "charge distribution descriptor"@en)
 SubClassOf(obo:MOLSIM_001388 obo:MOLSIM_001375)
 
 # Class: obo:MOLSIM_001389 (core region charge)
@@ -12053,10 +12073,13 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001437 "A charge model that assig
 AnnotationAssertion(rdfs:label obo:MOLSIM_001437 "Gasteiger charge model"@en)
 SubClassOf(obo:MOLSIM_001437 obo:MOLSIM_000204)
 
-# Class: obo:MOLSIM_001438 (iterative polarizable charge model)
+# Class: obo:MOLSIM_001438 (implicitly polarized charge model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001438 "A charge model in which atomic charges are recomputed in response to the surrounding electric field, and the calculation repeated until they stop changing. Each atom's charge affects the field its neighbours feel, so they cannot be solved one at a time. It is one of the ways a polarizable force field represents the response of the electron cloud. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001438 "iterative polarizable charge model"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001438 "A ligand charge model that derives fixed partial charges including the average polarization of a molecule in water, by fitting them to the mean of 2 electrostatic potentials: one from a quantum calculation in vacuum and one from a quantum calculation in the time-averaged field of the surrounding solvent. The solvent field is collected from a simulation with the molecule held fixed, and the AMBER program mdgx automates the procedure. It is the charge model of the AMBER ff14ipq and ff15ipq protein force fields, whose parameters were refined over several rounds. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001438 "implicitly polarized charge model"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001438 "iterative polarizable charge model"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001438 "IPolQ"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001438 "AMBER 26 Reference Manual, p. 37, ff15ipq and the IPolQ charge derivation, and p. 352 to 353, section 18.4 Implicitly Polarized Charge Development."@en)
 SubClassOf(obo:MOLSIM_001438 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001439 (amber OL3)
@@ -12620,10 +12643,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001528 "A charge model that fits 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001528 "RESP induced dipole charge model"@en)
 SubClassOf(obo:MOLSIM_001528 obo:MOLSIM_000204)
 
-# Class: obo:MOLSIM_001529 (RESP permanent multipole charge model)
+# Class: obo:MOLSIM_001529 (RESP permanent dipole charge model)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001529 "A ligand charge model, the RESP-perm model of the AMBER program py_resp.py, that fits atomic charges together with permanent atomic dipoles to reproduce the electrostatic potential around a molecule. It is meant for polarizable force fields, in which induced dipoles are added on top of the permanent ones. The permanent dipoles capture directional features that point charges alone cannot, such as the uneven charge around a lone pair. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001529 "RESP permanent multipole charge model"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001529 "RESP permanent dipole charge model"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001529 "RESP permanent multipole charge model"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001529 "AMBER 26 Reference Manual, p. 380, chapter 20 py_resp.py, and p. 382, entry ipermdip."@en)
 SubClassOf(obo:MOLSIM_001529 obo:MOLSIM_000204)
 
@@ -12733,10 +12757,11 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001547 "A polarization algorithm 
 AnnotationAssertion(rdfs:label obo:MOLSIM_001547 "Applequist scheme"@en)
 SubClassOf(obo:MOLSIM_001547 obo:MOLSIM_001546)
 
-# Class: obo:MOLSIM_001548 (RESP permanent virtual site charge model)
+# Class: obo:MOLSIM_001548 (RESP permanent virtual dipole charge model)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001548 "A ligand charge model, the RESP-perm-v model of the AMBER program py_resp.py, that extends the RESP-perm model with extra permanent dipoles along virtual bonds between atoms that are 2 bonds apart. In water, for example, it adds 2 virtual permanent dipoles between the 2 hydrogen atoms. Like RESP-perm, it is fitted to the electrostatic potential and is meant for polarizable force fields. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001548 "RESP permanent virtual site charge model"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001548 "RESP permanent virtual dipole charge model"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001548 "RESP permanent virtual site charge model"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001548 "AMBER 26 Reference Manual, p. 383, entry virtual, and p. 387, RESP-perm-v example for water."@en)
 SubClassOf(obo:MOLSIM_001548 obo:MOLSIM_000204)
 
@@ -13587,7 +13612,7 @@ SubClassOf(obo:MOLSIM_001682 obo:MOLSIM_001960)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001683 "A software library that computes energies and forces from data-driven many-body potentials, MB-pol for water and MB-nrg for ions and small molecules, for use by molecular dynamics programs such as LAMMPS and i-PI. These potentials add explicitly fitted terms for pairs and triples of molecules to a polarizable model that covers the remaining many-body effects. Fitting them to high-level quantum calculations gives close to quantum chemical accuracy from small clusters to liquids. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001683 "MBX"@en)
-SubClassOf(obo:MOLSIM_001683 obo:MOLSIM_000160)
+SubClassOf(obo:MOLSIM_001683 obo:MOLSIM_000170)
 
 # Class: obo:MOLSIM_001684 (match analysis tool)
 
@@ -13773,8 +13798,9 @@ SubClassOf(obo:MOLSIM_001712 obo:MOLSIM_000408)
 
 # Class: obo:MOLSIM_001713 (Hawkins-Cramer-Truhlar radii set)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001713 "A set of effective atomic radii fitted for use with the SMx family of implicit solvent models. The radii absorb part of the error of the underlying model, which is why they are specific to it. Substituting a general-purpose set such as Bondi changes the computed solvation energies. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001713 "A radii set chosen to match the generalized Born model of Hawkins, Cramer and Truhlar, which AMBER selects with igb=1. In AMBER the radii recommended for this model are the mbondi set, which is also the default set in LEaP. A generalized Born model and its radii are tuned together, so using the radii with a different model reduces accuracy. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001713 "Hawkins-Cramer-Truhlar radii set"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001713 "AMBER 26 Reference Manual, p. 71, Table 4.1 Recommended radii sets for various GB models, and p. 72, entry igb."@en)
 SubClassOf(obo:MOLSIM_001713 obo:MOLSIM_000272)
 
 # Class: obo:MOLSIM_001714 (Gaussian quadrature algorithm)
@@ -13855,7 +13881,7 @@ SubClassOf(obo:MOLSIM_001725 obo:MOLSIM_001722)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001726 "An algorithm that decides, during a simulation, which atoms belong in the quantum region at each moment. It is needed when molecules such as solvent move into and out of the region of interest, because a fixed list would keep treating molecules that have left as quantum and miss molecules that have arrived. The difficulty is changing the assignment without a jump in the energy or forces. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001726 "QM/MM region selection algorithm"@en)
-SubClassOf(obo:MOLSIM_001726 obo:MOLSIM_001546)
+SubClassOf(obo:MOLSIM_001726 obo:MOLSIM_000382)
 
 # Class: obo:MOLSIM_001727 (hysteretic region selection algorithm)
 
@@ -15219,7 +15245,7 @@ SubClassOf(obo:MOLSIM_001925 obo:MOLSIM_001956)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001926 "A command-line program that provides access to every tool in the GROMACS suite through a single entry point, with the tool named as its first argument. It is not itself a simulation engine; it dispatches to the preparation, simulation and analysis programs. Almost every GROMACS command in a published protocol begins with it. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001926 "gmx"@en)
-SubClassOf(obo:MOLSIM_001926 obo:MOLSIM_000251)
+SubClassOf(obo:MOLSIM_001926 obo:MOLSIM_000158)
 
 # Class: obo:MOLSIM_001927 (CHARMM-GUI)
 
@@ -16117,7 +16143,7 @@ SubClassOf(obo:MOLSIM_002062 obo:MOLSIM_001088)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002063 "A sampling algorithm that proposes a random change to a system, always accepts it if the energy falls, and otherwise accepts it with probability exp(-ΔE/kT), where ΔE is the energy rise, k the Boltzmann constant and T the temperature. Repeating this generates configurations in the right proportions for the temperature, without ever computing a force. It samples equilibrium properties correctly but says nothing about how fast anything happens. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002063 "metropolis Monte Carlo"@en)
-SubClassOf(obo:MOLSIM_002063 obo:MOLSIM_001740)
+SubClassOf(obo:MOLSIM_002063 obo:MOLSIM_000037)
 
 # Class: obo:MOLSIM_002064 (mdrun)
 
@@ -16965,7 +16991,7 @@ ClassAssertion(obo:MOLSIM_000710 obo:MOLSIM_001001)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001002 "A web server tool for sharing, viewing and analysing molecular dynamics simulation trajectories directly in a web browser, without installing software locally. A research group runs it on its own server to make its trajectories available to others, with interactive views and common analyses. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001002 "MDsrv"@en)
-ClassAssertion(obo:MOLSIM_000710 obo:MOLSIM_001002)
+ClassAssertion(obo:MOLSIM_000714 obo:MOLSIM_001002)
 
 # Individual: obo:MOLSIM_001003 (PDB-Dev)
 
@@ -17663,7 +17689,7 @@ DisjointClasses(obo:MOLSIM_001500 obo:MOLSIM_001501 obo:MOLSIM_001502 obo:MOLSIM
 # semi-empirical method (MOLSIM_000803) — 7 children
 DisjointClasses(obo:MOLSIM_000620 obo:MOLSIM_000804 obo:MOLSIM_000806 obo:MOLSIM_001456 obo:MOLSIM_001457 obo:MOLSIM_001539 obo:MOLSIM_001540)
 # NDDO (MOLSIM_000817) — 6 children
-DisjointClasses(obo:MOLSIM_000807 obo:MOLSIM_000808 obo:MOLSIM_000809 obo:MOLSIM_000816 obo:MOLSIM_000818 obo:MOLSIM_000826)
+DisjointClasses(obo:MOLSIM_000807 obo:MOLSIM_000808 obo:MOLSIM_000809 obo:MOLSIM_000816 obo:MOLSIM_000818)
 # all-valence-electron restricted (MOLSIM_000804) — 5 children
 DisjointClasses(obo:MOLSIM_000817 obo:MOLSIM_000819 obo:MOLSIM_000822 obo:MOLSIM_000823 obo:MOLSIM_000824)
 # RISM model (MOLSIM_001535) — 4 children
