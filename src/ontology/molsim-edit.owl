@@ -4956,14 +4956,16 @@ SubClassOf(obo:MOLSIM_000296 obo:MOLSIM_000167)
 
 # Class: obo:MOLSIM_000298 (thermodynamic integration extrapolation approach)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000298 "A thermodynamic integration analysis that estimates the free energy integral from simulations at or near the end states, or at very few intermediate values of the coupling parameter, by extrapolating the integrand between them. This avoids simulating many intermediate states and so greatly reduces cost. The result is only as accurate as the extrapolation is for the system studied. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000298 "A thermodynamic integration analysis defined by how the integral is completed between the outermost simulated values of the coupling parameter and the end points 0 and 1, when the end points are not simulated. Either the curve of the average energy derivative is extended as a straight line to the end points, or the area in these end regions is left out. The choice matters most when the curve changes quickly near the end points. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000298 "thermodynamic integration extrapolation approach"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000298 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."@en)
 SubClassOf(obo:MOLSIM_000298 obo:MOLSIM_000355)
 
 # Class: obo:MOLSIM_000299 (thermodynamic integration with linear extrapolation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000299 "A thermodynamic integration approach that samples the integrand only at or near the 2 end points and assumes it varies linearly between them. Assuming linearity removes every intermediate simulation, which is where nearly all the cost lies. It is only valid where the integrand really is close to linear, which is uncommon. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000299 "A thermodynamic integration extrapolation approach in which the curve of the average energy derivative is extended as a straight line from the outermost simulated values of the coupling parameter to the end points 0 and 1, before it is integrated. The integral then covers the whole range from 0 to 1. The AMBER FEW workflow calls this linear interpolation to the end points and describes it as the commonly applied procedure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000299 "thermodynamic integration with linear extrapolation"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000299 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."@en)
 SubClassOf(obo:MOLSIM_000299 obo:MOLSIM_000298)
 DisjointClasses(obo:MOLSIM_000299 obo:MOLSIM_000356)
 
@@ -5347,8 +5349,9 @@ SubClassOf(obo:MOLSIM_000355 obo:MOLSIM_000265)
 
 # Class: obo:MOLSIM_000356 (thermodynamic integration without linear extrapolation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000356 "A thermodynamic integration approach in which the integrand is sampled at intermediate values of the coupling parameter rather than only at the end points, so the integral is computed from the sampled curve. Sampling the middle costs a simulation at each intermediate state and removes the assumption that the curve is a straight line. It is the arrangement nearly all thermodynamic integration uses. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000356 "A thermodynamic integration extrapolation approach in which the integral is computed from the simulated values of the coupling parameter alone, as the sum of each average energy derivative times the spacing between values. The area between the outermost simulated values and the end points 0 and 1 is left out. In the AMBER FEW workflow it can be used only when the coupling values are evenly spaced. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000356 "thermodynamic integration without linear extrapolation"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000356 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."@en)
 SubClassOf(obo:MOLSIM_000356 obo:MOLSIM_000298)
 
 # Class: obo:MOLSIM_000357 (visualization analysis)
@@ -5359,14 +5362,16 @@ SubClassOf(obo:MOLSIM_000357 obo:MOLSIM_000026)
 
 # Class: obo:MOLSIM_000358 (worm plot visualization analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000358 "A worm plot is a visualization method that displays a collection of superimposed molecular structures from a simulation or an NMR ensemble. Each structure is typically represented as a smooth tube or \"worm\" tracing the path of the protein backbone. This method provides a clear visual impression of the conformational variability and dynamic fluctuations within the molecular ensemble. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000358 "A visualization analysis that reduces a 3-dimensional density map, such as the density of water or ions, to a 1-dimensional profile along a curved path given by the user, for example the axis of an ion channel. The path is drawn as a smooth curve through pivot points, and at each point along it the density is integrated within a tube of chosen radius. The profile shows how the density of water or ions changes along channels and similar paths. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000358 "worm plot visualization analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000358 "AMBER 26 Reference Manual, p. 1109, section 46.1, MoFT metatwist worm plots."@en)
 SubClassOf(obo:MOLSIM_000358 obo:MOLSIM_000357)
 
 # Class: obo:MOLSIM_000359 (helical density map visualization analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000359 "A helical density map is a visualization method used to represent the three-dimensional distribution of atoms within a helical structure, averaged over time from a simulation. It creates a 3D grid where the value at each point represents the probability of finding an atom, which can then be displayed as a contoured surface. This method is particularly useful for analyzing the average structure and packing of molecules like DNA or alpha-helical proteins. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000359 "A visualization analysis that maps the density of water or ions around a helical region of a nucleic acid onto a plane perpendicular to the helical axis, in the average plane of the base pairs. In the twisted form the density is simply averaged along the axis. In the untwisted form the frame of reference rotates against the twist of the helix, so that the density is seen relative to the base pairs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000359 "helical density map visualization analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000359 "AMBER 26 Reference Manual, p. 1110, section 46.1, MoFT metatwist twisted and untwisted maps."@en)
 SubClassOf(obo:MOLSIM_000359 obo:MOLSIM_000357)
 
 # Class: obo:MOLSIM_000360 (Laplacian mapping ion placement analysis)
@@ -5491,8 +5496,9 @@ SubClassOf(obo:MOLSIM_000377 obo:MOLSIM_000361)
 
 # Class: obo:MOLSIM_000378 (Z-matrix parameterization modeling)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000378 "A parameterization method in which the molecule's geometry is written in internal coordinates, as a Z-matrix of bond lengths, bond angles and dihedral angles, and parameters are fitted in those terms. This makes it easy to scan 1 degree of freedom at a time, such as a dihedral angle, and to fit the parameter that controls it. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000378 "A force field parameterization method that obtains the bond and angle force constants around a metal ion from a quantum calculation of the Hessian, expressed in internal coordinates such as bond lengths and bond angles. In MCPB.py it reads these force constants from the Gaussian output file of a geometry optimization and force constant calculation, so the metal-ligand bonds and angles must be among the internal coordinates used. It is an alternative to the Seminario method, which takes the force constants from sub-matrices of the Cartesian Hessian instead. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000378 "Z-matrix parameterization modeling"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000378 "AMBER 26 Reference Manual, p. 368, entry add_redcrd, and p. 371, MCPB.py step 2 options 2s and 2z."@en)
 SubClassOf(obo:MOLSIM_000378 obo:MOLSIM_000374)
 
 # Class: obo:MOLSIM_000379 (ZLM density fitting)
@@ -5542,8 +5548,9 @@ SubClassOf(obo:MOLSIM_000385 obo:MOLSIM_000428)
 
 # Class: obo:MOLSIM_000386 (QM-QM derivative calculation analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000386 "A numerical method for computing energy derivatives in a calculation with more than one quantum layer, such as a high-accuracy method inside a cheaper one. The derivatives of each layer must be combined so that the force on a shared atom is consistent. Getting the combination wrong produces forces that do not match the energy, and a simulation that drifts. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000386 "A numerical method for computing the forces between the atoms of the quantum region in a semi-empirical QM/MM calculation, from the derivatives of the electron repulsion integrals with respect to the atom positions. In AMBER the derivatives are computed analytically by default, or numerically, which is slower and meant mainly for testing. Inaccurate derivatives give forces that do not match the energy, so a simulation drifts. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000386 "QM-QM derivative calculation analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000386 "AMBER 26 Reference Manual, p. 159, entry qmqmdx."@en)
 SubClassOf(obo:MOLSIM_000386 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000387 (QM Ewald treatment)
@@ -5967,8 +5974,9 @@ SubClassOf(obo:MOLSIM_000450 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000451 (isotropically distributed ensemble analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000451 "A structural analysis method that tests whether the orientations of the structures in a collection are spread evenly over all directions. It computes the distribution of orientations and looks for any preferred alignment. It is used to confirm that a simulation has not introduced an artificial bias in rotational motion, which some theoretical treatments assume is absent. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000451 "A dynamics analysis that finds the collective motions in a set of structures without first superimposing them on a reference, by replacing each structure with copies of it oriented evenly in all directions. Averaging over these orientations reduces the usual coordinate covariance matrix, with 3 rows per atom, to a matrix with 1 row per atom, whose eigenvectors give the collective modes. It was introduced for flexible proteins, such as partly folded states, for which a single superposition is hard to define. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000451 "isotropically distributed ensemble analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000451 "CPPTRAJ Manual, p. 180, command matrix, type idea."@en)
 SubClassOf(obo:MOLSIM_000451 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000452 (isotropic reorientational eigenmode dynamics analysis)
@@ -7243,8 +7251,9 @@ SubClassOf(obo:MOLSIM_000652 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000653 (polar decomposition analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000653 "A structural analysis method that separates the change in shape of a group of atoms between 2 conformations into a pure rotation and an internal deformation. It does this by factorising the matrix that maps one set of coordinates onto the other. It answers whether a domain has turned as a rigid body or genuinely changed shape. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000653 "A thermodynamics analysis that splits the solvation free energy computed with the 3D reference interaction site model (3D-RISM) into a polar part and a non-polar part. The non-polar part comes from a second solution of the same equations with all solute charges set to 0, and the polar part is the rest. It shows how much of the solvation free energy comes from the electrostatic response of the solvent, and it needs about 80% more computing time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000653 "polar decomposition analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000653 "AMBER 26 Reference Manual, p. 126 and p. 148, 3D-RISM option polarDecomp."@en)
 SubClassOf(obo:MOLSIM_000653 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_000654 (path integral molecular dynamics)
@@ -12532,8 +12541,9 @@ SubClassOf(obo:MOLSIM_001516 obo:MOLSIM_000068)
 
 # Class: obo:MOLSIM_001517 (analytical linearized Poisson-Boltzmann model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001517 "A Poisson-Boltzmann model in which the equation is linearized and solved in closed form under simplifying assumptions about geometry. It is far faster than solving the full non-linear equation numerically. It holds only where electrostatic potentials are small, so it is unreliable for highly charged systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001517 "A Poisson-Boltzmann model that approximates the electrostatic part of the solvation free energy with a closed-form expression built on the generalized Born function, corrected for the ratio of the solute and solvent dielectric constants and for the overall size of the molecule. The generalized Born model is the special case in which the solvent dielectric constant is infinite, so the correction matters most for less polar solvents. It uses the same effective Born radii as the chosen generalized Born model and adds almost no computational cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001517 "analytical linearized Poisson-Boltzmann model"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001517 "AMBER 26 Reference Manual, p. 79, section 4.4 ALPB (Analytical Linearized Poisson-Boltzmann)."@en)
 SubClassOf(obo:MOLSIM_001517 obo:MOLSIM_001516)
 
 # Class: obo:MOLSIM_001518 (CHAGB implicit solvent model)
@@ -12605,8 +12615,9 @@ SubClassOf(obo:MOLSIM_001528 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001529 (RESP permanent multipole charge model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001529 "A charge model that fits a dipole and higher terms on each atom, not only a point charge, to reproduce the electrostatic potential around a molecule. The extra terms capture features a point charge cannot, such as the anisotropy of a lone pair or the positive region on a halogen. It is more accurate and more expensive to use. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001529 "A ligand charge model, the RESP-perm model of the AMBER program py_resp.py, that fits atomic charges together with permanent atomic dipoles to reproduce the electrostatic potential around a molecule. It is meant for polarizable force fields, in which induced dipoles are added on top of the permanent ones. The permanent dipoles capture directional features that point charges alone cannot, such as the uneven charge around a lone pair. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001529 "RESP permanent multipole charge model"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001529 "AMBER 26 Reference Manual, p. 380, chapter 20 py_resp.py, and p. 382, entry ipermdip."@en)
 SubClassOf(obo:MOLSIM_001529 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001530 (amber fb15)
@@ -12717,8 +12728,9 @@ SubClassOf(obo:MOLSIM_001547 obo:MOLSIM_001546)
 
 # Class: obo:MOLSIM_001548 (RESP permanent virtual site charge model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001548 "A charge model that fits point charges to the electrostatic potential while allowing some of them to sit at fixed positions away from any nucleus. Placing charge off-nucleus reproduces directional features, such as a lone pair, without the cost of higher multipole terms. It is the cheaper alternative to a multipole description. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001548 "A ligand charge model, the RESP-perm-v model of the AMBER program py_resp.py, that extends the RESP-perm model with extra permanent dipoles along virtual bonds between atoms that are 2 bonds apart. In water, for example, it adds 2 virtual permanent dipoles between the 2 hydrogen atoms. Like RESP-perm, it is fitted to the electrostatic potential and is meant for polarizable force fields. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001548 "RESP permanent virtual site charge model"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001548 "AMBER 26 Reference Manual, p. 383, entry virtual, and p. 387, RESP-perm-v example for water."@en)
 SubClassOf(obo:MOLSIM_001548 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001549 (linear mixing potential)
@@ -14078,8 +14090,9 @@ SubClassOf(obo:MOLSIM_001763 obo:MOLSIM_000447)
 
 # Class: obo:MOLSIM_001764 (neural network atom type)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001764 "A description of an atom's surroundings used by a machine-learned force field, computed from the positions of its neighbours rather than assigned from a table. A conventional atom type is a fixed label such as \"aromatic carbon\"; this instead varies continuously with the local geometry. That is what lets such a model describe environments it was never given a label for. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001764 "An atom type that the DPRc machine-learned correction in AMBER uses to choose which neural network parameters apply to an atom. An atom in the selected region takes its element symbol, a nearby atom outside that region takes the letter m followed by its element symbol, and water oxygen and hydrogen take OW and HW. This lets the correction for an interaction within the quantum region differ from that for an interaction between quantum and classical atoms of the same elements. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001764 "neural network atom type"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001764 "AMBER 26 Reference Manual, p. 206, section 11.7.2 Neural network atom type descriptors."@en)
 SubClassOf(obo:MOLSIM_001764 obo:MOLSIM_001763)
 
 # Class: obo:MOLSIM_001765 (modified amino acid residue name)
@@ -14459,8 +14472,9 @@ SubClassOf(obo:MOLSIM_001819 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001820 (normalized tetrahedral order parameter)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001820 "A tetrahedral order parameter rescaled to run from −1/3 to 1, where 1 is a perfect tetrahedron and 0 is a random arrangement. The rescaling puts the value of random water at 0, so a number can be read directly as how much more ordered than random the arrangement is. It is the form usually reported. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001820 "A tetrahedral order parameter averaged over the water molecules found in 1 voxel, a small cell of the grid used by grid inhomogeneous solvation theory (GIST), and normalized by the number of those water molecules. For each water molecule the parameter is computed from the angles to its 4 nearest water neighbours, so that 1 means a perfect tetrahedron and 0 means a random arrangement. Mapping it voxel by voxel shows where water around a solute is more or less ordered than in bulk. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001820 "normalized tetrahedral order parameter"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001820 "AMBER 26 Reference Manual, p. 836, cpptraj command gist, output Order-norm."@en)
 SubClassOf(obo:MOLSIM_001820 obo:MOLSIM_001819)
 SubClassOf(obo:MOLSIM_001820 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
 SubClassOf(obo:MOLSIM_001820 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
@@ -14501,8 +14515,9 @@ SubClassOf(obo:MOLSIM_001825 obo:MOLSIM_001294)
 
 # Class: obo:MOLSIM_001826 (solvent reaction field potential)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001826 "An electrostatic method that represents the solvent beyond a cutoff distance as a uniform medium that polarizes in response to the charges inside, rather than as individual molecules. The polarized medium pushes back with a field that is added to the direct interactions. It is much cheaper than Ewald summation and less accurate, particularly for a system carrying a net charge. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001826 "An electrostatic potential that the surrounding solvent creates at the atoms of a molecule, after the solvent has arranged itself in response to that molecule's charges. In the implicitly polarized charge (IPolQ) method of the AMBER program mdgx, it is computed from the time-averaged charge density of explicit solvent sampled during a simulation with the molecule held fixed. A quantum calculation in the presence of this potential, averaged with one in vacuum, gives the target for fitting fixed partial charges. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001826 "solvent reaction field potential"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001826 "AMBER 26 Reference Manual, p. 352 to 353, section 18.4 Implicitly Polarized Charge Development."@en)
 SubClassOf(obo:MOLSIM_001826 obo:MOLSIM_001294)
 
 # Class: obo:MOLSIM_001827 (collective variable)
@@ -15683,8 +15698,9 @@ SubClassOf(obo:MOLSIM_002001 obo:MOLSIM_001515)
 
 # Class: obo:MOLSIM_002002 (atom freezing)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002002 "A simulation technique in which the positions of a selected group of atoms are held fixed throughout a run, because their positions and velocities are not updated in the chosen directions. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, frozen atoms do not move at all. It is used, for example, to model a rigid wall or surface, or to let solvent relax around a fixed protein during equilibration. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002002 "A constraint and restraint parameter that names groups of atoms whose positions are not updated during a run, in all directions or only in chosen ones, so that those atoms stay where they are. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, fully frozen atoms do not move at all. It is used, for example, during equilibration to stop badly placed solvent molecules from pushing protein atoms, and in GROMACS it is set with freezegrps and freezedim. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002002 "atom freezing"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002002 "GROMACS 2026.3 Reference Manual, p. 79, entries freezegrps and freezedim."@en)
 SubClassOf(obo:MOLSIM_002002 obo:MOLSIM_001201)
 
 # Class: obo:MOLSIM_002003 (coarse-graining)
@@ -15754,8 +15770,9 @@ SubClassOf(obo:MOLSIM_002012 obo:MOLSIM_001164)
 
 # Class: obo:MOLSIM_002013 (test particle insertion)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002013 "A sampling method that computes the chemical potential of a species by repeatedly placing a non-interacting trial particle at random positions in a simulation and recording the energy it would have. Averaging the Boltzmann factor of those energies gives the excess chemical potential directly. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002013 "A thermodynamics analysis that computes the excess chemical potential of a species by repeatedly inserting a trial copy of it, at random positions and orientations, into the frames of an existing trajectory and recording its interaction energy with the other particles. The trial particle does not change the other particles, and averaging the Boltzmann factor of the insertion energies gives the excess chemical potential. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002013 "test particle insertion"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002013 "GROMACS 2026.3 Reference Manual, p. 45, entry integrator, value tpi."@en)
 SubClassOf(obo:MOLSIM_002013 obo:MOLSIM_000610)
 
 # Class: obo:MOLSIM_002014 (Gibbs sampling replica exchange)
@@ -15767,8 +15784,9 @@ SubClassOf(obo:MOLSIM_002014 obo:MOLSIM_000858)
 
 # Class: obo:MOLSIM_002015 (shell molecular dynamics)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002015 "A simulation method for polarizable force fields in which each polarizable atom is given a light charged particle attached to it by a spring. The particle shifts in response to the local electric field, which reproduces how an atom's electron cloud distorts. Treating polarization as an extra particle lets an ordinary integrator handle it. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002015 "A molecular dynamics method for polarizable force fields in which a charged shell particle, representing the electrons, is attached by a spring to each polarizable atom, and the shell positions are found by minimizing the potential energy at every step. The shell shifts in response to the local electric field, which reproduces how the electron cloud of an atom distorts. Some programs instead give the shell particle a small mass and move it with the integrator together with the atoms, as in the extended Lagrangian Drude oscillator method. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002015 "shell molecular dynamics"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002015 "GROMACS 2026.3 Reference Manual, p. 397, section 5.4.4 Shell molecular dynamics."@en)
 SubClassOf(obo:MOLSIM_002015 obo:MOLSIM_000843)
 
 # Class: obo:MOLSIM_002016 (enforced rotation simulation)
