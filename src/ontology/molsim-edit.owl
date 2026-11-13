@@ -4915,14 +4915,16 @@ SubClassOf(obo:MOLSIM_000290 obo:MOLSIM_000286)
 
 # Class: obo:MOLSIM_000291 (1-step soft-core approach)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000291 "A thermodynamic integration approach that uses a soft-core potential to cover the whole transformation in 1 window, or very few. The soft-core form keeps the energy finite as atoms appear and disappear, which is what makes so few windows possible. It saves simulation time at the cost of relying heavily on the soft-core form being well behaved. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000291 "A thermodynamic integration approach in which the charges and the van der Waals parameters of the changing atoms are transformed together in 1 calculation, using soft-core forms of both the van der Waals and the electrostatic potential. The soft-core forms keep the energy finite as atoms appear and disappear, so the charges do not have to be removed in a separate calculation first. The calculation is still run at several values of the coupling parameter. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000291 "1-step soft-core approach"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000291 "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core."@en)
 SubClassOf(obo:MOLSIM_000291 obo:MOLSIM_000286)
 
 # Class: obo:MOLSIM_000292 (multi-step approach)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000292 "A thermodynamic integration approach that divides the path between the 2 states into several discrete windows, each sampled separately. Dividing it keeps the change between neighbouring windows small enough for the samples to overlap. It is the standard arrangement, and the alternative of a single window is a special case. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000292 "A thermodynamic integration approach that splits the transformation into 2 or more separate calculations, for example removing the charges of the disappearing atoms first and then changing their van der Waals parameters. Each calculation is run at its own set of coupling parameter values, and the free energy changes are added. It avoids soft-core electrostatics but needs more simulations than doing the whole change in 1 calculation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000292 "multi-step approach"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000292 "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core."@en)
 SubClassOf(obo:MOLSIM_000292 obo:MOLSIM_000286)
 
 # Class: obo:MOLSIM_000293 (Hamiltonian replica exchange)
