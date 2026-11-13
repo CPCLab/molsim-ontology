@@ -2243,6 +2243,7 @@ Declaration(AnnotationProperty(dcterms:title))
 Declaration(AnnotationProperty(oboInOwl:default-namespace))
 Declaration(AnnotationProperty(oboInOwl:hasDbXref))
 Declaration(AnnotationProperty(oboInOwl:hasExactSynonym))
+Declaration(AnnotationProperty(oboInOwl:hasRelatedSynonym))
 Declaration(AnnotationProperty(foaf:homepage))
 ############################
 #   Annotation Properties
@@ -2407,11 +2408,12 @@ AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_0022
 SubDataPropertyOf(obo:MOLSIM_001124 obo:MOLSIM_001121)
 DataPropertyRange(obo:MOLSIM_001124 xsd:integer)
 
-# Data Property: obo:MOLSIM_001125 (number of receptor residues)
+# Data Property: obo:MOLSIM_001125 (last solute residue number)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001125 "A relation that gives the number of the last residue treated as part of the solute, which fixes where the receptor ends. Everything numbered beyond it is ligand, solvent or ions. The boundary matters because analyses of binding must know which atoms belong to the receptor. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001125 "A relation that gives the number of the last residue treated as part of the solute in a molecular system, as recorded by the AMBER topology pointer IPTRES. Residues numbered after it are treated as solvent. Analyses that must tell the solute apart from the solvent use this boundary. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001125 "The IPTRES pointer in an AMBER prmtop topology file.")
-AnnotationAssertion(rdfs:label obo:MOLSIM_001125 "number of receptor residues"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001125 "last solute residue number"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001125 "number of receptor residues"@en)
 AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001125 "IPTRES")
 SubDataPropertyOf(obo:MOLSIM_001125 obo:MOLSIM_001121)
 DataPropertyRange(obo:MOLSIM_001125 xsd:integer)
@@ -4854,8 +4856,9 @@ SubClassOf(obo:MOLSIM_000280 obo:MOLSIM_000238)
 
 # Class: obo:MOLSIM_000281 (thermodynamic integration similarity calculation tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000281 "A type of utility program used to help set up a thermodynamic integration (TI) free energy calculation. It assesses the similarity between the starting and ending molecules of a planned alchemical transformation, often by calculating the overlap of their potential energies. The results from this tool are used to design an optimal pathway with an appropriate number of intermediate steps, which is crucial for ensuring the TI calculation will be accurate and reliable. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000281 "A system setup tool that helps choose which pairs of ligands to compare in thermodynamic integration (TI) free energy calculations, from a matrix of pairwise similarity scores between the ligands. In the AMBER FEW workflow a script applies Kruskal's shortest path algorithm to these scores, so that the chosen transformations need the smallest structural changes overall. The scores themselves come from a separate ligand comparison, for example the shape and chemical feature score of ROCS. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000281 "thermodynamic integration similarity calculation tool"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000281 "AMBER 26 Reference Manual, p. 998, FEW script identify_transformations.pl."@en)
 SubClassOf(obo:MOLSIM_000281 obo:MOLSIM_001556)
 
 # Class: obo:MOLSIM_000282 (ROCS)
@@ -5509,8 +5512,9 @@ SubClassOf(obo:MOLSIM_000379 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000380 (force interpolation analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000380 "A force interpolation method is a numerical technique used in some simulation algorithms to estimate the forces on atoms without calculating them directly at every step. This is often done by calculating the forces on a coarser grid and then interpolating these forces to the actual atomic positions. For experts, this method can be used in some multiple-time-stepping algorithms to reduce the computational cost of the force calculation. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000380 "A numerical method used in adaptive QM/MM simulations that computes the force on each atom as a weighted sum of the forces from several different divisions of the system into a quantum and a classical region. The weights change smoothly as molecules move between the regions, so the forces do not jump. Unlike interpolation of the energies, it leaves out the term that comes from the derivatives of the weights, so it does not conserve the interpolated energy, although a corrected conserved quantity can be monitored. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000380 "force interpolation analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000380 "AMBER 26 Reference Manual, p. 208, section 11.8.1.2 Force interpolation."@en)
 SubClassOf(obo:MOLSIM_000380 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000381 (adaptive thermostat)
@@ -6779,7 +6783,7 @@ SubClassOf(obo:MOLSIM_000580 obo:MOLSIM_000432)
 
 # Class: obo:MOLSIM_000581 (real-space)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000581 "A method that represents electronic wavefunctions or densities as values on a grid of points in ordinary 3-dimensional space, rather than as coefficients of basis functions. Accuracy is then improved by making the grid finer, which is a single adjustable control. It parallelises well, because each point depends mostly on its neighbours. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000581 "A quantum mechanics basis set in which electronic wavefunctions or densities are represented by their values on a grid of points in ordinary 3-dimensional space, rather than by coefficients of atom-centred or plane-wave functions. Accuracy is then improved by making the grid finer, which is a single adjustable control. It parallelises well, because each point depends mostly on its neighbours. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000581 "real-space"@en)
 SubClassOf(obo:MOLSIM_000581 obo:MOLSIM_000432)
 
@@ -7450,8 +7454,9 @@ SubClassOf(obo:MOLSIM_000683 obo:MOLSIM_000917)
 
 # Class: obo:MOLSIM_000684 (atom remapping analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000684 "An atom remapping method is a procedure used to systematically change the properties of atoms in a topology file, such as their atom types or charges. This is often required when converting a system from one force field to another or when applying specific corrections. For experts, this is an advanced manipulation used in force field development or for setting up non-standard simulations. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000684 "A system setup procedure that reorders the atoms of a structure or topology so that they match the order of a reference structure, using a map from each reference atom to the matching target atom. The map can be found automatically by comparing the structures of the 2 molecules, as the cpptraj command atommap does, or supplied as data to the cpptraj command remap. It is needed when 2 files describe the same molecule with different atom names or a different atom order. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000684 "atom remapping analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000684 "CPPTRAJ Manual, p. 116, command atommap, and p. 204 to 205, command remap."@en)
 SubClassOf(obo:MOLSIM_000684 obo:MOLSIM_000328)
 
 # Class: obo:MOLSIM_000685 (ab-initio method)
@@ -8212,8 +8217,9 @@ SubClassOf(obo:MOLSIM_000798 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000799 (WIGGLE algorithm)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000799 "A constraint algorithm that holds bond lengths fixed while using information about the atoms' velocities as well as their positions to converge faster. Holding bonds fixed removes the fastest vibrations from a system, which is what allows a longer timestep. It is an extension of the SHAKE approach rather than a separate idea. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000799 "A constraint algorithm that, at each time step, uses the constrained accelerations obtained from adjusting the velocities to satisfy the constraints, rather than the unconstrained accelerations that SHAKE and RATTLE use, to place the atoms for the next step. Its constrained values come out about an order of magnitude closer to the target values than with RATTLE, at almost the same cost. Holding fast internal coordinates such as bond lengths fixed removes the fastest vibrations, which allows a time step about 4 times longer. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000799 "WIGGLE algorithm"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000799 "Lee S.-H., Palmo K. and Krimm S. WIGGLE: A new constrained molecular dynamics algorithm in Cartesian coordinates. J. Comput. Phys. 210, 171-182 (2005). doi:10.1016/j.jcp.2005.04.006"@en)
 SubClassOf(obo:MOLSIM_000799 obo:MOLSIM_000049)
 
 # Class: obo:MOLSIM_000800 (Nose thermostat)
@@ -9101,9 +9107,10 @@ SubClassOf(obo:MOLSIM_000942 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_000943 (RMSD correlation analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000943 "A dynamics analysis method that measures how the displacement of each atom or residue from its average position relates to that of every other, over the course of a simulation. A strongly positive value means 2 sites move in the same direction, a negative value means they move in opposite directions. The result is usually drawn as a dynamic cross-correlation map, which shows which parts of a molecule move as one. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000943 "A correlation analysis that computes the RMS average correlation of a trajectory: the average RMSD to a reference structure of coordinates first averaged over a running window of frames, calculated for a series of increasing window sizes. The first value, for a window of 1 frame, is the plain average RMSD of all frames, and longer windows average away faster motions. The resulting curve shows on which time scales the structure still changes. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_000943 "is it synonymous as \"atomic correlation analysis\"?")
 AnnotationAssertion(rdfs:label obo:MOLSIM_000943 "RMSD correlation analysis"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000943 "CPPTRAJ Manual, p. 281, section 13.32 rmsavgcorr."@en)
 SubClassOf(obo:MOLSIM_000943 obo:MOLSIM_000342)
 
 # Class: obo:MOLSIM_000944 (motion analysis)
@@ -17344,8 +17351,9 @@ DataPropertyRange(obo:MOLSIM_002184 xsd:boolean)
 # Data Property: obo:MOLSIM_002185 (has restraint schedule)
 
 Declaration(DataProperty(obo:MOLSIM_002185))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002185 "A relation that indicates whether a run applies a time-varying positional-restraint weight schedule. Restraints are commonly released gradually while a system settles, so the strength recorded at the start does not describe the whole run. The flag marks a run in which the restraints changed. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002185 "A relation that indicates whether a run changes the weights of its NMR-type restraints over time, through a weight change schedule such as the AMBER &wt types REST, RESTS, RESTL, NOESY or SHIFTS. Restraint weights are often raised or lowered during a run, for example in simulated annealing, so the strength recorded at the start does not describe the whole run. Positional restraints, set in AMBER with ntr, are a separate setting and are not covered by this flag. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002185 "has restraint schedule"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002185 "AMBER 26 Reference Manual, p. 466 to 467, weight change types REST, RESTS and RESTL."@en)
 SubDataPropertyOf(obo:MOLSIM_002185 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002185 xsd:boolean)
 
