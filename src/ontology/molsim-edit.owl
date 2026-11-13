@@ -12532,8 +12532,9 @@ SubClassOf(obo:MOLSIM_001516 obo:MOLSIM_000068)
 
 # Class: obo:MOLSIM_001517 (analytical linearized Poisson-Boltzmann model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001517 "A Poisson-Boltzmann model in which the equation is linearized and solved in closed form under simplifying assumptions about geometry. It is far faster than solving the full non-linear equation numerically. It holds only where electrostatic potentials are small, so it is unreliable for highly charged systems. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001517 "A Poisson-Boltzmann model that approximates the electrostatic part of the solvation free energy with a closed-form expression built on the generalized Born function, corrected for the ratio of the solute and solvent dielectric constants and for the overall size of the molecule. The generalized Born model is the special case in which the solvent dielectric constant is infinite, so the correction matters most for less polar solvents. It uses the same effective Born radii as the chosen generalized Born model and adds almost no computational cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001517 "analytical linearized Poisson-Boltzmann model"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001517 "AMBER 26 Reference Manual, p. 79, section 4.4 ALPB (Analytical Linearized Poisson-Boltzmann)."@en)
 SubClassOf(obo:MOLSIM_001517 obo:MOLSIM_001516)
 
 # Class: obo:MOLSIM_001518 (CHAGB implicit solvent model)
@@ -12605,8 +12606,9 @@ SubClassOf(obo:MOLSIM_001528 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001529 (RESP permanent multipole charge model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001529 "A charge model that fits a dipole and higher terms on each atom, not only a point charge, to reproduce the electrostatic potential around a molecule. The extra terms capture features a point charge cannot, such as the anisotropy of a lone pair or the positive region on a halogen. It is more accurate and more expensive to use. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001529 "A ligand charge model, the RESP-perm model of the AMBER program py_resp.py, that fits atomic charges together with permanent atomic dipoles to reproduce the electrostatic potential around a molecule. It is meant for polarizable force fields, in which induced dipoles are added on top of the permanent ones. The permanent dipoles capture directional features that point charges alone cannot, such as the uneven charge around a lone pair. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001529 "RESP permanent multipole charge model"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001529 "AMBER 26 Reference Manual, p. 380, chapter 20 py_resp.py, and p. 382, entry ipermdip."@en)
 SubClassOf(obo:MOLSIM_001529 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001530 (amber fb15)
@@ -12717,8 +12719,9 @@ SubClassOf(obo:MOLSIM_001547 obo:MOLSIM_001546)
 
 # Class: obo:MOLSIM_001548 (RESP permanent virtual site charge model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001548 "A charge model that fits point charges to the electrostatic potential while allowing some of them to sit at fixed positions away from any nucleus. Placing charge off-nucleus reproduces directional features, such as a lone pair, without the cost of higher multipole terms. It is the cheaper alternative to a multipole description. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001548 "A ligand charge model, the RESP-perm-v model of the AMBER program py_resp.py, that extends the RESP-perm model with extra permanent dipoles along virtual bonds between atoms that are 2 bonds apart. In water, for example, it adds 2 virtual permanent dipoles between the 2 hydrogen atoms. Like RESP-perm, it is fitted to the electrostatic potential and is meant for polarizable force fields. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001548 "RESP permanent virtual site charge model"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001548 "AMBER 26 Reference Manual, p. 383, entry virtual, and p. 387, RESP-perm-v example for water."@en)
 SubClassOf(obo:MOLSIM_001548 obo:MOLSIM_000204)
 
 # Class: obo:MOLSIM_001549 (linear mixing potential)
