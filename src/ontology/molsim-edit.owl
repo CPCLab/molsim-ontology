@@ -14368,10 +14368,10 @@ SubClassOf(obo:MOLSIM_001809 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001810 (RMS average correlation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001810 "A single number summarising how strongly the parts of a molecule move together, computed as the root mean square of all the pairwise correlation values. It reduces a whole correlation matrix to 1 figure, so 2 simulations can be compared directly. It says how much correlated motion there is but not where. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001810 "A root mean square deviation that is calculated from coordinates first averaged over a running window of frames, and is reported as a series of values for increasing window sizes. The first value, for a window of 1 frame, is the plain average RMSD of all frames to a reference structure, and longer windows average away faster motions. The resulting curve shows on which time scales the structure still changes, which helps to judge whether a simulation has converged. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001810 "RMS average correlation"@en)
-SubClassOf(obo:MOLSIM_001810 obo:STATO_0000142)
-SubClassOf(obo:MOLSIM_001810 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001810 "CPPTRAJ Manual, p. 281, section 13.32 rmsavgcorr."@en)
+SubClassOf(obo:MOLSIM_001810 obo:MOLSIM_001334)
 SubClassOf(obo:MOLSIM_001810 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Class: obo:MOLSIM_001811 (solute-solvent interaction energy density)
