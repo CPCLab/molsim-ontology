@@ -3932,6 +3932,7 @@ SubClassOf(obo:MOLSIM_000141 obo:MOLSIM_000109)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000142 "A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000142 "predictive index analysis"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000142 "Pearlman's predictive index"@en)
 SubClassOf(obo:MOLSIM_000142 obo:MOLSIM_000127)
 
 # Class: obo:MOLSIM_000143 (ligand pairs selection criteria)
@@ -6055,9 +6056,10 @@ SubClassOf(obo:MOLSIM_000464 obo:MOLSIM_000017)
 
 # Class: obo:MOLSIM_000465 (NModelGB)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000465 "NModelGB is a specific implementation of a Generalized Born (GB) implicit solvent model, likely used within a particular simulation package. It provides a specific set of equations and parameters for calculating the electrostatic contribution to the solvation free energy. The \"NModel\" designation distinguishes this particular variant from other GB models available to the user. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000465 "NModelGB"@en)
-SubClassOf(obo:MOLSIM_000465 obo:MOLSIM_000462)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000465 "OBSOLETE. NModelGB is a specific implementation of a Generalized Born (GB) implicit solvent model, likely used within a particular simulation package. It provides a specific set of equations and parameters for calculating the electrostatic contribution to the solvation free energy. The \"NModel\" designation distinguishes this particular variant from other GB models available to the user."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000465 "obsolete NModelGB"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000465 "true"^^xsd:boolean)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000465 "Retired 2026-11-13. No method, model or tool of this name could be found in the program manuals or the literature, and its definition was a guess that said so. It may have meant the generalized Born model setting for normal mode calculations in MMPBSA.py (nmode_igb), but that could not be confirmed, so no successor is given.")
 
 # Class: obo:MOLSIM_000466 (orientations of proteins in membranes)
 
@@ -6274,9 +6276,11 @@ SubClassOf(obo:MOLSIM_000497 obo:MOLSIM_000348)
 
 # Class: obo:MOLSIM_000498 (predictive index of Pearman analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000498 "A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000498 "predictive index of Pearman analysis"@en)
-SubClassOf(obo:MOLSIM_000498 obo:MOLSIM_000497)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000498 "OBSOLETE. A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000498 "obsolete predictive index of Pearman analysis"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000498 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000498 obo:MOLSIM_000142)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000498 "Retired 2026-11-13. It duplicated MOLSIM:000142 predictive index analysis, which had the same definition word for word. Both labels name 1 measure, the predictive index published by Pearlman and Charifson in 2001; this label also misspelled the author's name.")
 
 # Class: obo:MOLSIM_000499 (accuracy of ddG prediction metrics measurements analysis)
 
@@ -8347,10 +8351,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000825 "A modification of the AM1
 AnnotationAssertion(rdfs:label obo:MOLSIM_000825 "Sparkle/AM1"@en)
 SubClassOf(obo:MOLSIM_000825 obo:MOLSIM_000807)
 
-# Class: obo:MOLSIM_000826 (ZANDO)
+# Class: obo:MOLSIM_000826 (ZINDO)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000826 "An all-valence-electron semi-empirical method likely based on the INDO or NDDO approximation schemes, developed by Zhidomirov and coworkers. It represents one of the many variations within the semi-empirical framework, likely with specific parameterizations or modifications to the integral approximations aimed at particular applications or accuracy improvements. Note: This method is less common than MNDO/AM1/PMx variants, and specific details might require consulting specialized literature. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000826 "ZANDO"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000826 "A semi-empirical all-valence-electron method, developed by Zerner and coworkers, that is based on the intermediate neglect of differential overlap (INDO) approximation and has parameters for transition metals. Its spectroscopic form, ZINDO/S, is fitted to electronic excitation energies and is used with configuration interaction to calculate UV-visible spectra. Its other form, ZINDO/1, is meant for ground-state geometries and energies. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000826 "ZINDO"@en)
 SubClassOf(obo:MOLSIM_000826 obo:MOLSIM_000817)
 
 # Class: obo:MOLSIM_000827 (Moeller-Plesset)
@@ -8540,9 +8544,11 @@ SubClassOf(obo:MOLSIM_000853 obo:MOLSIM_000845)
 
 # Class: obo:MOLSIM_000854 (multi-state bennett acceptance ratio)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000854 "A free energy analysis method that combines data from simulations run at many thermodynamic states at once, and returns the free energy difference between any pair of them together with equilibrium averages. It uses every sample from every state rather than only neighbouring pairs, which is what makes it statistically optimal. It generalises the 2-state Bennett acceptance ratio. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000854 "multi-state bennett acceptance ratio"@en)
-SubClassOf(obo:MOLSIM_000854 obo:MOLSIM_000845)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000854 "OBSOLETE. A free energy analysis method that combines data from simulations run at many thermodynamic states at once, and returns the free energy difference between any pair of them together with equilibrium averages. It uses every sample from every state rather than only neighbouring pairs, which is what makes it statistically optimal. It generalises the 2-state Bennett acceptance ratio."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000854 "obsolete multi-state bennett acceptance ratio"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000854 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000854 obo:MOLSIM_000302)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000854 "Retired 2026-11-13. It duplicated MOLSIM:000302 multi-state Bennett acceptance ratio analysis, which had the same definition word for word and already carries the synonym MBAR. This term sat under enhanced sampling, which was wrong: MBAR analyses data that simulations have already produced and does not sample.")
 
 # Class: obo:MOLSIM_000855 (neural network)
 
@@ -8786,10 +8792,10 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000890 "A binary checkpoint file 
 AnnotationAssertion(rdfs:label obo:MOLSIM_000890 "GAUSSIAN chk format"@en)
 SubClassOf(obo:MOLSIM_000890 obo:MOLSIM_000441)
 
-# Class: obo:MOLSIM_000891 (GAUSSIAN restart format)
+# Class: obo:MOLSIM_000891 (GAUSSIAN rwf format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000891 "A binary data format, written with the extension .chk, in which Gaussian stores the state of a calculation so that a later job can continue from it. It holds the geometry, the wavefunction and Hessian information that a later job can read back. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000891 "GAUSSIAN restart format"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000891 "A binary data format, written with the extension .rwf, in which Gaussian keeps the large intermediate data of a running calculation. If the file is named and saved, a job that stopped early can be continued from it with the Restart keyword, for example an analytic frequency calculation. It is usually far larger than the checkpoint file, so it is normally kept on a local scratch disk. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000891 "GAUSSIAN rwf format"@en)
 SubClassOf(obo:MOLSIM_000891 obo:MOLSIM_000441)
 
 # Class: obo:MOLSIM_000892 (GROMACS restart format)
@@ -16759,10 +16765,10 @@ AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000960 "Biological Magne
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000960 orcid:0009-0007-1391-4986)
 ClassAssertion(obo:MOLSIM_000702 obo:MOLSIM_000960)
 
-# Individual: obo:MOLSIM_000961 (ComplexCARP)
+# Individual: obo:MOLSIM_000961 (CCMRD)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000961 "An NMR data repository specialising in assigned chemical shifts for complex carbohydrates and their complexes. Carbohydrates are poorly covered by the general NMR archives, because their signals overlap heavily and their assignment is difficult. It exists to hold the assignments that do get made. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000961 "ComplexCARP"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000961 "An NMR data repository holding solid-state NMR chemical shifts of complex carbohydrates, first described by Kang and coworkers in 2020. It can be searched by chemical shift, carbohydrate name or compound class, and it accepts new data. Carbohydrates are poorly covered by the general NMR archives, because their signals overlap heavily and are hard to assign. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000961 "CCMRD"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000961 "Complex Carbohydrate Magnetic Resonance Database"@en)
 ClassAssertion(obo:MOLSIM_000702 obo:MOLSIM_000961)
 
@@ -17053,7 +17059,7 @@ DisjointClasses(obo:MOLSIM_000704 obo:MOLSIM_000705 obo:MOLSIM_000706 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000710 obo:MOLSIM_000711 obo:MOLSIM_000712)
 DisjointClasses(obo:MOLSIM_000828 obo:MOLSIM_000829 obo:MOLSIM_000830 obo:MOLSIM_000831)
 DisjointClasses(obo:MOLSIM_000833 obo:MOLSIM_000834 obo:MOLSIM_000835 obo:MOLSIM_000836 obo:MOLSIM_000837)
-DisjointClasses(obo:MOLSIM_000846 obo:MOLSIM_000847 obo:MOLSIM_000848 obo:MOLSIM_000849 obo:MOLSIM_000850 obo:MOLSIM_000851 obo:MOLSIM_000852 obo:MOLSIM_000853 obo:MOLSIM_000854 obo:MOLSIM_000855 obo:MOLSIM_000856 obo:MOLSIM_000857 obo:MOLSIM_000858 obo:MOLSIM_000859 obo:MOLSIM_000860 obo:MOLSIM_000861 obo:MOLSIM_000862 obo:MOLSIM_000863 obo:MOLSIM_000864 obo:MOLSIM_000865)
+DisjointClasses(obo:MOLSIM_000846 obo:MOLSIM_000847 obo:MOLSIM_000848 obo:MOLSIM_000849 obo:MOLSIM_000850 obo:MOLSIM_000851 obo:MOLSIM_000852 obo:MOLSIM_000853 obo:MOLSIM_000855 obo:MOLSIM_000856 obo:MOLSIM_000857 obo:MOLSIM_000858 obo:MOLSIM_000859 obo:MOLSIM_000860 obo:MOLSIM_000861 obo:MOLSIM_000862 obo:MOLSIM_000863 obo:MOLSIM_000864 obo:MOLSIM_000865)
 DisjointClasses(obo:MOLSIM_000924 obo:MOLSIM_000925 obo:MOLSIM_000926 obo:MOLSIM_000927)
 DisjointClasses(obo:MOLSIM_000945 obo:MOLSIM_000946 obo:MOLSIM_000947)
 DisjointClasses(obo:MOLSIM_001073 obo:MOLSIM_001074 obo:MOLSIM_001075)
@@ -17255,6 +17261,7 @@ ClassAssertion(obo:MOLSIM_002166 obo:MOLSIM_002178)
 Declaration(DataProperty(obo:MOLSIM_002179))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002179 "A relation that indicates whether a trajectory or restart file contains atomic coordinate data. Almost every trajectory does, but a file holding only velocities or only forces does not, and reading one expecting coordinates fails. The flag lets a tool decide what a file is good for before opening it. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002179 "has coordinates array"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002179 "has positions flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002179 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002179 xsd:boolean)
 
@@ -17263,6 +17270,7 @@ DataPropertyRange(obo:MOLSIM_002179 xsd:boolean)
 Declaration(DataProperty(obo:MOLSIM_002180))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002180 "A relation that indicates whether a trajectory or restart file contains per-atom force data. Forces are written less often than coordinates, because they add to the size of a trajectory and are needed only for some uses, such as force analysis or training machine-learning models. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002180 "has forces array"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002180 "has forces flag"@en)
 SubDataPropertyOf(obo:MOLSIM_002180 obo:MOLSIM_001156)
 DataPropertyRange(obo:MOLSIM_002180 xsd:boolean)
 
@@ -17892,18 +17900,20 @@ DataPropertyRange(obo:MOLSIM_002227 xsd:string)
 # Data Property: obo:MOLSIM_002228 (has positions flag)
 
 Declaration(DataProperty(obo:MOLSIM_002228))
-AnnotationAssertion(rdfs:label obo:MOLSIM_002228 "has positions flag"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002228 "A relation that states whether a saved trajectory includes the atomic positions (the 3-D coordinates of every atom over time). Positions are the most basic trajectory data and are almost always present. (UNVERIFIED)"@en)
-SubDataPropertyOf(obo:MOLSIM_002228 obo:MOLSIM_001156)
-DataPropertyRange(obo:MOLSIM_002228 xsd:boolean)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002228 "obsolete has positions flag"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002228 "OBSOLETE. A relation that states whether a saved trajectory includes the atomic positions (the 3-D coordinates of every atom over time). Positions are the most basic trajectory data and are almost always present."@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_002228 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_002228 obo:MOLSIM_002179)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002228 "Retired 2026-11-13. It duplicated MOLSIM:002179 has coordinates array: both said whether a saved file contains atomic positions. This term came from the MDDB metadata fields and the other from the AmberMeta fields; the label of this term is kept as an exact synonym on MOLSIM:002179.")
 
 # Data Property: obo:MOLSIM_002229 (has forces flag)
 
 Declaration(DataProperty(obo:MOLSIM_002229))
-AnnotationAssertion(rdfs:label obo:MOLSIM_002229 "has forces flag"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002229 "A relation that states whether a saved trajectory includes the forces acting on each atom over time. Forces are optional extra data, useful for example when training machine-learning models. (UNVERIFIED)"@en)
-SubDataPropertyOf(obo:MOLSIM_002229 obo:MOLSIM_001156)
-DataPropertyRange(obo:MOLSIM_002229 xsd:boolean)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002229 "obsolete has forces flag"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002229 "OBSOLETE. A relation that states whether a saved trajectory includes the forces acting on each atom over time. Forces are optional extra data, useful for example when training machine-learning models."@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_002229 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_002229 obo:MOLSIM_002180)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002229 "Retired 2026-11-13. It duplicated MOLSIM:002180 has forces array: both said whether a saved file contains per-atom forces. This term came from the MDDB metadata fields and the other from the AmberMeta fields; the label of this term is kept as an exact synonym on MOLSIM:002180.")
 
 # Class: obo:MOLSIM_002230 (SMILES code)
 
