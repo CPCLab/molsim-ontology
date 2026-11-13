@@ -4956,14 +4956,16 @@ SubClassOf(obo:MOLSIM_000296 obo:MOLSIM_000167)
 
 # Class: obo:MOLSIM_000298 (thermodynamic integration extrapolation approach)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000298 "A thermodynamic integration analysis that estimates the free energy integral from simulations at or near the end states, or at very few intermediate values of the coupling parameter, by extrapolating the integrand between them. This avoids simulating many intermediate states and so greatly reduces cost. The result is only as accurate as the extrapolation is for the system studied. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000298 "A thermodynamic integration analysis defined by how the integral is completed between the outermost simulated values of the coupling parameter and the end points 0 and 1, when the end points are not simulated. Either the curve of the average energy derivative is extended as a straight line to the end points, or the area in these end regions is left out. The choice matters most when the curve changes quickly near the end points. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000298 "thermodynamic integration extrapolation approach"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000298 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."@en)
 SubClassOf(obo:MOLSIM_000298 obo:MOLSIM_000355)
 
 # Class: obo:MOLSIM_000299 (thermodynamic integration with linear extrapolation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000299 "A thermodynamic integration approach that samples the integrand only at or near the 2 end points and assumes it varies linearly between them. Assuming linearity removes every intermediate simulation, which is where nearly all the cost lies. It is only valid where the integrand really is close to linear, which is uncommon. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000299 "A thermodynamic integration extrapolation approach in which the curve of the average energy derivative is extended as a straight line from the outermost simulated values of the coupling parameter to the end points 0 and 1, before it is integrated. The integral then covers the whole range from 0 to 1. The AMBER FEW workflow calls this linear interpolation to the end points and describes it as the commonly applied procedure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000299 "thermodynamic integration with linear extrapolation"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000299 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."@en)
 SubClassOf(obo:MOLSIM_000299 obo:MOLSIM_000298)
 DisjointClasses(obo:MOLSIM_000299 obo:MOLSIM_000356)
 
@@ -5347,8 +5349,9 @@ SubClassOf(obo:MOLSIM_000355 obo:MOLSIM_000265)
 
 # Class: obo:MOLSIM_000356 (thermodynamic integration without linear extrapolation)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000356 "A thermodynamic integration approach in which the integrand is sampled at intermediate values of the coupling parameter rather than only at the end points, so the integral is computed from the sampled curve. Sampling the middle costs a simulation at each intermediate state and removes the assumption that the curve is a straight line. It is the arrangement nearly all thermodynamic integration uses. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000356 "A thermodynamic integration extrapolation approach in which the integral is computed from the simulated values of the coupling parameter alone, as the sum of each average energy derivative times the spacing between values. The area between the outermost simulated values and the end points 0 and 1 is left out. In the AMBER FEW workflow it can be used only when the coupling values are evenly spaced. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000356 "thermodynamic integration without linear extrapolation"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000356 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."@en)
 SubClassOf(obo:MOLSIM_000356 obo:MOLSIM_000298)
 
 # Class: obo:MOLSIM_000357 (visualization analysis)
