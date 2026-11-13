@@ -9525,7 +9525,7 @@ SubClassOf(obo:MOLSIM_001052 obo:MOLSIM_000921)
 
 # Class: obo:MOLSIM_001053 (CHARMM cor format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001053 "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule. It is a binary, unformatted version of the CHARMM coordinate file, making it more compact and faster to read than its text-based counterpart. This format is often used for saving and reading structures within CHARMM workflows. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001053 "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule as text. It is the formatted version of the CHARMM coordinate file, with 1 line per atom, and an extended layout with wider columns is used for very large systems. CHARMM itself usually names these files with the extension .crd, while some other programs use .cor. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001053 "CHARMM cor format"@en)
 SubClassOf(obo:MOLSIM_001053 obo:MOLSIM_000921)
 
@@ -9836,8 +9836,9 @@ SubClassOf(obo:MOLSIM_001096 obo:MOLSIM_001088)
 
 # Class: obo:MOLSIM_001097 (job control format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001097 "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical or experimental reference data. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001097 "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical reference energies or forces. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001097 "job control format"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001097 "AMBER 26 Reference Manual, p. 339 to 341, chapter 17 paramfit, section 17.2 The Job Control File."@en)
 SubClassOf(obo:MOLSIM_001097 obo:MOLSIM_000437)
 
 # Class: obo:MOLSIM_001098 (ReaxFF force field format)
@@ -11351,7 +11352,7 @@ SubClassOf(obo:MOLSIM_001350 obo:MOLSIM_001333)
 
 # Class: obo:MOLSIM_001351 (chirality)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001351 "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A force field cannot change one into the other, so an error here persists through an entire simulation unnoticed. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001351 "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A simulation at ordinary temperature almost never changes one into the other, so an error in the starting structure usually persists unnoticed, although a simulation at high temperature can invert a centre. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001351 "chirality"@en)
 SubClassOf(obo:MOLSIM_001351 obo:MOLSIM_001333)
 SubClassOf(obo:MOLSIM_001351 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000186))
