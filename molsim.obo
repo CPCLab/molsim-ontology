@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: releases/2026-11-12
+data-version: releases/2026-11-13
 default-namespace: molsim
 idspace: dc http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -27,7 +27,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by/4.0/
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-11-12" xsd:string
+property_value: owl:versionInfo "2026-11-13" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -170,6 +170,7 @@ property_value: IAO:0000119 "Barry Smith, Werner Ceusters" xsd:string
 id: MOLSIM:000000
 name: molecular dynamics process
 def: "A sequence of related actions or operations performed to achieve a specific outcome in a biomolecular simulation study. This encompasses all stages from initial system setup and simulation execution to final data analysis and interpretation." []
+relationship: RO:0002233 MOLSIM:001887 ! has input molecular simulation system
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
@@ -236,14 +237,14 @@ is_a: MOLSIM:000772 ! chemical entity-based force field
 id: MOLSIM:000010
 name: DNA force field
 def: "A force field specifically developed and parameterized for simulating Deoxyribonucleic Acid (DNA) molecules. It focuses on accurately representing the structure, dynamics, and interactions of DNA bases, sugars, and phosphate backbone, including features like sugar pucker and helical parameters. Accurate DNA force fields are essential for studying DNA replication, transcription, and drug binding." []
-is_a: MOLSIM:000772 ! chemical entity-based force field
+is_a: MOLSIM:001445 ! nucleic acid force field
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:000011
 name: RNA force field
 def: "A force field specifically developed and parameterized for simulating Ribonucleic Acid (RNA) molecules. It aims to accurately capture the complex conformational landscape and catalytic potential of RNA. Development often focuses on improving descriptions of sugar pucker, backbone torsions (especially the epsilon and zeta angles), and non-canonical base interactions." []
-is_a: MOLSIM:000772 ! chemical entity-based force field
+is_a: MOLSIM:001445 ! nucleic acid force field
 property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
@@ -688,6 +689,7 @@ is_a: MOLSIM:000037 ! algorithm
 id: MOLSIM:000075
 name: Tanimoto similarity algorithm
 def: "An algorithm that measures how similar 2 molecules are as the size of what they have in common divided by the size of what they cover together. For molecular fingerprints this is the number of features present in both divided by the number present in at least 1 of them. It is the standard measure for fingerprints, runs from 0 for nothing shared to 1 for identical sets, and is also applied to overlapping molecular volumes in shape comparison. (UNVERIFIED)" []
+synonym: "Jaccard index" EXACT []
 is_a: MOLSIM:000074 ! similarity calculation algorithm
 disjoint_from: MOLSIM:000076 ! Tversky index algorithm
 
@@ -696,7 +698,7 @@ id: MOLSIM:000076
 name: Tversky index algorithm
 def: "A similarity calculation algorithm that compares 2 molecules by their overlap while weighting the features unique to each molecule differently, through 2 parameters, α and β. The measure ranges from 0 (nothing shared) to 1 (identical), and the weights can be set to emphasize either the reference (query) molecule or the fit (database) molecule. This asymmetry lets it find molecules that contain the reference as a substructure, or that are contained in it. (UNVERIFIED)" []
 is_a: MOLSIM:000074 ! similarity calculation algorithm
-property_value: IAO:0000116 "General form, for reference: T(A,B) = |A n B| / (alpha*|A - B| + beta*|B - A| + |A n B|), where A and B are the feature sets of the two molecules being compared. alpha weights features unique to A (the reference) and beta weights features unique to B (the query or fit molecule); alpha = beta = 1 reduces to the Tanimoto coefficient, and alpha = beta = 0.5 gives the Dice coefficient. The named variants below differ only in their fixed alpha/beta values, which each of their definitions states. Note this text is a plain-string note: no OWL consumer renders mathematical notation, so it is written to be readable as-is rather than as LaTeX. Requested in GitHub issue #1." xsd:string
+property_value: IAO:0000116 "General form, for reference: T(A,B) = |A n B| / (alpha*|A - B| + beta*|B - A| + |A n B|), where A and B are the feature sets of the two molecules being compared. alpha weights features unique to A (the reference, or query, molecule) and beta weights features unique to B (the fit, or database, molecule); alpha = beta = 1 reduces to the Tanimoto coefficient, and alpha = beta = 0.5 gives the Dice coefficient. The named variants below differ only in their fixed alpha/beta values, which each of their definitions states. Note this text is a plain-string note: no OWL consumer renders mathematical notation, so it is written to be readable as-is rather than as LaTeX. Requested in GitHub issue #1." xsd:string
 
 [Term]
 id: MOLSIM:000077
@@ -733,9 +735,11 @@ is_a: MOLSIM:000074 ! similarity calculation algorithm
 
 [Term]
 id: MOLSIM:000082
-name: Jaccard index algorithm
-def: "A similarity calculation method used for comparing 2 sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets). (UNVERIFIED)" []
-is_a: MOLSIM:000074 ! similarity calculation algorithm
+name: obsolete Jaccard index algorithm
+def: "OBSOLETE. A similarity calculation method used for comparing 2 sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets)." []
+comment: Retired 2026-11-13. It duplicated MOLSIM:000075 Tanimoto similarity algorithm: on sets and binary fingerprints the Jaccard index and the Tanimoto coefficient are the same ratio, the size of the intersection divided by the size of the union. Jaccard index is kept as an exact synonym on MOLSIM:000075.
+is_obsolete: true
+replaced_by: MOLSIM:000075
 
 [Term]
 id: MOLSIM:000083
@@ -799,7 +803,7 @@ is_a: MOLSIM:000087 ! optimal transformation path algorithm
 id: MOLSIM:000092
 name: nearest neighbor algorithm
 def: "An algorithm that answers a question about a point by looking at whichever recorded points lie closest to it. It is used to classify, to cluster, and to build lists of which atoms are near enough to interact. It makes no assumption about the shape of the data, only that closeness is meaningful. (UNVERIFIED)" []
-is_a: MOLSIM:000087 ! optimal transformation path algorithm
+is_a: MOLSIM:000037 ! algorithm
 
 [Term]
 id: MOLSIM:000093
@@ -969,6 +973,7 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 id: MOLSIM:000116
 name: bootstrap analysis
 def: "A resampling method that estimates the uncertainty of a computed quantity by drawing many new samples of the same size from the existing data, with repetition allowed, and recomputing the quantity from each. The spread of the recomputed values estimates the standard error or confidence interval of the original value. It makes no assumption about how the data are distributed, but it treats data points as independent, so correlated data such as consecutive simulation frames are usually resampled in blocks. (UNVERIFIED)" []
+synonym: "bootstrapped error estimates analysis" RELATED []
 is_a: MOLSIM:000349 ! resampling method
 
 [Term]
@@ -1062,7 +1067,7 @@ is_a: MOLSIM:000127 ! error metrics analysis
 
 [Term]
 id: MOLSIM:000130
-name: mean absolute error analyisis
+name: mean absolute error analysis
 def: "An error metric giving the average size of the difference between predicted and observed values, ignoring sign. Because it does not square the differences, every error counts in proportion to its size and one large error does not dominate. It is the measure to prefer when outliers are expected and should not be allowed to control the score. (UNVERIFIED)" []
 synonym: "MAE" EXACT []
 is_a: MOLSIM:000127 ! error metrics analysis
@@ -1089,10 +1094,12 @@ is_a: MOLSIM:000135 ! convergence and uncertainty quantification analysis
 
 [Term]
 id: MOLSIM:000134
-name: bootstrapped error estimates analysis
-def: "A validation method that puts an uncertainty on a result by resampling the data it came from and recomputing it many times. It is used to show that a conclusion does not rest on a few particular data points. A large spread across the resamples shows that the result is not reliable. (UNVERIFIED)" []
+name: obsolete bootstrapped error estimates analysis
+def: "OBSOLETE. A validation method that puts an uncertainty on a result by resampling the data it came from and recomputing it many times. It is used to show that a conclusion does not rest on a few particular data points. A large spread across the resamples shows that the result is not reliable." []
+comment: Retired 2026-11-13. It duplicated MOLSIM:000116 bootstrap analysis: both described estimating the uncertainty of a result by resampling its data with repetition and recomputing it. Its label is kept as a related synonym on MOLSIM:000116.
 synonym: "BSE" EXACT []
-is_a: MOLSIM:000353 ! validation analysis
+is_obsolete: true
+replaced_by: MOLSIM:000116
 
 [Term]
 id: MOLSIM:000135
@@ -1140,6 +1147,7 @@ is_a: MOLSIM:000109 ! method
 id: MOLSIM:000142
 name: predictive index analysis
 def: "A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number. (UNVERIFIED)" []
+synonym: "Pearlman's predictive index" EXACT []
 is_a: MOLSIM:000127 ! error metrics analysis
 
 [Term]
@@ -1417,7 +1425,7 @@ is_a: MOLSIM:000161 ! quantum chemistry engine
 id: MOLSIM:000184
 name: QuTiP
 def: "A Python library for simulating the dynamics of open quantum systems, which exchange energy with their surroundings rather than being isolated. Its subject is quantum optics and quantum information rather than molecular electronic structure. (UNVERIFIED)" []
-is_a: MOLSIM:000161 ! quantum chemistry engine
+is_a: MOLSIM:000158 ! simulation and modeling software
 
 [Term]
 id: MOLSIM:000185
@@ -1795,7 +1803,7 @@ id: MOLSIM:000236
 name: weighted histogram analysis method analysis
 def: "A free energy analysis method that combines histograms from several biased simulations, such as the windows of an umbrella sampling run, into a single unbiased free energy profile. It solves self-consistently for the free energy offset of each window, which is what removes the bias. It needs the sampled ranges of neighbouring windows to overlap. (UNVERIFIED)" []
 synonym: "WHAM" EXACT []
-is_a: MOLSIM:000353 ! validation analysis
+is_a: MOLSIM:000300 ! free energy and molecular dynamics analysis
 
 [Term]
 id: MOLSIM:000237
@@ -1968,6 +1976,7 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 id: MOLSIM:000262
 name: molecular mechanics Poisson Boltzmann surface area analysis
 def: "A free energy analysis method that estimates a binding free energy from snapshots of the bound and free states, computing the polar solvation term with the Poisson-Boltzmann equation. Each free energy is the sum of 3 terms: the molecular mechanics energy in vacuum, the polar solvation free energy and a non-polar solvation term scaled from the solvent-accessible surface area. It uses only the end states, so it is much cheaper than an alchemical calculation and correspondingly less rigorous. (UNVERIFIED)" []
+synonym: "MM-PBSA analysis" EXACT []
 synonym: "MM/PBSA" EXACT []
 synonym: "MMPBSA" EXACT []
 is_a: MOLSIM:000326 ! endpoint free energy analysis
@@ -1976,6 +1985,7 @@ is_a: MOLSIM:000326 ! endpoint free energy analysis
 id: MOLSIM:000263
 name: molecular mechanics generalized Born surface area analysis
 def: "A free energy analysis method that estimates a binding free energy in the same way as the Poisson-Boltzmann variant, but computes the polar solvation term with the generalized Born approximation instead of solving the Poisson-Boltzmann equation. The approximation is much faster and usually close enough for ranking related ligands. The molecular mechanics and surface-area terms are unchanged. (UNVERIFIED)" []
+synonym: "MM-GBSA analysis" EXACT []
 synonym: "MM/GBSA" EXACT []
 synonym: "MMGBSA" EXACT []
 is_a: MOLSIM:000326 ! endpoint free energy analysis
@@ -2065,7 +2075,7 @@ is_a: MOLSIM:000272 ! radii set
 
 [Term]
 id: MOLSIM:000276
-name: enthropic contributions mode analysis
+name: entropic contributions mode analysis
 def: "A thermodynamics analysis method that estimates the entropy term of the free energy from the vibrational modes of a system. It approximates entropy from how the system vibrates about an average structure, rather than counting states directly. Normal mode analysis and the quasiharmonic approximation are the 2 usual routes. (UNVERIFIED)" []
 is_a: MOLSIM:000309 ! entropy analysis
 
@@ -2074,7 +2084,7 @@ id: MOLSIM:000277
 name: quasiharmonic analysis
 def: "A dynamics analysis method that estimates vibrational entropy from a trajectory by treating atoms as oscillating harmonically about their average positions. It diagonalises the mass-weighted covariance matrix of the atomic fluctuations to obtain effective frequencies, which are then put through the standard harmonic oscillator formulas. Unlike normal mode analysis it uses the sampled motion rather than a single minimum, so it captures anharmonic breadth as an effective frequency. (UNVERIFIED)" []
 synonym: "QHA" EXACT []
-is_a: MOLSIM:000276 ! enthropic contributions mode analysis
+is_a: MOLSIM:000276 ! entropic contributions mode analysis
 disjoint_from: MOLSIM:000278 ! normal mode analysis
 
 [Term]
@@ -2082,7 +2092,7 @@ id: MOLSIM:000278
 name: normal mode analysis
 def: "A dynamics analysis method that computes the vibrational modes and frequencies of a molecule by treating its motion as harmonic about a single energy minimum. It builds the matrix of second derivatives of the potential energy at that minimum and diagonalises it, giving collective modes as eigenvectors and their frequencies from the eigenvalues. Those frequencies are what a vibrational entropy estimate is built from. (UNVERIFIED)" []
 synonym: "NMA" EXACT []
-is_a: MOLSIM:000276 ! enthropic contributions mode analysis
+is_a: MOLSIM:000276 ! entropic contributions mode analysis
 
 [Term]
 id: MOLSIM:000279
@@ -2099,8 +2109,9 @@ is_a: MOLSIM:000238 ! trajectory approach analysis
 [Term]
 id: MOLSIM:000281
 name: thermodynamic integration similarity calculation tool
-def: "A type of utility program used to help set up a thermodynamic integration (TI) free energy calculation. It assesses the similarity between the starting and ending molecules of a planned alchemical transformation, often by calculating the overlap of their potential energies. The results from this tool are used to design an optimal pathway with an appropriate number of intermediate steps, which is crucial for ensuring the TI calculation will be accurate and reliable. (UNVERIFIED)" []
+def: "A system setup tool that helps choose which pairs of ligands to compare in thermodynamic integration (TI) free energy calculations, from a matrix of pairwise similarity scores between the ligands. In the AMBER FEW workflow a script applies Kruskal's shortest path algorithm to these scores, so that the chosen transformations need the smallest structural changes overall. The scores themselves come from a separate ligand comparison, for example the shape and chemical feature score of ROCS. (UNVERIFIED)" []
 is_a: MOLSIM:001556 ! system setup tool
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 998, FEW script identify_transformations.pl." xsd:string
 
 [Term]
 id: MOLSIM:000282
@@ -2115,19 +2126,19 @@ disjoint_from: MOLSIM:000283 ! AMBER-FEW
 id: MOLSIM:000283
 name: AMBER-FEW
 def: "A workflow program for AMBER and AmberTools that automates the calculation of binding free energies for a set of ligands that bind to the same receptor. It sets up and analyses the simulations for 3 approaches: MM-PBSA and MM-GBSA, linear interaction energy, and thermodynamic integration. It is written in Perl and calls AmberTools programs such as tleap, antechamber and cpptraj. (UNVERIFIED)" []
-is_a: MOLSIM:000281 ! thermodynamic integration similarity calculation tool
+is_a: MOLSIM:000296 ! free energy workflow
 
 [Term]
 id: MOLSIM:000284
 name: OpenCalphad
 def: "An open-source software library for thermodynamic calculations using the CALPHAD method, which models phase equilibria in multi-component systems from fitted Gibbs energy expressions. It is used in materials science and metallurgy to compute phase diagrams. It is a thermodynamic modelling tool rather than a molecular simulation one. (UNVERIFIED)" []
-is_a: MOLSIM:000281 ! thermodynamic integration similarity calculation tool
+is_a: MOLSIM:000158 ! simulation and modeling software
 
 [Term]
 id: MOLSIM:000285
 name: Brick-CFCMC
 def: "A Monte Carlo simulation program, open source and developed at Delft University of Technology, that computes phase and reaction equilibria with the continuous fractional component method. In that method a fractional molecule, whose interactions are scaled, is inserted or removed gradually, which makes molecule exchanges efficient even in dense liquids. Chemical potentials and partial molar properties can then be obtained directly from a single simulation. (UNVERIFIED)" []
-is_a: MOLSIM:000281 ! thermodynamic integration similarity calculation tool
+is_a: MOLSIM:001851 ! simulation engine
 
 [Term]
 id: MOLSIM:000286
@@ -2163,14 +2174,16 @@ is_a: MOLSIM:000286 ! thermodynamic integration approach
 [Term]
 id: MOLSIM:000291
 name: 1-step soft-core approach
-def: "A thermodynamic integration approach that uses a soft-core potential to cover the whole transformation in 1 window, or very few. The soft-core form keeps the energy finite as atoms appear and disappear, which is what makes so few windows possible. It saves simulation time at the cost of relying heavily on the soft-core form being well behaved. (UNVERIFIED)" []
+def: "A thermodynamic integration approach in which the charges and the van der Waals parameters of the changing atoms are transformed together in 1 calculation, using soft-core forms of both the van der Waals and the electrostatic potential. The soft-core forms keep the energy finite as atoms appear and disappear, so the charges do not have to be removed in a separate calculation first. The calculation is still run at several values of the coupling parameter. (UNVERIFIED)" []
 is_a: MOLSIM:000286 ! thermodynamic integration approach
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core." xsd:string
 
 [Term]
 id: MOLSIM:000292
 name: multi-step approach
-def: "A thermodynamic integration approach that divides the path between the 2 states into several discrete windows, each sampled separately. Dividing it keeps the change between neighbouring windows small enough for the samples to overlap. It is the standard arrangement, and the alternative of a single window is a special case. (UNVERIFIED)" []
+def: "A thermodynamic integration approach that splits the transformation into 2 or more separate calculations, for example removing the charges of the disappearing atoms first and then changing their van der Waals parameters. Each calculation is run at its own set of coupling parameter values, and the free energy changes are added. It avoids soft-core electrostatics but needs more simulations than doing the whole change in 1 calculation. (UNVERIFIED)" []
 is_a: MOLSIM:000286 ! thermodynamic integration approach
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core." xsd:string
 
 [Term]
 id: MOLSIM:000293
@@ -2201,15 +2214,17 @@ is_a: MOLSIM:000167 ! automation script
 [Term]
 id: MOLSIM:000298
 name: thermodynamic integration extrapolation approach
-def: "A thermodynamic integration analysis that estimates the free energy integral from simulations at or near the end states, or at very few intermediate values of the coupling parameter, by extrapolating the integrand between them. This avoids simulating many intermediate states and so greatly reduces cost. The result is only as accurate as the extrapolation is for the system studied. (UNVERIFIED)" []
+def: "A thermodynamic integration analysis defined by how the integral is completed between the outermost simulated values of the coupling parameter and the end points 0 and 1, when the end points are not simulated. Either the curve of the average energy derivative is extended as a straight line to the end points, or the area in these end regions is left out. The choice matters most when the curve changes quickly near the end points. (UNVERIFIED)" []
 is_a: MOLSIM:000355 ! thermodynamic integration analysis
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method." xsd:string
 
 [Term]
 id: MOLSIM:000299
 name: thermodynamic integration with linear extrapolation
-def: "A thermodynamic integration approach that samples the integrand only at or near the 2 end points and assumes it varies linearly between them. Assuming linearity removes every intermediate simulation, which is where nearly all the cost lies. It is only valid where the integrand really is close to linear, which is uncommon. (UNVERIFIED)" []
+def: "A thermodynamic integration extrapolation approach in which the curve of the average energy derivative is extended as a straight line from the outermost simulated values of the coupling parameter to the end points 0 and 1, before it is integrated. The integral then covers the whole range from 0 to 1. The AMBER FEW workflow calls this linear interpolation to the end points and describes it as the commonly applied procedure. (UNVERIFIED)" []
 is_a: MOLSIM:000298 ! thermodynamic integration extrapolation approach
 disjoint_from: MOLSIM:000356 ! thermodynamic integration without linear extrapolation
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method." xsd:string
 
 [Term]
 id: MOLSIM:000300
@@ -2402,7 +2417,7 @@ is_a: MOLSIM:000308 ! simulation method
 id: MOLSIM:000326
 name: endpoint free energy analysis
 def: "A free energy analysis that estimates the free energy difference between 2 states from simulations of those 2 end states only, without simulating the intermediate states between them. It is cheaper but less rigorous than methods that sample a path between the states. MM/PBSA and MM/GBSA are common examples; they combine molecular mechanics energies with continuum solvent models, using snapshots of the bound and unbound states. (UNVERIFIED)" []
-is_a: MOLSIM:000265 ! alchemical free energy analysis
+is_a: MOLSIM:000261 ! binding free energy calculation analysis
 
 [Term]
 id: MOLSIM:000327
@@ -2600,8 +2615,9 @@ is_a: MOLSIM:000265 ! alchemical free energy analysis
 [Term]
 id: MOLSIM:000356
 name: thermodynamic integration without linear extrapolation
-def: "A thermodynamic integration approach in which the integrand is sampled at intermediate values of the coupling parameter rather than only at the end points, so the integral is computed from the sampled curve. Sampling the middle costs a simulation at each intermediate state and removes the assumption that the curve is a straight line. It is the arrangement nearly all thermodynamic integration uses. (UNVERIFIED)" []
+def: "A thermodynamic integration extrapolation approach in which the integral is computed from the simulated values of the coupling parameter alone, as the sum of each average energy derivative times the spacing between values. The area between the outermost simulated values and the end points 0 and 1 is left out. In the AMBER FEW workflow it can be used only when the coupling values are evenly spaced. (UNVERIFIED)" []
 is_a: MOLSIM:000298 ! thermodynamic integration extrapolation approach
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method." xsd:string
 
 [Term]
 id: MOLSIM:000357
@@ -2612,14 +2628,16 @@ is_a: MOLSIM:000026 ! analysis method
 [Term]
 id: MOLSIM:000358
 name: worm plot visualization analysis
-def: "A worm plot is a visualization method that displays a collection of superimposed molecular structures from a simulation or an NMR ensemble. Each structure is typically represented as a smooth tube or \"worm\" tracing the path of the protein backbone. This method provides a clear visual impression of the conformational variability and dynamic fluctuations within the molecular ensemble. (UNVERIFIED)" []
+def: "A visualization analysis that reduces a 3-dimensional density map, such as the density of water or ions, to a 1-dimensional profile along a curved path given by the user, for example the axis of an ion channel. The path is drawn as a smooth curve through pivot points, and at each point along it the density is integrated within a tube of chosen radius. The profile shows how the density of water or ions changes along channels and similar paths. (UNVERIFIED)" []
 is_a: MOLSIM:000357 ! visualization analysis
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 1109, section 46.1, MoFT metatwist worm plots." xsd:string
 
 [Term]
 id: MOLSIM:000359
 name: helical density map visualization analysis
-def: "A helical density map is a visualization method used to represent the three-dimensional distribution of atoms within a helical structure, averaged over time from a simulation. It creates a 3D grid where the value at each point represents the probability of finding an atom, which can then be displayed as a contoured surface. This method is particularly useful for analyzing the average structure and packing of molecules like DNA or alpha-helical proteins. (UNVERIFIED)" []
+def: "A visualization analysis that maps the density of water or ions around a helical region of a nucleic acid onto a plane perpendicular to the helical axis, in the average plane of the base pairs. In the twisted form the density is simply averaged along the axis. In the untwisted form the frame of reference rotates against the twist of the helix, so that the density is seen relative to the base pairs. (UNVERIFIED)" []
 is_a: MOLSIM:000357 ! visualization analysis
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 1110, section 46.1, MoFT metatwist twisted and untwisted maps." xsd:string
 
 [Term]
 id: MOLSIM:000360
@@ -2744,8 +2762,9 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 [Term]
 id: MOLSIM:000378
 name: Z-matrix parameterization modeling
-def: "A parameterization method in which the molecule's geometry is written in internal coordinates, as a Z-matrix of bond lengths, bond angles and dihedral angles, and parameters are fitted in those terms. This makes it easy to scan 1 degree of freedom at a time, such as a dihedral angle, and to fit the parameter that controls it. (UNVERIFIED)" []
+def: "A force field parameterization method that obtains the bond and angle force constants around a metal ion from a quantum calculation of the Hessian, expressed in internal coordinates such as bond lengths and bond angles. In MCPB.py it reads these force constants from the Gaussian output file of a geometry optimization and force constant calculation, so the metal-ligand bonds and angles must be among the internal coordinates used. It is an alternative to the Seminario method, which takes the force constants from sub-matrices of the Cartesian Hessian instead. (UNVERIFIED)" []
 is_a: MOLSIM:000374 ! force field parameterization modeling
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 368, entry add_redcrd, and p. 371, MCPB.py step 2 options 2s and 2z." xsd:string
 
 [Term]
 id: MOLSIM:000379
@@ -2756,8 +2775,9 @@ is_a: MOLSIM:000367 ! numerical analysis
 [Term]
 id: MOLSIM:000380
 name: force interpolation analysis
-def: "A force interpolation method is a numerical technique used in some simulation algorithms to estimate the forces on atoms without calculating them directly at every step. This is often done by calculating the forces on a coarser grid and then interpolating these forces to the actual atomic positions. For experts, this method can be used in some multiple-time-stepping algorithms to reduce the computational cost of the force calculation. (UNVERIFIED)" []
+def: "A numerical method used in adaptive QM/MM simulations that computes the force on each atom as a weighted sum of the forces from several different divisions of the system into a quantum and a classical region. The weights change smoothly as molecules move between the regions, so the forces do not jump. Unlike interpolation of the energies, it leaves out the term that comes from the derivatives of the weights, so it does not conserve the interpolated energy, although a corrected conserved quantity can be monitored. (UNVERIFIED)" []
 is_a: MOLSIM:000367 ! numerical analysis
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 208, section 11.8.1.2 Force interpolation." xsd:string
 
 [Term]
 id: MOLSIM:000381
@@ -2795,8 +2815,9 @@ is_a: MOLSIM:000428 ! Ewald summation
 [Term]
 id: MOLSIM:000386
 name: QM-QM derivative calculation analysis
-def: "A numerical method for computing energy derivatives in a calculation with more than one quantum layer, such as a high-accuracy method inside a cheaper one. The derivatives of each layer must be combined so that the force on a shared atom is consistent. Getting the combination wrong produces forces that do not match the energy, and a simulation that drifts. (UNVERIFIED)" []
+def: "A numerical method for computing the forces between the atoms of the quantum region in a semi-empirical QM/MM calculation, from the derivatives of the electron repulsion integrals with respect to the atom positions. In AMBER the derivatives are computed analytically by default, or numerically, which is slower and meant mainly for testing. Inaccurate derivatives give forces that do not match the energy, so a simulation drifts. (UNVERIFIED)" []
 is_a: MOLSIM:000367 ! numerical analysis
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 159, entry qmqmdx." xsd:string
 
 [Term]
 id: MOLSIM:000387
@@ -3101,6 +3122,7 @@ is_a: MOLSIM:000331 ! force field component
 id: MOLSIM:000432
 name: quantum mechanics basis set
 def: "A set of mathematical functions, often resembling atomic orbitals, used in quantum chemical calculations to represent the spatial distribution of electrons within a molecule (molecular orbitals). The choice and size of the basis set significantly impact the accuracy and computational cost of a simulation; larger, more flexible basis sets generally yield more accurate results but require more computer resources. These functions serve as the building blocks for constructing the calculated electronic wavefunction. (UNVERIFIED)" []
+synonym: "basis set" EXACT []
 is_a: MOLSIM:000173 ! quantum mechanics
 disjoint_from: MOLSIM:000827 ! Moeller-Plesset
 
@@ -3233,8 +3255,9 @@ property_value: IAO:0000117 orcid:0000-0002-2294-5393
 [Term]
 id: MOLSIM:000451
 name: isotropically distributed ensemble analysis
-def: "A structural analysis method that tests whether the orientations of the structures in a collection are spread evenly over all directions. It computes the distribution of orientations and looks for any preferred alignment. It is used to confirm that a simulation has not introduced an artificial bias in rotational motion, which some theoretical treatments assume is absent. (UNVERIFIED)" []
+def: "A dynamics analysis that finds the collective motions in a set of structures without first superimposing them on a reference, by replacing each structure with copies of it oriented evenly in all directions. Averaging over these orientations reduces the usual coordinate covariance matrix, with 3 rows per atom, to a matrix with 1 row per atom, whose eigenvectors give the collective modes. It was introduced for flexible proteins, such as partly folded states, for which a single superposition is hard to define. (UNVERIFIED)" []
 is_a: MOLSIM:000939 ! dynamics analysis
+property_value: IAO:0000119 "CPPTRAJ Manual, p. 180, command matrix, type idea." xsd:string
 
 [Term]
 id: MOLSIM:000452
@@ -3326,9 +3349,10 @@ is_a: MOLSIM:000017 ! minimal basis set
 
 [Term]
 id: MOLSIM:000465
-name: NModelGB
-def: "NModelGB is a specific implementation of a Generalized Born (GB) implicit solvent model, likely used within a particular simulation package. It provides a specific set of equations and parameters for calculating the electrostatic contribution to the solvation free energy. The \"NModel\" designation distinguishes this particular variant from other GB models available to the user. (UNVERIFIED)" []
-is_a: MOLSIM:000462 ! molecular mechanics generalized Born surface area tool
+name: obsolete NModelGB
+def: "OBSOLETE. NModelGB is a specific implementation of a Generalized Born (GB) implicit solvent model, likely used within a particular simulation package. It provides a specific set of equations and parameters for calculating the electrostatic contribution to the solvation free energy. The \"NModel\" designation distinguishes this particular variant from other GB models available to the user." []
+comment: Retired 2026-11-13. No method, model or tool of this name could be found in the program manuals or the literature, and its definition was a guess that said so. It may have meant the generalized Born model setting for normal mode calculations in MMPBSA.py (nmode_igb), but that could not be confirmed, so no successor is given.
+is_obsolete: true
 
 [Term]
 id: MOLSIM:000466
@@ -3337,7 +3361,7 @@ def: "OPM database (Orientations of Proteins in Membranes) is both a database an
 synonym: "OPM" EXACT []
 is_a: MOLSIM:000227 ! membrane protein orientation tool
 is_a: MOLSIM:001119 ! database web server
-disjoint_from: MOLSIM:001673 ! Glycoprotein Builder
+disjoint_from: MOLSIM:001705 ! MDposit
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
@@ -3557,9 +3581,11 @@ is_a: MOLSIM:000348 ! hypothesis testing analysis
 
 [Term]
 id: MOLSIM:000498
-name: predictive index of Pearman analysis
-def: "A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number. (UNVERIFIED)" []
-is_a: MOLSIM:000497 ! computational method statistical measure analysis
+name: obsolete predictive index of Pearman analysis
+def: "OBSOLETE. A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number." []
+comment: Retired 2026-11-13. It duplicated MOLSIM:000142 predictive index analysis, which had the same definition word for word. Both labels name 1 measure, the predictive index published by Pearlman and Charifson in 2001; this label also misspelled the author's name.
+is_obsolete: true
+replaced_by: MOLSIM:000142
 
 [Term]
 id: MOLSIM:000499
@@ -3728,31 +3754,31 @@ is_a: MOLSIM:000485 ! split-valence basis set
 id: MOLSIM:000529
 name: cc-pVDZ-RI
 def: "An auxiliary basis set built to be paired with the correlation-consistent double-zeta orbital basis in resolution-of-identity or density fitting calculations. It approximates products of orbital basis functions rather than representing orbitals itself. Pairing it with a different orbital basis degrades the approximation it was fitted for. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000530
 name: cc-pVTZ-RI
 def: "An auxiliary basis set built to be paired with the correlation-consistent triple-zeta orbital basis in resolution-of-identity or density fitting calculations. It approximates products of orbital basis functions so integrals can be evaluated faster. It is not used to represent orbitals. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000531
 name: cc-pVQZ-RI
 def: "An auxiliary basis set built to be paired with the correlation-consistent quadruple-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions that fitting products of the larger orbital basis requires. Its purpose is speed, not accuracy. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000532
 name: cc-pV5Z-RI
 def: "An auxiliary basis set built to be paired with the correlation-consistent quintuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It is not used to represent orbitals; it approximates products of them so that integrals can be evaluated faster. Without it, calculations at that orbital basis size are often impractical. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000533
 name: cc-pV6Z-RI
 def: "An auxiliary basis set built to be paired with the correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It approximates products of orbital basis functions rather than the orbitals themselves. It is what allows benchmark calculations at that orbital basis size to run at all. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000534
@@ -3787,32 +3813,37 @@ is_a: MOLSIM:000485 ! split-valence basis set
 [Term]
 id: MOLSIM:000539
 name: cc-pV(D+d)Z
-def: "A correlation-consistent double-zeta basis set carrying 1 extra energy-optimised d type polarization function beyond the standard set. The extra function was added because the standard double-zeta set was found short of d functions for the second-row elements sodium to argon. For first-row elements it behaves like the ordinary double-zeta set. (UNVERIFIED)" []
+def: "A correlation-consistent double-zeta basis set carrying 1 extra high-exponent d type polarization function beyond the standard set. The extra function was added because the standard double-zeta set was found short of high-exponent d functions for the second-row elements aluminium to argon. For first-row elements it behaves like the ordinary double-zeta set. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000540
 name: cc-pV(T+d)Z
-def: "A correlation-consistent triple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It describes polarization and correlation for the second-row elements sodium to argon more completely than the ordinary triple-zeta set. For other elements the 2 are equivalent. (UNVERIFIED)" []
+def: "A correlation-consistent triple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It describes polarization and correlation for the second-row elements aluminium to argon more completely than the ordinary triple-zeta set. For other elements the 2 are equivalent. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000541
 name: cc-pV(Q+d)Z
-def: "A correlation-consistent quadruple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used for benchmark-quality results on the second-row elements sodium to argon, where d function flexibility limits accuracy. For other elements the 2 are equivalent. (UNVERIFIED)" []
+def: "A correlation-consistent quadruple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used for benchmark-quality results on the second-row elements aluminium to argon, where d function flexibility limits accuracy. For other elements the 2 are equivalent. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000542
 name: cc-pV(5+d)Z
-def: "A correlation-consistent quintuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used in high-level benchmark work on small molecules containing the second-row elements sodium to argon. For other elements the 2 are equivalent. (UNVERIFIED)" []
+def: "A correlation-consistent quintuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used in high-level benchmark work on small molecules containing the second-row elements aluminium to argon. For other elements the 2 are equivalent. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000543
 name: cc-pV(6+d)Z
-def: "A correlation-consistent sextuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is a highly specialised set for work on the second-row elements sodium to argon near the complete basis set limit. For other elements the 2 are equivalent. (UNVERIFIED)" []
+def: "A correlation-consistent sextuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is a highly specialised set for work on the second-row elements aluminium to argon near the complete basis set limit. For other elements the 2 are equivalent. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000544
@@ -3860,31 +3891,31 @@ is_a: MOLSIM:000485 ! split-valence basis set
 id: MOLSIM:000551
 name: aug-cc-pVDZ-RI
 def: "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent double-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that basis. Pairing it with a different orbital basis degrades the approximation it was fitted for. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000552
 name: aug-cc-pVTZ-RI
 def: "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent triple-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that basis. Pairing it with a different orbital basis degrades the approximation it was fitted for. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000553
 name: aug-cc-pVQZ-RI
 def: "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent quadruple-zeta orbital basis in density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that basis. Its purpose is speed, not accuracy. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000554
 name: aug-cc-pV5Z-RI
 def: "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent quintuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It carries the extra functions needed to fit products involving the diffuse part of that orbital basis. Its purpose is speed, not accuracy. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000555
 name: aug-cc-pV6Z-RI
-def: "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It is required in practice, because calculations at that orbital basis size are otherwise not feasible. Its purpose is speed, not accuracy. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+def: "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It makes calculations at that orbital basis size much cheaper, although very small systems can also be calculated without it. Its purpose is speed, not accuracy. (UNVERIFIED)" []
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000556
@@ -3919,32 +3950,37 @@ is_a: MOLSIM:000485 ! split-valence basis set
 [Term]
 id: MOLSIM:000561
 name: aug-cc-pV(D+d)Z
-def: "A correlation-consistent double-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is meant for the second-row elements sodium to argon in situations that also need diffuse functions, such as anions and weakly bound complexes. It combines 2 separate corrections to the standard double-zeta set. (UNVERIFIED)" []
+def: "A correlation-consistent double-zeta basis set that adds both a set of diffuse functions and 1 extra high-exponent d type polarization function. It is meant for the second-row elements aluminium to argon in situations that also need diffuse functions, such as anions and weakly bound complexes. It combines 2 separate corrections to the standard double-zeta set. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000562
 name: aug-cc-pV(T+d)Z
-def: "A correlation-consistent triple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It targets the second-row elements sodium to argon where both diffuse electron density and d orbital flexibility matter, such as anions and intermolecular complexes. It is the triple-zeta member of that combined family. (UNVERIFIED)" []
+def: "A correlation-consistent triple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It targets the second-row elements aluminium to argon where both diffuse electron density and d orbital flexibility matter, such as anions and intermolecular complexes. It is the triple-zeta member of that combined family. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000563
 name: aug-cc-pV(Q+d)Z
-def: "A correlation-consistent quadruple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is used for benchmark results on systems containing the second-row elements sodium to argon whose properties depend on both corrections. It is large enough that its use is restricted to small systems. (UNVERIFIED)" []
+def: "A correlation-consistent quadruple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is used for benchmark results on systems containing the second-row elements aluminium to argon whose properties depend on both corrections. It is large enough that its use is restricted to small systems. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000564
 name: aug-cc-pV(5+d)Z
-def: "A correlation-consistent quintuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is a specialised benchmark set for the second-row elements sodium to argon in processes that also need diffuse functions. It is close to the complete basis set limit for those elements. (UNVERIFIED)" []
+def: "A correlation-consistent quintuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is a specialised benchmark set for the second-row elements aluminium to argon in processes that also need diffuse functions. It is close to the complete basis set limit for those elements. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000565
 name: aug-cc-pV(6+d)Z
-def: "A correlation-consistent sextuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function, the latter for the second-row elements sodium to argon. It is among the largest combinations available and is used only for extreme benchmark work on very small systems containing those elements. (UNVERIFIED)" []
+def: "A correlation-consistent sextuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function, the latter for the second-row elements aluminium to argon. It is among the largest combinations available and is used only for extreme benchmark work on very small systems containing those elements. (UNVERIFIED)" []
 is_a: MOLSIM:000485 ! split-valence basis set
+property_value: IAO:0000119 "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373" xsd:string
 
 [Term]
 id: MOLSIM:000566
@@ -4004,7 +4040,7 @@ is_a: MOLSIM:000485 ! split-valence basis set
 id: MOLSIM:000575
 name: Ahlrichs Coulomb fitting
 def: "An auxiliary basis set developed by the Ahlrichs group to fit the Coulomb part of the electron repulsion in a density fitting calculation. Fitting only the Coulomb term, rather than the whole 2-electron integral set, gives most of the speed-up at very little cost in accuracy. It is matched to the Karlsruhe orbital basis sets. (UNVERIFIED)" []
-is_a: MOLSIM:000485 ! split-valence basis set
+is_a: MOLSIM:001505 ! auxiliary basis set
 
 [Term]
 id: MOLSIM:000576
@@ -4039,7 +4075,7 @@ is_a: MOLSIM:000432 ! quantum mechanics basis set
 [Term]
 id: MOLSIM:000581
 name: real-space
-def: "A method that represents electronic wavefunctions or densities as values on a grid of points in ordinary 3-dimensional space, rather than as coefficients of basis functions. Accuracy is then improved by making the grid finer, which is a single adjustable control. It parallelises well, because each point depends mostly on its neighbours. (UNVERIFIED)" []
+def: "A quantum mechanics basis set in which electronic wavefunctions or densities are represented by their values on a grid of points in ordinary 3-dimensional space, rather than by coefficients of atom-centred or plane-wave functions. Accuracy is then improved by making the grid finer, which is a single adjustable control. It parallelises well, because each point depends mostly on its neighbours. (UNVERIFIED)" []
 is_a: MOLSIM:000432 ! quantum mechanics basis set
 
 [Term]
@@ -4441,7 +4477,7 @@ name: empirical dispersion correction
 def: "A correction added to a quantum chemistry calculation to supply the weak long-range attraction that most density functionals omit. The functionals fail here because the attraction arises from correlated fluctuations they do not describe. The correction is a fitted term depending on the atoms and their separation, and it is what makes density functional theory usable for stacking and binding. (UNVERIFIED)" []
 synonym: "D3 dispersion model" EXACT []
 synonym: "grimme dispersion correction" EXACT []
-is_a: MOLSIM:001463 ! QM/MM model component
+is_a: MOLSIM:001728 ! quantum mechanics algorithm
 
 [Term]
 id: MOLSIM:000642
@@ -4458,7 +4494,7 @@ is_a: MOLSIM:000374 ! force field parameterization modeling
 
 [Term]
 id: MOLSIM:000644
-name: HF/6-31G RESP
+name: HF/6-31G* RESP
 def: "A protocol for deriving atomic charges in which the electrostatic potential is computed at the Hartree-Fock level with the 6-31G* basis set, then point charges are fitted to it with a restraint pulling buried charges towards zero. That combination is not the most accurate available; it is used because it systematically overestimates polarity by about the amount a simulation in fixed-charge water requires. It is the convention behind many AMBER force fields, including the general AMBER force fields, so charges for a new molecule used with them are usually derived the same way. (UNVERIFIED)" []
 is_a: MOLSIM:000204 ! ligand charge model
 
@@ -4515,8 +4551,9 @@ is_a: MOLSIM:000917 ! structural analysis
 [Term]
 id: MOLSIM:000653
 name: polar decomposition analysis
-def: "A structural analysis method that separates the change in shape of a group of atoms between 2 conformations into a pure rotation and an internal deformation. It does this by factorising the matrix that maps one set of coordinates onto the other. It answers whether a domain has turned as a rigid body or genuinely changed shape. (UNVERIFIED)" []
+def: "A thermodynamics analysis that splits the solvation free energy computed with the 3D reference interaction site model (3D-RISM) into a polar part and a non-polar part. The non-polar part comes from a second solution of the same equations with all solute charges set to 0, and the polar part is the rest. It shows how much of the solvation free energy comes from the electrostatic response of the solvent, and it needs about 80% more computing time. (UNVERIFIED)" []
 is_a: MOLSIM:000610 ! thermodynamics analysis
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 126 and p. 148, 3D-RISM option polarDecomp." xsd:string
 
 [Term]
 id: MOLSIM:000654
@@ -4714,8 +4751,9 @@ is_a: MOLSIM:000917 ! structural analysis
 [Term]
 id: MOLSIM:000684
 name: atom remapping analysis
-def: "An atom remapping method is a procedure used to systematically change the properties of atoms in a topology file, such as their atom types or charges. This is often required when converting a system from one force field to another or when applying specific corrections. For experts, this is an advanced manipulation used in force field development or for setting up non-standard simulations. (UNVERIFIED)" []
+def: "A system setup procedure that reorders the atoms of a structure or topology so that they match the order of a reference structure, using a map from each reference atom to the matching target atom. The map can be found automatically by comparing the structures of the 2 molecules, as the cpptraj command atommap does, or supplied as data to the cpptraj command remap. It is needed when 2 files describe the same molecule with different atom names or a different atom order. (UNVERIFIED)" []
 is_a: MOLSIM:000328 ! system setup modeling
+property_value: IAO:0000119 "CPPTRAJ Manual, p. 116, command atommap, and p. 204 to 205, command remap." xsd:string
 
 [Term]
 id: MOLSIM:000685
@@ -5022,6 +5060,7 @@ id: MOLSIM:000740
 name: AMBER AMOEBA
 def: "A set of ion parameters for the AMOEBA polarizable force field as distributed with the AMBER suite. Because AMOEBA represents charge with atomic multipoles and explicit induced dipoles rather than fixed point charges, ions need parameters fitted for that form. Parameters from a fixed-charge force field cannot be used with it. (UNVERIFIED)" []
 is_a: MOLSIM:000015 ! ion force field
+is_a: MOLSIM:000639 ! polarizable force field
 disjoint_from: MOLSIM:001472 ! bonded metal model
 
 [Term]
@@ -5065,14 +5104,14 @@ is_a: MOLSIM:000009 ! protein force field
 [Term]
 id: MOLSIM:000747
 name: AMBER ff99 phi
-def: "A protein force field, introduced by Sorin and Pande in 2005, that changes the backbone phi torsion terms of AMBER ff99 to reduce its overly strong preference for helical structure. It was developed to study how helical peptides fold, and it agreed better than ff99 with measured folding rates and stabilities. (UNVERIFIED)" []
+def: "A protein force field, introduced by Sorin and Pande in 2005, that replaces the backbone phi torsion term of AMBER ff99 with the original one of ff94, because ff99 gives too little helical structure. It was developed to study how helical peptides fold, and it showed improved agreement with measured kinetic and thermodynamic data. (UNVERIFIED)" []
 is_a: MOLSIM:000009 ! protein force field
 
 [Term]
 id: MOLSIM:000748
 name: AMBER ff99bsc0
 def: "A force field for nucleic acids, built on the AMBER ff99 parameter set with the alpha and gamma backbone dihedral terms refit by the Barcelona group. The refit removed the build-up of non-native gamma trans backbone geometries that made DNA simulations degrade on the 50 to 100 nanosecond timescale. It became the base of later AMBER DNA and RNA force fields, such as OL15 and OL3. (UNVERIFIED)" []
-is_a: MOLSIM:000009 ! protein force field
+is_a: MOLSIM:001445 ! nucleic acid force field
 
 [Term]
 id: MOLSIM:000749
@@ -5162,7 +5201,7 @@ is_a: MOLSIM:000009 ! protein force field
 [Term]
 id: MOLSIM:000763
 name: TIP4P
-def: "A rigid water model with 4 sites, the fourth being a massless point near the oxygen, on the bisector of the H-O-H angle, carrying that atom's negative charge. Moving the negative charge off the oxygen towards the hydrogens gives a better electrostatic field around the molecule. It costs more than a 3-site model and reproduces properties such as the dielectric constant and the temperature of maximum density better than TIP3P. (UNVERIFIED)" []
+def: "A rigid water model with 4 sites, the fourth being a massless point near the oxygen, on the bisector of the H-O-H angle, carrying that atom's negative charge. Moving the negative charge off the oxygen towards the hydrogens gives a better electrostatic field around the molecule. It costs more than a 3-site model and reproduces the temperature of maximum density better than TIP3P, although its dielectric constant is further from the measured value. (UNVERIFIED)" []
 is_a: MOLSIM:000014 ! water model force field
 
 [Term]
@@ -5192,7 +5231,7 @@ is_a: MOLSIM:000014 ! water model force field
 [Term]
 id: MOLSIM:000768
 name: TIP6P
-def: "A rigid water model with 6 sites, carrying charges on all 3 atoms, on 2 lone-pair points and on a further point near the oxygen. The extra sites refine the electrostatic field further still. Its cost restricts it to studies of water itself rather than of biomolecules in water. (UNVERIFIED)" []
+def: "A rigid water model with 6 sites: the oxygen and 2 hydrogen atoms, 2 lone-pair points, and a further point near the oxygen on the bisector of the H-O-H angle, combining the extra sites of 4-site and 5-site models. It was designed by Nada and van der Eerden in 2003 to simulate ice and liquid water near the melting point, and it gives a melting point of ordinary ice close to the measured one. The extra sites refine the electrostatic field around the molecule at a higher computing cost. (UNVERIFIED)" []
 is_a: MOLSIM:000014 ! water model force field
 
 [Term]
@@ -5377,14 +5416,15 @@ is_a: MOLSIM:000049 ! constraint algorithm
 [Term]
 id: MOLSIM:000798
 name: SHAPE algorithm
-def: "A constraint algorithm that extends the SHAKE approach to rigid bodies of 3 or more atoms, correcting their positions after an unconstrained step by a rotation of each rigid body as a whole. It gives the same trajectory as fully converged SHAKE, but is more efficient and more accurate for groups of 3 or more atoms. It is used to keep rigid molecules or rigid fragments at their fixed geometry during a simulation. (UNVERIFIED)" []
+def: "A constraint algorithm that keeps a group of atoms rigid by correcting their positions after each unconstrained step with a rotation of the group as a whole, found iteratively, instead of with the Lagrange multipliers that SHAKE uses. Its accuracy is comparable to that of SHAKE, and it also handles large linear and planar rigid groups, where SHAKE is hard to apply. It is used to keep rigid molecules or rigid fragments at their fixed geometry during a simulation. (UNVERIFIED)" []
 is_a: MOLSIM:000049 ! constraint algorithm
 
 [Term]
 id: MOLSIM:000799
 name: WIGGLE algorithm
-def: "A constraint algorithm that holds bond lengths fixed while using information about the atoms' velocities as well as their positions to converge faster. Holding bonds fixed removes the fastest vibrations from a system, which is what allows a longer timestep. It is an extension of the SHAKE approach rather than a separate idea. (UNVERIFIED)" []
+def: "A constraint algorithm that, at each time step, uses the constrained accelerations obtained from adjusting the velocities to satisfy the constraints, rather than the unconstrained accelerations that SHAKE and RATTLE use, to place the atoms for the next step. Its constrained values come out about an order of magnitude closer to the target values than with RATTLE, at almost the same cost. Holding fast internal coordinates such as bond lengths fixed removes the fastest vibrations, which allows a time step about 4 times longer. (UNVERIFIED)" []
 is_a: MOLSIM:000049 ! constraint algorithm
+property_value: IAO:0000119 "Lee S.-H., Palmo K. and Krimm S. WIGGLE: A new constrained molecular dynamics algorithm in Cartesian coordinates. J. Comput. Phys. 210, 171-182 (2005). doi:10.1016/j.jcp.2005.04.006" xsd:string
 
 [Term]
 id: MOLSIM:000800
@@ -5441,13 +5481,13 @@ disjoint_from: MOLSIM:000808 ! CNDO/2
 id: MOLSIM:000808
 name: CNDO/2
 def: "A semi-empirical all-valence-electron method, in its second parameterisation, that neglects the differential overlap, the product of 2 different atomic orbitals, in the electron repulsion integrals even when both orbitals are on the same atom. The severity of that approximation makes it very fast and correspondingly crude. It is of historical interest rather than in current use. (UNVERIFIED)" []
-is_a: MOLSIM:000817 ! NDDO
+is_a: MOLSIM:000803 ! semi-empirical method
 
 [Term]
 id: MOLSIM:000809
 name: INDO
 def: "A semi-empirical all-valence-electron method that keeps the 1-centre exchange integrals between different orbitals on the same atom, which the earlier complete neglect (CNDO) scheme discards. Keeping them is what lets it describe electron spin distributions and the properties that depend on them. It is the level the MINDO and SINDO families refine. (UNVERIFIED)" []
-is_a: MOLSIM:000817 ! NDDO
+is_a: MOLSIM:000803 ! semi-empirical method
 
 [Term]
 id: MOLSIM:000810
@@ -5469,11 +5509,11 @@ id: MOLSIM:000813
 name: self-consistent field
 def: "An iterative computational procedure that solves for a set of molecular orbitals by repeatedly recomputing the average field each electron feels from all the others until the orbitals stop changing. It is how the Hartree-Fock equations, and those of density functional theory, are solved in practice. A calculation that fails to reach that fixed point is said not to have converged. (UNVERIFIED)" []
 synonym: "SCF" EXACT []
-is_a: MOLSIM:000810 ! Hartree-Fock
+is_a: MOLSIM:001728 ! quantum mechanics algorithm
 
 [Term]
 id: MOLSIM:000814
-name: Unrestricted Hartree-Fock
+name: unrestricted Hartree-Fock
 def: "A Hartree-Fock method that lets electrons of opposite spin occupy different spatial orbitals. The extra freedom describes unpaired electrons better than forcing paired orbitals does. The price is that the resulting wavefunction is not an eigenfunction of total spin, so it can be contaminated by states of higher multiplicity. (UNVERIFIED)" []
 synonym: "UHF" EXACT []
 is_a: MOLSIM:000810 ! Hartree-Fock
@@ -5547,9 +5587,9 @@ is_a: MOLSIM:000807 ! AM1
 
 [Term]
 id: MOLSIM:000826
-name: ZANDO
-def: "An all-valence-electron semi-empirical method likely based on the INDO or NDDO approximation schemes, developed by Zhidomirov and coworkers. It represents one of the many variations within the semi-empirical framework, likely with specific parameterizations or modifications to the integral approximations aimed at particular applications or accuracy improvements. Note: This method is less common than MNDO/AM1/PMx variants, and specific details might require consulting specialized literature. (UNVERIFIED)" []
-is_a: MOLSIM:000817 ! NDDO
+name: ZINDO
+def: "A semi-empirical all-valence-electron method, developed by Zerner and coworkers, that is based on the intermediate neglect of differential overlap (INDO) approximation and has parameters for transition metals. Its spectroscopic form, ZINDO/S, is fitted to electronic excitation energies and is used with configuration interaction to calculate UV-visible spectra. Its other form, ZINDO/1, is meant for ground-state geometries and energies. (UNVERIFIED)" []
+is_a: MOLSIM:000809 ! INDO
 
 [Term]
 id: MOLSIM:000827
@@ -5718,7 +5758,7 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 id: MOLSIM:000850
 name: markov chain model
 def: "A statistical model of a system that moves between discrete states, in which the next state depends only on the current one and not on how the system arrived there. That assumption is what makes long-timescale behaviour computable from short observations. It holds only if the states are chosen so that everything relevant about the past is captured by which state the system is in. (UNVERIFIED)" []
-is_a: MOLSIM:000845 ! enhanced sampling
+is_a: MOLSIM:000006 ! model
 
 [Term]
 id: MOLSIM:000851
@@ -5743,16 +5783,18 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
 id: MOLSIM:000854
-name: multi-state bennett acceptance ratio
-def: "A free energy analysis method that combines data from simulations run at many thermodynamic states at once, and returns the free energy difference between any pair of them together with equilibrium averages. It uses every sample from every state rather than only neighbouring pairs, which is what makes it statistically optimal. It generalises the 2-state Bennett acceptance ratio. (UNVERIFIED)" []
-is_a: MOLSIM:000845 ! enhanced sampling
+name: obsolete multi-state bennett acceptance ratio
+def: "OBSOLETE. A free energy analysis method that combines data from simulations run at many thermodynamic states at once, and returns the free energy difference between any pair of them together with equilibrium averages. It uses every sample from every state rather than only neighbouring pairs, which is what makes it statistically optimal. It generalises the 2-state Bennett acceptance ratio." []
+comment: Retired 2026-11-13. It duplicated MOLSIM:000302 multi-state Bennett acceptance ratio analysis, which had the same definition word for word and already carries the synonym MBAR. This term sat under enhanced sampling, which was wrong: MBAR analyses data that simulations have already produced and does not sample.
+is_obsolete: true
+replaced_by: MOLSIM:000302
 
 [Term]
 id: MOLSIM:000855
 name: neural network
 def: "A machine learning model built from layers of simple units, each combining its inputs and passing the result on, whose connection strengths are adjusted to fit training data. Given enough units it can represent almost any relationship, which is why it is used where no formula is known. In this field it is used to predict energies and forces, and to find useful coordinates automatically. (UNVERIFIED)" []
 synonym: "neural networks" EXACT []
-is_a: MOLSIM:000845 ! enhanced sampling
+is_a: MOLSIM:000006 ! model
 
 [Term]
 id: MOLSIM:000856
@@ -5818,7 +5860,7 @@ name: transition state ensemble
 def: "The Transition State Ensemble (TSE) refers to the collection of molecular configurations that lie at the top of the highest free energy barrier separating the reactant and product states of a process, such as protein folding or a chemical reaction. Structures within the TSE are equally likely to proceed forward to the product state or revert back to the reactant state (i.e., they have a committor probability of 0.5). Characterizing the structural features of the TSE is key to understanding the mechanism of the transition." []
 synonym: "transition state ensembles" EXACT []
 synonym: "TSE" EXACT []
-is_a: MOLSIM:000845 ! enhanced sampling
+is_a: MOLSIM:002255 ! molecular state
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -5992,8 +6034,8 @@ is_a: MOLSIM:000441 ! simulation state format
 
 [Term]
 id: MOLSIM:000891
-name: GAUSSIAN restart format
-def: "A binary data format, written with the extension .chk, in which Gaussian stores the state of a calculation so that a later job can continue from it. It holds the geometry, the wavefunction and Hessian information that a later job can read back. (UNVERIFIED)" []
+name: GAUSSIAN rwf format
+def: "A binary data format, written with the extension .rwf, in which Gaussian keeps the large intermediate data of a running calculation. If the file is named and saved, a job that stopped early can be continued from it with the Restart keyword, for example an analytic frequency calculation. It is usually far larger than the checkpoint file, so it is normally kept on a local scratch disk. (UNVERIFIED)" []
 is_a: MOLSIM:000441 ! simulation state format
 
 [Term]
@@ -6282,15 +6324,16 @@ property_value: IAO:0000117 orcid:0000-0002-8291-8071
 [Term]
 id: MOLSIM:000942
 name: time cross correlation analysis
-def: "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and near zero means they are independent. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)" []
+def: "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and a value near zero means there is no linear relationship between them at that delay. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)" []
 is_a: MOLSIM:000342 ! correlation analysis
 
 [Term]
 id: MOLSIM:000943
 name: RMSD correlation analysis
-def: "A dynamics analysis method that measures how the displacement of each atom or residue from its average position relates to that of every other, over the course of a simulation. A strongly positive value means 2 sites move in the same direction, a negative value means they move in opposite directions. The result is usually drawn as a dynamic cross-correlation map, which shows which parts of a molecule move as one. (UNVERIFIED)" []
+def: "A correlation analysis that computes the RMS average correlation of a trajectory: the average RMSD to a reference structure of coordinates first averaged over a running window of frames, calculated for a series of increasing window sizes. The first value, for a window of 1 frame, is the plain average RMSD of all frames, and longer windows average away faster motions. The resulting curve shows on which time scales the structure still changes. (UNVERIFIED)" []
 comment: is it synonymous as "atomic correlation analysis"?
 is_a: MOLSIM:000342 ! correlation analysis
+property_value: IAO:0000119 "CPPTRAJ Manual, p. 281, section 13.32 rmsavgcorr." xsd:string
 
 [Term]
 id: MOLSIM:000944
@@ -6345,15 +6388,19 @@ is_a: MOLSIM:000950 ! energy analysis
 
 [Term]
 id: MOLSIM:000952
-name: MM-PBSA analysis
-def: "An effective energy analysis that estimates the binding free energy of a molecular complex by combining molecular mechanics energies from simulation snapshots with a Poisson-Boltzmann calculation of the electrostatic solvation energy and a surface area term for the nonpolar solvation energy. The energies are averaged over many snapshots of the complex and of its separated parts. Solute entropy is not captured by this averaging and, when wanted, is estimated separately, for example by normal mode analysis. (UNVERIFIED)" []
-is_a: MOLSIM:010025 ! effective energy analysis
+name: obsolete MM-PBSA analysis
+def: "OBSOLETE. An effective energy analysis that estimates the binding free energy of a molecular complex by combining molecular mechanics energies from simulation snapshots with a Poisson-Boltzmann calculation of the electrostatic solvation energy and a surface area term for the nonpolar solvation energy. The energies are averaged over many snapshots of the complex and of its separated parts. Solute entropy is not captured by this averaging and, when wanted, is estimated separately, for example by normal mode analysis." []
+comment: Retired 2026-11-13. It duplicated MOLSIM:000262 molecular mechanics Poisson Boltzmann surface area analysis, the same method filed under endpoint free energy analysis. Its label is kept as an exact synonym on MOLSIM:000262.
+is_obsolete: true
+replaced_by: MOLSIM:000262
 
 [Term]
 id: MOLSIM:000953
-name: MM-GBSA analysis
-def: "An effective energy analysis that estimates binding free energies by combining molecular mechanics energies with a generalized Born model for the electrostatic part of the solvation free energy and a surface area term for the nonpolar part. The generalized Born model approximates the Poisson-Boltzmann equation at lower cost, which makes the method suited to large numbers of calculations such as virtual screening. In other respects it is the same as the Poisson-Boltzmann variant, MM-PBSA. (UNVERIFIED)" []
-is_a: MOLSIM:010025 ! effective energy analysis
+name: obsolete MM-GBSA analysis
+def: "OBSOLETE. An effective energy analysis that estimates binding free energies by combining molecular mechanics energies with a generalized Born model for the electrostatic part of the solvation free energy and a surface area term for the nonpolar part. The generalized Born model approximates the Poisson-Boltzmann equation at lower cost, which makes the method suited to large numbers of calculations such as virtual screening. In other respects it is the same as the Poisson-Boltzmann variant, MM-PBSA." []
+comment: Retired 2026-11-13. It duplicated MOLSIM:000263 molecular mechanics generalized Born surface area analysis, the same method filed under endpoint free energy analysis. Its label is kept as an exact synonym on MOLSIM:000263.
+is_obsolete: true
+replaced_by: MOLSIM:000263
 
 [Term]
 id: MOLSIM:000954
@@ -6508,20 +6555,23 @@ is_a: MOLSIM:001008 ! spectroscopy
 
 [Term]
 id: MOLSIM:001010
-name: infrared spectra
-def: "A spectrum recording how strongly a sample absorbs infrared light across a range of frequencies. Absorption occurs where the frequency matches a molecular vibration that changes the molecule's dipole, so the positions of the bands identify chemical groups. Its band positions can be compared with vibrational frequencies computed by quantum chemical or force field methods. (UNVERIFIED)" []
+name: infrared spectroscopy
+def: "A vibrational spectroscopy technique that measures how strongly a sample absorbs infrared light across a range of frequencies. Absorption occurs where the frequency matches a molecular vibration that changes the molecule's dipole, so the positions of the bands identify chemical groups. The measured band positions can be compared with vibrational frequencies computed by quantum chemical or force field methods. (UNVERIFIED)" []
+synonym: "infrared spectra" RELATED []
 is_a: MOLSIM:001009 ! vibrational spectroscopy
 
 [Term]
 id: MOLSIM:001011
-name: raman spectra
-def: "A spectrum recording the small shift in frequency of light scattered by a sample, which reveals the vibrations that took or gave energy to the photons. It detects vibrations that change the molecule's polarizability, while infrared absorption detects those that change its dipole, so the 2 methods often show different bands. They are therefore complementary rather than alternatives. (UNVERIFIED)" []
+name: Raman spectroscopy
+def: "A vibrational spectroscopy technique that measures the small shift in frequency of light scattered by a sample, which reveals the vibrations that took or gave energy to the photons. It detects vibrations that change the molecule's polarizability, while infrared absorption detects those that change its dipole, so the 2 techniques often show different bands. They are therefore complementary rather than alternatives. (UNVERIFIED)" []
+synonym: "raman spectra" RELATED []
 is_a: MOLSIM:001009 ! vibrational spectroscopy
 
 [Term]
 id: MOLSIM:001012
-name: pre-resonance raman spectra
-def: "A spectrum recorded with the illuminating light tuned close to, but not at, an electronic absorption band of the sample. Approaching an absorption greatly enhances the scattering from vibrations connected with it, so a chosen part of a large molecule dominates the spectrum. It is used to study a selected site, such as the active site of a complex biomolecule. (UNVERIFIED)" []
+name: pre-resonance Raman spectroscopy
+def: "A vibrational spectroscopy technique, a form of Raman spectroscopy, in which the illuminating light is tuned close to, but not at, an electronic absorption band of the sample. Approaching an absorption greatly enhances the scattering from vibrations connected with it, so a chosen part of a large molecule dominates the spectrum. It is used to study a selected site, such as the active site of a complex biomolecule. (UNVERIFIED)" []
+synonym: "pre-resonance raman spectra" RELATED []
 is_a: MOLSIM:001009 ! vibrational spectroscopy
 
 [Term]
@@ -6538,9 +6588,10 @@ is_a: MOLSIM:001008 ! spectroscopy
 
 [Term]
 id: MOLSIM:001015
-name: UV/visible spectra
-def: "A spectrum recording how strongly a sample absorbs light across the ultraviolet and visible range, as a function of wavelength. Absorption occurs where the photon energy matches a gap between electronic levels, so the positions of the bands report on bonding and conjugation. It is the measurement a computed electronic transition is compared against. (UNVERIFIED)" []
+name: UV/visible spectroscopy
+def: "An electronic spectroscopy technique that measures how strongly a sample absorbs light across the ultraviolet and visible range, as a function of wavelength. Absorption occurs where the photon energy matches a gap between electronic levels, so the positions of the bands report on bonding and conjugation. It is the measurement that a computed electronic transition is compared against. (UNVERIFIED)" []
 synonym: "UV/Vis" EXACT []
+synonym: "UV/visible spectra" RELATED []
 is_a: MOLSIM:001014 ! electronic spectroscopy
 
 [Term]
@@ -6747,7 +6798,7 @@ property_value: IAO:0000117 orcid:0000-0002-2294-5393
 [Term]
 id: MOLSIM:001053
 name: CHARMM cor format
-def: "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule. It is a binary, unformatted version of the CHARMM coordinate file, making it more compact and faster to read than its text-based counterpart. This format is often used for saving and reading structures within CHARMM workflows. (UNVERIFIED)" []
+def: "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule as text. It is the formatted version of the CHARMM coordinate file, with 1 line per atom, and an extended layout with wider columns is used for very large systems. CHARMM itself usually names these files with the extension .crd, while some other programs use .cor. (UNVERIFIED)" []
 is_a: MOLSIM:000921 ! crd format
 
 [Term]
@@ -6933,7 +6984,7 @@ is_a: MOLSIM:001091 ! molecular topology format
 [Term]
 id: MOLSIM:001078
 name: rtf format
-def: "A data format used by CHARMM that defines a reusable template for one chemical building block, such as an amino acid or a nucleotide. It gives the atoms in that block, their types and charges, the bonds between them, and their standard geometry. A topology for a whole molecule is assembled by joining these templates in sequence. (UNVERIFIED)" []
+def: "A data format used by CHARMM that defines reusable templates for chemical building blocks, such as amino acids or nucleotides, usually many in 1 file together with the list of atom types and patches that modify the templates. For each block it gives the atoms, their types and charges, the bonds between them, and their standard geometry. A topology for a whole molecule is assembled by joining these templates in sequence. (UNVERIFIED)" []
 synonym: "residue topology file (RTF) format" EXACT []
 is_a: MOLSIM:001091 ! molecular topology format
 
@@ -7063,8 +7114,9 @@ is_a: MOLSIM:001088 ! molecular structure format
 [Term]
 id: MOLSIM:001097
 name: job control format
-def: "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical or experimental reference data. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)" []
+def: "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical reference energies or forces. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)" []
 is_a: MOLSIM:000437 ! simulation input format
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 339 to 341, chapter 17 paramfit, section 17.2 The Job Control File." xsd:string
 
 [Term]
 id: MOLSIM:001098
@@ -7174,7 +7226,7 @@ is_a: MOLSIM:010021 ! solvent analysis format
 id: MOLSIM:001114
 name: site-site functionals format
 def: "A text data format in which a 1D-RISM calculation writes how a property of the bulk solvent, such as the pair distribution, the direct correlation or the site-site potential, varies with distance for every pair of solvent sites. After a few header lines starting with #, each line gives a separation followed by the value for each site pair. The susceptibility file that 3D-RISM reads is written in a different format. (UNVERIFIED)" []
-is_a: MOLSIM:010022 ! quantum chemistry format
+is_a: MOLSIM:001106 ! solvent analysis data format
 
 [Term]
 id: MOLSIM:001115
@@ -7264,14 +7316,15 @@ is_a: MOLSIM:001165 ! integration parameter
 id: MOLSIM:001170
 name: minimization drms criterion
 def: "A minimization convergence criterion based on the root-mean-square of the energy gradient, which measures how large the forces on the atoms are. The minimization stops when this root-mean-square value falls below the chosen threshold. It is a common way to define when a minimization has converged. (UNVERIFIED)" []
-is_a: MOLSIM:001169 ! minimization convergence criteria
+is_a: MOLSIM:001171 ! minimization gradient tolerance
 property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 434, entry drms." xsd:string
 
 [Term]
 id: MOLSIM:001171
 name: minimization gradient tolerance
-def: "A minimization convergence criterion giving the threshold on the energy gradient below which an energy minimization is stopped. A smaller value makes the geometry optimization stricter and needs more steps. (UNVERIFIED)" []
+def: "A minimization convergence criterion giving the threshold on the energy gradient below which an energy minimization is stopped. Programs measure the gradient in different ways, for example as its root-mean-square in AMBER (drms) or as the largest force on any atom in GROMACS (emtol). A smaller value makes the minimization stricter and needs more steps. (UNVERIFIED)" []
 is_a: MOLSIM:001169 ! minimization convergence criteria
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 434, entry drms; GROMACS 2026.3 Reference Manual, p. 47, entry emtol." xsd:string
 
 [Term]
 id: MOLSIM:001172
@@ -7338,6 +7391,7 @@ id: MOLSIM:001181
 name: target pressure
 def: "A pressure control parameter that specifies the pressure at which a constant-pressure simulation is to be held. The barostat changes the volume of the simulation box so that the instantaneous pressure fluctuates around this value. It is used only in constant-pressure simulations. (UNVERIFIED)" []
 is_a: MOLSIM:001179 ! pressure control parameter
+relationship: IAO:0000039 UO:0000109 {all_only="true"} ! has measurement unit label pressure unit
 property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 438, entry pres0." xsd:string
 
 [Term]
@@ -7371,8 +7425,9 @@ is_a: MOLSIM:001184 ! interaction parameter
 [Term]
 id: MOLSIM:001186
 name: non-bonded method parameter
-def: "A non-bonded interaction parameter naming how interactions are handled at the cutoff distance, such as truncating them sharply, shifting them so that they reach zero at the cutoff, or smoothly switching them to zero over a range. A sharp truncation makes the energy and the force change abruptly when a pair of atoms crosses the cutoff, which harms energy conservation. The choice therefore affects the stability of a simulation as well as its accuracy. (UNVERIFIED)" []
+def: "A non-bonded interaction parameter naming how long-range non-bonded interactions are treated: with no cutoff, with a cutoff and a reaction field beyond it, or with Ewald summation, particle mesh Ewald (PME), or PME for both the electrostatic and the Lennard-Jones interactions. In OpenMM this is the setting nonbondedMethod, and every choice except no cutoff also needs a cutoff distance. The choice decides both the accuracy of the long-range forces and the cost of computing them. (UNVERIFIED)" []
 is_a: MOLSIM:001185 ! non-bonded interaction parameter
+property_value: IAO:0000119 "OpenMM User Guide, section 3.7.5 Nonbonded Interactions, parameter nonbondedMethod." xsd:string
 
 [Term]
 id: MOLSIM:001187
@@ -8497,9 +8552,8 @@ property_value: IAO:0000117 orcid:0000-0002-7544-0938
 [Term]
 id: MOLSIM:001351
 name: chirality
-def: "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A force field cannot change one into the other, so an error here persists through an entire simulation unnoticed. (UNVERIFIED)" []
+def: "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A simulation at ordinary temperature almost never changes one into the other, so an error in the starting structure usually persists unnoticed, although a simulation at high temperature can invert a centre. (UNVERIFIED)" []
 is_a: MOLSIM:001333 ! structural property
-relationship: IAO:0000039 UO:0000186 {all_only="true"} ! has measurement unit label dimensionless unit
 
 [Term]
 id: MOLSIM:001352
@@ -8777,21 +8831,22 @@ relationship: IAO:0000039 UO:0000186 {all_only="true"} ! has measurement unit la
 
 [Term]
 id: MOLSIM:001388
-name: charge distribution descriptor
+name: group charge
 def: "An electronic property giving the total charge of a chosen group of atoms rather than of a single one. Grouping is more robust than per-atom charges, because the arbitrariness of dividing charge between neighbouring atoms partly cancels. It is used to state the charge of a quantum region or of a functional group. (UNVERIFIED)" []
+synonym: "charge distribution descriptor" RELATED []
 is_a: MOLSIM:001375 ! electronic property
 
 [Term]
 id: MOLSIM:001389
 name: core region charge
 def: "A charge distribution descriptor giving the net charge of the core region in an adaptive QM/MM calculation, the atoms that are treated with quantum mechanics throughout the simulation. It is given as a whole number, because the quantum calculation needs the total charge of the atoms it treats. (UNVERIFIED)" []
-is_a: MOLSIM:001388 ! charge distribution descriptor
+is_a: MOLSIM:001388 ! group charge
 
 [Term]
 id: MOLSIM:001390
 name: buffer region charge
 def: "A charge distribution descriptor giving the net charge of the buffer region in an adaptive buffered force-mixing QM/MM calculation, the shell of atoms around the atoms that move with quantum mechanical forces. Buffer atoms are included in the larger quantum calculation so that the atoms inside get accurate forces, but their own forces from that calculation are discarded. Their net charge is given as a whole number, because the quantum calculation needs the total charge of the atoms it treats. (UNVERIFIED)" []
-is_a: MOLSIM:001388 ! charge distribution descriptor
+is_a: MOLSIM:001388 ! group charge
 
 [Term]
 id: MOLSIM:001391
@@ -9114,7 +9169,7 @@ is_a: MOLSIM:000204 ! ligand charge model
 [Term]
 id: MOLSIM:001436
 name: CM2 charge model
-def: "A charge model refining the earlier CM1 scheme with corrections fitted against a larger set of measured dipole moments and covering more elements. The functional form is unchanged; the fitting set and the coverage are wider. It is used where semi-empirical charges are wanted quickly and reliably. (UNVERIFIED)" []
+def: "A charge model that maps the Löwdin atomic charges from a semi-empirical, Hartree-Fock or density functional calculation onto corrected charges, using terms that depend on the bond orders between atoms and are fitted to measured dipole moments. It follows the earlier CM1 scheme, with a different mapping and a larger fitting set. It is used where good charges are wanted from a quick calculation. (UNVERIFIED)" []
 is_a: MOLSIM:000204 ! ligand charge model
 
 [Term]
@@ -9125,9 +9180,12 @@ is_a: MOLSIM:000204 ! ligand charge model
 
 [Term]
 id: MOLSIM:001438
-name: iterative polarizable charge model
-def: "A charge model in which atomic charges are recomputed in response to the surrounding electric field, and the calculation repeated until they stop changing. Each atom's charge affects the field its neighbours feel, so they cannot be solved one at a time. It is one of the ways a polarizable force field represents the response of the electron cloud. (UNVERIFIED)" []
+name: implicitly polarized charge model
+def: "A ligand charge model that derives fixed partial charges including the average polarization of a molecule in water, by fitting them to the mean of 2 electrostatic potentials: one from a quantum calculation in vacuum and one from a quantum calculation in the time-averaged field of the surrounding solvent. The solvent field is collected from a simulation with the molecule held fixed, and the AMBER program mdgx automates the procedure. It is the charge model of the AMBER ff14ipq and ff15ipq protein force fields, whose parameters were refined over several rounds. (UNVERIFIED)" []
+synonym: "IPolQ" EXACT []
+synonym: "iterative polarizable charge model" RELATED []
 is_a: MOLSIM:000204 ! ligand charge model
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 37, ff15ipq and the IPolQ charge derivation, and p. 352 to 353, section 18.4 Implicitly Polarized Charge Development." xsd:string
 
 [Term]
 id: MOLSIM:001439
@@ -9493,7 +9551,7 @@ is_a: MOLSIM:001494 ! crystallographic model component
 id: MOLSIM:001496
 name: solvation shell
 def: "A solvation shell refers to the layer of solvent molecules that are in direct contact with or in the immediate vicinity of a solute molecule. These solvent molecules are often more ordered and have different dynamic properties compared to the bulk solvent further away. Usually, analyzing the structure and dynamics of the first and second solvation shells is crucial for understanding the details of solute-solvent interactions." []
-is_a: MOLSIM:000065 ! solvation model
+is_a: MOLSIM:002090 ! molecular structural component
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -9541,15 +9599,17 @@ is_a: MOLSIM:001499 ! force field parameter set
 
 [Term]
 id: MOLSIM:001504
-name: basis set
-def: "A collection of mathematical functions combined to represent the shape of each electron orbital in a quantum chemistry calculation. The true orbitals cannot be written down, so they are built up from a finite set of simpler functions instead. The choice of these functions, together with the quantum method, largely sets both the accuracy and the cost of a calculation. (UNVERIFIED)" []
-is_a: MOLSIM:001463 ! QM/MM model component
+name: obsolete basis set
+def: "OBSOLETE. A collection of mathematical functions combined to represent the shape of each electron orbital in a quantum chemistry calculation. The true orbitals cannot be written down, so they are built up from a finite set of simpler functions instead. The choice of these functions, together with the quantum method, largely sets both the accuracy and the cost of a calculation." []
+comment: Retired 2026-11-13. It duplicated MOLSIM:000432 quantum mechanics basis set in a second branch, under QM/MM model component. Its only child, MOLSIM:001505 auxiliary basis set, was moved under MOLSIM:000432 first.
+is_obsolete: true
+replaced_by: MOLSIM:000432
 
 [Term]
 id: MOLSIM:001505
 name: auxiliary basis set
 def: "A set of mathematical functions used to approximate products of orbital basis functions, rather than the orbitals themselves, so that electron repulsion integrals can be computed more cheaply. It is what makes density fitting and resolution-of-identity methods fast. It must be matched to the orbital basis set it is paired with, or the speed-up costs accuracy. (UNVERIFIED)" []
-is_a: MOLSIM:001504 ! basis set
+is_a: MOLSIM:000432 ! quantum mechanics basis set
 
 [Term]
 id: MOLSIM:001506
@@ -9586,7 +9646,7 @@ is_a: MOLSIM:001478 ! generalized Born implicit solvent model
 id: MOLSIM:001511
 name: SYBYL atom type
 def: "A label classifying an atom by its element and its local bonding environment, in the scheme used by the SYBYL software and by the Mol2 file format. For instance, C.ar marks an aromatic carbon and C.2 a carbon with a double bond. Many modelling tools read these types from Mol2 files, for example when preparing a small molecule for docking or charge calculation. (UNVERIFIED)" []
-is_a: MOLSIM:000331 ! force field component
+is_a: MOLSIM:001763 ! atom type
 
 [Term]
 id: MOLSIM:001512
@@ -9605,7 +9665,7 @@ is_a: MOLSIM:001375 ! electronic property
 id: MOLSIM:001514
 name: alignment tensor
 def: "An alignment tensor is a mathematical object that describes the degree and direction of the average orientation of molecules in a sample that is not perfectly random. In an NMR experiment, molecules can be weakly aligned by a magnetic field, and the alignment tensor quantifies this small but measurable preference in orientation. This tensor is crucial for interpreting experimental data like residual dipolar couplings (RDCs), which provide powerful long-range structural information." []
-is_a: MOLSIM:001375 ! electronic property
+is_a: MOLSIM:001333 ! structural property
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -9624,8 +9684,9 @@ is_a: MOLSIM:000068 ! implicit solvent model
 [Term]
 id: MOLSIM:001517
 name: analytical linearized Poisson-Boltzmann model
-def: "A Poisson-Boltzmann model in which the equation is linearized and solved in closed form under simplifying assumptions about geometry. It is far faster than solving the full non-linear equation numerically. It holds only where electrostatic potentials are small, so it is unreliable for highly charged systems. (UNVERIFIED)" []
+def: "A Poisson-Boltzmann model that approximates the electrostatic part of the solvation free energy with a closed-form expression built on the generalized Born function, corrected for the ratio of the solute and solvent dielectric constants and for the overall size of the molecule. The generalized Born model is the special case in which the solvent dielectric constant is infinite, so the correction matters most for less polar solvents. It uses the same effective Born radii as the chosen generalized Born model and adds almost no computational cost. (UNVERIFIED)" []
 is_a: MOLSIM:001516 ! Poisson-Boltzmann model
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 79, section 4.4 ALPB (Analytical Linearized Poisson-Boltzmann)." xsd:string
 
 [Term]
 id: MOLSIM:001518
@@ -9668,7 +9729,7 @@ disjoint_from: MOLSIM:001524 ! closure relation
 id: MOLSIM:001524
 name: closure relation
 def: "An approximate equation relating the 2 unknown correlation functions in an integral equation theory of liquids, so that the system can be solved. Without it there are 2 unknowns and 1 equation. Different choices, such as hypernetted-chain or Kovalenko-Hirata, give measurably different solvation free energies from otherwise identical input. (UNVERIFIED)" []
-is_a: MOLSIM:001535 ! RISM model
+is_a: MOLSIM:001287 ! 3D-RISM parameter
 
 [Term]
 id: MOLSIM:001525
@@ -9697,9 +9758,11 @@ is_a: MOLSIM:000204 ! ligand charge model
 
 [Term]
 id: MOLSIM:001529
-name: RESP permanent multipole charge model
-def: "A charge model that fits a dipole and higher terms on each atom, not only a point charge, to reproduce the electrostatic potential around a molecule. The extra terms capture features a point charge cannot, such as the anisotropy of a lone pair or the positive region on a halogen. It is more accurate and more expensive to use. (UNVERIFIED)" []
+name: RESP permanent dipole charge model
+def: "A ligand charge model, the RESP-perm model of the AMBER program py_resp.py, that fits atomic charges together with permanent atomic dipoles to reproduce the electrostatic potential around a molecule. It is meant for polarizable force fields, in which induced dipoles are added on top of the permanent ones. The permanent dipoles capture directional features that point charges alone cannot, such as the uneven charge around a lone pair. (UNVERIFIED)" []
+synonym: "RESP permanent multipole charge model" RELATED []
 is_a: MOLSIM:000204 ! ligand charge model
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 380, chapter 20 py_resp.py, and p. 382, entry ipermdip." xsd:string
 
 [Term]
 id: MOLSIM:001530
@@ -9712,7 +9775,7 @@ property_value: IAO:0000117 orcid:0000-0002-8291-8071
 id: MOLSIM:001531
 name: united-atom force field
 def: "A force field in which non-polar hydrogens are merged into the heavy atom they are bonded to, so that a methyl group is 1 interaction site. This reduces the number of particles, so a simulation costs less than with an all-atom model. Polar hydrogens are kept as separate sites, because they take part in hydrogen bonds. (UNVERIFIED)" []
-is_a: MOLSIM:000007 ! force field
+is_a: MOLSIM:000735 ! resolution-based force field
 
 [Term]
 id: MOLSIM:001533
@@ -9761,7 +9824,7 @@ is_a: MOLSIM:000803 ! semi-empirical method
 [Term]
 id: MOLSIM:001540
 name: GFN2-xTB
-def: "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without the separate hydrogen bond and halogen bond corrections that the earlier method needed. It is the member of the family in general use. (UNVERIFIED)" []
+def: "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without any separate hydrogen bond or halogen bond correction, so the halogen bond correction of the earlier method is no longer needed. It is the member of the family in general use. (UNVERIFIED)" []
 is_a: MOLSIM:000803 ! semi-empirical method
 
 [Term]
@@ -9809,9 +9872,11 @@ disjoint_from: MOLSIM:001726 ! QM/MM region selection algorithm
 
 [Term]
 id: MOLSIM:001548
-name: RESP permanent virtual site charge model
-def: "A charge model that fits point charges to the electrostatic potential while allowing some of them to sit at fixed positions away from any nucleus. Placing charge off-nucleus reproduces directional features, such as a lone pair, without the cost of higher multipole terms. It is the cheaper alternative to a multipole description. (UNVERIFIED)" []
+name: RESP permanent virtual dipole charge model
+def: "A ligand charge model, the RESP-perm-v model of the AMBER program py_resp.py, that extends the RESP-perm model with extra permanent dipoles along virtual bonds between atoms that are 2 bonds apart. In water, for example, it adds 2 virtual permanent dipoles between the 2 hydrogen atoms. Like RESP-perm, it is fitted to the electrostatic potential and is meant for polarizable force fields. (UNVERIFIED)" []
+synonym: "RESP permanent virtual site charge model" RELATED []
 is_a: MOLSIM:000204 ! ligand charge model
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 383, entry virtual, and p. 387, RESP-perm-v example for water." xsd:string
 
 [Term]
 id: MOLSIM:001549
@@ -9959,8 +10024,9 @@ is_a: MOLSIM:001569 ! utility script
 [Term]
 id: MOLSIM:001571
 name: Onufriev-Bashford-Case radii set
-def: "A set of atomic radii fitted for use with the generalized Born model of the same authors. Radii and generalized Born model are fitted together, so using 1 with a different model degrades both. It is the default radii set for that model in AMBER. (UNVERIFIED)" []
+def: "A radii set chosen to match the generalized Born model of Onufriev, Bashford and Case, which AMBER selects with igb=2 or igb=5. In AMBER the radii recommended for this model are the mbondi2 set, chosen in LEaP with set default PBradii mbondi2, although the bondi set is also accepted for igb=5. A generalized Born model and its radii are tuned together, so using the radii with a different model reduces accuracy. (UNVERIFIED)" []
 is_a: MOLSIM:000272 ! radii set
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 71, Table 4.1 Recommended radii sets for various GB models, and p. 72, entry igb." xsd:string
 
 [Term]
 id: MOLSIM:001572
@@ -10608,7 +10674,7 @@ property_value: IAO:0000117 orcid:0000-0002-8291-8071
 id: MOLSIM:001673
 name: Glycoprotein Builder
 def: "The Glycoprotein Builder is a web-based tool that automates the process of constructing three-dimensional models of glycoproteins. It allows users to start with a protein structure and graphically attach various glycan (sugar chain) structures to specific amino acid residues. For researchers, this tool greatly simplifies the otherwise complex and tedious task of building a complete, simulation-ready model of a glycosylated protein." []
-is_a: MOLSIM:001119 ! database web server
+is_a: MOLSIM:000714 ! tool web server
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
@@ -10628,7 +10694,7 @@ is_a: MOLSIM:001566 ! software library
 id: MOLSIM:001676
 name: MPI
 def: "A standard specifying how parts of a parallel program running on separate machines exchange data by sending messages to one another. Because the machines share no memory, every piece of shared information must be sent explicitly. It is how a single simulation is spread across the nodes of a cluster. (UNVERIFIED)" []
-synonym: "Message Parsing Interface" EXACT []
+synonym: "Message Passing Interface" EXACT []
 is_a: MOLSIM:001562 ! application programming interface
 
 [Term]
@@ -10675,7 +10741,7 @@ property_value: IAO:0000117 orcid:0000-0002-7544-0938
 id: MOLSIM:001683
 name: MBX
 def: "A software library that computes energies and forces from data-driven many-body potentials, MB-pol for water and MB-nrg for ions and small molecules, for use by molecular dynamics programs such as LAMMPS and i-PI. These potentials add explicitly fitted terms for pairs and triples of molecules to a polarizable model that covers the remaining many-body effects. Fitting them to high-level quantum calculations gives close to quantum chemical accuracy from small clusters to liquids. (UNVERIFIED)" []
-is_a: MOLSIM:000160 ! molecular dynamics engine
+is_a: MOLSIM:000170 ! software component
 
 [Term]
 id: MOLSIM:001684
@@ -10793,9 +10859,10 @@ is_a: MOLSIM:000037 ! algorithm
 [Term]
 id: MOLSIM:001701
 name: Marsaglia random number generator algorithm
-def: "A pseudo-random number generator of the family developed by Marsaglia, built from simple shift and multiply operations on a small internal state. The simplicity makes them fast and easy to implement, which is why they appear inside simulation engines. They pass standard statistical tests while using far less state than a long-period generator. (UNVERIFIED)" []
+def: "A random number generator algorithm, the one used by the AMBER programs sander and pmemd, that follows the universal generator of Marsaglia and Zaman: a lagged Fibonacci sequence over a table of 97 stored numbers, combined with a simple arithmetic sequence, gives uniform numbers between 0 and 1. It gives the same sequence on different computers for the same seed. It differs from the xorshift generators that Marsaglia published later, from which the Xoshiro generators descend. (UNVERIFIED)" []
 is_a: MOLSIM:001700 ! random number generator algorithm
 disjoint_from: MOLSIM:001702 ! Mersenne Twister random number generator algorithm
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 772, cpptraj command random, option marsaglia." xsd:string
 
 [Term]
 id: MOLSIM:001702
@@ -10868,8 +10935,9 @@ is_a: MOLSIM:000408 ! energy minimization algorithm
 [Term]
 id: MOLSIM:001713
 name: Hawkins-Cramer-Truhlar radii set
-def: "A set of effective atomic radii fitted for use with the SMx family of implicit solvent models. The radii absorb part of the error of the underlying model, which is why they are specific to it. Substituting a general-purpose set such as Bondi changes the computed solvation energies. (UNVERIFIED)" []
+def: "A radii set chosen to match the generalized Born model of Hawkins, Cramer and Truhlar, which AMBER selects with igb=1. In AMBER the radii recommended for this model are the mbondi set, which is also the default set in LEaP. A generalized Born model and its radii are tuned together, so using the radii with a different model reduces accuracy. (UNVERIFIED)" []
 is_a: MOLSIM:000272 ! radii set
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 71, Table 4.1 Recommended radii sets for various GB models, and p. 72, entry igb." xsd:string
 
 [Term]
 id: MOLSIM:001714
@@ -10953,7 +11021,7 @@ is_a: MOLSIM:001722 ! multiple time-stepping algorithm
 id: MOLSIM:001726
 name: QM/MM region selection algorithm
 def: "An algorithm that decides, during a simulation, which atoms belong in the quantum region at each moment. It is needed when molecules such as solvent move into and out of the region of interest, because a fixed list would keep treating molecules that have left as quantum and miss molecules that have arrived. The difficulty is changing the assignment without a jump in the energy or forces. (UNVERIFIED)" []
-is_a: MOLSIM:001546 ! polarization algorithm
+is_a: MOLSIM:000382 ! simulation control algorithm
 
 [Term]
 id: MOLSIM:001727
@@ -10989,6 +11057,7 @@ is_a: MOLSIM:000038 ! thermostat algorithm
 id: MOLSIM:001732
 name: Bussi thermostat
 def: "A thermostat algorithm that rescales the velocities towards the target temperature by a factor that includes a random part, chosen so that the kinetic energy follows the canonical distribution instead of being driven to a single value. It reaches the target temperature as quickly as simple rescaling schemes such as the Berendsen thermostat, while sampling the canonical ensemble correctly, which they do not. (UNVERIFIED)" []
+synonym: "stochastic velocity rescaling thermostat" EXACT []
 is_a: MOLSIM:000038 ! thermostat algorithm
 property_value: MOLSIM:002254 "ntt=11" xsd:string {dcterms:source="MOLSIM:000217"}
 
@@ -11202,8 +11271,9 @@ property_value: IAO:0000117 orcid:0000-0003-4177-3619
 [Term]
 id: MOLSIM:001764
 name: neural network atom type
-def: "A description of an atom's surroundings used by a machine-learned force field, computed from the positions of its neighbours rather than assigned from a table. A conventional atom type is a fixed label such as \"aromatic carbon\"; this instead varies continuously with the local geometry. That is what lets such a model describe environments it was never given a label for. (UNVERIFIED)" []
+def: "An atom type that the DPRc machine-learned correction in AMBER uses to choose which neural network parameters apply to an atom. An atom in the selected region takes its element symbol, a nearby atom outside that region takes the letter m followed by its element symbol, and water oxygen and hydrogen take OW and HW. This lets the correction for an interaction within the quantum region differ from that for an interaction between quantum and classical atoms of the same elements. (UNVERIFIED)" []
 is_a: MOLSIM:001763 ! atom type
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 206, section 11.7.2 Neural network atom type descriptors." xsd:string
 
 [Term]
 id: MOLSIM:001765
@@ -11509,9 +11579,9 @@ relationship: IAO:0000039 UO:0000186 {all_only="true"} ! has measurement unit la
 [Term]
 id: MOLSIM:001810
 name: RMS average correlation
-def: "A single number summarising how strongly the parts of a molecule move together, computed as the root mean square of all the pairwise correlation values. It reduces a whole correlation matrix to 1 figure, so 2 simulations can be compared directly. It says how much correlated motion there is but not where. (UNVERIFIED)" []
-is_a: STATO:0000142 ! correlation coefficient
-relationship: IAO:0000039 UO:0000186 {all_only="true"} ! has measurement unit label dimensionless unit
+def: "A root mean square deviation that is calculated from coordinates first averaged over a running window of frames, and is reported as a series of values for increasing window sizes. The first value, for a window of 1 frame, is the plain average RMSD of all frames to a reference structure, and longer windows average away faster motions. The resulting curve shows on which time scales the structure still changes, which helps to judge whether a simulation has converged. (UNVERIFIED)" []
+is_a: MOLSIM:001334 ! root mean square deviation (RMSD)
+property_value: IAO:0000119 "CPPTRAJ Manual, p. 281, section 13.32 rmsavgcorr." xsd:string
 
 [Term]
 id: MOLSIM:001811
@@ -11574,9 +11644,10 @@ relationship: IAO:0000039 UO:0000186 {all_only="true"} ! has measurement unit la
 [Term]
 id: MOLSIM:001820
 name: normalized tetrahedral order parameter
-def: "A tetrahedral order parameter rescaled to run from −1/3 to 1, where 1 is a perfect tetrahedron and 0 is a random arrangement. The rescaling puts the value of random water at 0, so a number can be read directly as how much more ordered than random the arrangement is. It is the form usually reported. (UNVERIFIED)" []
+def: "A tetrahedral order parameter averaged over the water molecules found in 1 voxel, a small cell of the grid used by grid inhomogeneous solvation theory (GIST), and normalized by the number of those water molecules. For each water molecule the parameter is computed from the angles to its 4 nearest water neighbours, so that 1 means a perfect tetrahedron and 0 means a random arrangement. Mapping it voxel by voxel shows where water around a solute is more or less ordered than in bulk. (UNVERIFIED)" []
 is_a: MOLSIM:001819 ! tetrahedral order parameter
 relationship: IAO:0000039 UO:0000186 {all_only="true"} ! has measurement unit label dimensionless unit
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 836, cpptraj command gist, output Order-norm." xsd:string
 
 [Term]
 id: MOLSIM:001821
@@ -11615,8 +11686,9 @@ is_a: MOLSIM:001294 ! energy
 [Term]
 id: MOLSIM:001826
 name: solvent reaction field potential
-def: "An electrostatic method that represents the solvent beyond a cutoff distance as a uniform medium that polarizes in response to the charges inside, rather than as individual molecules. The polarized medium pushes back with a field that is added to the direct interactions. It is much cheaper than Ewald summation and less accurate, particularly for a system carrying a net charge. (UNVERIFIED)" []
+def: "An electrostatic potential that the surrounding solvent creates at the atoms of a molecule, after the solvent has arranged itself in response to that molecule's charges. In the implicitly polarized charge (IPolQ) method of the AMBER program mdgx, it is computed from the time-averaged charge density of explicit solvent sampled during a simulation with the molecule held fixed. A quantum calculation in the presence of this potential, averaged with one in vacuum, gives the target for fitting fixed partial charges. (UNVERIFIED)" []
 is_a: MOLSIM:001294 ! energy
+property_value: IAO:0000119 "AMBER 26 Reference Manual, p. 352 to 353, section 18.4 Implicitly Polarized Charge Development." xsd:string
 
 [Term]
 id: MOLSIM:001827
@@ -11969,7 +12041,7 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 id: MOLSIM:001877
 name: DNA-bendability
 def: "DNA bendability is the intrinsic mechanical property that describes how easily a DNA double helix can deviate from its ideal straight conformation by adopting a bent or curved structure. This property depends on the nucleotide sequence, with some sequences being inherently more flexible than others. Sequence-dependent bendability plays a key role in DNA packaging, nucleosome formation, and protein-DNA recognition, as many proteins induce or stabilize DNA bending upon binding." []
-is_a: MOLSIM:001391 ! kinetic property
+is_a: MOLSIM:001333 ! structural property
 property_value: IAO:0000117 orcid:0000-0002-4303-9349
 property_value: IAO:0000117 orcid:0000-0002-7544-0938
 
@@ -12307,7 +12379,7 @@ is_a: MOLSIM:001956 ! system packing and solvation tool
 id: MOLSIM:001926
 name: gmx
 def: "A command-line program that provides access to every tool in the GROMACS suite through a single entry point, with the tool named as its first argument. It is not itself a simulation engine; it dispatches to the preparation, simulation and analysis programs. Almost every GROMACS command in a published protocol begins with it. (UNVERIFIED)" []
-is_a: MOLSIM:000251 ! trajectory processing tool
+is_a: MOLSIM:000158 ! simulation and modeling software
 
 [Term]
 id: MOLSIM:001927
@@ -12629,7 +12701,7 @@ disjoint_from: MOLSIM:001975 ! GROMOS 53a5
 [Term]
 id: MOLSIM:001975
 name: GROMOS 53a5
-def: "A GROMOS parameter set fitted to reproduce properties of biomolecules in non-polar surroundings, such as the interior of a membrane. It shares its bonded parameters with the aqueous-fitted set of the same generation and differs in the non-bonded ones. The 2 are alternatives chosen by environment, not successive versions. (UNVERIFIED)" []
+def: "A united-atom force field of the GROMOS family, fitted to the thermodynamic properties of pure liquids of small polar molecules and to the solvation free enthalpies of amino acid analogues in cyclohexane. It was published in 2004 together with the 53A6 set, which starts from it and adjusts the partial charges to reproduce hydration free enthalpies in water. The 2 sets exist because no single set reproduced both, so 53A5 suits pure liquids and non-polar surroundings, while 53A6 is meant for biomolecules in water. (UNVERIFIED)" []
 is_a: MOLSIM:001531 ! united-atom force field
 
 [Term]
@@ -12679,7 +12751,7 @@ is_a: MOLSIM:000736 ! coarse-grained force field
 [Term]
 id: MOLSIM:001983
 name: OPLS-AA/M
-def: "A force field of the OPLS all-atom family with its protein backbone and side-chain torsion terms refitted again, by Robertson, Tirado-Rives and Jorgensen in 2015, to high-accuracy quantum energy scans of dipeptides. The new parameters were tested against measured properties of peptides in solution and improved on the earlier OPLS-AA/L revision. It is the latest OPLS version for proteins. (UNVERIFIED)" []
+def: "A force field of the OPLS all-atom family with its protein backbone and side-chain torsion terms refitted again, by Robertson, Tirado-Rives and Jorgensen in 2015, to high-accuracy quantum energy scans of dipeptides. The new parameters were tested against measured properties of peptides in solution and improved on the earlier OPLS-AA/L revision. (UNVERIFIED)" []
 is_a: MOLSIM:000759 ! OPLS-AA
 
 [Term]
@@ -12710,13 +12782,13 @@ property_value: IAO:0000117 orcid:0000-0002-2294-5393
 
 [Term]
 id: MOLSIM:001988
-name: helmholtz free energy
+name: Helmholtz free energy
 def: "A free energy defined as the internal energy minus the product of temperature and entropy, A = U − TS, whose decrease equals the largest amount of work a system can do at constant temperature. At constant temperature and volume a process goes forward on its own only if it lowers this quantity. It is the free energy estimated by simulations at constant volume and temperature (NVT, the canonical ensemble), usually as a difference between 2 states by methods such as thermodynamic integration or the Bennett acceptance ratio. (UNVERIFIED)" []
 is_a: MOLSIM:001314 ! free energy property
 
 [Term]
 id: MOLSIM:001989
-name: gibbs free energy
+name: Gibbs free energy
 def: "A free energy defined as the enthalpy minus the product of temperature and entropy, G = H − TS, whose decrease equals the largest amount of work other than expansion work that a system can do at constant temperature and pressure. At constant temperature and pressure a process goes forward on its own only if it lowers this quantity, so it decides the direction of change and the position of chemical equilibrium. It is the free energy estimated by simulations at constant pressure and temperature (NPT), for example for binding, solvation and phase equilibria. (UNVERIFIED)" []
 is_a: MOLSIM:001314 ! free energy property
 property_value: skos:closeMatch SBO:0000580
@@ -12801,8 +12873,9 @@ is_a: MOLSIM:001515 ! Lennard-Jones parameter
 [Term]
 id: MOLSIM:002002
 name: atom freezing
-def: "A simulation technique in which the positions of a selected group of atoms are held fixed throughout a run, because their positions and velocities are not updated in the chosen directions. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, frozen atoms do not move at all. It is used, for example, to model a rigid wall or surface, or to let solvent relax around a fixed protein during equilibration. (UNVERIFIED)" []
+def: "A constraint and restraint parameter that names groups of atoms whose positions are not updated during a run, in all directions or only in chosen ones, so that those atoms stay where they are. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, fully frozen atoms do not move at all. It is used, for example, during equilibration to stop badly placed solvent molecules from pushing protein atoms, and in GROMACS it is set with freezegrps and freezedim. (UNVERIFIED)" []
 is_a: MOLSIM:001201 ! constraint and restraint parameter
+property_value: IAO:0000119 "GROMACS 2026.3 Reference Manual, p. 79, entries freezegrps and freezedim." xsd:string
 
 [Term]
 id: MOLSIM:002003
@@ -12872,8 +12945,9 @@ property_value: IAO:0000117 orcid:0000-0002-8291-8071
 [Term]
 id: MOLSIM:002013
 name: test particle insertion
-def: "A sampling method that computes the chemical potential of a species by repeatedly placing a non-interacting trial particle at random positions in a simulation and recording the energy it would have. Averaging the Boltzmann factor of those energies gives the excess chemical potential directly. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)" []
+def: "A thermodynamics analysis that computes the excess chemical potential of a species by repeatedly inserting a trial copy of it, at random positions and orientations, into the frames of an existing trajectory and recording its interaction energy with the other particles. The trial particle does not change the other particles, and averaging the Boltzmann factor of the insertion energies gives the excess chemical potential. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)" []
 is_a: MOLSIM:000610 ! thermodynamics analysis
+property_value: IAO:0000119 "GROMACS 2026.3 Reference Manual, p. 45, entry integrator, value tpi." xsd:string
 
 [Term]
 id: MOLSIM:002014
@@ -12885,8 +12959,9 @@ property_value: IAO:0000117 orcid:0009-0007-1391-4986
 [Term]
 id: MOLSIM:002015
 name: shell molecular dynamics
-def: "A simulation method for polarizable force fields in which each polarizable atom is given a light charged particle attached to it by a spring. The particle shifts in response to the local electric field, which reproduces how an atom's electron cloud distorts. Treating polarization as an extra particle lets an ordinary integrator handle it. (UNVERIFIED)" []
+def: "A molecular dynamics method for polarizable force fields in which a charged shell particle, representing the electrons, is attached by a spring to each polarizable atom, and the shell positions are found by minimizing the potential energy at every step. The shell shifts in response to the local electric field, which reproduces how the electron cloud of an atom distorts. Some programs instead give the shell particle a small mass and move it with the integrator together with the atoms, as in the extended Lagrangian Drude oscillator method. (UNVERIFIED)" []
 is_a: MOLSIM:000843 ! molecular dynamics
+property_value: IAO:0000119 "GROMACS 2026.3 Reference Manual, p. 397, section 5.4.4 Shell molecular dynamics." xsd:string
 
 [Term]
 id: MOLSIM:002016
@@ -13077,6 +13152,7 @@ id: MOLSIM:002044
 name: HIP
 def: "A programming interface, developed by AMD, that lets the same source code run on graphics processors from more than one manufacturer. It closely mirrors the interface used for NVIDIA hardware, so existing code can be converted with little change. Simulation engines use it so that 1 version of their graphics processor code serves both AMD and NVIDIA hardware. (UNVERIFIED)" []
 is_a: MOLSIM:001562 ! application programming interface
+property_value: IAO:0000116 "Not to be confused with HIP, the residue name that AMBER force fields use for histidine protonated on both ring nitrogens." xsd:string
 
 [Term]
 id: MOLSIM:002045
@@ -13095,13 +13171,13 @@ is_a: MOLSIM:001562 ! application programming interface
 id: MOLSIM:002047
 name: OpenMPI
 def: "An open-source implementation of the message passing standard, formed by merging several earlier projects and designed to support many kinds of network hardware. It is one of the most widely used implementations, alongside MPICH. Which implementation a simulation engine was built against can affect its performance. (UNVERIFIED)" []
-is_a: MOLSIM:001566 ! software library
+is_a: MOLSIM:001654 ! MPI library
 
 [Term]
 id: MOLSIM:002048
 name: MPICH
 def: "An open-source implementation of the message passing standard, used directly and also as the basis several hardware vendors build their own versions on. It is one of the most widely used implementations, alongside Open MPI. Its performance depends heavily on the network hardware it is configured for. (UNVERIFIED)" []
-is_a: MOLSIM:001566 ! software library
+is_a: MOLSIM:001654 ! MPI library
 
 [Term]
 id: MOLSIM:002049
@@ -13215,7 +13291,7 @@ property_value: IAO:0000117 orcid:0000-0002-8291-8071
 id: MOLSIM:002063
 name: metropolis Monte Carlo
 def: "A sampling algorithm that proposes a random change to a system, always accepts it if the energy falls, and otherwise accepts it with probability exp(-ΔE/kT), where ΔE is the energy rise, k the Boltzmann constant and T the temperature. Repeating this generates configurations in the right proportions for the temperature, without ever computing a force. It samples equilibrium properties correctly but says nothing about how fast anything happens. (UNVERIFIED)" []
-is_a: MOLSIM:001740 ! enhanced sampling algorithm
+is_a: MOLSIM:000037 ! algorithm
 property_value: skos:exactMatch KISAO_0000278
 
 [Term]
@@ -14162,20 +14238,20 @@ is_a: MOLSIM:001715 ! surface area calculation algorithm
 [Term]
 id: MOLSIM:010017
 name: color Tanimoto score
-def: "A similarity score that measures how well the chemical features of 2 aligned molecules, such as hydrogen bond donors, acceptors and charged groups, overlap in space, as a Tanimoto ratio from 0 to 1. It complements a shape comparison, which cannot tell a hydrogen bond donor from an acceptor of the same size. \"Color\" here refers to feature type, not to any visual property. (UNVERIFIED)" []
+def: "A Tanimoto similarity algorithm that measures how well the chemical features of 2 aligned molecules, such as hydrogen bond donors, acceptors and charged groups, overlap in space, as a Tanimoto ratio from 0 to 1. It complements a shape comparison, which cannot tell a hydrogen bond donor from an acceptor of the same size. \"Color\" here refers to feature type, not to any visual property. (UNVERIFIED)" []
 is_a: MOLSIM:000075 ! Tanimoto similarity algorithm
 disjoint_from: MOLSIM:010018 ! shape Tanimoto score
 
 [Term]
 id: MOLSIM:010018
 name: shape Tanimoto score
-def: "A similarity score that measures how much the volumes of 2 aligned molecules overlap, as the shared volume divided by the total volume occupied by at least 1 of them. It ranges from 0 for no overlap to 1 for identical shape. It considers only shape, so 2 chemically unlike molecules that fill the same space score highly. (UNVERIFIED)" []
+def: "A Tanimoto similarity algorithm that measures how much the volumes of 2 aligned molecules overlap, as the shared volume divided by the total volume occupied by at least 1 of them. It ranges from 0 for no overlap to 1 for identical shape. It considers only shape, so 2 chemically unlike molecules that fill the same space score highly. (UNVERIFIED)" []
 is_a: MOLSIM:000075 ! Tanimoto similarity algorithm
 
 [Term]
 id: MOLSIM:010019
 name: Tanimoto combo score
-def: "A similarity score adding the shape score and the chemical feature score, giving a value between 0 and 2. Adding them weights shape and chemistry equally, which suits searching for a molecule that both fits a site and makes the same contacts. Reporting the 2 parts separately alongside it is usual, since the sum hides which one is high. (UNVERIFIED)" []
+def: "A Tanimoto similarity algorithm that adds the shape score and the chemical feature score, giving a value between 0 and 2. Adding them weights shape and chemistry equally, which suits searching for a molecule that both fits a site and makes the same contacts. Reporting the 2 parts separately alongside it is usual, since the sum hides which one is high. (UNVERIFIED)" []
 is_a: MOLSIM:000075 ! Tanimoto similarity algorithm
 
 [Term]
@@ -14295,7 +14371,7 @@ comment: Modified base:<modified_base>.
 subset: SOFA
 synonym: "INSDC_feature:modified_base" EXACT []
 synonym: "modified base site" EXACT []
-is_a: MOLSIM:000006 ! model
+is_a: MOLSIM:002090 ! molecular structural component
 is_a: SO:0001236 ! base
 is_a: SO:0001720 ! epigenetically_modified_region
 
@@ -15310,7 +15386,6 @@ property_value: IAO:0000116 "A bearer can have many qualities, and its qualities
 id: RO:0002233
 name: has input
 def: "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p." []
-comment: http://purl.obolibrary.org/obo/RO_0002233
 property_value: IAO:0000117 orcid:0000-0002-6601-2165
 
 [Typedef]

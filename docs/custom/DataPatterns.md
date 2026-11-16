@@ -6,7 +6,7 @@ This page shows how to describe simulation data with MOLSIM terms, written as RD
 
 **In short:** a number with a unit is written as a node of its own. The node says which MOLSIM class it belongs to, holds one number and one unit from the Unit Ontology (UO), and says what it describes.
 
-This applies to every MOLSIM class that carries a unit rule and a value rule: 101 classes, measured 2026-11-12.
+This applies to every MOLSIM class that carries a unit rule and a value rule: 100 classes, measured 2026-11-16.
 
 ### Example
 
