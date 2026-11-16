@@ -61,12 +61,15 @@
         "val" : "Scope note: MOLSIM's boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README."
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-11-12"
+        "val" : "2026-11-13"
+      }, {
+        "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
+        "val" : "2026-11-16"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-11-12/molsim-full.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-11-16/molsim-full.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/GO_0000786",
@@ -1289,7 +1292,11 @@
       "meta" : {
         "definition" : {
           "val" : "An algorithm that measures how similar 2 molecules are as the size of what they have in common divided by the size of what they cover together. For molecular fingerprints this is the number of features present in both divided by the number present in at least 1 of them. It is the standard measure for fingerprints, runs from 0 for nothing shared to 1 for identical sets, and is also applied to overlapping molecular volumes in shape comparison. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "Jaccard index"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000076",
@@ -1301,7 +1308,7 @@
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "General form, for reference: T(A,B) = |A n B| / (alpha*|A - B| + beta*|B - A| + |A n B|), where A and B are the feature sets of the two molecules being compared. alpha weights features unique to A (the reference) and beta weights features unique to B (the query or fit molecule); alpha = beta = 1 reduces to the Tanimoto coefficient, and alpha = beta = 0.5 gives the Dice coefficient. The named variants below differ only in their fixed alpha/beta values, which each of their definitions states. Note this text is a plain-string note: no OWL consumer renders mathematical notation, so it is written to be readable as-is rather than as LaTeX. Requested in GitHub issue #1."
+          "val" : "General form, for reference: T(A,B) = |A n B| / (alpha*|A - B| + beta*|B - A| + |A n B|), where A and B are the feature sets of the two molecules being compared. alpha weights features unique to A (the reference, or query, molecule) and beta weights features unique to B (the fit, or database, molecule); alpha = beta = 1 reduces to the Tanimoto coefficient, and alpha = beta = 0.5 gives the Dice coefficient. The named variants below differ only in their fixed alpha/beta values, which each of their definitions states. Note this text is a plain-string note: no OWL consumer renders mathematical notation, so it is written to be readable as-is rather than as LaTeX. Requested in GitHub issue #1."
         } ]
       }
     }, {
@@ -1351,12 +1358,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000082",
-      "lbl" : "Jaccard index algorithm",
+      "lbl" : "obsolete Jaccard index algorithm",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity calculation method used for comparing 2 sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets). (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A similarity calculation method used for comparing 2 sets, defined as the size of the intersection divided by the size of the union of the sets. It is identical to the Tanimoto coefficient when applied to binary data (like molecular fingerprints). It provides a normalized measure of overlap between feature sets, ranging from 0 (no overlap) to 1 (identical sets)."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:000075 Tanimoto similarity algorithm: on sets and binary fingerprints the Jaccard index and the Tanimoto coefficient are the same ratio, the size of the intersection divided by the size of the union. Jaccard index is kept as an exact synonym on MOLSIM:000075." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000075"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000083",
@@ -1749,7 +1762,11 @@
       "meta" : {
         "definition" : {
           "val" : "A resampling method that estimates the uncertainty of a computed quantity by drawing many new samples of the same size from the existing data, with repetition allowed, and recomputing the quantity from each. The spread of the recomputed values estimates the standard error or confidence interval of the original value. It makes no assumption about how the data are distributed, but it treats data points as independent, so correlated data such as consecutive simulation frames are usually resampled in blocks. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "bootstrapped error estimates analysis"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000117",
@@ -1906,7 +1923,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000130",
-      "lbl" : "mean absolute error analyisis",
+      "lbl" : "mean absolute error analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -1954,16 +1971,22 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000134",
-      "lbl" : "bootstrapped error estimates analysis",
+      "lbl" : "obsolete bootstrapped error estimates analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A validation method that puts an uncertainty on a result by resampling the data it came from and recomputing it many times. It is used to show that a conclusion does not rest on a few particular data points. A large spread across the resamples shows that the result is not reliable. (UNVERIFIED)"
+          "val" : "OBSOLETE. A validation method that puts an uncertainty on a result by resampling the data it came from and recomputing it many times. It is used to show that a conclusion does not rest on a few particular data points. A large spread across the resamples shows that the result is not reliable."
         },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:000116 bootstrap analysis: both described estimating the uncertainty of a result by resampling its data with repetition and recomputing it. Its label is kept as a related synonym on MOLSIM:000116." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "BSE"
-        } ]
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000116"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000135",
@@ -2035,7 +2058,11 @@
       "meta" : {
         "definition" : {
           "val" : "A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "Pearlman's predictive index"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000143",
@@ -3407,6 +3434,9 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
+          "val" : "MM-PBSA analysis"
+        }, {
+          "pred" : "hasExactSynonym",
           "val" : "MM/PBSA"
         }, {
           "pred" : "hasExactSynonym",
@@ -3422,6 +3452,9 @@
           "val" : "A free energy analysis method that estimates a binding free energy in the same way as the Poisson-Boltzmann variant, but computes the polar solvation term with the generalized Born approximation instead of solving the Poisson-Boltzmann equation. The approximation is much faster and usually close enough for ranking related ligands. The molecular mechanics and surface-area terms are unchanged. (UNVERIFIED)"
         },
         "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "MM-GBSA analysis"
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "MM/GBSA"
         }, {
@@ -3575,7 +3608,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000276",
-      "lbl" : "enthropic contributions mode analysis",
+      "lbl" : "entropic contributions mode analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -3632,8 +3665,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A type of utility program used to help set up a thermodynamic integration (TI) free energy calculation. It assesses the similarity between the starting and ending molecules of a planned alchemical transformation, often by calculating the overlap of their potential energies. The results from this tool are used to design an optimal pathway with an appropriate number of intermediate steps, which is crucial for ensuring the TI calculation will be accurate and reliable. (UNVERIFIED)"
-        }
+          "val" : "A system setup tool that helps choose which pairs of ligands to compare in thermodynamic integration (TI) free energy calculations, from a matrix of pairwise similarity scores between the ligands. In the AMBER FEW workflow a script applies Kruskal's shortest path algorithm to these scores, so that the chosen transformations need the smallest structural changes overall. The scores themselves come from a separate ligand comparison, for example the shape and chemical feature score of ROCS. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 998, FEW script identify_transformations.pl."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000282",
@@ -3726,8 +3763,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A thermodynamic integration approach that uses a soft-core potential to cover the whole transformation in 1 window, or very few. The soft-core form keeps the energy finite as atoms appear and disappear, which is what makes so few windows possible. It saves simulation time at the cost of relying heavily on the soft-core form being well behaved. (UNVERIFIED)"
-        }
+          "val" : "A thermodynamic integration approach in which the charges and the van der Waals parameters of the changing atoms are transformed together in 1 calculation, using soft-core forms of both the van der Waals and the electrostatic potential. The soft-core forms keep the energy finite as atoms appear and disappear, so the charges do not have to be removed in a separate calculation first. The calculation is still run at several values of the coupling parameter. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000292",
@@ -3735,8 +3776,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A thermodynamic integration approach that divides the path between the 2 states into several discrete windows, each sampled separately. Dividing it keeps the change between neighbouring windows small enough for the samples to overlap. It is the standard arrangement, and the alternative of a single window is a special case. (UNVERIFIED)"
-        }
+          "val" : "A thermodynamic integration approach that splits the transformation into 2 or more separate calculations, for example removing the charges of the disappearing atoms first and then changing their van der Waals parameters. Each calculation is run at its own set of coupling parameter values, and the free energy changes are added. It avoids soft-core electrostatics but needs more simulations than doing the whole change in 1 calculation. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 557, section 27.1.6.3 One step transformations using soft core electrostatics, and p. 569, section 27.1.8.3 Relative free energy using soft core."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000293",
@@ -3788,8 +3833,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A thermodynamic integration analysis that estimates the free energy integral from simulations at or near the end states, or at very few intermediate values of the coupling parameter, by extrapolating the integrand between them. This avoids simulating many intermediate states and so greatly reduces cost. The result is only as accurate as the extrapolation is for the system studied. (UNVERIFIED)"
-        }
+          "val" : "A thermodynamic integration analysis defined by how the integral is completed between the outermost simulated values of the coupling parameter and the end points 0 and 1, when the end points are not simulated. Either the curve of the average energy derivative is extended as a straight line to the end points, or the area in these end regions is left out. The choice matters most when the curve changes quickly near the end points. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000299",
@@ -3797,8 +3846,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A thermodynamic integration approach that samples the integrand only at or near the 2 end points and assumes it varies linearly between them. Assuming linearity removes every intermediate simulation, which is where nearly all the cost lies. It is only valid where the integrand really is close to linear, which is uncommon. (UNVERIFIED)"
-        }
+          "val" : "A thermodynamic integration extrapolation approach in which the curve of the average energy derivative is extended as a straight line from the outermost simulated values of the coupling parameter to the end points 0 and 1, before it is integrated. The integral then covers the whole range from 0 to 1. The AMBER FEW workflow calls this linear interpolation to the end points and describes it as the commonly applied procedure. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000300",
@@ -4466,8 +4519,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A thermodynamic integration approach in which the integrand is sampled at intermediate values of the coupling parameter rather than only at the end points, so the integral is computed from the sampled curve. Sampling the middle costs a simulation at each intermediate state and removes the assumption that the curve is a straight line. It is the arrangement nearly all thermodynamic integration uses. (UNVERIFIED)"
-        }
+          "val" : "A thermodynamic integration extrapolation approach in which the integral is computed from the simulated values of the coupling parameter alone, as the sum of each average energy derivative times the spacing between values. The area between the outermost simulated values and the end points 0 and 1 is left out. In the AMBER FEW workflow it can be used only when the coupling values are evenly spaced. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 993, section 41.6 Thermodynamic integration workflow (TIW), equations E1 and E2, and p. 997, entry ddG_calc_method."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000357",
@@ -4484,8 +4541,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A worm plot is a visualization method that displays a collection of superimposed molecular structures from a simulation or an NMR ensemble. Each structure is typically represented as a smooth tube or \"worm\" tracing the path of the protein backbone. This method provides a clear visual impression of the conformational variability and dynamic fluctuations within the molecular ensemble. (UNVERIFIED)"
-        }
+          "val" : "A visualization analysis that reduces a 3-dimensional density map, such as the density of water or ions, to a 1-dimensional profile along a curved path given by the user, for example the axis of an ion channel. The path is drawn as a smooth curve through pivot points, and at each point along it the density is integrated within a tube of chosen radius. The profile shows how the density of water or ions changes along channels and similar paths. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 1109, section 46.1, MoFT metatwist worm plots."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000359",
@@ -4493,8 +4554,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A helical density map is a visualization method used to represent the three-dimensional distribution of atoms within a helical structure, averaged over time from a simulation. It creates a 3D grid where the value at each point represents the probability of finding an atom, which can then be displayed as a contoured surface. This method is particularly useful for analyzing the average structure and packing of molecules like DNA or alpha-helical proteins. (UNVERIFIED)"
-        }
+          "val" : "A visualization analysis that maps the density of water or ions around a helical region of a nucleic acid onto a plane perpendicular to the helical axis, in the average plane of the base pairs. In the twisted form the density is simply averaged along the axis. In the untwisted form the frame of reference rotates against the twist of the helix, so that the density is seen relative to the base pairs. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 1110, section 46.1, MoFT metatwist twisted and untwisted maps."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000360",
@@ -4712,8 +4777,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A parameterization method in which the molecule's geometry is written in internal coordinates, as a Z-matrix of bond lengths, bond angles and dihedral angles, and parameters are fitted in those terms. This makes it easy to scan 1 degree of freedom at a time, such as a dihedral angle, and to fit the parameter that controls it. (UNVERIFIED)"
-        }
+          "val" : "A force field parameterization method that obtains the bond and angle force constants around a metal ion from a quantum calculation of the Hessian, expressed in internal coordinates such as bond lengths and bond angles. In MCPB.py it reads these force constants from the Gaussian output file of a geometry optimization and force constant calculation, so the metal-ligand bonds and angles must be among the internal coordinates used. It is an alternative to the Seminario method, which takes the force constants from sub-matrices of the Cartesian Hessian instead. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 368, entry add_redcrd, and p. 371, MCPB.py step 2 options 2s and 2z."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000379",
@@ -4730,8 +4799,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A force interpolation method is a numerical technique used in some simulation algorithms to estimate the forces on atoms without calculating them directly at every step. This is often done by calculating the forces on a coarser grid and then interpolating these forces to the actual atomic positions. For experts, this method can be used in some multiple-time-stepping algorithms to reduce the computational cost of the force calculation. (UNVERIFIED)"
-        }
+          "val" : "A numerical method used in adaptive QM/MM simulations that computes the force on each atom as a weighted sum of the forces from several different divisions of the system into a quantum and a classical region. The weights change smoothly as molecules move between the regions, so the forces do not jump. Unlike interpolation of the energies, it leaves out the term that comes from the derivatives of the weights, so it does not conserve the interpolated energy, although a corrected conserved quantity can be monitored. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 208, section 11.8.1.2 Force interpolation."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000381",
@@ -4812,8 +4885,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A numerical method for computing energy derivatives in a calculation with more than one quantum layer, such as a high-accuracy method inside a cheaper one. The derivatives of each layer must be combined so that the force on a shared atom is consistent. Getting the combination wrong produces forces that do not match the energy, and a simulation that drifts. (UNVERIFIED)"
-        }
+          "val" : "A numerical method for computing the forces between the atoms of the quantum region in a semi-empirical QM/MM calculation, from the derivatives of the electron repulsion integrals with respect to the atom positions. In AMBER the derivatives are computed analytically by default, or numerically, which is slower and meant mainly for testing. Inaccurate derivatives give forces that do not match the energy, so a simulation drifts. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 159, entry qmqmdx."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000387",
@@ -5338,7 +5415,11 @@
       "meta" : {
         "definition" : {
           "val" : "A set of mathematical functions, often resembling atomic orbitals, used in quantum chemical calculations to represent the spatial distribution of electrons within a molecule (molecular orbitals). The choice and size of the basis set significantly impact the accuracy and computational cost of a simulation; larger, more flexible basis sets generally yield more accurate results but require more computer resources. These functions serve as the building blocks for constructing the calculated electronic wavefunction. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "basis set"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000433",
@@ -5559,8 +5640,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A structural analysis method that tests whether the orientations of the structures in a collection are spread evenly over all directions. It computes the distribution of orientations and looks for any preferred alignment. It is used to confirm that a simulation has not introduced an artificial bias in rotational motion, which some theoretical treatments assume is absent. (UNVERIFIED)"
-        }
+          "val" : "A dynamics analysis that finds the collective motions in a set of structures without first superimposing them on a reference, by replacing each structure with copies of it oriented evenly in all directions. Averaging over these orientations reduces the usual coordinate covariance matrix, with 3 rows per atom, to a matrix with 1 row per atom, whose eigenvectors give the collective modes. It was introduced for flexible proteins, such as partly folded states, for which a single superposition is hard to define. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CPPTRAJ Manual, p. 180, command matrix, type idea."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000452",
@@ -5712,12 +5797,14 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000465",
-      "lbl" : "NModelGB",
+      "lbl" : "obsolete NModelGB",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "NModelGB is a specific implementation of a Generalized Born (GB) implicit solvent model, likely used within a particular simulation package. It provides a specific set of equations and parameters for calculating the electrostatic contribution to the solvation free energy. The \"NModel\" designation distinguishes this particular variant from other GB models available to the user. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. NModelGB is a specific implementation of a Generalized Born (GB) implicit solvent model, likely used within a particular simulation package. It provides a specific set of equations and parameters for calculating the electrostatic contribution to the solvation free energy. The \"NModel\" designation distinguishes this particular variant from other GB models available to the user."
+        },
+        "comments" : [ "Retired 2026-11-13. No method, model or tool of this name could be found in the program manuals or the literature, and its definition was a guess that said so. It may have meant the generalized Born model setting for normal mode calculations in MMPBSA.py (nmode_igb), but that could not be confirmed, so no successor is given." ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000466",
@@ -6086,12 +6173,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000498",
-      "lbl" : "predictive index of Pearman analysis",
+      "lbl" : "obsolete predictive index of Pearman analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A statistical metric that scores how well a model ranks a set of compounds, by checking for each pair whether the predicted order matches the measured order and weighting the pair by the difference between their measured values. A wrong order for 2 compounds with very different measured values therefore counts more than a wrong order for 2 similar ones. It is used where a model is meant to guide a choice between compounds rather than to reproduce a number."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:000142 predictive index analysis, which had the same definition word for word. Both labels name 1 measure, the predictive index published by Pearlman and Charifson in 2001; this label also misspelled the author's name." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000142"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000499",
@@ -6436,8 +6529,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent double-zeta basis set carrying 1 extra energy-optimised d type polarization function beyond the standard set. The extra function was added because the standard double-zeta set was found short of d functions for the second-row elements sodium to argon. For first-row elements it behaves like the ordinary double-zeta set. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent double-zeta basis set carrying 1 extra high-exponent d type polarization function beyond the standard set. The extra function was added because the standard double-zeta set was found short of high-exponent d functions for the second-row elements aluminium to argon. For first-row elements it behaves like the ordinary double-zeta set. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000540",
@@ -6445,8 +6542,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent triple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It describes polarization and correlation for the second-row elements sodium to argon more completely than the ordinary triple-zeta set. For other elements the 2 are equivalent. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent triple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It describes polarization and correlation for the second-row elements aluminium to argon more completely than the ordinary triple-zeta set. For other elements the 2 are equivalent. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000541",
@@ -6454,8 +6555,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent quadruple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used for benchmark-quality results on the second-row elements sodium to argon, where d function flexibility limits accuracy. For other elements the 2 are equivalent. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent quadruple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used for benchmark-quality results on the second-row elements aluminium to argon, where d function flexibility limits accuracy. For other elements the 2 are equivalent. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000542",
@@ -6463,8 +6568,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent quintuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used in high-level benchmark work on small molecules containing the second-row elements sodium to argon. For other elements the 2 are equivalent. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent quintuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is used in high-level benchmark work on small molecules containing the second-row elements aluminium to argon. For other elements the 2 are equivalent. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000543",
@@ -6472,8 +6581,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent sextuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is a highly specialised set for work on the second-row elements sodium to argon near the complete basis set limit. For other elements the 2 are equivalent. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent sextuple-zeta basis set carrying 1 extra optimised d type polarization function beyond the standard set. It is a highly specialised set for work on the second-row elements aluminium to argon near the complete basis set limit. For other elements the 2 are equivalent. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000544",
@@ -6580,7 +6693,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It is required in practice, because calculations at that orbital basis size are otherwise not feasible. Its purpose is speed, not accuracy. (UNVERIFIED)"
+          "val" : "An auxiliary basis set built to be paired with the diffuse-augmented correlation-consistent sextuple-zeta orbital basis in resolution-of-identity or density fitting calculations. It makes calculations at that orbital basis size much cheaper, although very small systems can also be calculated without it. Its purpose is speed, not accuracy. (UNVERIFIED)"
         }
       }
     }, {
@@ -6634,8 +6747,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent double-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is meant for the second-row elements sodium to argon in situations that also need diffuse functions, such as anions and weakly bound complexes. It combines 2 separate corrections to the standard double-zeta set. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent double-zeta basis set that adds both a set of diffuse functions and 1 extra high-exponent d type polarization function. It is meant for the second-row elements aluminium to argon in situations that also need diffuse functions, such as anions and weakly bound complexes. It combines 2 separate corrections to the standard double-zeta set. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000562",
@@ -6643,8 +6760,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent triple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It targets the second-row elements sodium to argon where both diffuse electron density and d orbital flexibility matter, such as anions and intermolecular complexes. It is the triple-zeta member of that combined family. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent triple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It targets the second-row elements aluminium to argon where both diffuse electron density and d orbital flexibility matter, such as anions and intermolecular complexes. It is the triple-zeta member of that combined family. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000563",
@@ -6652,8 +6773,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent quadruple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is used for benchmark results on systems containing the second-row elements sodium to argon whose properties depend on both corrections. It is large enough that its use is restricted to small systems. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent quadruple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is used for benchmark results on systems containing the second-row elements aluminium to argon whose properties depend on both corrections. It is large enough that its use is restricted to small systems. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000564",
@@ -6661,8 +6786,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent quintuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is a specialised benchmark set for the second-row elements sodium to argon in processes that also need diffuse functions. It is close to the complete basis set limit for those elements. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent quintuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function. It is a specialised benchmark set for the second-row elements aluminium to argon in processes that also need diffuse functions. It is close to the complete basis set limit for those elements. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000565",
@@ -6670,8 +6799,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A correlation-consistent sextuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function, the latter for the second-row elements sodium to argon. It is among the largest combinations available and is used only for extreme benchmark work on very small systems containing those elements. (UNVERIFIED)"
-        }
+          "val" : "A correlation-consistent sextuple-zeta basis set that adds both a set of diffuse functions and 1 extra optimised d type polarization function, the latter for the second-row elements aluminium to argon. It is among the largest combinations available and is used only for extreme benchmark work on very small systems containing those elements. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Dunning T.H. Jr., Peterson K.A. and Wilson A.K. Gaussian basis sets for use in correlated molecular calculations. X. The atoms aluminum through argon revisited. J. Chem. Phys. 114, 9244 (2001). doi:10.1063/1.1367373"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000566",
@@ -6814,7 +6947,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A method that represents electronic wavefunctions or densities as values on a grid of points in ordinary 3-dimensional space, rather than as coefficients of basis functions. Accuracy is then improved by making the grid finer, which is a single adjustable control. It parallelises well, because each point depends mostly on its neighbours. (UNVERIFIED)"
+          "val" : "A quantum mechanics basis set in which electronic wavefunctions or densities are represented by their values on a grid of points in ordinary 3-dimensional space, rather than by coefficients of atom-centred or plane-wave functions. Accuracy is then improved by making the grid finer, which is a single adjustable control. It parallelises well, because each point depends mostly on its neighbours. (UNVERIFIED)"
         }
       }
     }, {
@@ -7513,7 +7646,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000644",
-      "lbl" : "HF/6-31G RESP",
+      "lbl" : "HF/6-31G* RESP",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -7606,8 +7739,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A structural analysis method that separates the change in shape of a group of atoms between 2 conformations into a pure rotation and an internal deformation. It does this by factorising the matrix that maps one set of coordinates onto the other. It answers whether a domain has turned as a rigid body or genuinely changed shape. (UNVERIFIED)"
-        }
+          "val" : "A thermodynamics analysis that splits the solvation free energy computed with the 3D reference interaction site model (3D-RISM) into a polar part and a non-polar part. The non-polar part comes from a second solution of the same equations with all solute charges set to 0, and the polar part is the rest. It shows how much of the solvation free energy comes from the electrostatic response of the solvent, and it needs about 80% more computing time. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 126 and p. 148, 3D-RISM option polarDecomp."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000654",
@@ -7931,8 +8068,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An atom remapping method is a procedure used to systematically change the properties of atoms in a topology file, such as their atom types or charges. This is often required when converting a system from one force field to another or when applying specific corrections. For experts, this is an advanced manipulation used in force field development or for setting up non-standard simulations. (UNVERIFIED)"
-        }
+          "val" : "A system setup procedure that reorders the atoms of a structure or topology so that they match the order of a reference structure, using a map from each reference atom to the matching target atom. The map can be found automatically by comparing the structures of the 2 molecules, as the cpptraj command atommap does, or supplied as data to the cpptraj command remap. It is needed when 2 files describe the same molecule with different atom names or a different atom order. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CPPTRAJ Manual, p. 116, command atommap, and p. 204 to 205, command remap."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000685",
@@ -8509,7 +8650,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A protein force field, introduced by Sorin and Pande in 2005, that changes the backbone phi torsion terms of AMBER ff99 to reduce its overly strong preference for helical structure. It was developed to study how helical peptides fold, and it agreed better than ff99 with measured folding rates and stabilities. (UNVERIFIED)"
+          "val" : "A protein force field, introduced by Sorin and Pande in 2005, that replaces the backbone phi torsion term of AMBER ff99 with the original one of ff94, because ff99 gives too little helical structure. It was developed to study how helical peptides fold, and it showed improved agreement with measured kinetic and thermodynamic data. (UNVERIFIED)"
         }
       }
     }, {
@@ -8657,7 +8798,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A rigid water model with 4 sites, the fourth being a massless point near the oxygen, on the bisector of the H-O-H angle, carrying that atom's negative charge. Moving the negative charge off the oxygen towards the hydrogens gives a better electrostatic field around the molecule. It costs more than a 3-site model and reproduces properties such as the dielectric constant and the temperature of maximum density better than TIP3P. (UNVERIFIED)"
+          "val" : "A rigid water model with 4 sites, the fourth being a massless point near the oxygen, on the bisector of the H-O-H angle, carrying that atom's negative charge. Moving the negative charge off the oxygen towards the hydrogens gives a better electrostatic field around the molecule. It costs more than a 3-site model and reproduces the temperature of maximum density better than TIP3P, although its dielectric constant is further from the measured value. (UNVERIFIED)"
         }
       }
     }, {
@@ -8702,7 +8843,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A rigid water model with 6 sites, carrying charges on all 3 atoms, on 2 lone-pair points and on a further point near the oxygen. The extra sites refine the electrostatic field further still. Its cost restricts it to studies of water itself rather than of biomolecules in water. (UNVERIFIED)"
+          "val" : "A rigid water model with 6 sites: the oxygen and 2 hydrogen atoms, 2 lone-pair points, and a further point near the oxygen on the bisector of the H-O-H angle, combining the extra sites of 4-site and 5-site models. It was designed by Nada and van der Eerden in 2003 to simulate ice and liquid water near the melting point, and it gives a melting point of ordinary ice close to the measured one. The extra sites refine the electrostatic field around the molecule at a higher computing cost. (UNVERIFIED)"
         }
       }
     }, {
@@ -8988,7 +9129,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A constraint algorithm that extends the SHAKE approach to rigid bodies of 3 or more atoms, correcting their positions after an unconstrained step by a rotation of each rigid body as a whole. It gives the same trajectory as fully converged SHAKE, but is more efficient and more accurate for groups of 3 or more atoms. It is used to keep rigid molecules or rigid fragments at their fixed geometry during a simulation. (UNVERIFIED)"
+          "val" : "A constraint algorithm that keeps a group of atoms rigid by correcting their positions after each unconstrained step with a rotation of the group as a whole, found iteratively, instead of with the Lagrange multipliers that SHAKE uses. Its accuracy is comparable to that of SHAKE, and it also handles large linear and planar rigid groups, where SHAKE is hard to apply. It is used to keep rigid molecules or rigid fragments at their fixed geometry during a simulation. (UNVERIFIED)"
         }
       }
     }, {
@@ -8997,8 +9138,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A constraint algorithm that holds bond lengths fixed while using information about the atoms' velocities as well as their positions to converge faster. Holding bonds fixed removes the fastest vibrations from a system, which is what allows a longer timestep. It is an extension of the SHAKE approach rather than a separate idea. (UNVERIFIED)"
-        }
+          "val" : "A constraint algorithm that, at each time step, uses the constrained accelerations obtained from adjusting the velocities to satisfy the constraints, rather than the unconstrained accelerations that SHAKE and RATTLE use, to place the atoms for the next step. Its constrained values come out about an order of magnitude closer to the target values than with RATTLE, at almost the same cost. Holding fast internal coordinates such as bond lengths fixed removes the fastest vibrations, which allows a time step about 4 times longer. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Lee S.-H., Palmo K. and Krimm S. WIGGLE: A new constrained molecular dynamics algorithm in Cartesian coordinates. J. Comput. Phys. 210, 171-182 (2005). doi:10.1016/j.jcp.2005.04.006"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000800",
@@ -9141,7 +9286,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000814",
-      "lbl" : "Unrestricted Hartree-Fock",
+      "lbl" : "unrestricted Hartree-Fock",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -9253,11 +9398,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000826",
-      "lbl" : "ZANDO",
+      "lbl" : "ZINDO",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An all-valence-electron semi-empirical method likely based on the INDO or NDDO approximation schemes, developed by Zhidomirov and coworkers. It represents one of the many variations within the semi-empirical framework, likely with specific parameterizations or modifications to the integral approximations aimed at particular applications or accuracy improvements. Note: This method is less common than MNDO/AM1/PMx variants, and specific details might require consulting specialized literature. (UNVERIFIED)"
+          "val" : "A semi-empirical all-valence-electron method, developed by Zerner and coworkers, that is based on the intermediate neglect of differential overlap (INDO) approximation and has parameters for transition metals. Its spectroscopic form, ZINDO/S, is fitted to electronic excitation energies and is used with configuration interaction to calculate UV-visible spectra. Its other form, ZINDO/1, is meant for ground-state geometries and energies. (UNVERIFIED)"
         }
       }
     }, {
@@ -9599,12 +9744,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000854",
-      "lbl" : "multi-state bennett acceptance ratio",
+      "lbl" : "obsolete multi-state bennett acceptance ratio",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A free energy analysis method that combines data from simulations run at many thermodynamic states at once, and returns the free energy difference between any pair of them together with equilibrium averages. It uses every sample from every state rather than only neighbouring pairs, which is what makes it statistically optimal. It generalises the 2-state Bennett acceptance ratio. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A free energy analysis method that combines data from simulations run at many thermodynamic states at once, and returns the free energy difference between any pair of them together with equilibrium averages. It uses every sample from every state rather than only neighbouring pairs, which is what makes it statistically optimal. It generalises the 2-state Bennett acceptance ratio."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:000302 multi-state Bennett acceptance ratio analysis, which had the same definition word for word and already carries the synonym MBAR. This term sat under enhanced sampling, which was wrong: MBAR analyses data that simulations have already produced and does not sample." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000302"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000855",
@@ -10033,11 +10184,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000891",
-      "lbl" : "GAUSSIAN restart format",
+      "lbl" : "GAUSSIAN rwf format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A binary data format, written with the extension .chk, in which Gaussian stores the state of a calculation so that a later job can continue from it. It holds the geometry, the wavefunction and Hessian information that a later job can read back. (UNVERIFIED)"
+          "val" : "A binary data format, written with the extension .rwf, in which Gaussian keeps the large intermediate data of a running calculation. If the file is named and saved, a job that stopped early can be continued from it with the Restart keyword, for example an analytic frequency calculation. It is usually far larger than the checkpoint file, so it is normally kept on a local scratch disk. (UNVERIFIED)"
         }
       }
     }, {
@@ -10544,7 +10695,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and near zero means they are independent. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)"
+          "val" : "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and a value near zero means there is no linear relationship between them at that delay. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)"
         }
       }
     }, {
@@ -10553,9 +10704,13 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A dynamics analysis method that measures how the displacement of each atom or residue from its average position relates to that of every other, over the course of a simulation. A strongly positive value means 2 sites move in the same direction, a negative value means they move in opposite directions. The result is usually drawn as a dynamic cross-correlation map, which shows which parts of a molecule move as one. (UNVERIFIED)"
+          "val" : "A correlation analysis that computes the RMS average correlation of a trajectory: the average RMSD to a reference structure of coordinates first averaged over a running window of frames, calculated for a series of increasing window sizes. The first value, for a window of 1 frame, is the plain average RMSD of all frames, and longer windows average away faster motions. The resulting curve shows on which time scales the structure still changes. (UNVERIFIED)"
         },
-        "comments" : [ "is it synonymous as \"atomic correlation analysis\"?" ]
+        "comments" : [ "is it synonymous as \"atomic correlation analysis\"?" ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CPPTRAJ Manual, p. 281, section 13.32 rmsavgcorr."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000944",
@@ -10639,21 +10794,33 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000952",
-      "lbl" : "MM-PBSA analysis",
+      "lbl" : "obsolete MM-PBSA analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An effective energy analysis that estimates the binding free energy of a molecular complex by combining molecular mechanics energies from simulation snapshots with a Poisson-Boltzmann calculation of the electrostatic solvation energy and a surface area term for the nonpolar solvation energy. The energies are averaged over many snapshots of the complex and of its separated parts. Solute entropy is not captured by this averaging and, when wanted, is estimated separately, for example by normal mode analysis. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. An effective energy analysis that estimates the binding free energy of a molecular complex by combining molecular mechanics energies from simulation snapshots with a Poisson-Boltzmann calculation of the electrostatic solvation energy and a surface area term for the nonpolar solvation energy. The energies are averaged over many snapshots of the complex and of its separated parts. Solute entropy is not captured by this averaging and, when wanted, is estimated separately, for example by normal mode analysis."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:000262 molecular mechanics Poisson Boltzmann surface area analysis, the same method filed under endpoint free energy analysis. Its label is kept as an exact synonym on MOLSIM:000262." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000262"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000953",
-      "lbl" : "MM-GBSA analysis",
+      "lbl" : "obsolete MM-GBSA analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An effective energy analysis that estimates binding free energies by combining molecular mechanics energies with a generalized Born model for the electrostatic part of the solvation free energy and a surface area term for the nonpolar part. The generalized Born model approximates the Poisson-Boltzmann equation at lower cost, which makes the method suited to large numbers of calculations such as virtual screening. In other respects it is the same as the Poisson-Boltzmann variant, MM-PBSA. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. An effective energy analysis that estimates binding free energies by combining molecular mechanics energies with a generalized Born model for the electrostatic part of the solvation free energy and a surface area term for the nonpolar part. The generalized Born model approximates the Poisson-Boltzmann equation at lower cost, which makes the method suited to large numbers of calculations such as virtual screening. In other respects it is the same as the Poisson-Boltzmann variant, MM-PBSA."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:000263 molecular mechanics generalized Born surface area analysis, the same method filed under endpoint free energy analysis. Its label is kept as an exact synonym on MOLSIM:000263." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000263"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000954",
@@ -10909,30 +11076,42 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001010",
-      "lbl" : "infrared spectra",
+      "lbl" : "infrared spectroscopy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A spectrum recording how strongly a sample absorbs infrared light across a range of frequencies. Absorption occurs where the frequency matches a molecular vibration that changes the molecule's dipole, so the positions of the bands identify chemical groups. Its band positions can be compared with vibrational frequencies computed by quantum chemical or force field methods. (UNVERIFIED)"
-        }
+          "val" : "A vibrational spectroscopy technique that measures how strongly a sample absorbs infrared light across a range of frequencies. Absorption occurs where the frequency matches a molecular vibration that changes the molecule's dipole, so the positions of the bands identify chemical groups. The measured band positions can be compared with vibrational frequencies computed by quantum chemical or force field methods. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "infrared spectra"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001011",
-      "lbl" : "raman spectra",
+      "lbl" : "Raman spectroscopy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A spectrum recording the small shift in frequency of light scattered by a sample, which reveals the vibrations that took or gave energy to the photons. It detects vibrations that change the molecule's polarizability, while infrared absorption detects those that change its dipole, so the 2 methods often show different bands. They are therefore complementary rather than alternatives. (UNVERIFIED)"
-        }
+          "val" : "A vibrational spectroscopy technique that measures the small shift in frequency of light scattered by a sample, which reveals the vibrations that took or gave energy to the photons. It detects vibrations that change the molecule's polarizability, while infrared absorption detects those that change its dipole, so the 2 techniques often show different bands. They are therefore complementary rather than alternatives. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "raman spectra"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001012",
-      "lbl" : "pre-resonance raman spectra",
+      "lbl" : "pre-resonance Raman spectroscopy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A spectrum recorded with the illuminating light tuned close to, but not at, an electronic absorption band of the sample. Approaching an absorption greatly enhances the scattering from vibrations connected with it, so a chosen part of a large molecule dominates the spectrum. It is used to study a selected site, such as the active site of a complex biomolecule. (UNVERIFIED)"
-        }
+          "val" : "A vibrational spectroscopy technique, a form of Raman spectroscopy, in which the illuminating light is tuned close to, but not at, an electronic absorption band of the sample. Approaching an absorption greatly enhances the scattering from vibrations connected with it, so a chosen part of a large molecule dominates the spectrum. It is used to study a selected site, such as the active site of a complex biomolecule. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "pre-resonance raman spectra"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001013",
@@ -10954,15 +11133,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001015",
-      "lbl" : "UV/visible spectra",
+      "lbl" : "UV/visible spectroscopy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A spectrum recording how strongly a sample absorbs light across the ultraviolet and visible range, as a function of wavelength. Absorption occurs where the photon energy matches a gap between electronic levels, so the positions of the bands report on bonding and conjugation. It is the measurement a computed electronic transition is compared against. (UNVERIFIED)"
+          "val" : "An electronic spectroscopy technique that measures how strongly a sample absorbs light across the ultraviolet and visible range, as a function of wavelength. Absorption occurs where the photon energy matches a gap between electronic levels, so the positions of the bands report on bonding and conjugation. It is the measurement that a computed electronic transition is compared against. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "UV/Vis"
+        }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "UV/visible spectra"
         } ]
       }
     }, {
@@ -11345,7 +11527,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule. It is a binary, unformatted version of the CHARMM coordinate file, making it more compact and faster to read than its text-based counterpart. This format is often used for saving and reading structures within CHARMM workflows. (UNVERIFIED)"
+          "val" : "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule as text. It is the formatted version of the CHARMM coordinate file, with 1 line per atom, and an extended layout with wider columns is used for very large systems. CHARMM itself usually names these files with the extension .crd, while some other programs use .cor. (UNVERIFIED)"
         }
       }
     }, {
@@ -11672,7 +11854,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A data format used by CHARMM that defines a reusable template for one chemical building block, such as an amino acid or a nucleotide. It gives the atoms in that block, their types and charges, the bonds between them, and their standard geometry. A topology for a whole molecule is assembled by joining these templates in sequence. (UNVERIFIED)"
+          "val" : "A data format used by CHARMM that defines reusable templates for chemical building blocks, such as amino acids or nucleotides, usually many in 1 file together with the list of atom types and patches that modify the templates. For each block it gives the atoms, their types and charges, the bonds between them, and their standard geometry. A topology for a whole molecule is assembled by joining these templates in sequence. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -11898,8 +12080,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical or experimental reference data. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)"
-        }
+          "val" : "A text data format holding the settings for a run of the paramfit program in AmberTools, which fits force field parameters to quantum mechanical reference energies or forces. It is written as assignments of the form variable=value, 1 per line, and says what kind of run is wanted, which parameters are to be fitted and which reference data to fit against. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 339 to 341, chapter 17 paramfit, section 17.2 The Job Control File."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001098",
@@ -12241,8 +12427,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A minimization convergence criterion giving the threshold on the energy gradient below which an energy minimization is stopped. A smaller value makes the geometry optimization stricter and needs more steps. (UNVERIFIED)"
-        }
+          "val" : "A minimization convergence criterion giving the threshold on the energy gradient below which an energy minimization is stopped. Programs measure the gradient in different ways, for example as its root-mean-square in AMBER (drms) or as the largest force on any atom in GROMACS (emtol). A smaller value makes the minimization stricter and needs more steps. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 434, entry drms; GROMACS 2026.3 Reference Manual, p. 47, entry emtol."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001172",
@@ -12414,8 +12604,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A non-bonded interaction parameter naming how interactions are handled at the cutoff distance, such as truncating them sharply, shifting them so that they reach zero at the cutoff, or smoothly switching them to zero over a range. A sharp truncation makes the energy and the force change abruptly when a pair of atoms crosses the cutoff, which harms energy conservation. The choice therefore affects the stability of a simulation as well as its accuracy. (UNVERIFIED)"
-        }
+          "val" : "A non-bonded interaction parameter naming how long-range non-bonded interactions are treated: with no cutoff, with a cutoff and a reaction field beyond it, or with Ewald summation, particle mesh Ewald (PME), or PME for both the electrostatic and the Lennard-Jones interactions. In OpenMM this is the setting nonbondedMethod, and every choice except no cutoff also needs a cutoff distance. The choice decides both the accuracy of the long-range forces and the cost of computing them. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OpenMM User Guide, section 3.7.5 Nonbonded Interactions, parameter nonbondedMethod."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001187",
@@ -14377,7 +14571,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A force field cannot change one into the other, so an error here persists through an entire simulation unnoticed. (UNVERIFIED)"
+          "val" : "A structural property recording which of its 2 mirror forms a centre in a molecule takes. The 2 forms cannot be superimposed and often behave completely differently in a biological system. A simulation at ordinary temperature almost never changes one into the other, so an error in the starting structure usually persists unnoticed, although a simulation at high temperature can invert a centre. (UNVERIFIED)"
         }
       }
     }, {
@@ -14842,12 +15036,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001388",
-      "lbl" : "charge distribution descriptor",
+      "lbl" : "group charge",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
           "val" : "An electronic property giving the total charge of a chosen group of atoms rather than of a single one. Grouping is more robust than per-atom charges, because the arbitrariness of dividing charge between neighbouring atoms partly cancels. It is used to state the charge of a quantum region or of a functional group. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "charge distribution descriptor"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001389",
@@ -15376,7 +15574,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A charge model refining the earlier CM1 scheme with corrections fitted against a larger set of measured dipole moments and covering more elements. The functional form is unchanged; the fitting set and the coverage are wider. It is used where semi-empirical charges are wanted quickly and reliably. (UNVERIFIED)"
+          "val" : "A charge model that maps the Löwdin atomic charges from a semi-empirical, Hartree-Fock or density functional calculation onto corrected charges, using terms that depend on the bond orders between atoms and are fitted to measured dipole moments. It follows the earlier CM1 scheme, with a different mapping and a larger fitting set. It is used where good charges are wanted from a quick calculation. (UNVERIFIED)"
         }
       }
     }, {
@@ -15390,12 +15588,23 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001438",
-      "lbl" : "iterative polarizable charge model",
+      "lbl" : "implicitly polarized charge model",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A charge model in which atomic charges are recomputed in response to the surrounding electric field, and the calculation repeated until they stop changing. Each atom's charge affects the field its neighbours feel, so they cannot be solved one at a time. It is one of the ways a polarizable force field represents the response of the electron cloud. (UNVERIFIED)"
-        }
+          "val" : "A ligand charge model that derives fixed partial charges including the average polarization of a molecule in water, by fitting them to the mean of 2 electrostatic potentials: one from a quantum calculation in vacuum and one from a quantum calculation in the time-averaged field of the surrounding solvent. The solvent field is collected from a simulation with the molecule held fixed, and the AMBER program mdgx automates the procedure. It is the charge model of the AMBER ff14ipq and ff15ipq protein force fields, whose parameters were refined over several rounds. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "IPolQ"
+        }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "iterative polarizable charge model"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 37, ff15ipq and the IPolQ charge derivation, and p. 352 to 353, section 18.4 Implicitly Polarized Charge Development."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001439",
@@ -16045,12 +16254,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001504",
-      "lbl" : "basis set",
+      "lbl" : "obsolete basis set",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A collection of mathematical functions combined to represent the shape of each electron orbital in a quantum chemistry calculation. The true orbitals cannot be written down, so they are built up from a finite set of simpler functions instead. The choice of these functions, together with the quantum method, largely sets both the accuracy and the cost of a calculation. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A collection of mathematical functions combined to represent the shape of each electron orbital in a quantum chemistry calculation. The true orbitals cannot be written down, so they are built up from a finite set of simpler functions instead. The choice of these functions, together with the quantum method, largely sets both the accuracy and the cost of a calculation."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:000432 quantum mechanics basis set in a second branch, under QM/MM model component. Its only child, MOLSIM:001505 auxiliary basis set, was moved under MOLSIM:000432 first." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000432"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001505",
@@ -16182,8 +16397,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A Poisson-Boltzmann model in which the equation is linearized and solved in closed form under simplifying assumptions about geometry. It is far faster than solving the full non-linear equation numerically. It holds only where electrostatic potentials are small, so it is unreliable for highly charged systems. (UNVERIFIED)"
-        }
+          "val" : "A Poisson-Boltzmann model that approximates the electrostatic part of the solvation free energy with a closed-form expression built on the generalized Born function, corrected for the ratio of the solute and solvent dielectric constants and for the overall size of the molecule. The generalized Born model is the special case in which the solvent dielectric constant is infinite, so the correction matters most for less polar solvents. It uses the same effective Born radii as the chosen generalized Born model and adds almost no computational cost. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 79, section 4.4 ALPB (Analytical Linearized Poisson-Boltzmann)."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001518",
@@ -16290,12 +16509,20 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001529",
-      "lbl" : "RESP permanent multipole charge model",
+      "lbl" : "RESP permanent dipole charge model",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A charge model that fits a dipole and higher terms on each atom, not only a point charge, to reproduce the electrostatic potential around a molecule. The extra terms capture features a point charge cannot, such as the anisotropy of a lone pair or the positive region on a halogen. It is more accurate and more expensive to use. (UNVERIFIED)"
-        }
+          "val" : "A ligand charge model, the RESP-perm model of the AMBER program py_resp.py, that fits atomic charges together with permanent atomic dipoles to reproduce the electrostatic potential around a molecule. It is meant for polarizable force fields, in which induced dipoles are added on top of the permanent ones. The permanent dipoles capture directional features that point charges alone cannot, such as the uneven charge around a lone pair. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "RESP permanent multipole charge model"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 380, chapter 20 py_resp.py, and p. 382, entry ipermdip."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001530",
@@ -16392,7 +16619,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without the separate hydrogen bond and halogen bond corrections that the earlier method needed. It is the member of the family in general use. (UNVERIFIED)"
+          "val" : "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without any separate hydrogen bond or halogen bond correction, so the halogen bond correction of the earlier method is no longer needed. It is the member of the family in general use. (UNVERIFIED)"
         }
       }
     }, {
@@ -16460,12 +16687,20 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001548",
-      "lbl" : "RESP permanent virtual site charge model",
+      "lbl" : "RESP permanent virtual dipole charge model",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A charge model that fits point charges to the electrostatic potential while allowing some of them to sit at fixed positions away from any nucleus. Placing charge off-nucleus reproduces directional features, such as a lone pair, without the cost of higher multipole terms. It is the cheaper alternative to a multipole description. (UNVERIFIED)"
-        }
+          "val" : "A ligand charge model, the RESP-perm-v model of the AMBER program py_resp.py, that extends the RESP-perm model with extra permanent dipoles along virtual bonds between atoms that are 2 bonds apart. In water, for example, it adds 2 virtual permanent dipoles between the 2 hydrogen atoms. Like RESP-perm, it is fitted to the electrostatic potential and is meant for polarizable force fields. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "RESP permanent virtual site charge model"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 383, entry virtual, and p. 387, RESP-perm-v example for water."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001549",
@@ -16699,8 +16934,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A set of atomic radii fitted for use with the generalized Born model of the same authors. Radii and generalized Born model are fitted together, so using 1 with a different model degrades both. It is the default radii set for that model in AMBER. (UNVERIFIED)"
-        }
+          "val" : "A radii set chosen to match the generalized Born model of Onufriev, Bashford and Case, which AMBER selects with igb=2 or igb=5. In AMBER the radii recommended for this model are the mbondi2 set, chosen in LEaP with set default PBradii mbondi2, although the bondi set is also accepted for igb=5. A generalized Born model and its radii are tuned together, so using the radii with a different model reduces accuracy. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 71, Table 4.1 Recommended radii sets for various GB models, and p. 72, entry igb."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001572",
@@ -17744,7 +17983,7 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
-          "val" : "Message Parsing Interface"
+          "val" : "Message Passing Interface"
         } ]
       }
     }, {
@@ -18012,8 +18251,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A pseudo-random number generator of the family developed by Marsaglia, built from simple shift and multiply operations on a small internal state. The simplicity makes them fast and easy to implement, which is why they appear inside simulation engines. They pass standard statistical tests while using far less state than a long-period generator. (UNVERIFIED)"
-        }
+          "val" : "A random number generator algorithm, the one used by the AMBER programs sander and pmemd, that follows the universal generator of Marsaglia and Zaman: a lagged Fibonacci sequence over a table of 97 stored numbers, combined with a simple arithmetic sequence, gives uniform numbers between 0 and 1. It gives the same sequence on different computers for the same seed. It differs from the xorshift generators that Marsaglia published later, from which the Xoshiro generators descend. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 772, cpptraj command random, option marsaglia."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001702",
@@ -18128,8 +18371,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A set of effective atomic radii fitted for use with the SMx family of implicit solvent models. The radii absorb part of the error of the underlying model, which is why they are specific to it. Substituting a general-purpose set such as Bondi changes the computed solvation energies. (UNVERIFIED)"
-        }
+          "val" : "A radii set chosen to match the generalized Born model of Hawkins, Cramer and Truhlar, which AMBER selects with igb=1. In AMBER the radii recommended for this model are the mbondi set, which is also the default set in LEaP. A generalized Born model and its radii are tuned together, so using the radii with a different model reduces accuracy. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 71, Table 4.1 Recommended radii sets for various GB models, and p. 72, entry igb."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001714",
@@ -18312,6 +18559,10 @@
         "definition" : {
           "val" : "A thermostat algorithm that rescales the velocities towards the target temperature by a factor that includes a random part, chosen so that the kinetic energy follows the canonical distribution instead of being driven to a single value. It reaches the target temperature as quickly as simple rescaling schemes such as the Berendsen thermostat, while sampling the canonical ensemble correctly, which they do not. (UNVERIFIED)"
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "stochastic velocity rescaling thermostat"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
           "val" : "ntt=11",
@@ -18669,8 +18920,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A description of an atom's surroundings used by a machine-learned force field, computed from the positions of its neighbours rather than assigned from a table. A conventional atom type is a fixed label such as \"aromatic carbon\"; this instead varies continuously with the local geometry. That is what lets such a model describe environments it was never given a label for. (UNVERIFIED)"
-        }
+          "val" : "An atom type that the DPRc machine-learned correction in AMBER uses to choose which neural network parameters apply to an atom. An atom in the selected region takes its element symbol, a nearby atom outside that region takes the letter m followed by its element symbol, and water oxygen and hydrogen take OW and HW. This lets the correction for an interaction within the quantum region differ from that for an interaction between quantum and classical atoms of the same elements. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 206, section 11.7.2 Neural network atom type descriptors."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001765",
@@ -19174,8 +19429,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A single number summarising how strongly the parts of a molecule move together, computed as the root mean square of all the pairwise correlation values. It reduces a whole correlation matrix to 1 figure, so 2 simulations can be compared directly. It says how much correlated motion there is but not where. (UNVERIFIED)"
-        }
+          "val" : "A root mean square deviation that is calculated from coordinates first averaged over a running window of frames, and is reported as a series of values for increasing window sizes. The first value, for a window of 1 frame, is the plain average RMSD of all frames to a reference structure, and longer windows average away faster motions. The resulting curve shows on which time scales the structure still changes, which helps to judge whether a simulation has converged. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CPPTRAJ Manual, p. 281, section 13.32 rmsavgcorr."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001811",
@@ -19264,8 +19523,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A tetrahedral order parameter rescaled to run from −1/3 to 1, where 1 is a perfect tetrahedron and 0 is a random arrangement. The rescaling puts the value of random water at 0, so a number can be read directly as how much more ordered than random the arrangement is. It is the form usually reported. (UNVERIFIED)"
-        }
+          "val" : "A tetrahedral order parameter averaged over the water molecules found in 1 voxel, a small cell of the grid used by grid inhomogeneous solvation theory (GIST), and normalized by the number of those water molecules. For each water molecule the parameter is computed from the angles to its 4 nearest water neighbours, so that 1 means a perfect tetrahedron and 0 means a random arrangement. Mapping it voxel by voxel shows where water around a solute is more or less ordered than in bulk. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 836, cpptraj command gist, output Order-norm."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001821",
@@ -19334,8 +19597,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An electrostatic method that represents the solvent beyond a cutoff distance as a uniform medium that polarizes in response to the charges inside, rather than as individual molecules. The polarized medium pushes back with a field that is added to the direct interactions. It is much cheaper than Ewald summation and less accurate, particularly for a system carrying a net charge. (UNVERIFIED)"
-        }
+          "val" : "An electrostatic potential that the surrounding solvent creates at the atoms of a molecule, after the solvent has arranged itself in response to that molecule's charges. In the implicitly polarized charge (IPolQ) method of the AMBER program mdgx, it is computed from the time-averaged charge density of explicit solvent sampled during a simulation with the molecule held fixed. A quantum calculation in the presence of this potential, averaged with one in vacuum, gives the target for fitting fixed partial charges. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 352 to 353, section 18.4 Implicitly Polarized Charge Development."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001827",
@@ -21070,7 +21337,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A GROMOS parameter set fitted to reproduce properties of biomolecules in non-polar surroundings, such as the interior of a membrane. It shares its bonded parameters with the aqueous-fitted set of the same generation and differs in the non-bonded ones. The 2 are alternatives chosen by environment, not successive versions. (UNVERIFIED)"
+          "val" : "A united-atom force field of the GROMOS family, fitted to the thermodynamic properties of pure liquids of small polar molecules and to the solvation free enthalpies of amino acid analogues in cyclohexane. It was published in 2004 together with the 53A6 set, which starts from it and adjusts the partial charges to reproduce hydration free enthalpies in water. The 2 sets exist because no single set reproduced both, so 53A5 suits pure liquids and non-polar surroundings, while 53A6 is meant for biomolecules in water. (UNVERIFIED)"
         }
       }
     }, {
@@ -21150,7 +21417,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A force field of the OPLS all-atom family with its protein backbone and side-chain torsion terms refitted again, by Robertson, Tirado-Rives and Jorgensen in 2015, to high-accuracy quantum energy scans of dipeptides. The new parameters were tested against measured properties of peptides in solution and improved on the earlier OPLS-AA/L revision. It is the latest OPLS version for proteins. (UNVERIFIED)"
+          "val" : "A force field of the OPLS all-atom family with its protein backbone and side-chain torsion terms refitted again, by Robertson, Tirado-Rives and Jorgensen in 2015, to high-accuracy quantum energy scans of dipeptides. The new parameters were tested against measured properties of peptides in solution and improved on the earlier OPLS-AA/L revision. (UNVERIFIED)"
         }
       }
     }, {
@@ -21195,7 +21462,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001988",
-      "lbl" : "helmholtz free energy",
+      "lbl" : "Helmholtz free energy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -21204,7 +21471,7 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001989",
-      "lbl" : "gibbs free energy",
+      "lbl" : "Gibbs free energy",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
@@ -21340,8 +21607,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A simulation technique in which the positions of a selected group of atoms are held fixed throughout a run, because their positions and velocities are not updated in the chosen directions. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, frozen atoms do not move at all. It is used, for example, to model a rigid wall or surface, or to let solvent relax around a fixed protein during equilibration. (UNVERIFIED)"
-        }
+          "val" : "A constraint and restraint parameter that names groups of atoms whose positions are not updated during a run, in all directions or only in chosen ones, so that those atoms stay where they are. Unlike position restraints, which pull atoms back towards a reference position and still let them move a little, fully frozen atoms do not move at all. It is used, for example, during equilibration to stop badly placed solvent molecules from pushing protein atoms, and in GROMACS it is set with freezegrps and freezedim. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROMACS 2026.3 Reference Manual, p. 79, entries freezegrps and freezedim."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002003",
@@ -21459,8 +21730,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A sampling method that computes the chemical potential of a species by repeatedly placing a non-interacting trial particle at random positions in a simulation and recording the energy it would have. Averaging the Boltzmann factor of those energies gives the excess chemical potential directly. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)"
-        }
+          "val" : "A thermodynamics analysis that computes the excess chemical potential of a species by repeatedly inserting a trial copy of it, at random positions and orientations, into the frames of an existing trajectory and recording its interaction energy with the other particles. The trial particle does not change the other particles, and averaging the Boltzmann factor of the insertion energies gives the excess chemical potential. It fails for dense systems, where almost every insertion overlaps an existing particle. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROMACS 2026.3 Reference Manual, p. 45, entry integrator, value tpi."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002014",
@@ -21481,8 +21756,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A simulation method for polarizable force fields in which each polarizable atom is given a light charged particle attached to it by a spring. The particle shifts in response to the local electric field, which reproduces how an atom's electron cloud distorts. Treating polarization as an extra particle lets an ordinary integrator handle it. (UNVERIFIED)"
-        }
+          "val" : "A molecular dynamics method for polarizable force fields in which a charged shell particle, representing the electrons, is attached by a spring to each polarizable atom, and the shell positions are found by minimizing the potential energy at every step. The shell shifts in response to the local electric field, which reproduces how the electron cloud of an atom distorts. Some programs instead give the shell particle a small mass and move it with the integrator together with the atoms, as in the extended Lagrangian Drude oscillator method. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROMACS 2026.3 Reference Manual, p. 397, section 5.4.4 Shell molecular dynamics."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002016",
@@ -21808,7 +22087,11 @@
       "meta" : {
         "definition" : {
           "val" : "A programming interface, developed by AMD, that lets the same source code run on graphics processors from more than one manufacturer. It closely mirrors the interface used for NVIDIA hardware, so existing code can be converted with little change. Simulation engines use it so that 1 version of their graphics processor code serves both AMD and NVIDIA hardware. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Not to be confused with HIP, the residue name that AMBER force fields use for histidine protonated on both ring nitrogens."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002045",
@@ -23671,7 +23954,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity score that measures how well the chemical features of 2 aligned molecules, such as hydrogen bond donors, acceptors and charged groups, overlap in space, as a Tanimoto ratio from 0 to 1. It complements a shape comparison, which cannot tell a hydrogen bond donor from an acceptor of the same size. \"Color\" here refers to feature type, not to any visual property. (UNVERIFIED)"
+          "val" : "A Tanimoto similarity algorithm that measures how well the chemical features of 2 aligned molecules, such as hydrogen bond donors, acceptors and charged groups, overlap in space, as a Tanimoto ratio from 0 to 1. It complements a shape comparison, which cannot tell a hydrogen bond donor from an acceptor of the same size. \"Color\" here refers to feature type, not to any visual property. (UNVERIFIED)"
         }
       }
     }, {
@@ -23680,7 +23963,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity score that measures how much the volumes of 2 aligned molecules overlap, as the shared volume divided by the total volume occupied by at least 1 of them. It ranges from 0 for no overlap to 1 for identical shape. It considers only shape, so 2 chemically unlike molecules that fill the same space score highly. (UNVERIFIED)"
+          "val" : "A Tanimoto similarity algorithm that measures how much the volumes of 2 aligned molecules overlap, as the shared volume divided by the total volume occupied by at least 1 of them. It ranges from 0 for no overlap to 1 for identical shape. It considers only shape, so 2 chemically unlike molecules that fill the same space score highly. (UNVERIFIED)"
         }
       }
     }, {
@@ -23689,7 +23972,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A similarity score adding the shape score and the chemical feature score, giving a value between 0 and 2. Adding them weights shape and chemistry equally, which suits searching for a molecule that both fits a site and makes the same contacts. Reporting the 2 parts separately alongside it is usual, since the sum hides which one is high. (UNVERIFIED)"
+          "val" : "A Tanimoto similarity algorithm that adds the shape score and the chemical feature score, giving a value between 0 and 2. Adding them weights shape and chemistry equally, which suits searching for a molecule that both fits a site and makes the same contacts. Reporting the 2 parts separately alongside it is usual, since the sum hides which one is high. (UNVERIFIED)"
         }
       }
     }, {
@@ -25986,7 +26269,6 @@
         "definition" : {
           "val" : "p has input c iff: p is a process, c is a material entity, c is a participant in p, c is present at the start of p, and the state of c is modified during p."
         },
-        "comments" : [ "http://purl.obolibrary.org/obo/RO_0002233" ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-6601-2165"
@@ -26086,14 +26368,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001125",
-      "lbl" : "number of receptor residues",
+      "lbl" : "last solute residue number",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that gives the number of the last residue treated as part of the solute, which fixes where the receptor ends. Everything numbered beyond it is ligand, solvent or ions. The boundary matters because analyses of binding must know which atoms belong to the receptor. (UNVERIFIED)"
+          "val" : "A relation that gives the number of the last residue treated as part of the solute in a molecular system, as recorded by the AMBER topology pointer IPTRES. Residues numbered after it are treated as solvent. Analyses that must tell the solute apart from the solvent use this boundary. (UNVERIFIED)"
         },
         "comments" : [ "The IPTRES pointer in an AMBER prmtop topology file." ],
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "number of receptor residues"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
           "val" : "IPTRES",
@@ -27090,7 +27376,11 @@
       "meta" : {
         "definition" : {
           "val" : "A relation that indicates whether a trajectory or restart file contains atomic coordinate data. Almost every trajectory does, but a file holding only velocities or only forces does not, and reading one expecting coordinates fails. The flag lets a tool decide what a file is good for before opening it. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has positions flag"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002180",
@@ -27100,7 +27390,11 @@
       "meta" : {
         "definition" : {
           "val" : "A relation that indicates whether a trajectory or restart file contains per-atom force data. Forces are written less often than coordinates, because they add to the size of a trajectory and are needed only for some uses, such as force analysis or training machine-learning models. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "has forces flag"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002181",
@@ -27119,8 +27413,12 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a simulation applies NMR-derived restraints or dynamically varying conditions. Such restraints pull the system towards experimental measurements, so the resulting structures reflect the data as well as the force field. A trajectory produced this way must not be treated as a free simulation. (UNVERIFIED)"
-        }
+          "val" : "A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 431, entry nmropt; p. 467, weight change type TEMP0; p. 502, umbrella sampling restraints with nmropt = 1."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002183",
@@ -27153,8 +27451,12 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a run applies a time-varying positional-restraint weight schedule. Restraints are commonly released gradually while a system settles, so the strength recorded at the start does not describe the whole run. The flag marks a run in which the restraints changed. (UNVERIFIED)"
-        }
+          "val" : "A relation that indicates whether a run changes the weights of its NMR-type restraints over time, through a weight change schedule such as the AMBER &wt types REST, RESTS, RESTL, NOESY or SHIFTS. Restraint weights are often raised or lowered during a run, for example in simulated annealing, so the strength recorded at the start does not describe the whole run. Positional restraints, set in AMBER with ntr, are a separate setting and are not covered by this flag. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 466 to 467, weight change types REST, RESTS and RESTL."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002186",
@@ -27396,23 +27698,35 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002228",
-      "lbl" : "has positions flag",
+      "lbl" : "obsolete has positions flag",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that states whether a saved trajectory includes the atomic positions (the 3-D coordinates of every atom over time). Positions are the most basic trajectory data and are almost always present. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that states whether a saved trajectory includes the atomic positions (the 3-D coordinates of every atom over time). Positions are the most basic trajectory data and are almost always present."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:002179 has coordinates array: both said whether a saved file contains atomic positions. This term came from the MDDB metadata fields and the other from the AmberMeta fields; the label of this term is kept as an exact synonym on MOLSIM:002179." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_002179"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002229",
-      "lbl" : "has forces flag",
+      "lbl" : "obsolete has forces flag",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that states whether a saved trajectory includes the forces acting on each atom over time. Forces are optional extra data, useful for example when training machine-learning models. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that states whether a saved trajectory includes the forces acting on each atom over time. Forces are optional extra data, useful for example when training machine-learning models."
+        },
+        "comments" : [ "Retired 2026-11-13. It duplicated MOLSIM:002180 has forces array: both said whether a saved file contains per-atom forces. This term came from the MDDB metadata fields and the other from the AmberMeta fields; the label of this term is kept as an exact synonym on MOLSIM:002180." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_002180"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002231",
@@ -27552,6 +27866,26 @@
           "val" : "A relation that associates a molecular simulation system with the rule used to delete lipids that overlapped the protein when the membrane was built. Placing a protein into a lipid patch always leaves some lipids sitting where the protein is, and the rule chosen for removing them decides how many lipids the finished system holds. (UNVERIFIED)"
         },
         "comments" : [ "This property stores its value as text, because the rule is usually a short description rather than a single number. Values look like \"lipids with any atom within 0.6 nm of the protein were deleted\" or \"removed by the InflateGRO procedure\". Checking the text follows a fixed shape is a job for SHACL rather than OWL." ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002284",
+      "lbl" : "has topology index",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that groups properties giving the position of 1 residue, molecule or atom in the ordered lists of the topology of a molecular simulation system, such as where the solute ends or where the solvent begins. Unlike a count, such an index points at 1 item in a list. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002285",
+      "lbl" : "has hydrogen mass repartitioning",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that indicates whether the topology of a molecular simulation system uses hydrogen mass repartitioning, in which hydrogen atoms are made heavier by moving mass from the atoms they are bonded to. The total mass stays the same, and the slower hydrogen motion allows a longer integration time step. (UNVERIFIED)"
+        }
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000002",
@@ -28068,11 +28402,11 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000961",
-      "lbl" : "ComplexCARP",
+      "lbl" : "CCMRD",
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "An NMR data repository specialising in assigned chemical shifts for complex carbohydrates and their complexes. Carbohydrates are poorly covered by the general NMR archives, because their signals overlap heavily and their assignment is difficult. It exists to hold the assignments that do get made. (UNVERIFIED)"
+          "val" : "An NMR data repository holding solid-state NMR chemical shifts of complex carbohydrates, first described by Kang and coworkers in 2020. It can be searched by chemical shift, carbohydrate name or compound class, and it accepts new data. Carbohydrates are poorly covered by the general NMR archives, because their signals overlap heavily and are hard to assign. (UNVERIFIED)"
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
@@ -28373,12 +28707,16 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001003",
-      "lbl" : "PDB-Dev",
+      "lbl" : "PDB-IHM",
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
           "val" : "A protein structural database for structures of biological molecules determined by integrative or hybrid methods, which combine data from several experimental techniques with computational modelling. It began as a prototype archive and in 2024 was unified with the Protein Data Bank and renamed PDB-IHM, so its structures now receive PDB accession codes. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "PDB-Dev"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001004",
@@ -29118,6 +29456,10 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000102"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000000",
+      "pred" : "http://purl.obolibrary.org/obo/RO_0002233",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001887"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000002",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002156"
@@ -29148,11 +29490,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000010",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000772"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001445"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000011",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000772"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001445"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000012",
       "pred" : "is_a",
@@ -29422,10 +29764,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000074"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000082",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000074"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000083",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000074"
@@ -29464,7 +29802,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000092",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000087"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000037"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000093",
       "pred" : "is_a",
@@ -29621,10 +29959,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000133",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000135"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000134",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000353"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000135",
       "pred" : "is_a",
@@ -29824,7 +30158,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000184",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000161"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000158"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000185",
       "pred" : "is_a",
@@ -30036,7 +30370,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000236",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000353"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000300"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000237",
       "pred" : "is_a",
@@ -30228,15 +30562,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000283",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000281"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000296"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000284",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000281"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000158"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000285",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000281"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001851"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000286",
       "pred" : "is_a",
@@ -30396,7 +30730,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000326",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000265"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000261"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000327",
       "pred" : "is_a",
@@ -30934,10 +31268,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000017"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000465",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000462"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000466",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000227"
@@ -31066,10 +31396,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000348"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000498",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000497"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000499",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000348"
@@ -31180,23 +31506,23 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000529",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000530",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000531",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000532",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000533",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000534",
       "pred" : "is_a",
@@ -31268,23 +31594,23 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000551",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000552",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000553",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000554",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000555",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000556",
       "pred" : "is_a",
@@ -31364,7 +31690,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000575",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001505"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000576",
       "pred" : "is_a",
@@ -31628,7 +31954,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000641",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001463"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001728"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000642",
       "pred" : "is_a",
@@ -31954,6 +32280,10 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000015"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000740",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000639"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000741",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
@@ -31984,7 +32314,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000748",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001445"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000749",
       "pred" : "is_a",
@@ -32224,11 +32554,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000808",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000817"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000803"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000809",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000817"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000803"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000810",
       "pred" : "is_a",
@@ -32240,7 +32570,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000813",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000810"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001728"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000814",
       "pred" : "is_a",
@@ -32292,7 +32622,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000826",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000817"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000809"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000827",
       "pred" : "is_a",
@@ -32388,7 +32718,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000850",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000851",
       "pred" : "is_a",
@@ -32402,13 +32732,9 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000854",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000855",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000856",
       "pred" : "is_a",
@@ -32444,7 +32770,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000864",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002255"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000865",
       "pred" : "is_a",
@@ -32749,14 +33075,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000951",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000950"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000952",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010025"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000953",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010025"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000954",
       "pred" : "is_a",
@@ -33204,7 +33522,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001114",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010022"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001106"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001115",
       "pred" : "is_a",
@@ -33256,7 +33574,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001170",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001169"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001171"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001171",
       "pred" : "is_a",
@@ -34536,7 +34854,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001496",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000065"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001497",
       "pred" : "is_a",
@@ -34566,13 +34884,9 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001499"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001504",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001463"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001505",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001504"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000432"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001506",
       "pred" : "is_a",
@@ -34596,7 +34910,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001511",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000331"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001763"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001512",
       "pred" : "is_a",
@@ -34608,7 +34922,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001514",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001375"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001515",
       "pred" : "is_a",
@@ -34648,7 +34962,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001524",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001535"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001525",
       "pred" : "is_a",
@@ -34676,7 +34990,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001531",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000007"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000735"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001533",
       "pred" : "is_a",
@@ -35244,7 +35558,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001673",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001119"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000714"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001674",
       "pred" : "is_a",
@@ -35288,7 +35602,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001683",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000170"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001684",
       "pred" : "is_a",
@@ -35460,7 +35774,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001726",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001546"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000382"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001727",
       "pred" : "is_a",
@@ -35772,7 +36086,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001810",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/STATO_0000142"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001334"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001811",
       "pred" : "is_a",
@@ -36040,7 +36354,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001877",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001391"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001878",
       "pred" : "is_a",
@@ -36248,7 +36562,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001926",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000251"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000158"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001927",
       "pred" : "is_a",
@@ -36740,11 +37054,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002047",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001566"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001654"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002048",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001566"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001654"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002049",
       "pred" : "is_a",
@@ -36812,7 +37126,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002063",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001740"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000037"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002064",
       "pred" : "is_a",
@@ -37444,7 +37758,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/SO_0000305",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/SO_0000305",
       "pred" : "is_a",
@@ -38100,7 +38414,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001002",
       "pred" : "type",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000710"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000714"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001003",
       "pred" : "type",
@@ -38181,14 +38495,6 @@
       "sub" : "http://purl.obolibrary.org/obo/OMO_0001002",
       "pred" : "type",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000225"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/IAO_0000039",
-      "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/IAO_0000136",
-      "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000297",
       "pred" : "subPropertyOf",
@@ -38274,22 +38580,6 @@
       "pred" : "subPropertyOf",
       "obj" : "http://purl.obolibrary.org/obo/RO_0002234"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0000056",
-      "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0000086",
-      "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002233",
-      "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/RO_0002234",
-      "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0000293",
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/OBI_0000295"
@@ -38324,6 +38614,10 @@
         "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001175",
         "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
         "obj" : "http://purl.obolibrary.org/obo/UO_0000005"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001181",
+        "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
+        "obj" : "http://purl.obolibrary.org/obo/UO_0000109"
       }, {
         "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001187",
         "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
@@ -38396,10 +38690,6 @@
         "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001349",
         "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
         "obj" : "http://purl.obolibrary.org/obo/UO_0000047"
-      }, {
-        "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001351",
-        "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
-        "obj" : "http://purl.obolibrary.org/obo/UO_0000186"
       }, {
         "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001353",
         "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
@@ -38590,10 +38880,6 @@
         "obj" : "http://purl.obolibrary.org/obo/UO_0000003"
       }, {
         "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001809",
-        "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
-        "obj" : "http://purl.obolibrary.org/obo/UO_0000186"
-      }, {
-        "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001810",
         "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
         "obj" : "http://purl.obolibrary.org/obo/UO_0000186"
       }, {

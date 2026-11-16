@@ -46,15 +46,15 @@ MOLSIM reuses terms from other [OBO Foundry](https://obofoundry.org/) ontologies
 | ------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | **Prefix**                | `MOLSIM`                                                                                                        |
 | **Namespace**             | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                        |
-| **Live terms**            | 2,265: 2,056 classes, 119 data properties, 19 object properties, 70 named individuals and 1 annotation property |
-| **Retired terms**         | 37, kept so that their web addresses keep working                                                               |
-| **Checked by a reviewer** | 609 of the 2,265 live terms. The definitions of the other 1,656 end with `(UNVERIFIED)`                         |
+| **Live terms**            | 2,257: 2,048 classes, 119 data properties, 19 object properties, 70 named individuals and 1 annotation property |
+| **Retired terms**         | 47, kept so that their web addresses keep working                                                               |
+| **Checked by a reviewer** | 609 of the 2,257 live terms. The definitions of the other 1,648 end with `(UNVERIFIED)`                         |
 | **Hierarchy**             | 13 top-level branches, organised by topic, and aligned with COB at the top                                      |
 | **Built with**            | ODK (Ontology Development Kit) and ROBOT, checked with the ELK reasoner                                         |
 | **Source file**           | [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl), in OWL Functional Syntax                        |
 | **License**               | CC BY 4.0                                                                                                       |
 
-The figures were measured on 2026-10-19.
+The figures were measured on 2026-11-16, for the pre-release dated 2026-11-13.
 
 ## Status
 
@@ -126,9 +126,9 @@ MOLSIM's hierarchy is organised by topic, so that simulation experts can browse 
 
 | Ontology  | What MOLSIM reuses                                                                                                                                                | How it is used                                                                                                                   |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| **STATO** | 7 statistics classes, such as `p-value`, `standard deviation` and `correlation coefficient`                                                                       | placed under our `statistical property` branch. 8 MOLSIM duplicates were retired and point to the STATO terms                    |
+| **STATO** | 10 statistics classes, such as `p-value`, `standard deviation`, `correlation coefficient` and `sample mean`                                                       | placed under our `statistical property` branch. 8 MOLSIM duplicates were retired and point to the STATO terms                    |
 | **SO**    | 29 classes: protein domains, protein secondary structure (helix types and coil) and modified nucleic-acid bases                                                   | our `protein domain` and `secondary structure` classes sit under SO classes. 4 MOLSIM helix classes were retired in favour of SO |
-| **UO**    | 55 unit classes                                                                                                                                                   | the units for 101 MOLSIM quantity classes, across 14 kinds of unit. MOLSIM never defines its own units                           |
+| **UO**    | 55 unit classes                                                                                                                                                   | the units for 100 MOLSIM quantity classes, across 14 kinds of unit. MOLSIM never defines its own units                           |
 | **IAO**   | 6 classes, such as `information content entity`, `plan specification`, `document` and `publication`, and the annotation properties `definition` and `term editor` | 15 MOLSIM classes sit under 4 of these IAO classes                                                                               |
 | **OMO**   | the standard OBO metadata properties                                                                                                                              | definitions, synonyms and other term metadata                                                                                    |
 | **RO**    | 7 relations, such as `has part`, `participates in`, `has input` and `has output`                                                                                  | reused instead of defining our own                                                                                               |
@@ -147,9 +147,10 @@ MOLSIM's hierarchy is organised by topic, so that simulation experts can browse 
 
 - **Browse the hierarchy** on [BioPortal](https://bioportal.bioontology.org/ontologies/MOLSIM).
 - **Development guides** are on the [documentation site](https://cpclab.github.io/molsim-ontology/). To edit MOLSIM, start with [Editing MOLSIM](https://cpclab.github.io/molsim-ontology/custom/EditingMOLSIM/), which explains how to set up Protégé.
+- **Writing data with MOLSIM terms:** [how to record a value with its unit, and a statistic such as a mean](https://cpclab.github.io/molsim-ontology/custom/DataPatterns/).
 - **Terms reference**, generated with pyLODE: [all terms on one page](https://cpclab.github.io/molsim-ontology/pylode.html). There, each definition is shown as `skos:definition`, copied from `IAO:0000115 definition`. The ontology itself uses `IAO:0000115 definition`.
 
-**Release files.** Until the OBO address above works, the latest build is in this repository. The files are [`molsim.owl`](molsim.owl), [`molsim.obo`](molsim.obo) and [`molsim.json`](molsim.json). Each also comes as a `-base` and a `-full` variant. The `.obo` files hold only classes and object properties, because the OBO format cannot represent data properties or named individuals. Use the OWL or JSON files if you need those.
+**Release files.** Pre-releases are published on the [Releases page](https://github.com/CPCLab/molsim-ontology/releases), each with a fixed version date. Until the OBO address above works, the latest build is also in this repository. The files are [`molsim.owl`](molsim.owl), [`molsim.obo`](molsim.obo) and [`molsim.json`](molsim.json). Each also comes as a `-base` and a `-full` variant. The `.obo` files hold only classes and object properties, because the OBO format cannot represent data properties or named individuals. Use the OWL or JSON files if you need those.
 
 **Editing.** All changes are made in [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl). The other files are generated from it with ODK.
 
