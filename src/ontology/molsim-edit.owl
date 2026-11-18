@@ -4867,7 +4867,7 @@ SubClassOf(obo:MOLSIM_000280 obo:MOLSIM_000238)
 
 # Class: obo:MOLSIM_000281 (thermodynamic integration similarity calculation tool)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000281 "A system setup tool that helps choose which pairs of ligands to compare in thermodynamic integration (TI) free energy calculations, from a matrix of pairwise similarity scores between the ligands. In the AMBER FEW workflow a script applies Kruskal's shortest path algorithm to these scores, so that the chosen transformations need the smallest structural changes overall. The scores themselves come from a separate ligand comparison, for example the shape and chemical feature score of ROCS. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000281 "A system setup tool that helps choose which pairs of ligands to compare in thermodynamic integration (TI) free energy calculations, from a matrix of pairwise similarity scores between the ligands. In the AMBER FEW workflow a script applies Kruskal's minimum spanning tree algorithm to these scores, so that the chosen transformations connect all ligands and need the smallest structural changes overall. The scores themselves come from a separate ligand comparison, for example the shape and chemical feature score of ROCS. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000281 "thermodynamic integration similarity calculation tool"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000281 "AMBER 26 Reference Manual, p. 998, FEW script identify_transformations.pl."@en)
 SubClassOf(obo:MOLSIM_000281 obo:MOLSIM_001556)
@@ -5583,7 +5583,7 @@ SubClassOf(obo:MOLSIM_000388 obo:MOLSIM_000308)
 
 # Class: obo:MOLSIM_000389 (hot spot adaptive QM/MM)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000389 "A QM/MM method in which atoms in a buffer zone between the quantum and classical regions receive a smoothed mixture of the forces from a larger and a smaller quantum calculation. This lets atoms cross the quantum boundary during the run without sudden jumps in force. It was first applied to an ion dissolved in a solvent, where solvent molecules move in and out of the quantum region around the ion. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000389 "A QM/MM method in which atoms in a thin transition zone between the quantum and classical regions receive a smoothed mixture of quantum mechanical and force field forces. This lets atoms cross the quantum boundary during the run without sudden jumps in force. It was first applied to an ion dissolved in a solvent, where solvent molecules move in and out of the quantum region around the ion. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000389 "hot spot adaptive QM/MM"@en)
 SubClassOf(obo:MOLSIM_000389 obo:MOLSIM_000388)
 
@@ -5997,7 +5997,7 @@ SubClassOf(obo:MOLSIM_000451 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000452 (isotropic reorientational eigenmode dynamics analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000452 "A dynamics analysis method that decomposes the reorientational motion of a set of bond vectors in a molecule, such as backbone N-H bonds, into collective modes, by diagonalising a matrix built from the relative orientations of all pairs of these vectors. It assumes that the overall tumbling of the molecule is isotropic, meaning the same in all directions. Each mode has its own correlation time, and together they give NMR order parameters and relaxation rates that can be compared with experiment. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000452 "A dynamics analysis method that decomposes the reorientational motion of a set of bond vectors in a molecule, such as backbone N-H bonds, into collective modes, by diagonalising a matrix built from the relative orientations of all pairs of these vectors. The matrix is averaged over all orientations of the molecule, so no superposition on a reference structure is needed and overall and internal motion do not have to be separated. Each mode has its own correlation time, and together they give NMR order parameters and relaxation rates that can be compared with experiment. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000452 "isotropic reorientational eigenmode dynamics analysis"@en)
 SubClassOf(obo:MOLSIM_000452 obo:MOLSIM_000939)
 
@@ -10307,7 +10307,7 @@ SubClassOf(obo:MOLSIM_001196 obo:MOLSIM_001195)
 
 # Class: obo:MOLSIM_001197 (external dielectric constant)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001197 "A dielectric constant that describes the bulk solvent surrounding a solute in a continuum solvation calculation. It is set high, near 80 for water, so that the solvent screens electrostatic interactions strongly. Together with the internal value it fixes the dielectric boundary at the molecular surface. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001197 "A dielectric constant that describes the bulk solvent surrounding a solute in a continuum solvation calculation. It is set high, near 80 for water, so that the solvent screens electrostatic interactions strongly. Together with the internal value it sets how large the change in dielectric constant is across the boundary at the molecular surface. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001197 "external dielectric constant"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001197 "AMBER 26 Reference Manual, p. 82, entry epsout."@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001197 "AMBER 26 Reference Manual, p. 952, entry exdi."@en)
@@ -12514,7 +12514,7 @@ SubClassOf(obo:MOLSIM_001506 obo:MOLSIM_001499)
 
 # Class: obo:MOLSIM_001507 (deep potential range corrected potential)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001507 "A QM/MM model component that adds a deep neural network correction to the energy of a QM/MM potential, trained to improve both the interactions within the quantum region and those between quantum atoms and nearby classical atoms. The correction is non-electrostatic and acts only on classical atoms within a cutoff distance of the quantum region, which is what range-corrected refers to. It is typically used to bring a fast semi-empirical QM/MM model close to the accuracy of ab initio QM/MM. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001507 "A QM/MM model component that adds a deep neural network correction to the energy of a QM/MM potential, trained to improve both the interactions within the quantum region and those between quantum atoms and nearby classical atoms. The correction is non-electrostatic and includes classical atoms only when they lie within a cutoff distance of the quantum region, which is what range-corrected refers to. It is typically used to bring a fast semi-empirical QM/MM model close to the accuracy of ab initio QM/MM. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001507 "deep potential range corrected potential"@en)
 SubClassOf(obo:MOLSIM_001507 obo:MOLSIM_001463)
 
@@ -12526,7 +12526,7 @@ SubClassOf(obo:MOLSIM_001508 obo:MOLSIM_001494)
 
 # Class: obo:MOLSIM_001509 (OBC implicit solvent model)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001509 "A generalized Born implicit solvent model that computes effective Born radii with the scheme of Onufriev, Bashford and Case, which rescales the radii to account for the spaces between atomic spheres that earlier pairwise models missed. Its radii come closer to the true molecular volume at little extra cost. In AMBER it has 2 parameter variants, igb=2 and igb=5, which are recommended for most protein work and are used with the mbondi2 radii. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001509 "A generalized Born implicit solvent model that computes effective Born radii with the scheme of Onufriev, Bashford and Case, which rescales the radii to account for the spaces between atomic spheres that earlier pairwise models missed. Its radii come closer to the true molecular volume at little extra cost. In AMBER it has 2 parameter variants, igb=2 and igb=5, which are used with the mbondi2 radii. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001509 "OBC implicit solvent model"@en)
 SubClassOf(obo:MOLSIM_001509 obo:MOLSIM_001478)
 
@@ -15554,7 +15554,7 @@ SubClassOf(obo:MOLSIM_001972 obo:MOLSIM_000172)
 
 # Class: obo:MOLSIM_001973 (AMBERGS)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001973 "A protein force field from the AMBER family, introduced by García and Sanbonmatsu in 2002, that removes some of the backbone phi and psi torsion terms of ff94 to reduce its overly strong preference for helical structure. It was developed to study the balance between helix and coil in peptides. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001973 "A protein force field from the AMBER family, introduced by García and Sanbonmatsu in 2002, that sets the backbone phi and psi torsion terms of ff94 to 0 to reduce its overly strong preference for helical structure. It was developed to study the balance between helix and coil in peptides. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001973 "AMBERGS"@en)
 SubClassOf(obo:MOLSIM_001973 obo:MOLSIM_000009)
 
@@ -16781,7 +16781,7 @@ ClassAssertion(obo:MOLSIM_000699 obo:MOLSIM_000930)
 
 # Individual: obo:MOLSIM_000931 (ZINC20)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000931 "A chemical structure database of commercially available compounds, prepared in ready-to-dock 3D formats for virtual screening, which is the computer search for molecules that may bind a target. It is provided by the Irwin and Shoichet laboratories at the University of California, San Francisco, and holds hundreds of millions of purchasable compounds with annotated properties. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000931 "A chemical structure database of commercially available compounds for virtual screening, which is the computer search for molecules that may bind a target. It is provided by the Irwin and Shoichet laboratories at the University of California, San Francisco, and holds more than 1 billion purchasable compounds with annotated properties, of which several hundred million are prepared in ready-to-dock 3D formats. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000931 "ZINC20"@en)
 ClassAssertion(obo:MOLSIM_000699 obo:MOLSIM_000931)
 
