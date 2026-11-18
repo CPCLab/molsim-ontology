@@ -2414,7 +2414,8 @@ DataPropertyRange(obo:MOLSIM_001124 xsd:integer)
 
 # Data Property: obo:MOLSIM_001125 (last solute residue number)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001125 "A relation that gives the number of the last residue treated as part of the solute in a molecular system, as recorded by the AMBER topology pointer IPTRES. Residues numbered after it are treated as solvent. Analyses that must tell the solute apart from the solvent use this boundary. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001125 "A relation that gives the number of the last residue treated as part of the solute in a molecular system, as recorded by the AMBER topology pointer IPTRES. Residues numbered after it are treated as solvent. It is stored in the SOLVENT_POINTERS section of the topology file, which is present only for a system with a periodic box. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001125 "Amber File Formats, section on the topology (PARM) file, flag SOLVENT_POINTERS: IPTRES is the final residue that is considered part of the solute. https://ambermd.org/FileFormats.php, accessed 2026-11-18."@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001125 "The IPTRES pointer in an AMBER prmtop topology file.")
 AnnotationAssertion(rdfs:label obo:MOLSIM_001125 "last solute residue number"@en)
 AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001125 "number of receptor residues"@en)
@@ -9153,6 +9154,7 @@ SubClassOf(obo:MOLSIM_000941 obo:MOLSIM_000661)
 # Class: obo:MOLSIM_000942 (time cross correlation analysis)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000942 "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and a value near zero means there is no linear relationship between them at that delay. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_000942 "CPPTRAJ Manual, p. 255, section 13.7 corr: auto-correlation or cross-correlation function of 2 data sets up to a maximum lag."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000942 "time cross correlation analysis"@en)
 SubClassOf(obo:MOLSIM_000942 obo:MOLSIM_000342)
 
