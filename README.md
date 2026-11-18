@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="./assets/molsim-logo.svg" alt="MOLSIM Ontology Logo" width="175">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/molsim-logo-dark.svg">
+    <img src="./assets/molsim-logo.svg" alt="MOLSIM Ontology Logo" width="175">
+  </picture>
 </p>
 
 <h1 align="center">Molecular Simulation Ontology (MOLSIM)</h1>
