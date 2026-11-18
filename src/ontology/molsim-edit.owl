@@ -526,6 +526,8 @@ Declaration(Class(obo:MOLSIM_000482))
 Declaration(Class(obo:MOLSIM_000483))
 Declaration(Class(obo:MOLSIM_000484))
 Declaration(Class(obo:MOLSIM_000485))
+Declaration(Class(obo:MOLSIM_002286))
+Declaration(Class(obo:MOLSIM_002287))
 Declaration(Class(obo:MOLSIM_000486))
 Declaration(Class(obo:MOLSIM_000487))
 Declaration(Class(obo:MOLSIM_000488))
@@ -4544,7 +4546,7 @@ SubClassOf(obo:MOLSIM_000231 obo:MOLSIM_000006)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000232 "A component of the potential energy stored in the stretching or compression of covalent bonds away from their preferred length. It is usually modelled as a spring, whose energy rises ever more steeply the further the bond departs from that length, so the bond can never break. That is why an ordinary force field cannot describe a chemical reaction. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000232 "bond interaction energy"@en)
 SubClassOf(obo:MOLSIM_000232 obo:MOLSIM_000231)
-SubClassOf(obo:MOLSIM_000232 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_000232 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_000233 (gravitational interaction energy)
 
@@ -6218,6 +6220,18 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000484 "A QM/MM method in which s
 AnnotationAssertion(rdfs:label obo:MOLSIM_000484 "adaptive solvent QM/MM"@en)
 SubClassOf(obo:MOLSIM_000484 obo:MOLSIM_000388)
 
+# Class: obo:MOLSIM_002286 (effective core potential basis set)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002286 "A quantum mechanics basis set used together with an effective core potential, which replaces the core electrons of an atom with a potential, so that basis functions describe only the valence electrons. Removing the core electrons lowers the cost of the calculation, and for heavy elements the potential can also include relativistic effects. The LANL sets of Hay and Wadt are common examples. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002286 "effective core potential basis set"@en)
+SubClassOf(obo:MOLSIM_002286 obo:MOLSIM_000432)
+
+# Class: obo:MOLSIM_002287 (core-valence basis set)
+
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002287 "A quantum mechanics basis set that adds extra functions close to the nucleus, so that it describes the correlation of the core electrons as well as that of the valence electrons. It is needed when core-valence correlation affects the result, for example in very accurate bond lengths or energies. The correlation-consistent cc-pCVnZ and cc-pwCVnZ sets are examples. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002287 "core-valence basis set"@en)
+SubClassOf(obo:MOLSIM_002287 obo:MOLSIM_000432)
+
 # Class: obo:MOLSIM_000485 (split-valence basis set)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000485 "A basis set that represents each valence orbital with 2 or more functions of different spatial extent, while keeping a single function for each core orbital. The extra valence functions let the electron cloud expand or contract as bonding requires, which a minimal set cannot. Splitting only the valence shell concentrates the added cost where bonding happens. (UNVERIFIED)"@en)
@@ -6372,61 +6386,61 @@ SubClassOf(obo:MOLSIM_000511 obo:MOLSIM_000485)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000512 "A set of effective core potentials and matching valence basis sets developed at Los Alamos National Laboratory for calculations on heavier elements. The potential stands in for the chemically inert inner electrons, which cuts cost and includes some relativistic effects, while the valence basis describes the electrons that form bonds. Its valence basis sets are revised versions of the older LANL2DZ ones and are used with the same potentials. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000512 "LANL08"@en)
-SubClassOf(obo:MOLSIM_000512 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000512 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000513 (LANL08(f))
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000513 "A set of effective core potentials and valence basis sets from the Los Alamos LANL08 family, with f type polarization functions added on the heavy atoms the potential covers. The f functions give more freedom in describing electron distribution, which matters for bonding in molecules containing heavier elements. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000513 "LANL08(f)"@en)
-SubClassOf(obo:MOLSIM_000513 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000513 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000514 (LANL2-[6s4p4d2f])
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000514 "A Los Alamos effective core potential paired with a valence basis contracted to 6 s-type, 4 p-type, 4 d-type and 2 f-type functions. The potential replaces the inner electrons, and the large valence contraction gives far more flexibility than the standard double-zeta basis of the same family. It is used for heavier elements where the standard basis is too small to describe bonding accurately. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000514 "LANL2-[6s4p4d2f]"@en)
-SubClassOf(obo:MOLSIM_000514 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000514 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000515 (LANL2DZ ECP)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000515 "A Los Alamos effective core potential paired with a double-zeta valence basis, for elements from the third row onwards. The potential stands in for the inner electrons, which cuts cost and includes some relativistic effects. It is one of the most widely used combinations of effective core potential and basis set. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000515 "LANL2DZ ECP"@en)
-SubClassOf(obo:MOLSIM_000515 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000515 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000516 (LANL2DZ+1d1f)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000516 "A Los Alamos effective core potential with a double-zeta valence basis, carrying 1 extra d type and 1 extra f type polarization function on the heavy atoms the potential covers. The higher angular momentum functions give the valence basis more freedom, which improves the description of bonding for heavier elements. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000516 "LANL2DZ+1d1f"@en)
-SubClassOf(obo:MOLSIM_000516 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000516 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000517 (LANL2DZ+2s2p2d2f)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000517 "A Los Alamos effective core potential with a double-zeta valence basis, carrying 2 additional s, p, d and f functions on the heavy atoms the potential covers. The additions give far more freedom in describing valence electrons than the standard double-zeta set. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000517 "LANL2DZ+2s2p2d2f"@en)
-SubClassOf(obo:MOLSIM_000517 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000517 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000518 (LANL2DZdp ECP)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000518 "A Los Alamos effective core potential with a double-zeta valence basis, to which diffuse and polarization functions have been added for the p-block elements of groups 14 to 17. The added functions improve the description of anions and of bonding over the unaugmented version, with results for vibrational frequencies and bond energies similar to an all-electron basis of comparable size. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000518 "LANL2DZdp ECP"@en)
-SubClassOf(obo:MOLSIM_000518 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000518 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000519 (LANL2DZdp ECP Polarization)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000519 "A Los Alamos effective core potential with a double-zeta valence basis, carrying d type polarization functions on the heavy atoms the potential covers and p type polarization functions on hydrogen. The added polarization functions improve molecular geometries and interaction energies markedly over the unpolarized version. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000519 "LANL2DZdp ECP Polarization"@en)
-SubClassOf(obo:MOLSIM_000519 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000519 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000520 (LANL2TZ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000520 "A Los Alamos effective core potential paired with a triple-zeta valence basis set, using 3 functions per valence orbital. The extra valence function makes it more flexible and more accurate than the double-zeta member of the same family, at a higher cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000520 "LANL2TZ"@en)
-SubClassOf(obo:MOLSIM_000520 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000520 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000521 (LANL2TZ(f))
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000521 "A Los Alamos effective core potential with a triple-zeta valence basis set, with f type polarization functions added on the heavy atoms the potential covers. The f functions describe electron correlation and polarization around heavier elements more accurately than the unaugmented set. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000521 "LANL2TZ(f)"@en)
-SubClassOf(obo:MOLSIM_000521 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000521 obo:MOLSIM_002286)
 
 # Class: obo:MOLSIM_000522 (cc-pVDZ)
 
@@ -6504,31 +6518,31 @@ SubClassOf(obo:MOLSIM_000533 obo:MOLSIM_001505)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000534 "A correlation-consistent basis set at double-zeta level that adds tight functions, of large exponent, to describe correlation involving the core electrons. Standard valence sets assume the core is inert, which is a poor approximation for properties that depend on core-valence correlation. It is the smallest member of the family and the cheapest at which the effect can be seen at all. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000534 "cc-pCVDZ"@en)
-SubClassOf(obo:MOLSIM_000534 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000534 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000535 (cc-pCVTZ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000535 "A correlation-consistent basis set at triple-zeta level that adds tight functions, of large exponent, to describe correlation involving the core electrons. Standard valence sets assume the core is inert, which is a poor approximation for properties that depend on core-valence correlation. It is the level at which core-valence correlation is usually first worth its cost. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000535 "cc-pCVTZ"@en)
-SubClassOf(obo:MOLSIM_000535 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000535 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000536 (cc-pCVQZ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000536 "A correlation-consistent basis set at quadruple-zeta level that adds tight functions, of large exponent, to describe correlation involving the core electrons. Standard valence sets assume the core is inert, which is a poor approximation for properties that depend on core-valence correlation. It is used for benchmark work where core-valence correlation must be converged rather than merely included. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000536 "cc-pCVQZ"@en)
-SubClassOf(obo:MOLSIM_000536 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000536 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000537 (cc-pCV5Z)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000537 "A correlation-consistent basis set at quintuple-zeta level that adds tight functions describing correlation involving the core electrons, without diffuse functions. It is used for benchmark work where core-valence correlation must be converged. Its size restricts it to very small systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000537 "cc-pCV5Z"@en)
-SubClassOf(obo:MOLSIM_000537 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000537 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000538 (cc-pCV6Z)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000538 "A correlation-consistent basis set at sextuple-zeta level that adds tight functions describing correlation involving the core electrons, without diffuse functions. It is among the largest such sets available and approaches the complete basis set limit for the core-valence contribution. Its size restricts it to benchmark work on very small systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000538 "cc-pCV6Z"@en)
-SubClassOf(obo:MOLSIM_000538 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000538 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000539 (cc-pV(D+d)Z)
 
@@ -6641,31 +6655,31 @@ SubClassOf(obo:MOLSIM_000555 obo:MOLSIM_001505)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000556 "A correlation-consistent basis set at double-zeta level that adds both diffuse functions and tight functions describing correlation involving the core electrons. Standard valence sets assume the core is inert, which fails for properties that depend on it. It is the smallest combination that carries both additions. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000556 "aug-cc-pCVDZ"@en)
-SubClassOf(obo:MOLSIM_000556 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000556 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000557 (aug-cc-pCVTZ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000557 "A correlation-consistent basis set at triple-zeta level that adds both diffuse functions and tight functions describing correlation involving the core electrons. Standard valence sets assume the core is inert, which fails for properties that depend on it. It is the usual working choice where a system needs diffuse character and core-valence correlation at once. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000557 "aug-cc-pCVTZ"@en)
-SubClassOf(obo:MOLSIM_000557 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000557 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000558 (aug-cc-pCVQZ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000558 "A correlation-consistent basis set at quadruple-zeta level that adds both diffuse functions and tight functions describing correlation involving the core electrons. Standard valence sets assume the core is inert, which fails for properties that depend on it. It is used where both effects must be converged rather than merely present. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000558 "aug-cc-pCVQZ"@en)
-SubClassOf(obo:MOLSIM_000558 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000558 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000559 (aug-cc-pCV5Z)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000559 "A correlation-consistent basis set at quintuple-zeta level that adds both diffuse functions and tight functions describing correlation involving the core electrons. Standard valence sets assume the core is inert, which fails for properties that depend on it. It is a benchmark set whose cost restricts it to small systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000559 "aug-cc-pCV5Z"@en)
-SubClassOf(obo:MOLSIM_000559 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000559 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000560 (aug-cc-pCV6Z)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000560 "A correlation-consistent basis set at sextuple-zeta level that adds both diffuse functions and tight functions describing correlation involving the core electrons. Standard valence sets assume the core is inert, which fails for properties that depend on it. It is among the largest standard basis sets available and is used only for benchmark work on very small systems. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000560 "aug-cc-pCV6Z"@en)
-SubClassOf(obo:MOLSIM_000560 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000560 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000561 (aug-cc-pV(D+d)Z)
 
@@ -6706,25 +6720,25 @@ SubClassOf(obo:MOLSIM_000565 obo:MOLSIM_000485)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000566 "A correlation-consistent double-zeta basis set that adds diffuse functions together with tight functions weighted towards core-valence correlation. The weighting concentrates the added functions where core and valence electrons actually correlate, rather than describing the core itself. It suits a small system needing both diffuse character and core-valence correlation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000566 "aug-cc-pwCVDZ"@en)
-SubClassOf(obo:MOLSIM_000566 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000566 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000567 (aug-cc-pwCVTZ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000567 "A correlation-consistent triple-zeta basis set that adds diffuse functions together with weighted core-valence correlating functions. It is the level at which core-valence effects are usually first worth their cost. Both additions are needed for properties sensitive to diffuse electrons in systems where the core cannot be treated as inert. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000567 "aug-cc-pwCVTZ"@en)
-SubClassOf(obo:MOLSIM_000567 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000567 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000568 (aug-cc-pwCVQZ)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000568 "A correlation-consistent quadruple-zeta basis set that adds diffuse functions together with weighted core-valence correlating functions. It is used for high-accuracy work where both effects must be converged rather than merely present. Its size restricts it to small molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000568 "aug-cc-pwCVQZ"@en)
-SubClassOf(obo:MOLSIM_000568 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000568 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000569 (aug-cc-pwCV5Z)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000569 "A correlation-consistent quintuple-zeta basis set that adds diffuse functions together with weighted core-valence correlating functions. It is a benchmark set used to approach the complete basis set limit. Its cost restricts it to atoms and very small molecules. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000569 "aug-cc-pwCV5Z"@en)
-SubClassOf(obo:MOLSIM_000569 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000569 obo:MOLSIM_002287)
 
 # Class: obo:MOLSIM_000570 (aug-pc-0)
 
@@ -6766,7 +6780,7 @@ SubClassOf(obo:MOLSIM_000575 obo:MOLSIM_001505)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000576 "A set of polarization functions, of higher angular momentum than the atom occupies in its ground state, developed by the Ahlrichs group for the Karlsruhe basis sets. Polarization functions let the electron density distort away from atomic symmetry, which is what bonding requires. Without them a basis set cannot describe a bond angle correctly. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000576 "Ahlrichs Polarization"@en)
-SubClassOf(obo:MOLSIM_000576 obo:MOLSIM_000485)
+SubClassOf(obo:MOLSIM_000576 obo:MOLSIM_000432)
 
 # Class: obo:MOLSIM_000577 (Ahlrichs pvDZ)
 
@@ -11025,7 +11039,7 @@ SubClassOf(obo:MOLSIM_001296 obo:MOLSIM_001295)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001297 "A component of the potential energy arising from the Coulomb interaction between the partial charges on the atoms. It falls off slowly with distance, so it reaches much further than the other non-bonded term and needs special treatment in a periodic system. It is what makes polarity, solvation and ionic binding come out right or wrong. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001297 "electrostatic energy"@en)
-SubClassOf(obo:MOLSIM_001297 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001297 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001298 (1-4 electrostatic energy)
 
@@ -11037,7 +11051,7 @@ SubClassOf(obo:MOLSIM_001298 obo:MOLSIM_001297)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001299 "A component of the potential energy covering the short-range interaction between atoms not bonded to each other: a steep repulsion when they approach too closely and a weaker attraction at slightly greater distance. The repulsion is what gives atoms an effective size. The attraction is what makes non-polar molecules condense into liquids at all. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001299 "Van der Waals energy"@en)
-SubClassOf(obo:MOLSIM_001299 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001299 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001300 (1-4 Van der Waals energy)
 
@@ -11049,7 +11063,7 @@ SubClassOf(obo:MOLSIM_001300 obo:MOLSIM_001299)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001301 "A component of the potential energy stored in the bending of the angle between 3 bonded atoms away from its preferred value. It is softer than the bond stretching term, so angles deform more readily than bond lengths. It is the term that keeps, for example, a carbon atom with 4 single bonds close to a tetrahedral shape. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001301 "angle energy"@en)
-SubClassOf(obo:MOLSIM_001301 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001301 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001302 (Urey-Bradley energy)
 
@@ -11061,25 +11075,25 @@ SubClassOf(obo:MOLSIM_001302 obo:MOLSIM_001301)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001303 "A component of the potential energy associated with rotation about a bond, defined by 4 atoms in sequence and repeating as the rotation goes round. It is what makes some rotational positions preferred over others, which sets the shapes a molecule can adopt. It is the term most often refitted when a force field is improved, because conformational preferences depend on it most. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001303 "dihedral energy"@en)
-SubClassOf(obo:MOLSIM_001303 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001303 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001304 (improper torsion energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001304 "A component of the potential energy that holds a group of 4 atoms flat, or holds a centre in one of its 2 mirror forms. Unlike an ordinary torsion it is defined over atoms that are not in a chain, and in many force fields it is a harmonic term with a single preferred value rather than a repeating one. Without it, a planar group such as an aromatic ring or an amide could bend out of its plane. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001304 "improper torsion energy"@en)
-SubClassOf(obo:MOLSIM_001304 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001304 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001305 (dispersion energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001305 "A component of the potential energy arising from momentary fluctuations in an atom's electron cloud inducing matching fluctuations in its neighbours. It is always attractive and falls off rapidly with distance, so near neighbours contribute most. It is weak between any 2 atoms and dominant in large non-polar molecules simply because there are so many pairs. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001305 "dispersion energy"@en)
-SubClassOf(obo:MOLSIM_001305 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001305 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001306 (polarization energy)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001306 "A component of the potential energy arising from a molecule's electron cloud being distorted by the electric field of its surroundings. A force field with fixed atomic charges cannot represent it and absorbs its average effect into those charges instead. Representing it explicitly is what distinguishes a polarizable force field and what makes it several times more expensive. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001306 "polarization energy"@en)
-SubClassOf(obo:MOLSIM_001306 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001306 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001307 (restraint energy)
 
@@ -11122,7 +11136,7 @@ SubClassOf(obo:MOLSIM_001311 obo:MOLSIM_001310)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001312 "A special potential term used in some older force fields to explicitly model hydrogen bonds. It is calculated using a 10-12 Lennard-Jones-like function between donor and acceptor atoms. This term is not commonly used in modern force fields but may be found in older simulation outputs. It is often reported as HBOND in energy summaries when such a potential is used."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001312 "10-12 H-bond energy"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_001312 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_001312 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001312 obo:MOLSIM_001295)
 
 # Class: obo:MOLSIM_001313 (locally enhanced sampling energy)
 
@@ -14358,7 +14372,7 @@ SubClassOf(obo:MOLSIM_001797 obo:MOLSIM_001333)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001798 "An interaction energy component arising when a small amount of electron density moves from one molecule to another at close range. It is a quantum mechanical effect that a force field with fixed atomic charges cannot represent, yet it contributes measurably to hydrogen bonds and to interactions with metal ions. Capturing it explicitly needs a quantum mechanical treatment or a force field with a dedicated charge transfer term. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001798 "charge transfer energy"@en)
-SubClassOf(obo:MOLSIM_001798 obo:MOLSIM_001294)
+SubClassOf(obo:MOLSIM_001798 obo:MOLSIM_001803)
 SubClassOf(obo:MOLSIM_001798 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000111))
 SubClassOf(obo:MOLSIM_001798 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
