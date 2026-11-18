@@ -3090,9 +3090,11 @@ SubClassOf(obo:MOLSIM_000012 obo:MOLSIM_000772)
 
 # Class: obo:MOLSIM_000013 (organic molecule force field)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000013 "A force field parameterised for small organic molecules, covering the wide range of chemistry found in drug-like compounds. It must handle groups no protein or nucleic acid force field was built for. It is used together with a biomolecular force field when a ligand is simulated in a protein. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000013 "organic molecule force field"@en)
-SubClassOf(obo:MOLSIM_000013 obo:MOLSIM_000772)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000013 "OBSOLETE. A force field parameterised for small organic molecules, covering the wide range of chemistry found in drug-like compounds. It must handle groups no protein or nucleic acid force field was built for. It is used together with a biomolecular force field when a ligand is simulated in a protein."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000013 "obsolete organic molecule force field"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000013 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000013 obo:MOLSIM_000016)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000013 "Retired 2026-11-18. It duplicated MOLSIM:000016 general purpose organic force field, a force field for small organic molecules such as drugs and ligands. Its 1 child was moved there first, and its label is kept as an exact synonym.")
 
 # Class: obo:MOLSIM_000014 (water model force field)
 
@@ -3111,6 +3113,7 @@ SubClassOf(obo:MOLSIM_000015 obo:MOLSIM_000772)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000016 "A chemical entity-based force field designed to give parameters for almost any organic molecule, such as a drug or a ligand, rather than for 1 class of biomolecule. It achieves that breadth by assigning atom types from rules based on each atom's chemical environment, and by supplying rules to estimate parameters that are missing. The parameters it gives for a particular molecule are approximate, so they are often checked or refined. (UNVERIFIED)"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000016 "other organic molecules force field"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000016 "general purpose organic force field"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000016 "organic molecule force field"@en)
 SubClassOf(obo:MOLSIM_000016 obo:MOLSIM_000772)
 
 # Class: obo:MOLSIM_000017 (minimal basis set)
@@ -4595,6 +4598,7 @@ SubClassOf(obo:MOLSIM_000238 obo:MOLSIM_000326)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000239 "The single trajectory approach, often used in MM/PBSA and MM/GBSA calculations, involves running only one molecular dynamics simulation of the protein-ligand complex. Snapshots of the complex, the protein alone, and the ligand alone are then extracted directly from this single trajectory for endpoint free energy calculations. This reduces the computational cost compared to running three separate simulations but assumes the conformations sampled in the complex are representative for the free states."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000239 "single trajectory"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000239 "1 trajectory approach"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000239 orcid:0009-0007-1391-4986)
 SubClassOf(obo:MOLSIM_000239 obo:MOLSIM_000238)
 
@@ -4861,9 +4865,11 @@ SubClassOf(obo:MOLSIM_000278 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000279 (1 trajectory approach)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000279 "A trajectory approach for end-point binding free energy calculations in which only the complex is simulated, and the receptor and ligand structures are taken from that same trajectory. Because every structure comes from 1 simulation, the internal energies of the parts cancel exactly, which removes most of the statistical noise. The price is that neither part can relax into the shape it would take on its own, so any real conformational change on binding is missed. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000279 "1 trajectory approach"@en)
-SubClassOf(obo:MOLSIM_000279 obo:MOLSIM_000238)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000279 "OBSOLETE. A trajectory approach for end-point binding free energy calculations in which only the complex is simulated, and the receptor and ligand structures are taken from that same trajectory. Because every structure comes from 1 simulation, the internal energies of the parts cancel exactly, which removes most of the statistical noise. The price is that neither part can relax into the shape it would take on its own, so any real conformational change on binding is missed."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000279 "obsolete 1 trajectory approach"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000279 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000279 obo:MOLSIM_000239)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000279 "Retired 2026-11-18. It duplicated MOLSIM:000239 single trajectory: both simulate only the complex and take receptor and ligand from that 1 trajectory. Its label is kept as an exact synonym on MOLSIM:000239.")
 
 # Class: obo:MOLSIM_000280 (3 trajectory approach)
 
@@ -5259,9 +5265,11 @@ SubClassOf(obo:MOLSIM_000339 obo:MOLSIM_000367)
 
 # Class: obo:MOLSIM_000340 (integration analysis)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000340 "A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000340 "integration analysis"@en)
-SubClassOf(obo:MOLSIM_000340 obo:MOLSIM_000367)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000340 "OBSOLETE. A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000340 "obsolete integration analysis"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000340 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000340 obo:MOLSIM_001691)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000340 "Retired 2026-11-18. It duplicated MOLSIM:001691 integration algorithm: both are the algorithms that advance positions and velocities from one time step to the next. Its label is kept as a related synonym on MOLSIM:001691.")
 
 # Class: obo:MOLSIM_000341 (auto-correlation analysis)
 
@@ -8267,10 +8275,12 @@ SubClassOf(obo:MOLSIM_000801 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000802 (V-rescale thermostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000802 "A temperature control algorithm that modifies simple weak coupling by adding a random term chosen so the resulting distribution of kinetic energies is the correct one. Weak coupling alone drives every fluctuation towards the mean, which suppresses the spread a real system has. The random term restores it at no extra cost. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000802 "V-rescale thermostat"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000802 "OBSOLETE. A temperature control algorithm that modifies simple weak coupling by adding a random term chosen so the resulting distribution of kinetic energies is the correct one. Weak coupling alone drives every fluctuation towards the mean, which suppresses the spread a real system has. The random term restores it at no extra cost."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000802 "obsolete V-rescale thermostat"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000802 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_000802 obo:MOLSIM_001732)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000802 "Retired 2026-11-18. It duplicated MOLSIM:001732 Bussi thermostat: V-rescale is the GROMACS name for the stochastic velocity rescaling thermostat of Bussi, Donadio and Parrinello. Its label is kept as an exact synonym on MOLSIM:001732.")
 AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000247) obo:MOLSIM_002254 obo:MOLSIM_000802 "tcoupl=v-rescale")
-SubClassOf(obo:MOLSIM_000802 obo:MOLSIM_000038)
 
 # Class: obo:MOLSIM_000803 (semi-empirical method)
 
@@ -9693,7 +9703,7 @@ SubClassOf(obo:MOLSIM_001064 obo:MOLSIM_000014)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001065 "A water model with 3 sites, derived from the SPC geometry, whose bonds and angle can stretch and bend. Its bonded parameters were refitted alongside the flexibility so that the liquid's density and diffusion stay correct. Making a rigid model flexible without refitting changes both. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001065 "A flexible three-site water model."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001065 "SPCFW"@en)
-SubClassOf(obo:MOLSIM_001065 obo:MOLSIM_000014)
+SubClassOf(obo:MOLSIM_001065 obo:MOLSIM_000770)
 
 # Class: obo:MOLSIM_001066 (ptraj format)
 
@@ -9970,9 +9980,11 @@ SubClassOf(obo:MOLSIM_001105 obo:MOLSIM_000445)
 
 # Class: obo:MOLSIM_001106 (solvent analysis data format)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001106 "A data format that stores the results of analysing how solvent molecules are arranged and behave around a solute. Files in these formats typically hold values on a 3-dimensional grid, such as the chance of finding a solvent atom at a point or the average interaction energy there. Examples include solvent density maps and the correlation functions produced by 3D-RISM theory. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_001106 "solvent analysis data format"@en)
-SubClassOf(obo:MOLSIM_001106 obo:MOLSIM_010021)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001106 "OBSOLETE. A data format that stores the results of analysing how solvent molecules are arranged and behave around a solute. Files in these formats typically hold values on a 3-dimensional grid, such as the chance of finding a solvent atom at a point or the average interaction energy there. Examples include solvent density maps and the correlation functions produced by 3D-RISM theory."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_001106 "obsolete solvent analysis data format"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_001106 "true"^^xsd:boolean)
+AnnotationAssertion(obo:IAO_0100001 obo:MOLSIM_001106 obo:MOLSIM_010021)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_001106 "Retired 2026-11-18. It duplicated its own parent MOLSIM:010021 solvent analysis format. Its 1 child was moved up first, and its label is kept as an exact synonym on MOLSIM:010021.")
 
 # Class: obo:MOLSIM_001107 (solvent pair distribution format)
 
@@ -10021,7 +10033,7 @@ SubClassOf(obo:MOLSIM_001113 obo:MOLSIM_010021)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001114 "A text data format in which a 1D-RISM calculation writes how a property of the bulk solvent, such as the pair distribution, the direct correlation or the site-site potential, varies with distance for every pair of solvent sites. After a few header lines starting with #, each line gives a separation followed by the value for each site pair. The susceptibility file that 3D-RISM reads is written in a different format. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001114 "site-site functionals format"@en)
-SubClassOf(obo:MOLSIM_001114 obo:MOLSIM_001106)
+SubClassOf(obo:MOLSIM_001114 obo:MOLSIM_010021)
 
 # Class: obo:MOLSIM_001115 (total excess coordination number format)
 
@@ -12210,7 +12222,7 @@ SubClassOf(obo:MOLSIM_001454 obo:MOLSIM_001453)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001455 "A force field parameter set for the fluorescent dye molecules used to label biomolecules in experiments. It is built to be used alongside the standard AMBER protein and nucleic acid parameters without modification. It lets a labelled construct be simulated as it was actually measured, which matters when interpreting FRET distances. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001455 "AMBER-DYES force field"@en)
-SubClassOf(obo:MOLSIM_001455 obo:MOLSIM_000013)
+SubClassOf(obo:MOLSIM_001455 obo:MOLSIM_000016)
 
 # Class: obo:MOLSIM_001456 (PDDG/PM3)
 
@@ -12484,7 +12496,7 @@ SubClassOf(obo:MOLSIM_001498 obo:MOLSIM_001497)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001499 "The collection of fitted numbers that gives a force field its behaviour for a particular class of molecules, such as proteins, lipids or carbohydrates. The functional form stays the same across sets; the numbers change. A simulation states both the form and the set, because the form alone does not identify what was used. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001499 "force field parameter set"@en)
-SubClassOf(obo:MOLSIM_001499 obo:MOLSIM_000006)
+SubClassOf(obo:MOLSIM_001499 obo:MOLSIM_000331)
 
 # Class: obo:MOLSIM_001500 (phosaa10 parameter set)
 
@@ -13690,6 +13702,7 @@ SubClassOf(obo:MOLSIM_001690 obo:MOLSIM_001688)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001691 "An algorithm that advances the positions and velocities of the atoms from one step to the next, using the forces computed at the current step. It approximates the continuous equations of motion by a series of short, discrete time steps. Integrators differ in accuracy, stability at large time steps, cost, and how well they conserve energy over a long run. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001691 "integration algorithm"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_001691 "integration analysis"@en)
 SubClassOf(obo:MOLSIM_001691 obo:MOLSIM_000382)
 
 # Class: obo:MOLSIM_001692 (Beeman integrator)
@@ -13941,6 +13954,7 @@ SubClassOf(obo:MOLSIM_001731 obo:MOLSIM_000038)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001732 "A thermostat algorithm that rescales the velocities towards the target temperature by a factor that includes a random part, chosen so that the kinetic energy follows the canonical distribution instead of being driven to a single value. It reaches the target temperature as quickly as simple rescaling schemes such as the Berendsen thermostat, while sampling the canonical ensemble correctly, which they do not. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001732 "Bussi thermostat"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001732 "V-rescale thermostat"@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_001732 "stochastic velocity rescaling thermostat"@en)
 AnnotationAssertion(Annotation(dcterms:source obo:MOLSIM_000217) obo:MOLSIM_002254 obo:MOLSIM_001732 "ntt=11")
 SubClassOf(obo:MOLSIM_001732 obo:MOLSIM_000038)
@@ -16625,6 +16639,7 @@ SubClassOf(obo:MOLSIM_010020 obo:MOLSIM_001085)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_010021 "A data format that stores spatial or statistical data describing how solvent molecules are distributed around a solute and what properties they carry there. Files in these formats usually hold a 3-dimensional grid of values such as local solvent density, charge distribution, or interaction energy. They are used to visualize hydration shells and to calculate thermodynamic properties of solvation. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_010021 "solvent analysis format"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_010021 "solvent analysis data format"@en)
 SubClassOf(obo:MOLSIM_010021 obo:MOLSIM_001085)
 
 # Class: obo:MOLSIM_010022 (quantum chemistry format)
@@ -17113,7 +17128,7 @@ DisjointClasses(obo:MOLSIM_000017 obo:MOLSIM_000485 obo:MOLSIM_000580 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000021 obo:MOLSIM_000132 obo:MOLSIM_000741 obo:MOLSIM_000742 obo:MOLSIM_000743 obo:MOLSIM_000744 obo:MOLSIM_000745 obo:MOLSIM_000746 obo:MOLSIM_000747 obo:MOLSIM_000748 obo:MOLSIM_000749 obo:MOLSIM_000750 obo:MOLSIM_000751 obo:MOLSIM_000752 obo:MOLSIM_000753 obo:MOLSIM_000754 obo:MOLSIM_000755 obo:MOLSIM_000756 obo:MOLSIM_000757 obo:MOLSIM_000758)
 DisjointClasses(obo:MOLSIM_000022 obo:MOLSIM_000763 obo:MOLSIM_000764 obo:MOLSIM_000765 obo:MOLSIM_000766 obo:MOLSIM_000767 obo:MOLSIM_000768 obo:MOLSIM_000769 obo:MOLSIM_000770 obo:MOLSIM_000771)
 DisjointClasses(obo:MOLSIM_000038 obo:MOLSIM_000039 obo:MOLSIM_000384 obo:MOLSIM_001546)
-DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_000802)
+DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000800 obo:MOLSIM_000801)
 DisjointClasses(obo:MOLSIM_000050 obo:MOLSIM_000051 obo:MOLSIM_000052 obo:MOLSIM_000795 obo:MOLSIM_000796 obo:MOLSIM_000797 obo:MOLSIM_000798 obo:MOLSIM_000799)
 DisjointClasses(obo:MOLSIM_000058 obo:MOLSIM_000059 obo:MOLSIM_000060 obo:MOLSIM_000061 obo:MOLSIM_000062 obo:MOLSIM_000063 obo:MOLSIM_000623)
 DisjointClasses(obo:MOLSIM_000073 obo:MOLSIM_000270 obo:MOLSIM_000271)
@@ -17651,7 +17666,7 @@ DisjointClasses(obo:MOLSIM_002164 obo:MOLSIM_002165)
 
 # ==== enumeration/format disjointness batch ====
 # thermostat algorithm (MOLSIM_000038) — 11 children
-DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000381 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_000802 obo:MOLSIM_001731 obo:MOLSIM_001732 obo:MOLSIM_001735)
+DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000381 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_001731 obo:MOLSIM_001732 obo:MOLSIM_001735)
 # barostat algorithm (MOLSIM_000039) — 11 children
 DisjointClasses(obo:MOLSIM_000040 obo:MOLSIM_000041 obo:MOLSIM_000042 obo:MOLSIM_000043 obo:MOLSIM_000044 obo:MOLSIM_000338 obo:MOLSIM_000343 obo:MOLSIM_000391 obo:MOLSIM_000794 obo:MOLSIM_002017 obo:MOLSIM_002028)
 # box type (MOLSIM_000032) — 5 children
@@ -17674,7 +17689,7 @@ DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000176 obo:MOLSIM_000177 obo:MOLSIM
 # ==== disjointness batch 2 (formats / force-fields / QC methods) ====
 # --- formats ---
 # solvent analysis format (MOLSIM_010021) — 10 children
-DisjointClasses(obo:MOLSIM_001106 obo:MOLSIM_001107 obo:MOLSIM_001108 obo:MOLSIM_001109 obo:MOLSIM_001110 obo:MOLSIM_001111 obo:MOLSIM_001112 obo:MOLSIM_001113 obo:MOLSIM_001115 obo:MOLSIM_001116)
+DisjointClasses(obo:MOLSIM_001107 obo:MOLSIM_001108 obo:MOLSIM_001109 obo:MOLSIM_001110 obo:MOLSIM_001111 obo:MOLSIM_001112 obo:MOLSIM_001113 obo:MOLSIM_001115 obo:MOLSIM_001116)
 # simulation parameter format (MOLSIM_002065) — 7 children
 DisjointClasses(obo:MOLSIM_000156 obo:MOLSIM_000469 obo:MOLSIM_000871 obo:MOLSIM_000876 obo:MOLSIM_001102 obo:MOLSIM_001103 obo:MOLSIM_001104)
 # simulation state format (MOLSIM_000441) — 7 children
@@ -17705,9 +17720,9 @@ DisjointClasses(obo:MOLSIM_001054 obo:MOLSIM_001055 obo:MOLSIM_001056)
 # protein force field (MOLSIM_000009) — 31 children
 DisjointClasses(obo:MOLSIM_000021 obo:MOLSIM_000132 obo:MOLSIM_000682 obo:MOLSIM_000741 obo:MOLSIM_000742 obo:MOLSIM_000743 obo:MOLSIM_000744 obo:MOLSIM_000745 obo:MOLSIM_000746 obo:MOLSIM_000747 obo:MOLSIM_000748 obo:MOLSIM_000749 obo:MOLSIM_000750 obo:MOLSIM_000751 obo:MOLSIM_000752 obo:MOLSIM_000753 obo:MOLSIM_000754 obo:MOLSIM_000755 obo:MOLSIM_000756 obo:MOLSIM_000757 obo:MOLSIM_000758 obo:MOLSIM_001440 obo:MOLSIM_001441 obo:MOLSIM_001442 obo:MOLSIM_001443 obo:MOLSIM_001530 obo:MOLSIM_001973)
 # water model force field (MOLSIM_000014) — 18 children
-DisjointClasses(obo:MOLSIM_000022 obo:MOLSIM_000763 obo:MOLSIM_000764 obo:MOLSIM_000765 obo:MOLSIM_000766 obo:MOLSIM_000767 obo:MOLSIM_000768 obo:MOLSIM_000769 obo:MOLSIM_000770 obo:MOLSIM_000771 obo:MOLSIM_001064 obo:MOLSIM_001065 obo:MOLSIM_001489 obo:MOLSIM_001490 obo:MOLSIM_001491 obo:MOLSIM_001493 obo:MOLSIM_001985)
+DisjointClasses(obo:MOLSIM_000022 obo:MOLSIM_000763 obo:MOLSIM_000764 obo:MOLSIM_000765 obo:MOLSIM_000766 obo:MOLSIM_000767 obo:MOLSIM_000768 obo:MOLSIM_000769 obo:MOLSIM_000770 obo:MOLSIM_000771 obo:MOLSIM_001064 obo:MOLSIM_001489 obo:MOLSIM_001490 obo:MOLSIM_001491 obo:MOLSIM_001493 obo:MOLSIM_001985)
 # chemical entity-based force field (MOLSIM_000772) — 10 children
-DisjointClasses(obo:MOLSIM_000008 obo:MOLSIM_000009 obo:MOLSIM_000012 obo:MOLSIM_000013 obo:MOLSIM_000014 obo:MOLSIM_000015 obo:MOLSIM_000016 obo:MOLSIM_001445)
+DisjointClasses(obo:MOLSIM_000008 obo:MOLSIM_000009 obo:MOLSIM_000012 obo:MOLSIM_000014 obo:MOLSIM_000015 obo:MOLSIM_000016 obo:MOLSIM_001445)
 # united-atom force field (MOLSIM_001531) — 6 children
 # lipid  force field (MOLSIM_000008) — 5 children
 DisjointClasses(obo:MOLSIM_000018 obo:MOLSIM_000019 obo:MOLSIM_000020 obo:MOLSIM_001449 obo:MOLSIM_001450)
