@@ -17570,6 +17570,36 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002293 "run date"@en)
 SubDataPropertyOf(obo:MOLSIM_002293 owl:topDataProperty)
 DataPropertyRange(obo:MOLSIM_002293 xsd:dateTime)
 
+# Class: obo:MOLSIM_002294 (number of integration steps)
+
+Declaration(Class(obo:MOLSIM_002294))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002294 "An integration parameter giving how many time steps a single molecular dynamics run performs. Multiplied by the simulation time step, it gives the simulated time the run covers, for example 500,000 steps of 2 fs give 1 ns. It is set as nstlim in AMBER and nsteps in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002294 "number of integration steps"@en)
+SubClassOf(obo:MOLSIM_002294 obo:MOLSIM_001165)
+
+# Class: obo:MOLSIM_002295 (initial temperature)
+
+Declaration(Class(obo:MOLSIM_002295))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002295 "A temperature control parameter giving the temperature at which starting velocities are assigned to the atoms when a run begins without velocities from an earlier run. The velocities are drawn at random from the Maxwell-Boltzmann distribution for this temperature. It is set as tempi in AMBER and gen-temp in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002295 "initial temperature"@en)
+SubClassOf(obo:MOLSIM_002295 obo:MOLSIM_001173)
+SubClassOf(obo:MOLSIM_002295 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000005))
+SubClassOf(obo:MOLSIM_002295 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
+
+# Class: obo:MOLSIM_002296 (pressure coupling interval)
+
+Declaration(Class(obo:MOLSIM_002296))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002296 "A pressure control parameter giving how many time steps pass between 2 pressure coupling events, at which the barostat adjusts the volume of the simulation box. For a Monte Carlo barostat, each event is an attempt to change the volume. It is set as nstpcouple in GROMACS and, for the Monte Carlo barostat, as mcbarint in AMBER. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002296 "pressure coupling interval"@en)
+SubClassOf(obo:MOLSIM_002296 obo:MOLSIM_001179)
+
+# Class: obo:MOLSIM_002297 (number of steepest descent cycles)
+
+Declaration(Class(obo:MOLSIM_002297))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002297 "A simulation parameter giving how many cycles of an energy minimization use the steepest descent method before the minimization switches to the conjugate gradient method. It is set as ncyc in AMBER, where it applies when ntmin is 1, the default. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002297 "number of steepest descent cycles"@en)
+SubClassOf(obo:MOLSIM_002297 obo:MOLSIM_001164)
+
 # Object Property: obo:MOLSIM_002258 (has water model)
 
 Declaration(ObjectProperty(obo:MOLSIM_002258))
