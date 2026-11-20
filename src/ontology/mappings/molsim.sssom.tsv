@@ -5,6 +5,7 @@
 #   IAO: http://purl.obolibrary.org/obo/IAO_
 #   KISAO: http://www.biomodels.net/kisao/KISAO#KISAO_
 #   CHMO: http://purl.obolibrary.org/obo/CHMO_
+#   COB: http://purl.obolibrary.org/obo/COB_
 #   MI: http://purl.obolibrary.org/obo/MI_
 #   OBI: http://purl.obolibrary.org/obo/OBI_
 #   PROCO: http://purl.obolibrary.org/obo/PROCO_
@@ -116,3 +117,7 @@ MOLSIM:000307	R	skos:closeMatch	SWO:0000415	R language	owl class	owl class	semap
 MOLSIM:000686	PDB ID	skos:exactMatch	EDAM:data_1127	PDB ID	owl class	owl class	semapv:ManualMappingCuration	0.9	orcid:0000-0003-4846-8051	Identical label and identical meaning: EDAM defines it as 'An identifier of an entry from the PDB database'. Both model it as an identifier, so exactMatch rather than the closeMatch used where MOLSIM and EDAM disagree about identifier versus format.
 MOLSIM:000914	XML format	skos:exactMatch	EDAM:format_2332	XML	owl class	owl class	semapv:ManualMappingCuration	0.9	orcid:0000-0003-4846-8051	EDAM is the de-facto authority for file formats and data types, but is NOT in the OBO Foundry registry (it uses http://edamontology.org/ IRIs), so it is a mapping target only - never an import.
 MOLSIM:000447	identifier	skos:closeMatch	IAO:0020000	identifier	owl class	owl class	semapv:ManualMappingCuration	0.85	orcid:0000-0003-4846-8051	Suggested by a reviewer as IAO:0000578 centrally registered identifier; that target was rejected because it requires a central registry and 10 of this term's 12 children have none, being labels local to a single file or codes computed from structure. IAO:0020000 is the same idea at the same level. closeMatch rather than exactMatch because MOLSIM's term also covers type labels such as atom type, while IAO's speaks of one instance.
+MOLSIM:002092	atom	skos:closeMatch	COB:0000011	atom	owl class	owl class	semapv:ManualMappingCuration	0.85	orcid:0000-0003-4846-8051	closeMatch rather than exactMatch: both mean the physical atom, 1 nucleus with its electrons, but the MOLSIM definition also describes how a classical simulation represents the atom as a point with a mass, a partial charge and a radius, which COB does not cover.
+MOLSIM:002094	molecular unit	skos:closeMatch	COB:0000013	molecule	owl class	owl class	semapv:ManualMappingCuration	0.8	orcid:0000-0003-4846-8051	closeMatch rather than exactMatch: the MOLSIM term also covers a single monatomic ion, while the COB term requires 2 or more atoms joined by covalent bonds.
+MOLSIM:001845	hardware	skos:broadMatch	COB:0001300	device	owl class	owl class	semapv:ManualMappingCuration	0.9	orcid:0000-0003-4846-8051	broadMatch: computing hardware is one kind of device, a processed material entity designed to be capable of a process. The COB term also covers devices of every other kind.
+MOLSIM:000000	molecular dynamics process	skos:broadMatch	COB:0000082	planned process	owl class	owl class	semapv:ManualMappingCuration	0.9	orcid:0000-0003-4846-8051	broadMatch: a molecular dynamics process is carried out to follow a plan, so it is one kind of planned process. The COB term covers planned processes of every kind.

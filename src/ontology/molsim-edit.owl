@@ -2890,14 +2890,14 @@ DataPropertyRange(obo:MOLSIM_002140 xsd:string)
 
 # Data Property: obo:MOLSIM_002141 (box dimensions array)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002141 "A relation that associates a molecular system with an array giving the lengths and angles that define its periodic simulation box. It captures the full geometry of the periodic unit cell. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002141 "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box, usually written a, b and c. The angles between the edges are recorded separately. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002141 "box dimensions array"@en)
 SubDataPropertyOf(obo:MOLSIM_002141 obo:MOLSIM_002140)
 DataPropertyRange(obo:MOLSIM_002141 xsd:string)
 
 # Data Property: obo:MOLSIM_002142 (initial box dimensions array)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002142 "A relation that associates a molecular system with an array giving the periodic box lengths and angles at the start of a run. It records the initial unit-cell geometry before any volume changes. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002142 "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box at the start of a run. It records the box size before any volume change. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002142 "initial box dimensions array"@en)
 SubDataPropertyOf(obo:MOLSIM_002142 obo:MOLSIM_002141)
 DataPropertyRange(obo:MOLSIM_002142 xsd:string)
@@ -2978,14 +2978,14 @@ DataPropertyRange(obo:MOLSIM_002151 xsd:string)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002152 "A relation that associates a dataset or run with a non-fatal issue raised during a validation check. It flags a concern found while verifying correctness or consistency. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002152 "has validation warning"@en)
-SubDataPropertyOf(obo:MOLSIM_002152 obo:MOLSIM_002149)
+SubDataPropertyOf(obo:MOLSIM_002152 obo:MOLSIM_002151)
 DataPropertyRange(obo:MOLSIM_002152 xsd:string)
 
 # Data Property: obo:MOLSIM_002153 (has validation error)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002153 "A relation that associates a dataset or run with a fault raised during a validation check that caused the check to fail. It records a validation failure. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002153 "has validation error"@en)
-SubDataPropertyOf(obo:MOLSIM_002153 obo:MOLSIM_002149)
+SubDataPropertyOf(obo:MOLSIM_002153 obo:MOLSIM_002150)
 DataPropertyRange(obo:MOLSIM_002153 xsd:string)
 
 # Data Property: obo:MOLSIM_002154 (consistency check result)
@@ -3654,6 +3654,7 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_000097 "NetCDF trajectory format"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000097 orcid:0000-0002-2294-5393)
 SubClassOf(obo:MOLSIM_000097 obo:MOLSIM_000844)
 SubClassOf(obo:MOLSIM_000097 obo:MOLSIM_001090)
+SubClassOf(obo:MOLSIM_000097 ObjectHasValue(obo:MOLSIM_002172 obo:MOLSIM_002175))
 
 # Class: obo:MOLSIM_000098 (ligand state)
 
@@ -5469,6 +5470,7 @@ SubClassOf(obo:MOLSIM_000368 obo:MOLSIM_000367)
 # Class: obo:MOLSIM_000369 (low-mode conformational search)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000369 "An enhanced sampling method that generates new conformations by displacing a structure along its slowest collective modes rather than at random. Those modes are the directions in which the molecule moves most easily, so displacing along them reaches genuinely different conformations at low energy cost. Random displacement mostly produces strained structures that are immediately rejected. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000369 "LMOD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000369 "low-mode conformational search"@en)
 SubClassOf(obo:MOLSIM_000369 obo:MOLSIM_000845)
 
@@ -9610,6 +9612,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001051 "A binary data format from
 AnnotationAssertion(rdfs:comment obo:MOLSIM_001051 "A NetCDF-based restart file for Amber simulations."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001051 "ncrst format"@en)
 SubClassOf(obo:MOLSIM_001051 obo:MOLSIM_000471)
+SubClassOf(obo:MOLSIM_001051 ObjectHasValue(obo:MOLSIM_002172 obo:MOLSIM_002174))
 
 # Class: obo:MOLSIM_001052 (CHARMM crd format)
 
@@ -10432,6 +10435,7 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001208 "A restraint parameter tha
 AnnotationAssertion(rdfs:label obo:MOLSIM_001208 "restraint mask"@en)
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_001208 "AMBER 26 Reference Manual, p. 433, entry restraintmask."@en)
 SubClassOf(obo:MOLSIM_001208 obo:MOLSIM_001206)
+SubClassOf(obo:MOLSIM_001208 obo:MOLSIM_002163)
 
 # Class: obo:MOLSIM_001209 (water cap force constant)
 
@@ -11042,6 +11046,7 @@ SubClassOf(obo:MOLSIM_001291 obo:MOLSIM_001290)
 # Class: obo:MOLSIM_001292 (computed observable)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_001292 "A quantitative or qualitative output data item generated by a simulation or analysis process. It represents the actual measured state, derived metric, or calculated result of the system (e.g., instantaneous potential energy, calculated RMSD, assigned cluster IDs). (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000116 obo:MOLSIM_001292 "MOLSIM has no class for a statistic of a quantity, such as mean temperature or average density. Record a statistic as a value with 2 types: the MOLSIM class for the quantity, for example temperature, and the STATO class for the statistic, for example sample mean (STATO:0000401). The page Writing data with MOLSIM terms in the MOLSIM documentation shows an example."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_001292 "computed observable"@en)
 
 # Class: obo:MOLSIM_001293 (thermodynamic property)
@@ -16546,7 +16551,7 @@ SubClassOf(obo:MOLSIM_002112 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002113 "A thermodynamic property that represents the mass density of the simulated system at the end of a run or equilibration stage. It is commonly compared against experimental density to assess whether the system has equilibrated correctly."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002113 "final density"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002113 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_002113 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_002113 obo:MOLSIM_002302)
 SubClassOf(obo:MOLSIM_002113 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
 SubClassOf(obo:MOLSIM_002113 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
@@ -17176,7 +17181,7 @@ DisjointClasses(obo:MOLSIM_000174 obo:MOLSIM_000214 obo:MOLSIM_000215 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000176 obo:MOLSIM_000177 obo:MOLSIM_000178 obo:MOLSIM_000179 obo:MOLSIM_000180 obo:MOLSIM_000181 obo:MOLSIM_000182 obo:MOLSIM_000183 obo:MOLSIM_000184)
 DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000179 obo:MOLSIM_000180 obo:MOLSIM_000181 obo:MOLSIM_000217 obo:MOLSIM_000247 obo:MOLSIM_000248 obo:MOLSIM_000773 obo:MOLSIM_000774 obo:MOLSIM_000775 obo:MOLSIM_000776 obo:MOLSIM_000777 obo:MOLSIM_000778 obo:MOLSIM_000779 obo:MOLSIM_000780 obo:MOLSIM_000781 obo:MOLSIM_000782 obo:MOLSIM_000783 obo:MOLSIM_000784 obo:MOLSIM_000785 obo:MOLSIM_000786 obo:MOLSIM_000787 obo:MOLSIM_000788 obo:MOLSIM_000789 obo:MOLSIM_000790 obo:MOLSIM_000791 obo:MOLSIM_000792 obo:MOLSIM_000793)
 DisjointClasses(obo:MOLSIM_000190 obo:MOLSIM_000191)
-DisjointClasses(obo:MOLSIM_000196 obo:MOLSIM_000197 obo:MOLSIM_000198 obo:MOLSIM_000199)
+DisjointClasses(obo:MOLSIM_000196 obo:MOLSIM_000197 obo:MOLSIM_000198 obo:MOLSIM_000199 obo:MOLSIM_002298)
 DisjointClasses(obo:MOLSIM_000201 obo:MOLSIM_000202 obo:MOLSIM_000203)
 DisjointClasses(obo:MOLSIM_000210 obo:MOLSIM_000211 obo:MOLSIM_000212 obo:MOLSIM_000213)
 DisjointClasses(obo:MOLSIM_000226 obo:MOLSIM_001927 obo:MOLSIM_001953 obo:MOLSIM_001954)
@@ -17255,9 +17260,9 @@ SubClassOf(obo:MOLSIM_002160 obo:IAO_0000030)
 # Class: obo:MOLSIM_002161 (file format convention)
 
 Declaration(Class(obo:MOLSIM_002161))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002161 "A data format that designates a specific standardized schema variant that a file adheres to within a broader container format, such as the AMBER conventions used inside a NetCDF file. It identifies the precise rules for interpreting the file's contents. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002161 "An information content entity that names the specific schema variant a file follows inside a broader container format, such as the AMBER conventions used inside a NetCDF file. It tells a program the precise rules for reading the file's contents. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002161 "file format convention"@en)
-SubClassOf(obo:MOLSIM_002161 obo:MOLSIM_000436)
+SubClassOf(obo:MOLSIM_002161 obo:IAO_0000030)
 
 # Class: obo:MOLSIM_002162 (system classification label)
 
@@ -17506,7 +17511,7 @@ Declaration(DataProperty(obo:MOLSIM_002191))
 Declaration(DataProperty(obo:MOLSIM_002253))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002191 "A relation that associates a simulation stage with the file path or identifier of the restart file used to initiate it. It is what connects one stage to the one before it, so a chain of stages can be reconstructed after the fact. Without it the stages of a long run are a set of files in no particular order. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002191 "restart file path"@en)
-SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002253)
+SubDataPropertyOf(obo:MOLSIM_002191 obo:MOLSIM_002257)
 DataPropertyRange(obo:MOLSIM_002191 xsd:string)
 
 # Data Property: obo:MOLSIM_002256 (has topology file path)
@@ -17525,6 +17530,118 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002257 "A relation that associate
 AnnotationAssertion(rdfs:label obo:MOLSIM_002257 "has coordinate file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002257 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002257 xsd:string)
+
+# Data Property: obo:MOLSIM_002289 (has input settings file path)
+
+Declaration(DataProperty(obo:MOLSIM_002289))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002289 "A relation that associates a molecular dynamics process with the file path or identifier of the input file that sets how the run is carried out, such as an AMBER mdin file or a GROMACS mdp file. The file holds settings such as the time step, the number of steps and the thermostat. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002289 "has input settings file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002289 obo:MOLSIM_002253)
+DataPropertyRange(obo:MOLSIM_002289 xsd:string)
+
+# Data Property: obo:MOLSIM_002290 (has output log file path)
+
+Declaration(DataProperty(obo:MOLSIM_002290))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002290 "A relation that associates a molecular dynamics process with the file path or identifier of the log file in which the simulation program reports on the run, such as an AMBER mdout file or a GROMACS md.log file. The log records the settings that were used, the energies printed during the run and whether the run finished. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002290 "has output log file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002290 owl:topDataProperty)
+DataPropertyRange(obo:MOLSIM_002290 xsd:string)
+
+# Data Property: obo:MOLSIM_002291 (has trajectory file path)
+
+Declaration(DataProperty(obo:MOLSIM_002291))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002291 "A relation that associates a molecular dynamics trajectory with the file path or identifier of the file that stores it, such as an AMBER NetCDF or mdcrd file or a GROMACS xtc file. The file holds the coordinates of the atoms, saved at regular intervals during a run. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002291 "has trajectory file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002291 obo:MOLSIM_002137)
+DataPropertyRange(obo:MOLSIM_002291 xsd:string)
+
+# Class: obo:MOLSIM_002292 (total mass)
+
+Declaration(Class(obo:MOLSIM_002292))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002292 "A thermodynamic property giving the sum of the masses of all atoms in a simulated system. Divided by the volume of the simulation box, it gives the density of the system. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002292 "total mass"@en)
+SubClassOf(obo:MOLSIM_002292 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_002292 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000002))
+SubClassOf(obo:MOLSIM_002292 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
+
+# Data Property: obo:MOLSIM_002293 (run date)
+
+Declaration(DataProperty(obo:MOLSIM_002293))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002293 "A relation that associates a molecular dynamics process with the date and time at which it was run, as recorded by the simulation program in its output. AMBER writes it at the top of the mdout file. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002293 "run date"@en)
+SubDataPropertyOf(obo:MOLSIM_002293 owl:topDataProperty)
+DataPropertyRange(obo:MOLSIM_002293 xsd:dateTime)
+
+# Class: obo:MOLSIM_002294 (number of integration steps)
+
+Declaration(Class(obo:MOLSIM_002294))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002294 "An integration parameter giving how many time steps a single molecular dynamics run performs. Multiplied by the simulation time step, it gives the simulated time the run covers, for example 500,000 steps of 2 fs give 1 ns. It is set as nstlim in AMBER and nsteps in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002294 "number of integration steps"@en)
+SubClassOf(obo:MOLSIM_002294 obo:MOLSIM_001165)
+
+# Class: obo:MOLSIM_002295 (initial temperature)
+
+Declaration(Class(obo:MOLSIM_002295))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002295 "A temperature control parameter giving the temperature at which starting velocities are assigned to the atoms when a run begins without velocities from an earlier run. The velocities are drawn at random from the Maxwell-Boltzmann distribution for this temperature. It is set as tempi in AMBER and gen-temp in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002295 "initial temperature"@en)
+SubClassOf(obo:MOLSIM_002295 obo:MOLSIM_001173)
+SubClassOf(obo:MOLSIM_002295 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000005))
+SubClassOf(obo:MOLSIM_002295 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
+
+# Class: obo:MOLSIM_002296 (pressure coupling interval)
+
+Declaration(Class(obo:MOLSIM_002296))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002296 "A pressure control parameter giving how many time steps pass between 2 pressure coupling events, at which the barostat adjusts the volume of the simulation box. For a Monte Carlo barostat, each event is an attempt to change the volume. It is set as nstpcouple in GROMACS and, for the Monte Carlo barostat, as mcbarint in AMBER. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002296 "pressure coupling interval"@en)
+SubClassOf(obo:MOLSIM_002296 obo:MOLSIM_001179)
+
+# Class: obo:MOLSIM_002297 (number of steepest descent cycles)
+
+Declaration(Class(obo:MOLSIM_002297))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002297 "A simulation parameter giving how many cycles of an energy minimization use the steepest descent method before the minimization switches to the conjugate gradient method. It is set as ncyc in AMBER, where it applies when ntmin is 1, the default. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002297 "number of steepest descent cycles"@en)
+SubClassOf(obo:MOLSIM_002297 obo:MOLSIM_001164)
+
+# Class: obo:MOLSIM_002298 (isoenthalpic-isobaric ensemble)
+
+Declaration(Class(obo:MOLSIM_002298))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002298 "A thermodynamic ensemble in which the number of particles, the pressure and the enthalpy are held constant. A simulation samples it when a barostat controls the pressure but no thermostat is used, so the temperature is free to change. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002298 "NPH ensemble"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002298 "isoenthalpic-isobaric ensemble"@en)
+SubClassOf(obo:MOLSIM_002298 obo:MOLSIM_000195)
+
+# Class: obo:MOLSIM_002299 (total energy)
+
+Declaration(Class(obo:MOLSIM_002299))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002299 "An energy giving the sum of the kinetic energy and the potential energy of a simulated system at 1 moment. It is reported at intervals during a run, for example as Etot in an AMBER output file. Without a thermostat or a barostat it should stay constant. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002299 "total energy"@en)
+SubClassOf(obo:MOLSIM_002299 obo:MOLSIM_001294)
+
+# Class: obo:MOLSIM_002300 (optimized isokinetic Nose-Hoover chain thermostat)
+
+Declaration(Class(obo:MOLSIM_002300))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002300 "A Nose-Hoover chain thermostat that adds an isokinetic constraint, a rule that keeps the kinetic energy of the particle and thermostat velocities fixed. It reduces the resonance instabilities that limit the time step in multiple time-stepping methods, allowing intermediate time steps of up to 16 fs with RESPA in AMBER. AMBER selects it with ntt = 9. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002300 "OIN"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002300 "optimized isokinetic Nose-Hoover chain thermostat"@en)
+SubClassOf(obo:MOLSIM_002300 obo:MOLSIM_001731)
+
+# Class: obo:MOLSIM_002301 (stochastic isokinetic Nose-Hoover RESPA thermostat)
+
+Declaration(Class(obo:MOLSIM_002301))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002301 "A thermostat algorithm that combines an isokinetic constraint on the particle velocities with extra thermostat velocities and random noise. The noise reduces resonance instabilities, so that longer RESPA time steps can be used. AMBER selects it with ntt = 10 and warns that the velocities it produces are not canonical, while the configurations are. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002301 "SINR"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002301 "stochastic isokinetic Nose-Hoover RESPA thermostat"@en)
+SubClassOf(obo:MOLSIM_002301 obo:MOLSIM_000038)
+
+# Class: obo:MOLSIM_002302 (mass density)
+
+Declaration(Class(obo:MOLSIM_002302))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002302 "A thermodynamic property giving the mass of a simulated system divided by the volume of its simulation box, usually reported in g/cm3. In a constant-pressure run it changes as the barostat changes the volume, so it is often reported as an average over the run. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002302 "density"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002302 "mass density"@en)
+SubClassOf(obo:MOLSIM_002302 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_002302 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
+SubClassOf(obo:MOLSIM_002302 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
 # Object Property: obo:MOLSIM_002303 (has force field)
 
@@ -17597,7 +17714,7 @@ Declaration(Class(obo:MOLSIM_002192))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002192 "A thermodynamic property that represents the mass density of the simulated system at the start of a run, computed from the topology mass and the initial periodic box volume. It provides a baseline for comparison against the equilibrated density reached during a constant-pressure run."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002192 "initial density"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_002192 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_002192 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_002192 obo:MOLSIM_002302)
 SubClassOf(obo:MOLSIM_002192 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000052))
 SubClassOf(obo:MOLSIM_002192 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
 
@@ -17709,7 +17826,7 @@ DisjointClasses(obo:MOLSIM_002164 obo:MOLSIM_002165)
 
 # ==== enumeration/format disjointness batch ====
 # thermostat algorithm (MOLSIM_000038) — 11 children
-DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000381 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_001731 obo:MOLSIM_001732 obo:MOLSIM_001735)
+DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000381 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_001731 obo:MOLSIM_001732 obo:MOLSIM_001735 obo:MOLSIM_002301)
 # barostat algorithm (MOLSIM_000039) — 11 children
 DisjointClasses(obo:MOLSIM_000040 obo:MOLSIM_000041 obo:MOLSIM_000042 obo:MOLSIM_000043 obo:MOLSIM_000044 obo:MOLSIM_000338 obo:MOLSIM_000343 obo:MOLSIM_000391 obo:MOLSIM_000794 obo:MOLSIM_002017 obo:MOLSIM_002028)
 # box type (MOLSIM_000032) — 5 children
