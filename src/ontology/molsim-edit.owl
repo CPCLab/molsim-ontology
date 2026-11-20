@@ -17529,6 +17529,47 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002257 "has coordinate file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002257 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002257 xsd:string)
 
+# Data Property: obo:MOLSIM_002289 (has input settings file path)
+
+Declaration(DataProperty(obo:MOLSIM_002289))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002289 "A relation that associates a molecular dynamics process with the file path or identifier of the input file that sets how the run is carried out, such as an AMBER mdin file or a GROMACS mdp file. The file holds settings such as the time step, the number of steps and the thermostat. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002289 "has input settings file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002289 obo:MOLSIM_002253)
+DataPropertyRange(obo:MOLSIM_002289 xsd:string)
+
+# Data Property: obo:MOLSIM_002290 (has output log file path)
+
+Declaration(DataProperty(obo:MOLSIM_002290))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002290 "A relation that associates a molecular dynamics process with the file path or identifier of the log file in which the simulation program reports on the run, such as an AMBER mdout file or a GROMACS md.log file. The log records the settings that were used, the energies printed during the run and whether the run finished. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002290 "has output log file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002290 owl:topDataProperty)
+DataPropertyRange(obo:MOLSIM_002290 xsd:string)
+
+# Data Property: obo:MOLSIM_002291 (has trajectory file path)
+
+Declaration(DataProperty(obo:MOLSIM_002291))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002291 "A relation that associates a molecular dynamics trajectory with the file path or identifier of the file that stores it, such as an AMBER NetCDF or mdcrd file or a GROMACS xtc file. The file holds the coordinates of the atoms, saved at regular intervals during a run. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002291 "has trajectory file path"@en)
+SubDataPropertyOf(obo:MOLSIM_002291 obo:MOLSIM_002137)
+DataPropertyRange(obo:MOLSIM_002291 xsd:string)
+
+# Class: obo:MOLSIM_002292 (total mass)
+
+Declaration(Class(obo:MOLSIM_002292))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002292 "A thermodynamic property giving the sum of the masses of all atoms in a simulated system. Divided by the volume of the simulation box, it gives the density of the system. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002292 "total mass"@en)
+SubClassOf(obo:MOLSIM_002292 obo:MOLSIM_001293)
+SubClassOf(obo:MOLSIM_002292 ObjectAllValuesFrom(obo:IAO_0000039 obo:UO_0000002))
+SubClassOf(obo:MOLSIM_002292 DataAllValuesFrom(obo:IAO_0000004 xsd:decimal))
+
+# Data Property: obo:MOLSIM_002293 (run date)
+
+Declaration(DataProperty(obo:MOLSIM_002293))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002293 "A relation that associates a molecular dynamics process with the date and time at which it was run, as recorded by the simulation program in its output. AMBER writes it at the top of the mdout file. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002293 "run date"@en)
+SubDataPropertyOf(obo:MOLSIM_002293 owl:topDataProperty)
+DataPropertyRange(obo:MOLSIM_002293 xsd:dateTime)
+
 # Object Property: obo:MOLSIM_002258 (has water model)
 
 Declaration(ObjectProperty(obo:MOLSIM_002258))
