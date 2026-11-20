@@ -5470,6 +5470,7 @@ SubClassOf(obo:MOLSIM_000368 obo:MOLSIM_000367)
 # Class: obo:MOLSIM_000369 (low-mode conformational search)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000369 "An enhanced sampling method that generates new conformations by displacing a structure along its slowest collective modes rather than at random. Those modes are the directions in which the molecule moves most easily, so displacing along them reaches genuinely different conformations at low energy cost. Random displacement mostly produces strained structures that are immediately rejected. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000369 "LMOD"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000369 "low-mode conformational search"@en)
 SubClassOf(obo:MOLSIM_000369 obo:MOLSIM_000845)
 
@@ -17179,7 +17180,7 @@ DisjointClasses(obo:MOLSIM_000174 obo:MOLSIM_000214 obo:MOLSIM_000215 obo:MOLSIM
 DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000176 obo:MOLSIM_000177 obo:MOLSIM_000178 obo:MOLSIM_000179 obo:MOLSIM_000180 obo:MOLSIM_000181 obo:MOLSIM_000182 obo:MOLSIM_000183 obo:MOLSIM_000184)
 DisjointClasses(obo:MOLSIM_000175 obo:MOLSIM_000179 obo:MOLSIM_000180 obo:MOLSIM_000181 obo:MOLSIM_000217 obo:MOLSIM_000247 obo:MOLSIM_000248 obo:MOLSIM_000773 obo:MOLSIM_000774 obo:MOLSIM_000775 obo:MOLSIM_000776 obo:MOLSIM_000777 obo:MOLSIM_000778 obo:MOLSIM_000779 obo:MOLSIM_000780 obo:MOLSIM_000781 obo:MOLSIM_000782 obo:MOLSIM_000783 obo:MOLSIM_000784 obo:MOLSIM_000785 obo:MOLSIM_000786 obo:MOLSIM_000787 obo:MOLSIM_000788 obo:MOLSIM_000789 obo:MOLSIM_000790 obo:MOLSIM_000791 obo:MOLSIM_000792 obo:MOLSIM_000793)
 DisjointClasses(obo:MOLSIM_000190 obo:MOLSIM_000191)
-DisjointClasses(obo:MOLSIM_000196 obo:MOLSIM_000197 obo:MOLSIM_000198 obo:MOLSIM_000199)
+DisjointClasses(obo:MOLSIM_000196 obo:MOLSIM_000197 obo:MOLSIM_000198 obo:MOLSIM_000199 obo:MOLSIM_002298)
 DisjointClasses(obo:MOLSIM_000201 obo:MOLSIM_000202 obo:MOLSIM_000203)
 DisjointClasses(obo:MOLSIM_000210 obo:MOLSIM_000211 obo:MOLSIM_000212 obo:MOLSIM_000213)
 DisjointClasses(obo:MOLSIM_000226 obo:MOLSIM_001927 obo:MOLSIM_001953 obo:MOLSIM_001954)
@@ -17599,6 +17600,21 @@ Declaration(Class(obo:MOLSIM_002297))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002297 "A simulation parameter giving how many cycles of an energy minimization use the steepest descent method before the minimization switches to the conjugate gradient method. It is set as ncyc in AMBER, where it applies when ntmin is 1, the default. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002297 "number of steepest descent cycles"@en)
 SubClassOf(obo:MOLSIM_002297 obo:MOLSIM_001164)
+
+# Class: obo:MOLSIM_002298 (isoenthalpic-isobaric ensemble)
+
+Declaration(Class(obo:MOLSIM_002298))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002298 "A thermodynamic ensemble in which the number of particles, the pressure and the enthalpy are held constant. A simulation samples it when a barostat controls the pressure but no thermostat is used, so the temperature is free to change. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002298 "NPH ensemble"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002298 "isoenthalpic-isobaric ensemble"@en)
+SubClassOf(obo:MOLSIM_002298 obo:MOLSIM_000195)
+
+# Class: obo:MOLSIM_002299 (total energy)
+
+Declaration(Class(obo:MOLSIM_002299))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002299 "An energy giving the sum of the kinetic energy and the potential energy of a simulated system at 1 moment. It is reported at intervals during a run, for example as Etot in an AMBER output file. Without a thermostat or a barostat it should stay constant. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002299 "total energy"@en)
+SubClassOf(obo:MOLSIM_002299 obo:MOLSIM_001294)
 
 # Object Property: obo:MOLSIM_002258 (has water model)
 
