@@ -49,15 +49,15 @@ MOLSIM reuses terms from other [OBO Foundry](https://obofoundry.org/) ontologies
 | ------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | **Prefix**                | `MOLSIM`                                                                                                        |
 | **Namespace**             | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                        |
-| **Live terms**            | 2,257: 2,048 classes, 119 data properties, 19 object properties, 70 named individuals and 1 annotation property |
-| **Retired terms**         | 47, kept so that their web addresses keep working                                                               |
-| **Checked by a reviewer** | 609 of the 2,257 live terms. The definitions of the other 1,648 end with `(UNVERIFIED)`                         |
+| **Live terms**            | 2,271: 2,055 classes, 124 data properties, 21 object properties, 70 named individuals and 1 annotation property |
+| **Retired terms**         | 52, kept so that their web addresses keep working                                                               |
+| **Checked by a reviewer** | 609 of the 2,271 live terms. The definitions of the other 1,662 end with `(UNVERIFIED)`                         |
 | **Hierarchy**             | 13 top-level branches, organised by topic, and aligned with COB at the top                                      |
 | **Built with**            | ODK (Ontology Development Kit) and ROBOT, checked with the ELK reasoner                                         |
 | **Source file**           | [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl), in OWL Functional Syntax                        |
 | **License**               | CC BY 4.0                                                                                                       |
 
-The figures were measured on 2026-11-16, for the pre-release dated 2026-11-13.
+The figures were measured on 2026-11-20, for the pre-release dated 2026-11-20.
 
 ## Status
 
@@ -131,7 +131,7 @@ MOLSIM's hierarchy is organised by topic, so that simulation experts can browse 
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | **STATO** | 10 statistics classes, such as `p-value`, `standard deviation`, `correlation coefficient` and `sample mean`                                                       | placed under our `statistical property` branch. 8 MOLSIM duplicates were retired and point to the STATO terms                    |
 | **SO**    | 29 classes: protein domains, protein secondary structure (helix types and coil) and modified nucleic-acid bases                                                   | our `protein domain` and `secondary structure` classes sit under SO classes. 4 MOLSIM helix classes were retired in favour of SO |
-| **UO**    | 55 unit classes                                                                                                                                                   | the units for 100 MOLSIM quantity classes, across 14 kinds of unit. MOLSIM never defines its own units                           |
+| **UO**    | 55 unit classes                                                                                                                                                   | the units for 103 MOLSIM quantity classes, across 15 kinds of unit. MOLSIM never defines its own units                           |
 | **IAO**   | 6 classes, such as `information content entity`, `plan specification`, `document` and `publication`, and the annotation properties `definition` and `term editor` | 15 MOLSIM classes sit under 4 of these IAO classes                                                                               |
 | **OMO**   | the standard OBO metadata properties                                                                                                                              | definitions, synonyms and other term metadata                                                                                    |
 | **RO**    | 7 relations, such as `has part`, `participates in`, `has input` and `has output`                                                                                  | reused instead of defining our own                                                                                               |
