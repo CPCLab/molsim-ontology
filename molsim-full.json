@@ -61,15 +61,12 @@
         "val" : "Scope note: MOLSIM's boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README."
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-11-13"
-      }, {
-        "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-11-16"
+        "val" : "2026-11-20"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-11-16/molsim-full.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-11-20/molsim-full.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/GO_0000786",
@@ -382,6 +379,9 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-8291-8071"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "val" : "http://purl.obolibrary.org/obo/COB_0000082"
         } ]
       }
     }, {
@@ -527,12 +527,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000013",
-      "lbl" : "organic molecule force field",
+      "lbl" : "obsolete organic molecule force field",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A force field parameterised for small organic molecules, covering the wide range of chemistry found in drug-like compounds. It must handle groups no protein or nucleic acid force field was built for. It is used together with a biomolecular force field when a ligand is simulated in a protein. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A force field parameterised for small organic molecules, covering the wide range of chemistry found in drug-like compounds. It must handle groups no protein or nucleic acid force field was built for. It is used together with a biomolecular force field when a ligand is simulated in a protein."
+        },
+        "comments" : [ "Retired 2026-11-18. It duplicated MOLSIM:000016 general purpose organic force field, a force field for small organic molecules such as drugs and ligands. Its 1 child was moved there first, and its label is kept as an exact synonym." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000016"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000014",
@@ -561,6 +567,9 @@
           "val" : "A chemical entity-based force field designed to give parameters for almost any organic molecule, such as a drug or a ligand, rather than for 1 class of biomolecule. It achieves that breadth by assigning atom types from rules based on each atom's chemical environment, and by supplying rules to estimate parameters that are missing. The parameters it gives for a particular molecule are approximate, so they are often checked or refined. (UNVERIFIED)"
         },
         "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "organic molecule force field"
+        }, {
           "pred" : "hasExactSynonym",
           "val" : "other organic molecules force field"
         } ]
@@ -2062,6 +2071,10 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "Pearlman's predictive index"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Pearlman D.A. and Charifson P.S. Are free energy calculations useful in practice? A comparison with rapid scoring functions for the p38 MAP kinase protein system. J. Med. Chem. 44(21):3417-3423, 2001. doi:10.1021/jm0100279"
         } ]
       }
     }, {
@@ -3185,6 +3198,10 @@
         "definition" : {
           "val" : "The single trajectory approach, often used in MM/PBSA and MM/GBSA calculations, involves running only one molecular dynamics simulation of the protein-ligand complex. Snapshots of the complex, the protein alone, and the ligand alone are then extracted directly from this single trajectory for endpoint free energy calculations. This reduces the computational cost compared to running three separate simulations but assumes the conformations sampled in the complex are representative for the free states."
         },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "1 trajectory approach"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0009-0007-1391-4986"
@@ -3643,12 +3660,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000279",
-      "lbl" : "1 trajectory approach",
+      "lbl" : "obsolete 1 trajectory approach",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A trajectory approach for end-point binding free energy calculations in which only the complex is simulated, and the receptor and ligand structures are taken from that same trajectory. Because every structure comes from 1 simulation, the internal energies of the parts cancel exactly, which removes most of the statistical noise. The price is that neither part can relax into the shape it would take on its own, so any real conformational change on binding is missed. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A trajectory approach for end-point binding free energy calculations in which only the complex is simulated, and the receptor and ligand structures are taken from that same trajectory. Because every structure comes from 1 simulation, the internal energies of the parts cancel exactly, which removes most of the statistical noise. The price is that neither part can relax into the shape it would take on its own, so any real conformational change on binding is missed."
+        },
+        "comments" : [ "Retired 2026-11-18. It duplicated MOLSIM:000239 single trajectory: both simulate only the complex and take receptor and ligand from that 1 trajectory. Its label is kept as an exact synonym on MOLSIM:000239." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_000239"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000280",
@@ -3665,7 +3688,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A system setup tool that helps choose which pairs of ligands to compare in thermodynamic integration (TI) free energy calculations, from a matrix of pairwise similarity scores between the ligands. In the AMBER FEW workflow a script applies Kruskal's shortest path algorithm to these scores, so that the chosen transformations need the smallest structural changes overall. The scores themselves come from a separate ligand comparison, for example the shape and chemical feature score of ROCS. (UNVERIFIED)"
+          "val" : "A system setup tool that helps choose which pairs of ligands to compare in thermodynamic integration (TI) free energy calculations, from a matrix of pairwise similarity scores between the ligands. In the AMBER FEW workflow a script applies Kruskal's minimum spanning tree algorithm to these scores, so that the chosen transformations connect all ligands and need the smallest structural changes overall. The scores themselves come from a separate ligand comparison, for example the shape and chemical feature score of ROCS. (UNVERIFIED)"
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
@@ -3886,6 +3909,10 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "MBAR"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Shirts M.R. and Chodera J.D. Statistically optimal analysis of samples from multiple equilibrium states. J. Chem. Phys. 129:124105, 2008. doi:10.1063/1.2978177"
         } ]
       }
     }, {
@@ -4323,12 +4350,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000340",
-      "lbl" : "integration analysis",
+      "lbl" : "obsolete integration analysis",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A class of mathematical techniques specifically used in molecular dynamics simulations to numerically solve the equations of motion governing particle movement. These algorithms approximate the positions and velocities of atoms at future discrete time steps based on the forces acting upon them at the current step. They are fundamental for generating the trajectory of the molecular system over time."
+        },
+        "comments" : [ "Retired 2026-11-18. It duplicated MOLSIM:001691 integration algorithm: both are the algorithms that advance positions and velocities from one time step to the next. Its label is kept as a related synonym on MOLSIM:001691." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_001691"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000341",
@@ -4677,7 +4710,11 @@
       "meta" : {
         "definition" : {
           "val" : "An enhanced sampling method that generates new conformations by displacing a structure along its slowest collective modes rather than at random. Those modes are the directions in which the molecule moves most easily, so displacing along them reaches genuinely different conformations at low energy cost. Random displacement mostly produces strained structures that are immediately rejected. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "LMOD"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000370",
@@ -4920,8 +4957,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A QM/MM method in which atoms in a buffer zone between the quantum and classical regions receive a smoothed mixture of the forces from a larger and a smaller quantum calculation. This lets atoms cross the quantum boundary during the run without sudden jumps in force. It was first applied to an ion dissolved in a solvent, where solvent molecules move in and out of the quantum region around the ion. (UNVERIFIED)"
-        }
+          "val" : "A QM/MM method in which atoms in a thin transition zone between the quantum and classical regions receive a smoothed mixture of quantum mechanical and force field forces. This lets atoms cross the quantum boundary during the run without sudden jumps in force. It was first applied to an ion dissolved in a solvent, where solvent molecules move in and out of the quantum region around the ion. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 219, entry hot_spot, and its reference [410]: Kerdcharoen T. and Rode B.M. A QM/MM simulation method applied to the solution of Li+ in liquid ammonia. Chem. Phys. 211:313-323, 1996."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000390",
@@ -5246,7 +5287,7 @@
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
-          "val" : "Berryman J.T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia, 2014. States that the AMBER implementation of this method is called EMIL."
+          "val" : "Berryman J.T. and Schilling T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia 57:7-15, 2014. doi:10.1016/j.phpro.2014.08.123. States that the AMBER implementation of this method is called EMIL."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "Berryman J.T. and Schilling T. Free energies by thermodynamic integration relative to an exact solution, used to find the handedness-switching salt concentration for DNA. J. Chem. Theory Comput. 9(1):679-686, 2013."
@@ -5653,8 +5694,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A dynamics analysis method that decomposes the reorientational motion of a set of bond vectors in a molecule, such as backbone N-H bonds, into collective modes, by diagonalising a matrix built from the relative orientations of all pairs of these vectors. It assumes that the overall tumbling of the molecule is isotropic, meaning the same in all directions. Each mode has its own correlation time, and together they give NMR order parameters and relaxation rates that can be compared with experiment. (UNVERIFIED)"
-        }
+          "val" : "A dynamics analysis method that decomposes the reorientational motion of a set of bond vectors in a molecule, such as backbone N-H bonds, into collective modes, by diagonalising a matrix built from the relative orientations of all pairs of these vectors. The matrix is averaged over all orientations of the molecule, so no superposition on a reference structure is needed and overall and internal motion do not have to be separated. Each mode has its own correlation time, and together they give NMR order parameters and relaxation rates that can be compared with experiment. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Prompers J.J. and Brüschweiler R. General framework for studying the dynamics of folded and nonfolded proteins by NMR relaxation spectroscopy and MD simulation. J. Am. Chem. Soc. 124:4522-4534, 2002. doi:10.1021/ja012750u"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000453",
@@ -8651,7 +8696,11 @@
       "meta" : {
         "definition" : {
           "val" : "A protein force field, introduced by Sorin and Pande in 2005, that replaces the backbone phi torsion term of AMBER ff99 with the original one of ff94, because ff99 gives too little helical structure. It was developed to study how helical peptides fold, and it showed improved agreement with measured kinetic and thermodynamic data. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Sorin E.J. and Pande V.S. Exploring the helix-coil transition via all-atom equilibrium ensemble simulations. Biophys. J. 88(4):2472-2493, 2005. doi:10.1529/biophysj.104.051938"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000748",
@@ -8799,7 +8848,14 @@
       "meta" : {
         "definition" : {
           "val" : "A rigid water model with 4 sites, the fourth being a massless point near the oxygen, on the bisector of the H-O-H angle, carrying that atom's negative charge. Moving the negative charge off the oxygen towards the hydrogens gives a better electrostatic field around the molecule. It costs more than a 3-site model and reproduces the temperature of maximum density better than TIP3P, although its dielectric constant is further from the measured value. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Jorgensen W.L., Chandrasekhar J., Madura J.D., Impey R.W. and Klein M.L. Comparison of simple potential functions for simulating liquid water. J. Chem. Phys. 79(2):926-935, 1983. doi:10.1063/1.445869"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Vega C. and Abascal J.L.F. Simulating water with rigid non-polarizable models: a general perspective. Phys. Chem. Chem. Phys. 13:19663, 2011. doi:10.1039/c1cp22168j. Table 2 gives the temperature of maximum density and the dielectric constant of TIP3P and TIP4P."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000764",
@@ -9130,7 +9186,11 @@
       "meta" : {
         "definition" : {
           "val" : "A constraint algorithm that keeps a group of atoms rigid by correcting their positions after each unconstrained step with a rotation of the group as a whole, found iteratively, instead of with the Lagrange multipliers that SHAKE uses. Its accuracy is comparable to that of SHAKE, and it also handles large linear and planar rigid groups, where SHAKE is hard to apply. It is used to keep rigid molecules or rigid fragments at their fixed geometry during a simulation. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Tao P., Wu X. and Brooks B.R. Maintain rigid structures in Verlet based Cartesian molecular dynamics simulations. J. Chem. Phys. 137(13):134110, 2012. doi:10.1063/1.4756796"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000799",
@@ -9165,13 +9225,17 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000802",
-      "lbl" : "V-rescale thermostat",
+      "lbl" : "obsolete V-rescale thermostat",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A temperature control algorithm that modifies simple weak coupling by adding a random term chosen so the resulting distribution of kinetic energies is the correct one. Weak coupling alone drives every fluctuation towards the mean, which suppresses the spread a real system has. The random term restores it at no extra cost. (UNVERIFIED)"
+          "val" : "OBSOLETE. A temperature control algorithm that modifies simple weak coupling by adding a random term chosen so the resulting distribution of kinetic energies is the correct one. Weak coupling alone drives every fluctuation towards the mean, which suppresses the spread a real system has. The random term restores it at no extra cost."
         },
+        "comments" : [ "Retired 2026-11-18. It duplicated MOLSIM:001732 Bussi thermostat: V-rescale is the GROMACS name for the stochastic velocity rescaling thermostat of Bussi, Donadio and Parrinello. Its label is kept as an exact synonym on MOLSIM:001732." ],
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_001732"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
           "val" : "tcoupl=v-rescale",
           "meta" : {
@@ -9180,7 +9244,8 @@
               "val" : "http://purl.obolibrary.org/obo/MOLSIM_000247"
             } ]
           }
-        } ]
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000803",
@@ -10189,7 +10254,14 @@
       "meta" : {
         "definition" : {
           "val" : "A binary data format, written with the extension .rwf, in which Gaussian keeps the large intermediate data of a running calculation. If the file is named and saved, a job that stopped early can be continued from it with the Restart keyword, for example an analytic frequency calculation. It is usually far larger than the checkpoint file, so it is normally kept on a local scratch disk. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Gaussian 16 online manual, Running Gaussian, section Scratch Files (the read-write file, name.rwf, is by far the largest). https://gaussian.com/running/, accessed 2026-11-18."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Gaussian 16 online manual, keyword Restart. https://gaussian.com/restart/, accessed 2026-11-18."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000892",
@@ -10696,7 +10768,11 @@
       "meta" : {
         "definition" : {
           "val" : "A dynamics analysis method that measures how the fluctuations of 2 different properties relate to each other over time, including at a time delay. A positive value means they rise and fall together, a negative value means one rises as the other falls, and a value near zero means there is no linear relationship between them at that delay. The delay at which the relationship is strongest shows which motion leads and which follows. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CPPTRAJ Manual, p. 255, section 13.7 corr: auto-correlation or cross-correlation function of 2 data sets up to a maximum lag."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000943",
@@ -11528,7 +11604,17 @@
       "meta" : {
         "definition" : {
           "val" : "A file format from the CHARMM simulation software that stores the atomic coordinates of a molecule as text. It is the formatted version of the CHARMM coordinate file, with 1 line per atom, and an extended layout with wider columns is used for very large systems. CHARMM itself usually names these files with the extension .crd, while some other programs use .cor. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CHARMM documentation, version c51b1, page io, section on the CARD coordinate file format (1 line per atom, expanded format above 100000 atoms). https://academiccharmm.org/documentation/latest/io, accessed 2026-11-18."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CPPTRAJ Manual, p. 93, table of trajectory formats: Charmm COORdinates, keyword cor, extension .cor."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "VMD molfile plugin documentation, CHARMM cor plugin. https://www.ks.uiuc.edu/Research/vmd/plugins/molfile/corplugin.html, accessed 2026-11-18. States that files created by CHARMM normally carry the extension .crd and that the plugin reads only the ASCII (CARD) form."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001054",
@@ -11859,6 +11945,10 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "residue topology file (RTF) format"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "CHARMM documentation, version c49b2, page rtop (Residue Topology File, by A.D. MacKerell Jr., updated August 2015). https://academiccharmm.org/documentation/latest/rtop, accessed 2026-11-18."
         } ]
       }
     }, {
@@ -12141,7 +12231,7 @@
         } ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
-          "val" : "Berryman J.T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia, 2014. States that the AMBER implementation of this method is called EMIL."
+          "val" : "Berryman J.T. and Schilling T. Absolute free energies for biomolecules in implicit or explicit solvent. Physics Procedia 57:7-15, 2014. doi:10.1016/j.phpro.2014.08.123. States that the AMBER implementation of this method is called EMIL."
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "Berryman J.T. and Schilling T. Free energies by thermodynamic integration relative to an exact solution, used to find the handedness-switching salt concentration for DNA. J. Chem. Theory Comput. 9(1):679-686, 2013."
@@ -12184,12 +12274,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001106",
-      "lbl" : "solvent analysis data format",
+      "lbl" : "obsolete solvent analysis data format",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A data format that stores the results of analysing how solvent molecules are arranged and behave around a solute. Files in these formats typically hold values on a 3-dimensional grid, such as the chance of finding a solvent atom at a point or the average interaction energy there. Examples include solvent density maps and the correlation functions produced by 3D-RISM theory. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A data format that stores the results of analysing how solvent molecules are arranged and behave around a solute. Files in these formats typically hold values on a 3-dimensional grid, such as the chance of finding a solvent atom at a point or the average interaction energy there. Examples include solvent density maps and the correlation functions produced by 3D-RISM theory."
+        },
+        "comments" : [ "Retired 2026-11-18. It duplicated its own parent MOLSIM:010021 solvent analysis format. Its 1 child was moved up first, and its label is kept as an exact synonym on MOLSIM:010021." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0100001",
+          "val" : "http://purl.obolibrary.org/obo/MOLSIM_010021"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001107",
@@ -12741,7 +12837,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A dielectric constant that describes the bulk solvent surrounding a solute in a continuum solvation calculation. It is set high, near 80 for water, so that the solvent screens electrostatic interactions strongly. Together with the internal value it fixes the dielectric boundary at the molecular surface. (UNVERIFIED)"
+          "val" : "A dielectric constant that describes the bulk solvent surrounding a solute in a continuum solvation calculation. It is set high, near 80 for water, so that the solvent screens electrostatic interactions strongly. Together with the internal value it sets how large the change in dielectric constant is across the boundary at the molecular surface. (UNVERIFIED)"
         },
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
@@ -13925,7 +14021,11 @@
       "meta" : {
         "definition" : {
           "val" : "A quantitative or qualitative output data item generated by a simulation or analysis process. It represents the actual measured state, derived metric, or calculated result of the system (e.g., instantaneous potential energy, calculated RMSD, assigned cluster IDs). (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "MOLSIM has no class for a statistic of a quantity, such as mean temperature or average density. Record a statistic as a value with 2 types: the MOLSIM class for the quantity, for example temperature, and the STATO class for the statistic, for example sample mean (STATO:0000401). The page Writing data with MOLSIM terms in the MOLSIM documentation shows an example."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001293",
@@ -15575,7 +15675,11 @@
       "meta" : {
         "definition" : {
           "val" : "A charge model that maps the Löwdin atomic charges from a semi-empirical, Hartree-Fock or density functional calculation onto corrected charges, using terms that depend on the bond orders between atoms and are fitted to measured dipole moments. It follows the earlier CM1 scheme, with a different mapping and a larger fitting set. It is used where good charges are wanted from a quick calculation. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Li J., Zhu T., Cramer C.J. and Truhlar D.G. New class IV charge model for extracting accurate partial charges from wave functions. J. Phys. Chem. A 102(10):1820-1831, 1998. doi:10.1021/jp972682r"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001437",
@@ -16291,8 +16395,15 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A QM/MM model component that adds a deep neural network correction to the energy of a QM/MM potential, trained to improve both the interactions within the quantum region and those between quantum atoms and nearby classical atoms. The correction is non-electrostatic and acts only on classical atoms within a cutoff distance of the quantum region, which is what range-corrected refers to. It is typically used to bring a fast semi-empirical QM/MM model close to the accuracy of ab initio QM/MM. (UNVERIFIED)"
-        }
+          "val" : "A QM/MM model component that adds a deep neural network correction to the energy of a QM/MM potential, trained to improve both the interactions within the quantum region and those between quantum atoms and nearby classical atoms. The correction is non-electrostatic and includes classical atoms only when they lie within a cutoff distance of the quantum region, which is what range-corrected refers to. It is typically used to bring a fast semi-empirical QM/MM model close to the accuracy of ab initio QM/MM. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, p. 204, section 11.7 QM/MM simulations with DPRc machine learning corrections."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Zeng J., Giese T.J., Ekesan S. and York D.M. Development of range-corrected deep learning potentials for fast, accurate quantum mechanical/molecular mechanical simulations of chemical reactions in solution. J. Chem. Theory Comput. 17:6993-7009, 2021. doi:10.1021/acs.jctc.1c00201"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001508",
@@ -16313,8 +16424,15 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A generalized Born implicit solvent model that computes effective Born radii with the scheme of Onufriev, Bashford and Case, which rescales the radii to account for the spaces between atomic spheres that earlier pairwise models missed. Its radii come closer to the true molecular volume at little extra cost. In AMBER it has 2 parameter variants, igb=2 and igb=5, which are recommended for most protein work and are used with the mbondi2 radii. (UNVERIFIED)"
-        }
+          "val" : "A generalized Born implicit solvent model that computes effective Born radii with the scheme of Onufriev, Bashford and Case, which rescales the radii to account for the spaces between atomic spheres that earlier pairwise models missed. Its radii come closer to the true molecular volume at little extra cost. In AMBER it has 2 parameter variants, igb=2 and igb=5, which are used with the mbondi2 radii. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "AMBER 26 Reference Manual, chapter 4 The Generalized Born/Surface Area Model, p. 70 (the OBC models), and p. 72, entries igb=2 and igb=5."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Onufriev A., Bashford D. and Case D.A. Exploring protein native states and large-scale conformational changes with a modified generalized Born model. Proteins 55:383-394, 2004. doi:10.1002/prot.20033"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001510",
@@ -16619,8 +16737,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without any separate hydrogen bond or halogen bond correction, so the halogen bond correction of the earlier method is no longer needed. It is the member of the family in general use. (UNVERIFIED)"
-        }
+          "val" : "A semi-empirical tight binding method that adds atom-centred multipoles and a density-dependent dispersion treatment to the earlier method in its family. Those additions improve the description of non-covalent interactions without any separate hydrogen bond or halogen bond correction, so the halogen bond correction of the earlier method is no longer needed. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Bannwarth C., Ehlert S. and Grimme S. GFN2-xTB - an accurate and broadly parametrized self-consistent tight-binding quantum chemical method with multipole electrostatics and density-dependent dispersion contributions. J. Chem. Theory Comput. 15:1652-1671, 2019. doi:10.1021/acs.jctc.8b01176"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001541",
@@ -18159,6 +18281,10 @@
         "definition" : {
           "val" : "An algorithm that advances the positions and velocities of the atoms from one step to the next, using the forces computed at the current step. It approximates the continuous equations of motion by a series of short, discrete time steps. Integrators differ in accuracy, stability at large time steps, cost, and how well they conserve energy over a long run. (UNVERIFIED)"
         },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "integration analysis"
+        } ],
         "basicPropertyValues" : [ {
           "pred" : "http://www.w3.org/2004/02/skos/core#closeMatch",
           "val" : "http://www.biomodels.net/kisao/KISAO#KISAO_0000475"
@@ -18561,6 +18687,18 @@
         },
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
+          "val" : "Bussi-Donadio-Parrinello thermostat"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "CSVR thermostat"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "V-rescale thermostat"
+        }, {
+          "pred" : "hasExactSynonym",
+          "val" : "canonical sampling through velocity rescaling"
+        }, {
+          "pred" : "hasExactSynonym",
           "val" : "stochastic velocity rescaling thermostat"
         } ],
         "basicPropertyValues" : [ {
@@ -18681,6 +18819,9 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
           "val" : "https://orcid.org/0000-0002-2294-5393"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "InChI Technical Manual, InChI version 1, software version 1.06, last revised 2020-12-15. https://github.com/IUPAC-InChI/InChI/raw/main/INCHI-1-DOC/InChI_TechMan.pdf. Describes canonical numbering that does not depend on how the structure is drawn, and the stereo layers of standard InChI, which allow absolute stereo only."
         } ]
       }
     }, {
@@ -19841,7 +19982,11 @@
       "meta" : {
         "definition" : {
           "val" : "A physical computing device or component, such as a processor, a whole computer or cluster, or the network between machines, on which simulation software runs. It is recorded with a simulation because it determines how long the run takes and can decide whether the run can be repeated bit for bit. Averaged scientific results should not depend on the hardware used. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.w3.org/2004/02/skos/core#broadMatch",
+          "val" : "http://purl.obolibrary.org/obo/COB_0001300"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001846",
@@ -21319,8 +21464,18 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A protein force field from the AMBER family, introduced by García and Sanbonmatsu in 2002, that removes some of the backbone phi and psi torsion terms of ff94 to reduce its overly strong preference for helical structure. It was developed to study the balance between helix and coil in peptides. (UNVERIFIED)"
-        }
+          "val" : "A protein force field from the AMBER family, introduced by García and Sanbonmatsu in 2002, that sets the backbone phi and psi torsion terms of ff94 to 0 to reduce its overly strong preference for helical structure. It was developed to study the balance between helix and coil in peptides. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROMACS 2026.3 Manual, p. 502: AMBERGS force field (Garcia and Sanbonmatsu, PNAS 99, 2782-2787, 2002)."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Garcia A.E. and Sanbonmatsu K.Y. Alpha-helical stabilization by side chain shielding of backbone hydrogen bonds. Proc. Natl. Acad. Sci. USA 99(5):2782-2787, 2002. doi:10.1073/pnas.042496899"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Sorin E.J. and Pande V.S. Exploring the helix-coil transition via all-atom equilibrium ensemble simulations. Biophys. J. 88(4):2472-2493, 2005. doi:10.1529/biophysj.104.051938. Describes AMBER-GS as AMBER-94 with the phi and psi torsion terms set to zero."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001974",
@@ -21328,8 +21483,12 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A GROMOS parameter set whose partial charges were refitted so that amino acid side chain analogues reproduce measured hydration free enthalpies, while keeping the fit to solvation free enthalpies in cyclohexane from the 53A5 set. Fitting to both water and cyclohexane gives a more realistic balance between polar and non-polar environments. It is intended for simulations of biomolecules in water and became a common choice for protein simulation in that family. (UNVERIFIED)"
-        }
+          "val" : "A GROMOS parameter set whose partial charges were refitted so that amino acid side chain analogues reproduce measured hydration free enthalpies, while keeping the fit to solvation free enthalpies in cyclohexane from the 53A5 set. Fitting to both water and cyclohexane gives a more realistic balance between polar and non-polar environments. It is intended for simulations of biomolecules in water. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Oostenbrink C., Villa A., Mark A.E. and van Gunsteren W.F. A biomolecular force field based on the free enthalpy of hydration and solvation: the GROMOS force-field parameter sets 53A5 and 53A6. J. Comput. Chem. 25(13):1656-1676, 2004. doi:10.1002/jcc.20090"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001975",
@@ -21338,7 +21497,11 @@
       "meta" : {
         "definition" : {
           "val" : "A united-atom force field of the GROMOS family, fitted to the thermodynamic properties of pure liquids of small polar molecules and to the solvation free enthalpies of amino acid analogues in cyclohexane. It was published in 2004 together with the 53A6 set, which starts from it and adjusts the partial charges to reproduce hydration free enthalpies in water. The 2 sets exist because no single set reproduced both, so 53A5 suits pure liquids and non-polar surroundings, while 53A6 is meant for biomolecules in water. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Oostenbrink C., Villa A., Mark A.E. and van Gunsteren W.F. A biomolecular force field based on the free enthalpy of hydration and solvation: the GROMOS force-field parameter sets 53A5 and 53A6. J. Comput. Chem. 25(13):1656-1676, 2004. doi:10.1002/jcc.20090"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001976",
@@ -21418,7 +21581,11 @@
       "meta" : {
         "definition" : {
           "val" : "A force field of the OPLS all-atom family with its protein backbone and side-chain torsion terms refitted again, by Robertson, Tirado-Rives and Jorgensen in 2015, to high-accuracy quantum energy scans of dipeptides. The new parameters were tested against measured properties of peptides in solution and improved on the earlier OPLS-AA/L revision. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Robertson M.J., Tirado-Rives J. and Jorgensen W.L. Improved peptide and protein torsional energetics with the OPLS-AA force field. J. Chem. Theory Comput. 11:3499-3509, 2015. doi:10.1021/acs.jctc.5b00356"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001984",
@@ -22692,7 +22859,11 @@
       "meta" : {
         "definition" : {
           "val" : "The smallest unit of a chemical element, and the smallest particle a classical molecular simulation tracks. In such a simulation it is represented as a point carrying a mass, a partial electric charge and a radius, all taken from the force field rather than computed. Everything else in a simulated system is built from these points and the bonds between them. (UNVERIFIED)"
-        }
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "val" : "http://purl.obolibrary.org/obo/COB_0000011"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002093",
@@ -22714,6 +22885,10 @@
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "molecule"
+        } ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.w3.org/2004/02/skos/core#closeMatch",
+          "val" : "http://purl.obolibrary.org/obo/COB_0000013"
         } ]
       }
     }, {
@@ -23057,7 +23232,7 @@
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A data format that designates a specific standardized schema variant that a file adheres to within a broader container format, such as the AMBER conventions used inside a NetCDF file. It identifies the precise rules for interpreting the file's contents. (UNVERIFIED)"
+          "val" : "An information content entity that names the specific schema variant a file follows inside a broader container format, such as the AMBER conventions used inside a NetCDF file. It tells a program the precise rules for reading the file's contents. (UNVERIFIED)"
         }
       }
     }, {
@@ -23773,6 +23948,130 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002286",
+      "lbl" : "effective core potential basis set",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A quantum mechanics basis set used together with an effective core potential, which replaces the core electrons of an atom with a potential, so that basis functions describe only the valence electrons. Removing the core electrons lowers the cost of the calculation, and for heavy elements the potential can also include relativistic effects. The LANL sets of Hay and Wadt are common examples. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002287",
+      "lbl" : "core-valence basis set",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A quantum mechanics basis set that adds extra functions close to the nucleus, so that it describes the correlation of the core electrons as well as that of the valence electrons. It is needed when core-valence correlation affects the result, for example in very accurate bond lengths or energies. The correlation-consistent cc-pCVnZ and cc-pwCVnZ sets are examples. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002292",
+      "lbl" : "total mass",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A thermodynamic property giving the sum of the masses of all atoms in a simulated system. Divided by the volume of the simulation box, it gives the density of the system. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002294",
+      "lbl" : "number of integration steps",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An integration parameter giving how many time steps a single molecular dynamics run performs. Multiplied by the simulation time step, it gives the simulated time the run covers, for example 500,000 steps of 2 fs give 1 ns. It is set as nstlim in AMBER and nsteps in GROMACS. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002295",
+      "lbl" : "initial temperature",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A temperature control parameter giving the temperature at which starting velocities are assigned to the atoms when a run begins without velocities from an earlier run. The velocities are drawn at random from the Maxwell-Boltzmann distribution for this temperature. It is set as tempi in AMBER and gen-temp in GROMACS. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002296",
+      "lbl" : "pressure coupling interval",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A pressure control parameter giving how many time steps pass between 2 pressure coupling events, at which the barostat adjusts the volume of the simulation box. For a Monte Carlo barostat, each event is an attempt to change the volume. It is set as nstpcouple in GROMACS and, for the Monte Carlo barostat, as mcbarint in AMBER. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002297",
+      "lbl" : "number of steepest descent cycles",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation parameter giving how many cycles of an energy minimization use the steepest descent method before the minimization switches to the conjugate gradient method. It is set as ncyc in AMBER, where it applies when ntmin is 1, the default. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002298",
+      "lbl" : "isoenthalpic-isobaric ensemble",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A thermodynamic ensemble in which the number of particles, the pressure and the enthalpy are held constant. A simulation samples it when a barostat controls the pressure but no thermostat is used, so the temperature is free to change. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "NPH ensemble"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002299",
+      "lbl" : "total energy",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "An energy giving the sum of the kinetic energy and the potential energy of a simulated system at 1 moment. It is reported at intervals during a run, for example as Etot in an AMBER output file. Without a thermostat or a barostat it should stay constant. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002300",
+      "lbl" : "optimized isokinetic Nose-Hoover chain thermostat",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A Nose-Hoover chain thermostat that adds an isokinetic constraint, a rule that keeps the kinetic energy of the particle and thermostat velocities fixed. It reduces the resonance instabilities that limit the time step in multiple time-stepping methods, allowing intermediate time steps of up to 16 fs with RESPA in AMBER. AMBER selects it with ntt = 9. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "OIN"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002301",
+      "lbl" : "stochastic isokinetic Nose-Hoover RESPA thermostat",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A thermostat algorithm that combines an isokinetic constraint on the particle velocities with extra thermostat velocities and random noise. The noise reduces resonance instabilities, so that longer RESPA time steps can be used. AMBER selects it with ntt = 10 and warns that the velocities it produces are not canonical, while the configurations are. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "SINR"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002302",
+      "lbl" : "mass density",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A thermodynamic property giving the mass of a simulated system divided by the volume of its simulation box, usually reported in g/cm3. In a constant-pressure run it changes as the barostat changes the volume, so it is often reported as an average over the run. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "density"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -23995,7 +24294,11 @@
       "meta" : {
         "definition" : {
           "val" : "A data format that stores spatial or statistical data describing how solvent molecules are distributed around a solute and what properties they carry there. Files in these formats usually hold a 3-dimensional grid of values such as local solvent density, charge distribution, or interaction energy. They are used to visualize hydration shells and to calculate thermodynamic properties of solvation. (UNVERIFIED)"
-        }
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "solvent analysis data format"
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010022",
@@ -26126,6 +26429,26 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002303",
+      "lbl" : "has force field",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that links a molecular simulation system to a force field used to describe the interactions of its atoms, such as ff19SB for a protein or GAFF2 for a ligand. A system is often described by several force fields at once, 1 for each kind of molecule, so the relation can hold more than once. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002304",
+      "lbl" : "continues from",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that links a simulation run to the earlier run whose restart file it started from, so that it carries on from the positions and velocities that run ended with. Whether the simulated times of the 2 runs join without a gap is a separate check. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000293",
       "lbl" : "has specified input",
       "type" : "PROPERTY",
@@ -26373,7 +26696,7 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that gives the number of the last residue treated as part of the solute in a molecular system, as recorded by the AMBER topology pointer IPTRES. Residues numbered after it are treated as solvent. Analyses that must tell the solute apart from the solvent use this boundary. (UNVERIFIED)"
+          "val" : "A relation that gives the number of the last residue treated as part of the solute in a molecular system, as recorded by the AMBER topology pointer IPTRES. Residues numbered after it are treated as solvent. It is stored in the SOLVENT_POINTERS section of the topology file, which is present only for a system with a periodic box. (UNVERIFIED)"
         },
         "comments" : [ "The IPTRES pointer in an AMBER prmtop topology file." ],
         "synonyms" : [ {
@@ -26381,6 +26704,9 @@
           "val" : "number of receptor residues"
         } ],
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Amber File Formats, section on the topology (PARM) file, flag SOLVENT_POINTERS: IPTRES is the final residue that is considered part of the solute. https://ambermd.org/FileFormats.php, accessed 2026-11-18."
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/MOLSIM_002254",
           "val" : "IPTRES",
           "meta" : {
@@ -27235,7 +27561,7 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a molecular system with an array giving the lengths and angles that define its periodic simulation box. It captures the full geometry of the periodic unit cell. (UNVERIFIED)"
+          "val" : "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box, usually written a, b and c. The angles between the edges are recorded separately. (UNVERIFIED)"
         }
       }
     }, {
@@ -27245,7 +27571,7 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a molecular system with an array giving the periodic box lengths and angles at the start of a run. It records the initial unit-cell geometry before any volume changes. (UNVERIFIED)"
+          "val" : "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box at the start of a run. It records the box size before any volume change. (UNVERIFIED)"
         }
       }
     }, {
@@ -27888,6 +28214,56 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002288",
+      "lbl" : "has file content flag",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that groups yes-or-no properties saying whether a trajectory or restart file contains a given kind of data, such as atomic coordinates, velocities, forces or time stamps. A program reading the file can check these flags before it tries to use data that may be missing. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002289",
+      "lbl" : "has input settings file path",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular dynamics process with the file path or identifier of the input file that sets how the run is carried out, such as an AMBER mdin file or a GROMACS mdp file. The file holds settings such as the time step, the number of steps and the thermostat. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002290",
+      "lbl" : "has output log file path",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular dynamics process with the file path or identifier of the log file in which the simulation program reports on the run, such as an AMBER mdout file or a GROMACS md.log file. The log records the settings that were used, the energies printed during the run and whether the run finished. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002291",
+      "lbl" : "has trajectory file path",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular dynamics trajectory with the file path or identifier of the file that stores it, such as an AMBER NetCDF or mdcrd file or a GROMACS xtc file. The file holds the coordinates of the atoms, saved at regular intervals during a run. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002293",
+      "lbl" : "run date",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular dynamics process with the date and time at which it was run, as recorded by the simulation program in its output. AMBER writes it at the top of the mdout file. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000002",
       "lbl" : "example to be eventually removed",
       "type" : "INDIVIDUAL"
@@ -28290,8 +28666,15 @@
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "A chemical structure database of commercially available compounds, prepared in ready-to-dock 3D formats for virtual screening, which is the computer search for molecules that may bind a target. It is provided by the Irwin and Shoichet laboratories at the University of California, San Francisco, and holds hundreds of millions of purchasable compounds with annotated properties. (UNVERIFIED)"
-        }
+          "val" : "A chemical structure database of commercially available compounds for virtual screening, which is the computer search for molecules that may bind a target. It is provided by the Irwin and Shoichet laboratories at the University of California, San Francisco, and holds more than 1 billion purchasable compounds with annotated properties, of which several hundred million are prepared in ready-to-dock 3D formats. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Irwin J.J., Tang K.G., Young J., Dandarchuluun C., Wong B.R., Khurelbaatar M., Moroz Y.S., Mayfield J. and Sayle R.A. ZINC20 - a free ultralarge-scale chemical database for ligand discovery. J. Chem. Inf. Model. 60(12):6065-6073, 2020. doi:10.1021/acs.jcim.0c00675"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "ZINC20 website, https://zinc20.docking.org, accessed 2026-11-18. Its page footer names the Irwin and Shoichet Labs as the providers of ZINC."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000932",
@@ -29387,6 +29770,10 @@
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
+      "id" : "http://www.w3.org/2004/02/skos/core#broadMatch",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://www.w3.org/2004/02/skos/core#closeMatch",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
@@ -29406,7 +29793,7 @@
     "edges" : [ {
       "sub" : "http://purl.obolibrary.org/obo/GO_0000786",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001894"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001900"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/IAO_0000013",
       "pred" : "is_a",
@@ -29500,10 +29887,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000772"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000013",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000772"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000014",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000772"
@@ -29574,7 +29957,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000032",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001210"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000033",
       "pred" : "is_a",
@@ -29770,7 +30153,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000084",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000076"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000086"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000085",
       "pred" : "is_a",
@@ -29806,11 +30189,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000093",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000087"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000407"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000094",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000087"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000407"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000095",
       "pred" : "is_a",
@@ -29830,7 +30213,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000098",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002255"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000099",
       "pred" : "is_a",
@@ -29862,11 +30245,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000106",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001210"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002255"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000107",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001210"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002255"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000108",
       "pred" : "is_a",
@@ -29958,7 +30341,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000133",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000135"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000353"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000135",
       "pred" : "is_a",
@@ -30190,7 +30573,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000192",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000189"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000191"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000193",
       "pred" : "is_a",
@@ -30202,7 +30585,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000195",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001484"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000196",
       "pred" : "is_a",
@@ -30350,23 +30733,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000232",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000231"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000232",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000233",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000231"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000234",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000231"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000235",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000231"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000236",
       "pred" : "is_a",
@@ -30378,7 +30757,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000238",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000262"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000326"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000239",
       "pred" : "is_a",
@@ -30422,7 +30801,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000249",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000015"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000250",
       "pred" : "is_a",
@@ -30486,7 +30865,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000265",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000261"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000615"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000266",
       "pred" : "is_a",
@@ -30498,11 +30877,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000268",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000261"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000296"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000269",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000261"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000615"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000270",
       "pred" : "is_a",
@@ -30538,11 +30917,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000278",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000276"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000279",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000238"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000939"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000280",
       "pred" : "is_a",
@@ -30551,10 +30926,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000281",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001556"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000282",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000281"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000282",
       "pred" : "is_a",
@@ -30586,11 +30957,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000289",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000286"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000265"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000290",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000286"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000265"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000291",
       "pred" : "is_a",
@@ -30602,7 +30973,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000293",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000286"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000858"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000294",
       "pred" : "is_a",
@@ -30626,7 +30997,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000300",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000026"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000301",
       "pred" : "is_a",
@@ -30674,7 +31045,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000312",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001854"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000313",
       "pred" : "is_a",
@@ -30734,7 +31105,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000327",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000262"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001278"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000328",
       "pred" : "is_a",
@@ -30746,7 +31117,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000330",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000329"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000328"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000331",
       "pred" : "is_a",
@@ -30782,11 +31153,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000339",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000340"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000340",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000383"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000367"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000341",
       "pred" : "is_a",
@@ -30814,7 +31181,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000346",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000345"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000341"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000347",
       "pred" : "is_a",
@@ -30838,7 +31205,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000353",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000026"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000355",
       "pred" : "is_a",
@@ -30890,7 +31257,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000367",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000026"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000140"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000368",
       "pred" : "is_a",
@@ -30974,7 +31341,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000388",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000308"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000336"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000389",
       "pred" : "is_a",
@@ -31002,11 +31369,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000395",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000396",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000395"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000397",
       "pred" : "is_a",
@@ -31022,7 +31389,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000400",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000367"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000026"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000401",
       "pred" : "is_a",
@@ -31074,11 +31441,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000413",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000858"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000414",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000858"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000415",
       "pred" : "is_a",
@@ -31130,7 +31497,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000427",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000974"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000666"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000428",
       "pred" : "is_a",
@@ -31170,7 +31537,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000438",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001085"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000910"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000439",
       "pred" : "is_a",
@@ -31198,7 +31565,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000445",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001044"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000446",
       "pred" : "is_a",
@@ -31206,7 +31573,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000449",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000430"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000331"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000450",
       "pred" : "is_a",
@@ -31214,11 +31581,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000451",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000939"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000947"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000452",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000939"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000947"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000453",
       "pred" : "is_a",
@@ -31262,7 +31629,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000463",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000076"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000086"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000464",
       "pred" : "is_a",
@@ -31394,11 +31761,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000497",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000348"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000499",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000348"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000497"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000500",
       "pred" : "is_a",
@@ -31410,11 +31777,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000502",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000348"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000503",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000400"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000124"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000505",
       "pred" : "is_a",
@@ -31426,7 +31793,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000509",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000388"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000336"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000510",
       "pred" : "is_a",
@@ -31438,43 +31805,43 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000512",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000513",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000514",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000515",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000516",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000517",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000518",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000519",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000520",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000521",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002286"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000522",
       "pred" : "is_a",
@@ -31526,23 +31893,23 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000534",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000535",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000536",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000537",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000538",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000539",
       "pred" : "is_a",
@@ -31614,23 +31981,23 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000556",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000557",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000558",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000559",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000560",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000561",
       "pred" : "is_a",
@@ -31654,19 +32021,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000566",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000567",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000568",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000569",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002287"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000570",
       "pred" : "is_a",
@@ -31694,7 +32061,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000576",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000485"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000432"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000577",
       "pred" : "is_a",
@@ -31762,7 +32129,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000593",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000439"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000590"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000594",
       "pred" : "is_a",
@@ -31770,15 +32137,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000595",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000590"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000909"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000596",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000590"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000909"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000597",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000590"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000909"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000598",
       "pred" : "is_a",
@@ -31790,7 +32157,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000600",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000439"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001085"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000601",
       "pred" : "is_a",
@@ -31858,15 +32225,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000617",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000615"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000483"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000618",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000615"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000483"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000619",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000615"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000483"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000620",
       "pred" : "is_a",
@@ -31922,11 +32289,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000633",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000584"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000478"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000634",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000633"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000026"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000635",
       "pred" : "is_a",
@@ -31962,11 +32329,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000643",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000374"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000644",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000204"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000206"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000645",
       "pred" : "is_a",
@@ -32010,7 +32377,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000655",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000858"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000656",
       "pred" : "is_a",
@@ -32018,11 +32385,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000657",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000201"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000305"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000658",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000666"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000659",
       "pred" : "is_a",
@@ -32030,7 +32397,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000660",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000939"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001767"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000661",
       "pred" : "is_a",
@@ -32046,7 +32413,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000664",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000305"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000661"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000665",
       "pred" : "is_a",
@@ -32058,7 +32425,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000667",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000328"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000661"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000668",
       "pred" : "is_a",
@@ -32070,7 +32437,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000670",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001767"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000671",
       "pred" : "is_a",
@@ -32078,7 +32445,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000672",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000939"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001767"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000673",
       "pred" : "is_a",
@@ -32122,11 +32489,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000684",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000328"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000678"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000685",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000141"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000173"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000686",
       "pred" : "is_a",
@@ -32354,23 +32721,23 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000758",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000016"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000759",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000758"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000760",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000758"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000761",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000759"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000762",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000759"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000763",
       "pred" : "is_a",
@@ -32418,7 +32785,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000774",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000158"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000775",
       "pred" : "is_a",
@@ -32528,10 +32895,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000038"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000802",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000038"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000803",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000173"
@@ -32594,7 +32957,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000819",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000804"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000817"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000820",
       "pred" : "is_a",
@@ -32602,19 +32965,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000821",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000819"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000817"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000822",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000804"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000817"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000823",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000804"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000817"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000824",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000804"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000809"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000825",
       "pred" : "is_a",
@@ -32626,7 +32989,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000827",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000173"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000685"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000828",
       "pred" : "is_a",
@@ -32646,11 +33009,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000832",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000173"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000685"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000833",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000832"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000834"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000834",
       "pred" : "is_a",
@@ -32666,11 +33029,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000837",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000832"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000834"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000838",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000173"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000685"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000839",
       "pred" : "is_a",
@@ -32686,7 +33049,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000842",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000841"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000140"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000843",
       "pred" : "is_a",
@@ -32698,7 +33061,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000845",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000308"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000846",
       "pred" : "is_a",
@@ -32774,7 +33137,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000865",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000845"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000863"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000866",
       "pred" : "is_a",
@@ -32918,7 +33281,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000901",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001091"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001077"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000902",
       "pred" : "is_a",
@@ -33034,7 +33397,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000941",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000305"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000661"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000942",
       "pred" : "is_a",
@@ -33042,7 +33405,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000943",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000342"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000311"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000944",
       "pred" : "is_a",
@@ -33050,7 +33413,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000945",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000944"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000946",
       "pred" : "is_a",
@@ -33078,7 +33441,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000954",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000951"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000950"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000955",
       "pred" : "is_a",
@@ -33102,7 +33465,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000976",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000984"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000978",
       "pred" : "is_a",
@@ -33138,15 +33501,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000986",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000475"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000987",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000475"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000988",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000304"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000109"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000989",
       "pred" : "is_a",
@@ -33174,7 +33537,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001012",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001011"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001013",
       "pred" : "is_a",
@@ -33246,7 +33609,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001041",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001040"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010020"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001042",
       "pred" : "is_a",
@@ -33338,7 +33701,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001065",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000014"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000770"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001066",
       "pred" : "is_a",
@@ -33362,7 +33725,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001071",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001090"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010020"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001073",
       "pred" : "is_a",
@@ -33386,7 +33749,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001078",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001091"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001077"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001079",
       "pred" : "is_a",
@@ -33418,7 +33781,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001086",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001091"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000613"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001088",
       "pred" : "is_a",
@@ -33434,7 +33797,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001092",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001091"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000613"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001093",
       "pred" : "is_a",
@@ -33446,11 +33809,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001095",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001094"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001096",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001094"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001097",
       "pred" : "is_a",
@@ -33462,7 +33825,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001099",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002066"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010022"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001100",
       "pred" : "is_a",
@@ -33486,11 +33849,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001105",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001106",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010021"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000445"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001107",
       "pred" : "is_a",
@@ -33522,7 +33881,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001114",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001106"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_010021"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001115",
       "pred" : "is_a",
@@ -33570,7 +33929,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001169",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001165"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001164"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001170",
       "pred" : "is_a",
@@ -33690,7 +34049,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001199",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001184"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001164"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001200",
       "pred" : "is_a",
@@ -33728,9 +34087,13 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001206"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001208",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002163"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001209",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001206"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001207"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001210",
       "pred" : "is_a",
@@ -33758,7 +34121,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001216",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001210"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001164"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001217",
       "pred" : "is_a",
@@ -33766,7 +34129,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001218",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001210"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001245"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001219",
       "pred" : "is_a",
@@ -34010,7 +34373,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001279",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001278"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001195"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001280",
       "pred" : "is_a",
@@ -34078,7 +34441,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001297",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001298",
       "pred" : "is_a",
@@ -34086,7 +34449,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001299",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001300",
       "pred" : "is_a",
@@ -34094,7 +34457,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001301",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001302",
       "pred" : "is_a",
@@ -34102,19 +34465,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001303",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001304",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001305",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001306",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001307",
       "pred" : "is_a",
@@ -34138,7 +34501,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001312",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001295"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001313",
       "pred" : "is_a",
@@ -34174,15 +34537,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001321",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001317"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001320"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001322",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001317"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001319"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001323",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001317"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001319"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001324",
       "pred" : "is_a",
@@ -34202,7 +34565,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001328",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001326"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001329",
       "pred" : "is_a",
@@ -34494,7 +34857,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001401",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001398"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001872"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001402",
       "pred" : "is_a",
@@ -34558,11 +34921,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001422",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001421"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001991"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001423",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001421"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001991"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001424",
       "pred" : "is_a",
@@ -34606,7 +34969,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001434",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000204"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000205"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001435",
       "pred" : "is_a",
@@ -34654,7 +35017,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001446",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001445"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000010"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001447",
       "pred" : "is_a",
@@ -34674,11 +35037,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001451",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000013"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001452",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000013"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001453",
       "pred" : "is_a",
@@ -34690,15 +35053,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001455",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000013"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000016"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001456",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000803"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000818"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001457",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000803"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000816"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001458",
       "pred" : "is_a",
@@ -34750,7 +35113,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001470",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000331"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000430"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001471",
       "pred" : "is_a",
@@ -34838,7 +35201,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001492",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000014"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001985"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001493",
       "pred" : "is_a",
@@ -34866,7 +35229,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001499",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000331"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001500",
       "pred" : "is_a",
@@ -34914,7 +35277,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001512",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000364"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001552"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001513",
       "pred" : "is_a",
@@ -34954,7 +35317,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001522",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000691"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000699"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001523",
       "pred" : "is_a",
@@ -35006,7 +35369,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001536",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001535"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001534"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001537",
       "pred" : "is_a",
@@ -35054,7 +35417,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001548",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000204"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001529"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001549",
       "pred" : "is_a",
@@ -35078,7 +35441,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001554",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000006"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000308"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001555",
       "pred" : "is_a",
@@ -35266,11 +35629,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001600",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000223"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001850"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001601",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001957"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000490"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001602",
       "pred" : "is_a",
@@ -35298,7 +35661,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001608",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001970"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000172"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001609",
       "pred" : "is_a",
@@ -35530,7 +35893,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001666",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001960"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001963"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001667",
       "pred" : "is_a",
@@ -35538,7 +35901,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001668",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000328"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000974"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001669",
       "pred" : "is_a",
@@ -35610,15 +35973,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001685",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000157"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000296"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001686",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000157"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000296"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001687",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000157"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000296"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001688",
       "pred" : "is_a",
@@ -35718,7 +36081,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001712",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000408"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000407"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001713",
       "pred" : "is_a",
@@ -35790,7 +36153,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001730",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001722"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001723"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001731",
       "pred" : "is_a",
@@ -35810,7 +36173,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001735",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000038"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000382"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001736",
       "pred" : "is_a",
@@ -35890,19 +36253,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001756",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001711"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001757",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001711"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001756"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001758",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001711"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001756"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001760",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001711"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000447"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001761",
       "pred" : "is_a",
@@ -35950,15 +36313,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001772",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000202"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000305"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001773",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000002"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001769"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001774",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000002"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000382"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001775",
       "pred" : "is_a",
@@ -36038,7 +36401,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001798",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001803"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001799",
       "pred" : "is_a",
@@ -36166,11 +36529,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001830",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001828"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001827"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001831",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001828"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001827"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001832",
       "pred" : "is_a",
@@ -36190,19 +36553,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001836",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001834"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001827"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001837",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001834"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001827"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001838",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001834"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001827"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001839",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001834"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001827"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001840",
       "pred" : "is_a",
@@ -36226,7 +36589,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001846",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000272"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001847",
       "pred" : "is_a",
@@ -36250,7 +36613,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001852",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000939"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000947"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001853",
       "pred" : "is_a",
@@ -36274,7 +36637,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001858",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001859",
       "pred" : "is_a",
@@ -36294,10 +36657,6 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001863",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000984"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001863",
-      "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001860"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001864",
@@ -36306,7 +36665,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001865",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001403"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001866",
       "pred" : "is_a",
@@ -36318,7 +36677,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001868",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000004"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001873"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001869",
       "pred" : "is_a",
@@ -36330,7 +36689,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001871",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000984"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000917"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001872",
       "pred" : "is_a",
@@ -36342,11 +36701,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001874",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001873"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001875",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001873"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001876",
       "pred" : "is_a",
@@ -36566,11 +36925,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001927",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000225"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000714"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001927",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000714"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001850"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001928",
       "pred" : "is_a",
@@ -36586,7 +36945,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001931",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002041"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000163"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001932",
       "pred" : "is_a",
@@ -36607,10 +36966,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001935",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000160"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001935",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001664"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001936",
       "pred" : "is_a",
@@ -36682,7 +37037,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001954",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000225"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000710"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001955",
       "pred" : "is_a",
@@ -36762,19 +37117,19 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001974",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001981"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001975",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001981"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001976",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001981"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001977",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001980"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001978",
       "pred" : "is_a",
@@ -36782,7 +37137,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001979",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000382"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000037"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001980",
       "pred" : "is_a",
@@ -36790,7 +37145,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001981",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001531"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001980"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001982",
       "pred" : "is_a",
@@ -36814,7 +37169,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001987",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000080"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_001988",
       "pred" : "is_a",
@@ -36866,11 +37221,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002000",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001515"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002001",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001515"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001185"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002002",
       "pred" : "is_a",
@@ -36910,7 +37265,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002011",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001333"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002090"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002012",
       "pred" : "is_a",
@@ -36966,7 +37321,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002025",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002004"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002026",
       "pred" : "is_a",
@@ -37010,7 +37365,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002036",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000439"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000885"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002037",
       "pred" : "is_a",
@@ -37018,7 +37373,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002038",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000441"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000437"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002039",
       "pred" : "is_a",
@@ -37098,10 +37453,6 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002058",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000715"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002058",
-      "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001088"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002059",
@@ -37113,10 +37464,6 @@
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000715"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002061",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000715"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002062",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000715"
     }, {
@@ -37286,7 +37633,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002104",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000335"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000843"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002105",
       "pred" : "is_a",
@@ -37322,7 +37669,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002113",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001293"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002302"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002114",
       "pred" : "is_a",
@@ -37366,11 +37713,11 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002158",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000353"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002101"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002159",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000353"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002101"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002160",
       "pred" : "is_a",
@@ -37378,7 +37725,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002161",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000436"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002162",
       "pred" : "is_a",
@@ -37402,7 +37749,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002192",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001293"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002302"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002196",
       "pred" : "is_a",
@@ -37620,6 +37967,54 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000336"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002286",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000432"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002287",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000432"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002292",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001293"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002294",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001165"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002295",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001173"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002296",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001179"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002297",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002298",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000195"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002299",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001294"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002300",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001731"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002301",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000038"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002302",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001293"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
@@ -37694,7 +38089,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010019",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000075"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000086"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010020",
       "pred" : "is_a",
@@ -37718,7 +38113,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010025",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000951"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000950"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010026",
       "pred" : "is_a",
@@ -38222,7 +38617,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000726",
       "pred" : "type",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000692"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000703"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000727",
       "pred" : "type",
@@ -38322,7 +38717,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000962",
       "pred" : "type",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000703"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000704"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000964",
       "pred" : "type",
@@ -38566,9 +38961,17 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002258",
       "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002303"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002260",
+      "pred" : "subPropertyOf",
+      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002303",
+      "pred" : "subPropertyOf",
+      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002304",
       "pred" : "subPropertyOf",
       "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
     }, {
@@ -38990,6 +39393,18 @@
         "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002269",
         "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
         "obj" : "http://purl.obolibrary.org/obo/UO_0000001"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002292",
+        "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
+        "obj" : "http://purl.obolibrary.org/obo/UO_0000002"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002295",
+        "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
+        "obj" : "http://purl.obolibrary.org/obo/UO_0000005"
+      }, {
+        "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002302",
+        "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
+        "obj" : "http://purl.obolibrary.org/obo/UO_0000052"
       } ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/IAO_0000136",
@@ -39070,6 +39485,14 @@
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002260",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001214" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002303",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_001887" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000007" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002304",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000000" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000000" ]
     } ]
   } ]
 }
