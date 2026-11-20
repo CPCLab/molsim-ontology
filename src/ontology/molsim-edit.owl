@@ -17526,12 +17526,21 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002257 "has coordinate file path"@en)
 SubDataPropertyOf(obo:MOLSIM_002257 obo:MOLSIM_002253)
 DataPropertyRange(obo:MOLSIM_002257 xsd:string)
 
+# Object Property: obo:MOLSIM_002303 (has force field)
+
+Declaration(ObjectProperty(obo:MOLSIM_002303))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002303 "A relation that links a molecular simulation system to a force field used to describe the interactions of its atoms, such as ff19SB for a protein or GAFF2 for a ligand. A system is often described by several force fields at once, 1 for each kind of molecule, so the relation can hold more than once. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002303 "has force field"@en)
+SubObjectPropertyOf(obo:MOLSIM_002303 owl:topObjectProperty)
+ObjectPropertyDomain(obo:MOLSIM_002303 obo:MOLSIM_001887)
+ObjectPropertyRange(obo:MOLSIM_002303 obo:MOLSIM_000007)
+
 # Object Property: obo:MOLSIM_002258 (has water model)
 
 Declaration(ObjectProperty(obo:MOLSIM_002258))
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002258 "A relation that links a molecular simulation system to the water model used to represent its solvent, such as TIP3P or SPC/E. The choice fixes the geometry and the charges of every water molecule, and it affects properties that depend on the solvent, including diffusion and the strength of hydrogen bonds. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002258 "has water model"@en)
-SubObjectPropertyOf(obo:MOLSIM_002258 owl:topObjectProperty)
+SubObjectPropertyOf(obo:MOLSIM_002258 obo:MOLSIM_002303)
 ObjectPropertyDomain(obo:MOLSIM_002258 obo:MOLSIM_001887)
 ObjectPropertyRange(obo:MOLSIM_002258 obo:MOLSIM_000014)
 
