@@ -17616,6 +17616,22 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002299 "An energy giving the sum 
 AnnotationAssertion(rdfs:label obo:MOLSIM_002299 "total energy"@en)
 SubClassOf(obo:MOLSIM_002299 obo:MOLSIM_001294)
 
+# Class: obo:MOLSIM_002300 (optimized isokinetic Nose-Hoover chain thermostat)
+
+Declaration(Class(obo:MOLSIM_002300))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002300 "A Nose-Hoover chain thermostat that adds an isokinetic constraint, a rule that keeps the kinetic energy of the particle and thermostat velocities fixed. It reduces the resonance instabilities that limit the time step in multiple time-stepping methods, allowing intermediate time steps of up to 16 fs with RESPA in AMBER. AMBER selects it with ntt = 9. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002300 "OIN"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002300 "optimized isokinetic Nose-Hoover chain thermostat"@en)
+SubClassOf(obo:MOLSIM_002300 obo:MOLSIM_001731)
+
+# Class: obo:MOLSIM_002301 (stochastic isokinetic Nose-Hoover RESPA thermostat)
+
+Declaration(Class(obo:MOLSIM_002301))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002301 "A thermostat algorithm that combines an isokinetic constraint on the particle velocities with extra thermostat velocities and random noise. The noise reduces resonance instabilities, so that longer RESPA time steps can be used. AMBER selects it with ntt = 10 and warns that the velocities it produces are not canonical, while the configurations are. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002301 "SINR"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002301 "stochastic isokinetic Nose-Hoover RESPA thermostat"@en)
+SubClassOf(obo:MOLSIM_002301 obo:MOLSIM_000038)
+
 # Object Property: obo:MOLSIM_002258 (has water model)
 
 Declaration(ObjectProperty(obo:MOLSIM_002258))
@@ -17790,7 +17806,7 @@ DisjointClasses(obo:MOLSIM_002164 obo:MOLSIM_002165)
 
 # ==== enumeration/format disjointness batch ====
 # thermostat algorithm (MOLSIM_000038) — 11 children
-DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000381 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_001731 obo:MOLSIM_001732 obo:MOLSIM_001735)
+DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000381 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_001731 obo:MOLSIM_001732 obo:MOLSIM_001735 obo:MOLSIM_002301)
 # barostat algorithm (MOLSIM_000039) — 11 children
 DisjointClasses(obo:MOLSIM_000040 obo:MOLSIM_000041 obo:MOLSIM_000042 obo:MOLSIM_000043 obo:MOLSIM_000044 obo:MOLSIM_000338 obo:MOLSIM_000343 obo:MOLSIM_000391 obo:MOLSIM_000794 obo:MOLSIM_002017 obo:MOLSIM_002028)
 # box type (MOLSIM_000032) — 5 children
