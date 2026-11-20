@@ -38,9 +38,11 @@ DEFAULT_MAPPINGS = Path("src/ontology/mappings/molsim.sssom.tsv")
 DEFAULT_OUT = Path("src/ontology/components/molsim_mappings_component.owl")
 ONT_IRI = "http://purl.obolibrary.org/obo/molsim/components/molsim_mappings_component.owl"
 
-# Only these 3 are curated in this file. A row carrying anything else is a
+# Only these 4 are curated in this file. A row carrying anything else is a
 # curation error rather than something to render, so it stops the build.
-ALLOWED = {"skos:exactMatch", "skos:closeMatch", "skos:relatedMatch"}
+# skos:broadMatch added 2026-11-20 for links where the other term is broader,
+# such as MOLSIM hardware to COB device.
+ALLOWED = {"skos:exactMatch", "skos:closeMatch", "skos:relatedMatch", "skos:broadMatch"}
 
 
 def read_curie_map(path: Path) -> dict[str, str]:
@@ -85,6 +87,7 @@ def build(mapping_file: Path) -> tuple[str, int]:
         "Declaration(AnnotationProperty(skos:exactMatch))",
         "Declaration(AnnotationProperty(skos:closeMatch))",
         "Declaration(AnnotationProperty(skos:relatedMatch))",
+        "Declaration(AnnotationProperty(skos:broadMatch))",
         "",
     ]
     n = 0
