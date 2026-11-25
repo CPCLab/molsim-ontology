@@ -5263,9 +5263,11 @@ SubClassOf(obo:MOLSIM_000337 obo:MOLSIM_000674)
 
 # Class: obo:MOLSIM_000338 (isotropic position scaling barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000338 "A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000338 "isotropic position scaling barostat"@en)
-SubClassOf(obo:MOLSIM_000338 obo:MOLSIM_000039)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000338 "OBSOLETE. A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000338 "obsolete isotropic position scaling barostat"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000338 "true"^^xsd:boolean)
+AnnotationAssertion(oboInOwl:consider obo:MOLSIM_000338 "MOLSIM:002320")
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000338 "Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat, so an isotropic Berendsen barostat could not be described. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002320 isotropic pressure scaling.")
 
 # Class: obo:MOLSIM_000339 (numerical integration)
 
@@ -5297,10 +5299,11 @@ SubClassOf(obo:MOLSIM_000342 obo:MOLSIM_000939)
 
 # Class: obo:MOLSIM_000343 (anisotropic position scaling barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000343 "An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals."@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000343 "anisotropic position scaling barostat"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000343 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000343 obo:MOLSIM_000039)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000343 "OBSOLETE. An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000343 "obsolete anisotropic position scaling barostat"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000343 "true"^^xsd:boolean)
+AnnotationAssertion(oboInOwl:consider obo:MOLSIM_000343 "MOLSIM:002322")
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000343 "Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002322 anisotropic pressure scaling.")
 
 # Class: obo:MOLSIM_000344 (Welch's T-test analysis)
 
@@ -5621,11 +5624,12 @@ SubClassOf(obo:MOLSIM_000390 obo:MOLSIM_000053)
 
 # Class: obo:MOLSIM_000391 (semi-isotropic position scaling barostat)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000391 "A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000391 "OBSOLETE. A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it."@en)
 AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_000391 "semi-isotropic pressure scaling barostat"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_000391 "semi-isotropic position scaling barostat"@en)
-AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000391 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000391 obo:MOLSIM_000039)
+AnnotationAssertion(rdfs:label obo:MOLSIM_000391 "obsolete semi-isotropic position scaling barostat"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_000391 "true"^^xsd:boolean)
+AnnotationAssertion(oboInOwl:consider obo:MOLSIM_000391 "MOLSIM:002321")
+AnnotationAssertion(rdfs:comment obo:MOLSIM_000391 "Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002321 semi-isotropic pressure scaling.")
 
 # Class: obo:MOLSIM_000392 (direct sum Coulomb method)
 
@@ -17731,6 +17735,68 @@ AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002314 "A protein force field fro
 AnnotationAssertion(rdfs:label obo:MOLSIM_002314 "CHARMM force field"@en)
 SubClassOf(obo:MOLSIM_002314 obo:MOLSIM_000009)
 
+# Class: obo:MOLSIM_002315 (Andersen velocity randomization interval)
+
+Declaration(Class(obo:MOLSIM_002315))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002315 "A thermostat coupling parameter giving how many time steps pass between 2 randomizations of the atom velocities by the Andersen thermostat. It is set as vrand in AMBER. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002315 "Andersen velocity randomization interval"@en)
+SubClassOf(obo:MOLSIM_002315 obo:MOLSIM_001176)
+
+# Data Property: obo:MOLSIM_002316 (number of solute residues)
+
+Declaration(DataProperty(obo:MOLSIM_002316))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002316 "A relation that associates a molecular system with the number of its residues that are neither solvent nor ions, such as protein, nucleic acid and ligand residues. Structural metal ions are counted as ions. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002316 "number of solute residues"@en)
+SubDataPropertyOf(obo:MOLSIM_002316 obo:MOLSIM_001121)
+DataPropertyRange(obo:MOLSIM_002316 xsd:integer)
+
+# Class: obo:MOLSIM_002317 (bonds to hydrogen constrained)
+
+Declaration(Class(obo:MOLSIM_002317))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002317 "A constrained bond setting in which only the bonds that involve a hydrogen atom are held at a fixed length. It removes the fastest motion in most biomolecular systems and is the usual choice with a time step of 2 fs. It is set as ntc = 2 in AMBER and as constraints = h-bonds in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002317 "bonds to hydrogen constrained"@en)
+SubClassOf(obo:MOLSIM_002317 obo:MOLSIM_001204)
+
+# Class: obo:MOLSIM_002318 (all bonds constrained)
+
+Declaration(Class(obo:MOLSIM_002318))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002318 "A constrained bond setting in which every bond is held at a fixed length. It is set as ntc = 3 in AMBER and as constraints = all-bonds in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002318 "all bonds constrained"@en)
+SubClassOf(obo:MOLSIM_002318 obo:MOLSIM_001204)
+
+# Class: obo:MOLSIM_002319 (pressure scaling type)
+
+Declaration(Class(obo:MOLSIM_002319))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002319 "A pressure control parameter giving how the barostat may change the shape of the simulation box: by the same factor in all directions, separately in the plane of an interface and across it, or separately in every direction. It is set as ntp in AMBER and as pcoupltype in GROMACS, apart from the choice of barostat algorithm. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasExactSynonym obo:MOLSIM_002319 "pressure coupling type"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002319 "pressure scaling type"@en)
+SubClassOf(obo:MOLSIM_002319 obo:MOLSIM_001179)
+
+# Class: obo:MOLSIM_002320 (isotropic pressure scaling)
+
+Declaration(Class(obo:MOLSIM_002320))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002320 "A pressure scaling type in which all 3 box dimensions are scaled by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is set as ntp = 1 in AMBER and as pcoupltype = isotropic in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_002320 "isotropic position scaling barostat"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002320 "isotropic pressure scaling"@en)
+SubClassOf(obo:MOLSIM_002320 obo:MOLSIM_002319)
+
+# Class: obo:MOLSIM_002321 (semi-isotropic pressure scaling)
+
+Declaration(Class(obo:MOLSIM_002321))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002321 "A pressure scaling type in which the 2 box dimensions in the plane of an interface are scaled together and the third, across it, separately. It suits planar systems such as lipid bilayers. It is set as ntp = 3 in AMBER and as pcoupltype = semiisotropic in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_002321 "semi-isotropic position scaling barostat"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_002321 "semi-isotropic pressure scaling barostat"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002321 "semi-isotropic pressure scaling"@en)
+SubClassOf(obo:MOLSIM_002321 obo:MOLSIM_002319)
+
+# Class: obo:MOLSIM_002322 (anisotropic pressure scaling)
+
+Declaration(Class(obo:MOLSIM_002322))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002322 "A pressure scaling type in which the box dimensions are scaled separately in each direction, so the shape of the box can change. It is set as ntp = 2 in AMBER and as pcoupltype = anisotropic in GROMACS. (UNVERIFIED)"@en)
+AnnotationAssertion(oboInOwl:hasRelatedSynonym obo:MOLSIM_002322 "anisotropic position scaling barostat"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002322 "anisotropic pressure scaling"@en)
+SubClassOf(obo:MOLSIM_002322 obo:MOLSIM_002319)
+
 # Object Property: obo:MOLSIM_002304 (continues from)
 
 Declaration(ObjectProperty(obo:MOLSIM_002304))
@@ -17923,9 +17989,11 @@ DisjointClasses(obo:MOLSIM_002164 obo:MOLSIM_002165)
 # thermostat algorithm (MOLSIM_000038) — 11 children
 DisjointClasses(obo:MOLSIM_000045 obo:MOLSIM_000046 obo:MOLSIM_000047 obo:MOLSIM_000048 obo:MOLSIM_000381 obo:MOLSIM_000800 obo:MOLSIM_000801 obo:MOLSIM_001731 obo:MOLSIM_001732 obo:MOLSIM_001735 obo:MOLSIM_002301)
 # barostat algorithm (MOLSIM_000039) — 11 children
-DisjointClasses(obo:MOLSIM_000040 obo:MOLSIM_000041 obo:MOLSIM_000042 obo:MOLSIM_000043 obo:MOLSIM_000044 obo:MOLSIM_000338 obo:MOLSIM_000343 obo:MOLSIM_000391 obo:MOLSIM_000794 obo:MOLSIM_002017 obo:MOLSIM_002028)
+DisjointClasses(obo:MOLSIM_000040 obo:MOLSIM_000041 obo:MOLSIM_000042 obo:MOLSIM_000043 obo:MOLSIM_000044 obo:MOLSIM_000794 obo:MOLSIM_002017 obo:MOLSIM_002028)
 # box type (MOLSIM_000032) — 5 children
 DisjointClasses(obo:MOLSIM_000033 obo:MOLSIM_000034 obo:MOLSIM_000035 obo:MOLSIM_000036 obo:MOLSIM_002027)
+DisjointClasses(obo:MOLSIM_002317 obo:MOLSIM_002318)
+DisjointClasses(obo:MOLSIM_002320 obo:MOLSIM_002321 obo:MOLSIM_002322)
 # molecular trajectory format (MOLSIM_001090) — 16 children
 DisjointClasses(obo:MOLSIM_000025 obo:MOLSIM_000097 obo:MOLSIM_000159 obo:MOLSIM_000352 obo:MOLSIM_000446 obo:MOLSIM_000598 obo:MOLSIM_000894 obo:MOLSIM_000902 obo:MOLSIM_000903 obo:MOLSIM_000906 obo:MOLSIM_001039 obo:MOLSIM_001045 obo:MOLSIM_001058 obo:MOLSIM_001060 obo:MOLSIM_001061 obo:MOLSIM_001071)
 # molecular topology format (MOLSIM_001091) — 15 children
