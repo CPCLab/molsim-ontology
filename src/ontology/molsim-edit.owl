@@ -2893,14 +2893,16 @@ DataPropertyRange(obo:MOLSIM_002140 xsd:string)
 
 # Data Property: obo:MOLSIM_002141 (box dimensions array)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002141 "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box, usually written a, b and c. The angles between the edges are recorded separately. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002141 "A relation that associates a molecular system with the 3 edge lengths of its periodic simulation box, usually written a, b and c, followed by their length unit. The angles between the edges are recorded separately. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002141 "This property stores its value as text, because the box has 3 edge lengths and a unit. Values look like \"91.8 x 71.0 x 75.8 angstrom\" or \"9.18 x 7.10 x 7.58 nm\", with the unit kept as the simulation program wrote it. It carries no unit restriction because the unit and value pattern describes a single number. Checking the text follows a fixed shape is a job for SHACL rather than OWL."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002141 "box dimensions array"@en)
 SubDataPropertyOf(obo:MOLSIM_002141 obo:MOLSIM_002140)
 DataPropertyRange(obo:MOLSIM_002141 xsd:string)
 
 # Data Property: obo:MOLSIM_002142 (initial box dimensions array)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002142 "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box at the start of a run. It records the box size before any volume change. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002142 "A relation that associates a molecular system with the 3 edge lengths of its periodic simulation box at the start of a run, followed by their length unit. It records the box size before any volume change. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002142 "Values have the same shape as for MOLSIM:002141 box dimensions array, for example \"91.8 x 71.0 x 75.8 angstrom\"."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_002142 "initial box dimensions array"@en)
 SubDataPropertyOf(obo:MOLSIM_002142 obo:MOLSIM_002141)
 DataPropertyRange(obo:MOLSIM_002142 xsd:string)
@@ -18262,7 +18264,8 @@ SubClassOf(obo:MOLSIM_002226 obo:MOLSIM_001210)
 
 Declaration(DataProperty(obo:MOLSIM_002227))
 AnnotationAssertion(rdfs:label obo:MOLSIM_002227 "box angles array"@en)
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002227 "A relation that associates a molecular system with an ordered list of the 3 angles between the edges of its periodic simulation box, usually written α, β and γ. The list is stored as text, as read from or written to a simulation file. (UNVERIFIED)"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002227 "A relation that associates a molecular system with the 3 angles between the edges of its periodic simulation box, usually written α, β and γ, followed by their angle unit. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002227 "This property stores its value as text, because the box has 3 angles and a unit. Values look like \"90 x 90 x 90 degree\" or \"109.47 x 109.47 x 109.47 degree\". Checking the text follows a fixed shape is a job for SHACL rather than OWL."@en)
 SubDataPropertyOf(obo:MOLSIM_002227 obo:MOLSIM_002140)
 DataPropertyRange(obo:MOLSIM_002227 xsd:string)
 
