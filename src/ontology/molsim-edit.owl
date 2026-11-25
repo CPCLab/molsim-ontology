@@ -17440,11 +17440,12 @@ DataPropertyRange(obo:MOLSIM_002181 xsd:boolean)
 # Data Property: obo:MOLSIM_002182 (has NMR restraints active)
 
 Declaration(DataProperty(obo:MOLSIM_002182))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002182 "A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002182 "has NMR restraints active"@en)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002182 "OBSOLETE. A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002182 "obsolete has NMR restraints active"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_002182 "true"^^xsd:boolean)
+AnnotationAssertion(oboInOwl:consider obo:MOLSIM_002182 "MOLSIM:001552")
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002182 "Retired 2026-11-25. It recorded AMBER's nmropt switch, which turns on 2 different features, and was true for most heating runs that use no restraints at all. Record weight changes with MOLSIM:002168 has parameter schedule, pointing at MOLSIM:002308 temperature schedule, MOLSIM:002309 restraint weight schedule or MOLSIM:002310 cutoff schedule, and restraints with MOLSIM:002306 uses model, pointing at MOLSIM:001552 restraint potential or one of its child classes.")
 AnnotationAssertion(obo:IAO_0000119 obo:MOLSIM_002182 "AMBER 26 Reference Manual, p. 431, entry nmropt; p. 467, weight change type TEMP0; p. 502, umbrella sampling restraints with nmropt = 1."@en)
-SubDataPropertyOf(obo:MOLSIM_002182 obo:MOLSIM_001156)
-DataPropertyRange(obo:MOLSIM_002182 xsd:boolean)
 
 # Data Property: obo:MOLSIM_002183 (is degraded extraction mode)
 
