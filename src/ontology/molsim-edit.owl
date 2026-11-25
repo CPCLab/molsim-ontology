@@ -2943,10 +2943,11 @@ DataPropertyRange(obo:MOLSIM_002147 xsd:string)
 
 # Data Property: obo:MOLSIM_002148 (born radii set name)
 
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002148 "A relation that associates a molecular system with the identifier of the intrinsic radii set used in a generalized Born implicit-solvent calculation. It records which parameterization defines the atomic solvation radii. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002148 "born radii set name"@en)
-SubDataPropertyOf(obo:MOLSIM_002148 obo:MOLSIM_002143)
-DataPropertyRange(obo:MOLSIM_002148 xsd:string)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002148 "OBSOLETE. A relation that associates a molecular system with the identifier of the intrinsic radii set used in a generalized Born implicit-solvent calculation. It records which parameterization defines the atomic solvation radii."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002148 "obsolete born radii set name"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_002148 "true"^^xsd:boolean)
+AnnotationAssertion(oboInOwl:consider obo:MOLSIM_002148 "MOLSIM:000272")
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002148 "Retired 2026-11-25. Its value named a radii set, which the child classes of MOLSIM:000272 radii set already name. Record it with MOLSIM:002306 uses model, pointing at the matching radii set.")
 
 # Data Property: obo:MOLSIM_002149 (has diagnostic record)
 
@@ -3895,7 +3896,7 @@ SubClassOf(obo:MOLSIM_000131 obo:MOLSIM_000127)
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000132 "A widely used all-atom force field parameter set from the CHARMM family, optimized for proteins, lipids, nucleic acids, and carbohydrates. Developed by the MacKerell Lab at the University of Maryland, it provides the mathematical parameters (atomic charges, masses, bond lengths, and angles) necessary to calculate the physical forces dictating the structure and dynamics of biomolecules. It represents a significant update over earlier CHARMM versions (like CHARMM22/27), incorporating improved parameters derived from high-level quantum calculations and experimental data. The 'm' variant (CHARMM36m) includes further refinements, particularly for proteins."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000132 "CHARMM36"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000132 orcid:0009-0007-1391-4986)
-SubClassOf(obo:MOLSIM_000132 obo:MOLSIM_000009)
+SubClassOf(obo:MOLSIM_000132 obo:MOLSIM_002314)
 
 # Class: obo:MOLSIM_000133 (cross-validation errors analysis)
 
@@ -7976,20 +7977,20 @@ SubClassOf(obo:MOLSIM_000750 obo:MOLSIM_000009)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000751 "An all-atom force field parameter set from the CHARMM family, widely used for protein simulations, often paired with the CMAP (Cross-term energy Correction Map) correction for backbone torsions. Released before CHARMM27 and CHARMM36, it represented a standard for many years. Parameterization relied heavily on fitting to experimental data available at the time. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000751 "CHARMM 22"@en)
-SubClassOf(obo:MOLSIM_000751 obo:MOLSIM_000009)
+SubClassOf(obo:MOLSIM_000751 obo:MOLSIM_002314)
 
 # Class: obo:MOLSIM_000752 (CHARMM 19)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000752 "An earlier force field parameter set from the CHARMM family, notable for being a 'united-atom' force field for proteins. In this representation, nonpolar hydrogen atoms (e.g., on CH, CH2, CH3 groups) are implicitly included in the heavy atoms they are attached to, reducing the number of particles and computational cost compared to all-atom models."@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000752 "CHARMM 19"@en)
 AnnotationAssertion(obo:IAO_0000117 obo:MOLSIM_000752 orcid:0000-0002-8291-8071)
-SubClassOf(obo:MOLSIM_000752 obo:MOLSIM_000009)
+SubClassOf(obo:MOLSIM_000752 obo:MOLSIM_002314)
 
 # Class: obo:MOLSIM_000753 (CHARMM 27)
 
 AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_000753 "An all-atom force field of the CHARMM family that combines the CHARMM22 protein parameters, usually with the CMAP backbone correction, with nucleic acid parameters published in 2000. In GROMACS the name refers to CHARMM22 plus CMAP for proteins. It was later replaced by CHARMM36. (UNVERIFIED)"@en)
 AnnotationAssertion(rdfs:label obo:MOLSIM_000753 "CHARMM 27"@en)
-SubClassOf(obo:MOLSIM_000753 obo:MOLSIM_000009)
+SubClassOf(obo:MOLSIM_000753 obo:MOLSIM_002314)
 
 # Class: obo:MOLSIM_000754 (OPEP 1)
 
@@ -17482,10 +17483,11 @@ AnnotationAssertion(rdfs:comment obo:MOLSIM_002186 "Retired 2026-11-25. It dupli
 # Data Property: obo:MOLSIM_002187 (force field feature)
 
 Declaration(DataProperty(obo:MOLSIM_002187))
-AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002187 "A relation that associates a molecular system with a descriptive feature or heuristic modification of its force field, such as CMAP terms, which correct backbone dihedral energies, or conversion from CHARMM to AMBER format by the CHAMBER tool. These details are not conveyed by the name of the force field, so recording them keeps the force field identifiable from the metadata alone. (UNVERIFIED)"@en)
-AnnotationAssertion(rdfs:label obo:MOLSIM_002187 "force field feature"@en)
-SubDataPropertyOf(obo:MOLSIM_002187 obo:MOLSIM_002143)
-DataPropertyRange(obo:MOLSIM_002187 xsd:string)
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002187 "OBSOLETE. A relation that associates a molecular system with a descriptive feature or heuristic modification of its force field, such as CMAP terms, which correct backbone dihedral energies, or conversion from CHARMM to AMBER format by the CHAMBER tool. These details are not conveyed by the name of the force field, so recording them keeps the force field identifiable from the metadata alone."@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002187 "obsolete force field feature"@en)
+AnnotationAssertion(owl:deprecated obo:MOLSIM_002187 "true"^^xsd:boolean)
+AnnotationAssertion(oboInOwl:consider obo:MOLSIM_002187 "MOLSIM:000331")
+AnnotationAssertion(rdfs:comment obo:MOLSIM_002187 "Retired 2026-11-25. It held a mixed list of features, each of which now has a home: a CMAP correction and the radii set with MOLSIM:002306 uses model, a CHARMM origin with MOLSIM:002303 has force field pointing at MOLSIM:002314 CHARMM force field, the box shape with MOLSIM:000297 has periodic box type, and the ions with MOLSIM:002124 ion counts dict.")
 
 # Data Property: obo:MOLSIM_002188 (residue composition map)
 
@@ -17704,6 +17706,27 @@ AnnotationAssertion(rdfs:label obo:MOLSIM_002311 "uses method"@en)
 SubObjectPropertyOf(obo:MOLSIM_002311 owl:topObjectProperty)
 ObjectPropertyDomain(obo:MOLSIM_002311 obo:MOLSIM_000000)
 ObjectPropertyRange(obo:MOLSIM_002311 obo:MOLSIM_000140)
+
+# Class: obo:MOLSIM_002312 (amber6)
+
+Declaration(Class(obo:MOLSIM_002312))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002312 "A radii set of modified Bondi radii as used in Amber 6, chosen in LEaP with the command set default PBRadii amber6. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002312 "amber6"@en)
+SubClassOf(obo:MOLSIM_002312 obo:MOLSIM_000272)
+
+# Class: obo:MOLSIM_002313 (pbamber)
+
+Declaration(Class(obo:MOLSIM_002313))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002313 "A radii set of atomic radii optimized by Huo and Kollman, chosen in LEaP with the command set default PBRadii pbamber. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002313 "pbamber"@en)
+SubClassOf(obo:MOLSIM_002313 obo:MOLSIM_000272)
+
+# Class: obo:MOLSIM_002314 (CHARMM force field)
+
+Declaration(Class(obo:MOLSIM_002314))
+AnnotationAssertion(obo:IAO_0000115 obo:MOLSIM_002314 "A protein force field from the CHARMM family, parameterised for the CHARMM simulation program, covering its successive versions such as CHARMM22, CHARMM27 and CHARMM36. A topology converted from CHARMM to AMBER format with the chamber program uses a force field of this family. (UNVERIFIED)"@en)
+AnnotationAssertion(rdfs:label obo:MOLSIM_002314 "CHARMM force field"@en)
+SubClassOf(obo:MOLSIM_002314 obo:MOLSIM_000009)
 
 # Object Property: obo:MOLSIM_002304 (continues from)
 
@@ -18040,7 +18063,7 @@ DisjointClasses(obo:MOLSIM_000066 obo:MOLSIM_000068 obo:MOLSIM_000069 obo:MOLSIM
 # implicit solvent model (MOLSIM_000068) — 6 children
 DisjointClasses(obo:MOLSIM_000073 obo:MOLSIM_000270 obo:MOLSIM_000271 obo:MOLSIM_001478 obo:MOLSIM_001516 obo:MOLSIM_001526)
 # radii set (MOLSIM_000272) — 9 children
-DisjointClasses(obo:MOLSIM_000273 obo:MOLSIM_000274 obo:MOLSIM_000275 obo:MOLSIM_000495 obo:MOLSIM_001560 obo:MOLSIM_001571 obo:MOLSIM_001713 obo:MOLSIM_001736 obo:MOLSIM_001846)
+DisjointClasses(obo:MOLSIM_000273 obo:MOLSIM_000274 obo:MOLSIM_000275 obo:MOLSIM_000495 obo:MOLSIM_001560 obo:MOLSIM_001571 obo:MOLSIM_001713 obo:MOLSIM_001736 obo:MOLSIM_001846 obo:MOLSIM_002312 obo:MOLSIM_002313)
 # simulation model resolution (MOLSIM_001913) — 4 children
 DisjointClasses(obo:MOLSIM_001914 obo:MOLSIM_001915 obo:MOLSIM_001916 obo:MOLSIM_001917)
 # generalized Born implicit solvent model (MOLSIM_001478) — 6 children
