@@ -172,4 +172,6 @@ MOLSIM is available under the [Creative Commons Attribution 4.0 International li
 
 ## Acknowledgements
 
+This work is supported by the Helmholtz Metadata Collaboration (HMC) project "ELN-RO" (ZT-I-PF-3-091) and the Helmholtz Foundation Model Initiative project "PROFOUND".
+
 This ontology repository was created with the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
