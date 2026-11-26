@@ -1,6 +1,6 @@
 # Writing data with MOLSIM terms
 
-This page shows how to describe simulation data with MOLSIM terms, written as RDF in Turtle. It covers patterns: 1) a quantity with a unit, and 2) a statistic over a run. A check that tests data against these patterns, written in SHACL, is being prepared and is not published yet.
+This page shows how to describe simulation data with MOLSIM terms, written as RDF in Turtle. It covers three patterns: 1) a quantity with a unit, 2) a statistic over a run, and 3) a fact recorded with a data property. A check that tests data against these patterns, written in SHACL, is being prepared and is not published yet.
 
 ## 1. A quantity with a unit
 
@@ -88,6 +88,133 @@ All five are imported from STATO, the statistics ontology:
 - `STATO:0000151 maximum observed value` (class)
 - `STATO:0000237 standard deviation` (class)
 - `STATO:0000037 standard error of the mean` (class)
+
+## 3. A fact recorded with a data property
+
+**In short:** a fact without a unit that is read off a system, a file or the program output is written as one triple. The thing described points straight at the value through a MOLSIM data property. Counts, yes/no facts, names, file paths and dates are written this way.
+
+### Example
+
+System A has 23,558 atoms, and its total charge is zero:
+
+```turtle
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix ex:  <http://example.org/my_simulation/> .
+
+ex:System_A rdf:type obo:MOLSIM_001887 ;           # molecular simulation system
+    obo:MOLSIM_001122 "23558"^^xsd:integer ;       # number of total atoms
+    obo:MOLSIM_002193 "true"^^xsd:boolean .        # is charge neutral
+```
+
+### The rules
+
+1. **Only for a fact without a unit.** A number with a unit follows section 1. A setting typed into a program, such as `MOLSIM:002294 number of integration steps` (class), is a class and is written as in section 1 too, without a unit if it has none.
+2. **The value has the type the data property names**: `xsd:integer` for a count, `xsd:boolean` for yes/no, `xsd:string` for text and `xsd:dateTime` for a date.
+3. **A list of values with a unit is a text that carries its unit**, for example "91.8 x 71.0 x 75.8 angstrom" for the three edge lengths of a box.
+4. **When a class says the same as a yes/no fact, use the class.** For example, a run that used hydrogen mass repartitioning points at `MOLSIM:001337 hydrogen mass repartitioning analysis` (class) through `MOLSIM:002311 uses method` (object property). MOLSIM has no yes/no term for it.
+
+### Why MOLSIM differs from most OBO ontologies here
+
+Most OBO ontologies define very few data properties of their own. Counted on 2026-11-26: IAO defines four, OBI four, STATO one and RO one, while GO, ChEBI and PSI-MS define none. These ontologies make each kind of value a class, and attach the number with one general data property, as section 1 does. PSI-MS, the OBO vocabulary for mass spectrometry runs, makes even counts classes, such as `MS:1003059 number of peaks` (class).
+
+MOLSIM keeps data properties for facts read off a record, for three reasons:
+
+- **MOLSIM turns flat metadata records into a graph.** A record such as the JSON written by AmberMeta holds each fact in one field, and one field becomes one triple.
+- **Queries stay short.** Finding the number of atoms takes one line of SPARQL, not three.
+- **COB, the ontology MOLSIM uses for its top level, does the same** for a count that belongs to a molecule: `COB:0000801 has number of atomic nuclei` is a data property.
+
+The cost: the OBO format cannot hold data properties, so they appear only in MOLSIM's OWL and JSON releases.
+
+### Data properties that could become classes
+
+If MOLSIM later follows the usual OBO practice, these 68 data properties are the candidates, listed on 2026-11-26. Each would be retired and replaced by a class. A count or a position would be written as in section 1, with `UO:0000189 count unit` where a unit is needed. A yes/no fact would become a class for each answer. The 29 data properties that hold text and the one that holds a date would stay, because OBO ontologies seldom record names, file paths or messages at all. The groups in the second column are data properties too.
+
+**MOLSIM changes them one at a time, when a record needs it.** A data property holds only the bare value. When a record needs to say more about a value, such as which file it was read from, or that it is the mean over several replicas, MOLSIM turns that one data property into a class, written as in section 1, and as in section 2 for a statistic. Until then, the data property stays.
+
+#### Counts: 48
+
+| Data property | Group |
+|---|---|
+| `MOLSIM:001122 number of total atoms` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:001124 number of total residues` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:001126 number of ligands` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:001127 number of charged ligands` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:001128 number of ligand conformers` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:001129 number of total atoms in the largest residue` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:001130 number of extra points` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002122 number of solvent molecules` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002215 protein atom count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002216 nucleic acid atom count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002217 lipid atom count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002218 ion atom count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002219 solvent atom count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002220 other atom count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002221 protein residue count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002222 nucleic acid residue count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002223 lipid residue count` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002224 number of nucleosomes` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002225 number of nucleotides per DNA strand` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:002316 number of solute residues` | `MOLSIM:001121 has composition count` |
+| `MOLSIM:001132 number of total bonds with hydrogens` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:001133 number of total bonds without hydrogens` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:001134 number of total angles with hydrogens` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:001135 number of total angles without hydrogens` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:001136 number of total dihedral angles with hydrogens` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:001137 number of total dihedral angles without hydrogens` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:001138 number of total excluded atom pairs` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:002125 number of total angles` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:002126 number of total dihedrals` | `MOLSIM:001131 has topological count` |
+| `MOLSIM:001140 number of total bonds with constraints` | `MOLSIM:001139 has constraint count` |
+| `MOLSIM:001141 number of total angles with constraints` | `MOLSIM:001139 has constraint count` |
+| `MOLSIM:001142 number of total dihedrals with constraints` | `MOLSIM:001139 has constraint count` |
+| `MOLSIM:001123 number of total distinct atoms` | `MOLSIM:001143 has force field parameter count` |
+| `MOLSIM:001144 number of total unique bond types` | `MOLSIM:001143 has force field parameter count` |
+| `MOLSIM:001145 number of total unique angle types` | `MOLSIM:001143 has force field parameter count` |
+| `MOLSIM:001146 number of total unique dihedral types` | `MOLSIM:001143 has force field parameter count` |
+| `MOLSIM:001147 number of total atom types in the parameter file` | `MOLSIM:001143 has force field parameter count` |
+| `MOLSIM:001148 number of total distinct hydrogen bond pair types` | `MOLSIM:001143 has force field parameter count` |
+| `MOLSIM:001150 number of total perturbed bonds` | `MOLSIM:001149 has alchemical transformation count` |
+| `MOLSIM:001151 number of total perturbed angles` | `MOLSIM:001149 has alchemical transformation count` |
+| `MOLSIM:001152 number of total perturbed dihedrals` | `MOLSIM:001149 has alchemical transformation count` |
+| `MOLSIM:001153 number of total bonds with all atoms in the perturbed group` | `MOLSIM:001149 has alchemical transformation count` |
+| `MOLSIM:001154 number of total angles with all atoms in perturbed groups` | `MOLSIM:001149 has alchemical transformation count` |
+| `MOLSIM:001155 number of total dihedrals with all atoms in perturbed groups` | `MOLSIM:001149 has alchemical transformation count` |
+| `MOLSIM:002123 number of atoms per frame` | `MOLSIM:002137 has trajectory metadata` |
+| `MOLSIM:002138 number of frames` | `MOLSIM:002137 has trajectory metadata` |
+| `MOLSIM:002127 number of constraint failures` | `MOLSIM:002149 has diagnostic record` |
+| `MOLSIM:002201 total simulation steps` | none |
+
+#### Positions in a list: 2
+
+| Data property | Group |
+|---|---|
+| `MOLSIM:001125 last solute residue number` | `MOLSIM:002284 has topology index` |
+| `MOLSIM:002121 first solvent molecule index` | `MOLSIM:002284 has topology index` |
+
+#### Yes/no facts: 18
+
+| Data property | Group |
+|---|---|
+| `MOLSIM:001157 has ligand` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:001158 has added salt` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:001160 has multiple starting conformations` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002128 has completion status` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002134 has box dimensions flag` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002193 is charge neutral` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002242 contains antibody` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002243 contains nanobody` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002244 contains linker histone` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002245 histone tails present` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002261 has symmetric leaflet composition` | `MOLSIM:001156 has state descriptor` |
+| `MOLSIM:002183 is degraded extraction mode` | `MOLSIM:002149 has diagnostic record` |
+| `MOLSIM:002200 HMR inferred from timestep flag` | `MOLSIM:002149 has diagnostic record` |
+| `MOLSIM:002130 coordinate wrapping flag` | `MOLSIM:002288 has file content flag` |
+| `MOLSIM:002135 has velocities flag` | `MOLSIM:002288 has file content flag` |
+| `MOLSIM:002179 has coordinates array` | `MOLSIM:002288 has file content flag` |
+| `MOLSIM:002180 has forces array` | `MOLSIM:002288 has file content flag` |
+| `MOLSIM:002181 has time array` | `MOLSIM:002288 has file content flag` |
 
 ## Open points
 
