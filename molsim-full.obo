@@ -1,5 +1,5 @@
 format-version: 1.2
-data-version: molsim/releases/2026-11-20/molsim-full.owl
+data-version: molsim/releases/2026-11-27/molsim-full.owl
 default-namespace: molsim
 idspace: dc http://purl.org/dc/elements/1.1/ 
 idspace: dcterms http://purl.org/dc/terms/ 
@@ -27,7 +27,7 @@ property_value: dcterms:license https://creativecommons.org/licenses/by/4.0/
 property_value: dcterms:subject "biomolecular simulation" xsd:string
 property_value: dcterms:title "Molecular Simulation Ontology" xsd:string
 property_value: foaf:homepage "https://github.com/CPCLab/molsim-ontology" xsd:string
-property_value: owl:versionInfo "2026-11-20" xsd:string
+property_value: owl:versionInfo "2026-11-27" xsd:string
 property_value: protege:defaultLanguage "en" xsd:string
 
 [Term]
@@ -1087,7 +1087,7 @@ is_a: MOLSIM:000127 ! error metrics analysis
 id: MOLSIM:000132
 name: CHARMM36
 def: "A widely used all-atom force field parameter set from the CHARMM family, optimized for proteins, lipids, nucleic acids, and carbohydrates. Developed by the MacKerell Lab at the University of Maryland, it provides the mathematical parameters (atomic charges, masses, bond lengths, and angles) necessary to calculate the physical forces dictating the structure and dynamics of biomolecules. It represents a significant update over earlier CHARMM versions (like CHARMM22/27), incorporating improved parameters derived from high-level quantum calculations and experimental data. The 'm' variant (CHARMM36m) includes further refinements, particularly for proteins." []
-is_a: MOLSIM:000009 ! protein force field
+is_a: MOLSIM:002314 ! CHARMM force field
 property_value: IAO:0000117 orcid:0009-0007-1391-4986
 
 [Term]
@@ -2498,9 +2498,11 @@ is_a: MOLSIM:000674 ! charge analysis
 
 [Term]
 id: MOLSIM:000338
-name: isotropic position scaling barostat
-def: "A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently. (UNVERIFIED)" []
-is_a: MOLSIM:000039 ! barostat algorithm
+name: obsolete isotropic position scaling barostat
+def: "OBSOLETE. A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently." []
+comment: Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat, so an isotropic Berendsen barostat could not be described. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002320 isotropic pressure scaling.
+is_obsolete: true
+consider: MOLSIM:002320
 
 [Term]
 id: MOLSIM:000339
@@ -2532,10 +2534,11 @@ is_a: MOLSIM:000939 ! dynamics analysis
 
 [Term]
 id: MOLSIM:000343
-name: anisotropic position scaling barostat
-def: "An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals." []
-is_a: MOLSIM:000039 ! barostat algorithm
-property_value: IAO:0000117 orcid:0009-0007-1391-4986
+name: obsolete anisotropic position scaling barostat
+def: "OBSOLETE. An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals." []
+comment: Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002322 anisotropic pressure scaling.
+is_obsolete: true
+consider: MOLSIM:002322
 
 [Term]
 id: MOLSIM:000344
@@ -2857,11 +2860,12 @@ is_a: MOLSIM:000053 ! electrostatic interaction algorithm
 
 [Term]
 id: MOLSIM:000391
-name: semi-isotropic position scaling barostat
-def: "A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it." []
+name: obsolete semi-isotropic position scaling barostat
+def: "OBSOLETE. A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it." []
+comment: Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002321 semi-isotropic pressure scaling.
 synonym: "semi-isotropic pressure scaling barostat" EXACT []
-is_a: MOLSIM:000039 ! barostat algorithm
-property_value: IAO:0000117 orcid:0009-0007-1391-4986
+is_obsolete: true
+consider: MOLSIM:002321
 
 [Term]
 id: MOLSIM:000392
@@ -5142,20 +5146,20 @@ is_a: MOLSIM:000009 ! protein force field
 id: MOLSIM:000751
 name: CHARMM 22
 def: "An all-atom force field parameter set from the CHARMM family, widely used for protein simulations, often paired with the CMAP (Cross-term energy Correction Map) correction for backbone torsions. Released before CHARMM27 and CHARMM36, it represented a standard for many years. Parameterization relied heavily on fitting to experimental data available at the time. (UNVERIFIED)" []
-is_a: MOLSIM:000009 ! protein force field
+is_a: MOLSIM:002314 ! CHARMM force field
 
 [Term]
 id: MOLSIM:000752
 name: CHARMM 19
 def: "An earlier force field parameter set from the CHARMM family, notable for being a 'united-atom' force field for proteins. In this representation, nonpolar hydrogen atoms (e.g., on CH, CH2, CH3 groups) are implicitly included in the heavy atoms they are attached to, reducing the number of particles and computational cost compared to all-atom models." []
-is_a: MOLSIM:000009 ! protein force field
+is_a: MOLSIM:002314 ! CHARMM force field
 property_value: IAO:0000117 orcid:0000-0002-8291-8071
 
 [Term]
 id: MOLSIM:000753
 name: CHARMM 27
 def: "An all-atom force field of the CHARMM family that combines the CHARMM22 protein parameters, usually with the CMAP backbone correction, with nucleic acid parameters published in 2000. In GROMACS the name refers to CHARMM22 plus CMAP for proteins. It was later replaced by CHARMM36. (UNVERIFIED)" []
-is_a: MOLSIM:000009 ! protein force field
+is_a: MOLSIM:002314 ! CHARMM force field
 
 [Term]
 id: MOLSIM:000754
@@ -14256,6 +14260,98 @@ is_a: MOLSIM:001293 ! thermodynamic property
 relationship: IAO:0000039 UO:0000052 {all_only="true"} ! has measurement unit label mass density unit
 
 [Term]
+id: MOLSIM:002305
+name: random seed
+def: "A simulation parameter giving the number used to start a random number generator, which fixes the sequence of random numbers a run draws, for example for starting velocities or for the random forces of a stochastic thermostat. A program may pick the seed itself when the run starts, for example from the current date and time, so the seed used is worth recording. A run can use several seeds, 1 for each random process. (UNVERIFIED)" []
+is_a: MOLSIM:001164 ! simulation parameter
+property_value: skos:exactMatch KISAO_0000488
+
+[Term]
+id: MOLSIM:002308
+name: temperature schedule
+def: "A simulation parameter schedule that changes the target temperature during a run, for example to heat a system step by step. AMBER sets it with the &wt type TEMP0. (UNVERIFIED)" []
+is_a: MOLSIM:002157 ! simulation parameter schedule
+
+[Term]
+id: MOLSIM:002309
+name: restraint weight schedule
+def: "A simulation parameter schedule that changes the relative weights of a run's NMR-type restraints during the run. AMBER sets it with the &wt type REST. (UNVERIFIED)" []
+is_a: MOLSIM:002157 ! simulation parameter schedule
+
+[Term]
+id: MOLSIM:002310
+name: cutoff schedule
+def: "A simulation parameter schedule that changes the non-bonded cutoff distance during a run. AMBER sets it with the &wt type CUT. (UNVERIFIED)" []
+is_a: MOLSIM:002157 ! simulation parameter schedule
+
+[Term]
+id: MOLSIM:002312
+name: amber6
+def: "A radii set of modified Bondi radii as used in Amber 6, chosen in LEaP with the command set default PBRadii amber6. (UNVERIFIED)" []
+is_a: MOLSIM:000272 ! radii set
+
+[Term]
+id: MOLSIM:002313
+name: pbamber
+def: "A radii set of atomic radii optimized by Huo and Kollman, chosen in LEaP with the command set default PBRadii pbamber. (UNVERIFIED)" []
+is_a: MOLSIM:000272 ! radii set
+
+[Term]
+id: MOLSIM:002314
+name: CHARMM force field
+def: "A protein force field from the CHARMM family, parameterised for the CHARMM simulation program, covering its successive versions such as CHARMM22, CHARMM27 and CHARMM36. A topology converted from CHARMM to AMBER format with the chamber program uses a force field of this family. (UNVERIFIED)" []
+is_a: MOLSIM:000009 ! protein force field
+
+[Term]
+id: MOLSIM:002315
+name: Andersen velocity randomization interval
+def: "A thermostat coupling parameter giving how many time steps pass between 2 randomizations of the atom velocities by the Andersen thermostat. It is set as vrand in AMBER. (UNVERIFIED)" []
+is_a: MOLSIM:001176 ! thermostat coupling parameter
+
+[Term]
+id: MOLSIM:002317
+name: bonds to hydrogen constrained
+def: "A constrained bond setting in which only the bonds that involve a hydrogen atom are held at a fixed length. It removes the fastest motion in most biomolecular systems and is the usual choice with a time step of 2 fs. It is set as ntc = 2 in AMBER and as constraints = h-bonds in GROMACS. (UNVERIFIED)" []
+is_a: MOLSIM:001204 ! constrained bond
+disjoint_from: MOLSIM:002318 ! all bonds constrained
+
+[Term]
+id: MOLSIM:002318
+name: all bonds constrained
+def: "A constrained bond setting in which every bond is held at a fixed length. It is set as ntc = 3 in AMBER and as constraints = all-bonds in GROMACS. (UNVERIFIED)" []
+is_a: MOLSIM:001204 ! constrained bond
+
+[Term]
+id: MOLSIM:002319
+name: pressure scaling type
+def: "A pressure control parameter giving how the barostat may change the shape of the simulation box: by the same factor in all directions, separately in the plane of an interface and across it, or separately in every direction. It is set as ntp in AMBER and as pcoupltype in GROMACS, apart from the choice of barostat algorithm. (UNVERIFIED)" []
+synonym: "pressure coupling type" EXACT []
+is_a: MOLSIM:001179 ! pressure control parameter
+
+[Term]
+id: MOLSIM:002320
+name: isotropic pressure scaling
+def: "A pressure scaling type in which all 3 box dimensions are scaled by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is set as ntp = 1 in AMBER and as pcoupltype = isotropic in GROMACS. (UNVERIFIED)" []
+synonym: "isotropic position scaling barostat" RELATED []
+is_a: MOLSIM:002319 ! pressure scaling type
+disjoint_from: MOLSIM:002321 ! semi-isotropic pressure scaling
+
+[Term]
+id: MOLSIM:002321
+name: semi-isotropic pressure scaling
+def: "A pressure scaling type in which the 2 box dimensions in the plane of an interface are scaled together and the third, across it, separately. It suits planar systems such as lipid bilayers. It is set as ntp = 3 in AMBER and as pcoupltype = semiisotropic in GROMACS. (UNVERIFIED)" []
+synonym: "semi-isotropic position scaling barostat" RELATED []
+synonym: "semi-isotropic pressure scaling barostat" RELATED []
+is_a: MOLSIM:002319 ! pressure scaling type
+
+[Term]
+id: MOLSIM:002322
+name: anisotropic pressure scaling
+def: "A pressure scaling type in which the box dimensions are scaled separately in each direction, so the shape of the box can change. It is set as ntp = 2 in AMBER and as pcoupltype = anisotropic in GROMACS. (UNVERIFIED)" []
+synonym: "anisotropic position scaling barostat" RELATED []
+is_a: MOLSIM:002319 ! pressure scaling type
+
+[Term]
 id: MOLSIM:010001
 name: femtosecond
 def: "An SI unit of time equal to 10^-15 seconds or one quadrillionth of a second. (UNVERIFIED)" []
@@ -15454,6 +15550,7 @@ name: has force field
 def: "A relation that links a molecular simulation system to a force field used to describe the interactions of its atoms, such as ff19SB for a protein or GAFF2 for a ligand. A system is often described by several force fields at once, 1 for each kind of molecule, so the relation can hold more than once. (UNVERIFIED)" []
 domain: MOLSIM:001887 ! molecular simulation system
 range: MOLSIM:000007 ! force field
+is_a: MOLSIM:002306 ! uses model
 
 [Typedef]
 id: MOLSIM:002304
@@ -15461,6 +15558,25 @@ name: continues from
 def: "A relation that links a simulation run to the earlier run whose restart file it started from, so that it carries on from the positions and velocities that run ended with. Whether the simulated times of the 2 runs join without a gap is a separate check. (UNVERIFIED)" []
 domain: MOLSIM:000000 ! molecular dynamics process
 range: MOLSIM:000000 ! molecular dynamics process
+
+[Typedef]
+id: MOLSIM:002306
+name: uses model
+def: "A relation that links a simulation run or system to a model it uses to describe part of the physics, such as a force field, a water cap or a set of atomic radii for implicit solvent. (UNVERIFIED)" []
+range: MOLSIM:000006 ! model
+
+[Typedef]
+id: MOLSIM:002307
+name: has data format
+def: "A relation that links a data file, such as a trajectory or a coordinate file, to the data format it is written in. (UNVERIFIED)" []
+range: MOLSIM:000436 ! data format
+
+[Typedef]
+id: MOLSIM:002311
+name: uses method
+def: "A relation that links a simulation run to a computational method it applies, such as QM/MM, replica exchange or self-guided Langevin dynamics. A run often applies several methods at once, so the relation can hold more than once. (UNVERIFIED)" []
+domain: MOLSIM:000000 ! molecular dynamics process
+range: MOLSIM:000140 ! computational method
 
 [Typedef]
 id: OBI:0000293

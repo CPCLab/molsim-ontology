@@ -15,7 +15,7 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/molsim/molsim-full.owl">
-        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-11-20/molsim-full.owl"/>
+        <owl:versionIRI rdf:resource="http://purl.obolibrary.org/obo/molsim/releases/2026-11-27/molsim-full.owl"/>
         <protege:defaultLanguage>en</protege:defaultLanguage>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-0476-9699"/>
         <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-2294-5393"/>
@@ -35,7 +35,7 @@
         <rdfs:comment xml:lang="en">AI assistance disclosure: initial drafts of the term definitions in this ontology were produced with the assistance of large language models, primarily Google Gemini, with further drafting and curation support from Anthropic Claude; all drafts were then curated and reviewed by humans. Verification status is recorded per term and is machine-readable: a term carrying an IAO:0000117 (term editor) annotation has been checked by the named domain expert, whose ORCID is given; a definition whose text still ends with the marker (UNVERIFIED) has not yet been reviewed by a domain expert and should be treated as a draft. Terms marked owl:deprecated are retired and are exempt from verification.</rdfs:comment>
         <rdfs:comment xml:lang="en">Release-format note: the OWL and JSON products (molsim.owl, molsim.json and their -base/-full variants) are the complete and canonical releases. The OBO-format product (molsim.obo) is a CLASS-ONLY VIEW: OBO 1.2 cannot represent datatype properties, and named individuals are not carried through the conversion, so the data properties (per-species composition counts, boolean flags, serialised arrays) and the named individuals of this ontology are absent from it. The class hierarchy, definitions, synonyms and object properties in molsim.obo are complete and correct. Use the OWL or JSON release if you need the full content.</rdfs:comment>
         <rdfs:comment xml:lang="en">Scope note: MOLSIM&apos;s boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README.</rdfs:comment>
-        <owl:versionInfo>2026-11-20</owl:versionInfo>
+        <owl:versionInfo>2026-11-27</owl:versionInfo>
         <foaf:homepage xml:lang="en">https://github.com/CPCLab/molsim-ontology</foaf:homepage>
     </owl:Ontology>
     
@@ -336,6 +336,12 @@ We also have the outstanding issue of how to aim different definitions to differ
     <!-- http://purl.org/dc/terms/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#consider -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#consider"/>
     
 
 
@@ -797,7 +803,7 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002303 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002303">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002306"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001887"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000007"/>
         <obo:IAO_0000115 xml:lang="en">A relation that links a molecular simulation system to a force field used to describe the interactions of its atoms, such as ff19SB for a protein or GAFF2 for a ligand. A system is often described by several force fields at once, 1 for each kind of molecule, so the relation can hold more than once. (UNVERIFIED)</obo:IAO_0000115>
@@ -814,6 +820,40 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000000"/>
         <obo:IAO_0000115 xml:lang="en">A relation that links a simulation run to the earlier run whose restart file it started from, so that it carries on from the positions and velocities that run ended with. Whether the simulated times of the 2 runs join without a gap is a separate check. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">continues from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002306 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002306">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000006"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that links a simulation run or system to a model it uses to describe part of the physics, such as a force field, a water cap or a set of atomic radii for implicit solvent. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">uses model</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002307 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002307">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000436"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that links a data file, such as a trajectory or a coordinate file, to the data format it is written in. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">has data format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002311 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002311">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000000"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000140"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that links a simulation run to a computational method it applies, such as QM/MM, replica exchange or self-guided Langevin dynamics. A run often applies several methods at once, so the relation can hold more than once. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">uses method</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1571,11 +1611,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_001159 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001159">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A boolean descriptor indicating whether the molecular system houses an explicit lipid bilayer, rather than just an aqueous or implicit solvent environment. This is a higher-level descriptor not directly present in the prmtop pointers.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
-        <rdfs:label xml:lang="en">is transmembrane system</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A boolean descriptor indicating whether the molecular system houses an explicit lipid bilayer, rather than just an aqueous or implicit solvent environment. This is a higher-level descriptor not directly present in the prmtop pointers.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:002072</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-26. It duplicated MOLSIM:002072 membrane environment. Record that a system has a lipid bilayer with MOLSIM:001033 has simulation environment, pointing at a membrane environment. A membrane environment can also be an implicit membrane, so record that the lipids are explicit with MOLSIM:002217 lipid atom count above 0. When a protein sits in the membrane, the system can also be a MOLSIM:001910 membrane protein system.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete is transmembrane system</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -1708,10 +1748,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002129 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002129">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that indicates whether a run was started as a continuation of a previous run rather than from initial conditions. It distinguishes restarted runs from fresh ones. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">continuation flag</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that indicates whether a run was started as a continuation of a previous run rather than from initial conditions. It distinguishes restarted runs from fresh ones.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:002098</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:002098 restart simulation process and MOLSIM:002012 continuation state. Record a continued run as a restart simulation process, or with MOLSIM:002304 continues from.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete continuation flag</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -1730,10 +1771,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002131 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002131">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that indicates whether a simulation uses a combined quantum-mechanics and molecular-mechanics treatment for part of the system. It records whether a region is described at the quantum level while the remainder uses a classical force field. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">QM/MM activation flag</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that indicates whether a simulation uses a combined quantum-mechanics and molecular-mechanics treatment for part of the system. It records whether a region is described at the quantum level while the remainder uses a classical force field.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:000388</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:000388 QM/MM simulation. Record that a run used QM/MM with MOLSIM:002311 uses method, pointing at a QM/MM simulation.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete QM/MM activation flag</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -1741,11 +1783,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002132 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002132">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that allows the software to apply a time-averaged or spatial-averaged guiding force derived from the system&apos;s own trajectory to accelerate low-frequency, concerted motions and enhance conformational sampling.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
-        <rdfs:label xml:lang="en">self-guided Langevin dynamics flag</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that allows the software to apply a time-averaged or spatial-averaged guiding force derived from the system&apos;s own trajectory to accelerate low-frequency, concerted motions and enhance conformational sampling.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:000393</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:000393 self-guided Langevin dynamics. Record that a run used it with MOLSIM:002311 uses method, pointing at a self-guided Langevin dynamics.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete self-guided Langevin dynamics flag</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -1753,11 +1795,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002133 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002133">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that controls whether a spherical portion of solvent (water) is applied around a solute, restrained by a soft half-harmonic potential.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
-        <rdfs:label xml:lang="en">spherical cap flag</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that controls whether a spherical portion of solvent (water) is applied around a solute, restrained by a soft half-harmonic potential.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:001475</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:001475 water cap. Record that a run used a water cap with MOLSIM:002306 uses model, pointing at a water cap.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete spherical cap flag</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -1822,10 +1864,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002139 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002139">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002137"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that associates a trajectory or coordinate file with an identifier of the file format used to store its coordinates. It records how the coordinate data are encoded, for example as NetCDF or formatted text. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">coordinate format specifier</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that associates a trajectory or coordinate file with an identifier of the file format used to store its coordinates. It records how the coordinate data are encoded, for example as NetCDF or formatted text.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:000436</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. Its value named a file format, which the child classes of MOLSIM:000436 data format already name. Record it with MOLSIM:002307 has data format, from the file to the matching format class.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete coordinate format specifier</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -1847,7 +1890,8 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002141">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002140"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box, usually written a, b and c. The angles between the edges are recorded separately. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the 3 edge lengths of its periodic simulation box, usually written a, b and c, followed by their length unit. The angles between the edges are recorded separately. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">This property stores its value as text, because the box has 3 edge lengths and a unit. Values look like &quot;91.8 x 71.0 x 75.8 angstrom&quot; or &quot;9.18 x 7.10 x 7.58 nm&quot;, with the unit kept as the simulation program wrote it. It carries no unit restriction because the unit and value pattern describes a single number. Checking the text follows a fixed shape is a job for SHACL rather than OWL.</rdfs:comment>
         <rdfs:label xml:lang="en">box dimensions array</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1858,7 +1902,8 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002142">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002141"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box at the start of a run. It records the box size before any volume change. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the 3 edge lengths of its periodic simulation box at the start of a run, followed by their length unit. It records the box size before any volume change. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">Values have the same shape as for MOLSIM:002141 box dimensions array, for example &quot;91.8 x 71.0 x 75.8 angstrom&quot;.</rdfs:comment>
         <rdfs:label xml:lang="en">initial box dimensions array</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1923,10 +1968,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002148 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002148">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002143"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the identifier of the intrinsic radii set used in a generalized Born implicit-solvent calculation. It records which parameterization defines the atomic solvation radii. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">born radii set name</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that associates a molecular system with the identifier of the intrinsic radii set used in a generalized Born implicit-solvent calculation. It records which parameterization defines the atomic solvation radii.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:000272</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. Its value named a radii set, which the child classes of MOLSIM:000272 radii set already name. Record it with MOLSIM:002306 uses model, pointing at the matching radii set.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete born radii set name</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2035,11 +2081,12 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002182 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002182">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">AMBER 26 Reference Manual, p. 431, entry nmropt; p. 467, weight change type TEMP0; p. 502, umbrella sampling restraints with nmropt = 1.</obo:IAO_0000119>
-        <rdfs:label xml:lang="en">has NMR restraints active</rdfs:label>
+        <oboInOwl:consider>MOLSIM:001552</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It recorded AMBER&apos;s nmropt switch, which turns on 2 different features, and was true for most heating runs that use no restraints at all. Record weight changes with MOLSIM:002168 has parameter schedule, pointing at MOLSIM:002308 temperature schedule, MOLSIM:002309 restraint weight schedule or MOLSIM:002310 cutoff schedule, and restraints with MOLSIM:002306 uses model, pointing at MOLSIM:001552 restraint potential or one of its child classes.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete has NMR restraints active</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2058,11 +2105,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002184 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002184">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that indicates whether a run applies a time-varying target-temperature schedule. A run that heats or cools during its course is not described by a single temperature, so any average taken across it would be meaningless. The flag warns that the run is not at a steady state.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
-        <rdfs:label xml:lang="en">has temperature schedule</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that indicates whether a run applies a time-varying target-temperature schedule. A run that heats or cools during its course is not described by a single temperature, so any average taken across it would be meaningless. The flag warns that the run is not at a steady state.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:002308</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:002308 temperature schedule. Record that a run has one with MOLSIM:002168 has parameter schedule, pointing at a temperature schedule.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete has temperature schedule</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2070,11 +2117,12 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002185 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002185">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that indicates whether a run changes the weights of its NMR-type restraints over time, through a weight change schedule such as the AMBER &amp;wt types REST, RESTS, RESTL, NOESY or SHIFTS. Restraint weights are often raised or lowered during a run, for example in simulated annealing, so the strength recorded at the start does not describe the whole run. Positional restraints, set in AMBER with ntr, are a separate setting and are not covered by this flag. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that indicates whether a run changes the weights of its NMR-type restraints over time, through a weight change schedule such as the AMBER &amp;wt types REST, RESTS, RESTL, NOESY or SHIFTS. Restraint weights are often raised or lowered during a run, for example in simulated annealing, so the strength recorded at the start does not describe the whole run. Positional restraints, set in AMBER with ntr, are a separate setting and are not covered by this flag.</obo:IAO_0000115>
         <obo:IAO_0000119 xml:lang="en">AMBER 26 Reference Manual, p. 466 to 467, weight change types REST, RESTS and RESTL.</obo:IAO_0000119>
-        <rdfs:label xml:lang="en">has restraint schedule</rdfs:label>
+        <oboInOwl:consider>MOLSIM:002309</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:002309 restraint weight schedule. Record that a run has one with MOLSIM:002168 has parameter schedule, pointing at a restraint weight schedule.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete has restraint schedule</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2082,10 +2130,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002186 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002186">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that indicates whether a run applies a time-varying non-bonded cutoff schedule. Changing the cutoff during a run changes how much of each interaction is included, so energies from different parts of the trajectory are not comparable. It is unusual, which is why it is worth recording when it happens. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">has cutoff schedule</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that indicates whether a run applies a time-varying non-bonded cutoff schedule. Changing the cutoff during a run changes how much of each interaction is included, so energies from different parts of the trajectory are not comparable. It is unusual, which is why it is worth recording when it happens.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:002310</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:002310 cutoff schedule. Record that a run has one with MOLSIM:002168 has parameter schedule, pointing at a cutoff schedule.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete has cutoff schedule</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2093,10 +2142,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002187 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002187">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002143"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with a descriptive feature or heuristic modification of its force field, such as CMAP terms, which correct backbone dihedral energies, or conversion from CHARMM to AMBER format by the CHAMBER tool. These details are not conveyed by the name of the force field, so recording them keeps the force field identifiable from the metadata alone. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">force field feature</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that associates a molecular system with a descriptive feature or heuristic modification of its force field, such as CMAP terms, which correct backbone dihedral energies, or conversion from CHARMM to AMBER format by the CHAMBER tool. These details are not conveyed by the name of the force field, so recording them keeps the force field identifiable from the metadata alone.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:000331</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It held a mixed list of features, each of which now has a home: a CMAP correction and the radii set with MOLSIM:002306 uses model, a CHARMM origin with MOLSIM:002303 has force field pointing at MOLSIM:002314 CHARMM force field, the box shape with MOLSIM:000297 has periodic box type, and the ions with MOLSIM:002124 ion counts dict.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete force field feature</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2126,11 +2176,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002190 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002190">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002253"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that determines specialized algorithmic modifications designed to bypass the steep computational cost of standard REMD by applying enhanced sampling to only a specific subsystem or localized region.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
-        <rdfs:label xml:lang="en">REMD variant type</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that determines specialized algorithmic modifications designed to bypass the steep computational cost of standard REMD by applying enhanced sampling to only a specific subsystem or localized region.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:000858</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. Its value named a kind of replica exchange, which the child classes of MOLSIM:000858 replica-exchange molecular dynamics already name. Record it with MOLSIM:002311 uses method, pointing at the matching child class.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete REMD variant type</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2330,7 +2380,8 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002227">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002140"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with an ordered list of the 3 angles between the edges of its periodic simulation box, usually written α, β and γ. The list is stored as text, as read from or written to a simulation file. (UNVERIFIED)</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the 3 angles between the edges of its periodic simulation box, usually written α, β and γ, followed by their angle unit. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">This property stores its value as text, because the box has 3 angles and a unit. Values look like &quot;90 x 90 x 90 degree&quot; or &quot;109.47 x 109.47 x 109.47 degree&quot;. Checking the text follows a fixed shape is a job for SHACL rather than OWL.</rdfs:comment>
         <rdfs:label xml:lang="en">box angles array</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -2516,10 +2567,11 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002285 -->
 
     <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002285">
-        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001156"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <obo:IAO_0000115 xml:lang="en">A relation that indicates whether the topology of a molecular simulation system uses hydrogen mass repartitioning, in which hydrogen atoms are made heavier by moving mass from the atoms they are bonded to. The total mass stays the same, and the slower hydrogen motion allows a longer integration time step. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">has hydrogen mass repartitioning</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A relation that indicates whether the topology of a molecular simulation system uses hydrogen mass repartitioning, in which hydrogen atoms are made heavier by moving mass from the atoms they are bonded to. The total mass stays the same, and the slower hydrogen motion allows a longer integration time step.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:001337</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-26. It duplicated MOLSIM:001337 hydrogen mass repartitioning analysis. Record that a run used hydrogen mass repartitioning with MOLSIM:002311 uses method, pointing at a hydrogen mass repartitioning analysis.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete has hydrogen mass repartitioning</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
@@ -2574,6 +2626,17 @@ Some currently missing phenomena that should be considered &quot;about&quot; are
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular dynamics process with the date and time at which it was run, as recorded by the simulation program in its output. AMBER writes it at the top of the mdout file. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">run date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002316 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002316">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001121"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <obo:IAO_0000115 xml:lang="en">A relation that associates a molecular system with the number of its residues that are neither solvent nor ions, such as protein, nucleic acid and ligand residues. Structural metal ions are counted as ions. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">number of solute residues</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -4369,7 +4432,7 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000132 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000132">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000009"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002314"/>
         <obo:IAO_0000115 xml:lang="en">A widely used all-atom force field parameter set from the CHARMM family, optimized for proteins, lipids, nucleic acids, and carbohydrates. Developed by the MacKerell Lab at the University of Maryland, it provides the mathematical parameters (atomic charges, masses, bond lengths, and angles) necessary to calculate the physical forces dictating the structure and dynamics of biomolecules. It represents a significant update over earlier CHARMM versions (like CHARMM22/27), incorporating improved parameters derived from high-level quantum calculations and experimental data. The &apos;m&apos; variant (CHARMM36m) includes further refinements, particularly for proteins.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
         <rdfs:label xml:lang="en">CHARMM36</rdfs:label>
@@ -6573,9 +6636,11 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000338 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000338">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000039"/>
-        <obo:IAO_0000115 xml:lang="en">A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">isotropic position scaling barostat</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:002320</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat, so an isotropic Berendsen barostat could not be described. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002320 isotropic pressure scaling.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete isotropic position scaling barostat</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -6627,10 +6692,11 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000343 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000343">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000039"/>
-        <obo:IAO_0000115 xml:lang="en">An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
-        <rdfs:label xml:lang="en">anisotropic position scaling barostat</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:002322</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002322 anisotropic pressure scaling.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete anisotropic position scaling barostat</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -7162,11 +7228,12 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000391 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000391">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000039"/>
-        <obo:IAO_0000115 xml:lang="en">A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it.</obo:IAO_0000115>
-        <obo:IAO_0000117 rdf:resource="https://orcid.org/0009-0007-1391-4986"/>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:002321</oboInOwl:consider>
         <oboInOwl:hasExactSynonym xml:lang="en">semi-isotropic pressure scaling barostat</oboInOwl:hasExactSynonym>
-        <rdfs:label xml:lang="en">semi-isotropic position scaling barostat</rdfs:label>
+        <rdfs:comment>Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002321 semi-isotropic pressure scaling.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete semi-isotropic position scaling barostat</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
 
@@ -10798,7 +10865,7 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000751 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000751">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000009"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002314"/>
         <obo:IAO_0000115 xml:lang="en">An all-atom force field parameter set from the CHARMM family, widely used for protein simulations, often paired with the CMAP (Cross-term energy Correction Map) correction for backbone torsions. Released before CHARMM27 and CHARMM36, it represented a standard for many years. Parameterization relied heavily on fitting to experimental data available at the time. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">CHARMM 22</rdfs:label>
     </owl:Class>
@@ -10808,7 +10875,7 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000752 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000752">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000009"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002314"/>
         <obo:IAO_0000115 xml:lang="en">An earlier force field parameter set from the CHARMM family, notable for being a &apos;united-atom&apos; force field for proteins. In this representation, nonpolar hydrogen atoms (e.g., on CH, CH2, CH3 groups) are implicitly included in the heavy atoms they are attached to, reducing the number of particles and computational cost compared to all-atom models.</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:resource="https://orcid.org/0000-0002-8291-8071"/>
         <rdfs:label xml:lang="en">CHARMM 19</rdfs:label>
@@ -10819,7 +10886,7 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     <!-- http://purl.obolibrary.org/obo/MOLSIM_000753 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000753">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000009"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002314"/>
         <obo:IAO_0000115 xml:lang="en">An all-atom force field of the CHARMM family that combines the CHARMM22 protein parameters, usually with the CMAP backbone correction, with nucleic acid parameters published in 2000. In GROMACS the name refers to CHARMM22 plus CMAP for proteins. It was later replaced by CHARMM36. (UNVERIFIED)</obo:IAO_0000115>
         <rdfs:label xml:lang="en">CHARMM 27</rdfs:label>
     </owl:Class>
@@ -26422,6 +26489,153 @@ Request that IAO either clarify these or change definitions not to use them</rdf
     
 
 
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002305 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002305">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001164"/>
+        <obo:IAO_0000115 xml:lang="en">A simulation parameter giving the number used to start a random number generator, which fixes the sequence of random numbers a run draws, for example for starting velocities or for the random forces of a stochastic thermostat. A program may pick the seed itself when the run starts, for example from the current date and time, so the seed used is worth recording. A run can use several seeds, 1 for each random process. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">random seed</rdfs:label>
+        <skos:exactMatch rdf:resource="http://www.biomodels.net/kisao/KISAO#KISAO_0000488"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002308 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002308">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002157"/>
+        <obo:IAO_0000115 xml:lang="en">A simulation parameter schedule that changes the target temperature during a run, for example to heat a system step by step. AMBER sets it with the &amp;wt type TEMP0. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">temperature schedule</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002309 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002309">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002157"/>
+        <obo:IAO_0000115 xml:lang="en">A simulation parameter schedule that changes the relative weights of a run&apos;s NMR-type restraints during the run. AMBER sets it with the &amp;wt type REST. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">restraint weight schedule</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002310 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002310">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002157"/>
+        <obo:IAO_0000115 xml:lang="en">A simulation parameter schedule that changes the non-bonded cutoff distance during a run. AMBER sets it with the &amp;wt type CUT. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">cutoff schedule</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002312 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002312">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000272"/>
+        <obo:IAO_0000115 xml:lang="en">A radii set of modified Bondi radii as used in Amber 6, chosen in LEaP with the command set default PBRadii amber6. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">amber6</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002313 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002313">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000272"/>
+        <obo:IAO_0000115 xml:lang="en">A radii set of atomic radii optimized by Huo and Kollman, chosen in LEaP with the command set default PBRadii pbamber. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">pbamber</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002314 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002314">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_000009"/>
+        <obo:IAO_0000115 xml:lang="en">A protein force field from the CHARMM family, parameterised for the CHARMM simulation program, covering its successive versions such as CHARMM22, CHARMM27 and CHARMM36. A topology converted from CHARMM to AMBER format with the chamber program uses a force field of this family. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">CHARMM force field</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002315 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002315">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001176"/>
+        <obo:IAO_0000115 xml:lang="en">A thermostat coupling parameter giving how many time steps pass between 2 randomizations of the atom velocities by the Andersen thermostat. It is set as vrand in AMBER. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">Andersen velocity randomization interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002317 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002317">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001204"/>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002318"/>
+        <obo:IAO_0000115 xml:lang="en">A constrained bond setting in which only the bonds that involve a hydrogen atom are held at a fixed length. It removes the fastest motion in most biomolecular systems and is the usual choice with a time step of 2 fs. It is set as ntc = 2 in AMBER and as constraints = h-bonds in GROMACS. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">bonds to hydrogen constrained</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002318 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002318">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001204"/>
+        <obo:IAO_0000115 xml:lang="en">A constrained bond setting in which every bond is held at a fixed length. It is set as ntc = 3 in AMBER and as constraints = all-bonds in GROMACS. (UNVERIFIED)</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">all bonds constrained</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002319 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002319">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_001179"/>
+        <obo:IAO_0000115 xml:lang="en">A pressure control parameter giving how the barostat may change the shape of the simulation box: by the same factor in all directions, separately in the plane of an interface and across it, or separately in every direction. It is set as ntp in AMBER and as pcoupltype in GROMACS, apart from the choice of barostat algorithm. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasExactSynonym xml:lang="en">pressure coupling type</oboInOwl:hasExactSynonym>
+        <rdfs:label xml:lang="en">pressure scaling type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002320 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002320">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002319"/>
+        <obo:IAO_0000115 xml:lang="en">A pressure scaling type in which all 3 box dimensions are scaled by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is set as ntp = 1 in AMBER and as pcoupltype = isotropic in GROMACS. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasRelatedSynonym xml:lang="en">isotropic position scaling barostat</oboInOwl:hasRelatedSynonym>
+        <rdfs:label xml:lang="en">isotropic pressure scaling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002321 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002321">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002319"/>
+        <obo:IAO_0000115 xml:lang="en">A pressure scaling type in which the 2 box dimensions in the plane of an interface are scaled together and the third, across it, separately. It suits planar systems such as lipid bilayers. It is set as ntp = 3 in AMBER and as pcoupltype = semiisotropic in GROMACS. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasRelatedSynonym xml:lang="en">semi-isotropic position scaling barostat</oboInOwl:hasRelatedSynonym>
+        <oboInOwl:hasRelatedSynonym xml:lang="en">semi-isotropic pressure scaling barostat</oboInOwl:hasRelatedSynonym>
+        <rdfs:label xml:lang="en">semi-isotropic pressure scaling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/MOLSIM_002322 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002322">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002319"/>
+        <obo:IAO_0000115 xml:lang="en">A pressure scaling type in which the box dimensions are scaled separately in each direction, so the shape of the box can change. It is set as ntp = 2 in AMBER and as pcoupltype = anisotropic in GROMACS. (UNVERIFIED)</obo:IAO_0000115>
+        <oboInOwl:hasRelatedSynonym xml:lang="en">anisotropic position scaling barostat</oboInOwl:hasRelatedSynonym>
+        <rdfs:label xml:lang="en">anisotropic pressure scaling</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/MOLSIM_010001 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/MOLSIM_010001">
@@ -29509,9 +29723,11 @@ Within the Bayesian framework, use the posterior predictive p-value.</obo:IAO_00
     <!-- http://purl.obolibrary.org/obo/MOLSIM_002176 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002176">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/MOLSIM_002162"/>
-        <obo:IAO_0000115 xml:lang="en">The system classification label assigned to a molecular system composed of a protein receptor, a small-molecule ligand and explicit water molecules. Explicit water means that individual water molecules are present in the model, rather than a continuum that only imitates their average effect. (UNVERIFIED)</obo:IAO_0000115>
-        <rdfs:label xml:lang="en">Protein / Ligand in Explicit Water</rdfs:label>
+        <obo:IAO_0000115 xml:lang="en">OBSOLETE. The system classification label assigned to a molecular system composed of a protein receptor, a small-molecule ligand and explicit water molecules. Explicit water means that individual water molecules are present in the model, rather than a continuum that only imitates their average effect.</obo:IAO_0000115>
+        <oboInOwl:consider>MOLSIM:001893</oboInOwl:consider>
+        <rdfs:comment>Retired 2026-11-25. It duplicated MOLSIM:001893 protein-ligand system. Record such a system as a protein-ligand system, and its water with MOLSIM:002258 has water model.</rdfs:comment>
+        <rdfs:label xml:lang="en">obsolete Protein / Ligand in Explicit Water</rdfs:label>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:NamedIndividual>
     
 
@@ -29780,9 +29996,6 @@ Within the Bayesian framework, use the posterior predictive p-value.</obo:IAO_00
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000042"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000043"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000044"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000338"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000343"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000391"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_000794"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002017"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002028"/>
@@ -30334,6 +30547,8 @@ Within the Bayesian framework, use the posterior predictive p-value.</obo:IAO_00
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001713"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001736"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_001846"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002312"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002313"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -31308,6 +31523,14 @@ Within the Bayesian framework, use the posterior predictive p-value.</obo:IAO_00
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002239"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002240"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002241"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002320"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002321"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/MOLSIM_002322"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
