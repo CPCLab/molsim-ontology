@@ -49,15 +49,15 @@ MOLSIM reuses terms from other [OBO Foundry](https://obofoundry.org/) ontologies
 | ------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | **Prefix**                | `MOLSIM`                                                                                                        |
 | **Namespace**             | `http://purl.obolibrary.org/obo/MOLSIM_`                                                                        |
-| **Live terms**            | 2,271: 2,055 classes, 124 data properties, 21 object properties, 70 named individuals and 1 annotation property |
-| **Retired terms**         | 52, kept so that their web addresses keep working                                                               |
-| **Checked by a reviewer** | 609 of the 2,271 live terms. The definitions of the other 1,662 end with `(UNVERIFIED)`                         |
+| **Live terms**            | 2,271: 2,066 classes, 111 data properties, 24 object properties, 69 named individuals and 1 annotation property |
+| **Retired terms**         | 70, kept so that their web addresses keep working                                                               |
+| **Checked by a reviewer** | 602 of the 2,271 live terms. The definitions of the other 1,669 end with `(UNVERIFIED)`                         |
 | **Hierarchy**             | 13 top-level branches, organised by topic, and aligned with COB at the top                                      |
 | **Built with**            | ODK (Ontology Development Kit) and ROBOT, checked with the ELK reasoner                                         |
 | **Source file**           | [`src/ontology/molsim-edit.owl`](src/ontology/molsim-edit.owl), in OWL Functional Syntax                        |
 | **License**               | CC BY 4.0                                                                                                       |
 
-The figures were measured on 2026-11-20, for the pre-release dated 2026-11-20.
+The figures were measured on 2026-11-27, for the pre-release dated 2026-11-27.
 
 ## Status
 

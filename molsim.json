@@ -61,12 +61,12 @@
         "val" : "Scope note: MOLSIM's boundary is drawn by USE CASE, not by subject matter. The membership test for a new term is: would a complete record of a simulation dataset need to state it? That spans what was configured (timestep, thermostat, force field), what was computed (RMSD, potential of mean force, free energies), where the inputs came from (a PDB entry, a UniProt accession, a publication), and what it ran on (engine, version, hardware). Terms from neighbouring fields (quantum chemistry, computational materials science, structural biology) are admitted at most two levels below their attachment point: we record which QM engine ran and which basis set parameterised a force field, but not the internal machinery of quantum-chemical methods. This rule governs terms added from 2026-07-29 onward; earlier terms are retained. MOLSIM is the OBO-aligned ontology for biomolecular simulation metadata and is complementary to EMMO-based materials-modelling ontologies (EMMO, OSMO, VISO), with which it interoperates by SSSOM mapping rather than by adopting a shared upper ontology. Full statement: see the README."
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-11-20"
+        "val" : "2026-11-27"
       }, {
         "pred" : "http://xmlns.com/foaf/0.1/homepage",
         "val" : "https://github.com/CPCLab/molsim-ontology"
       } ],
-      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-11-20/molsim.json"
+      "version" : "http://purl.obolibrary.org/obo/molsim/releases/2026-11-27/molsim.json"
     },
     "nodes" : [ {
       "id" : "http://purl.obolibrary.org/obo/GO_0000786",
@@ -4332,12 +4332,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000338",
-      "lbl" : "isotropic position scaling barostat",
+      "lbl" : "obsolete isotropic position scaling barostat",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A pressure control algorithm that holds pressure steady by scaling all 3 box dimensions by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is the wrong choice for a membrane, where the plane of the bilayer and the direction across it behave differently."
+        },
+        "comments" : [ "Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat, so an isotropic Berendsen barostat could not be described. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002320 isotropic pressure scaling." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002320"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000339",
@@ -4387,16 +4393,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000343",
-      "lbl" : "anisotropic position scaling barostat",
+      "lbl" : "obsolete anisotropic position scaling barostat",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals."
+          "val" : "OBSOLETE. An anisotropic position scaling barostat is a pressure control algorithm that allows the lengths of the three simulation box vectors to fluctuate independently to maintain a constant pressure tensor. This allows the shape of the simulation box to change, which is necessary for simulating systems that are not uniform in all directions, such as lipid membranes or solid crystals."
         },
+        "comments" : [ "Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002322 anisotropic pressure scaling." ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0009-0007-1391-4986"
-        } ]
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002322"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000344",
@@ -4975,20 +4983,22 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000391",
-      "lbl" : "semi-isotropic position scaling barostat",
+      "lbl" : "obsolete semi-isotropic position scaling barostat",
       "type" : "CLASS",
       "meta" : {
         "definition" : {
-          "val" : "A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it."
+          "val" : "OBSOLETE. A semi-isotropic position scaling barostat is a pressure control algorithm that couples the scaling of the x and y dimensions of the simulation box together, while allowing the z dimension to fluctuate independently. This method is specifically designed for simulating planar systems like lipid bilayers, where the pressure in the plane of the membrane is different from the pressure perpendicular to it."
         },
+        "comments" : [ "Retired 2026-11-25. It joined a barostat with a scaling type, which AMBER and GROMACS set separately, and it was declared disjoint from every other barostat. Record the barostat under MOLSIM:000039 barostat algorithm and the scaling as MOLSIM:002321 semi-isotropic pressure scaling." ],
         "synonyms" : [ {
           "pred" : "hasExactSynonym",
           "val" : "semi-isotropic pressure scaling barostat"
         } ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0009-0007-1391-4986"
-        } ]
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002321"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_000392",
@@ -24072,6 +24082,155 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002305",
+      "lbl" : "random seed",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation parameter giving the number used to start a random number generator, which fixes the sequence of random numbers a run draws, for example for starting velocities or for the random forces of a stochastic thermostat. A program may pick the seed itself when the run starts, for example from the current date and time, so the seed used is worth recording. A run can use several seeds, 1 for each random process. (UNVERIFIED)"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.w3.org/2004/02/skos/core#exactMatch",
+          "val" : "http://www.biomodels.net/kisao/KISAO#KISAO_0000488"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002308",
+      "lbl" : "temperature schedule",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation parameter schedule that changes the target temperature during a run, for example to heat a system step by step. AMBER sets it with the &wt type TEMP0. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002309",
+      "lbl" : "restraint weight schedule",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation parameter schedule that changes the relative weights of a run's NMR-type restraints during the run. AMBER sets it with the &wt type REST. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002310",
+      "lbl" : "cutoff schedule",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A simulation parameter schedule that changes the non-bonded cutoff distance during a run. AMBER sets it with the &wt type CUT. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002312",
+      "lbl" : "amber6",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A radii set of modified Bondi radii as used in Amber 6, chosen in LEaP with the command set default PBRadii amber6. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002313",
+      "lbl" : "pbamber",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A radii set of atomic radii optimized by Huo and Kollman, chosen in LEaP with the command set default PBRadii pbamber. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002314",
+      "lbl" : "CHARMM force field",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A protein force field from the CHARMM family, parameterised for the CHARMM simulation program, covering its successive versions such as CHARMM22, CHARMM27 and CHARMM36. A topology converted from CHARMM to AMBER format with the chamber program uses a force field of this family. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002315",
+      "lbl" : "Andersen velocity randomization interval",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A thermostat coupling parameter giving how many time steps pass between 2 randomizations of the atom velocities by the Andersen thermostat. It is set as vrand in AMBER. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002317",
+      "lbl" : "bonds to hydrogen constrained",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A constrained bond setting in which only the bonds that involve a hydrogen atom are held at a fixed length. It removes the fastest motion in most biomolecular systems and is the usual choice with a time step of 2 fs. It is set as ntc = 2 in AMBER and as constraints = h-bonds in GROMACS. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002318",
+      "lbl" : "all bonds constrained",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A constrained bond setting in which every bond is held at a fixed length. It is set as ntc = 3 in AMBER and as constraints = all-bonds in GROMACS. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002319",
+      "lbl" : "pressure scaling type",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A pressure control parameter giving how the barostat may change the shape of the simulation box: by the same factor in all directions, separately in the plane of an interface and across it, or separately in every direction. It is set as ntp in AMBER and as pcoupltype in GROMACS, apart from the choice of barostat algorithm. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasExactSynonym",
+          "val" : "pressure coupling type"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002320",
+      "lbl" : "isotropic pressure scaling",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A pressure scaling type in which all 3 box dimensions are scaled by the same factor, so the box changes size but not shape. It suits a system with no preferred direction, such as a protein in water. It is set as ntp = 1 in AMBER and as pcoupltype = isotropic in GROMACS. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "isotropic position scaling barostat"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002321",
+      "lbl" : "semi-isotropic pressure scaling",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A pressure scaling type in which the 2 box dimensions in the plane of an interface are scaled together and the third, across it, separately. It suits planar systems such as lipid bilayers. It is set as ntp = 3 in AMBER and as pcoupltype = semiisotropic in GROMACS. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "semi-isotropic position scaling barostat"
+        }, {
+          "pred" : "hasRelatedSynonym",
+          "val" : "semi-isotropic pressure scaling barostat"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002322",
+      "lbl" : "anisotropic pressure scaling",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A pressure scaling type in which the box dimensions are scaled separately in each direction, so the shape of the box can change. It is set as ntp = 2 in AMBER and as pcoupltype = anisotropic in GROMACS. (UNVERIFIED)"
+        },
+        "synonyms" : [ {
+          "pred" : "hasRelatedSynonym",
+          "val" : "anisotropic position scaling barostat"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "lbl" : "femtosecond",
       "type" : "CLASS",
@@ -26449,6 +26608,36 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002306",
+      "lbl" : "uses model",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that links a simulation run or system to a model it uses to describe part of the physics, such as a force field, a water cap or a set of atomic radii for implicit solvent. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002307",
+      "lbl" : "has data format",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that links a data file, such as a trajectory or a coordinate file, to the data format it is written in. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002311",
+      "lbl" : "uses method",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that links a simulation run to a computational method it applies, such as QM/MM, replica exchange or self-guided Langevin dynamics. A run often applies several methods at once, so the relation can hold more than once. (UNVERIFIED)"
+        }
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000293",
       "lbl" : "has specified input",
       "type" : "PROPERTY",
@@ -27281,17 +27470,19 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001159",
-      "lbl" : "is transmembrane system",
+      "lbl" : "obsolete is transmembrane system",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A boolean descriptor indicating whether the molecular system houses an explicit lipid bilayer, rather than just an aqueous or implicit solvent environment. This is a higher-level descriptor not directly present in the prmtop pointers."
+          "val" : "OBSOLETE. A boolean descriptor indicating whether the molecular system houses an explicit lipid bilayer, rather than just an aqueous or implicit solvent environment. This is a higher-level descriptor not directly present in the prmtop pointers."
         },
+        "comments" : [ "Retired 2026-11-26. It duplicated MOLSIM:002072 membrane environment. Record that a system has a lipid bilayer with MOLSIM:001033 has simulation environment, pointing at a membrane environment. A membrane environment can also be an implicit membrane, so record that the lipids are explicit with MOLSIM:002217 lipid atom count above 0. When a protein sits in the membrane, the system can also be a MOLSIM:001910 membrane protein system." ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0009-0007-1391-4986"
-        } ]
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002072"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_001160",
@@ -27418,13 +27609,19 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002129",
-      "lbl" : "continuation flag",
+      "lbl" : "obsolete continuation flag",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a run was started as a continuation of a previous run rather than from initial conditions. It distinguishes restarted runs from fresh ones. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that indicates whether a run was started as a continuation of a previous run rather than from initial conditions. It distinguishes restarted runs from fresh ones."
+        },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:002098 restart simulation process and MOLSIM:002012 continuation state. Record a continued run as a restart simulation process, or with MOLSIM:002304 continues from." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002098"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002130",
@@ -27438,41 +27635,51 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002131",
-      "lbl" : "QM/MM activation flag",
+      "lbl" : "obsolete QM/MM activation flag",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a simulation uses a combined quantum-mechanics and molecular-mechanics treatment for part of the system. It records whether a region is described at the quantum level while the remainder uses a classical force field. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that indicates whether a simulation uses a combined quantum-mechanics and molecular-mechanics treatment for part of the system. It records whether a region is described at the quantum level while the remainder uses a classical force field."
+        },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:000388 QM/MM simulation. Record that a run used QM/MM with MOLSIM:002311 uses method, pointing at a QM/MM simulation." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:000388"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002132",
-      "lbl" : "self-guided Langevin dynamics flag",
+      "lbl" : "obsolete self-guided Langevin dynamics flag",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that allows the software to apply a time-averaged or spatial-averaged guiding force derived from the system's own trajectory to accelerate low-frequency, concerted motions and enhance conformational sampling."
+          "val" : "OBSOLETE. A relation that allows the software to apply a time-averaged or spatial-averaged guiding force derived from the system's own trajectory to accelerate low-frequency, concerted motions and enhance conformational sampling."
         },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:000393 self-guided Langevin dynamics. Record that a run used it with MOLSIM:002311 uses method, pointing at a self-guided Langevin dynamics." ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0009-0007-1391-4986"
-        } ]
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:000393"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002133",
-      "lbl" : "spherical cap flag",
+      "lbl" : "obsolete spherical cap flag",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that controls whether a spherical portion of solvent (water) is applied around a solute, restrained by a soft half-harmonic potential."
+          "val" : "OBSOLETE. A relation that controls whether a spherical portion of solvent (water) is applied around a solute, restrained by a soft half-harmonic potential."
         },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:001475 water cap. Record that a run used a water cap with MOLSIM:002306 uses model, pointing at a water cap." ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0009-0007-1391-4986"
-        } ]
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:001475"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002134",
@@ -27536,13 +27743,19 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002139",
-      "lbl" : "coordinate format specifier",
+      "lbl" : "obsolete coordinate format specifier",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a trajectory or coordinate file with an identifier of the file format used to store its coordinates. It records how the coordinate data are encoded, for example as NetCDF or formatted text. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that associates a trajectory or coordinate file with an identifier of the file format used to store its coordinates. It records how the coordinate data are encoded, for example as NetCDF or formatted text."
+        },
+        "comments" : [ "Retired 2026-11-25. Its value named a file format, which the child classes of MOLSIM:000436 data format already name. Record it with MOLSIM:002307 has data format, from the file to the matching format class." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:000436"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002140",
@@ -27561,8 +27774,9 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box, usually written a, b and c. The angles between the edges are recorded separately. (UNVERIFIED)"
-        }
+          "val" : "A relation that associates a molecular system with the 3 edge lengths of its periodic simulation box, usually written a, b and c, followed by their length unit. The angles between the edges are recorded separately. (UNVERIFIED)"
+        },
+        "comments" : [ "This property stores its value as text, because the box has 3 edge lengths and a unit. Values look like \"91.8 x 71.0 x 75.8 angstrom\" or \"9.18 x 7.10 x 7.58 nm\", with the unit kept as the simulation program wrote it. It carries no unit restriction because the unit and value pattern describes a single number. Checking the text follows a fixed shape is a job for SHACL rather than OWL." ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002142",
@@ -27571,8 +27785,9 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a molecular system with an array giving the 3 edge lengths of its periodic simulation box at the start of a run. It records the box size before any volume change. (UNVERIFIED)"
-        }
+          "val" : "A relation that associates a molecular system with the 3 edge lengths of its periodic simulation box at the start of a run, followed by their length unit. It records the box size before any volume change. (UNVERIFIED)"
+        },
+        "comments" : [ "Values have the same shape as for MOLSIM:002141 box dimensions array, for example \"91.8 x 71.0 x 75.8 angstrom\"." ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002143",
@@ -27626,13 +27841,19 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002148",
-      "lbl" : "born radii set name",
+      "lbl" : "obsolete born radii set name",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a molecular system with the identifier of the intrinsic radii set used in a generalized Born implicit-solvent calculation. It records which parameterization defines the atomic solvation radii. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that associates a molecular system with the identifier of the intrinsic radii set used in a generalized Born implicit-solvent calculation. It records which parameterization defines the atomic solvation radii."
+        },
+        "comments" : [ "Retired 2026-11-25. Its value named a radii set, which the child classes of MOLSIM:000272 radii set already name. Record it with MOLSIM:002306 uses model, pointing at the matching radii set." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:000272"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002149",
@@ -27734,17 +27955,22 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002182",
-      "lbl" : "has NMR restraints active",
+      "lbl" : "obsolete has NMR restraints active",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation. (UNVERIFIED)"
+          "val" : "OBSOLETE. A relation that indicates whether a simulation reads restraints of the NMR type and weight changes, as set by the AMBER input setting nmropt. Such restraints can come from NMR measurements, but the same setting is also used for other restraints, such as the distance restraints of umbrella sampling, and for changing the target temperature during a run. A trajectory produced with restraints must not be treated as a free simulation."
         },
+        "comments" : [ "Retired 2026-11-25. It recorded AMBER's nmropt switch, which turns on 2 different features, and was true for most heating runs that use no restraints at all. Record weight changes with MOLSIM:002168 has parameter schedule, pointing at MOLSIM:002308 temperature schedule, MOLSIM:002309 restraint weight schedule or MOLSIM:002310 cutoff schedule, and restraints with MOLSIM:002306 uses model, pointing at MOLSIM:001552 restraint potential or one of its child classes." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "AMBER 26 Reference Manual, p. 431, entry nmropt; p. 467, weight change type TEMP0; p. 502, umbrella sampling restraints with nmropt = 1."
-        } ]
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:001552"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002183",
@@ -27758,51 +27984,70 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002184",
-      "lbl" : "has temperature schedule",
+      "lbl" : "obsolete has temperature schedule",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a run applies a time-varying target-temperature schedule. A run that heats or cools during its course is not described by a single temperature, so any average taken across it would be meaningless. The flag warns that the run is not at a steady state."
+          "val" : "OBSOLETE. A relation that indicates whether a run applies a time-varying target-temperature schedule. A run that heats or cools during its course is not described by a single temperature, so any average taken across it would be meaningless. The flag warns that the run is not at a steady state."
         },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:002308 temperature schedule. Record that a run has one with MOLSIM:002168 has parameter schedule, pointing at a temperature schedule." ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0009-0007-1391-4986"
-        } ]
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002308"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002185",
-      "lbl" : "has restraint schedule",
+      "lbl" : "obsolete has restraint schedule",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a run changes the weights of its NMR-type restraints over time, through a weight change schedule such as the AMBER &wt types REST, RESTS, RESTL, NOESY or SHIFTS. Restraint weights are often raised or lowered during a run, for example in simulated annealing, so the strength recorded at the start does not describe the whole run. Positional restraints, set in AMBER with ntr, are a separate setting and are not covered by this flag. (UNVERIFIED)"
+          "val" : "OBSOLETE. A relation that indicates whether a run changes the weights of its NMR-type restraints over time, through a weight change schedule such as the AMBER &wt types REST, RESTS, RESTL, NOESY or SHIFTS. Restraint weights are often raised or lowered during a run, for example in simulated annealing, so the strength recorded at the start does not describe the whole run. Positional restraints, set in AMBER with ntr, are a separate setting and are not covered by this flag."
         },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:002309 restraint weight schedule. Record that a run has one with MOLSIM:002168 has parameter schedule, pointing at a restraint weight schedule." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "AMBER 26 Reference Manual, p. 466 to 467, weight change types REST, RESTS and RESTL."
-        } ]
+        }, {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002309"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002186",
-      "lbl" : "has cutoff schedule",
+      "lbl" : "obsolete has cutoff schedule",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether a run applies a time-varying non-bonded cutoff schedule. Changing the cutoff during a run changes how much of each interaction is included, so energies from different parts of the trajectory are not comparable. It is unusual, which is why it is worth recording when it happens. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that indicates whether a run applies a time-varying non-bonded cutoff schedule. Changing the cutoff during a run changes how much of each interaction is included, so energies from different parts of the trajectory are not comparable. It is unusual, which is why it is worth recording when it happens."
+        },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:002310 cutoff schedule. Record that a run has one with MOLSIM:002168 has parameter schedule, pointing at a cutoff schedule." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:002310"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002187",
-      "lbl" : "force field feature",
+      "lbl" : "obsolete force field feature",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a molecular system with a descriptive feature or heuristic modification of its force field, such as CMAP terms, which correct backbone dihedral energies, or conversion from CHARMM to AMBER format by the CHAMBER tool. These details are not conveyed by the name of the force field, so recording them keeps the force field identifiable from the metadata alone. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that associates a molecular system with a descriptive feature or heuristic modification of its force field, such as CMAP terms, which correct backbone dihedral energies, or conversion from CHARMM to AMBER format by the CHAMBER tool. These details are not conveyed by the name of the force field, so recording them keeps the force field identifiable from the metadata alone."
+        },
+        "comments" : [ "Retired 2026-11-25. It held a mixed list of features, each of which now has a home: a CMAP correction and the radii set with MOLSIM:002306 uses model, a CHARMM origin with MOLSIM:002303 has force field pointing at MOLSIM:002314 CHARMM force field, the box shape with MOLSIM:000297 has periodic box type, and the ions with MOLSIM:002124 ion counts dict." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:000331"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002188",
@@ -27826,17 +28071,19 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002190",
-      "lbl" : "REMD variant type",
+      "lbl" : "obsolete REMD variant type",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that determines specialized algorithmic modifications designed to bypass the steep computational cost of standard REMD by applying enhanced sampling to only a specific subsystem or localized region."
+          "val" : "OBSOLETE. A relation that determines specialized algorithmic modifications designed to bypass the steep computational cost of standard REMD by applying enhanced sampling to only a specific subsystem or localized region."
         },
+        "comments" : [ "Retired 2026-11-25. Its value named a kind of replica exchange, which the child classes of MOLSIM:000858 replica-exchange molecular dynamics already name. Record it with MOLSIM:002311 uses method, pointing at the matching child class." ],
         "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
-          "val" : "https://orcid.org/0009-0007-1391-4986"
-        } ]
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:000858"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002191",
@@ -28019,8 +28266,9 @@
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that associates a molecular system with an ordered list of the 3 angles between the edges of its periodic simulation box, usually written α, β and γ. The list is stored as text, as read from or written to a simulation file. (UNVERIFIED)"
-        }
+          "val" : "A relation that associates a molecular system with the 3 angles between the edges of its periodic simulation box, usually written α, β and γ, followed by their angle unit. (UNVERIFIED)"
+        },
+        "comments" : [ "This property stores its value as text, because the box has 3 angles and a unit. Values look like \"90 x 90 x 90 degree\" or \"109.47 x 109.47 x 109.47 degree\". Checking the text follows a fixed shape is a job for SHACL rather than OWL." ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002228",
@@ -28205,13 +28453,19 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002285",
-      "lbl" : "has hydrogen mass repartitioning",
+      "lbl" : "obsolete has hydrogen mass repartitioning",
       "type" : "PROPERTY",
       "propertyType" : "DATA",
       "meta" : {
         "definition" : {
-          "val" : "A relation that indicates whether the topology of a molecular simulation system uses hydrogen mass repartitioning, in which hydrogen atoms are made heavier by moving mass from the atoms they are bonded to. The total mass stays the same, and the slower hydrogen motion allows a longer integration time step. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. A relation that indicates whether the topology of a molecular simulation system uses hydrogen mass repartitioning, in which hydrogen atoms are made heavier by moving mass from the atoms they are bonded to. The total mass stays the same, and the slower hydrogen motion allows a longer integration time step."
+        },
+        "comments" : [ "Retired 2026-11-26. It duplicated MOLSIM:001337 hydrogen mass repartitioning analysis. Record that a run used hydrogen mass repartitioning with MOLSIM:002311 uses method, pointing at a hydrogen mass repartitioning analysis." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:001337"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002288",
@@ -28261,6 +28515,16 @@
       "meta" : {
         "definition" : {
           "val" : "A relation that associates a molecular dynamics process with the date and time at which it was run, as recorded by the simulation program in its output. AMBER writes it at the top of the mdout file. (UNVERIFIED)"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/MOLSIM_002316",
+      "lbl" : "number of solute residues",
+      "type" : "PROPERTY",
+      "propertyType" : "DATA",
+      "meta" : {
+        "definition" : {
+          "val" : "A relation that associates a molecular system with the number of its residues that are neither solvent nor ions, such as protein, nucleic acid and ligand residues. Structural metal ions are counted as ions. (UNVERIFIED)"
         }
       }
     }, {
@@ -29256,12 +29520,18 @@
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002176",
-      "lbl" : "Protein / Ligand in Explicit Water",
+      "lbl" : "obsolete Protein / Ligand in Explicit Water",
       "type" : "INDIVIDUAL",
       "meta" : {
         "definition" : {
-          "val" : "The system classification label assigned to a molecular system composed of a protein receptor, a small-molecule ligand and explicit water molecules. Explicit water means that individual water molecules are present in the model, rather than a continuum that only imitates their average effect. (UNVERIFIED)"
-        }
+          "val" : "OBSOLETE. The system classification label assigned to a molecular system composed of a protein receptor, a small-molecule ligand and explicit water molecules. Explicit water means that individual water molecules are present in the model, rather than a continuum that only imitates their average effect."
+        },
+        "comments" : [ "Retired 2026-11-25. It duplicated MOLSIM:001893 protein-ligand system. Record such a system as a protein-ligand system, and its water with MOLSIM:002258 has water model." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://www.geneontology.org/formats/oboInOwl#consider",
+          "val" : "MOLSIM:001893"
+        } ],
+        "deprecated" : true
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/MOLSIM_002177",
@@ -29676,6 +29946,10 @@
       "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://purl.org/dc/terms/title",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://www.geneontology.org/formats/oboInOwl#consider",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
     }, {
@@ -30337,7 +30611,7 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000132",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002314"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000133",
       "pred" : "is_a",
@@ -31147,10 +31421,6 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000674"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000338",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000039"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000339",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000367"
@@ -31166,10 +31436,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000342",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000939"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000343",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000039"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000344",
       "pred" : "is_a",
@@ -31350,10 +31616,6 @@
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000390",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000053"
-    }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000391",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000039"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000392",
       "pred" : "is_a",
@@ -32693,15 +32955,15 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000751",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002314"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000752",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002314"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000753",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002314"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_000754",
       "pred" : "is_a",
@@ -38015,6 +38277,62 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001293"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002305",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001164"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002308",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002157"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002309",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002157"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002310",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002157"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002312",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000272"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002313",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000272"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002314",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_000009"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002315",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001176"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002317",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001204"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002318",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001204"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002319",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_001179"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002320",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002319"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002321",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002319"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002322",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002319"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_010001",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/UO_1000010"
@@ -38871,10 +39189,6 @@
       "pred" : "type",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002161"
     }, {
-      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002176",
-      "pred" : "type",
-      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002162"
-    }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002177",
       "pred" : "type",
       "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002166"
@@ -38969,9 +39283,21 @@
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002303",
       "pred" : "subPropertyOf",
-      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+      "obj" : "http://purl.obolibrary.org/obo/MOLSIM_002306"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002304",
+      "pred" : "subPropertyOf",
+      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002306",
+      "pred" : "subPropertyOf",
+      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002307",
+      "pred" : "subPropertyOf",
+      "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/MOLSIM_002311",
       "pred" : "subPropertyOf",
       "obj" : "http://www.w3.org/2002/07/owl#topObjectProperty"
     }, {
@@ -39493,6 +39819,16 @@
       "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002304",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000000" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000000" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002311",
+      "domainClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000000" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000140" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002306",
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000006" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/MOLSIM_002307",
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/MOLSIM_000436" ]
     } ]
   } ]
 }
